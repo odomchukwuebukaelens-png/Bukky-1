@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# City Studio launcher. Usage:
+#   ./studio check                     - confirm Blender can use the GPU
+#   ./studio preview briefs/X.json     - render 3 still frames (cheap look)
+#   ./studio run briefs/X.json         - render everything and make the MP4
+set -euo pipefail
+cd "$(dirname "$0")"
+BLENDER="${BLENDER:-blender}"
+SCRIPT="citystudio/make_video.py"
+
+case "${1:-}" in
+  check)   "$BLENDER" -b -P "$SCRIPT" -- --check 2>&1 | grep "city-studio" ;;
+  preview) "$BLENDER" -b -P "$SCRIPT" -- "${2:?give a brief file}" --stills 2>&1 | grep "city-studio" ;;
+  run)     "$BLENDER" -b -P "$SCRIPT" -- "${2:?give a brief file}" 2>&1 | grep "city-studio" ;;
+  *)       sed -n '2,5p' "$0" ;;
+esac

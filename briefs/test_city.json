@@ -1,0 +1,13 @@
+{
+  "name": "test_city",
+  "title": "Test City",
+  "seed": 7,
+  "duration_seconds": 10,
+  "fps": 30,
+  "resolution": [960, 540],
+  "start_year": 1800,
+  "end_year": 2025,
+  "samples": 24,
+  "sound": true,
+  "city": { "blocks_x": 9, "blocks_y": 13, "block_size": 60, "street_width": 14 }
+}
