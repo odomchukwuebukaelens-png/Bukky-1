@@ -1,8 +1,14 @@
 """City Studio prototype: brief (JSON) -> 3D city -> frames -> MP4.
 
 Run inside Blender:   blender -b -P citystudio/make_video.py -- briefs/test_city.json
-Options after the brief:  --stills   render only 3 preview frames (cheap check)
-                          --check    only report GPU status, render nothing
+Normally started through the ./studio launcher, which runs several copies of
+this script side by side (workers) and then joins their output.
+Options:  --check          report GPU status, render nothing
+          --probe-eevee    test whether the fast EEVEE renderer works here
+          --stills         render only 3 preview frames
+          --engine=X       eevee or cycles
+          --worker=I/N     render every Nth chunk, starting at chunk I
+          --assemble       join finished chunks into the final MP4
 """
 import json
 import math
@@ -29,8 +35,9 @@ DEFAULTS = {
     "resolution": [960, 540],
     "start_year": 1800,
     "end_year": 2025,
-    "engine": "cycles",
+    "engine": "auto",
     "samples": 24,
+    "chunk_frames": 300,
     "sound": True,
     "city": {"blocks_x": 9, "blocks_y": 13, "block_size": 60, "street_width": 14},
 }
@@ -450,17 +457,30 @@ def apply_frame(brief, rig, frame, total):
 # ----------------------------------------------------------------------------
 # Render and assemble
 # ----------------------------------------------------------------------------
-def configure_render(brief, scene):
+def eevee_id():
+    ids = {e.identifier for e in bpy.types.RenderSettings.bl_rna.properties["engine"].enum_items}
+    return "BLENDER_EEVEE_NEXT" if "BLENDER_EEVEE_NEXT" in ids else "BLENDER_EEVEE"
+
+
+def configure_render(brief, scene, engine):
     r = scene.render
     r.resolution_x, r.resolution_y = brief["resolution"]
     r.resolution_percentage = 100
     r.fps = brief["fps"]
     r.image_settings.file_format = "PNG"
+    r.image_settings.compression = 15
     r.use_persistent_data = True
     try:
         scene.view_settings.view_transform = "Standard"   # keeps colours bright and clean
     except TypeError:
         pass
+    if engine == "eevee":
+        r.engine = eevee_id()
+        try:
+            scene.eevee.taa_render_samples = 16
+        except AttributeError:
+            pass
+        return "EEVEE (fast mode)"
     r.engine = "CYCLES"
     on_gpu, status = setup_gpu()
     scene.cycles.device = "GPU" if on_gpu else "CPU"
@@ -472,82 +492,161 @@ def configure_render(brief, scene):
         scene.cycles.denoiser = "OPENIMAGEDENOISE"
     except TypeError:
         scene.cycles.use_denoising = False
-    return status
+    return "Cycles, " + status
 
 
-def assemble(brief, frames_dir, out_path, total):
-    ffmpeg = shutil.which("ffmpeg")
-    if not ffmpeg:
-        print("[city-studio] FFmpeg not found - frames are ready but no MP4 was made.")
-        return False
-    fps = brief["fps"]
-    cmd = [ffmpeg, "-y", "-loglevel", "error", "-framerate", str(fps),
-           "-i", os.path.join(frames_dir, "frame_%04d.png")]
+def probe_eevee():
+    """Render one tiny EEVEE frame. If this machine cannot do it, Blender
+    either raises an error or crashes; the launcher reads the exit code."""
+    bpy.ops.wm.read_factory_settings(use_empty=True)
+    scene = bpy.context.scene
+    cam = bpy.data.objects.new("Cam", bpy.data.cameras.new("Cam"))
+    scene.collection.objects.link(cam)
+    scene.camera = cam
+    scene.render.engine = eevee_id()
+    scene.render.resolution_x, scene.render.resolution_y = 64, 36
+    path = os.path.join(bpy.app.tempdir, "probe.png")
+    scene.render.filepath = path
+    bpy.ops.render.render(write_still=True)
+    if not os.path.exists(path):
+        sys.exit(1)
+    print("[city-studio] EEVEE probe OK")
+
+
+def ffmpeg_path():
+    exe = shutil.which("ffmpeg")
+    if not exe:
+        sys.exit("[city-studio] FFmpeg not found. Run ./studio setup first.")
+    return exe
+
+
+def encode_chunk(brief, frames_dir, first, count, out_path):
+    """Frames of one chunk -> a small video file, then the frames are deleted
+    so the disk never fills up."""
+    tmp = out_path + ".part.mp4"
+    subprocess.run([ffmpeg_path(), "-y", "-loglevel", "error", "-framerate", str(brief["fps"]),
+                    "-start_number", str(first + 1), "-i", os.path.join(frames_dir, "frame_%06d.png"),
+                    "-frames:v", str(count), "-c:v", "libx264", "-crf", "17", "-pix_fmt", "yuv420p", tmp],
+                   check=True)
+    os.replace(tmp, out_path)
+    for f in range(first, first + count):
+        os.remove(os.path.join(frames_dir, "frame_%06d.png" % (f + 1)))
+
+
+def chunk_list(brief, total):
+    size = max(1, int(brief["chunk_frames"]))
+    return [(i, start, min(size, total - start)) for i, start in enumerate(range(0, total, size))]
+
+
+def assemble(brief, out_dir, total):
+    chunks_dir = os.path.join(out_dir, "chunks")
+    names = []
+    for i, _, _ in chunk_list(brief, total):
+        path = os.path.join(chunks_dir, "chunk_%04d.mp4" % i)
+        if not os.path.exists(path):
+            sys.exit("[city-studio] Chunk %d is missing - run the same command again to finish it." % i)
+        names.append(path)
+    listing = os.path.join(chunks_dir, "list.txt")
+    with open(listing, "w") as f:
+        f.writelines("file '%s'\n" % n for n in names)
+    mp4 = os.path.join(out_dir, brief["name"] + ".mp4")
+    cmd = [ffmpeg_path(), "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", listing]
     if brief.get("sound"):
-        dur = total / fps
+        dur = total / brief["fps"]
         cmd += ["-f", "lavfi", "-i",
                 "anoisesrc=color=brown:duration=%.3f:amplitude=0.5,lowpass=f=500,"
                 "afade=t=in:d=1.5,afade=t=out:st=%.3f:d=1.5,volume=0.5" % (dur, max(0, dur - 1.5)),
                 "-c:a", "aac", "-b:a", "128k", "-shortest"]
-    cmd += ["-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p", "-movflags", "+faststart", out_path]
+    cmd += ["-c:v", "copy", "-movflags", "+faststart", mp4]
     subprocess.run(cmd, check=True)
-    return True
+    print("[city-studio] DONE. Video saved: %s" % mp4)
 
 
 def main():
     argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else sys.argv[1:]
-    flags = {a for a in argv if a.startswith("--")}
-    paths = [a for a in argv if not a.startswith("--")]
+    opts = {}
+    paths = []
+    for a in argv:
+        if a.startswith("--"):
+            key, _, val = a[2:].partition("=")
+            opts[key] = val or True
+        else:
+            paths.append(a)
 
-    if "--check" in flags:
+    if "check" in opts:
         ok, status = setup_gpu()
         print("\n[city-studio] Blender %s" % bpy.app.version_string)
         print("[city-studio] GPU check: %s" % ("PASS - " + status if ok else "FAIL - " + status))
         return
-
+    if "probe-eevee" in opts:
+        probe_eevee()
+        return
     if not paths:
         sys.exit("Usage: ./studio run briefs/test_city.json")
+
     brief = load_brief(paths[0])
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     out_dir = os.path.join(root, "output", brief["name"])
-    frames_dir = os.path.join(out_dir, "stills" if "--stills" in flags else "frames")
-    os.makedirs(frames_dir, exist_ok=True)
+    total = int(round(brief["duration_seconds"] * brief["fps"]))
+    if "assemble" in opts:
+        assemble(brief, out_dir, total)
+        return
+
+    engine = opts.get("engine") or brief["engine"]
+    if engine not in ("eevee", "cycles"):
+        engine = "cycles"
+    index, count = (int(x) for x in str(opts.get("worker", "0/1")).split("/"))
+    tag = "[city-studio] worker %d:" % (index + 1)
 
     random.seed(brief["seed"])
     plan = plan_city(brief)
     rig = build_scene(brief, plan)
     scene = rig["scene"]
-    status = configure_render(brief, scene)
-    total = int(round(brief["duration_seconds"] * brief["fps"]))
-    print("\n[city-studio] %s: %d buildings, %d trees, %d frames at %dx%d" % (
-        brief["name"], len(plan["buildings"]), len(plan["trees"]), total, *brief["resolution"]))
-    print("[city-studio] Rendering with: %s" % status)
+    status = configure_render(brief, scene, engine)
+    if index == 0:
+        print("\n[city-studio] %s: %d buildings, %d trees, %d frames at %dx%d" % (
+            brief["name"], len(plan["buildings"]), len(plan["trees"]), total, *brief["resolution"]))
+        print("[city-studio] Rendering with: %s, %d worker(s)" % (status, count), flush=True)
 
-    frames = [0, total // 2, total - 1] if "--stills" in flags else list(range(total))
-    done, started = 0, time.time()
-    for f in frames:
-        path = os.path.join(frames_dir, "frame_%04d.png" % (f + 1))
-        if os.path.exists(path) and os.path.getsize(path) > 0:
-            continue                                  # already rendered - resume from here
+    def render(f, path):
         apply_frame(brief, rig, f, total)
         scene.frame_set(f + 1)
         scene.render.filepath = path
         bpy.ops.render.render(write_still=True)
-        done += 1
-        if done == 1 or done % 10 == 0:
-            per = (time.time() - started) / done
-            left = sum(1 for g in frames if g > f)
-            print("[city-studio] frame %d/%d  %.1fs per frame  about %.0f min left" % (
-                f + 1, total, per, per * left / 60), flush=True)
 
-    if "--stills" in flags:
-        print("[city-studio] Preview stills saved in %s" % frames_dir)
+    if "stills" in opts:
+        stills_dir = os.path.join(out_dir, "stills")
+        os.makedirs(stills_dir, exist_ok=True)
+        for f in (0, total // 2, total - 1):
+            render(f, os.path.join(stills_dir, "frame_%06d.png" % (f + 1)))
+        print("[city-studio] Preview stills saved in %s" % stills_dir)
         return
-    apply_frame(brief, rig, total - 1, total)
-    bpy.ops.wm.save_as_mainfile(filepath=os.path.join(out_dir, "scene.blend"))
-    mp4 = os.path.join(out_dir, brief["name"] + ".mp4")
-    if assemble(brief, frames_dir, mp4, total):
-        print("[city-studio] DONE. Video saved: %s" % mp4)
+
+    frames_dir = os.path.join(out_dir, "frames")
+    chunks_dir = os.path.join(out_dir, "chunks")
+    os.makedirs(frames_dir, exist_ok=True)
+    os.makedirs(chunks_dir, exist_ok=True)
+    mine = [c for c in chunk_list(brief, total) if c[0] % count == index]
+    todo = [c for c in mine if not os.path.exists(os.path.join(chunks_dir, "chunk_%04d.mp4" % c[0]))]
+    left = sum(c[2] for c in todo)
+    done, started = 0, time.time()
+    for i, start, n in todo:
+        for f in range(start, start + n):
+            path = os.path.join(frames_dir, "frame_%06d.png" % (f + 1))
+            if not (os.path.exists(path) and os.path.getsize(path) > 0):   # resume inside a chunk
+                render(f, path)
+            done += 1
+            if done == 5 or done % 100 == 0:
+                per = (time.time() - started) / done
+                print("%s %d of %d frames, %.2fs per frame, about %.0f min left" % (
+                    tag, done, left, per, per * (left - done) / 60), flush=True)
+        encode_chunk(brief, frames_dir, start, n, os.path.join(chunks_dir, "chunk_%04d.mp4" % i))
+    if done:
+        print("%s finished %d frames in %.1f min (%.2fs per frame)" % (
+            tag, done, (time.time() - started) / 60, (time.time() - started) / done), flush=True)
+    if index == 0:
+        apply_frame(brief, rig, total - 1, total)
+        bpy.ops.wm.save_as_mainfile(filepath=os.path.join(out_dir, "scene.blend"))
 
 
 if __name__ == "__main__":

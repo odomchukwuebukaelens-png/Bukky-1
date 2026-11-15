@@ -1,16 +1,75 @@
 #!/usr/bin/env bash
 # City Studio launcher. Usage:
+#   ./studio setup                     - install Blender and FFmpeg (run after every pod start)
 #   ./studio check                     - confirm Blender can use the GPU
 #   ./studio preview briefs/X.json     - render 3 still frames (cheap look)
 #   ./studio run briefs/X.json         - render everything and make the MP4
+# Optional: WORKERS=4 ./studio run ...   ENGINE=cycles ./studio run ...
 set -euo pipefail
 cd "$(dirname "$0")"
-BLENDER="${BLENDER:-blender}"
+BLENDER_VERSION="4.2.3"
+if [ -z "${BLENDER:-}" ]; then
+  if [ -x tools/blender/blender ]; then BLENDER="$PWD/tools/blender/blender"; else BLENDER="blender"; fi
+fi
 SCRIPT="citystudio/make_video.py"
+bl() { "$BLENDER" -b -P "$SCRIPT" -- "$@"; }
+say() { grep --line-buffered "city-studio" || true; }
+need_blender() {
+  command -v "$BLENDER" >/dev/null 2>&1 || { echo "Blender not found. Run ./studio setup first."; exit 1; }
+}
+
+pick_engine() {   # fast EEVEE if it works on this machine, otherwise Cycles
+  if [ -n "${ENGINE:-}" ]; then echo "$ENGINE"; return; fi
+  if bl --probe-eevee >/dev/null 2>&1; then echo eevee; else echo cycles; fi
+}
 
 case "${1:-}" in
-  check)   "$BLENDER" -b -P "$SCRIPT" -- --check 2>&1 | grep "city-studio" ;;
-  preview) "$BLENDER" -b -P "$SCRIPT" -- "${2:?give a brief file}" --stills 2>&1 | grep "city-studio" ;;
-  run)     "$BLENDER" -b -P "$SCRIPT" -- "${2:?give a brief file}" 2>&1 | grep "city-studio" ;;
-  *)       sed -n '2,5p' "$0" ;;
+  setup)
+    SUDO=""; [ "$(id -u)" -ne 0 ] && SUDO="sudo"
+    echo "[city-studio] Installing FFmpeg and system libraries..."
+    $SUDO apt-get update -qq
+    $SUDO apt-get install -y -qq ffmpeg xz-utils curl libgl1 libegl1 libxi6 libxxf86vm1 libxfixes3 \
+      libxrender1 libxkbcommon0 libsm6 libice6 >/dev/null
+    if [ ! -x tools/blender/blender ]; then
+      echo "[city-studio] Downloading Blender $BLENDER_VERSION (about 350 MB)..."
+      mkdir -p tools
+      curl -fL --retry 3 -o tools/blender.tar.xz \
+        "https://download.blender.org/release/Blender${BLENDER_VERSION%.*}/blender-${BLENDER_VERSION}-linux-x64.tar.xz"
+      rm -rf tools/blender tools/unpack && mkdir tools/unpack
+      tar -xJf tools/blender.tar.xz -C tools/unpack
+      mv tools/unpack/blender-* tools/blender
+      rm -rf tools/unpack tools/blender.tar.xz
+    fi
+    echo "[city-studio] Setup finished. Next: ./studio check"
+    ;;
+  check)
+    need_blender
+    bl --check 2>&1 | say
+    if bl --probe-eevee >/dev/null 2>&1; then echo "[city-studio] Fast renderer (EEVEE): AVAILABLE"
+    else echo "[city-studio] Fast renderer (EEVEE): not available here - Cycles will be used"; fi
+    ;;
+  preview)
+    need_blender
+    bl "${2:?give a brief file}" --stills --engine="$(pick_engine)" 2>&1 | say
+    ;;
+  run)
+    need_blender
+    BRIEF="${2:?give a brief file}"
+    ENGINE_USED="$(pick_engine)"
+    if [ -z "${WORKERS:-}" ]; then
+      if command -v nvidia-smi >/dev/null 2>&1; then WORKERS=3; else WORKERS=1; fi
+    fi
+    START=$(date +%s)
+    PIDS=()
+    for ((i = 0; i < WORKERS; i++)); do
+      bl "$BRIEF" --engine="$ENGINE_USED" --worker="$i/$WORKERS" 2>&1 | say &
+      PIDS+=($!)
+    done
+    FAIL=0
+    for p in "${PIDS[@]}"; do wait "$p" || FAIL=1; done
+    [ "$FAIL" -eq 0 ] || { echo "[city-studio] A worker stopped early. Run the same command again to continue."; exit 1; }
+    bl "$BRIEF" --assemble 2>&1 | say
+    echo "[city-studio] Total time: $(( ($(date +%s) - START) / 60 )) min $(( ($(date +%s) - START) % 60 )) s"
+    ;;
+  *) sed -n '2,7p' "$0" ;;
 esac
