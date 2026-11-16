@@ -10,15 +10,15 @@ Channel: Abyss Theory (ocean animals, faceless, animated explainers). Videos are
 
 ## Channel identity (ours, keep it distinct)
 
-Decided 16 Nov 2026 after studying two reference videos frame by frame (Depth Theory's sperm whale video and Ice Wild's elephant seal video). The first octopus cut looked too much like Depth Theory (flat diver and animal on dark teal, all-caps captions); do not repeat that look.
+The owner approved this style on 16 Nov 2026 for all videos after the octopus one (the octopus video stays as rendered). Decided after studying two reference videos frame by frame (Depth Theory's sperm whale video and Ice Wild's elephant seal video). The first octopus cut looked too much like Depth Theory (flat diver and animal on dark teal, all-caps captions); do not repeat that look.
 
 - **Framing:** second-person encounter, "What Happens When a ___ ___ You".
 - **Signature device: the dive computer.** The viewer is the diver. The frame carries a heads-up display (depth, air remaining, dive time) and every fact arrives as an instrument readout or a "scan" of the animal. Air remaining drains across the video as a built-in tension and progress cue.
 - **Evidence labels in our own words:** LOGGED (measured, sourced), REPORTED (credible but single-source), MYTH. Each carries its source on screen. No claim without one.
 - **A new visual device every scene.** Do not reuse "character on a background plus a caption". Rotate through scans, gauges, scale comparisons, maps, counters, split screens, cutaways and licensed real footage.
-- **Media mix:** licensed stock footage or photos for the real animal, animation for what cameras cannot show. Never use clips from other channels.
+- **Media mix:** real footage or photos for the real animal, animation for what cameras cannot show. The owner requires footage that is free of copyright restrictions: use public-domain or free-licence sources only (for example NOAA, Wikimedia Commons CC0/public domain, Pexels, Pixabay), and record each clip's source and licence in `video/footage/SOURCES.md`. Never use clips from other channels.
 - **Open with a promise:** a hook in the first 15 seconds, the question by 30 seconds, then a short on-screen list of what the dive will reveal.
-- **Sound:** a continuous music bed under the voice; both references have almost no silent moments.
+- **Sound:** a continuous instrumental music bed under the voice (no human voice in the music); both references have almost no silent moments. The owner supplies music from Google Flow Music. Do not spend ai33.pro credits on music.
 - Type: Montserrat 800 for headlines, a monospace face for instrument readouts. Colour: deep teal, yellow accent, HUD cyan.
 
 ## Workflow
