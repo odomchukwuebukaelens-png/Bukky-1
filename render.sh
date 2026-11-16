@@ -23,11 +23,19 @@ cpu_limit() {
 THREADS=${THREADS:-$(cpu_limit)}
 echo "Rendering with $THREADS parallel workers."
 OUT="out/video.mp4"
+REMOTION="./node_modules/.bin/remotion"
+
+# Reinstall dependencies if they are missing or an install was interrupted.
+if [ ! -x "$REMOTION" ]; then
+  echo "Dependencies missing; installing them first."
+  npm ci
+fi
+"$REMOTION" browser ensure >/dev/null 2>&1 || echo "Could not pre-download the browser; the render will try again."
 
 # Use the GPU for drawing when Chrome can reach it; otherwise fall back to CPU.
 GL_FLAG=""
 if command -v nvidia-smi >/dev/null 2>&1 && \
-   npx remotion still Main out/gpu-test.jpg --frame=0 --gl=angle-egl >/dev/null 2>&1; then
+   "$REMOTION" still Main out/gpu-test.jpg --frame=0 --gl=angle-egl >/dev/null 2>&1; then
   GL_FLAG="--gl=angle-egl"
   echo "Drawing with the GPU (angle-egl)."
 else
@@ -36,6 +44,6 @@ fi
 rm -f out/gpu-test.jpg
 
 start=$(date +%s)
-npx remotion render Main "$OUT" --concurrency="$THREADS" $GL_FLAG "$@"
+"$REMOTION" render Main "$OUT" --concurrency="$THREADS" $GL_FLAG "$@"
 end=$(date +%s)
 echo "Rendered $OUT in $((end - start)) seconds."
