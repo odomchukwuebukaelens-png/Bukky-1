@@ -1,6 +1,6 @@
 # What Happens When a Giant Pacific Octopus Grabs You
 
-Draft 1. Target length: 15 minutes (about 2,200 words at a calm narration pace).
+Draft 2. Target length: 15 minutes. The test clip in the "Deep sea" voice ran at about 171 words per minute, so the narration is sized for that pace.
 Thumbnail text: IT STUDIES YOU
 
 Each scene has narration (what the voice says) and a visual note (what the animation shows).
@@ -40,7 +40,21 @@ There are old reports of animals far bigger than that. Nine metres across. More 
 
 It does not need to be that big. The ordinary ones are already longer than you are.
 
-## 3. No bones
+## 3. The den
+
+**Visual:** A cross-section of the rock wall showing a snug cave. Outside it, the heap of shells. Day turns to night and the octopus slides out.
+
+Start with where you found it.
+
+A giant Pacific octopus lives alone. It picks a den, a cave under a boulder or a crack in a wall, with an entrance barely wide enough for its body, and it may stay there for weeks.
+
+The pile of shells outside is the giveaway. Divers call it a midden. It is every meal the octopus has carried home, cracked open, and thrown out the front door.
+
+By day, it mostly stays inside, with one eye at the entrance. At night it goes out to hunt, crawling across the seabed, then finds its way back to the same den in the dark.
+
+So you did not stumble on it by accident. You knocked on its door.
+
+## 4. No bones
 
 **Visual:** The octopus pours itself through a hole the size of a lemon. An x-ray view shows the only hard part, the beak, passing through last.
 
@@ -54,7 +68,7 @@ This is why aquariums that keep them lock the lids.
 
 And it matters for you. You cannot pin it, and you cannot hold it. There is nothing solid to hold.
 
-## 4. The arms
+## 5. The arms
 
 **Visual:** Close-up of an arm. A counter runs up as suckers are highlighted. One sucker lifts a weight labelled 16 kg.
 
@@ -70,7 +84,7 @@ But grip is only half of what they do. The suckers are also covered in sensors t
 
 It was tasting you.
 
-## 5. Nine brains, sort of
+## 6. Nine brains, sort of
 
 **Visual:** A diagram of the nervous system. The central brain glows, then eight thicker cords light up along the arms. One arm explores a crevice while the eyes look elsewhere.
 
@@ -86,7 +100,7 @@ So when one arm takes hold of your wrist, you are not dealing with a single mind
 
 You are dealing with something closer to a committee.
 
-## 6. Three hearts, blue blood
+## 7. Three hearts, blue blood
 
 **Visual:** Cutaway of the body: three hearts pulsing, blood drawn in blue. When the octopus jets away, the central heart pauses.
 
@@ -100,7 +114,7 @@ There is a catch. This system is not built for stamina. An octopus that swims ha
 
 Remember that. It is strong, but it is not built for a long fight.
 
-## 7. The skin
+## 8. The skin
 
 **Visual:** The octopus crosses rock, sand and kelp, changing colour and texture to match each one in under a second. Then it flashes dark red.
 
@@ -114,7 +128,21 @@ And here is the puzzle. As far as we can tell, octopuses are colour-blind. Their
 
 For a diver, the skin is also a warning. Pale and smooth means calm. Dark red, with raised skin, means it has made up its mind about something.
 
-## 8. The mouth
+## 9. The escape kit
+
+**Visual:** A seal lunges. The octopus fires a cloud of ink, jets backwards, and vanishes. Then a close-up of a short arm slowly growing back.
+
+Disguise is its first defence. It has others.
+
+If something finds it anyway, it fires a cloud of dark ink. The ink hangs in the water in a blob about the size of the octopus itself, a decoy for the attacker to bite at, and it dulls a predator's sense of smell.
+
+Behind that cloud, the octopus is already gone. It sucks water into its body and blasts it out through a funnel, shooting backwards like a rocket.
+
+And if a predator does get hold of an arm, the octopus can afford to lose it. The arm grows back, complete with suckers and nerves.
+
+Everything about this animal is built for getting out of trouble. Remember that too. Most of the time, getting away from you is exactly what it wants.
+
+## 10. The mouth
 
 **Visual:** The underside of the octopus: arms part to show the black beak. A cutaway shows a crab shell being drilled, then the crab going limp.
 
@@ -130,7 +158,21 @@ To a crab, that is the end. To you, a bite would hurt, swell, and bleed, but its
 
 The bite is not what you should be worried about.
 
-## 9. What it eats
+## 11. How it hunts
+
+**Visual:** Night. The octopus creeps over the seabed, then launches itself and spreads the webbing between its arms like a parachute over a crab.
+
+Watch it hunt and you see all of those tools working together.
+
+It crawls across the bottom, arms spread, each one feeling into holes and under rocks. When an arm touches something that tastes like food, it grabs.
+
+For anything in the open, it uses a different move. It rises up, spreads the skin between its arms into a wide tent, and drops over its prey like a parachute. Whatever is underneath has nowhere to go.
+
+It can hold several crabs at once, tucked under its body, and carry them all back to the den to eat in safety.
+
+Then the beak and the drill go to work.
+
+## 12. What it eats
 
 **Visual:** A sequence of prey silhouettes getting bigger: crab, clam, fish, small shark. Then a seagull on a rock at the waterline, and an arm rising behind it.
 
@@ -146,7 +188,21 @@ So it eats birds. And it eats sharks.
 
 You are much bigger than either. But it is worth knowing what it is capable of.
 
-## 10. It studies you
+## 13. What hunts it
+
+**Visual:** A harbour seal shaking an octopus at the surface. Then thousands of tiny hatchlings drifting among plankton, most blinking out one by one.
+
+For all of that, the octopus is not at the top.
+
+Seals and sea lions eat them. So do sea otters, large sharks, and big fish like halibut. A seal will drag one to the surface and shake it apart.
+
+And the young have it far worse. A newly hatched giant Pacific octopus is the size of a grain of rice. It spends its first months drifting near the surface, where almost everything eats it.
+
+Out of tens of thousands of hatchlings, only a handful ever reach the seabed and grow up.
+
+So the animal in front of you is not just any octopus. It is one of the very few that made it.
+
+## 14. It studies you
 
 **Visual:** Two identical figures in the same blue shirt stand at a tank. The octopus turns pale and reaches for one, turns dark and squirts water at the other.
 
@@ -162,7 +218,7 @@ They were not recognising a uniform. They were recognising a person.
 
 So that arm on your glove is not just checking whether you are food. It is building a file on you.
 
-## 11. It plays
+## 15. It plays
 
 **Visual:** An empty pill bottle floats in a tank. The octopus blows it with its water jet; the current carries it back; it blows it again.
 
@@ -178,7 +234,7 @@ It served no purpose. It was not food and it was not shelter. As far as anyone c
 
 So the thing holding your wrist is strong, armed, curious, and possibly bored.
 
-## 12. So what happens when it grabs you?
+## 16. So what happens when it grabs you?
 
 **Visual:** The octopus has two arms on the diver. One arm drifts up toward the mask and the regulator hose. A warning marker appears on the breathing gear.
 
@@ -196,7 +252,7 @@ That is the danger. Not the beak. Not the venom. The fact that you need your equ
 
 Divers who know these animals give the same advice. Stay calm. Protect your mask and your air. Do not yank. Peel the arms off gently, from the tips, and back away. It tires faster than you do, and it has no reason to hold on.
 
-## 13. We grabbed them first
+## 17. We grabbed them first
 
 **Visual:** A 1960s beach scene: a crowd, divers hauling an octopus ashore, a scoreboard. Then a modern sign marking a protected dive site.
 
@@ -208,7 +264,7 @@ The sport faded. But in 2012, a diver in Seattle legally caught and killed one a
 
 The more we learned about what these animals are, the harder it became to treat them as a trophy.
 
-## 14. The short life
+## 18. The short life
 
 **Visual:** A den with strings of white eggs hanging from the roof. The mother, pale and thin, blows water over them. Hatchlings the size of rice grains drift up and away.
 
@@ -226,7 +282,7 @@ When they hatch, she dies.
 
 All that intelligence, built from nothing in three years, and never passed on. Every octopus has to learn the world alone.
 
-## 15. Close
+## 19. Close
 
 **Visual:** Back to the diver and the wall. The arm slides off the glove and curls back into the crack. An eye watches from the dark, then closes.
 
