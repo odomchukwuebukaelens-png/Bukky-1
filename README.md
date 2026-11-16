@@ -24,4 +24,5 @@ The finished file is `video/out/video.mp4`.
 
 - `setup.sh` installs system libraries, fonts, Node.js, project dependencies and the headless browser.
 - `render.sh` renders with one worker per CPU thread, using the GPU for drawing when available.
-- `video/src/Main.tsx` holds the scenes; `video/src/Root.tsx` sets resolution, frame rate and length.
+- `video/script/` holds the narration scripts; `video/tools/voiceover.py` turns a script into per-scene audio and word timings.
+- `video/src/octopus/` holds the scenes for the giant Pacific octopus video; `video/src/kit/` holds the shared characters, text and timing helpers.
