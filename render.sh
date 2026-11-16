@@ -4,7 +4,24 @@
 set -euo pipefail
 cd "$(dirname "$0")/video"
 
-THREADS=$(nproc)
+# Containers often report the host's CPU count; use the pod's real CPU allowance.
+cpu_limit() {
+  local n quota period
+  n=$(nproc)
+  if [ -r /sys/fs/cgroup/cpu.max ]; then
+    read -r quota period < /sys/fs/cgroup/cpu.max
+  elif [ -r /sys/fs/cgroup/cpu/cpu.cfs_quota_us ]; then
+    quota=$(cat /sys/fs/cgroup/cpu/cpu.cfs_quota_us)
+    period=$(cat /sys/fs/cgroup/cpu/cpu.cfs_period_us)
+  fi
+  if [[ "${quota:-}" =~ ^[0-9]+$ ]] && [ "$quota" -gt 0 ] && [ "${period:-0}" -gt 0 ]; then
+    local lim=$(( (quota + period - 1) / period ))
+    [ "$lim" -lt "$n" ] && n=$lim
+  fi
+  echo "$n"
+}
+THREADS=${THREADS:-$(cpu_limit)}
+echo "Rendering with $THREADS parallel workers."
 OUT="out/video.mp4"
 
 # Use the GPU for drawing when Chrome can reach it; otherwise fall back to CPU.

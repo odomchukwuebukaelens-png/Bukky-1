@@ -7,12 +7,13 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
+import { FONT_FAMILY } from "./font";
 
 export const FPS = 30;
 const SCENE = 5 * FPS;
 export const TOTAL_FRAMES = SCENE * 2;
 
-const FONT = "Montserrat, Inter, 'DejaVu Sans', sans-serif";
+const FONT = `${FONT_FAMILY}, Inter, 'DejaVu Sans', sans-serif`;
 
 // Dark underwater backdrop with slowly drifting specks.
 const Ocean = ({ count = 70 }: { count?: number }) => {

@@ -17,7 +17,7 @@ $SUDO apt-get install -y --no-install-recommends \
   libcups2t64 libcairo2 libpango-1.0-0 libegl1 libgles2
 
 echo "==> Fonts"
-for pkg in fonts-montserrat fonts-inter fonts-dejavu-core fonts-noto-color-emoji; do
+for pkg in fonts-inter fonts-dejavu-core fonts-noto-color-emoji; do
   $SUDO apt-get install -y --no-install-recommends "$pkg" || echo "   (skipped $pkg)"
 done
 fc-cache -f >/dev/null
@@ -39,13 +39,11 @@ npm ci
 npx remotion browser ensure
 
 echo "==> Checks"
-echo "   CPU threads: $(nproc)"
 if command -v nvidia-smi >/dev/null 2>&1; then
   nvidia-smi --query-gpu=name,memory.total --format=csv,noheader | sed 's/^/   GPU: /'
 else
   echo "   GPU: nvidia-smi not found (rendering will still work on CPU)"
 fi
-fc-list | grep -qi montserrat && echo "   Font: Montserrat found" || echo "   Font: Montserrat missing, a fallback font will be used"
 
 echo
 echo "Setup complete. Render with:  bash render.sh"
