@@ -25,9 +25,9 @@ const EndCard: React.FC = () => {
   return (
     <AbsoluteFill style={{ opacity: Math.min(ramp(f, 0, 20), ramp(f, END_CARD - 20, END_CARD, 1, 0)) }}>
       <Ocean seed="end" />
-      <Octopus x={1380} y={600} frame={f} scale={1.2} />
+      <Octopus x={1480} y={640} frame={f} scale={1.05} />
       <Callout at={10} text="THANKS FOR WATCHING" x={90} y={250} width={1000} align="left" size={56} color={C.cyan} />
-      <Callout at={25} text="ABYSS THEORY" x={90} y={340} width={1100} align="left" size={140} />
+      <Callout at={25} text="ABYSS THEORY" x={90} y={340} width={1400} align="left" size={124} />
       <Callout at={55} text={"SUBSCRIBE FOR THE NEXT ANIMAL\nYOU DO NOT WANT TO SURPRISE"} x={90} y={540} width={1100} align="left" size={52} color={C.accent} />
       <Vignette />
     </AbsoluteFill>
