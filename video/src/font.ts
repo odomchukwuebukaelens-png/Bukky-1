@@ -9,3 +9,11 @@ loadFont({
   url: staticFile("fonts/Montserrat-800.woff2"),
   weight: "800",
 });
+
+export const MONO_FAMILY = "JetBrains Mono";
+
+loadFont({
+  family: MONO_FAMILY,
+  url: staticFile("fonts/JetBrainsMono-700.woff2"),
+  weight: "700",
+});

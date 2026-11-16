@@ -7,7 +7,7 @@ const [outDir, ...frames] = process.argv.slice(2);
 const browserExecutable = process.env.CHROME || undefined;
 const serveUrl = await bundle({ entryPoint: path.resolve("src/index.ts") });
 const browser = await openBrowser("chrome", { browserExecutable });
-const composition = await selectComposition({ serveUrl, id: "Main", puppeteerInstance: browser });
+const composition = await selectComposition({ serveUrl, id: process.env.COMP || "Main", puppeteerInstance: browser });
 console.log("frames", composition.durationInFrames, "=", (composition.durationInFrames / composition.fps / 60).toFixed(2), "min");
 for (const f of frames) {
   await renderStill({
