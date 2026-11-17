@@ -2,7 +2,7 @@ import React from "react";
 import { AbsoluteFill, random, useCurrentFrame } from "remotion";
 import { createCues } from "../kit/cues";
 import { B } from "../kit/devices";
-import { AirGauge, HUD, MaskFrame, MONO, Readout } from "../kit/hud";
+import { AirGauge, HUD, MONO, Readout } from "../kit/hud";
 import { C, FPS } from "../kit/theme";
 import { ramp } from "../kit/ui";
 import timing from "./timing.json";
@@ -20,15 +20,8 @@ export const beats = (list: BeatDef[], end: number) =>
   ));
 
 export const CREDIT = {
-  skull: "AUSTRALIAN MUSEUM · CC BY 4.0",
-  skeleton: "LITERALLYMIGUEL · CC BY 4.0",
-  bank: "PUBLIC DOMAIN",
   jump: "MATT FROM MELBOURNE · CC BY 2.0",
-  swim: "MATT FROM MELBOURNE · CC BY 2.0",
-  head: "HOLGER KRISP · CC BY 3.0",
-  lolong: "MAFFETH.OPIANA · CC0",
   sign: "DRONEPICR · CC BY 2.0",
-  beach: "ROBERT LINSDELL · CC BY 2.0",
 };
 
 // The instruments that stay on for the whole video. Pulse is the viewer's own heart rate.
@@ -50,7 +43,6 @@ export const Hud: React.FC<{ start: number; depth?: number; pulse?: number; dur:
           {bpm} BPM
         </div>
       </div>
-      <MaskFrame />
       <AbsoluteFill style={{ background: "#000", opacity: Math.max(1 - ramp(f, 0, 12), ramp(f, dur - 12, dur)) }} />
     </>
   );

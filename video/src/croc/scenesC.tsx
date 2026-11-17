@@ -4,6 +4,8 @@ import { Box, Chip, CrocTop, Head, Lines, Num, Photo, ScanBg, Stamp } from "../k
 import { HUD, MONO } from "../kit/hud";
 import { C } from "../kit/theme";
 import { ramp } from "../kit/ui";
+import { Clip, CrocHead, lerp, Shore, Tag } from "../kit/sets";
+import { CrocSide, Person } from "../kit/devices";
 import { beats, CREDIT, cues, Hud, River, type SP } from "./common";
 
 const Svg: React.FC<{ children: React.ReactNode; opacity?: number }> = ({ children, opacity = 1 }) => (
@@ -45,7 +47,36 @@ export const S13: React.FC<SP> = ({ dur, start }) => {
   }
   return (
     <AbsoluteFill>
-      <ScanBg tint="#07110f" />
+      <AbsoluteFill style={{ background: "linear-gradient(#10212a, #06100f)" }} />
+      {f < after || f >= people ? (
+        <Shore
+          night={f < after ? 0.5 : 0}
+          croc={{ x: f < after ? lerp(f, 0, after, 1500, 1250) : lerp(f, people, dur, 1800, 1050), y: 700, scale: 0.6 }}
+          zoom={1.08}
+          zx={900}
+          zy={560}
+          over={
+            f >= people ? (
+              <>
+                <Person x={640} y={548} scale={1.2} lean={8} />
+                <Person x={480} y={522} scale={1.2} />
+                <Person x={330} y={522} scale={1.1} />
+                <Person x={180} y={522} scale={1.25} />
+                <Person x={900 + Math.sin(f * 0.05) * 30} y={640} scale={1.1} lean={70} />
+              </>
+            ) : (
+              <svg style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }} width={1} height={1}>
+                <g transform={`translate(${lerp(f, 0, after, 1750, 1450)} ${596 + Math.sin(f * 0.1) * 4})`}>
+                  <path d="M -170 0 Q 0 50 170 0 L 140 0 Q 0 22 -140 0 Z" fill="#c9a465" />
+                  <circle cx={-20} cy={-60} r={15} fill="#f1ead8" />
+                  <rect x={-33} y={-44} width={26} height={46} rx={10} fill="#f1ead8" />
+                  <line x1={-10} y1={-40} x2={-150} y2={-20} stroke="#8a959b" strokeWidth={6} />
+                </g>
+              </svg>
+            )
+          }
+        />
+      ) : null}
       {showChart ? (
         <Svg opacity={ramp(f, after, after + 8)}>
           <line x1={240} y1={800} x2={1680} y2={800} stroke="#2f6a74" strokeWidth={5} />
@@ -60,7 +91,7 @@ export const S13: React.FC<SP> = ({ dur, start }) => {
       ) : null}
       {beats(
         [
-          [c13("For a while"), <Head text={"FOR A WHILE,\nWE WERE WINNING"} y={300} size={120} />],
+          [c13("For a while"), <Head text={"FOR A WHILE,\nWE WERE WINNING"} y={200} size={110} />],
           [after, <Head text="AFTER 1945" sub="NORTHERN TERRITORY · CROCODILE NUMBERS" y={210} size={96} />],
           [c13("crocodile skin"), <Lines items={["SKIN: WORTH A FORTUNE"]} y={230} size={60} color={C.accent} />],
           [shot, <Head text={"SHOT BY THE\nTENS OF THOUSANDS"} y={200} size={84} color={C.red} />],
@@ -70,10 +101,10 @@ export const S13: React.FC<SP> = ({ dur, start }) => {
           [today, <Head text="TODAY" y={210} size={150} />],
           [c13("are around"), <><Num value={100000} from={3000} label="CROCODILES" y={200} size={190} count={40} /><Chip level="LOGGED" source="NORTHERN TERRITORY GOVERNMENT" /></>],
           [c13("The population"), <Head text={"ALMOST FULLY\nRECOVERED"} y={200} size={100} color={HUD} />],
-          [people, <><Photo src="footage/croc/beach-sign.jpg" credit={CREDIT.beach} from={1.1} to={1.2} oy="38%" dim={0.5} hold /><Lines items={["MORE PEOPLE: LIVING", "FISHING"]} y={230} size={64} color={C.white} /></>],
-          [c13("and swimming"), <><Photo src="footage/croc/beach-sign.jpg" credit={CREDIT.beach} from={1.2} to={1.26} oy="38%" dim={0.5} cont /><Lines items={["MORE PEOPLE: LIVING", "FISHING", "SWIMMING BESIDE THEM"]} y={230} size={64} color={C.white} gap={0} highlight={2} /></>],
-          [back, <Head text={"THE ANIMAL\nCAME BACK"} y={300} size={150} />],
-          [c13("The rules"), <Head text={"THE RULES HAD TO\nCOME BACK TOO"} y={300} size={120} color={C.accent} />],
+          [people, <><Lines items={["MORE PEOPLE: LIVING", "FISHING"]} y={210} size={56} color={C.white} x={1000} /></>],
+          [c13("and swimming"), <><Lines items={["MORE PEOPLE: LIVING", "FISHING", "SWIMMING BESIDE THEM"]} y={210} size={56} color={C.white} gap={0} highlight={2} x={1000} /></>],
+          [back, <Head text={"THE ANIMAL\nCAME BACK"} y={200} size={130} x={1000} width={800} />],
+          [c13("The rules"), <Head text={"THE RULES HAD TO\nCOME BACK TOO"} y={200} size={100} color={C.accent} x={1000} width={800} />],
         ],
         dur,
       )}
@@ -99,7 +130,18 @@ export const S14: React.FC<SP> = ({ dur, start }) => {
   const gone = ramp(f, even, even + 60);
   return (
     <AbsoluteFill>
-      <ScanBg tint="#0f0f08" />
+      <AbsoluteFill style={{ background: "linear-gradient(#2a2440 0%, #5a4a3a 60%, #1a160c 100%)" }} />
+      {showNest ? <CrocSide x={140} y={830} scale={0.62} tail={Math.sin(f * 0.05) * 6} jaw={f >= call ? 5 : 0} /> : null}
+      {f >= jaws && f < even ? (
+        <CrocHead x={lerp(f, jaws, even, 420, 260)} y={640} scale={1.15} jaw={lerp(f, jaws, jaws + 20, 2, 12)}>
+          {[0, 1, 2].map((i) => (
+            <g key={i} transform={`translate(${150 + i * 150} ${40 + Math.sin(f * 0.2 + i) * 4}) scale(0.11)`}>
+              <path d="M 0 -18 L 250 -60 L 520 -86 L 1000 -8 L 720 20 L 300 22 L 10 -4 Z" fill="#9db06a" />
+              <circle cx={236} cy={-52} r={40} fill="#e9d98a" />
+            </g>
+          ))}
+        </CrocHead>
+      ) : null}
       {showNest ? (
         <Svg>
           <rect x={0} y={860} width={1920} height={220} fill="#2a2416" />
@@ -133,7 +175,7 @@ export const S14: React.FC<SP> = ({ dur, start }) => {
       {f >= one ? <River ex={960} ey={520} es={1.7} glow={1} dusk={0.6} /> : null}
       {beats(
         [
-          [c14("There is another"), <Head text={"ANOTHER SIDE\nTO THIS ANIMAL"} y={300} size={130} />],
+          [c14("There is another"), <Head text={"ANOTHER SIDE\nTO THIS ANIMAL"} y={200} size={120} />],
           [nest, <Head text="THE NEST" sub="MUD AND PLANTS" y={220} size={130} width={900} />],
           [eggs, <Num value={50} label="EGGS" y={220} size={220} color={C.accent} count={50} />],
           [heat, <Head text={"HEAT\nDECIDES"} y={220} size={130} width={600} />],
@@ -142,9 +184,9 @@ export const S14: React.FC<SP> = ({ dur, start }) => {
           [c14("She barely"), <Lines items={["LEAVES THE NEST: ALMOST NEVER"]} y={240} size={44} />],
           [call, <Head text={"THE BABIES\nCALL"} sub="FROM INSIDE THE EGGS" y={220} size={110} width={900} />],
           [c14("she digs"), <Lines items={["SHE HEARS THEM", "SHE DIGS THEM OUT"]} y={230} size={52} highlight={1} />],
-          [jaws, <><Photo src="footage/croc/skull.jpg" credit={CREDIT.skull} from={1.05} to={1.12} dim={0.4} hold /><Head text="THE SAME JAWS" y={620} size={120} /></>],
-          [c14("crush a skull"), <><Photo src="footage/croc/skull.jpg" credit={CREDIT.skull} from={1.12} to={1.16} dim={0.4} cont hold /><Head text="THAT CRUSH A SKULL" y={620} size={100} color={C.red} /></>],
-          [c14("and carries"), <><Photo src="footage/croc/skull.jpg" credit={CREDIT.skull} from={1.16} to={1.24} dim={0.4} cont /><Head text={"CARRY THEM GENTLY\nTO THE WATER"} y={600} size={90} color={C.accent} /></>],
+          [jaws, <><Head text="THE SAME JAWS" y={200} size={120} /></>],
+          [c14("crush a skull"), <><Head text="THAT CRUSH A SKULL" y={200} size={100} color={C.red} /></>],
+          [c14("and carries"), <><Head text={"CARRY THEM GENTLY\nTO THE WATER"} y={200} size={90} color={C.accent} /></>],
           [even, <Head text="EVEN SO" y={300} size={130} width={800} />],
           [c14("about one in"), <><Num value={1} suffix=" IN 100" label="LIVES TO GROW UP" y={300} size={150} color={C.accent} count={1} /><Chip level="REPORTED" source="CROCODILIAN BIOLOGY REFERENCES" /></>],
           [one, <Head text={"THE ONE WATCHING YOU\nIS THAT ONE"} y={640} size={90} color={C.accent} />],
@@ -169,31 +211,15 @@ export const S15: React.FC<SP> = ({ dur, start }) => {
   const show = f >= sinks ? 1 - ease(f, sinks, sinks + 30) : 1;
   return (
     <AbsoluteFill>
-      {inRiver ? <River ex={1100} ey={470} es={1.1} show={show} glow={1} dusk={0.5} zoom={1 + ramp(f, 0, dur) * 0.12} /> : <ScanBg tint="#0c1210" />}
-      {!inRiver ? (
-        <Svg>
-          <rect x={0} y={640} width={1920} height={440} fill="#2a2a16" />
-          <path d="M 0 560 L 1920 560 L 1920 660 Q 960 700 0 660 Z" fill="#2a2416" />
-          {f >= bucket ? (
-            <g>
-              <rect x={930} y={500} width={60} height={70} rx={8} fill={C.accent} />
-              <path d="M 930 505 Q 960 450 990 505" stroke={C.accent} strokeWidth={6} fill="none" />
-              {Array.from({ length: day }, (_, i) => (
-                <circle key={i} cx={760 + i * 44} cy={610} r={12} fill={HUD} opacity={0.5 + i * 0.1} />
-              ))}
-            </g>
-          ) : null}
-        </Svg>
-      ) : null}
-      {!inRiver && f >= bucket ? <CrocTop x={960 + (5 - day) * 120} y={820 - (day - 1) * 22} scale={0.42} rotate={-12} /> : null}
+      {inRiver ? <River ex={1100} ey={470} es={1.1} show={show} glow={1} dusk={0.5} zoom={1 + ramp(f, 0, dur) * 0.12} /> : <Shore person={{ x: 640, y: 548, scale: 1.25, lean: 12 }} croc={{ x: 1750 - day * 150, y: 700, scale: 0.6 }} zoom={1.1} zx={950} zy={580} over={<svg style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }} width={1} height={1}><rect x={690} y={560} width={44} height={50} rx={6} fill={C.accent} /><path d="M 690 564 Q 712 524 734 564" stroke={C.accent} strokeWidth={5} fill="none" /></svg>} />}
       {!inRiver && f >= bucket ? (
-        <div style={{ position: "absolute", left: 130, top: 700, fontFamily: MONO, fontWeight: 700, fontSize: 70, letterSpacing: 2, color: day === 5 ? C.red : HUD }}>DAY {day}</div>
+        <div style={{ position: "absolute", left: 130, top: 380, fontFamily: MONO, fontWeight: 700, fontSize: 70, letterSpacing: 2, color: day === 5 ? C.red : HUD }}>DAY {day}</div>
       ) : null}
       {beats(
         [
           [c15("So here is"), <Head text={"WHAT REALLY\nHAPPENS"} y={600} size={120} />],
           [c15("It does not charge"), <Head text={"IT DOES NOT\nCHARGE"} y={600} size={120} />],
-          [c15("It studies"), <Head text="IT STUDIES" y={620} size={190} color={C.accent} />],
+          [c15("It studies"), <><Clip src="footage/croc/v-close.mp4" label="FOOTAGE · NILE CROCODILE, A CLOSE RELATIVE · MIXKIT" /><Head text="IT STUDIES" y={620} size={190} color={C.accent} /></>],
           [c15("It watches"), <Lines items={["LOGGING: HOW CLOSE YOU COME"]} y={640} size={48} />],
           [c15("how long"), <Lines items={["LOGGING: HOW CLOSE YOU COME", "LOGGING: HOW LONG YOU STAY"]} y={640} size={48} gap={0} highlight={1} />],
           [c15("whether you"), <Lines items={["LOGGING: HOW CLOSE YOU COME", "LOGGING: HOW LONG YOU STAY", "LOGGING: WHETHER YOU COME BACK"]} y={640} size={48} gap={0} highlight={2} />],
@@ -226,39 +252,42 @@ export const S16: React.FC<SP> = ({ dur, start }) => {
   const more = c16("Make yourself");
   const diagram = f >= five && f < same;
   const far = f >= camp;
-  const head = (from: number, to: number, cont: boolean, hold: boolean) => <Photo src="footage/croc/head.jpg" credit={CREDIT.head} from={from} to={to} ox="30%" oy="45%" cont={cont} hold={hold} />;
   return (
     <AbsoluteFill>
-      {f >= empty && f < worst ? <River show={0} dusk={0.3} /> : <ScanBg tint="#08120f" />}
       {diagram ? (
-        <Svg>
-          <rect x={1400} y={600} width={520} height={480} fill="#2a2a16" />
-          <rect x={0} y={760} width={1400} height={320} fill="#2a2416" />
-          <line x1={1400} y1={560} x2={1400} y2={800} stroke={HUD} strokeWidth={5} strokeDasharray="12 10" />
-          <line x1={far ? 300 : 1100} y1={720} x2={1400} y2={720} stroke={C.accent} strokeWidth={8} />
-          <line x1={far ? 300 : 1100} y1={690} x2={far ? 300 : 1100} y2={750} stroke={C.accent} strokeWidth={8} />
-          {far ? <path d="M 200 760 L 300 600 L 400 760 Z" fill="none" stroke={HUD} strokeWidth={8} /> : <circle cx={1100} cy={650} r={26} fill={HUD} />}
-          <text x={1440} y={590} fill={HUD} fontFamily={MONO} fontWeight={700} fontSize={30}>WATER'S EDGE</text>
-        </Svg>
-      ) : null}
+        <Shore person={{ x: far ? 120 : 560, scale: 1.3 }} croc={{ x: 1250 + Math.sin(f * 0.02) * 40, y: 700, scale: 0.6 }} zoom={far ? 0.9 : 1.05} zx={far ? 700 : 900} zy={560}>
+          <Svg>
+            <line x1={far ? 120 : 560} y1={470} x2={760} y2={470} stroke={C.accent} strokeWidth={8} />
+            <line x1={far ? 120 : 560} y1={445} x2={far ? 120 : 560} y2={495} stroke={C.accent} strokeWidth={8} />
+            <line x1={760} y1={445} x2={760} y2={495} stroke={C.accent} strokeWidth={8} />
+            {far ? <path d="M 20 520 L 120 380 L 220 520 Z" fill="#3d5a66" stroke={HUD} strokeWidth={6} /> : null}
+          </Svg>
+        </Shore>
+      ) : f >= eyes && f < more ? (
+        <AbsoluteFill style={{ background: "linear-gradient(#10212a, #06100f)" }}>
+          <CrocHead x={330} y={640} scale={1.2} jaw={8 + Math.sin(f * 0.2) * 5} />
+        </AbsoluteFill>
+      ) : (
+        <Shore person={{ x: f >= worst ? 660 : 420, y: f >= worst ? 560 : 522, scale: 1.3, lean: f >= worst ? 20 + Math.sin(f * 0.5) * 14 : 0 }} croc={{ x: f >= worst ? 800 : 1300 + Math.sin(f * 0.02) * 60, y: f >= worst ? 640 : 700, scale: 0.6, rot: f >= worst ? -14 : 0, jaw: f >= worst ? 18 + Math.sin(f * 0.4) * 6 : 0 }} zoom={1.08} zx={900} zy={560} />
+      )}
       {beats(
         [
-          [c16("You survive"), <Head text={"YOU SURVIVE IT\nBEFORE YOU MEET IT"} y={300} size={120} />],
-          [five, <><Num value={5} suffix=" M" label="BACK FROM THE WATER'S EDGE" y={220} size={220} color={C.accent} count={10} /><Chip level="LOGGED" source="NT GOVERNMENT · BE CROCWISE" /></>],
-          [camp, <><Num value={50} from={5} suffix=" M" label="CAMP AT LEAST THIS FAR BACK" y={220} size={220} color={C.accent} count={20} /><Chip level="LOGGED" source="NT & QUEENSLAND GOVERNMENTS" /></>],
-          [same, <Head text={"NEVER THE SAME\nSPOT TWICE"} y={300} size={140} />],
+          [c16("You survive"), <Head text={"YOU SURVIVE IT\nBEFORE YOU MEET IT"} y={200} size={100} x={1000} width={800} />],
+          [five, <><Num value={5} suffix=" M" label="BACK FROM THE WATER'S EDGE" y={200} size={170} x={1000} width={800} color={C.accent} count={10} /><Chip level="LOGGED" source="NT GOVERNMENT · BE CROCWISE" /></>],
+          [camp, <><Num value={50} from={5} suffix=" M" label="CAMP AT LEAST THIS FAR BACK" y={200} size={170} x={1000} width={800} color={C.accent} count={20} /><Chip level="LOGGED" source="NT & QUEENSLAND GOVERNMENTS" /></>],
+          [same, <Head text={"NEVER THE SAME\nSPOT TWICE"} y={200} size={110} x={1000} width={800} />],
           [sign, <><Photo src="footage/croc/sign.jpg" credit={CREDIT.sign} from={1.05} to={1.12} hold /><Head text="IF A SIGN SAYS SO" y={210} size={100} /></>],
           [c16("believe the sign"), <><Photo src="footage/croc/sign.jpg" credit={CREDIT.sign} from={1.12} to={1.18} cont /><Head text={"BELIEVE\nTHE SIGN"} y={210} size={150} color={C.accent} /></>],
-          [empty, <Lines items={["SURFACE: FLAT", "OBJECTS: 0"]} y={620} size={60} />],
-          [c16("especially if"), <Head text={"ESPECIALLY IF\nIT LOOKS EMPTY"} y={600} size={110} color={C.red} />],
-          [worst, <Head text={"IF THE WORST\nHAPPENS"} y={300} size={140} />],
-          [c16("do not play"), <><Head text="PLAY DEAD" y={330} size={190} align="center" /><Stamp text="NO" y={540} size={220} /></>],
-          [c16("Fight"), <Head text="FIGHT" y={300} size={330} color={C.red} align="center" />],
-          [eyes, <>{head(1.0, 1.04, false, true)}<Box x={835} y={395} w={170} h={130} label="TARGET 1: EYES" color={C.red} /></>],
-          [c16("Hit the snout"), <>{head(1.04, 1.08, true, false)}<Box x={290} y={770} w={190} h={130} label="TARGET 2: SNOUT" color={C.red} /></>],
-          [more, <Head text={"BE MORE TROUBLE\nTHAN YOU ARE WORTH"} y={300} size={110} color={C.accent} />],
-          [c16("Survivors"), <><Head text={"SURVIVORS SAY\nTHE SAME THING"} y={300} size={120} /><Chip level="REPORTED" source="SURVIVOR ACCOUNTS" /></>],
-          [c16("let go because"), <Head text={"IT LET GO BECAUSE\nTHEY DID NOT STOP"} y={300} size={110} color={C.accent} />],
+          [empty, <><Clip src="footage/croc/v-ripples.mp4" label="FOOTAGE · MIXKIT" hold /><Lines items={["SURFACE: FLAT", "OBJECTS: 0"]} y={620} size={60} /></>],
+          [c16("especially if"), <><Clip src="footage/croc/v-ripples.mp4" label="FOOTAGE · MIXKIT" from={70} cont /><Head text={"ESPECIALLY IF\nIT LOOKS EMPTY"} y={600} size={110} color={C.red} /></>],
+          [worst, <Head text={"IF THE WORST\nHAPPENS"} y={200} size={110} x={1000} width={800} />],
+          [c16("do not play"), <><Head text="PLAY DEAD" y={200} size={130} x={1000} width={800} /><Stamp text="NO" x={1350} y={300} size={150} /></>],
+          [c16("Fight"), <Head text="FIGHT" y={200} size={260} color={C.red} x={1000} width={800} />],
+          [eyes, <Tag x={1110} y={525} tx={1200} ty={330} text="TARGET 1: EYES" color={C.red} />],
+          [c16("Hit the snout"), <Tag x={420} y={610} tx={330} ty={400} text="TARGET 2: SNOUT" color={C.red} />],
+          [more, <Head text={"BE MORE TROUBLE\nTHAN YOU ARE WORTH"} y={200} size={90} color={C.accent} x={1000} width={800} />],
+          [c16("Survivors"), <><Head text={"SURVIVORS SAY\nTHE SAME THING"} y={200} size={100} x={1000} width={800} /><Chip level="REPORTED" source="SURVIVOR ACCOUNTS" /></>],
+          [c16("let go because"), <Head text={"IT LET GO BECAUSE\nTHEY DID NOT STOP"} y={200} size={90} color={C.accent} x={1000} width={800} />],
         ],
         dur,
       )}

@@ -1,6 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Img, interpolate, random, staticFile, useCurrentFrame } from "remotion";
 import { Bars, Box, Chip, CrocSide, CrocTop, Ecg, Fog, Head, Lines, Num, Person, Photo, ScanBg, Stamp } from "../kit/devices";
+import { Clip, CrocHead, Deep, lerp, Shore, Tag } from "../kit/sets";
 import { HUD, MONO, ScanLines } from "../kit/hud";
 import { C } from "../kit/theme";
 import { FONT, ramp } from "../kit/ui";
@@ -111,21 +112,7 @@ export const S02: React.FC<SP> = ({ dur, start }) => {
   const scanPart = f < lolong;
   return (
     <AbsoluteFill>
-      <ScanBg />
-      {scanPart ? (
-        <>
-          <CrocSide x={330 + (1 - grow) * 200} y={640} scale={0.9 + grow * 0.4} />
-          <Svg opacity={grow}>
-            <line x1={330} y1={790} x2={330 + 1300 * grow} y2={790} stroke={C.accent} strokeWidth={8} />
-            <line x1={330} y1={765} x2={330} y2={815} stroke={C.accent} strokeWidth={8} />
-            <line x1={330 + 1300 * grow} y1={765} x2={330 + 1300 * grow} y2={815} stroke={C.accent} strokeWidth={8} />
-          </Svg>
-          <Svg opacity={ramp(f, cars, cars + 10) * (1 - ramp(f, c2("He weighs") - 6, c2("He weighs")))}>
-            <Car x={380} y={960} s={2.3} />
-          </Svg>
-          <ScanLines on={1 - ramp(f, big, big + 10)} />
-        </>
-      ) : null}
+      <S2World f={f} big={big} cars={cars} weighs={c2("He weighs")} lolong={lolong} six={c2("Six point")} pred={pred} heavier={c2("heavier than")} hide={c2("and able to hide")} design={c2("And his design")} grow={grow} />
       {beats(
         [
           [c2("This is"), <Lines items={["SCAN COMPLETE", "SPECIES IDENTIFIED"]} y={230} size={36} />],
@@ -135,18 +122,104 @@ export const S02: React.FC<SP> = ({ dur, start }) => {
           [cars, <Lines items={["LONGER THAN MOST CARS"]} y={250} size={50} color={C.white} />],
           [c2("He weighs"), <Num value={500} suffix=" KG" label="TYPICAL BIG MALE" y={210} count={20} />],
           [c2("Some weigh"), <Num value={1000} from={500} suffix=" KG" label="THE LARGEST MALES" y={210} color={C.accent} count={18} />],
-          [lolong, <><Photo src="footage/croc/lolong.jpg" credit={CREDIT.lolong} ox="45%" oy="96%" from={1.9} to={2.0} hold /><Head text="LOLONG" sub="LARGEST EVER HELD IN CAPTIVITY" y={230} size={150} /></>],
-          [c2("He was caught"), <><Photo src="footage/croc/lolong.jpg" credit={CREDIT.lolong} ox="45%" oy="96%" from={2.0} to={2.1} cont hold /><Lines items={["CAUGHT: PHILIPPINES", "YEAR: 2011"]} y={250} size={54} /></>],
-          [c2("Six point"), <><Photo src="footage/croc/lolong.jpg" credit={CREDIT.lolong} ox="45%" oy="96%" from={2.1} to={2.2} cont hold /><Num value={6.17} decimals={2} suffix=" M" label="LENGTH" y={210} color={C.accent} /></>],
-          [c2("one thousand and"), <><Photo src="footage/croc/lolong.jpg" credit={CREDIT.lolong} ox="45%" oy="96%" from={2.2} to={2.3} cont /><Num value={1075} suffix=" KG" label="WEIGHT" y={210} color={C.accent} /><Chip level="LOGGED" source="GUINNESS WORLD RECORDS" /></>],
-          [pred, <><Photo src="footage/croc/bank.jpg" credit={CREDIT.bank} from={1.05} to={1.14} hold /><Lines items={["AS LONG AS A MINIBUS"]} y={240} size={56} color={C.white} /></>],
-          [c2("heavier than"), <><Photo src="footage/croc/bank.jpg" credit={CREDIT.bank} from={1.14} to={1.2} cont hold /><Lines items={["AS LONG AS A MINIBUS", "HEAVIER THAN A HORSE"]} y={240} size={56} color={C.white} highlight={1} gap={0} /></>],
-          [c2("and able to hide"), <><Photo src="footage/croc/bank.jpg" credit={CREDIT.bank} from={1.2} to={1.34} cont hold /><Head text={"HIDDEN IN\nKNEE-DEEP WATER"} y={200} size={100} color={C.accent} /></>],
-          [c2("And his design"), <><Photo src="footage/croc/bank.jpg" credit={CREDIT.bank} from={1.34} to={1.44} cont /><Head text={"BARELY CHANGED\nSINCE THE DINOSAURS"} y={200} size={92} /><Chip level="REPORTED" source="FOSSIL RECORD OF CROCODILIANS" /></>],
+          [lolong, <><Head text="LOLONG" sub="LARGEST EVER HELD IN CAPTIVITY" y={230} size={150} /></>],
+          [c2("He was caught"), <><Lines items={["CAUGHT: PHILIPPINES", "YEAR: 2011"]} y={250} size={54} /></>],
+          [c2("Six point"), <><Num value={6.17} decimals={2} suffix=" M" label="LENGTH" y={210} color={C.accent} /></>],
+          [c2("one thousand and"), <><Num value={1075} suffix=" KG" label="WEIGHT" y={210} color={C.accent} /><Chip level="LOGGED" source="GUINNESS WORLD RECORDS" /></>],
+          [pred, <><Lines items={["AS LONG AS A MINIBUS"]} y={240} size={56} color={C.white} /></>],
+          [c2("heavier than"), <><Lines items={["AS LONG AS A MINIBUS", "HEAVIER THAN A HORSE"]} y={240} size={56} color={C.white} highlight={1} gap={0} /></>],
+          [c2("and able to hide"), <><Head text={"HIDDEN IN\nKNEE-DEEP WATER"} y={200} size={100} color={C.accent} x={1000} width={800} /></>],
+          [c2("And his design"), <><Head text={"BARELY CHANGED\nSINCE THE DINOSAURS"} y={200} size={92} /><Chip level="REPORTED" source="FOSSIL RECORD OF CROCODILIANS" /></>],
         ],
         dur,
       )}
       <Hud start={start} dur={dur} pulse={104} />
+    </AbsoluteFill>
+  );
+};
+
+const S2World: React.FC<{ f: number; big: number; cars: number; weighs: number; lolong: number; six: number; pred: number; heavier: number; hide: number; design: number; grow: number }> = ({ f, big, cars, weighs, lolong, six, pred, heavier, hide, design, grow }) => {
+  if (f < lolong) {
+    // The animal glides in and is measured against a diver and a car.
+    const swimX = lerp(f, 0, big, 2100, 420);
+    return (
+      <Deep croc={{ x: swimX, y: 640, scale: 1.25 }}>
+        <Svg opacity={grow}>
+          <line x1={420} y1={770} x2={420 + 1250 * grow} y2={770} stroke={C.accent} strokeWidth={8} />
+          <line x1={420} y1={745} x2={420} y2={795} stroke={C.accent} strokeWidth={8} />
+          <line x1={420 + 1250 * grow} y1={745} x2={420 + 1250 * grow} y2={795} stroke={C.accent} strokeWidth={8} />
+        </Svg>
+        {f >= big ? <Person x={250 + Math.sin(f * 0.05) * 10} y={700 + Math.sin(f * 0.08) * 12} scale={2.2} color={HUD} lean={78} /> : null}
+        <Svg opacity={ramp(f, cars, cars + 10) * (1 - ramp(f, weighs - 6, weighs))}>
+          <Car x={520} y={930} s={2.1} />
+        </Svg>
+      </Deep>
+    );
+  }
+  if (f < pred) {
+    // Lolong on the measuring floor with people for scale.
+    const run = ramp(f, six, six + 40);
+    return (
+      <AbsoluteFill style={{ background: "linear-gradient(#10212a, #06100f)" }}>
+        <Svg>
+          <rect x={0} y={800} width={1920} height={280} fill="#1b2a2a" />
+          <line x1={260} y1={850} x2={260 + 1480 * run} y2={850} stroke={C.accent} strokeWidth={8} />
+          {Array.from({ length: 7 }, (_, i) => (i / 6 <= run ? <line key={i} x1={260 + i * 246.6} y1={832} x2={260 + i * 246.6} y2={868} stroke={C.accent} strokeWidth={6} /> : null))}
+        </Svg>
+        <CrocSide x={260} y={760} scale={1.48} jaw={6 + Math.sin(f * 0.05) * 3} tail={Math.sin(f * 0.07) * 8} />
+        {[1500, 1600, 1700].map((x, i) => (
+          <Person key={x} x={x} y={800} scale={2.35} color={i === 1 ? C.white : HUD} />
+        ))}
+      </AbsoluteFill>
+    );
+  }
+  if (f < hide) {
+    // Size comparisons: a minibus outline, then a balance against a horse's weight.
+    const tilt = ramp(f, heavier, heavier + 20) * 9;
+    return (
+      <AbsoluteFill style={{ background: "linear-gradient(#10212a, #06100f)" }}>
+        {f < heavier ? (
+          <>
+            <Svg>
+              <rect x={300} y={470} width={1290} height={330} rx={50} fill="none" stroke={HUD} strokeWidth={8} opacity={ramp(f, pred, pred + 12)} />
+              <circle cx={560} cy={800} r={64} fill="#06100f" stroke={HUD} strokeWidth={8} />
+              <circle cx={1330} cy={800} r={64} fill="#06100f" stroke={HUD} strokeWidth={8} />
+            </Svg>
+            <CrocSide x={300} y={740} scale={1.29} tail={Math.sin(f * 0.1) * 10} />
+          </>
+        ) : (
+          <>
+            <Svg>
+              <polygon points="960,620 900,860 1020,860" fill="#2f6a74" />
+              <g transform={`rotate(${tilt} 960 620)`}>
+                <rect x={260} y={610} width={1400} height={18} fill={HUD} />
+                <rect x={1380} y={470} width={230} height={140} rx={12} fill="#2f6a74" />
+                <text x={1495} y={556} fill={C.white} fontFamily={MONO} fontWeight={700} fontSize={38} textAnchor="middle">HORSE</text>
+              </g>
+            </Svg>
+            <CrocSide x={270 - tilt * 0.5} y={600 + tilt * 9} scale={0.62} rotate={tilt} />
+          </>
+        )}
+      </AbsoluteFill>
+    );
+  }
+  if (f < design) {
+    // Knee-deep water, and it is already there.
+    return <Shore person={{ x: 840, y: 640, scale: 1.5 }} croc={{ x: lerp(f, hide, design, 1700, 1150), y: 690, scale: 0.72 }} zoom={1.15} zx={1100} zy={600} />;
+  }
+  return (
+    <AbsoluteFill style={{ background: "linear-gradient(#10212a, #06100f)" }}>
+      <Svg>
+        <line x1={200} y1={760} x2={1720} y2={760} stroke="#2f6a74" strokeWidth={6} />
+        {[["AGE OF DINOSAURS", 420], ["TODAY", 1500]].map(([t, x]) => (
+          <g key={t as string}>
+            <line x1={x as number} y1={735} x2={x as number} y2={785} stroke={HUD} strokeWidth={6} />
+            <text x={x as number} y={840} fill={HUD} fontFamily={MONO} fontWeight={700} fontSize={32} textAnchor="middle">{t}</text>
+          </g>
+        ))}
+      </Svg>
+      <CrocSide x={180} y={690} scale={0.5} color="#3e4a3a" tail={Math.sin(f * 0.1) * 8} />
+      <CrocSide x={lerp(f, design, design + 60, 180, 1250)} y={690} scale={0.5} tail={Math.sin(f * 0.1) * 8} />
     </AbsoluteFill>
   );
 };
@@ -157,30 +230,38 @@ export const S03: React.FC<SP> = ({ dur, start }) => {
   const f = useCurrentFrame();
   const inside = c3("Inside");
   const stones = c3("It even swallows");
-  const z = interpolate(f, [0, inside, inside + 20, dur], [1.0, 1.12, 1.5, 1.62], { extrapolateRight: "clamp" });
+  const z = interpolate(f, [0, inside, inside + 20, dur], [1.0, 1.05, 1.45, 1.55], { extrapolateRight: "clamp" });
   return (
-    <AbsoluteFill style={{ background: "#020b0e" }}>
-      <AbsoluteFill style={{ transform: `scale(${z})`, transformOrigin: "46% 72%" }}>
-        <AbsoluteFill style={{ filter: "invert(1) brightness(0.42) sepia(1) hue-rotate(140deg) saturate(2.2)", opacity: 0.95 }}>
-          <Img src={staticFile("footage/croc/skeleton.jpg")} style={{ position: "absolute", left: 0, top: 164, width: 1920, height: 752 }} />
-        </AbsoluteFill>
-        <div style={{ position: "absolute", left: 0, top: 164, width: 640, height: 140, background: "#020b0e" }} />
-        <Svg opacity={ramp(f, stones, stones + 10)}>
-          {Array.from({ length: 7 }, (_, i) => (
-            <circle key={i} cx={820 + (i % 4) * 34} cy={Math.min(800 + (i % 2) * 22, 560 + (f - stones - i * 5) * 9)} r={11 + (i % 3) * 3} fill={C.accent} />
-          ))}
+    <AbsoluteFill style={{ background: "linear-gradient(#10212a, #06100f)" }}>
+      <AbsoluteFill style={{ transform: `scale(${z})`, transformOrigin: "52% 62%" }}>
+        {f >= c3("They also soak") && f < inside ? (
+          <Svg>
+            {[0, 1, 2, 3, 4].map((i) => (
+              <line key={i} x1={760 + i * 190} y1={120} x2={700 + i * 190} y2={120 + ((f * 9 + i * 60) % 420)} stroke={C.accent} strokeWidth={8} opacity={0.7} />
+            ))}
+          </Svg>
+        ) : null}
+        <CrocSide x={200} y={700} scale={1.5} plates={ramp(f, c3("Under the skin"), c3("living armor") + 20)} tail={Math.sin(f * 0.06) * 8} />
+        <Svg opacity={ramp(f, inside, inside + 10)}>
+          <ellipse cx={985} cy={690} rx={120} ry={56} fill="#10201a" stroke="#b7e36a" strokeWidth={5} />
+          {Array.from({ length: 12 }, (_, i) => {
+            const t = (((f - inside) / 34 + random(`ac${i}`)) % 1 + 1) % 1;
+            return <circle key={i} cx={900 + random(`ax${i}`) * 170} cy={728 - t * 70} r={6 * (1 - t) + 2} fill="#b7e36a" opacity={1 - t} />;
+          })}
+          {f >= c3("It dissolves") && f < stones ? <rect x={940} y={676} width={90 * (1 - ramp(f, c3("It dissolves"), stones))} height={18} rx={9} fill="#efe8cf" /> : null}
+          {Array.from({ length: 7 }, (_, i) =>
+            f >= stones ? <circle key={`st${i}`} cx={920 + (i % 4) * 36} cy={Math.min(716 + (i % 2) * 12, 600 + (f - stones - i * 5) * 7)} r={10 + (i % 3) * 3} fill={C.accent} /> : null,
+          )}
         </Svg>
       </AbsoluteFill>
-      <ScanLines on={0.7} />
-      <div style={{ position: "absolute", left: 0, right: 0, bottom: 62, textAlign: "center", fontFamily: MONO, fontWeight: 700, fontSize: 18, letterSpacing: 2, color: "rgba(255,255,255,0.6)" }}>DIAGRAM · {CREDIT.skeleton}</div>
       {beats(
         [
           [c3("And it is built"), <Head text="BUILT TO LAST" y={190} size={120} />],
-          [c3("Under the skin"), <><Box x={470} y={585} w={1330} h={120} label="BONY PLATES" sub="ROWS ALONG THE BACK" /><Chip level="REPORTED" source="CROCODILIAN ANATOMY REFERENCES" /></>],
-          [c3("living armor"), <><Box x={470} y={585} w={1330} h={120} label="BONY PLATES" color={C.accent} /><Head text="LIVING ARMOUR" sub="FUSED INTO THE HIDE" y={190} size={110} color={C.accent} /></>],
+          [c3("Under the skin"), <><Tag x={1100} y={590} tx={1200} ty={440} text="BONY PLATES" /><Chip level="REPORTED" source="CROCODILIAN ANATOMY REFERENCES" /></>],
+          [c3("living armor"), <><Head text="LIVING ARMOUR" sub="FUSED INTO THE HIDE" y={190} size={110} color={C.accent} /></>],
           [c3("They protect"), <Lines items={["FUNCTION 1: SHIELD"]} y={230} size={56} />],
           [c3("They also soak"), <Lines items={["FUNCTION 1: SHIELD", "FUNCTION 2: SOLAR PANEL"]} y={230} size={56} highlight={1} gap={0} />],
-          [inside, <Box x={830} y={500} w={330} h={220} label="STOMACH" sub="SCANNING…" color={C.accent} />],
+          [inside, <Tag x={985} y={690} tx={1180} ty={860} text="STOMACH" color={C.accent} />],
           [c3("is one of the most"), <Head text={"AMONG THE MOST ACIDIC\nOF ANY ANIMAL"} y={180} size={84} color={C.accent} />],
           [c3("It dissolves"), <Lines items={["BONE: DISSOLVED", "HORN: DISSOLVED", "SHELL: DISSOLVED"]} y={200} size={52} gap={20} color={C.red} />],
           [stones, <Head text="STOMACH STONES" sub="SWALLOWED ON PURPOSE" y={190} size={100} />],
@@ -205,9 +286,12 @@ export const S04: React.FC<SP> = ({ dur, start }) => {
   const jaws = c4("Its jaws are");
   const together = c4("Together");
   const step = c4("Every step");
-  const head = (from: number, to: number, cont = true, hold = true, ox = "30%", oy = "45%") => <Photo src="footage/croc/head.jpg" credit={CREDIT.head} from={from} to={to} ox={ox} oy={oy} cont={cont} hold={hold} />;
+  const headOn = f >= c4("Its eyes") && f < river;
+  const jawOn = f >= jaws && f < together;
   return (
-    <AbsoluteFill style={{ background: "#020b0e" }}>
+    <AbsoluteFill style={{ background: "linear-gradient(#10212a, #06100f)" }}>
+      {headOn ? <CrocHead x={330} y={620} scale={1.2} jaw={2 + Math.sin(f * 0.06) * 2} /> : null}
+      {jawOn ? <CrocHead x={-60} y={560} scale={1.9} jaw={3} dots={ramp(f, jaws, jaws + 70)} /> : null}
       {f >= river && f < blind ? (
         <>
           <River ex={960} ey={470} es={1.5} glow={f >= night ? 0 : 1} night={ramp(f, night, night + 12) * 1.6} />
@@ -240,18 +324,18 @@ export const S04: React.FC<SP> = ({ dur, start }) => {
       {beats(
         [
           [c4("Start with"), <Head text={"HOW IT\nFOUND YOU"} y={300} size={150} />],
-          [c4("Its eyes"), <>{head(1.0, 1.03, false)}<Box x={835} y={395} w={170} h={130} label="EYES" /></>],
-          [c4("ears"), <>{head(1.03, 1.05)}<Box x={1010} y={370} w={150} h={120} label="EARS" color={C.accent} /></>],
-          [c4("and nostrils"), <>{head(1.05, 1.07)}<Box x={290} y={770} w={170} h={120} label="NOSTRILS" /></>],
-          [c4("all sit"), <>{head(1.07, 1.12, true, false)}<Svg><line x1={330} y1={850} x2={1150} y2={330} stroke={C.accent} strokeWidth={6} strokeDasharray="18 12" /></Svg><Head text="ONE LINE" sub="ALL ON TOP OF THE HEAD" y={190} size={130} color={C.accent} /></>],
-          [river, <Lines items={["SEE: YES", "HEAR: YES", "BREATHE: YES"]} y={640} size={50} gap={22} />],
-          [c4("with almost"), <Head text={"ALMOST NOTHING\nSHOWING"} y={640} size={84} />],
+          [c4("Its eyes"), <Tag x={1110} y={505} tx={1190} ty={330} text="EYES" />],
+          [c4("ears"), <Tag x={1314} y={490} tx={1400} ty={330} text="EARS" color={C.accent} />],
+          [c4("and nostrils"), <Tag x={383} y={579} tx={300} ty={400} text="NOSTRILS" />],
+          [c4("all sit"), <><Svg><line x1={300} y1={585} x2={1420} y2={482} stroke={C.accent} strokeWidth={6} strokeDasharray="18 12" /></Svg><Head text="ONE LINE" sub="ALL ON TOP OF THE HEAD" y={190} size={130} color={C.accent} /></>],
+          [river, <><Clip src="footage/croc/v-lurk.mp4" label="FOOTAGE · NILE CROCODILE, A CLOSE RELATIVE · MIXKIT" hold /><Lines items={["SEE: YES", "HEAR: YES", "BREATHE: YES"]} y={640} size={50} gap={22} /></>],
+          [c4("with almost"), <><Clip src="footage/croc/v-lurk.mp4" label="FOOTAGE · NILE CROCODILE, A CLOSE RELATIVE · MIXKIT" from={105} cont /><Head text={"ALMOST NOTHING\nSHOWING"} y={640} size={84} /></>],
           [night, <Head text="NIGHT VISION" sub="IT GATHERS LIGHT YOU CANNOT" y={640} size={100} color="#7dff9a" />],
           [c4("In a torch"), <Lines items={["EYESHINE: RED"]} y={680} size={64} color={C.red} />],
           [blind, <Head text={"IT DOES NOT NEED\nTO SEE YOU"} y={330} size={120} color={C.accent} align="center" />],
-          [jaws, <>{head(1.5, 1.58, false, true, "25%", "70%")}<JawDots /><Head text="THOUSANDS" sub="OF TINY BLACK DOTS ON THE JAWS" y={190} size={130} /></>],
-          [c4("Each one"), <>{head(1.58, 1.66, true, false, "25%", "70%")}<JawDots /><Head text="PRESSURE SENSORS" sub="ONE IN EVERY DOT" y={180} size={96} color={C.accent} /></>],
-          [together, <><ScanBg /><Bars title="SENSITIVITY TO TOUCH" rows={[{ label: "YOUR FINGERTIP", value: 30, text: "×1", color: HUD }, { label: "ITS JAW", value: 100, text: "MORE SENSITIVE", color: C.accent }]} max={100} y={280} /><Chip level="LOGGED" source="LEITCH & CATANIA · J. EXP. BIOLOGY 2012" /></>],
+          [jaws, <><Head text="THOUSANDS" sub="OF TINY BLACK DOTS ON THE JAWS" y={190} size={130} /></>],
+          [c4("Each one"), <><Head text="PRESSURE SENSORS" sub="ONE IN EVERY DOT" y={180} size={96} color={C.accent} /></>],
+          [together, <><Bars title="SENSITIVITY TO TOUCH" rows={[{ label: "YOUR FINGERTIP", value: 30, text: "×1", color: HUD }, { label: "ITS JAW", value: 100, text: "MORE SENSITIVE", color: C.accent }]} max={100} y={280} /><Chip level="LOGGED" source="LEITCH & CATANIA · J. EXP. BIOLOGY 2012" /></>],
           [step, <Head text={"EVERY STEP\nSENDS A RIPPLE"} y={190} size={84} />],
           [c4("It feels each"), <Head text="IT FEELS EACH ONE" y={200} size={96} color={C.red} />],
           [c4("It knows where"), <Lines items={["POSITION: LOCKED"]} y={210} size={56} color={C.accent} />],
@@ -306,18 +390,36 @@ export const S05: React.FC<SP> = ({ dur, start }) => {
   const month = Math.min(11, Math.floor(Math.max(0, f - eat) / 9));
   return (
     <AbsoluteFill>
-      <ScanBg tint="#03100f" />
+      <Deep croc={{ x: 900, y: 905, scale: 0.85, tail: Math.sin(f * 0.03) * 4 }}>
+        {f < heart ? <Person x={1620} y={520 + Math.sin(f * 0.06) * 10} scale={1.5} color={HUD} lean={8} /> : null}
+        {f < heart
+          ? [0, 1, 2].map((i) => {
+              const t = ((f / 60 + i / 3) % 1 + 1) % 1;
+              return <div key={i} style={{ position: "absolute", left: 1630 + Math.sin(t * 8 + i) * 12, top: 300 - t * 200, width: 14, height: 14, borderRadius: 8, border: "3px solid #cfe9f2", opacity: (1 - t) * (f >= it ? 1 : 0.4) }} />;
+            })
+          : null}
+        {f >= heart && f < eat ? (
+          <Svg>
+            <circle cx={1290} cy={888} r={22 * (1 + Math.max(0, Math.sin(f * (f >= few ? 0.05 : 0.4))) * 0.5)} fill={C.red} />
+          </Svg>
+        ) : null}
+        {f >= eat && f < so ? (
+          <Svg>
+            <circle cx={960 + Math.cos(f * 0.35) * 760} cy={150 - Math.sin(f * 0.35) * 90} r={38} fill={Math.sin(f * 0.35) > 0 ? "#f0c15a" : "#9fb6c9"} />
+          </Svg>
+        ) : null}
+      </Deep>
       {inTimers ? (
         <AbsoluteFill>
-          <TimerBar y={300} label="YOU · ONE BREATH" text="2:00" frac={0.1} color={HUD} />
-          {f >= it ? <TimerBar y={500} label="IT · NO EFFORT" text="15:00" frac={0.62} color={C.accent} start={it - you} /> : null}
-          {f >= rest ? <TimerBar y={700} label="IT · RESTING ON THE BOTTOM" text="FAR LONGER" frac={0.98} color={C.red} start={rest - you} /> : null}
+          <TimerBar y={250} label="YOU · ONE BREATH" text="2:00" frac={0.1} color={HUD} />
+          {f >= it ? <TimerBar y={400} label="IT · NO EFFORT" text="15:00" frac={0.62} color={C.accent} start={it - you} /> : null}
+          {f >= rest ? <TimerBar y={550} label="IT · RESTING ON THE BOTTOM" text="FAR LONGER" frac={0.98} color={C.red} start={rest - you} /> : null}
         </AbsoluteFill>
       ) : null}
       {f >= eat && f < so ? (
         <AbsoluteFill>
           {Array.from({ length: 12 }, (_, i) => (
-            <div key={i} style={{ position: "absolute", left: 130 + (i % 6) * 250, top: 520 + Math.floor(i / 6) * 150, width: 220, height: 120, border: `4px solid ${i <= month ? C.accent : "rgba(127,233,255,0.3)"}`, background: i <= month ? "rgba(255,210,63,0.16)" : "transparent", fontFamily: MONO, fontWeight: 700, fontSize: 30, color: i <= month ? C.accent : "rgba(127,233,255,0.5)", display: "flex", alignItems: "center", justifyContent: "center", letterSpacing: 2 }}>
+            <div key={i} style={{ position: "absolute", left: 130 + (i % 6) * 250, top: 380 + Math.floor(i / 6) * 130, width: 220, height: 100, border: `4px solid ${i <= month ? C.accent : "rgba(127,233,255,0.3)"}`, background: i <= month ? "rgba(255,210,63,0.16)" : "transparent", fontFamily: MONO, fontWeight: 700, fontSize: 30, color: i <= month ? C.accent : "rgba(127,233,255,0.5)", display: "flex", alignItems: "center", justifyContent: "center", letterSpacing: 2 }}>
               {i <= month ? "NO MEAL" : `MONTH ${i + 1}`}
             </div>
           ))}
@@ -326,12 +428,12 @@ export const S05: React.FC<SP> = ({ dur, start }) => {
       {beats(
         [
           [c5("Now it does"), <Head text={"THE THING\nIT IS BEST AT"} y={300} size={120} />],
-          [c5("It waits"), <Head text="IT WAITS" y={330} size={260} color={C.accent} align="center" />],
+          [c5("It waits"), <><Clip src="footage/croc/v-glide.mp4" label="FOOTAGE · NILE CROCODILE, A CLOSE RELATIVE · MIXKIT" /><Head text="IT WAITS" y={600} size={200} color={C.accent} /></>],
           [you, <Lines items={["BREATH-HOLD COMPARISON"]} y={220} size={34} />],
           [it, <Lines items={["BREATH-HOLD COMPARISON"]} y={220} size={34} color={C.accent} />],
           [rest, <Chip level="REPORTED" source="NORTHERN TERRITORY GOVERNMENT GUIDE" />],
-          [heart, <><Ecg bpm={38} y={560} label="ITS HEART · AT THE SURFACE" /><Head text="ITS HEART SLOWS" y={220} size={100} /></>],
-          [few, <><Ecg bpm={5} y={560} color={C.accent} label="ITS HEART · WAITING UNDERWATER" /><Head text="A FEW BEATS A MINUTE" y={220} size={90} color={C.accent} /></>],
+          [heart, <><Ecg bpm={38} y={520} label="ITS HEART · AT THE SURFACE" /><Head text="ITS HEART SLOWS" y={220} size={100} /></>],
+          [few, <><Ecg bpm={5} y={520} color={C.accent} label="ITS HEART · WAITING UNDERWATER" /><Head text="A FEW BEATS A MINUTE" y={220} size={90} color={C.accent} /></>],
           [eat, <Head text="NO HURRY TO EAT" y={220} size={100} />],
           [c5("A large crocodile"), <><Head text="MONTHS WITHOUT A MEAL" y={220} size={84} color={C.accent} /><Chip level="REPORTED" source="PBS NATURE" /></>],
           [so, <Lines items={["AIR: PLENTY"]} y={300} size={70} />],
@@ -396,8 +498,8 @@ export const S06: React.FC<SP> = ({ dur, start }) => {
           [sweep, <Head text="ONE SWEEP" y={215} size={150} color={C.red} />],
           [c6("half a ton"), <Num value={500} suffix=" KG" label="LEAVES THE WATER" y={215} color={C.red} count={8} />],
           [over, <><Photo src="footage/croc/jump.jpg" credit={CREDIT.jump} from={1.1} to={1.3} oy="35%" /><Head text={"FASTER THAN\nYOU CAN STEP BACK"} y={600} size={90} /></>],
-          [why, <><Photo src="footage/croc/sign.jpg" credit={CREDIT.sign} from={1.05} to={1.14} /><Head text="THE OFFICIAL ADVICE" y={215} size={90} /><Chip level="REPORTED" source="BE CROCWISE · NT & QLD GOVERNMENTS" /></>],
-          [c6("country is always"), <><Photo src="footage/croc/sign.jpg" credit={CREDIT.sign} from={1.14} to={1.22} /><Head text="ALWAYS THE SAME" y={215} size={110} color={C.accent} /></>],
+          [why, <><SignPost /><Head text="THE OFFICIAL ADVICE" y={215} size={90} /><Chip level="REPORTED" source="BE CROCWISE · NT & QLD GOVERNMENTS" /></>],
+          [c6("country is always"), <><SignPost /><Head text="ALWAYS THE SAME" y={215} size={110} color={C.accent} /></>],
           [danger, <Head text={"NOT THE\nDEEP WATER"} y={235} size={90} x={1000} width={700} />],
           [edge, <Head text="THE EDGE" y={215} size={170} color={C.red} />],
           [c6("the last few"), <Lines items={["THE LAST FEW METRES OF SHALLOWS", "AND THE BANK BESIDE THEM"]} y={215} size={44} color={C.white} />],
@@ -408,6 +510,20 @@ export const S06: React.FC<SP> = ({ dur, start }) => {
       )}
       <Hud start={start} dur={dur} pulse={118} />
     </AbsoluteFill>
+  );
+};
+
+export const SignPost: React.FC = () => {
+  const f = useCurrentFrame();
+  return (
+    <Shore croc={{ x: 1250, y: 700, scale: 0.6 }} zoom={1 + f * 0.0006} zx={800} zy={560}>
+      <Svg>
+        <rect x={452} y={330} width={16} height={200} fill="#8a959b" />
+        <polygon points="460,150 600,290 460,430 320,290" fill="#f2c230" stroke="#111" strokeWidth={8} />
+        <path d="M 380 300 L 500 286 L 540 296 L 500 306 L 380 312 Z" fill="#111" />
+        <path d="M 384 296 l 8 -12 l 8 12 l 8 -12 l 8 12 l 8 -12 l 8 12 Z" fill="#111" />
+      </Svg>
+    </Shore>
   );
 };
 

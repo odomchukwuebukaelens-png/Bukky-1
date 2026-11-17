@@ -19,6 +19,7 @@ export const useBeat = (fadeIn = 7, fadeOut = 6) => {
 };
 
 const shadow = "0 6px 26px rgba(0,0,0,0.9), 0 0 4px rgba(0,0,0,0.9)";
+const TEXT_SCALE = 0.72;
 const typed = (text: string, f: number, speed = 1.6) => text.slice(0, Math.max(0, Math.floor(f * speed)));
 
 // Real photograph with a slow move, cooled and darkened so the instruments stay readable.
@@ -85,8 +86,9 @@ export const Head: React.FC<{
   color?: string;
   align?: "left" | "center" | "right";
   width?: number;
-}> = ({ text, sub, x = 130, y = 260, size = 110, color = C.white, align = "left", width = 1660 }) => {
+}> = ({ text, sub, x = 130, y = 260, size: rawSize = 110, color = C.white, align = "left", width = 1660 }) => {
   const { f, vis } = useBeat();
+  const size = rawSize * TEXT_SCALE;
   return (
     <div style={{ position: "absolute", left: x, top: y, width, textAlign: align, opacity: vis, transform: `translateY(${(1 - ramp(f, 0, 8)) * 26}px)` }}>
       <div style={{ fontFamily: FONT, fontWeight: 800, fontSize: size, lineHeight: 1.03, color, whiteSpace: "pre-line", textShadow: shadow }}>{text}</div>
@@ -111,8 +113,9 @@ export const Num: React.FC<{
   count?: number;
   align?: "left" | "center";
   width?: number;
-}> = ({ value, from = 0, decimals = 0, prefix = "", suffix = "", label, x = 130, y = 250, size = 210, color = HUD, count = 26, align = "left", width = 1660 }) => {
+}> = ({ value, from = 0, decimals = 0, prefix = "", suffix = "", label, x = 130, y = 250, size: rawSize = 210, color = HUD, count = 26, align = "left", width = 1660 }) => {
   const { f, vis } = useBeat();
+  const size = rawSize * TEXT_SCALE;
   const v = interpolate(f, [0, count], [from, value], { extrapolateRight: "clamp" });
   const txt = v.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
   return (
@@ -131,12 +134,13 @@ export const Lines: React.FC<{ items: string[]; x?: number; y?: number; size?: n
   items,
   x = 130,
   y = 280,
-  size = 44,
+  size: rawSize = 44,
   color = HUD,
   gap = 14,
   highlight = -1,
 }) => {
   const { f, vis } = useBeat();
+  const size = rawSize * 0.85;
   return (
     <div style={{ position: "absolute", left: x, top: y, opacity: vis }}>
       {items.map((t, i) => (
@@ -222,6 +226,8 @@ export const Stamp: React.FC<{ text: string; color?: string; x?: number; y?: num
 
 export const Chip: React.FC<{ level: "LOGGED" | "REPORTED" | "MYTH"; source: string; x?: number; y?: number }> = ({ level, source, x = 420, y = 912 }) => {
   const { vis } = useBeat();
+  // The owner removed on-screen evidence labels (17 Nov 2026). Sources live in the script and description.
+  if (level) return null;
   const col = level === "LOGGED" ? HUD : level === "REPORTED" ? C.accent : C.red;
   return (
     <div style={{ position: "absolute", left: x, top: y, opacity: vis, display: "flex", alignItems: "center", gap: 14 }}>
@@ -278,7 +284,7 @@ export const Ecg: React.FC<{ bpm: number; x?: number; y?: number; w?: number; co
 };
 
 // Side-view crocodile silhouette, 1000 units long, snout at the left.
-export const CrocSide: React.FC<{ x: number; y: number; scale?: number; flip?: boolean; color?: string; rotate?: number; opacity?: number; plates?: number; tail?: number }> = ({
+export const CrocSide: React.FC<{ x: number; y: number; scale?: number; flip?: boolean; color?: string; rotate?: number; opacity?: number; plates?: number; tail?: number; jaw?: number }> = ({
   x,
   y,
   scale = 1,
@@ -288,16 +294,20 @@ export const CrocSide: React.FC<{ x: number; y: number; scale?: number; flip?: b
   opacity = 1,
   plates = 0,
   tail = 0,
+  jaw = 0,
 }) => (
   <svg style={{ position: "absolute", left: 0, top: 0, overflow: "visible", opacity }} width={1} height={1}>
     <g transform={`translate(${x} ${y}) rotate(${rotate}) scale(${flip ? -scale : scale} ${scale})`}>
       <path d="M 390 20 L 432 20 L 452 70 L 484 74 L 484 86 L 410 86 L 394 58 Z" fill="#3e4730" />
       <path d="M 630 22 L 690 18 L 706 68 L 742 72 L 742 86 L 660 86 L 640 56 Z" fill="#3e4730" />
       <path
-        d={`M 0 -18 Q 12 -36 34 -34 L 160 -40 Q 210 -64 250 -62 L 300 -58 Q 330 -68 360 -66 Q 440 -92 520 -86 Q 590 -84 640 -74 L 720 -60 Q 800 ${-48 + tail * 0.4} 880 ${-30 + tail} L 1000 ${-8 + tail * 1.6} L 1000 ${tail * 1.6} Q 900 ${4 + tail} 860 ${6 + tail * 0.8} L 720 20 Q 660 34 600 34 L 420 34 Q 350 32 300 22 L 160 6 L 10 -4 Z`}
+        d={`M 0 -18 Q 12 -36 34 -34 L 160 -40 Q 210 -64 250 -62 L 300 -58 Q 330 -68 360 -66 Q 440 -92 520 -86 Q 590 -84 640 -74 L 720 -60 Q 800 ${-48 + tail * 0.4} 880 ${-30 + tail} L 1000 ${-8 + tail * 1.6} L 1000 ${tail * 1.6} Q 900 ${4 + tail} 860 ${6 + tail * 0.8} L 720 20 Q 660 34 600 34 L 420 34 Q 350 32 300 22 L 262 -8 L 6 -11 Z`}
         fill={color}
       />
-      <path d="M 6 -11 L 258 -8" stroke="#2c331f" strokeWidth={4} />
+      <g transform={`rotate(${-jaw} 262 -4)`}>
+        <path d="M 8 -9 L 262 -6 L 300 22 L 160 8 L 12 -2 Z" fill="#48522f" />
+        {jaw > 3 ? Array.from({ length: 14 }, (_, i) => <path key={i} d={`M ${20 + i * 16} -8 l 5 -9 l 5 9 Z`} fill="#efe8cf" />) : null}
+      </g>
       {Array.from({ length: 16 }, (_, i) => (
         <path key={i} d={`M ${18 + i * 15} -10 l 5 9 l 5 -9 Z`} fill="#efe8cf" />
       ))}
