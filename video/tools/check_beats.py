@@ -6,11 +6,13 @@ Exits non-zero if any gap is longer than the limit.
 """
 import glob, json, re, sys
 
+NAME = next((a.split("=")[1] for a in sys.argv if a.startswith("--video=")), "octopus")
+sys.argv = [a for a in sys.argv if not a.startswith("--video=")]
 LIMIT = float(sys.argv[1]) if len(sys.argv) > 1 else 5.0
-PATTERN = sys.argv[2] if len(sys.argv) > 2 else "src/octopus/scenes*.tsx"  # which scene files to check
+PATTERN = sys.argv[2] if len(sys.argv) > 2 else f"src/{NAME}/scenes*.tsx"  # which scene files to check
 UNTIL = {"02": 13.6} if "proto" in PATTERN else {}  # the prototype uses only the start of scene 2
 norm = lambda s: re.sub(r"[^a-z0-9]+", "", s.lower())
-timing = json.load(open("src/octopus/timing.json"))
+timing = json.load(open(f"src/{NAME}/timing.json"))
 cues = {}
 for path in sorted(glob.glob(PATTERN)):
     for num, phrase, nth in re.findall(r'\bc(\d+)\("([^"]+)"(?:,\s*(\d+))?\)', open(path).read()):

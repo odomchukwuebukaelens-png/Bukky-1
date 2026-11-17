@@ -3,9 +3,11 @@
 import glob, json, re, sys
 
 norm = lambda s: re.sub(r"[^a-z0-9]+", "", s.lower())
-timing = json.load(open("src/octopus/timing.json"))
+NAME = next((a.split("=")[1] for a in sys.argv if a.startswith("--video=")), "octopus")
+sys.argv = [a for a in sys.argv if not a.startswith("--video=")]
+timing = json.load(open(f"src/{NAME}/timing.json"))
 bad = 0
-for path in sorted(glob.glob("src/octopus/scenes*.tsx")):
+for path in sorted(glob.glob(f"src/{NAME}/scenes*.tsx")):
     src = open(path).read()
     for num, phrase in re.findall(r'\bc(\d+)\("([^"]+)"', src):
         key = f"{int(num):02d}"
