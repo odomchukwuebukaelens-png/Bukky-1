@@ -18,7 +18,7 @@ The owner approved this style on 16 Nov 2026 for all videos after the octopus on
 - **A new visual device every scene.** Do not reuse "character on a background plus a caption". Rotate through scans, gauges, scale comparisons, maps, counters, split screens, cutaways and licensed real footage.
 - **Media mix:** real footage or photos for the real animal, animation for what cameras cannot show. The owner requires footage that is free of copyright restrictions: use public-domain or free-licence sources only (for example NOAA, Wikimedia Commons CC0/public domain, Pexels, Pixabay), and record each clip's source and licence in `video/footage/SOURCES.md`. Never use clips from other channels.
 - **Open with a promise:** a hook in the first 15 seconds, the question by 30 seconds, then a short on-screen list of what the dive will reveal.
-- **Sound:** a continuous instrumental music bed under the voice (no human voice in the music); both references have almost no silent moments. The owner supplies music from Google Flow Music. Do not spend ai33.pro credits on music.
+- **Sound:** a continuous instrumental music bed under the voice (no human voice in the music); both references have almost no silent moments. For the crocodile video the owner allowed music from ai33.pro (17 Nov 2026); for later videos the owner generates the music and sends it, so do not spend ai33.pro credits on music unless told to.
 - Type: Montserrat 800 for headlines, a monospace face for instrument readouts. Colour: deep teal, yellow accent, HUD cyan.
 
 ## Workflow
@@ -26,4 +26,5 @@ The owner approved this style on 16 Nov 2026 for all videos after the octopus on
 1. Script in `video/script/NN-name.md`, one `## N. Title` section per scene, `**Visual:**` notes, `[CHECK]` on any claim without a primary source.
 2. `python3 tools/voiceover.py script/<file> <name>` generates per-scene audio and word timings.
 3. Scenes cue visuals to spoken phrases with `makeCue`; `tools/check_cues.py` and `tools/check_beats.py` validate them.
-4. Review stills with `tools/stills.mjs`, then the owner renders on the pod.
+4. Review stills with `tools/stills.mjs`, then the owner renders on the pod with `bash render.sh <Composition>` (`Main` = octopus, `Croc` = crocodile).
+5. Checks take the video name: `python3 tools/check_cues.py --video=croc` and `python3 tools/check_beats.py --video=croc 5`.

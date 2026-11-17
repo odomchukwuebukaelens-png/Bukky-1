@@ -41,7 +41,7 @@ export const Hud: React.FC<{ start: number; depth?: number; pulse?: number; dur:
   const beat = Math.max(0, Math.sin((f / FPS) * (pulse / 60) * Math.PI * 2));
   return (
     <>
-      <Readout label="DEPTH" value={`${(depth + Math.sin(f * 0.05) * 0.02).toFixed(1)} M`} x={120} y={84} on={1} />
+      <Readout label="DEPTH" value={`${Math.max(0, depth + Math.sin(f * 0.05) * 0.02).toFixed(1)} M`} x={120} y={84} on={1} />
       <AirGauge bar={196 - (start + f / FPS) * 0.11} on={1} />
       <Readout label="DIVE TIME" value={`${String(mm).padStart(2, "0")}:${String(ss).padStart(2, "0")}`} x={120} y={900} on={1} />
       <div style={{ position: "absolute", right: 120, top: 900, textAlign: "right" }}>

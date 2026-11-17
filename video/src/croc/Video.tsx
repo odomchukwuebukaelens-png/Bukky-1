@@ -7,8 +7,10 @@ import { C, FPS } from "../kit/theme";
 import { ramp } from "../kit/ui";
 import { cues, type SP } from "./common";
 import * as A from "./scenesA";
+import * as Bs from "./scenesB";
+import * as Cs from "./scenesC";
 
-const ALL: Record<string, React.FC<SP>> = { ...(A as unknown as Record<string, React.FC<SP>>) };
+const ALL: Record<string, React.FC<SP>> = { ...(A as unknown as Record<string, React.FC<SP>>), ...(Bs as unknown as Record<string, React.FC<SP>>), ...(Cs as unknown as Record<string, React.FC<SP>>) };
 const sceneFor = (key: string) => ALL[`S${key}`];
 
 const END_CARD = 10 * FPS;

@@ -232,15 +232,15 @@ export const S10: React.FC<SP> = ({ dur, start }) => {
       <ScanBg tint="#0b1210" />
       {showPaths || showRun ? (
         <Svg>
-          <rect x={1560} y={160} width={360} height={840} fill="#2a2a16" opacity={0.9} />
-          <line x1={1560} y1={160} x2={1560} y2={1000} stroke={HUD} strokeWidth={4} strokeDasharray="12 10" />
+          <rect x={1560} y={250} width={360} height={620} fill="#2a2a16" opacity={0.9} />
+          <line x1={1560} y1={250} x2={1560} y2={870} stroke={HUD} strokeWidth={4} strokeDasharray="12 10" />
           {showPaths ? <polyline points={zpts.slice(0, n).map((p) => p.join(",")).join(" ")} stroke={C.accent} strokeWidth={10} fill="none" strokeLinejoin="round" /> : null}
           {showRun ? <line x1={1500} y1={700} x2={1500 - sp * 1100} y2={700} stroke={HUD} strokeWidth={12} /> : null}
           {showRun ? <circle cx={1500 - sp * 1100} cy={700} r={26} fill={HUD} /> : null}
           {showPaths ? <circle cx={zpts[n - 1][0]} cy={zpts[n - 1][1]} r={24} fill={C.accent} /> : null}
         </Svg>
       ) : null}
-      {(showPaths || showRun) ? <div style={{ position: "absolute", left: 1600, top: 190, fontFamily: MONO, fontWeight: 700, fontSize: 30, color: HUD, letterSpacing: 2 }}>WATER</div> : null}
+      {(showPaths || showRun) ? <div style={{ position: "absolute", left: 1600, top: 270, fontFamily: MONO, fontWeight: 700, fontSize: 30, color: HUD, letterSpacing: 2 }}>WATER</div> : null}
       {f >= land && f < adult ? (
         <>
           <Svg>
@@ -290,10 +290,10 @@ export const S11: React.FC<SP> = ({ dur, start }) => {
   return (
     <AbsoluteFill style={{ background: "#0d0b07" }}>
       <AbsoluteFill style={{ opacity: f < real ? 1 : 1 - ramp(f, real, real + 10) }}>
-        <div style={{ position: "absolute", left: 1040, top: 190, width: 700, height: 760, background: "#d9cba6", transform: `rotate(${3 + Math.sin(f * 0.01)}deg)`, boxShadow: "0 20px 60px #000", padding: 50, boxSizing: "border-box" }}>
+        <div style={{ position: "absolute", left: 1040, top: 200, width: 680, height: 640, background: "#d9cba6", transform: `rotate(${3 + Math.sin(f * 0.01)}deg)`, boxShadow: "0 20px 60px #000", padding: 50, boxSizing: "border-box" }}>
           <div style={{ fontFamily: MONO, fontWeight: 700, fontSize: 30, color: "#3a2f1c", letterSpacing: 2 }}>WAR REPORT</div>
           <div style={{ fontFamily: MONO, fontWeight: 700, fontSize: 24, color: "#5a4a2e", marginTop: 10 }}>RAMREE ISLAND · 1945</div>
-          {Array.from({ length: 13 }, (_, i) => (
+          {Array.from({ length: 10 }, (_, i) => (
             <div key={i} style={{ height: 14, marginTop: 26, width: `${60 + random(`ln${i}`) * 40}%`, background: "#a8997a", opacity: ramp(f, 20 + i * 8, 30 + i * 8) }} />
           ))}
         </div>
