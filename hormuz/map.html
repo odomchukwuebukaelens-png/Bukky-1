@@ -1,0 +1,285 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:IB;src:url(file:///usr/share/fonts/opentype/inter/Inter-Bold.otf)}
+@font-face{font-family:IS;src:url(file:///usr/share/fonts/opentype/inter/Inter-SemiBold.otf)}
+@font-face{font-family:IM;src:url(file:///usr/share/fonts/opentype/inter/Inter-Medium.otf)}
+@font-face{font-family:IXB;src:url(file:///usr/share/fonts/opentype/inter/InterDisplay-Black.otf)}
+html,body{margin:0;background:#000}
+</style>
+<script src="node_modules/d3-array/dist/d3-array.min.js"></script>
+<script src="node_modules/d3-geo/dist/d3-geo.min.js"></script>
+<script src="node_modules/topojson-client/dist/topojson-client.min.js"></script>
+</head><body><canvas id="c" width="1920" height="1080"></canvas>
+<script>
+const W = 1920, H = 1080, cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const C = {
+  sea: '#07101d', sea2: '#0c1a2e', grid: 'rgba(90,140,200,0.07)',
+  land: '#18202c', border: '#2c3a4f', coast: '#3a4c66',
+  iran: '#5a1f24', iranStroke: '#e0484f',
+  gulf: '#1f3a4a', gulfStroke: '#3fb6c9',
+  accent: '#ffb020', red: '#ff4d57', cyan: '#46d4e6', text: '#e8eef7', dim: '#8a9ab3'
+};
+const GULF_IDS = new Set(['512', '784', '682', '634', '414', '048', '368']);
+let land, countries, borders;
+
+async function init() {
+  const topo = await (await fetch('node_modules/world-atlas/countries-10m.json')).json();
+  countries = topojson.feature(topo, topo.objects.countries).features;
+  borders = topojson.mesh(topo, topo.objects.countries, (a, b) => a !== b);
+  land = topojson.feature(topo, topo.objects.land);
+  await Promise.all(['IB', 'IS', 'IM', 'IXB'].map(f => document.fonts.load(`40px ${f}`)));
+}
+
+// ---------- helpers ----------
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const ease = x => { x = clamp(x); return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+const prog = (t, a, b) => clamp((t - a) / (b - a));
+const fade = (t, a, b, c, d) => Math.min(ease(prog(t, a, b)), 1 - ease(prog(t, c, d)));
+const lerp = (a, b, k) => a + (b - a) * k;
+
+// camera keyframes: [time, lon, lat, scale]
+const CAM = [
+  [0, 50, 27, 1150], [3.2, 52, 26.5, 1400],
+  [6.2, 54.6, 26.4, 5200],
+  [7.2, 55.2, 26.4, 6200],
+  [9.6, 56.5, 26.45, 17500],
+  [11.0, 56.55, 26.4, 17800],
+  [12.0, 55.85, 26.3, 18500],
+  [14.2, 55.95, 26.3, 19000],
+  [16.6, 73, 31, 760], [19, 73.5, 31, 735]
+];
+function camera(t) {
+  let i = 0;
+  while (i < CAM.length - 2 && t > CAM[i + 1][0]) i++;
+  const [t0, x0, y0, s0] = CAM[i], [t1, x1, y1, s1] = CAM[i + 1];
+  const k = ease(prog(t, t0, t1));
+  return { lon: lerp(x0, x1, k), lat: lerp(y0, y1, k), s: Math.exp(lerp(Math.log(s0), Math.log(s1), k)) };
+}
+
+function text(str, x, y, { font = 'IB', size = 40, color = C.text, align = 'left', alpha = 1, track = 0, shadow = true, base = 'alphabetic' } = {}) {
+  if (alpha <= 0) return;
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  ctx.font = `${size}px ${font}`;
+  ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = base;
+  if ('letterSpacing' in ctx) ctx.letterSpacing = `${track}px`;
+  if (shadow) { ctx.shadowColor = 'rgba(0,0,0,0.85)'; ctx.shadowBlur = 14; }
+  ctx.fillText(str, x, y);
+  ctx.restore();
+}
+
+function lineAlong(pts, k) { // partial polyline, pts in screen space
+  if (k <= 0) return [pts[0]];
+  const segs = []; let total = 0;
+  for (let i = 1; i < pts.length; i++) { const d = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); segs.push(d); total += d; }
+  let rem = total * clamp(k); const out = [pts[0]];
+  for (let i = 1; i < pts.length; i++) {
+    if (rem >= segs[i - 1]) { out.push(pts[i]); rem -= segs[i - 1]; }
+    else { const f = rem / segs[i - 1]; out.push([lerp(pts[i - 1][0], pts[i][0], f), lerp(pts[i - 1][1], pts[i][1], f)]); break; }
+  }
+  return out;
+}
+function pointAt(pts, k) { const p = lineAlong(pts, k); return p[p.length - 1]; }
+
+// shipping lane centreline (approximate TSS through the strait)
+const LANE = [[57.55, 24.7], [57.35, 25.45], [56.98, 26.05], [56.68, 26.45], [56.45, 26.58], [56.2, 26.58], [55.9, 26.47], [55.4, 26.3], [54.6, 26.12]];
+function offsetLane(pts, d) { // offset in degrees perpendicular (screen-agnostic approx)
+  return pts.map((p, i) => {
+    const a = pts[Math.max(0, i - 1)], b = pts[Math.min(pts.length - 1, i + 1)];
+    const dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy);
+    return [p[0] - dy / L * d, p[1] + dx / L * d];
+  });
+}
+const LANE_IN = offsetLane(LANE, -0.04);   // northern lane, westbound into the Gulf
+const LANE_OUT = offsetLane(LANE, 0.04); // southern lane, eastbound out
+
+const DEST = [
+  { name: 'CHINA', ll: [121.5, 30.5], big: true, lab: [-18, 40, 'right'] },
+  { name: 'INDIA', ll: [72.8, 19.5], lab: [0, 44, 'center'] },
+  { name: 'JAPAN', ll: [139.8, 35.6], lab: [0, 46, 'center'] },
+  { name: 'S. KOREA', ll: [129.3, 35.5], lab: [0, -20, 'center'] },
+  { name: 'EUROPE', ll: [8, 48], lab: [0, -20, 'center'] }
+];
+
+function render(t) {
+  const cam = camera(t);
+  const proj = d3.geoMercator().center([cam.lon, cam.lat]).scale(cam.s).translate([W / 2, H / 2]).clipExtent([[-20, -20], [W + 20, H + 20]]);
+  const path = d3.geoPath(proj, ctx);
+  const P = ll => proj(ll);
+  const zoom = cam.s / 1150;
+
+  // sea
+  const g = ctx.createRadialGradient(W / 2, H / 2, 100, W / 2, H / 2, W * 0.75);
+  g.addColorStop(0, C.sea2); g.addColorStop(1, C.sea);
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+
+  // graticule
+  const step = cam.s > 8000 ? 1 : cam.s > 3000 ? 2 : 10;
+  ctx.beginPath(); path(d3.geoGraticule().step([step, step])());
+  ctx.strokeStyle = C.grid; ctx.lineWidth = 1; ctx.stroke();
+
+  // land
+  ctx.beginPath(); path(land); ctx.fillStyle = C.land; ctx.fill();
+
+  // highlights
+  const hl = ease(prog(t, 3.6, 5.2)) * (1 - 0.55 * ease(prog(t, 14.4, 16)));
+  if (hl > 0) {
+    for (const f of countries) {
+      const isIran = f.id === '364', isGulf = GULF_IDS.has(f.id);
+      if (!isIran && !isGulf) continue;
+      ctx.beginPath(); path(f);
+      ctx.globalAlpha = hl;
+      ctx.fillStyle = isIran ? C.iran : C.gulf; ctx.fill();
+      ctx.globalAlpha = hl * (isIran ? 0.9 : 0.55);
+      ctx.strokeStyle = isIran ? C.iranStroke : C.gulfStroke; ctx.lineWidth = isIran ? 2.2 : 1.4; ctx.stroke();
+      ctx.globalAlpha = 1;
+    }
+  }
+  // borders & coast
+  ctx.beginPath(); path(borders); ctx.strokeStyle = C.border; ctx.lineWidth = 1; ctx.stroke();
+  ctx.beginPath(); path(land); ctx.strokeStyle = C.coast; ctx.lineWidth = 1.1; ctx.stroke();
+
+  // ---------- Scene 1: title ----------
+  const a1 = fade(t, 0.3, 1.2, 3.2, 4.0);
+  if (a1 > 0) {
+    const pin = P([56.4, 26.5]);
+    const pr = (t * 0.9) % 1;
+    ctx.beginPath(); ctx.arc(pin[0], pin[1], 8 + pr * 40, 0, 7); ctx.strokeStyle = `rgba(255,176,32,${a1 * (1 - pr)})`; ctx.lineWidth = 3; ctx.stroke();
+    ctx.beginPath(); ctx.arc(pin[0], pin[1], 7, 0, 7); ctx.fillStyle = C.accent; ctx.globalAlpha = a1; ctx.fill(); ctx.globalAlpha = 1;
+    // dark band behind title
+    ctx.save(); ctx.globalAlpha = a1 * 0.75;
+    const bg = ctx.createLinearGradient(0, 0, 0, H); bg.addColorStop(0.55, 'rgba(0,0,0,0)'); bg.addColorStop(1, 'rgba(0,0,0,0.95)');
+    ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H); ctx.restore();
+    const sl = (1 - ease(prog(t, 0.3, 1.4))) * 30;
+    text('GEOPOLITICS  ·  ENERGY', 120, 790 + sl, { font: 'IS', size: 30, color: C.accent, alpha: a1, track: 6 });
+    text('THE STRAIT OF HORMUZ', 112, 900 + sl, { font: 'IXB', size: 116, alpha: a1, track: 1 });
+    text("The world's most important oil chokepoint", 120, 965 + sl, { font: 'IM', size: 40, color: C.dim, alpha: fade(t, 0.8, 1.8, 3.2, 4.0) });
+  }
+
+  // ---------- Scene 2: region labels ----------
+  const a2 = fade(t, 4.4, 5.4, 8.6, 9.4);
+  if (a2 > 0) {
+    const L = [['IRAN', [53.6, 28.9], 54, C.iranStroke], ['SAUDI ARABIA', [49.0, 24.2], 40, C.text], ['UAE', [54.4, 23.8], 40, C.text],
+      ['QATAR', [51.2, 25.35], 30, C.text], ['OMAN', [57.4, 23.0], 40, C.text]];
+    for (const [n, ll, sz, col] of L) { const p = P(ll); text(n, p[0], p[1], { size: sz, color: col, align: 'center', alpha: a2, track: 5 }); }
+    const W2 = [['PERSIAN GULF', [52.0, 26.9]], ['GULF OF OMAN', [58.6, 24.6]]];
+    for (const [n, ll] of W2) { const p = P(ll); text(n, p[0], p[1], { font: 'IM', size: 30, color: C.cyan, align: 'center', alpha: a2 * 0.85, track: 8 }); }
+  }
+
+  // ---------- Scene 3: strait detail ----------
+  const laneK = ease(prog(t, 8.0, 10.2));
+  const laneFade = 1 - ease(prog(t, 14.4, 15.4));
+  if (laneK > 0 && laneFade > 0) {
+    for (const [lane, col, dir] of [[LANE_IN, C.cyan, -1], [LANE_OUT, C.accent, 1]]) {
+      const pts = lane.map(P);
+      const seq = dir === 1 ? pts : [...pts].reverse();
+      const part = lineAlong(seq, laneK);
+      ctx.save(); ctx.globalAlpha = 0.9 * laneFade;
+      ctx.setLineDash([18, 12]); ctx.lineDashOffset = -t * 40 * dir;
+      ctx.strokeStyle = col; ctx.lineWidth = 3.5;
+      ctx.beginPath(); part.forEach((p, i) => i ? ctx.lineTo(...p) : ctx.moveTo(...p)); ctx.stroke();
+      ctx.restore();
+      // tankers
+      const nT = 6;
+      for (let i = 0; i < nT; i++) {
+        const k = ((t - 8.5) * 0.045 + i / nT) % 1;
+        if (t < 8.5 || k > laneK) continue;
+        const p = pointAt(seq, k), q = pointAt(seq, Math.min(1, k + 0.004));
+        const ang = Math.atan2(q[1] - p[1], q[0] - p[0]);
+        ctx.save(); ctx.translate(p[0], p[1]); ctx.rotate(ang); ctx.globalAlpha = laneFade;
+        ctx.shadowColor = col; ctx.shadowBlur = 16;
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath(); ctx.moveTo(14, 0); ctx.lineTo(6, -5); ctx.lineTo(-14, -5); ctx.lineTo(-14, 5); ctx.lineTo(6, 5); ctx.closePath(); ctx.fill();
+        ctx.restore();
+      }
+    }
+    // lane labels
+    const al = fade(t, 10.0, 10.6, 11.0, 11.5);
+    ctx.save(); ctx.globalAlpha = al * 0.7; ctx.fillStyle = 'rgba(3,8,16,0.85)'; ctx.fillRect(110, 760, 560, 150); ctx.restore();
+    ctx.save(); ctx.globalAlpha = al; ctx.lineWidth = 4; ctx.setLineDash([14, 9]);
+    ctx.strokeStyle = C.cyan; ctx.beginPath(); ctx.moveTo(140, 815); ctx.lineTo(210, 815); ctx.stroke();
+    ctx.strokeStyle = C.accent; ctx.beginPath(); ctx.moveTo(140, 870); ctx.lineTo(210, 870); ctx.stroke(); ctx.restore();
+    text('INBOUND  — into the Gulf', 235, 825, { font: 'IS', size: 28, color: C.text, alpha: al });
+    text('OUTBOUND — to world markets', 235, 880, { font: 'IS', size: 28, color: C.text, alpha: al });
+  }
+
+  // narrowest-width bracket (Musandam tip -> Larak Island, Iran)
+  const aw = fade(t, 9.6, 10.6, 14.2, 15.0), awl = fade(t, 9.9, 10.7, 10.9, 11.4);
+  if (aw > 0) {
+    const a = P([56.37, 26.40]), b = P([56.30, 26.80]);
+    const k = ease(prog(t, 9.6, 10.6));
+    const m = [lerp(a[0], b[0], .5), lerp(a[1], b[1], .5)];
+    const e1 = [lerp(m[0], a[0], k), lerp(m[1], a[1], k)], e2 = [lerp(m[0], b[0], k), lerp(m[1], b[1], k)];
+    ctx.save(); ctx.globalAlpha = aw; ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 2.5;
+    ctx.beginPath(); ctx.moveTo(...e1); ctx.lineTo(...e2); ctx.stroke();
+    for (const e of [e1, e2]) { ctx.beginPath(); ctx.moveTo(e[0] - 12, e[1]); ctx.lineTo(e[0] + 12, e[1]); ctx.stroke(); }
+    ctx.restore();
+    text('33 km', b[0] - 30, b[1] - 40, { size: 58, align: 'right', alpha: awl });
+    text('(21 mi) AT ITS NARROWEST', b[0] - 30, b[1] - 2, { font: 'IS', size: 24, color: C.text, align: 'right', alpha: awl, track: 2 });
+    const pm = P([56.15, 26.05]);
+    text('MUSANDAM (OMAN)', pm[0], pm[1], { font: 'IS', size: 24, color: C.text, align: 'center', alpha: awl * 0.8, track: 3 });
+    const pl = P([56.95, 27.05]);
+    text('IRAN', pl[0], pl[1], { font: 'IB', size: 40, color: C.iranStroke, align: 'center', alpha: aw * 0.9, track: 5 });
+  }
+
+  // ---------- Scene 4: stats panel ----------
+  const a4 = fade(t, 11.0, 11.7, 14.4, 15.0);
+  if (a4 > 0) {
+    ctx.save(); ctx.globalAlpha = a4 * 0.82;
+    const gr = ctx.createLinearGradient(0, 0, 900, 0); gr.addColorStop(0, 'rgba(3,8,16,0.96)'); gr.addColorStop(1, 'rgba(3,8,16,0)');
+    ctx.fillStyle = gr; ctx.fillRect(0, 0, 1000, H); ctx.restore();
+    ctx.save(); ctx.globalAlpha = a4; ctx.fillStyle = C.accent; ctx.fillRect(110, 300, 6, 470); ctx.restore();
+    const n = 20 * ease(prog(t, 11.2, 12.8));
+    text('EVERY DAY', 150, 345, { font: 'IS', size: 28, color: C.accent, alpha: a4, track: 6 });
+    text(`${n.toFixed(1)}M`, 145, 480, { font: 'IXB', size: 150, alpha: a4 });
+    text('barrels of oil pass through', 150, 535, { font: 'IM', size: 34, color: C.dim, alpha: a4 });
+    const a4b = fade(t, 12.6, 13.2, 14.4, 15.0);
+    const pct = Math.round(20 * ease(prog(t, 12.6, 13.6)));
+    text(`≈${pct}%`, 145, 655, { font: 'IXB', size: 86, color: C.accent, alpha: a4b });
+    text('of global oil consumption', 150, 705, { font: 'IM', size: 34, color: C.dim, alpha: a4b });
+    text('+ about 1/5 of the world\'s LNG trade', 150, 760, { font: 'IM', size: 30, color: C.cyan, alpha: fade(t, 13.2, 13.8, 14.4, 15.0) });
+  }
+
+  // ---------- Scene 5: flows to markets ----------
+  const a5 = ease(prog(t, 15.6, 16.4));
+  if (a5 > 0) {
+    const o = P([56.5, 26.4]);
+    DEST.forEach((d, i) => {
+      const p = P(d.ll);
+      const k = ease(prog(t, 15.8 + i * 0.22, 17.2 + i * 0.22));
+      const mx = (o[0] + p[0]) / 2, my = (o[1] + p[1]) / 2 - Math.hypot(p[0] - o[0], p[1] - o[1]) * 0.28;
+      const pts = []; for (let j = 0; j <= 60; j++) { const u = j / 60; pts.push([(1 - u) ** 2 * o[0] + 2 * (1 - u) * u * mx + u * u * p[0], (1 - u) ** 2 * o[1] + 2 * (1 - u) * u * my + u * u * p[1]]); }
+      const part = lineAlong(pts, k);
+      const col = d.name === 'EUROPE' ? C.cyan : C.accent;
+      ctx.save(); ctx.shadowColor = col; ctx.shadowBlur = 18; ctx.strokeStyle = col; ctx.lineWidth = d.big ? 5 : 3.2; ctx.lineCap = 'round';
+      ctx.beginPath(); part.forEach((q, j) => j ? ctx.lineTo(...q) : ctx.moveTo(...q)); ctx.stroke(); ctx.restore();
+      if (k > 0.98) {
+        const la = ease(prog(t, 17.2 + i * 0.22, 17.6 + i * 0.22));
+        ctx.beginPath(); ctx.arc(p[0], p[1], 7, 0, 7); ctx.fillStyle = col; ctx.globalAlpha = la; ctx.fill(); ctx.globalAlpha = 1;
+        const [dx, dy, al2] = d.lab;
+        text(d.name, p[0] + dx, p[1] + dy, { size: 30, align: al2, alpha: la, track: 4 });
+      }
+    });
+    const pr = (t * 0.9) % 1;
+    ctx.beginPath(); ctx.arc(o[0], o[1], 8 + pr * 34, 0, 7); ctx.strokeStyle = `rgba(255,77,87,${a5 * (1 - pr)})`; ctx.lineWidth = 3; ctx.stroke();
+    ctx.beginPath(); ctx.arc(o[0], o[1], 8, 0, 7); ctx.fillStyle = C.red; ctx.fill();
+    const ab = ease(prog(t, 16.6, 17.4));
+    ctx.save(); ctx.globalAlpha = ab * 0.8;
+    const bg = ctx.createLinearGradient(0, 0, 0, H); bg.addColorStop(0.6, 'rgba(0,0,0,0)'); bg.addColorStop(1, 'rgba(0,0,0,0.95)');
+    ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H); ctx.restore();
+    text('84%', 120, 960, { font: 'IXB', size: 130, color: C.accent, alpha: ab });
+    text('of the crude that passes through', 440, 905, { font: 'IM', size: 40, alpha: ab });
+    text('Hormuz is headed for Asia', 440, 958, { font: 'IB', size: 40, alpha: ab });
+  }
+
+  // persistent source + vignette
+  const vg = ctx.createRadialGradient(W / 2, H / 2, H * 0.45, W / 2, H / 2, W * 0.7);
+  vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(0,0,0,0.55)');
+  ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
+  text('Data: U.S. EIA (2024). Shipping lanes approximate.', W - 40, H - 30, { font: 'IM', size: 20, color: 'rgba(200,210,225,0.55)', align: 'right', shadow: false });
+}
+window.ready = init();
+window.renderFrame = t => { render(t); };
+window.grab = () => cv.toDataURL('image/jpeg', 0.95);
+</script></body></html>
