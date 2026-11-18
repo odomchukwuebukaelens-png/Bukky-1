@@ -10,7 +10,7 @@ What Happens When a Saltwater Crocodile Sees You First
 
 You're waist-deep in a quiet river at dusk. Twenty metres away, two small bumps sit on the water. They've been watching you since you stepped in.
 
-The saltwater crocodile is the largest reptile alive and has the strongest bite ever measured. It can hold its breath for an hour, cross oceans on the currents, and wait for weeks for the right moment. So what actually happens when it sees you before you see it, and how do people survive?
+The saltwater crocodile is the largest reptile alive and has the strongest bite ever measured. It can stay underwater for long stretches, cross oceans on the currents, and go months without a meal. So what actually happens when it sees you before you see it, and how do people survive?
 
 CHAPTERS
 0:00 Two bumps on the water
