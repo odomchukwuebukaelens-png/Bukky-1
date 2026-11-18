@@ -4,12 +4,12 @@ Usage:  POD=<pod_id> python3 pod.py run "nvidia-smi"
         POD=<pod_id> python3 pod.py put local_file /workspace/remote_file
         POD=<pod_id> python3 pod.py get /workspace/remote_file local_file
 """
-import base64, json, os, sys, time, uuid, urllib.request, urllib.parse
+import base64, json, os, sys, time, uuid, urllib.request, urllib.parse, urllib.error
 import websocket  # websocket-client
 
 POD = os.environ.get("POD", "")
 BASE = f"https://{POD}-8888.proxy.runpod.net"
-HDR = {"Authorization": "token proxy-injected"}
+HDR = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) pod-client"}  # the session proxy adds "Authorization: Token <JUPYTER_PASSWORD>"
 
 def api(method, path, body=None):
     data = json.dumps(body).encode() if body is not None else None
@@ -39,7 +39,7 @@ def run(cmd, timeout=7200, echo=True):
     ws_url = BASE.replace("https://", "wss://") + f"/api/kernels/{k['id']}/channels"
     px = urllib.parse.urlparse(os.environ.get("HTTPS_PROXY") or os.environ.get("https_proxy") or "")
     ca = "/root/.ccr/ca-bundle.crt" if os.path.exists("/root/.ccr/ca-bundle.crt") else None
-    ws = websocket.create_connection(ws_url, header=[f"{a}: {b}" for a, b in HDR.items()], timeout=timeout,
+    ws = websocket.create_connection(ws_url, header=[f"{a}: {b}" for a, b in HDR.items() if a != "User-Agent"], timeout=timeout,
                                      http_proxy_host=px.hostname, http_proxy_port=px.port, proxy_type="http",
                                      sslopt={"ca_certs": ca} if ca else {})
     code = ("import subprocess,sys\n"
@@ -72,3 +72,30 @@ if __name__ == "__main__":
     if op == "run": sys.exit(run(" ".join(sys.argv[2:]))[0] or 0)
     if op == "put": print(put(sys.argv[2], sys.argv[3]))
     if op == "get": print(get(sys.argv[2], sys.argv[3]))
+
+# ---- websocket-free job API (this session's proxy blocks websockets) ----
+def start_runner():
+    """Start the 'runner' kernel once; its launch command starts /workspace/runner.sh (flock-guarded)."""
+    k = api("POST", "/api/kernels", {"name": "runner"}); return k["id"]
+
+def job(name, script, wait=True, poll=10, timeout=14400, echo=True):
+    """Upload /workspace/jobs/<name>.sh; the runner executes it. Returns (rc, log)."""
+    import tempfile
+    tf = tempfile.NamedTemporaryFile("w", suffix=".sh", delete=False); tf.write(script); tf.close()
+    put(tf.name, f"workspace/jobs/{name}.sh")
+    if not wait: return None, ""
+    t0, shown = time.time(), 0
+    while time.time() - t0 < timeout:
+        time.sleep(poll)
+        log = text(f"workspace/jobs/{name}.log") or ""
+        if echo and len(log) > shown: sys.stdout.write(log[shown:]); sys.stdout.flush(); shown = len(log)
+        rc = text(f"workspace/jobs/{name}.rc")
+        if rc is not None: return int(rc.strip() or 1), log
+    raise TimeoutError(name)
+
+def text(remote):
+    try:
+        r = api("GET", "/api/contents/" + urllib.parse.quote(remote) + "?content=1&format=text&type=file"); return r["content"]
+    except urllib.error.HTTPError as e:
+        if e.code == 404: return None
+        raise

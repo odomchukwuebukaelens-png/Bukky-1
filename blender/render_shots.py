@@ -14,7 +14,7 @@ import dining_set as ds
 a = argparse.ArgumentParser()
 a.add_argument("--edl"); a.add_argument("--t0", type=float, default=0); a.add_argument("--t1", type=float, default=30)
 a.add_argument("--out"); a.add_argument("--res", default="1920x1080"); a.add_argument("--samples", type=int, default=24)
-a.add_argument("--gpu", action="store_true"); a.add_argument("--only", default="")
+a.add_argument("--gpu", action="store_true"); a.add_argument("--encode", action="store_true"); a.add_argument("--only", default="")
 args = a.parse_args(sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else [])
 FPS = 24
 
@@ -22,7 +22,9 @@ FPS = 24
 ALIAS = {"ECU_MOM_EYES": ("MCU_MOM_SPOON", 120, "mom_head"), "CU_MOM_SMILE": ("MCU_MOM_SPOON", 60, "mom_head"),
          "CU_DAD_TALK": ("CU_DAD", 55, "dad_head"), "ECU_DAD_TV_REFLECT": ("CU_DAD", 110, "dad_head"),
          "CU_YOU_MOUTH": ("WIDE_TABLE_POV", 24, None), "WIDE_POV_STARE": ("WIDE_TABLE_POV", 24, None),
-         "ECU_SIS_EYES": ("WIDE_TABLE_POV", 110, "sis_head"), "WIDE_TABLE_YOU": ("WIDE_TABLE", 22, None)}
+         "ECU_SIS_EYES": ("WIDE_TABLE_POV", 110, "sis_head"), "WIDE_TABLE_YOU": ("WIDE_TABLE", 22, None),
+         "LIVING_TV_DAD": ("CU_DAD", 40, "dad_head"), "SIS_STARE_CONTEST": ("CU_SIS", 70, "sis_head"),
+         "SIS_LAUGH": ("CU_SIS", 45, "sis_head")}
 
 # ---------- simple toon stand-in characters (replaced by AI art billboards later) ----------
 CHAR = {"dad": dict(seat=(-0.45, 1.05), yaw=180, body=(0.17, 0.33, 0.62), skin=(0.30, 0.17, 0.10), h=1.0),
@@ -99,6 +101,10 @@ def main():
     sc = ds.build(); cams = ds.add_cameras()
     w, h = map(int, args.res.split("x")); sc.render.resolution_x, sc.render.resolution_y = w, h
     sc.cycles.samples = args.samples; sc.render.image_settings.file_format = "PNG"
+    # speed: adaptive sampling, keep scene in memory between frames, denoise on GPU when available
+    sc.cycles.use_adaptive_sampling = True; sc.cycles.adaptive_threshold = 0.05
+    sc.render.use_persistent_data = True
+    if hasattr(sc.cycles, "denoising_use_gpu"): sc.cycles.denoising_use_gpu = True
     if args.gpu:
         pr = bpy.context.preferences.addons["cycles"].preferences
         for dev in ("OPTIX", "CUDA"):
@@ -134,6 +140,9 @@ def main():
             if o.name.startswith("chair_you"): o.hide_render = cam_name == "WIDE_TABLE_POV"
         sc.render.filepath = os.path.join(args.out, f"shot_{s['n']:03d}", "")
         bpy.ops.render.render(animation=True)
+        if args.encode:  # pack each shot as a small high-quality mp4 for download
+            d = os.path.join(args.out, f"shot_{s['n']:03d}")
+            os.system(f"ffmpeg -v error -y -framerate {FPS} -i {d}/%04d.png -c:v libx264 -crf 14 -preset fast -pix_fmt yuv420p {args.out}/shot_{s['n']:03d}.mp4")
         print(f"rendered shot {s['n']} {setup} ({nf} frames)", flush=True)
     json.dump(skipped, open(os.path.join(args.out, "skipped.json"), "w"))
     print("skipped (2D/other sets):", skipped)
