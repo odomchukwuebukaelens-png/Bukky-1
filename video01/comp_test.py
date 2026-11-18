@@ -56,7 +56,11 @@ def card_house(n, path):
             ImageDraw.Draw(im).rectangle([0, 0, W, H], outline=None)
         im.save(f"{path}/{f:04d}.png")
 
-TWO_D = {"KT_TEXT": lambda s, n, p: card_kt(s["note"].split("'")[1] if "'" in s["note"] else "DON'T.", n, p),
+def kt_text(note):
+    """Text between the first and last single quote: "'DON'T LOOK.' green" -> DON'T LOOK."""
+    a, b = note.find("'"), note.rfind("'")
+    return note[a + 1:b] if b > a >= 0 else "DON'T."
+TWO_D = {"KT_TEXT": lambda s, n, p: card_kt(kt_text(s["note"]), n, p),
          "SMASH_BLACK": lambda s, n, p: card_clock(n, p), "EXT_HOUSE_NIGHT": lambda s, n, p: card_house(n, p)}
 
 # ---- assemble a frame-exact sequence ----
