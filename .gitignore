@@ -7,3 +7,4 @@ renders/
 *.log
 video01/test_0-30.mp4
 video01/comp_tmp/
+video01/test2d_*.mp4
