@@ -52,6 +52,36 @@ def _outline(ob, thick=0.012):
     mod = ob.modifiers.new("outline", "SOLIDIFY"); mod.thickness = thick; mod.offset = 1
     mod.use_flip_normals = True; mod.material_offset = len(ob.data.materials) - 1
 
+def setup_outlines(sc, width=1.0, strength=1.0):
+    """Cartoon ink lines drawn in the compositor from depth + normal edges (GPU-render friendly, ~0.2s/frame).
+    Replaces Freestyle, which cost ~36s/frame on CPU."""
+    sc.render.use_freestyle = False
+    vl = sc.view_layers[0]; vl.use_pass_z = True; vl.use_pass_normal = True
+    sc.use_nodes = True; nt = sc.node_tree; nt.nodes.clear()
+    rl = nt.nodes.new("CompositorNodeRLayers"); comp = nt.nodes.new("CompositorNodeComposite")
+    # depth edges: Sobel on log-ish depth so near and far objects both get lines
+    dlog = nt.nodes.new("CompositorNodeMath"); dlog.operation = "LOGARITHM"; dlog.inputs[1].default_value = 2.718
+    nt.links.new(rl.outputs["Depth"], dlog.inputs[0])
+    dsob = nt.nodes.new("CompositorNodeFilter"); dsob.filter_type = "SOBEL"; nt.links.new(dlog.outputs[0], dsob.inputs["Image"])
+    dthr = nt.nodes.new("CompositorNodeMath"); dthr.operation = "GREATER_THAN"; dthr.inputs[1].default_value = 0.35 / strength
+    nt.links.new(dsob.outputs[0], dthr.inputs[0])
+    # normal edges (creases)
+    nsob = nt.nodes.new("CompositorNodeFilter"); nsob.filter_type = "SOBEL"; nt.links.new(rl.outputs["Normal"], nsob.inputs["Image"])
+    nbw = nt.nodes.new("CompositorNodeRGBToBW"); nt.links.new(nsob.outputs[0], nbw.inputs[0])
+    nthr = nt.nodes.new("CompositorNodeMath"); nthr.operation = "GREATER_THAN"; nthr.inputs[1].default_value = 1.2 / strength
+    nt.links.new(nbw.outputs[0], nthr.inputs[0])
+    lines = nt.nodes.new("CompositorNodeMath"); lines.operation = "MAXIMUM"; lines.use_clamp = True
+    nt.links.new(dthr.outputs[0], lines.inputs[0]); nt.links.new(nthr.outputs[0], lines.inputs[1])
+    # thicken a touch, soften edge
+    dil = nt.nodes.new("CompositorNodeDilateErode"); dil.mode = "FEATHER"; dil.distance = int(round(width))
+    nt.links.new(lines.outputs[0], dil.inputs[0])
+    clampf = nt.nodes.new("CompositorNodeMath"); clampf.operation = "MULTIPLY"; clampf.inputs[1].default_value = strength
+    clampf.use_clamp = True; nt.links.new(dil.outputs[0], clampf.inputs[0])
+    mix = nt.nodes.new("CompositorNodeMixRGB"); mix.blend_type = "MIX"; mix.use_clamp = True
+    mix.inputs[2].default_value = (*PAL["outline"], 1)
+    nt.links.new(clampf.outputs[0], mix.inputs[0]); nt.links.new(rl.outputs["Image"], mix.inputs[1])
+    nt.links.new(mix.outputs[0], comp.inputs["Image"])
+
 def box(name, size, loc, mat, outline=True, rot=(0, 0, 0)):
     bpy.ops.mesh.primitive_cube_add(size=1, location=loc, rotation=rot)
     ob = bpy.context.object; ob.name = name; ob.scale = size
@@ -102,14 +132,7 @@ def build():
     sc.view_settings.view_transform = "Standard"; sc.view_settings.look = "None"
     sc.render.fps = 24; sc.render.resolution_x = 1920; sc.render.resolution_y = 1080
     sc.cycles.max_bounces = 3; sc.cycles.diffuse_bounces = 2; sc.cycles.glossy_bounces = 0; sc.cycles.transparent_max_bounces = 8
-    # cartoon outlines: Freestyle (works in Cycles on CPU and GPU)
-    sc.render.use_freestyle = True; sc.render.line_thickness_mode = "RELATIVE"
-    vl = sc.view_layers[0]; vl.use_freestyle = True
-    ls = vl.freestyle_settings.linesets[0] if vl.freestyle_settings.linesets else vl.freestyle_settings.linesets.new("lines")
-    ls.select_silhouette = ls.select_border = ls.select_crease = True
-    if ls.linestyle is None: ls.linestyle = bpy.data.linestyles.new("ink")
-    ls.linestyle.color = PAL["outline"]; ls.linestyle.thickness = 2.6
-    vl.freestyle_settings.crease_angle = 2.4
+    setup_outlines(sc)
     w = bpy.data.worlds.new("World"); sc.world = w; w.use_nodes = True
     w.node_tree.nodes["Background"].inputs[0].default_value = (0.05, 0.07, 0.12, 1)
     w.node_tree.nodes["Background"].inputs[1].default_value = 0.6
