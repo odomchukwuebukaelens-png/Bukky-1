@@ -183,7 +183,18 @@ def build():
     bpy.ops.object.light_add(type="AREA", location=(0.9, 2.2, 1.6), rotation=(math.radians(90), 0, 0)); win = bpy.context.object
     win.name = "L_window"; win.data.size = 1.2; win.data.energy = 30
     mood("warm")
+    bake_modifiers()
     return sc
+
+def bake_modifiers():
+    """Apply bevel etc. once so frames don't re-evaluate modifiers (saves ~7s/frame of scene sync)."""
+    bpy.ops.object.select_all(action="DESELECT")
+    meshes = [o for o in bpy.data.objects if o.type == "MESH" and o.modifiers]
+    for o in meshes: o.select_set(True)
+    if meshes:
+        bpy.context.view_layer.objects.active = meshes[0]
+        bpy.ops.object.convert(target="MESH")
+    bpy.ops.object.select_all(action="DESELECT")
 
 MOODS = {  # key colour/energy, candle, window, world
     "warm":   dict(key=((1.0, 0.82, 0.6), 75), cand=((1.0, 0.6, 0.25), 8), win=((0.3, 0.45, 1.0), 12), world=0.45),

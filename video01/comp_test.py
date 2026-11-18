@@ -2,6 +2,7 @@
 python3 comp_test.py --t1 30 --renders renders/   (renders/shot_NNN.mp4 from blender/render_shots.py --encode)"""
 import argparse, json, os, subprocess, math, shutil
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+import art2d
 
 D = os.path.dirname(os.path.abspath(__file__)); P = lambda n: os.path.join(D, n)
 FONTS = os.path.join(D, "..", "assets", "fonts")
@@ -67,7 +68,9 @@ for s in edl:
     if n <= 0: continue
     src = f"{TMP}/s{s['n']:03d}"; os.makedirs(src)
     mp4 = os.path.join(args.renders, f"shot_{s['n']:03d}.mp4")
-    if os.path.exists(mp4):
+    if art2d.recipe(s["setup"], s["motion"], n, src):
+        kind = "2D-ART"
+    elif os.path.exists(mp4):
         subprocess.run(["ffmpeg", "-v", "error", "-i", mp4, "-vf", f"scale={W}:{H}", "-frames:v", str(n), f"{src}/%04d.png"], check=True)
         kind = "3D"
     elif s["setup"] in TWO_D:
