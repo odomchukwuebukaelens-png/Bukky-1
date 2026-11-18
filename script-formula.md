@@ -128,3 +128,21 @@ RULE 7  the rule "nobody was supposed to need"
 TWIST  pay off the plant; recontextualize; love or grief if possible
 ENDING  "So if ______ … ______. But if ______, ______." + a 2–6 word final line
 ```
+
+---
+
+## Channel packaging notes (from your research)
+
+- **Thumbnail logic:** a coloured panel on the left with a 2-word command, a curved arrow, and a framed monster on the right with glowing eyes and an oversized grin. **For our channel:** use our own colour (sickly green or yellow, not red), our own logo and our own monster designs.
+- **Topic areas that work:** trusted figures turning wrong (teacher, dentist, mom), animals at night, crowds acting in unison, everyday tech (AirDrop, doorbell cam).
+- **What can set us apart:** Nigerian everyday settings (danfo, market, generator at night, church), plus workplaces, public transport, and home alone at night.
+- **Pace:** 8–15 minute videos, one every 1–2 days, plus Shorts.
+- **Title test:** it has to create urgency, intrigue and tension, without giving away what the video reveals. A counter-intuitive command ("ACT NORMAL", "LIE", "KEEP EATING") raises the question "why?" that the viewer can only answer by clicking.
+- **Risks:**
+  - Set the audience to **not made for kids**, and aim the horror at teens and adults.
+  - Turn on YouTube's AI-content disclosure where it's required.
+  - Never reuse their titles or character designs.
+
+## Video #1 (chosen)
+
+**If Your Family Ever Stops Blinking At Dinner... KEEP EATING**
