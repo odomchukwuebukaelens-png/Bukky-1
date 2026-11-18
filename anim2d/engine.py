@@ -95,7 +95,7 @@ class Pen:
 
 # ---------------- characters ----------------
 # kinds: mom, dad, sis, you, kid (generic)
-SIZES = {"dad": 380, "mom": 360, "you": 290, "sis": 240, "kid": 270, "old": 330}
+SIZES = {"dad": 380, "mom": 360, "you": 290, "sis": 240, "kid": 270, "old": 330, "tola": 270, "toddler": 170}
 
 def face(pen, x, y, r, f, t, seed):
     """f: dict eyes=('dot'|'wide'|'closed'|'happy'|'side'|'angry'), look=(dx,dy) -1..1,
@@ -161,8 +161,11 @@ def head(pen, kind, x, y, r, f, t, seed, tilt=0):
     elif kind == "dad":
         pen.arc(x, y - r * 0.05, r * 0.98, r * 0.98, 200, 140, DARK, r * 0.22)
         pen.arc(x, y + r * 0.08, r * 0.86, r * 0.86, 25, 130, DIM, r * 0.16)  # beard
-    elif kind in ("you", "kid"):
-        pen.arc(x, y - r * 0.08, r * 0.95, r * 0.95, 205, 130, DARK, r * 0.24)
+    elif kind in ("you", "kid", "toddler"):
+        pen.arc(x, y - r * 0.08, r * 0.95, r * 0.95, 205, 130, DARK, r * (0.24 if kind != "toddler" else 0.12))
+    elif kind == "tola":
+        pen.circle(x, y - r * 1.05, r * 0.42, fill=DARK, stroke=lin, w=2)  # top bun
+        pen.arc(x, y - r * 0.1, r * 0.93, r * 0.93, 210, 120, DARK, r * 0.14)
     elif kind == "sis":
         pen.arc(x, y - r * 0.1, r * 0.93, r * 0.93, 210, 120, DARK, r * 0.14)
     elif kind == "old":
@@ -175,7 +178,7 @@ def figure(pen, kind, x, y, s=1.0, pose=None, t=0.0, seed=0, seated=False):
     face (dict), tilt (deg), breathe (0..1), armL/armR (upper, lower) degrees from straight down
     (+ = outward), carry (bool: both hands forward), bob (px), lean (deg)."""
     pose = pose or {}; Hh = SIZES[kind] * s; wht, lin = pen.white, pen.line
-    r = Hh * (0.15 if kind in ("you", "sis", "kid") else 0.125)
+    r = Hh * (0.15 if kind in ("you", "sis", "kid", "tola") else 0.19 if kind == "toddler" else 0.125)
     br = 1 + 0.012 * math.sin(t * 2.6 + seed) * pose.get("breathe", 1)
     bob = pose.get("bob", 0)
     pen.push(rot=pose.get("lean", 0), ox=x, oy=y)
@@ -272,7 +275,7 @@ def pendant_lamp(pen, x, y, t, on=1.0, flicker=0.0, cone_to=880, spread=360):
 
 def table_front(pen, cx, top, w, cloth=True):
     """Dining table seen from the front (from your seat): top edge + cloth drape to bottom of frame."""
-    pen.rect(cx - w / 2, top, w, H - top + 20, fill="#e8e6df" if pen.mood == "normal" else "#d7e4c6", stroke=pen.line, w=4)
+    pen.rect(cx - w / 2, top, w, H - top + 20, fill="#cfccc3" if pen.mood == "normal" else "#9fb08c" if pen.mood == "frozen" else "#8f8d88", stroke=pen.line, w=4)
     pen.ln(cx - w / 2, top, cx + w / 2, top, pen.white, 8)
 
 def plate(pen, x, y, s=1.0, food=True):
@@ -348,7 +351,15 @@ def house(pen, x, y, t, lit=True):
     pen.circle(x + 70, y - 165, 10, fill=AMBER, a=0.6 + 0.4 * math.sin(t * 6))
 
 # ---------------- overlays ----------------
+def music_note(pen, x, y, s, color, a=1.0):
+    pen.oval(x, y, 22 * s, 16 * s, fill=color, a=a); pen.ln(x + 20 * s, y, x + 20 * s, y - 80 * s, color, 6 * s, a)
+    pen.ln(x + 20 * s, y - 80 * s, x + 50 * s, y - 60 * s, color, 6 * s, a)
+
+def pause_bars(pen, x, y, h=70, color=WHITE):
+    pen.rect(x, y - h, h * 0.3, h, fill=color); pen.rect(x + h * 0.5, y - h, h * 0.3, h, fill=color)
+
 def hud(pen, label, gt, rec=True):
+    pen.rect(0, 0, W, 90, fill="#000000", a=0.35)
     pen.text(label, 52, 58, 26, "#cfcfcb", "JetBrainsMono-Regular.ttf", 0.85, "left")
     if rec:
         on = (gt % 1.0) < 0.6

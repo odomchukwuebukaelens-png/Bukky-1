@@ -211,7 +211,7 @@ def CU_MOM_SMILE(pen, t, dur, gt, shot):
                tilt=6 * math.sin(t * 3))
     for k in range(2):
         ph = (t * 0.9 + k / 2) % 1
-        pen.text("♪", W / 2 + 330 + k * 60, 380 - ph * 180, 80, AMBER, "Montserrat-VF.ttf", a=1 - ph)
+        music_note(pen, W / 2 + 330 + k * 70, 400 - ph * 180, 1.0, AMBER, 1 - ph)
     pen.pop()
 
 def CU_DAD_TALK(pen, t, dur, gt, shot):
