@@ -1,0 +1,7 @@
+# regenerable / too large for GitHub
+*.wav
+video01/animatic_frames/
+__pycache__/
+*.blend1
+renders/
+*.log

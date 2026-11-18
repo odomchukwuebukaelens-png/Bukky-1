@@ -1,0 +1,739 @@
+[
+  {
+    "language_code": "eng",
+    "language_probability": 0.9595903158187866,
+    "text": "If your family ever stops blinking at dinner, keep eating. Don't put your fork down. Don't ask what's wrong. And whatever you do, don't look at the empty chair. I'm not talking about your dad zoning out in front of the news. I'm talking about this",
+    "words": [
+      {
+        "text": "If",
+        "start": 0.28,
+        "end": 0.36,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.000010132738680113107
+      },
+      {
+        "text": " ",
+        "start": 0.36,
+        "end": 0.4,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -0.0000020265558760002023
+      },
+      {
+        "text": "your",
+        "start": 0.4,
+        "end": 0.52,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.0000020265558760002023
+      },
+      {
+        "text": " ",
+        "start": 0.52,
+        "end": 0.6,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -0.0000014305104514278355
+      },
+      {
+        "text": "family",
+        "start": 0.6,
+        "end": 0.98,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.0000014305104514278355
+      },
+      {
+        "text": " ",
+        "start": 0.98,
+        "end": 1.06,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -2.3841855067985307e-7
+      },
+      {
+        "text": "ever",
+        "start": 1.06,
+        "end": 1.2,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -2.3841855067985307e-7
+      },
+      {
+        "text": " ",
+        "start": 1.2,
+        "end": 1.32,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -0.0000011920922133867862
+      },
+      {
+        "text": "stops",
+        "start": 1.32,
+        "end": 1.64,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.0000011920922133867862
+      },
+      {
+        "text": " ",
+        "start": 1.64,
+        "end": 1.7,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -7.152555099310121e-7
+      },
+      {
+        "text": "blinking",
+        "start": 1.7,
+        "end": 2.02,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -7.152555099310121e-7
+      },
+      {
+        "text": " ",
+        "start": 2.02,
+        "end": 2.06,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": 0
+      },
+      {
+        "text": "at",
+        "start": 2.06,
+        "end": 2.16,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": 0
+      },
+      {
+        "text": " ",
+        "start": 2.16,
+        "end": 2.22,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -0.000003576272320060525
+      },
+      {
+        "text": "dinner,",
+        "start": 2.22,
+        "end": 2.5,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.000008446722858934663
+      },
+      {
+        "text": " ",
+        "start": 2.5,
+        "end": 2.5,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -0.000006794906312279636
+      },
+      {
+        "text": "keep",
+        "start": 3.04,
+        "end": 3.26,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.000006794906312279636
+      },
+      {
+        "text": " ",
+        "start": 3.26,
+        "end": 3.34,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -2.3841855067985307e-7
+      },
+      {
+        "text": "eating.",
+        "start": 3.34,
+        "end": 3.68,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.00008047777059313635
+      },
+      {
+        "text": " ",
+        "start": 3.68,
+        "end": 3.68,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -9.536738616588991e-7
+      },
+      {
+        "text": "Don't",
+        "start": 4.26,
+        "end": 4.44,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.010977058112342775
+      },
+      {
+        "text": " ",
+        "start": 4.44,
+        "end": 4.48,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -9.536738616588991e-7
+      },
+      {
+        "text": "put",
+        "start": 4.48,
+        "end": 4.6,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -9.536738616588991e-7
+      },
+      {
+        "text": " ",
+        "start": 4.6,
+        "end": 4.64,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": 0
+      },
+      {
+        "text": "your",
+        "start": 4.64,
+        "end": 4.74,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": 0
+      },
+      {
+        "text": " ",
+        "start": 4.74,
+        "end": 4.82,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -9.536738616588991e-7
+      },
+      {
+        "text": "fork",
+        "start": 4.82,
+        "end": 5.04,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -9.536738616588991e-7
+      },
+      {
+        "text": " ",
+        "start": 5.04,
+        "end": 5.1,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -9.536738616588991e-7
+      },
+      {
+        "text": "down.",
+        "start": 5.1,
+        "end": 5.42,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.0001429052554158261
+      },
+      {
+        "text": " ",
+        "start": 5.42,
+        "end": 5.42,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -0.0000011920922133867862
+      },
+      {
+        "text": "Don't",
+        "start": 5.92,
+        "end": 6.1,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.00003661787154669582
+      },
+      {
+        "text": " ",
+        "start": 6.1,
+        "end": 6.2,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -1.1920928244535389e-7
+      },
+      {
+        "text": "ask",
+        "start": 6.2,
+        "end": 6.38,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -1.1920928244535389e-7
+      },
+      {
+        "text": " ",
+        "start": 6.38,
+        "end": 6.4,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -0.000005006777428206988
+      },
+      {
+        "text": "what's",
+        "start": 6.4,
+        "end": 6.58,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.000013053125561176179
+      },
+      {
+        "text": " ",
+        "start": 6.58,
+        "end": 6.62,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -0.000001311301275563892
+      },
+      {
+        "text": "wrong.",
+        "start": 6.62,
+        "end": 7,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.0005478424322973297
+      },
+      {
+        "text": " ",
+        "start": 7,
+        "end": 7,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -7.152555099310121e-7
+      },
+      {
+        "text": "And",
+        "start": 7.52,
+        "end": 7.6,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -7.152555099310121e-7
+      },
+      {
+        "text": " ",
+        "start": 7.6,
+        "end": 7.64,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -4.768370445162873e-7
+      },
+      {
+        "text": "whatever",
+        "start": 7.64,
+        "end": 7.96,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -4.768370445162873e-7
+      },
+      {
+        "text": " ",
+        "start": 7.96,
+        "end": 8,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": 0
+      },
+      {
+        "text": "you",
+        "start": 8,
+        "end": 8.1,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": 0
+      },
+      {
+        "text": " ",
+        "start": 8.1,
+        "end": 8.18,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -5.960462772236497e-7
+      },
+      {
+        "text": "do,",
+        "start": 8.18,
+        "end": 8.42,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.0000060398893234984525
+      },
+      {
+        "text": " ",
+        "start": 8.42,
+        "end": 8.42,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -0.0000014305104514278355
+      },
+      {
+        "text": "don't",
+        "start": 8.9,
+        "end": 9.08,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.000020097763011506232
+      },
+      {
+        "text": " ",
+        "start": 9.08,
+        "end": 9.12,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -2.3841855067985307e-7
+      },
+      {
+        "text": "look",
+        "start": 9.12,
+        "end": 9.24,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -2.3841855067985307e-7
+      },
+      {
+        "text": " ",
+        "start": 9.24,
+        "end": 9.28,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": 0
+      },
+      {
+        "text": "at",
+        "start": 9.28,
+        "end": 9.34,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": 0
+      },
+      {
+        "text": " ",
+        "start": 9.34,
+        "end": 9.4,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -5.960462772236497e-7
+      },
+      {
+        "text": "the",
+        "start": 9.4,
+        "end": 9.48,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -5.960462772236497e-7
+      },
+      {
+        "text": " ",
+        "start": 9.48,
+        "end": 9.54,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -2.3841855067985307e-7
+      },
+      {
+        "text": "empty",
+        "start": 9.54,
+        "end": 9.78,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -2.3841855067985307e-7
+      },
+      {
+        "text": " ",
+        "start": 9.78,
+        "end": 9.84,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -0.0000016689286894688848
+      },
+      {
+        "text": "chair.",
+        "start": 9.84,
+        "end": 10.16,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.000002642466749117981
+      },
+      {
+        "text": " ",
+        "start": 10.16,
+        "end": 10.16,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -1.1920928244535389e-7
+      },
+      {
+        "text": "I'm",
+        "start": 10.64,
+        "end": 10.72,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.000019470284312224823
+      },
+      {
+        "text": " ",
+        "start": 10.72,
+        "end": 10.76,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -1.1920928244535389e-7
+      },
+      {
+        "text": "not",
+        "start": 10.76,
+        "end": 10.92,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -1.1920928244535389e-7
+      },
+      {
+        "text": " ",
+        "start": 10.92,
+        "end": 10.98,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -2.3841855067985307e-7
+      },
+      {
+        "text": "talking",
+        "start": 10.98,
+        "end": 11.24,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -2.3841855067985307e-7
+      },
+      {
+        "text": " ",
+        "start": 11.24,
+        "end": 11.32,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": 0
+      },
+      {
+        "text": "about",
+        "start": 11.32,
+        "end": 11.5,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": 0
+      },
+      {
+        "text": " ",
+        "start": 11.5,
+        "end": 11.54,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -1.1920928244535389e-7
+      },
+      {
+        "text": "your",
+        "start": 11.54,
+        "end": 11.68,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -1.1920928244535389e-7
+      },
+      {
+        "text": " ",
+        "start": 11.68,
+        "end": 11.74,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -0.000012040065485052764
+      },
+      {
+        "text": "dad",
+        "start": 11.74,
+        "end": 12.1,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.000012040065485052764
+      },
+      {
+        "text": " ",
+        "start": 12.1,
+        "end": 12.18,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -0.000009298280929215252
+      },
+      {
+        "text": "zoning",
+        "start": 12.18,
+        "end": 12.46,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.000009298280929215252
+      },
+      {
+        "text": " ",
+        "start": 12.46,
+        "end": 12.52,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": 0
+      },
+      {
+        "text": "out",
+        "start": 12.52,
+        "end": 12.62,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": 0
+      },
+      {
+        "text": " ",
+        "start": 12.62,
+        "end": 12.68,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -2.3841855067985307e-7
+      },
+      {
+        "text": "in",
+        "start": 12.68,
+        "end": 12.76,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -2.3841855067985307e-7
+      },
+      {
+        "text": " ",
+        "start": 12.76,
+        "end": 12.82,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": 0
+      },
+      {
+        "text": "front",
+        "start": 12.82,
+        "end": 12.94,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": 0
+      },
+      {
+        "text": " ",
+        "start": 12.94,
+        "end": 12.98,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": 0
+      },
+      {
+        "text": "of",
+        "start": 12.98,
+        "end": 13.04,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": 0
+      },
+      {
+        "text": " ",
+        "start": 13.04,
+        "end": 13.08,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -3.576278118089249e-7
+      },
+      {
+        "text": "the",
+        "start": 13.08,
+        "end": 13.14,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -3.576278118089249e-7
+      },
+      {
+        "text": " ",
+        "start": 13.14,
+        "end": 13.22,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -0.000003576272320060525
+      },
+      {
+        "text": "news.",
+        "start": 13.22,
+        "end": 13.58,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.000015806727606104688
+      },
+      {
+        "text": " ",
+        "start": 13.58,
+        "end": 13.58,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -1.1920928244535389e-7
+      },
+      {
+        "text": "I'm",
+        "start": 14.16,
+        "end": 14.26,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.0000012715634791031032
+      },
+      {
+        "text": " ",
+        "start": 14.26,
+        "end": 14.32,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -3.576278118089249e-7
+      },
+      {
+        "text": "talking",
+        "start": 14.32,
+        "end": 14.6,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -3.576278118089249e-7
+      },
+      {
+        "text": " ",
+        "start": 14.6,
+        "end": 14.66,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": 0
+      },
+      {
+        "text": "about",
+        "start": 14.66,
+        "end": 14.9,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": 0
+      },
+      {
+        "text": " ",
+        "start": 14.9,
+        "end": 14.96,
+        "type": "spacing",
+        "speaker_id": "speaker_0",
+        "logprob": -0.000017881233361549675
+      },
+      {
+        "text": "this",
+        "start": 14.96,
+        "end": 15.28,
+        "type": "word",
+        "speaker_id": "speaker_0",
+        "logprob": -0.000017881233361549675
+      }
+    ],
+    "transcription_id": "D3kXGJKwftEQseA4aayc",
+    "audio_duration_secs": 15.830204
+  }
+]
