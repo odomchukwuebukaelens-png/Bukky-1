@@ -56,7 +56,6 @@ for kind, name, tid in pending:
     t = ai33.wait(tid, every=10, limit=240) if False else ai33.get(f"/v1/task/{tid}"); print("checked", kind, name, t["status"])
     if t["status"] == "done": dl(kind, name, t)
 missing = [("sfx", k) for k in ga.SFX if not os.path.exists(f"{D}/audio/sfx/{k}.mp3")] + \
-          [("music", k) for k in ga.MUSIC if not os.path.exists(f"{D}/audio/music/{k}_a.mp3")] + \
           [("art", k) for k in gr.ART if not os.path.exists(f"{D}/art/{k}.png")]
 print("missing after recovery:", missing, flush=True)
 if "--resubmit" in sys.argv:

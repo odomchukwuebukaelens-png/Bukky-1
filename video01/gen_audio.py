@@ -26,6 +26,7 @@ SFX = {
  "glitch": ("short digital glitch", 1), "room_tone_dread": ("quiet room tone with a faint unsettling low hum", 6),
 }
 def music(name, prompt):
+    raise SystemExit("Music is NOT regenerated: reuse assets/music/ (see assets/music/README.md). Only SFX may be generated.")
     if os.path.exists(f"{D}/audio/music/{name}_a.mp3"): return name, "exists"
     r = ai33.post_json("/v1s/task/music-generation", {"create_mode": "simple", "gpt_description_prompt": prompt, "make_instrumental": True})
     t = ai33.wait(r["task_id"], every=10, limit=1500); md = t.get("metadata") or {}
@@ -41,7 +42,7 @@ def sfx(name, spec):
     if not u: return name, f"{t['status']} NO URL {json.dumps(md)[:300]}"
     ai33.download(u, f"{D}/audio/sfx/{name}.mp3"); return name, f"{t['status']} cost={t.get('credit_cost')}"
 with cf.ThreadPoolExecutor(6) as ex:
-    futs = [ex.submit(music, k, v) for k, v in MUSIC.items()] + [ex.submit(sfx, k, v) for k, v in SFX.items()]
+    futs = [ex.submit(sfx, k, v) for k, v in SFX.items()]  # music comes from assets/music, never regenerated
     for f in cf.as_completed(futs):
         try: print(*f.result(), flush=True)
         except Exception as e: print("ERROR", repr(e), flush=True)

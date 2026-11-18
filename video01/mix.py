@@ -34,7 +34,7 @@ SECT = [(0.0, T(7), "m2_dread_bed_b", -24, 0.3, 0.4),
         (T(169), end, "m5_end_lullaby_a", -21, 1.0, 2.5)]
 music = np.zeros_like(out)
 for a, b, name, g, fi, fo in SECT:
-    m = load(P(f"audio/music/{name}.mp3")); n = int((b - a) * SR)
+    m = load(os.path.join(D, "..", "assets", "music", f"{name}.mp3")); n = int((b - a) * SR)  # shared library, never regenerate
     if len(m) < n: m = np.concatenate([m] * (n // len(m) + 1))
     m = m[:n] * db(g); env = np.ones(n, np.float32)
     k1, k2 = int(fi * SR), int(fo * SR)
