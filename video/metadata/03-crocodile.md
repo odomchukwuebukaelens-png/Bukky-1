@@ -8,7 +8,7 @@ What Happens When a Saltwater Crocodile Sees You First
 
 ## Description
 
-You're waist-deep in a quiet river at dusk. Twenty metres away, two small bumps sit on the water. They've been watching you since you stepped in.
+You're standing in a river at dusk. Twenty metres away, two small bumps sit on the water. They're eyes, and they saw you first.
 
 The saltwater crocodile is the largest reptile alive and has the strongest bite ever measured. It can stay underwater for long stretches, cross oceans on the currents, and go months without a meal. So what actually happens when it sees you before you see it, and how do people survive?
 
@@ -40,9 +40,9 @@ SOURCES
 • Northern Territory and Queensland governments, Be Crocwise safety guidance
 • Guinness World Records (Lolong)
 
-FOOTAGE AND PHOTOS
-Crocodile clips show Nile crocodiles, a close relative, from Mixkit (free licence).
-Photos: "Saltwater Crocodile (Crocodylus porosus)" by Matt from Melbourne, Australia, CC BY 2.0; "Krokodil Warnung Schild" by dronepicr, CC BY 2.0. Both via Wikimedia Commons.
+FOOTAGE, PHOTOS AND SOUND
+Video clips and sound effects: Mixkit (free licence). Crocodile clips of related species (Nile crocodiles, American alligators) are labelled on screen.
+Photos via Wikimedia Commons: "Saltwater Crocodile (Crocodylus porosus)" by Matt from Melbourne, Australia, CC BY 2.0; "Krokodil Warnung Schild" by dronepicr, CC BY 2.0; "Crocodylus porosus (AM LH622-2a)", Australian Museum, CC BY 4.0; "Lolong at the National Museum of Natural History" by Maffeth.opiana, CC0.
 
 Subscribe to Abyss Theory for the next animal you do not want to surprise.
 
