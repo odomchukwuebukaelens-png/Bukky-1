@@ -18,3 +18,9 @@
 
 ## Pipeline per video
 `narration.txt` → TTS → `shotplan.py` → `build.py` → `mix.py` (music from `assets/music/`) → `anim2d/render.py` (parallel `--raw` chunks) → final ffmpeg pass (grain, captions, audio).
+
+## Thumbnails (the owner's house style)
+- Pure black background. A huge 2–3 word command in heavy block caps, top-left: the first words in **white**, the key word in **bright yellow** (#FFE000) and much larger.
+- The victim is drawn as **yellow-filled line art with black outlines** (a scared or squinting face, shown big), with yellow props (lamp, bed, blanket).
+- The threat is **white line art on black** (tall, thin, too-wide grin, glowing yellow eyes) entering from the right edge, often through a door. Use small "alert" tick marks near the victim's head.
+- No gradients, no clutter: three elements only (text, victim, threat). It must read at phone size.
