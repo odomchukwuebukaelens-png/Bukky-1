@@ -9,7 +9,9 @@ KEEP EATING
 ## Description
 If your family ever stops blinking at dinner, don't run. Don't ask what's wrong. And whatever you do, don't look at the empty chair.
 
-There are seven rules. Most people break the second one in the first ten seconds.
+There are seven rules. Most people break the second one in the first ten seconds. And the last one only works if you've been eating slowly your whole life.
+
+Follow the rules. Stay seated. And count the chairs.
 
 0:00 Intro
 1:23 Rule 1: Keep eating
@@ -26,11 +28,11 @@ There are seven rules. Most people break the second one in the first ten seconds
 #horrorstory #rules #animatedhorror #scarystories
 
 ## Tags
-rules horror, if your family stops blinking, keep eating, animated horror story, scary rules, horror animation, creepy family, empty chair, scary story animated, survival rules
+rules horror, if your family stops blinking, keep eating, animated horror story, scary rules, horror animation, creepy family, empty chair, scary story animated, survival rules, horror rules, creepy dinner, scary family story, 2d horror animation, horror story for teens
 
 ## Upload settings checklist
 - Audience: **No, it's not made for kids.** The story is aimed at teens and adults, even though it's a cartoon.
-- Altered or synthetic content: **Yes.** The voice is AI-generated and the visuals are AI-assisted. Disclose as YouTube requires.
+- Altered or synthetic content: **Yes.** The narration voice and the background music are AI-generated. The animation is original 2D, drawn in code. Disclose as YouTube requires.
 - Chapters: paste the timestamps above (the first one must be 0:00).
 - End screen: point to the next video plus subscribe, over the last ~10 seconds of black.
 - Category: Film & Animation.
