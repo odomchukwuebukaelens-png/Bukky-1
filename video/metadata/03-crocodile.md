@@ -14,22 +14,22 @@ The saltwater crocodile is the largest reptile alive and has the strongest bite 
 
 CHAPTERS
 0:00 Two bumps on the water
-0:46 The largest reptile alive
-1:29 Built like a tank
-2:05 How it found you
-2:52 It can wait
-3:28 The strike
-4:05 The strongest bite ever measured
-4:50 The death roll
-5:36 It crosses oceans
-6:20 Can you outrun it?
-6:59 The Ramree Island myth
-7:40 The real death toll
-8:22 How we nearly wiped them out
-8:59 The other side of a killer
-9:37 What it does when it sees you first
-10:11 How to stay alive
-10:50 It saw you first
+0:24 The largest reptile alive
+1:01 Built like a tank
+1:31 How it found you
+2:12 It can wait
+2:43 The strike
+3:14 The strongest bite ever measured
+3:53 The death roll
+4:33 It crosses oceans
+5:10 Can you outrun it?
+5:44 The Ramree Island myth
+6:20 The real death toll
+6:56 How we nearly wiped them out
+7:27 The other side of a killer
+8:00 What it does when it sees you first
+8:29 How to stay alive
+9:02 It saw you first
 
 SOURCES
 • Erickson et al. (2012), "Insights into the ecology and evolutionary success of crocodilians revealed through bite-force and tooth-pressure experimentation", PLoS ONE
