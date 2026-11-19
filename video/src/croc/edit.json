@@ -1,0 +1,14 @@
+{
+  "lead": 0.27,
+  "tail": 0.4,
+  "timing": "timing-fast.json",
+  "voiceDir": "audio/croc-fast",
+  "tempo": 1.1,
+  "teasers": {
+    "03": "COMING UP · HOW IT FOUND YOU WITHOUT LOOKING",
+    "06": "COMING UP · THE STRONGEST BITE EVER MEASURED",
+    "08": "COMING UP · CAN YOU OUTRUN IT?",
+    "11": "COMING UP · THE REAL DEATH TOLL",
+    "14": "COMING UP · THE ONE THING SURVIVORS DID"
+  }
+}

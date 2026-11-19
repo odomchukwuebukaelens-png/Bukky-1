@@ -36,8 +36,10 @@ export const makeCue = (key: string) => (phrase: string, nth = 0) =>
 export const allCueWords = (key: string) => data[key].words.map((w) => w[0]).join(" ");
 
 // Cue helpers bound to one video's narration timings (src/<name>/timing.json).
-export const createCues = (timingJson: unknown) => {
+export const createCues = (timingJson: unknown, opts: { lead?: number; tail?: number } = {}) => {
   const d = timingJson as Record<string, Entry>;
+  const lead = opts.lead ?? LEAD;
+  const tail = opts.tail ?? TAIL;
   const keys = Object.keys(d).sort();
   const seconds = (key: string, phrase: string, nth = 0): number => {
     const words = d[key].words;
@@ -54,7 +56,9 @@ export const createCues = (timingJson: unknown) => {
   return {
     keys,
     duration: (key: string) => d[key].duration,
-    frames: (key: string) => LEAD + Math.ceil(d[key].duration * FPS) + TAIL,
-    cue: (key: string) => (phrase: string, nth = 0) => LEAD + Math.round(seconds(key, phrase, nth) * FPS),
+    lead,
+    frames: (key: string) => lead + Math.ceil(d[key].duration * FPS) + tail,
+    title: (key: string) => d[key].title,
+    cue: (key: string) => (phrase: string, nth = 0) => lead + Math.round(seconds(key, phrase, nth) * FPS),
   };
 };

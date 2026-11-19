@@ -17,65 +17,74 @@ const ease = (f: number, a: number, b: number) => {
   return t * t * (3 - 2 * t);
 };
 
-// 1. Hook
+// 1. Hook: a cold open. Every beat is under two seconds and previews something later in the video.
 const c1 = cues.cue("01");
 export const S01: React.FC<SP> = ({ dur, start }) => {
   const f = useCurrentFrame();
   const eyesAt = c1("They are eyes");
-  const knewAt = c1("It knew you");
-  const sinkAt = c1("the bumps sink");
+  const belong = c1("They belong");
+  const bite = c1("It has the strongest");
+  const measured = c1("ever measured");
+  const saw = c1("And it saw");
   const titleAt = c1("So what happens");
-  const zoom = 1 + ease(f, eyesAt - 4, eyesAt + 10) * 1.9 - ease(f, knewAt - 6, knewAt + 10) * 1.9;
-  const show = 1 - ease(f, sinkAt, sinkAt + 34);
-  const fog = ease(f, c1("After that"), c1("After that") + 30) * (1 - ramp(f, c1("The surface is flat") - 10, c1("The surface is flat")));
-  const dusk = ease(f, c1("just before"), c1("just before") + 60);
-  const ripple = f >= knewAt && f < c1("And now");
+  const q1 = c1("How did it");
+  const q2 = c1("What will it");
+  const q3 = c1("And what is");
+  const alive = c1("get out alive");
+  const inRiver = f < belong || (f >= saw && f < titleAt);
+  const zoom = f < eyesAt ? 1 + ease(f, 0, eyesAt) * 0.35 : f < belong ? 1.35 + ease(f, eyesAt, eyesAt + 6) * 1.6 : 1.15;
+  const sink = f >= saw ? 1 - ease(f, saw + 20, saw + 45) : 1;
   return (
-    <AbsoluteFill>
-      <River zoom={zoom} zx={1180} zy={400} show={show} dusk={dusk} glow={ramp(f, eyesAt, eyesAt + 8)} />
-      <Fog level={fog} color="#2a2413" />
-      {ripple ? (
-        <Svg>
-          {[0, 1, 2].map((i) => {
-            const t = (((f - knewAt) / 46 + i / 3) % 1 + 1) % 1;
-            return <ellipse key={i} cx={960 + t * 220} cy={1000 - t * 600} rx={260 * (1 - t * 0.75)} ry={60 * (1 - t * 0.8)} fill="none" stroke={C.accent} strokeWidth={4} opacity={0.75 * (1 - t)} />;
-          })}
-        </Svg>
+    <AbsoluteFill style={{ background: "#020b0e" }}>
+      {inRiver ? <River zoom={zoom} zx={1180} zy={400} show={sink} dusk={0.2} glow={f >= eyesAt ? 1 : 0.4} /> : null}
+      {f >= belong && f < bite ? (
+        <Deep croc={{ x: lerp(f, belong, bite, 1900, 220), y: 620, scale: 1.45 }}>
+          <Svg>
+            <line x1={0} y1={150} x2={1920} y2={150} stroke="#e3c184" strokeWidth={4} opacity={0.5} />
+          </Svg>
+        </Deep>
+      ) : null}
+      {f >= bite && f < measured ? (
+        <AbsoluteFill style={{ background: "linear-gradient(#3a0f0c, #06100f)" }}>
+          <CrocHead x={300} y={660} scale={1.25} jaw={Math.max(0, 28 * Math.sin((f - bite) * 0.45))} />
+        </AbsoluteFill>
+      ) : null}
+      {f >= titleAt && f < q1 ? <AbsoluteFill style={{ background: "radial-gradient(ellipse at center, #0d2a33 0%, #020b0e 70%)" }} /> : null}
+      {f >= q1 && f < q2 ? (
+        <AbsoluteFill style={{ background: "linear-gradient(#10212a, #06100f)" }}>
+          <CrocHead x={-40} y={600} scale={1.7} jaw={3} dots={ramp(f, q1, q1 + 30)} />
+        </AbsoluteFill>
+      ) : null}
+      {f >= q2 && f < q3 ? (
+        <AbsoluteFill style={{ background: "radial-gradient(ellipse at 60% 60%, #4a4526 0%, #2a2a16 55%, #12130b 100%)" }}>
+          <CrocTop x={1180} y={600} scale={0.95} rotate={-8} roll={(f - q2) * 0.45} />
+        </AbsoluteFill>
+      ) : null}
+      {f >= q3 && f < alive ? (
+        <Shore person={{ x: 660, y: 560, scale: 1.3, lean: 20 + Math.sin(f * 0.5) * 14 }} croc={{ x: 800, y: 640, scale: 0.6, rot: -14, jaw: 18 + Math.sin(f * 0.4) * 6 }} zoom={1.15} zx={850} zy={580} />
       ) : null}
       {beats(
         [
-          [c1("You are standing"), <Head text="WAIST DEEP" sub="STANDING DEPTH 0.9 M" />],
-          [c1("brown water"), <Lines items={["WATER: BROWN", "TEMPERATURE: 29°C"]} />],
-          [c1("A river mouth"), <Head text={"RIVER MOUTH"} sub="NORTHERN AUSTRALIA" size={120} />],
-          [c1("just before"), <Lines items={["LIGHT: FADING", "SUNSET IN 00:14"]} color={C.accent} />],
-          [c1("You can see"), <Num value={1} suffix=" M" label="VISIBILITY" from={8} />],
-          [c1("After that"), <Head text="NOTHING" size={170} color={C.accent} />],
-          [c1("The surface is flat"), <Lines items={["SURFACE: FLAT"]} size={60} />],
-          [c1("No splashes"), <Lines items={["SPLASHES: 0", "BIRDS: 0"]} size={54} />],
-          [c1("It feels safe"), <Head text={"THREAT:\nNONE DETECTED"} size={100} color={HUD} />],
-          [c1("Twenty meters away"), <><Num value={20} suffix=" M" label="RANGE TO OBJECT" count={14} /><Svg><line x1={960} y1={1010} x2={1180} y2={410} stroke={HUD} strokeWidth={4} strokeDasharray="14 12" /></Svg></>],
+          [c1("You are standing"), <Lines items={["VISIBILITY: 1 M", "LIGHT: FADING"]} y={230} size={46} />],
+          [c1("at dusk"), <Head text="NORTHERN AUSTRALIA" sub="RIVER MOUTH · DUSK" y={240} size={96} />],
+          [c1("20"), <><Num value={20} suffix=" M" label="RANGE TO OBJECT" count={10} y={230} /><Svg><line x1={960} y1={1010} x2={1180} y2={410} stroke={HUD} strokeWidth={4} strokeDasharray="14 12" /></Svg></>],
           [c1("two small"), <Box x={1080} y={340} w={200} h={110} label="2 OBJECTS" sub="ON THE SURFACE" />],
-          [c1("They look like"), <Box x={1080} y={340} w={200} h={110} label="DRIFTWOOD?" sub="CLASSIFYING…" color={C.accent} />],
-          [eyesAt, <Head text="EYES" size={260} color={C.red} y={560} />],
-          [c1("They have been"), <WatchTimer />],
-          [knewAt, <Head text={"IT FELT YOU\nENTER THE WATER"} size={90} color={C.accent} />],
-          [c1("And now"), <Lines items={["RIPPLES: 0"]} size={64} />],
-          [sinkAt, <Box x={1080} y={340} w={200} h={110} label="CONTACT LOST" sub="OBJECT SUBMERGED" color={C.red} />],
-          [c1("You never saw"), <Head text={"YOU NEVER\nSAW IT"} size={130} />],
-          [c1("It saw you first"), <Head text={"IT SAW YOU\nFIRST"} size={150} color={C.accent} />, titleAt],
-        ],
-        titleAt,
-      )}
-      <AbsoluteFill style={{ background: "rgba(1,5,6,0.9)", opacity: ramp(f, titleAt, titleAt + 10) }} />
-      {beats(
-        [
-          [titleAt, <><Head text="ABYSS THEORY · DIVE LOG" size={30} y={196} align="center" x={130} color={HUD} /><Head text={"WHAT HAPPENS WHEN A\nSALTWATER CROCODILE"} size={84} y={262} align="center" x={130} /></>, dur],
-          [titleAt + 14, <Head text="SEES YOU FIRST?" size={170} y={452} align="center" x={130} color={C.accent} />, dur],
-          [titleAt + 50, <Lines items={["01 HOW IT FOUND YOU", "02 WHAT IT DOES NEXT", "03 HOW YOU GET OUT ALIVE"]} x={660} y={690} size={36} gap={12} />, dur],
+          [c1("sit on the water"), <Box x={1080} y={340} w={200} h={110} label="DRIFTWOOD?" sub="CLASSIFYING…" color={C.accent} />],
+          [eyesAt, <Head text="EYES" size={300} color={C.red} y={600} />],
+          [belong, <Head text={"THE LARGEST\nREPTILE ON EARTH"} y={200} size={100} />],
+          [c1("on Earth"), <Num value={1000} suffix=" KG" label="THE BIGGEST MALES" y={200} size={170} color={C.accent} count={14} />],
+          [bite, <Head text={"THE STRONGEST\nBITE EVER"} y={200} size={110} color={C.red} />],
+          [measured, <><Clip src="footage/croc/v-jaw.mp4" label="FOOTAGE · NILE CROCODILE, A CLOSE RELATIVE · MIXKIT" /><Num value={16414} suffix=" N" label="BITE FORCE" y={200} size={150} color={C.accent} count={20} /></>],
+          [saw, <Head text={"AND IT SAW\nYOU FIRST"} y={220} size={140} color={C.accent} />],
+          [titleAt, <><Head text="ABYSS THEORY · DIVE LOG" size={30} y={200} align="center" x={130} color={HUD} /><Head text={"WHAT HAPPENS WHEN A\nSALTWATER CROCODILE"} size={90} y={270} align="center" x={130} /><Head text="SEES YOU FIRST?" size={170} y={470} align="center" x={130} color={C.accent} /></>],
+          [q1, <Head text="01 · HOW IT FOUND YOU" y={200} size={96} color={C.accent} />],
+          [q2, <Head text="02 · WHAT IT DOES NEXT" y={200} size={96} color={C.accent} />],
+          [q3, <Head text={"03 · THE ONE THING\nEVERY SURVIVOR DID"} y={200} size={96} color={C.accent} />],
+          [alive, <><Clip src="footage/croc/v-close.mp4" label="FOOTAGE · NILE CROCODILE, A CLOSE RELATIVE · MIXKIT" /><Head text="STAY TO THE END" y={240} size={110} /></>],
         ],
         dur,
       )}
-      <Hud start={start} dur={dur} pulse={72 + ease(f, eyesAt, sinkAt) * 46} />
+      <Hud start={start} dur={dur} pulse={f < eyesAt ? 76 : 118} />
     </AbsoluteFill>
   );
 };
@@ -141,7 +150,7 @@ export const S02: React.FC<SP> = ({ dur, start }) => {
 const S2World: React.FC<{ f: number; big: number; cars: number; weighs: number; lolong: number; six: number; pred: number; heavier: number; hide: number; design: number; grow: number }> = ({ f, big, cars, weighs, lolong, six, pred, heavier, hide, design, grow }) => {
   if (f < lolong) {
     // The animal glides in and is measured against a diver and a car.
-    const swimX = lerp(f, 0, big, 2100, 420);
+    const swimX = lerp(f, 0, big, 1400, 420);
     return (
       <Deep croc={{ x: swimX, y: 640, scale: 1.25 }}>
         <Svg opacity={grow}>

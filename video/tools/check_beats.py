@@ -1,18 +1,27 @@
 #!/usr/bin/env python3
-"""Report gaps between visual beats. A beat is any narration cue a scene reacts to.
+"""Report the longest stretch without a visual change in each scene.
 
-Usage: python3 tools/check_beats.py [max_seconds]   (default 5)
+A visual change is a narration cue a scene reacts to, plus (for videos with src/<name>/edit.json)
+every caption change and filler camera move from captions.json, and the scene cut itself.
+
+Usage: python3 tools/check_beats.py --video=<name> [max_seconds] [scene-file-glob]
 Exits non-zero if any gap is longer than the limit.
 """
-import glob, json, re, sys
+import glob, json, os, re, sys
 
 NAME = next((a.split("=")[1] for a in sys.argv if a.startswith("--video=")), "octopus")
 sys.argv = [a for a in sys.argv if not a.startswith("--video=")]
 LIMIT = float(sys.argv[1]) if len(sys.argv) > 1 else 5.0
-PATTERN = sys.argv[2] if len(sys.argv) > 2 else f"src/{NAME}/scenes*.tsx"  # which scene files to check
-UNTIL = {"02": 13.6} if "proto" in PATTERN else {}  # the prototype uses only the start of scene 2
+PATTERN = sys.argv[2] if len(sys.argv) > 2 else f"src/{NAME}/scenes*.tsx"
+UNTIL = {"02": 13.6} if "proto" in PATTERN else {}
 norm = lambda s: re.sub(r"[^a-z0-9]+", "", s.lower())
-timing = json.load(open(f"src/{NAME}/timing.json"))
+
+edit_path = f"src/{NAME}/edit.json"
+edit = json.load(open(edit_path)) if os.path.exists(edit_path) else None
+timing = json.load(open(f"src/{NAME}/{edit['timing'] if edit else 'timing.json'}"))
+lead, tail = (edit["lead"], edit["tail"]) if edit else (0.0, 0.0)
+caps = json.load(open(f"src/{NAME}/captions.json")) if edit else {}
+
 cues = {}
 for path in sorted(glob.glob(PATTERN)):
     for num, phrase, nth in re.findall(r'\bc(\d+)\("([^"]+)"(?:,\s*(\d+))?\)', open(path).read()):
@@ -25,16 +34,20 @@ for path in sorted(glob.glob(PATTERN)):
 
 total = long = 0
 worst = []
-for key in sorted(cues):
+for key in sorted(set(cues) | set(caps)):
     end = UNTIL.get(key, timing[key]["duration"])
-    pts = [0.0] + sorted(c for c in cues[key] if c < end) + [end]
+    ev = set(cues.get(key, set()))
+    if key in caps:
+        ev |= {c["t0"] for c in caps[key]["captions"]} | set(caps[key]["punches"])
+    # Times in scene seconds: the scene cut at 0, narration starts after the lead-in.
+    pts = sorted({0.0} | {lead + t for t in ev if t < end} | {lead + end + tail})
     gaps = [(b - a, a) for a, b in zip(pts, pts[1:])]
     total += len(gaps)
-    over = [g for g in gaps if g[0] > LIMIT]
+    over = [g for g in gaps if g[0] > LIMIT + 1e-6]
     long += len(over)
     worst += [(g, key, at) for g, at in over]
-    print(f"scene {key}: {len(gaps)} beats, longest {max(g for g, _ in gaps):.1f}s, over limit: {len(over)}")
-print(f"\n{long} of {total} beats exceed {LIMIT:.0f}s")
+    print(f"scene {key}: {len(gaps)} changes, longest {max(g for g, _ in gaps):.2f}s, over limit: {len(over)}")
+print(f"\n{long} of {total} gaps exceed {LIMIT:g}s")
 for g, key, at in sorted(worst, reverse=True)[:8]:
-    print(f"  scene {key} at {at:.0f}s: {g:.1f}s")
+    print(f"  scene {key} at {at:.1f}s: {g:.2f}s")
 sys.exit(1 if long else 0)

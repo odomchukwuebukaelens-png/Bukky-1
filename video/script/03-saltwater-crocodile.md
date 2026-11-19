@@ -10,23 +10,15 @@ LOGGED = measured and sourced, REPORTED = credible but secondhand, MYTH = disput
 
 ## 1. Hook
 
-**Visual:** Through the mask at dusk, waist-deep in brown water at a river mouth. Instruments: depth 0.9 m, visibility 1 m. Far off, two bumps on the surface. They do not move. Then they sink. Title and the three promises.
+**Visual:** Cold open, no slow build. Dusk river, two bumps on the water, a fast push-in to the eyes, then flashes of what is coming: the jaws, the death roll, the map. Title by 20 seconds, then three on-screen promises.
 
-You are standing waist-deep in warm, brown water. A river mouth in northern Australia, just before dark.
-
-You can see about one metre. After that, nothing.
-
-The surface is flat. No splashes. No birds. It feels safe.
-
-Twenty metres away, two small bumps sit on the water. They look like a floating branch.
+You are standing in a river at dusk. Twenty metres away, two small bumps sit on the water.
 
 They are eyes.
 
-They have been pointed at you since you stepped off the bank. It knew you were here before you were even wet.
+They belong to the largest reptile on Earth. It has the strongest bite ever measured. And it saw you first.
 
-And now, without a single ripple, the bumps sink.
-
-You never saw it. It saw you first. So what happens next?
+So what happens next? How did it find you? What will it do? And what is the one thing every survivor did to get out alive?
 
 ## 2. The animal
 

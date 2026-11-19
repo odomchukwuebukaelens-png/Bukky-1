@@ -4,9 +4,10 @@ Channel: Abyss Theory (ocean animals, faceless, animated explainers). Videos are
 
 ## Rules from the channel owner (16 Nov 2026)
 
-- **No visual beat longer than 5 seconds.** Every 5 seconds or less, something on screen must change in step with the narration: a new shot, a new element, a camera move, a text change. Write scripts in beats of roughly 12–14 words and give each its own visual. `python3 tools/check_beats.py` (run from `video/`) must pass before a render is handed over.
+- **A visual change at least every 2 seconds (owner, 19 Nov 2026; was 5).** `python3 tools/check_beats.py --video=<name> 2` (run from `video/`) must pass before a render is handed over. Follow `RETENTION.md` for hooks, captions, sound effects and re-hooks; the owner's target is 60–70% average view duration.
+- **Retention layer on every video:** word-by-word captions, camera punches on every caption change, impact shake and flash, chapter cards, "coming up" teasers and sound effects (`video/src/kit/retention.tsx`, driven by `tools/build_captions.py`). Sound effects are free Mixkit files in `video/public/sfx`.
 - **Copy the formula, not the structure.** Study what makes a successful video work (hook type, pacing, payoff) and bend it to an adjacent angle. Never reproduce another channel's titles, thumbnail look, on-screen graphics or scene order one to one.
-- Voiceover uses the owner's ai33.pro cloned voice "Deep sea" (`clone_2719063`) at speed 0.95; the owner has confirmed the rights to it.
+- Voiceover uses the owner's ai33.pro cloned voice "Deep sea" (`clone_2719063`); the owner has confirmed the rights to it. Generate at 0.95, then speed up 1.1× without pitch change using `tools/tempo.py` (about 178 words a minute). Keep scene lead-in and tail short (`edit.json`: 0.27 s and 0.4 s).
 
 ## Channel identity (ours, keep it distinct)
 

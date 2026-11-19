@@ -1,22 +1,32 @@
 import React from "react";
-import { AbsoluteFill, random, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Audio, random, Sequence, staticFile, useCurrentFrame } from "remotion";
 import { createCues } from "../kit/cues";
 import { B } from "../kit/devices";
 import { AirGauge, HUD, MONO, Readout } from "../kit/hud";
 import { C, FPS } from "../kit/theme";
 import { ramp } from "../kit/ui";
-import timing from "./timing.json";
+import edit from "./edit.json";
+import timing from "./timing-fast.json";
+import { usePunch } from "../kit/retention";
 
-export const cues = createCues(timing);
+export const EDIT = edit;
+export const cues = createCues(timing, { lead: Math.round(edit.lead * FPS), tail: Math.round(edit.tail * FPS) });
 export type SP = { dur: number; start: number };
 
 type BeatDef = [number, React.ReactNode] | [number, React.ReactNode, number];
 // Each beat lasts until the next one starts, unless it gives its own end frame.
+// Every beat also gets a quiet UI tick so each visual change is heard as well as seen.
+const TICKS = ["pop4", "click3", "click2"];
 export const beats = (list: BeatDef[], end: number) =>
   list.map((b, i) => (
-    <B key={i} at={b[0]} to={b[2] ?? list[i + 1]?.[0] ?? end}>
-      {b[1]}
-    </B>
+    <React.Fragment key={i}>
+      <B at={b[0]} to={b[2] ?? list[i + 1]?.[0] ?? end}>
+        {b[1]}
+      </B>
+      <Sequence from={b[0]} durationInFrames={20}>
+        <Audio src={staticFile(`sfx/${TICKS[i % TICKS.length]}.mp3`)} volume={0.14} />
+      </Sequence>
+    </React.Fragment>
   ));
 
 export const CREDIT = {
@@ -32,8 +42,9 @@ export const Hud: React.FC<{ start: number; depth?: number; pulse?: number; dur:
   const ss = Math.floor(sec % 60);
   const bpm = Math.round(pulse + Math.sin(f * 0.11) * 1.5);
   const beat = Math.max(0, Math.sin((f / FPS) * (pulse / 60) * Math.PI * 2));
+  const p = usePunch();
   return (
-    <>
+    <AbsoluteFill style={{ transform: `scale(${1 / p.s}) translate(${-p.tx}px, ${-p.ty}px)` }}>
       <Readout label="DEPTH" value={`${Math.max(0, depth + Math.sin(f * 0.05) * 0.02).toFixed(1)} M`} x={120} y={84} on={1} />
       <AirGauge bar={196 - (start + f / FPS) * 0.11} on={1} />
       <Readout label="DIVE TIME" value={`${String(mm).padStart(2, "0")}:${String(ss).padStart(2, "0")}`} x={120} y={900} on={1} />
@@ -43,8 +54,7 @@ export const Hud: React.FC<{ start: number; depth?: number; pulse?: number; dur:
           {bpm} BPM
         </div>
       </div>
-      <AbsoluteFill style={{ background: "#000", opacity: Math.max(1 - ramp(f, 0, 12), ramp(f, dur - 12, dur)) }} />
-    </>
+    </AbsoluteFill>
   );
 };
 

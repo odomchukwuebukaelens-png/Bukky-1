@@ -1,19 +1,23 @@
 import React from "react";
 import { AbsoluteFill, Audio, interpolate, Sequence, staticFile, useCurrentFrame } from "remotion";
-import { LEAD } from "../kit/cues";
 import { Head, Lines } from "../kit/devices";
 import { HUD } from "../kit/hud";
+import { Captions, ChapterChip, ImpactFx, RetentionScene, SceneSfx, Teaser, type SceneEvents } from "../kit/retention";
 import { C, FPS } from "../kit/theme";
 import { ramp } from "../kit/ui";
-import { cues, type SP } from "./common";
+import captions from "./captions.json";
+import { cues, EDIT, type SP } from "./common";
 import * as A from "./scenesA";
 import * as Bs from "./scenesB";
 import * as Cs from "./scenesC";
 
 const ALL: Record<string, React.FC<SP>> = { ...(A as unknown as Record<string, React.FC<SP>>), ...(Bs as unknown as Record<string, React.FC<SP>>), ...(Cs as unknown as Record<string, React.FC<SP>>) };
 const sceneFor = (key: string) => ALL[`S${key}`];
+const EVENTS = captions as unknown as Record<string, SceneEvents>;
+const TEASERS = EDIT.teasers as Record<string, string>;
+const TEASER_LEN = Math.round(2.6 * FPS);
 
-const END_CARD = 10 * FPS;
+const END_CARD = 6 * FPS;
 const starts: number[] = [];
 let cursor = 0;
 for (const key of cues.keys) {
@@ -30,7 +34,7 @@ const XF = 3 * FPS;
 const EndCard: React.FC = () => {
   const f = useCurrentFrame();
   return (
-    <AbsoluteFill style={{ background: "#020b0e", opacity: Math.min(ramp(f, 0, 20), ramp(f, END_CARD - 20, END_CARD, 1, 0)) }}>
+    <AbsoluteFill style={{ background: "#020b0e", opacity: Math.min(ramp(f, 0, 10), ramp(f, END_CARD - 15, END_CARD, 1, 0)) }}>
       <Sequence durationInFrames={END_CARD}>
         <Lines items={["DIVE LOG CLOSED"]} y={300} size={36} />
         <Head text="ABYSS THEORY" y={370} size={170} />
@@ -42,6 +46,7 @@ const EndCard: React.FC = () => {
 
 export const CrocVideo: React.FC = () => {
   let m = 0;
+  const lead = cues.lead;
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
       {MUSIC.map((name, i) => {
@@ -60,11 +65,25 @@ export const CrocVideo: React.FC = () => {
       {cues.keys.map((key, i) => {
         const Scene = sceneFor(key);
         const dur = cues.frames(key);
+        const ev = EVENTS[key];
+        const teaser = TEASERS[key];
+        const teaserAt = teaser ? dur - TEASER_LEN : undefined;
         return (
           <Sequence key={key} from={starts[i]} durationInFrames={dur} name={`Scene ${key}`}>
-            {Scene ? <Scene dur={dur} start={starts[i] / FPS} /> : <AbsoluteFill style={{ background: "#111", color: HUD, fontSize: 80, alignItems: "center", justifyContent: "center" }}>scene {key}</AbsoluteFill>}
-            <Sequence from={LEAD}>
-              <Audio src={staticFile(`audio/croc/${key}.mp3`)} />
+            <RetentionScene ev={ev} lead={lead}>
+              {Scene ? <Scene dur={dur} start={starts[i] / FPS} /> : <AbsoluteFill style={{ background: "#111", color: HUD, fontSize: 80 }}>scene {key}</AbsoluteFill>}
+            </RetentionScene>
+            <ImpactFx ev={ev} lead={lead} />
+            <Captions ev={ev} lead={lead} />
+            {i > 0 ? <ChapterChip n={i + 1} title={cues.title(key)} /> : null}
+            {teaser && teaserAt !== undefined ? (
+              <Sequence from={teaserAt} durationInFrames={TEASER_LEN}>
+                <Teaser text={teaser} len={TEASER_LEN} />
+              </Sequence>
+            ) : null}
+            <SceneSfx ev={ev} lead={lead} index={i} beatFrames={[]} teaserAt={teaserAt} />
+            <Sequence from={lead}>
+              <Audio src={staticFile(`${EDIT.voiceDir}/${key}.mp3`)} />
             </Sequence>
           </Sequence>
         );
