@@ -166,7 +166,7 @@ const SPLASH = ["splash2", "splash1", "splash3"];
 export const SceneSfx: React.FC<{ ev: SceneEvents; lead: number; index: number; beatFrames: number[]; teaserAt?: number }> = ({ ev, lead, index, beatFrames, teaserAt }) => (
   <>
     <Sequence from={0} durationInFrames={60}>
-      <Audio src={staticFile(`sfx/${WHOOSH[index % WHOOSH.length]}.mp3`)} volume={0.45} />
+      <Audio src={staticFile(`sfx/${WHOOSH[index % WHOOSH.length]}.mp3`)} volume={0.36} />
     </Sequence>
     {index > 0 ? (
       <Sequence from={6} durationInFrames={30}>
@@ -175,7 +175,7 @@ export const SceneSfx: React.FC<{ ev: SceneEvents; lead: number; index: number; 
     ) : null}
     {ev.impacts.map((t, i) => (
       <Sequence key={`i${i}`} from={Math.max(0, at(lead, t) - 2)} durationInFrames={90}>
-        <Audio src={staticFile(`sfx/${IMPACT[(index + i) % IMPACT.length]}.mp3`)} volume={0.5} />
+        <Audio src={staticFile(`sfx/${IMPACT[(index + i) % IMPACT.length]}.mp3`)} volume={0.34} />
       </Sequence>
     ))}
     {ev.splashes.map((t, i) => (
