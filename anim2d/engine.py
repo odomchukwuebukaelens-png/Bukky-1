@@ -402,7 +402,7 @@ def dog(pen, x, y, s=1.0, t=0.0, facing=1, head_turn=0.0, tail=1.0, ears=1.0, ey
     pen.ln(tx0, ty0, tx1, ty1, lin, 20 * s); pen.ln(tx0, ty0, tx1, ty1, wht, 14 * s)
     br = 1 + 0.02 * math.sin(t * 3.0)
     pen.oval(x, by, L * 0.55, bh * 0.55 * br, fill=wht, stroke=lin, w=4)
-    pen.oval(x - f * L * 0.12, by - bh * 0.05, L * 0.16, bh * 0.22, fill="#d8d8d3")
+    pen.oval(x - f * L * 0.12, by - bh * 0.05, L * 0.16, bh * 0.22, fill="#d8d8d3" if pen.mood != "thumb" else wht)
     hx = x + f * L * (0.52 - 0.1 * head_turn); hy = by - bh * 0.7 + crouch * 30 * s
     pen.ln(x + f * L * 0.35, by - bh * 0.2, hx, hy + 20 * s, lin, 52 * s); pen.ln(x + f * L * 0.35, by - bh * 0.2, hx, hy + 20 * s, wht, 46 * s)
     hr = 52 * s
@@ -418,7 +418,7 @@ def dog(pen, x, y, s=1.0, t=0.0, facing=1, head_turn=0.0, tail=1.0, ears=1.0, ey
     for k, ex in enumerate((-0.45, 0.25)):
         ax = hx + f * hr * ex * (1 - head_turn * 0.5) + (-1 if k == 0 else 1) * hr * 0.4 * head_turn
         ay = hy - hr * 0.6; a = math.radians(ear_a) * (-f if k == 0 else f)
-        pen.poly([(ax - 14 * s, ay + 8 * s), (ax + 14 * s, ay + 8 * s), (ax + math.sin(a) * 60 * s, ay - math.cos(a) * 60 * s)], fill="#cfcfca", stroke=lin, w=3)
+        pen.poly([(ax - 14 * s, ay + 8 * s), (ax + 14 * s, ay + 8 * s), (ax + math.sin(a) * 60 * s, ay - math.cos(a) * 60 * s)], fill="#cfcfca" if pen.mood != "thumb" else wht, stroke=lin, w=3)
     for k in ((0,) if head_turn < 0.5 else (-1, 1)):
         ex = hx + (f * hr * 0.25 if head_turn < 0.5 else k * hr * 0.35); ey = hy - hr * 0.1
         if glow > 0: pen.glow(ex, ey, 40 * s, "#d8ff8a", 0.6 * glow)
