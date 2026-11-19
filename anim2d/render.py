@@ -4,17 +4,25 @@ import argparse, json, os, subprocess, sys, time
 import skia
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from engine import *
-import shots_all
+import importlib
 
 a = argparse.ArgumentParser()
 a.add_argument("--video", default=os.path.join(ROOT, "video01")); a.add_argument("--t0", type=float, default=0)
 a.add_argument("--t1", type=float, default=30); a.add_argument("--out", default=None)
 a.add_argument("--label", default="KEEP EATING  ·  SUNDAY 01"); a.add_argument("--crf", default="20")
 a.add_argument("--raw", action="store_true", help="video only, no captions/audio/grain (for parallel chunks)")
+a.add_argument("--shots", default="shots_all", help="shot module: shots_all (video01) or shots02 ...")
+a.add_argument("--rules", default="23,45,59,73,104,118,146", help="sentence indexes where Rule 1..7 start")
 args = a.parse_args()
+SH = importlib.import_module(args.shots)
+def draw_shot(pen, t, d, gt, s):
+    if hasattr(SH, "draw"): return SH.draw(pen, t, d, gt, s)
+    fn = SH.SHOTS.get(s["setup"])
+    if not fn: return None, False
+    pen.mood = "normal"; fn(pen, t, d, gt, s); return None, True
 V = lambda n: os.path.join(args.video, n)
 edl = json.load(open(V("edl.json")))
-RULE_AT = [23, 45, 59, 73, 104, 118, 146]
+RULE_AT = [int(x) for x in args.rules.split(",") if x]
 F0, F1 = round(args.t0 * FPS), round(args.t1 * FPS)
 
 # frame -> (shot, first frame of shot, frames in shot), same overlap rule as the animatic
@@ -45,7 +53,7 @@ for f in range(F0, F1):
     t, d, gt = (f - a_) / FPS, (b_ - a_) / FPS, f / FPS
     c = surf.getCanvas(); c.clear(C(BG)); pen = Pen(c)
     try:
-        _, ok = shots_all.draw(pen, t, d, gt, s)
+        _, ok = draw_shot(pen, t, d, gt, s)
         if not ok: missing.add(s["setup"])
     except Exception as e:
         missing.add(f"{s['setup']}!{type(e).__name__}:{e}")

@@ -7,8 +7,11 @@
 
 ## Visuals
 - Simple flat 2D line-art: white figures on black, drawn and animated in code with `anim2d/` (Skia). **No AI images, no zooming on still pictures, no 3D or GPU pod.**
-- Every shot needs micro-actions (blink, breathe, tremble, talk, steam, flicker). The picture must change at least every 2 seconds; `build.py` enforces this.
-- Top bar: "KEEP EATING · SUNDAY NN · RULE n" with a red REC dot and timecode. Captions: bold caps with the spoken word in acid green.
+- Every shot needs micro-actions (blink, breathe, tremble, talk, steam, flicker). The picture must change at least every 2 seconds.
+- **Never repeat a shot to fill time.** No splitting one shot into "micro-change" copies. Every cut is a new composition (a different angle, subject, set area or format), and neighbouring shots must look clearly different. `video02/build.py` stops with an error if a planned shot would exceed 2 seconds: add a new shot to the plan.
+- **Characters always have necks**, in full-body figures and close-ups (`anim2d/engine.py`).
+- **Scenery is detailed and beautiful but simple:** layered skies, moon and clouds, tree lines, fences, plants, furniture, light spill, fireflies and moths (`anim2d/scenes.py`). No empty black voids, except deliberate pattern breaks.
+- Top bar: "<VIDEO COMMAND> · NIGHT/SUNDAY NN · RULE n" with a red REC dot and timecode. Captions: bold caps with the spoken word in acid green.
 
 ## Scripts
 - Follow `script-formula.md` (the "If… COMMAND" title, the 7-rule structure, the twist, the callback ending) and `video01/retention_playbook.md`.

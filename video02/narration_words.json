@@ -1,0 +1,929 @@
+[
+  {
+    "language_code": "",
+    "language_probability": 1,
+    "text": "If your dog ever refuses to come inside at night, don't call him again. Don't open the back door, and whatever you do, don't go out to get him. I'm not talking about a dog chasing a squirrel. I'm talking about this. It's late. You open the back door and call his name. He's standing in the middle of the yard. He looks at you. Then he looks past you, into the house, and he backs away.",
+    "words": [
+      {
+        "text": "If",
+        "start": 0.18,
+        "end": 0.35,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.35,
+        "end": 0.36,
+        "type": "spacing"
+      },
+      {
+        "text": "your",
+        "start": 0.36,
+        "end": 0.527,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.527,
+        "end": 0.53,
+        "type": "spacing"
+      },
+      {
+        "text": "dog",
+        "start": 0.53,
+        "end": 0.819,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.819,
+        "end": 0.84,
+        "type": "spacing"
+      },
+      {
+        "text": "ever",
+        "start": 0.84,
+        "end": 1.07,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.07,
+        "end": 1.08,
+        "type": "spacing"
+      },
+      {
+        "text": "refuses",
+        "start": 1.08,
+        "end": 1.637,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.637,
+        "end": 1.65,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 1.65,
+        "end": 1.79,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.79,
+        "end": 1.801,
+        "type": "spacing"
+      },
+      {
+        "text": "come",
+        "start": 1.801,
+        "end": 2.019,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.019,
+        "end": 2.041,
+        "type": "spacing"
+      },
+      {
+        "text": "inside",
+        "start": 2.041,
+        "end": 2.409,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.409,
+        "end": 2.441,
+        "type": "spacing"
+      },
+      {
+        "text": "at",
+        "start": 2.441,
+        "end": 2.59,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.59,
+        "end": 2.601,
+        "type": "spacing"
+      },
+      {
+        "text": "night,",
+        "start": 2.601,
+        "end": 3.087,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.087,
+        "end": 3.32,
+        "type": "spacing"
+      },
+      {
+        "text": "don't",
+        "start": 3.32,
+        "end": 3.633,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.633,
+        "end": 3.641,
+        "type": "spacing"
+      },
+      {
+        "text": "call",
+        "start": 3.641,
+        "end": 3.86,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.86,
+        "end": 3.881,
+        "type": "spacing"
+      },
+      {
+        "text": "him",
+        "start": 3.881,
+        "end": 4.089,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.089,
+        "end": 4.121,
+        "type": "spacing"
+      },
+      {
+        "text": "again.",
+        "start": 4.121,
+        "end": 4.471,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.471,
+        "end": 4.921,
+        "type": "spacing"
+      },
+      {
+        "text": "Don't",
+        "start": 4.921,
+        "end": 5.241,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.241,
+        "end": 5.241,
+        "type": "spacing"
+      },
+      {
+        "text": "open",
+        "start": 5.241,
+        "end": 5.477,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.477,
+        "end": 5.49,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 5.49,
+        "end": 5.59,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.59,
+        "end": 5.59,
+        "type": "spacing"
+      },
+      {
+        "text": "back",
+        "start": 5.59,
+        "end": 5.86,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.86,
+        "end": 5.882,
+        "type": "spacing"
+      },
+      {
+        "text": "door,",
+        "start": 5.882,
+        "end": 6.245,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.245,
+        "end": 6.7,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 6.7,
+        "end": 6.831,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.831,
+        "end": 6.842,
+        "type": "spacing"
+      },
+      {
+        "text": "whatever",
+        "start": 6.842,
+        "end": 7.237,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.237,
+        "end": 7.25,
+        "type": "spacing"
+      },
+      {
+        "text": "you",
+        "start": 7.25,
+        "end": 7.45,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.45,
+        "end": 7.482,
+        "type": "spacing"
+      },
+      {
+        "text": "do,",
+        "start": 7.482,
+        "end": 7.765,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.765,
+        "end": 8.14,
+        "type": "spacing"
+      },
+      {
+        "text": "don't",
+        "start": 8.14,
+        "end": 8.396,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.396,
+        "end": 8.396,
+        "type": "spacing"
+      },
+      {
+        "text": "go",
+        "start": 8.396,
+        "end": 8.57,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.57,
+        "end": 8.602,
+        "type": "spacing"
+      },
+      {
+        "text": "out",
+        "start": 8.602,
+        "end": 8.764,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.764,
+        "end": 8.78,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 8.78,
+        "end": 8.911,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.911,
+        "end": 8.923,
+        "type": "spacing"
+      },
+      {
+        "text": "get",
+        "start": 8.923,
+        "end": 9.13,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.13,
+        "end": 9.163,
+        "type": "spacing"
+      },
+      {
+        "text": "him.",
+        "start": 9.163,
+        "end": 9.547,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.547,
+        "end": 9.963,
+        "type": "spacing"
+      },
+      {
+        "text": "I'm",
+        "start": 9.963,
+        "end": 10.215,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.215,
+        "end": 10.22,
+        "type": "spacing"
+      },
+      {
+        "text": "not",
+        "start": 10.22,
+        "end": 10.411,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.411,
+        "end": 10.443,
+        "type": "spacing"
+      },
+      {
+        "text": "talking",
+        "start": 10.443,
+        "end": 10.79,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.79,
+        "end": 10.843,
+        "type": "spacing"
+      },
+      {
+        "text": "about",
+        "start": 10.843,
+        "end": 11.03,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.03,
+        "end": 11.04,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 11.04,
+        "end": 11.152,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.152,
+        "end": 11.163,
+        "type": "spacing"
+      },
+      {
+        "text": "dog",
+        "start": 11.163,
+        "end": 11.521,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.521,
+        "end": 11.563,
+        "type": "spacing"
+      },
+      {
+        "text": "chasing",
+        "start": 11.563,
+        "end": 11.931,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.931,
+        "end": 11.963,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 11.963,
+        "end": 12.124,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.124,
+        "end": 12.14,
+        "type": "spacing"
+      },
+      {
+        "text": "squirrel.",
+        "start": 12.14,
+        "end": 12.789,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.789,
+        "end": 13.01,
+        "type": "spacing"
+      },
+      {
+        "text": "I'm",
+        "start": 13.01,
+        "end": 13.302,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.302,
+        "end": 13.324,
+        "type": "spacing"
+      },
+      {
+        "text": "talking",
+        "start": 13.324,
+        "end": 13.611,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.611,
+        "end": 13.644,
+        "type": "spacing"
+      },
+      {
+        "text": "about",
+        "start": 13.644,
+        "end": 13.942,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.942,
+        "end": 13.964,
+        "type": "spacing"
+      },
+      {
+        "text": "this.",
+        "start": 13.964,
+        "end": 14.439,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.439,
+        "end": 15.004,
+        "type": "spacing"
+      },
+      {
+        "text": "It's",
+        "start": 15.004,
+        "end": 15.382,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.382,
+        "end": 15.404,
+        "type": "spacing"
+      },
+      {
+        "text": "late.",
+        "start": 15.404,
+        "end": 15.932,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.932,
+        "end": 16.28,
+        "type": "spacing"
+      },
+      {
+        "text": "You",
+        "start": 16.28,
+        "end": 16.433,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.433,
+        "end": 16.445,
+        "type": "spacing"
+      },
+      {
+        "text": "open",
+        "start": 16.445,
+        "end": 16.732,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.732,
+        "end": 16.765,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 16.765,
+        "end": 16.875,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.875,
+        "end": 16.88,
+        "type": "spacing"
+      },
+      {
+        "text": "back",
+        "start": 16.88,
+        "end": 17.143,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.143,
+        "end": 17.165,
+        "type": "spacing"
+      },
+      {
+        "text": "door",
+        "start": 17.165,
+        "end": 17.445,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.445,
+        "end": 17.49,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 17.49,
+        "end": 17.633,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.633,
+        "end": 17.645,
+        "type": "spacing"
+      },
+      {
+        "text": "call",
+        "start": 17.645,
+        "end": 17.925,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.925,
+        "end": 17.97,
+        "type": "spacing"
+      },
+      {
+        "text": "his",
+        "start": 17.97,
+        "end": 18.118,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.118,
+        "end": 18.13,
+        "type": "spacing"
+      },
+      {
+        "text": "name.",
+        "start": 18.13,
+        "end": 18.644,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.644,
+        "end": 18.97,
+        "type": "spacing"
+      },
+      {
+        "text": "He's",
+        "start": 18.97,
+        "end": 19.249,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.249,
+        "end": 19.25,
+        "type": "spacing"
+      },
+      {
+        "text": "standing",
+        "start": 19.25,
+        "end": 19.617,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.617,
+        "end": 19.65,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 19.65,
+        "end": 19.791,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.791,
+        "end": 19.8,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 19.8,
+        "end": 19.878,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.878,
+        "end": 19.89,
+        "type": "spacing"
+      },
+      {
+        "text": "middle",
+        "start": 19.89,
+        "end": 20.126,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.126,
+        "end": 20.14,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 20.14,
+        "end": 20.256,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.256,
+        "end": 20.26,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 20.26,
+        "end": 20.358,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.358,
+        "end": 20.37,
+        "type": "spacing"
+      },
+      {
+        "text": "yard.",
+        "start": 20.37,
+        "end": 20.822,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.822,
+        "end": 21.25,
+        "type": "spacing"
+      },
+      {
+        "text": "He",
+        "start": 21.25,
+        "end": 21.458,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.458,
+        "end": 21.49,
+        "type": "spacing"
+      },
+      {
+        "text": "looks",
+        "start": 21.49,
+        "end": 21.718,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.718,
+        "end": 21.73,
+        "type": "spacing"
+      },
+      {
+        "text": "at",
+        "start": 21.73,
+        "end": 21.879,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.879,
+        "end": 21.89,
+        "type": "spacing"
+      },
+      {
+        "text": "you.",
+        "start": 21.89,
+        "end": 22.145,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.145,
+        "end": 22.61,
+        "type": "spacing"
+      },
+      {
+        "text": "Then",
+        "start": 22.61,
+        "end": 22.849,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.849,
+        "end": 22.85,
+        "type": "spacing"
+      },
+      {
+        "text": "he",
+        "start": 22.85,
+        "end": 22.999,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.999,
+        "end": 23.01,
+        "type": "spacing"
+      },
+      {
+        "text": "looks",
+        "start": 23.01,
+        "end": 23.287,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.287,
+        "end": 23.33,
+        "type": "spacing"
+      },
+      {
+        "text": "past",
+        "start": 23.33,
+        "end": 23.687,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.687,
+        "end": 23.73,
+        "type": "spacing"
+      },
+      {
+        "text": "you,",
+        "start": 23.73,
+        "end": 23.956,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.956,
+        "end": 24.53,
+        "type": "spacing"
+      },
+      {
+        "text": "into",
+        "start": 24.53,
+        "end": 24.766,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.766,
+        "end": 24.78,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 24.78,
+        "end": 24.919,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.919,
+        "end": 24.93,
+        "type": "spacing"
+      },
+      {
+        "text": "house,",
+        "start": 24.93,
+        "end": 25.404,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.404,
+        "end": 25.9,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 25.9,
+        "end": 26.039,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.039,
+        "end": 26.05,
+        "type": "spacing"
+      },
+      {
+        "text": "he",
+        "start": 26.05,
+        "end": 26.206,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.206,
+        "end": 26.22,
+        "type": "spacing"
+      },
+      {
+        "text": "backs",
+        "start": 26.22,
+        "end": 26.556,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.556,
+        "end": 26.58,
+        "type": "spacing"
+      },
+      {
+        "text": "away.",
+        "start": 26.58,
+        "end": 27.099,
+        "type": "word"
+      }
+    ],
+    "transcription_id": "98ceaf454be1f4eb4eda",
+    "audio_duration_secs": 27.219592
+  }
+]

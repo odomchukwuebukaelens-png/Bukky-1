@@ -1,0 +1,222 @@
+[
+ {
+  "start": 0.0,
+  "end": 1.65,
+  "sentence": 0,
+  "setup": "DOG_EYES_DARK",
+  "motion": "slow push",
+  "note": "eyes don't blink",
+  "text": "If your dog ever refuses to come inside at night, don't call him again.",
+  "n": 1,
+  "dur": 1.65
+ },
+ {
+  "start": 1.65,
+  "end": 3.32,
+  "sentence": 0,
+  "setup": "YARD_WIDE_DOOR_LIGHT",
+  "motion": "drift",
+  "note": "dog far out on the lawn",
+  "text": "If your dog ever refuses to come inside at night, don't call him again.",
+  "n": 2,
+  "dur": 1.67
+ },
+ {
+  "start": 3.32,
+  "end": 4.921,
+  "sentence": 0,
+  "setup": "CU_YOU_DOOR",
+  "motion": "push",
+  "note": "you stop calling mid-word",
+  "text": "If your dog ever refuses to come inside at night, don't call him again.",
+  "n": 3,
+  "dur": 1.601
+ },
+ {
+  "start": 4.801,
+  "end": 6.7,
+  "sentence": 1,
+  "setup": "INS_DOOR_HANDLE",
+  "motion": "push",
+  "note": "hand reaches for the handle, pulls back",
+  "text": "Don't open the back door, and whatever you do, don't go out to get him.",
+  "n": 4,
+  "dur": 1.899
+ },
+ {
+  "start": 6.7,
+  "end": 8.14,
+  "sentence": 1,
+  "setup": "PORCH_STEPS_POV",
+  "motion": "push",
+  "note": "your sneakers at the threshold",
+  "text": "Don't open the back door, and whatever you do, don't go out to get him.",
+  "n": 5,
+  "dur": 1.44
+ },
+ {
+  "start": 8.14,
+  "end": 9.963,
+  "sentence": 1,
+  "setup": "KT_DONT_GO",
+  "motion": "slam",
+  "note": "text slam",
+  "text": "Don't open the back door, and whatever you do, don't go out to get him.",
+  "n": 6,
+  "dur": 1.823
+ },
+ {
+  "start": 9.843,
+  "end": 11.563,
+  "sentence": 2,
+  "setup": "SQUIRREL_DAY",
+  "motion": "track",
+  "note": "comedy: dog chases squirrel",
+  "text": "I'm not talking about a dog chasing a squirrel.",
+  "n": 7,
+  "dur": 1.72
+ },
+ {
+  "start": 11.563,
+  "end": 13.01,
+  "sentence": 2,
+  "setup": "SQUIRREL_TREE",
+  "motion": "tilt up",
+  "note": "squirrel taunts from branch",
+  "text": "I'm not talking about a dog chasing a squirrel.",
+  "n": 8,
+  "dur": 1.447
+ },
+ {
+  "start": 12.89,
+  "end": 13.964,
+  "sentence": 3,
+  "setup": "EYES_GONE",
+  "motion": "static",
+  "note": "eyes switch off",
+  "text": "I'm talking about this.",
+  "n": 9,
+  "dur": 1.074
+ },
+ {
+  "start": 13.964,
+  "end": 15.604,
+  "sentence": 3,
+  "setup": "CLOCK_CARD",
+  "motion": "static",
+  "note": "11:48 PM",
+  "text": "I'm talking about this.",
+  "n": 10,
+  "dur": 1.64
+ },
+ {
+  "start": 15.484,
+  "end": 16.88,
+  "sentence": 4,
+  "setup": "KITCHEN_NIGHT_WIDE",
+  "motion": "pan",
+  "note": "you cross the kitchen; full bowl",
+  "text": "It's late.",
+  "n": 11,
+  "dur": 1.396
+ },
+ {
+  "start": 16.76,
+  "end": 18.09,
+  "sentence": 5,
+  "setup": "DOOR_OPENS_OUT",
+  "motion": "push",
+  "note": "door swings open, light floods porch",
+  "text": "You open the back door and call his name.",
+  "n": 12,
+  "dur": 1.33
+ },
+ {
+  "start": 18.09,
+  "end": 19.57,
+  "sentence": 5,
+  "setup": "CU_YOU_CALL",
+  "motion": "push",
+  "note": "BRUNO!",
+  "text": "You open the back door and call his name.",
+  "n": 13,
+  "dur": 1.48
+ },
+ {
+  "start": 19.45,
+  "end": 20.74,
+  "sentence": 6,
+  "setup": "YARD_FROM_PORCH",
+  "motion": "push",
+  "note": "dog dead centre of the lawn",
+  "text": "He's standing in the middle of the yard.",
+  "n": 14,
+  "dur": 1.29
+ },
+ {
+  "start": 20.74,
+  "end": 21.85,
+  "sentence": 6,
+  "setup": "DOG_SIDE_MED",
+  "motion": "drift",
+  "note": "tail still, ears up",
+  "text": "He's standing in the middle of the yard.",
+  "n": 15,
+  "dur": 1.11
+ },
+ {
+  "start": 21.73,
+  "end": 23.21,
+  "sentence": 7,
+  "setup": "DOG_HEAD_TURN",
+  "motion": "push",
+  "note": "head turns to camera",
+  "text": "He looks at you.",
+  "n": 16,
+  "dur": 1.48
+ },
+ {
+  "start": 23.09,
+  "end": 24.33,
+  "sentence": 8,
+  "setup": "OTS_DOG_TO_HOUSE",
+  "motion": "push",
+  "note": "you tiny in the doorway",
+  "text": "Then he looks past you, into the house, and he backs away.",
+  "n": 17,
+  "dur": 1.24
+ },
+ {
+  "start": 24.33,
+  "end": 25.38,
+  "sentence": 8,
+  "setup": "DOORWAY_BEHIND_YOU",
+  "motion": "slow push",
+  "note": "a darker shape in the hall",
+  "text": "Then he looks past you, into the house, and he backs away.",
+  "n": 18,
+  "dur": 1.05
+ },
+ {
+  "start": 25.38,
+  "end": 26.65,
+  "sentence": 8,
+  "setup": "HALL_PUSH",
+  "motion": "push",
+  "note": "into the house",
+  "text": "Then he looks past you, into the house, and he backs away.",
+  "n": 19,
+  "dur": 1.27
+ },
+ {
+  "start": 26.65,
+  "end": 27.808,
+  "sentence": 8,
+  "setup": "DOG_BACKS_AWAY",
+  "motion": "track",
+  "note": "tail tucked, backing off, growl",
+  "text": "Then he looks past you, into the house, and he backs away.",
+  "n": 20,
+  "dur": 1.158
+ }
+]

@@ -12,7 +12,9 @@ FONTS = os.path.join(ROOT, "assets", "fonts")
 
 # ---------------- palette ----------------
 def C(hexs, a=1.0):
-    h = hexs.lstrip("#"); return skia.Color4f(int(h[0:2], 16) / 255, int(h[2:4], 16) / 255, int(h[4:6], 16) / 255, a)
+    h = hexs.lstrip("#")
+    if len(h) == 3: h = "".join(ch * 2 for ch in h)
+    return skia.Color4f(int(h[0:2], 16) / 255, int(h[2:4], 16) / 255, int(h[4:6], 16) / 255, a)
 BG, INK, WHITE, GREY, DIM, DARK = "#0a0a0b", "#1c1c1f", "#f1f1ee", "#9b9b98", "#4a4a4c", "#262628"
 AMBER, ACID, RED, TEAR, TV = "#e3a63a", "#b6ff3b", "#e5392b", "#7fc4ff", "#8fb4ff"
 MOOD = {"normal": dict(white=WHITE, line=GREY), "frozen": dict(white="#e3f0d6", line="#7f8f6f"),
@@ -204,8 +206,11 @@ def figure(pen, kind, x, y, s=1.0, pose=None, t=0.0, seed=0, seated=False):
     hands = {}
     for sx, key, dflt in ((-1, "armL", (8, 4)), (1, "armR", (8, 4))):
         up, lo = pose.get(key, dflt); hands[key] = arm(sx, up, lo)
+    # neck (drawn before the torso so the collar overlaps it)
+    nw = r * 0.5; ntop = sh - Hh * 0.01 - r * 0.6
+    pen.rect(x - nw / 2, ntop, nw, (sh + Hh * 0.02) - ntop, fill=wht, stroke=lin, w=3, r=nw * 0.3)
     # torso / dress
-    pen.push(s=1.0, ox=x, oy=hip);
+    pen.push(s=1.0, ox=x, oy=hip); 
     sy = br
     def torso(p):
         top = hip - (hip - sh) * sy
@@ -224,15 +229,18 @@ def figure(pen, kind, x, y, s=1.0, pose=None, t=0.0, seed=0, seated=False):
     if kind == "dad":
         for k in range(3): pen.circle(x, sh + Hh * (0.06 + 0.07 * k), 2.5, fill=DIM)
     pen.pop()
-    head(pen, kind, x, sh - r - Hh * 0.01, r, pose.get("face", {}), t, seed, tilt=pose.get("tilt", 0))
+    head(pen, kind, x, sh - r - Hh * 0.01 - r * 0.42, r, pose.get("face", {}), t, seed, tilt=pose.get("tilt", 0))
     pen.pop()
     return hands
 
 def head_close(pen, kind, x, y, r, f, t, seed=0, tilt=0, shoulders=True):
     """Close-up: a big head with shoulders below, for CU / ECU shots."""
     if shoulders:
-        pen.path(lambda p: (p.moveTo(x - r * 1.6, y + r * 2.6), p.cubicTo(x - r * 1.5, y + r * 1.15, x + r * 1.5, y + r * 1.15, x + r * 1.6, y + r * 2.6), p.close()),
+        nw = r * 0.62
+        pen.rect(x - nw / 2, y + r * 0.6, nw, r * 1.4, fill=pen.white, stroke=pen.line, w=4, r=nw * 0.25)  # neck
+        pen.path(lambda p: (p.moveTo(x - r * 1.75, y + r * 3.2), p.cubicTo(x - r * 1.65, y + r * 1.75, x + r * 1.65, y + r * 1.75, x + r * 1.75, y + r * 3.2), p.close()),
                  fill=pen.white, stroke=pen.line, w=4)
+        pen.arc(x, y + r * 1.86, nw * 0.62, r * 0.16, 20, 140, pen.line, 3)  # collar
     head(pen, kind, x, y, r, f, t, seed, tilt)
 
 # ---------------- props ----------------
@@ -377,3 +385,56 @@ def kinetic(pen, text, t, color=ACID, size=230, shake=True):
     pen.push(s=sc, ox=W / 2 + dx, oy=H / 2 + size * 0.35)
     pen.text(text, W / 2 + dx, H / 2 + size * 0.35, size, color)
     pen.pop()
+
+
+def dog(pen, x, y, s=1.0, t=0.0, facing=1, head_turn=0.0, tail=1.0, ears=1.0, eyes="dot", step=0.0, crouch=0.0, glow=0.0, mouth="closed"):
+    """Side-view dog standing on (x, y). head_turn 0=profile, 1=looking at camera. tail: wag speed
+    (0 still, <0 tucked). step: walk speed (+forward, -backward). crouch 0..1. glow: eye shine."""
+    wht, lin = pen.white, pen.line
+    f = facing; L = 220 * s; bh = 90 * s; lh = 95 * s * (1 - 0.25 * crouch)
+    by = y - lh - bh * 0.5
+    for i, lx in enumerate((-0.38, -0.22, 0.26, 0.4)):
+        ph = math.sin(t * 8 * abs(step) + i * 1.7) * (18 * s if step else 0)
+        px = x + f * lx * L; fx = px + ph * f
+        pen.ln(px, by + bh * 0.25, fx, y, lin, 30 * s); pen.ln(px, by + bh * 0.25, fx, y, wht, 24 * s)
+    ta = math.radians(150) if tail < 0 else (math.radians(-50 + 25 * math.sin(t * 14 * tail)) if tail else math.radians(-35))
+    tx0, ty0 = x - f * L * 0.5, by - bh * 0.15; tx1, ty1 = tx0 - f * math.cos(ta) * 80 * s, ty0 + math.sin(ta) * 80 * s
+    pen.ln(tx0, ty0, tx1, ty1, lin, 20 * s); pen.ln(tx0, ty0, tx1, ty1, wht, 14 * s)
+    br = 1 + 0.02 * math.sin(t * 3.0)
+    pen.oval(x, by, L * 0.55, bh * 0.55 * br, fill=wht, stroke=lin, w=4)
+    pen.oval(x - f * L * 0.12, by - bh * 0.05, L * 0.16, bh * 0.22, fill="#d8d8d3")
+    hx = x + f * L * (0.52 - 0.1 * head_turn); hy = by - bh * 0.7 + crouch * 30 * s
+    pen.ln(x + f * L * 0.35, by - bh * 0.2, hx, hy + 20 * s, lin, 52 * s); pen.ln(x + f * L * 0.35, by - bh * 0.2, hx, hy + 20 * s, wht, 46 * s)
+    hr = 52 * s
+    pen.circle(hx, hy, hr, fill=wht, stroke=lin, w=4)
+    sn = 1 - head_turn
+    pen.oval(hx + f * hr * 0.75 * sn, hy + hr * 0.3, hr * (0.6 - 0.15 * head_turn), hr * 0.38, fill=wht, stroke=lin, w=4)
+    pen.circle(hx + f * hr * 1.25 * sn, hy + hr * (0.2 + 0.25 * head_turn), hr * 0.14, fill=INK)
+    if mouth == "growl":
+        for k in range(3):
+            mx = hx + f * (hr * 0.7 + k * 14 * s) * max(sn, 0.3)
+            pen.poly([(mx - 6 * s, hy + hr * 0.58), (mx, hy + hr * 0.76), (mx + 6 * s, hy + hr * 0.58)], fill="#ffffff", stroke=INK, w=2)
+    ear_a = (20 if ears >= 0.5 else 75) + 6 * math.sin(t * 5)
+    for k, ex in enumerate((-0.45, 0.25)):
+        ax = hx + f * hr * ex * (1 - head_turn * 0.5) + (-1 if k == 0 else 1) * hr * 0.4 * head_turn
+        ay = hy - hr * 0.6; a = math.radians(ear_a) * (-f if k == 0 else f)
+        pen.poly([(ax - 14 * s, ay + 8 * s), (ax + 14 * s, ay + 8 * s), (ax + math.sin(a) * 60 * s, ay - math.cos(a) * 60 * s)], fill="#cfcfca", stroke=lin, w=3)
+    for k in ((0,) if head_turn < 0.5 else (-1, 1)):
+        ex = hx + (f * hr * 0.25 if head_turn < 0.5 else k * hr * 0.35); ey = hy - hr * 0.1
+        if glow > 0: pen.glow(ex, ey, 40 * s, "#d8ff8a", 0.6 * glow)
+        if eyes == "closed": pen.arc(ex, ey, 9 * s, 5 * s, 20, 140, INK, 4)
+        else: pen.circle(ex, ey, 9 * s, fill="#d8ff8a" if glow > 0.5 else INK)
+    pen.oval(hx - f * hr * 0.1, hy + hr * 0.95, hr * 0.7, hr * 0.16, fill=RED)
+    pen.circle(hx + f * hr * 0.1, hy + hr * 1.12, 9 * s, fill=AMBER)
+    return hx, hy
+
+def squirrel(pen, x, y, s=1.0, t=0.0, facing=1):
+    f = facing; fill_, lin = "#c98f2c", "#7a5216"
+    pen.push(rot=math.sin(t * 6) * 10 * f, ox=x - f * 30 * s, oy=y - 30 * s)
+    pen.path(lambda p: (p.moveTo(x - f * 30 * s, y - 20 * s), p.cubicTo(x - f * 110 * s, y - 40 * s, x - f * 120 * s, y - 160 * s, x - f * 40 * s, y - 150 * s),
+                        p.cubicTo(x - f * 80 * s, y - 110 * s, x - f * 60 * s, y - 50 * s, x - f * 10 * s, y - 30 * s), p.close()), fill=fill_, stroke=lin, w=3)
+    pen.pop()
+    pen.oval(x, y - 40 * s, 40 * s, 32 * s, fill=fill_, stroke=lin, w=3)
+    pen.circle(x + f * 30 * s, y - 80 * s, 24 * s, fill=fill_, stroke=lin, w=3)
+    pen.circle(x + f * 38 * s, y - 86 * s, 4 * s, fill=INK)
+    pen.poly([(x + f * 18 * s, y - 100 * s), (x + f * 26 * s, y - 120 * s), (x + f * 32 * s, y - 100 * s)], fill=fill_, stroke=lin, w=2)
