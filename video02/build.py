@@ -53,35 +53,77 @@ def shift(t):
 for w in words: w["start"], w["end"] = round(shift(w["start"]), 3), round(shift(w["end"]), 3)
 json.dump(words, open(P("words_final.json"), "w"))
 
-# ---- shots ----
-edl = []
+# ---- shots: unique variants, pool top-ups, no repeats ----
+used, edl = set(), []
+ALLPOOL = [x for v in sp.POOL.values() for x in v]
+def base_of(spec): return spec.split(":")[0] if ":" in spec else spec
+def take(spec, prev_base, filler=False):
+    if ":" not in spec:  # approved opening shot, used exactly once
+        if spec in used: return None
+        used.add(spec); return spec
+    b, o = spec.split(":", 1)
+    if filler and b == prev_base: return None
+    for v in range(sp.MAXV.get(b, 1)):
+        key = (b, v, o)
+        if key not in used: used.add(key); return f"{b}#{v}:{o}"
+    return None
 for si, idxs in enumerate(sents):
-    plan = sp.PLAN.get(si) or [("HOLD_PREV", "micro-change", "")]
-    s0 = 0.0 if si == 0 else words[idxs[0]]["start"]
-    s1 = words[sents[si + 1][0]]["start"] if si + 1 < len(sents) else total
-    if si > 0:  # cut slightly before the first word so the picture lands with the line
-        s0 = max(edl[-1]["start"] + 0.3 if edl else 0, s0 - 0.12)
-    n = len(plan)
-    starts = [words[i]["start"] for i in idxs]
+    s0 = 0.0 if si == 0 else words[idxs[0]]["start"] - 0.12
+    s1 = (words[sents[si + 1][0]]["start"] - 0.12) if si + 1 < len(sents) else total
+    if edl: s0 = edl[-1]["end"]
+    span = s1 - s0
+    plan = list(sp.PLAN.get(si, []))
+    need = max(1, math.ceil(span / 1.9 - 1e-9))
+    maxn = max(1, int(span / 0.5))
+    plan = plan[:maxn]
+    shots = []
+    prev = base_of(edl[-1]["setup"]) if edl else None
+    for spec in plan:
+        name = take(spec, prev)
+        if name is None:  # never repeat: swap in an unused shot from this location's pool
+            pool_ = sp.POOL[sp.CTX[si]]
+            for alt in pool_[si % len(pool_):] + pool_[:si % len(pool_)]:
+                name = take(alt, prev, filler=True)
+                if name: break
+            print(f"  sentence {si}: '{spec}' exhausted -> using {name}")
+            if name is None: raise SystemExit(f"sentence {si}: nothing unused left")
+        shots.append(name); prev = base_of(name)
+    pool = sp.POOL[sp.CTX[si]]; k = si
+    guard = 0
+    while len(shots) < need:
+        spec = pool[k % len(pool)]; k += 1; guard += 1
+        name = take(spec, prev, filler=True)
+        if name: shots.append(name); prev = base_of(name)
+        if guard > 60 and pool is not ALLPOOL:  # this location is used up: borrow any unused shot from all locations
+            pool = ALLPOOL; k = si * 7
+        if guard > 2000: raise SystemExit(f"sentence {si}: every pool exhausted")
+    n = len(shots); starts = [words[i]["start"] - 0.12 for i in idxs]
     bounds = [s0]
-    for k in range(1, n):  # word-aligned cuts at even spacing
-        target = s0 + (s1 - s0) * k / n
-        cand = min((t for t in starts if t > bounds[-1] + 0.35), key=lambda t: abs(t - target), default=target)
+    for j in range(1, n):
+        target = s0 + span * j / n
+        cand = min((x for x in starts if x > bounds[-1] + 0.45 and x < s1 - 0.45), key=lambda x: abs(x - target), default=target)
+        if abs(cand - target) > 0.5: cand = target
         bounds.append(cand)
     bounds.append(s1)
+    if max(b_ - a_ for a_, b_ in zip(bounds, bounds[1:])) > 1.95:  # word-snapping made a long piece: cut evenly
+        bounds = [s0 + span * j / n for j in range(n + 1)]
     text = " ".join(words[i]["text"] for i in idxs)
-    for k, (setup, motion, note) in enumerate(plan):
-        b0, b1 = bounds[k], bounds[k + 1]
-        if b1 - b0 < 0.25 and edl:  # too short to read; merge into previous
-            edl[-1]["end"] = b1; continue
-        if b1 - b0 > MAX_SHOT + 1e-6:  # no auto-splitting / repeating: the plan must supply another shot
-            raise SystemExit(f"sentence {si}: shot {setup} would last {b1 - b0:.2f}s > {MAX_SHOT}s - add a new, different shot")
-        pieces = 1
-        for p in range(pieces):
-            q0 = b0 + (b1 - b0) * p / pieces; q1 = b0 + (b1 - b0) * (p + 1) / pieces
-            edl.append(dict(start=round(q0, 3), end=round(q1, 3), sentence=si, setup=setup,
-                            motion=motion if p == 0 else f"micro-change: {MICRO[(len(edl)) % len(MICRO)]}",
-                            note=note if p == 0 else "", text=text))
+    for j, name in enumerate(shots):
+        d = bounds[j + 1] - bounds[j]
+        if d > MAX_SHOT + 0.05: raise SystemExit(f"sentence {si}: shot {name} {d:.2f}s too long")
+        edl.append(dict(start=round(bounds[j], 3), end=round(bounds[j + 1], 3), sentence=si, setup=name, motion="", note="", text=text))
+# ---- reorder within each sentence so look-alike shots (same builder + same subject) never sit side by side ----
+def look(s_):
+    n_ = s_["setup"]; b_ = n_.split("#")[0]
+    o_ = n_.split(":", 1)[1] if ":" in n_ else ""
+    return (b_, o_.split(",")[0] if b_ in ("DOG_CU", "TULSA", "MEMORY") else "")
+for _ in range(3):
+    for i in range(1, len(edl)):
+        if look(edl[i]) != look(edl[i - 1]): continue
+        for j in range(i + 1, len(edl)):
+            if edl[j]["sentence"] != edl[i]["sentence"]: break
+            if look(edl[j]) != look(edl[i - 1]) and (j + 1 >= len(edl) or look(edl[i]) != look(edl[j + 1])):
+                a_, b2 = edl[i]["setup"], edl[j]["setup"]; edl[i]["setup"], edl[j]["setup"] = b2, a_; break
 for i, s in enumerate(edl): s["n"] = i + 1; s["dur"] = round(s["end"] - s["start"], 3)
 json.dump(edl, open(P("edl.json"), "w"), indent=1)
 

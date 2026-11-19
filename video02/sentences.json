@@ -1,56 +1,896 @@
 [
 {
 "i": 0,
-"start": 0.18,
-"end": 4.47,
+"start": 0.12,
+"end": 4.71,
 "text": "If your dog ever refuses to come inside at night, don't call him again."
 },
 {
 "i": 1,
-"start": 4.92,
-"end": 9.55,
-"text": "Don't open the back door, and whatever you do, don't go out to get him."
+"start": 5,
+"end": 6.66,
+"text": "Don't open the back door."
 },
 {
 "i": 2,
-"start": 9.96,
-"end": 12.79,
-"text": "I'm not talking about a dog chasing a squirrel."
+"start": 6.91,
+"end": 9.72,
+"text": "And whatever you do, don't go out to get him."
 },
 {
 "i": 3,
-"start": 13.01,
-"end": 14.44,
-"text": "I'm talking about this."
+"start": 10.02,
+"end": 12.75,
+"text": "I'm not talking about a dog chasing a squirrel."
 },
 {
 "i": 4,
-"start": 15.0,
-"end": 15.93,
-"text": "It's late."
+"start": 13,
+"end": 14.43,
+"text": "I'm talking about this."
 },
 {
 "i": 5,
-"start": 16.28,
-"end": 18.64,
-"text": "You open the back door and call his name."
+"start": 14.84,
+"end": 15.68,
+"text": "It's late."
 },
 {
 "i": 6,
-"start": 18.97,
-"end": 20.82,
-"text": "He's standing in the middle of the yard."
+"start": 15.88,
+"end": 18.47,
+"text": "You open the back door and call his name."
 },
 {
 "i": 7,
-"start": 21.25,
-"end": 22.14,
-"text": "He looks at you."
+"start": 18.83,
+"end": 21.28,
+"text": "He's standing in the middle of the yard."
 },
 {
 "i": 8,
-"start": 22.61,
-"end": 27.1,
+"start": 21.32,
+"end": 22.34,
+"text": "He looks at you."
+},
+{
+"i": 9,
+"start": 22.72,
+"end": 27.47,
 "text": "Then he looks past you, into the house, and he backs away."
+},
+{
+"i": 10,
+"start": 28.13,
+"end": 30.66,
+"text": "Not scared of the dark, not stubborn."
+},
+{
+"i": 11,
+"start": 31.04,
+"end": 32.28,
+"text": "Scared of the kitchen."
+},
+{
+"i": 12,
+"start": 32.59,
+"end": 35.16,
+"text": "Your bright, warm, empty kitchen."
+},
+{
+"i": 13,
+"start": 35.88,
+"end": 37.65,
+"text": "The dishwasher is humming."
+},
+{
+"i": 14,
+"start": 38.03,
+"end": 41.34,
+"text": "The clock above the stove says eleven forty eight."
+},
+{
+"i": 15,
+"start": 41.4,
+"end": 43.36,
+"text": "His food is still in his bowl."
+},
+{
+"i": 16,
+"start": 43.4,
+"end": 44.72,
+"text": "He hasn't touched it."
+},
+{
+"i": 17,
+"start": 44.76,
+"end": 46.27,
+"text": "He always touches it."
+},
+{
+"i": 18,
+"start": 46.66,
+"end": 47.98,
+"text": "Count to five."
+},
+{
+"i": 19,
+"start": 48.04,
+"end": 52.26,
+"text": "If he doesn't move, if he doesn't wag, if he doesn't even blink."
+},
+{
+"i": 20,
+"start": 52.28,
+"end": 53.44,
+"text": "Look at his tail."
+},
+{
+"i": 21,
+"start": 53.48,
+"end": 57.57,
+"text": "If it's tucked so low it touches his belly, this isn't a game."
+},
+{
+"i": 22,
+"start": 58.04,
+"end": 60.25,
+"text": "Something is in the house with you."
+},
+{
+"i": 23,
+"start": 60.56,
+"end": 62.93,
+"text": "And your dog saw it before you did."
+},
+{
+"i": 24,
+"start": 63.38,
+"end": 64.94,
+"text": "There are seven rules."
+},
+{
+"i": 25,
+"start": 65.4,
+"end": 69.28,
+"text": "Most people break the first one before they even know there's a problem."
+},
+{
+"i": 26,
+"start": 69.48,
+"end": 73.24,
+"text": "And the last one is the hardest thing you'll ever do for a dog."
+},
+{
+"i": 27,
+"start": 73.72,
+"end": 74.95,
+"text": "Rule number one."
+},
+{
+"i": 28,
+"start": 75.4,
+"end": 76.64,
+"text": "Don't call him again."
+},
+{
+"i": 29,
+"start": 77.29,
+"end": 79.04,
+"text": "You've already called him once."
+},
+{
+"i": 30,
+"start": 79.29,
+"end": 80.18,
+"text": "That's fine."
+},
+{
+"i": 31,
+"start": 80.5,
+"end": 81.7,
+"text": "Everybody does."
+},
+{
+"i": 32,
+"start": 81.85,
+"end": 83.11,
+"text": "But stop now."
+},
+{
+"i": 33,
+"start": 83.41,
+"end": 86.24,
+"text": "Whatever is standing in your house is listening."
+},
+{
+"i": 34,
+"start": 86.28,
+"end": 88.61,
+"text": "It's never heard your voice before tonight."
+},
+{
+"i": 35,
+"start": 88.82,
+"end": 92.37,
+"text": "Every time you call his name, it hears how you say it."
+},
+{
+"i": 36,
+"start": 92.71,
+"end": 95.15,
+"text": "The way your voice goes up at the end."
+},
+{
+"i": 37,
+"start": 95.18,
+"end": 97.83,
+"text": "The little whistle you do when he won't come."
+},
+{
+"i": 38,
+"start": 98.43,
+"end": 103.27,
+"text": "And if you've already called him three or four times, it's already got most of it."
+},
+{
+"i": 39,
+"start": 103.5,
+"end": 104.48,
+"text": "Not all of it."
+},
+{
+"i": 40,
+"start": 104.68,
+"end": 107.32,
+"text": "It still says his name a little too slowly."
+},
+{
+"i": 41,
+"start": 107.72,
+"end": 108.59,
+"text": "It's learning."
+},
+{
+"i": 42,
+"start": 108.9,
+"end": 114.58,
+"text": "And the next time someone calls your dog from inside this house, it might not be you."
+},
+{
+"i": 43,
+"start": 115.05,
+"end": 116.4,
+"text": "Rule number two."
+},
+{
+"i": 44,
+"start": 116.76,
+"end": 118.12,
+"text": "Don't turn around."
+},
+{
+"i": 45,
+"start": 118.44,
+"end": 120.54,
+"text": "You'll feel it before you hear it."
+},
+{
+"i": 46,
+"start": 120.9,
+"end": 123.34,
+"text": "The air behind you gets colder."
+},
+{
+"i": 47,
+"start": 123.4,
+"end": 125.42,
+"text": "Like a fridge door left open."
+},
+{
+"i": 48,
+"start": 125.71,
+"end": 128.05,
+"text": "The hair on your arms stands up."
+},
+{
+"i": 49,
+"start": 128.92,
+"end": 130.2,
+"text": "Don't turn around."
+},
+{
+"i": 50,
+"start": 130.65,
+"end": 132.17,
+"text": "Watch your dog instead."
+},
+{
+"i": 51,
+"start": 132.5,
+"end": 134.04,
+"text": "He's looking right at it."
+},
+{
+"i": 52,
+"start": 134.36,
+"end": 136.04,
+"text": "His eyes are your mirror."
+},
+{
+"i": 53,
+"start": 136.51,
+"end": 140.34,
+"text": "If his eyes are on your face, it's still in the hallway."
+},
+{
+"i": 54,
+"start": 140.65,
+"end": 144.32,
+"text": "If his eyes move to your shoulder, it's right behind you."
+},
+{
+"i": 55,
+"start": 144.83,
+"end": 147.09,
+"text": "And don't look at the kitchen window either."
+},
+{
+"i": 56,
+"start": 147.46,
+"end": 150.4,
+"text": "At night, that window is a mirror."
+},
+{
+"i": 57,
+"start": 150.75,
+"end": 155.86,
+"text": "You'll see yourself standing in the doorway, and you'll see the room behind you."
+},
+{
+"i": 58,
+"start": 156.18,
+"end": 158.88,
+"text": "You won't want to see what's standing in it."
+},
+{
+"i": 59,
+"start": 159.18,
+"end": 160.6,
+"text": "Rule number three."
+},
+{
+"i": 60,
+"start": 160.89,
+"end": 162.91,
+"text": "Leave the back door open."
+},
+{
+"i": 61,
+"start": 163.28,
+"end": 168.2,
+"text": "Every part of you will want to slam it, lock it, pull the curtain."
+},
+{
+"i": 62,
+"start": 168.68,
+"end": 169.36,
+"text": "Don't."
+},
+{
+"i": 63,
+"start": 169.72,
+"end": 174.76,
+"text": "If you close that door, you're locked in with it, and your dog is locked out."
+},
+{
+"i": 64,
+"start": 175.48,
+"end": 181.02,
+"text": "As long as the door is open and your dog is standing in that yard, it can't walk past him."
+},
+{
+"i": 65,
+"start": 181.6,
+"end": 184.89,
+"text": "Dogs have guarded doorways for thirty thousand years."
+},
+{
+"i": 66,
+"start": 185.16,
+"end": 186.49,
+"text": "That's what they're for."
+},
+{
+"i": 67,
+"start": 186.96,
+"end": 192.41,
+"text": "If the curtain on the back door starts to move and there's no wind, don't touch it."
+},
+{
+"i": 68,
+"start": 192.72,
+"end": 194.57,
+"text": "That's it, testing the door."
+},
+{
+"i": 69,
+"start": 194.87,
+"end": 195.85,
+"text": "Let it test."
+},
+{
+"i": 70,
+"start": 196.15,
+"end": 197.69,
+"text": "Your dog is still there."
+},
+{
+"i": 71,
+"start": 198.08,
+"end": 200.87,
+"text": "Rule number four, read his ears."
+},
+{
+"i": 72,
+"start": 201.23,
+"end": 204.83,
+"text": "Your dog can't talk, but he's telling you everything."
+},
+{
+"i": 73,
+"start": 205.71,
+"end": 209.13,
+"text": "Ears up and forward, it's moving."
+},
+{
+"i": 74,
+"start": 209.51,
+"end": 214.31,
+"text": "Ears pinned flat against his head, it's close enough to touch you."
+},
+{
+"i": 75,
+"start": 214.67,
+"end": 218.93,
+"text": "One ear up, one ear down, it's trying to decide."
+},
+{
+"i": 76,
+"start": 219.41,
+"end": 228.92,
+"text": "And if both ears go flat and he starts to growl, low, so low you feel it more than hear it, hold very still."
+},
+{
+"i": 77,
+"start": 229.28,
+"end": 233.42,
+"text": "It's standing so close to you that he thinks it's part of you."
+},
+{
+"i": 78,
+"start": 233.92,
+"end": 236.9,
+"text": "Watch his ears like your life depends on it."
+},
+{
+"i": 79,
+"start": 237.28,
+"end": 238.19,
+"text": "It does."
+},
+{
+"i": 80,
+"start": 238.72,
+"end": 242.25,
+"text": "There was a man in Tulsa who learned this the hard way."
+},
+{
+"i": 81,
+"start": 242.64,
+"end": 246.51,
+"text": "His dog was a big yellow lab named Duke."
+},
+{
+"i": 82,
+"start": 246.96,
+"end": 249.21,
+"text": "One night, Duke wouldn't come in."
+},
+{
+"i": 83,
+"start": 249.76,
+"end": 251.86,
+"text": "The man called him twice."
+},
+{
+"i": 84,
+"start": 251.92,
+"end": 255.03,
+"text": "Then he remembered the rules and he stopped."
+},
+{
+"i": 85,
+"start": 255.58,
+"end": 259.7,
+"text": "He stood in the doorway for an hour, quiet, patient."
+},
+{
+"i": 86,
+"start": 259.76,
+"end": 266.47,
+"text": "Then, from the dark hallway behind him, he heard a voice, his voice, calling his dog."
+},
+{
+"i": 87,
+"start": 266.84,
+"end": 269.54,
+"text": "Duke, come on buddy, come on."
+},
+{
+"i": 88,
+"start": 270.1,
+"end": 274.28,
+"text": "The man hadn't said a word, and Duke's tail started wagging."
+},
+{
+"i": 89,
+"start": 274.57,
+"end": 278.97,
+"text": "Duke walked right past him, into the house, toward the voice."
+},
+{
+"i": 90,
+"start": 279.49,
+"end": 282.65,
+"text": "In the morning, Duke's food bowl was still full."
+},
+{
+"i": 91,
+"start": 282.96,
+"end": 286.59,
+"text": "His collar was lying on the kitchen floor, still buckled."
+},
+{
+"i": 92,
+"start": 287.11,
+"end": 288.7,
+"text": "The man never found him."
+},
+{
+"i": 93,
+"start": 289.16,
+"end": 294.4,
+"text": "But every night since, he hears his own voice in the hallway, practicing."
+},
+{
+"i": 94,
+"start": 294.86,
+"end": 296.73,
+"text": "Good boy, good boy."
+},
+{
+"i": 95,
+"start": 297.33,
+"end": 301.06,
+"text": "Rule number five, never step off the porch."
+},
+{
+"i": 96,
+"start": 301.64,
+"end": 306.49,
+"text": "At some point, you'll think the safest place is outside, next to your dog."
+},
+{
+"i": 97,
+"start": 306.93,
+"end": 307.72,
+"text": "It isn't."
+},
+{
+"i": 98,
+"start": 308.16,
+"end": 310.1,
+"text": "The porch boards are the line."
+},
+{
+"i": 99,
+"start": 310.64,
+"end": 314.28,
+"text": "On the porch, you're still at the door, and the door is still open."
+},
+{
+"i": 100,
+"start": 314.72,
+"end": 320.17,
+"text": "Step onto the grass and the house is behind you, empty and waiting for you to leave it."
+},
+{
+"i": 101,
+"start": 320.65,
+"end": 323.62,
+"text": "Things that live in houses like empty houses."
+},
+{
+"i": 102,
+"start": 324.18,
+"end": 330.76,
+"text": "You might see your neighbor's porch light go out, two doors down, then the next one, then the next."
+},
+{
+"i": 103,
+"start": 330.81,
+"end": 333.77,
+"text": "Don't wonder why, just stay on your boards."
+},
+{
+"i": 104,
+"start": 334.24,
+"end": 338.73,
+"text": "Rule number six, if you hear your own voice calling him, whistle."
+},
+{
+"i": 105,
+"start": 339.12,
+"end": 343.74,
+"text": "It can copy your words, it can copy your laugh, it can't copy a whistle."
+},
+{
+"i": 106,
+"start": 344.16,
+"end": 345.56,
+"text": "A whistle needs breath."
+},
+{
+"i": 107,
+"start": 346.32,
+"end": 349.31,
+"text": "And whatever is standing in your hallway doesn't breathe."
+},
+{
+"i": 108,
+"start": 350.16,
+"end": 358.52,
+"text": "So if your voice comes from inside the house calling his name, put two fingers in your mouth and whistle, the way you always do."
+},
+{
+"i": 109,
+"start": 358.9,
+"end": 361.05,
+"text": "Your dog will know which one is real."
+},
+{
+"i": 110,
+"start": 361.63,
+"end": 369.49,
+"text": "If you can't whistle, knock on the door frame, twice then once, the way you knock when you come home from work."
+},
+{
+"i": 111,
+"start": 369.97,
+"end": 373.39,
+"text": "He knows that knock better than he knows his own name."
+},
+{
+"i": 112,
+"start": 374.08,
+"end": 375.69,
+"text": "Now think about something."
+},
+{
+"i": 113,
+"start": 376.12,
+"end": 378.61,
+"text": "Have you ever noticed where your dog sleeps?"
+},
+{
+"i": 114,
+"start": 379.27,
+"end": 391.5,
+"text": "Not on your bed, not in his bed, on the floor right by your bedroom door, with his back to you, facing the hallway, every night, for years."
+},
+{
+"i": 115,
+"start": 391.99,
+"end": 397.66,
+"text": "Think back to the first night you brought him home, a tiny puppy in a cardboard box."
+},
+{
+"i": 116,
+"start": 397.91,
+"end": 399.26,
+"text": "He cried all night."
+},
+{
+"i": 117,
+"start": 399.54,
+"end": 401.23,
+"text": "He wouldn't settle in the kitchen."
+},
+{
+"i": 118,
+"start": 401.54,
+"end": 403.26,
+"text": "He wouldn't settle in the living room."
+},
+{
+"i": 119,
+"start": 403.9,
+"end": 408.26,
+"text": "He only stopped crying when you moved his bed up against your bedroom door."
+},
+{
+"i": 120,
+"start": 408.72,
+"end": 410.22,
+"text": "You thought he was lonely."
+},
+{
+"i": 121,
+"start": 410.48,
+"end": 412.35,
+"text": "You thought he was just being a dog."
+},
+{
+"i": 122,
+"start": 412.63,
+"end": 413.37,
+"text": "He wasn't."
+},
+{
+"i": 123,
+"start": 413.66,
+"end": 415.03,
+"text": "He was guarding the door."
+},
+{
+"i": 124,
+"start": 415.69,
+"end": 418.36,
+"text": "And tonight he isn't refusing to come inside."
+},
+{
+"i": 125,
+"start": 418.65,
+"end": 420.43,
+"text": "He's waiting for it to come out."
+},
+{
+"i": 126,
+"start": 420.86,
+"end": 422.19,
+"text": "Rule number seven."
+},
+{
+"i": 127,
+"start": 422.86,
+"end": 425.89,
+"text": "When he starts walking away, let him go."
+},
+{
+"i": 128,
+"start": 426.49,
+"end": 430.13,
+"text": "Sometime before dawn, you'll hear a sound behind you."
+},
+{
+"i": 129,
+"start": 430.49,
+"end": 435.71,
+"text": "Not footsteps, something lighter, like a bare foot on a wooden floor."
+},
+{
+"i": 130,
+"start": 436.17,
+"end": 437.64,
+"text": "It's coming to the door."
+},
+{
+"i": 131,
+"start": 437.93,
+"end": 442.26,
+"text": "Your dog will back up slowly, all the way to the edge of the yard."
+},
+{
+"i": 132,
+"start": 442.59,
+"end": 445.08,
+"text": "He'll look at you one last time."
+},
+{
+"i": 133,
+"start": 445.84,
+"end": 447.18,
+"text": "Don't call him."
+},
+{
+"i": 134,
+"start": 447.2,
+"end": 448.22,
+"text": "Don't whistle."
+},
+{
+"i": 135,
+"start": 448.24,
+"end": 449.36,
+"text": "Don't follow him."
+},
+{
+"i": 136,
+"start": 450.08,
+"end": 454.75,
+"text": "He's leading it away from you, into the trees, out of your house."
+},
+{
+"i": 137,
+"start": 455.2,
+"end": 460.32,
+"text": "You'll feel the cold go past you, through the open door, across the grass."
+},
+{
+"i": 138,
+"start": 460.88,
+"end": 462.0,
+"text": "And then it's gone."
+},
+{
+"i": 139,
+"start": 462.4,
+"end": 465.48,
+"text": "You stand on the porch until the sky turns gray."
+},
+{
+"i": 140,
+"start": 465.84,
+"end": 473.05,
+"text": "And then you see him, walking slowly out of the trees, muddy, limping a little, tail wagging."
+},
+{
+"i": 141,
+"start": 473.43,
+"end": 476.15,
+"text": "He walks right past you, into the kitchen."
+},
+{
+"i": 142,
+"start": 476.47,
+"end": 478.51,
+"text": "He eats every bite in his bowl."
+},
+{
+"i": 143,
+"start": 479.03,
+"end": 484.41,
+"text": "And he lies down on the floor by your bedroom door, facing the hallway."
+},
+{
+"i": 144,
+"start": 484.91,
+"end": 490.23,
+"text": "So if your dog ever refuses to come inside at night, don't call him again."
+},
+{
+"i": 145,
+"start": 490.55,
+"end": 492.08,
+"text": "Leave the door open."
+},
+{
+"i": 146,
+"start": 492.14,
+"end": 493.57,
+"text": "Stay on the porch."
+},
+{
+"i": 147,
+"start": 493.95,
+"end": 495.86,
+"text": "He isn't refusing to come in."
+},
+{
+"i": 148,
+"start": 496.22,
+"end": 498.4,
+"text": "He's waiting for something to come out."
 }
 ]
