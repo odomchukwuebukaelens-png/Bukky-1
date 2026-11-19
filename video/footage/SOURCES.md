@@ -58,3 +58,9 @@ The crocodile clips show Nile crocodiles, a close relative, and are labelled as 
 | splash2.mp3 | 1198 |
 | splash3.mp3 | 1180 |
 | bubbles.mp3 | 1321 |
+
+## Saltwater crocodile video, rebuilt (public/footage/croc2)
+
+Video pieces `v<id>_<t>.mp4` are cut from Mixkit clips (Mixkit Stock Video Free License: free for commercial and YouTube use, no attribution required) by `tools/cut_footage.py`; `<id>` is the Mixkit clip number and `<t>` the start second. Crocodile clips of related species are labelled on screen.
+
+Photos: `jump.jpg` (Matt from Melbourne, CC BY 2.0), `sign.jpg` (dronepicr, CC BY 2.0), `lolong1.jpg` (Maffeth.opiana, CC0), `skull.jpg` (Australian Museum, CC BY 4.0), `head.jpg` (Holger Krisp, CC BY 3.0), all via Wikimedia Commons.

@@ -1,18 +1,13 @@
 import React from "react";
 import { AbsoluteFill, Audio, interpolate, Sequence, staticFile, useCurrentFrame } from "remotion";
 import { Head, Lines } from "../kit/devices";
-import { HUD } from "../kit/hud";
 import { Captions, ChapterChip, ImpactFx, RetentionScene, SceneSfx, Teaser, type SceneEvents } from "../kit/retention";
 import { C, FPS } from "../kit/theme";
 import { ramp } from "../kit/ui";
 import captions from "./captions.json";
-import { cues, EDIT, type SP } from "./common";
-import * as A from "./scenesA";
-import * as Bs from "./scenesB";
-import * as Cs from "./scenesC";
+import { cues, EDIT } from "./common";
+import { ShotScene } from "./ShotScene";
 
-const ALL: Record<string, React.FC<SP>> = { ...(A as unknown as Record<string, React.FC<SP>>), ...(Bs as unknown as Record<string, React.FC<SP>>), ...(Cs as unknown as Record<string, React.FC<SP>>) };
-const sceneFor = (key: string) => ALL[`S${key}`];
 const EVENTS = captions as unknown as Record<string, SceneEvents>;
 const TEASERS = EDIT.teasers as Record<string, string>;
 const TEASER_LEN = Math.round(2.6 * FPS);
@@ -63,7 +58,6 @@ export const CrocVideo: React.FC = () => {
         );
       })}
       {cues.keys.map((key, i) => {
-        const Scene = sceneFor(key);
         const dur = cues.frames(key);
         const ev = EVENTS[key];
         const teaser = TEASERS[key];
@@ -71,7 +65,7 @@ export const CrocVideo: React.FC = () => {
         return (
           <Sequence key={key} from={starts[i]} durationInFrames={dur} name={`Scene ${key}`}>
             <RetentionScene ev={ev} lead={lead}>
-              {Scene ? <Scene dur={dur} start={starts[i] / FPS} /> : <AbsoluteFill style={{ background: "#111", color: HUD, fontSize: 80 }}>scene {key}</AbsoluteFill>}
+              <ShotScene sceneKey={key} dur={dur} start={starts[i] / FPS} lead={lead} />
             </RetentionScene>
             <ImpactFx ev={ev} lead={lead} />
             <Captions ev={ev} lead={lead} />
