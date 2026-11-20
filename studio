@@ -82,12 +82,19 @@ case "${1:-}" in
     ;;
   start)
     BRIEF="${2:?give a brief file}"
+    if pgrep -f "make_video.py" >/dev/null; then
+      echo "[city-studio] A render is already running. Check it with ./studio progress (or stop it with ./studio stop)."
+      exit 0
+    fi
     mkdir -p output
     nohup "$0" run "$BRIEF" > output/render.log 2>&1 &
     echo "[city-studio] Rendering in the background. You can close this page."
     echo "[city-studio] Check on it any time with: ./studio progress"
     ;;
   progress)
+    for d in output/*/chunks; do
+      [ -d "$d" ] && echo "[city-studio] $(basename "$(dirname "$d")"): $(ls "$d" | grep -c '^chunk_.*[0-9]\.mp4$') chunks finished"
+    done
     if [ -f output/render.log ]; then grep -v "font .* not found" output/render.log | tail -n 6
     else echo "No render log yet."; fi
     pgrep -f "make_video.py" >/dev/null && echo "[city-studio] Status: rendering" || echo "[city-studio] Status: not running"
