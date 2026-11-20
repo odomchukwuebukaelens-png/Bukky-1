@@ -876,7 +876,7 @@ def apply_frame(brief, rig, frame, total):
         if t0 <= t < t1:
             a = ease((t - t0) / 0.5) * (1 - ease((t - t1 + 0.5) / 0.5))
             caption = {"title": ev["title"], "body": ev["body"], "alpha": round(a, 3),
-                       "date": ev.get("date") if (t - t0) < 2.5 else None}
+                       "date": ev.get("date") if year < ev["year"] + 2 else None}
     era = pick(brief["eras"], year)
     ruler = pick(brief["rulers"], year)
     pop = fmt_pop(interp(brief["population"], year))
