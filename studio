@@ -13,7 +13,7 @@ if [ -z "${BLENDER:-}" ]; then
 fi
 SCRIPT="citystudio/make_video.py"
 bl() { "$BLENDER" -b -P "$SCRIPT" -- "$@"; }
-say() { grep --line-buffered "city-studio" || true; }
+say() { grep --line-buffered -F "[city-studio]" || true; }
 need_blender() {
   command -v "$BLENDER" >/dev/null 2>&1 || { echo "Blender not found. Run ./studio setup first."; exit 1; }
 }

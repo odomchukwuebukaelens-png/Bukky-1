@@ -9,7 +9,7 @@ from forest to skyline, with a year counter and an orbiting camera.
 
 ```bash
 cd /workspace
-git clone -b ccr-37255415-xvga7z https://github.com/odomchukwuebukaelens-png/Bukky-1.git city-studio
+git clone --single-branch -b ccr-37255415-xvga7z https://github.com/odomchukwuebukaelens-png/Bukky-1.git city-studio
 cd city-studio
 ```
 
