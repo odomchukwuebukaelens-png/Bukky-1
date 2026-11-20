@@ -4,6 +4,9 @@
 #   ./studio check                     - confirm Blender can use the GPU
 #   ./studio preview briefs/X.json     - render 3 still frames (cheap look)
 #   ./studio run briefs/X.json         - render everything and make the MP4
+#   ./studio start briefs/X.json       - same as run, but in the background (safe to close the page)
+#   ./studio progress                  - show how far a background render has got
+#   ./studio share                     - let you download finished videos through RunPod's port 8888
 # Optional: WORKERS=4 ./studio run ...   ENGINE=cycles ./studio run ...
 set -euo pipefail
 cd "$(dirname "$0")"
@@ -72,5 +75,22 @@ case "${1:-}" in
     bl "$BRIEF" --assemble 2>&1 | say
     echo "[city-studio] Total time: $(( ($(date +%s) - START) / 60 )) min $(( ($(date +%s) - START) % 60 )) s"
     ;;
-  *) sed -n '2,7p' "$0" ;;
+  start)
+    BRIEF="${2:?give a brief file}"
+    mkdir -p output
+    nohup "$0" run "$BRIEF" > output/render.log 2>&1 &
+    echo "[city-studio] Rendering in the background. You can close this page."
+    echo "[city-studio] Check on it any time with: ./studio progress"
+    ;;
+  progress)
+    tail -n 6 output/render.log 2>/dev/null || echo "No render log yet."
+    ;;
+  share)
+    PORT="${2:-8888}"
+    echo "[city-studio] Serving the output folder on port $PORT."
+    echo "[city-studio] In RunPod, open Connect > HTTP Service [Port $PORT], then tap your video to download."
+    echo "[city-studio] Press Ctrl+C here when you are done."
+    cd output && python3 -m http.server "$PORT"
+    ;;
+  *) sed -n '2,10p' "$0" ;;
 esac

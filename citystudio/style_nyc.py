@@ -38,10 +38,10 @@ FORT_AMSTERDAM = proj(-74.0137, 40.7041)
 WTC_SITE = proj(-74.0127, 40.7114)
 TWIN_NORTH = proj(-74.01315, 40.71180)
 TWIN_SOUTH = proj(-74.01250, 40.71105)
-BRIDGE_M_TOWER = proj(-73.99890, 40.70750)
-BRIDGE_B_TOWER = proj(-73.99440, 40.70400)
-BRIDGE_M_END = proj(-74.00300, 40.71180)
-BRIDGE_B_END = proj(-73.98950, 40.69960)
+# bridge name in the street data: (towers start, opens, tower height m, deck height m)
+BRIDGES = {"BROOKLYN BRG": (1870, 1883, 84, 41), "WILLIAMSBURG BRG": (1897, 1903, 102, 41),
+           "MANHATTAN BRG": (1901, 1909, 98, 41), "ED KOCH QUEENSBORO BRG": (1903, 1909, 100, 40),
+           "GEORGE WASHINGTON BRG": (1927, 1931, 184, 64)}
 LIBERTY = proj(-74.0445, 40.6892)
 
 # Recorded years that are known to differ from the completion year.
@@ -139,7 +139,20 @@ def facade_material():
     mask = m(nt, "MULTIPLY", mask, attr.outputs["Alpha"])
     col = H.mix_rgb(nt, mask, attr.outputs["Color"], (0.045, 0.06, 0.08))
     nt.links.new(col, bsdf.inputs["Base Color"])
-    return H.add_haze(mat)
+    night = nt.nodes.new("ShaderNodeValue")
+    night.name = "night"
+    night.outputs[0].default_value = 0.0
+    lit = m(nt, "GREATER_THAN", m(nt, "FRACT", m(nt, "MULTIPLY", m(nt, "ADD", pos.outputs["X"],
+                                                                     m(nt, "MULTIPLY", pos.outputs["Z"], 7.3)), 0.37)),
+            0.45)
+    glow = m(nt, "MULTIPLY", m(nt, "MULTIPLY", mask, lit), night.outputs[0])
+    for name in ("Emission Color", "Emission"):
+        if name in bsdf.inputs:
+            bsdf.inputs[name].default_value = (1.0, 0.72, 0.38, 1)
+            break
+    nt.links.new(m(nt, "MULTIPLY", glow, 6.0), bsdf.inputs["Emission Strength"])
+    H.add_haze(mat)
+    return mat, night
 
 
 def terrain_material():
@@ -219,6 +232,15 @@ def terrain_material():
     nt.links.new(bump.outputs[0], bsdf.inputs["Normal"])
     H.add_haze(mat)
     return mat, now
+
+
+def smooth_sphere():
+    import bmesh
+    bm = bmesh.new()
+    bmesh.ops.create_icosphere(bm, subdivisions=3, radius=1.0)
+    out = ([tuple(v.co) for v in bm.verts], [tuple(v.index for v in f.verts) for f in bm.faces])
+    bm.free()
+    return out
 
 
 def year_norm(y):
@@ -311,9 +333,14 @@ def plan(brief):
             older.append({"kind": "row", "pts": [(centre + (Vector(p) - centre) * 0.96)[:] for p in pts],
                           "h": rng.uniform(12, 20), "start": start, "end": end, "z": z0})
 
-    streets = []
+    streets, bridges = [], {}
     for name, width, flat in city.data["streets"]:
         pts = [Vector((flat[i] / 10.0, flat[i + 1] / 10.0)) for i in range(0, len(flat), 2)]
+        if name in BRIDGES:
+            bridges.setdefault(name, []).append(pts)
+            continue
+        if "BRG" in name or "BRIDGE" in name:
+            continue
         for a, b in zip(pts, pts[1:]):
             mid = (a + b) / 2
             if (mid - focus).length > radius:
@@ -333,24 +360,50 @@ def plan(brief):
     # forest on all land near the focus, cleared when farming starts
     trees = []
     step = brief.get("tree_spacing", 22.0)
-    y = focus.y - radius
-    while y < focus.y + radius:
-        x = focus.x - radius
-        while x < focus.x + radius:
+    sparse = (step / brief.get("tree_spacing_outside", step)) ** 2
+    box = brief.get("tree_box", [focus.x - radius, focus.y - radius, focus.x + radius, focus.y + radius])
+    y = box[1]
+    while y < box[3]:
+        x = box[0]
+        while x < box[2]:
             px, py = x + rng.uniform(-8, 8), y + rng.uniform(-8, 8)
             g, j, i = city.grid_at(px, py)
-            if g is not None and g["land"][j, i] and (Vector((px, py)) - focus).length < radius:
+            inside = "tree_box" in brief or (Vector((px, py)) - focus).length < radius
+            if g is not None and g["land"][j, i] and inside:
                 f = 0.5 + 0.5 * math.sin(px / 410.0 + 1.3) * math.cos(py / 530.0 - 0.4)
-                if f > 0.42 or rng.random() < 0.12:
-                    mn = bool(g["mn"][j, i])
+                mn = bool(g["mn"][j, i])
+                if (f > 0.42 or rng.random() < 0.12) and (mn or rng.random() < sparse):
                     trees.append({"x": px, "y": py, "z": float(g["elev"][j, i]), "r": rng.uniform(4.5, 8),
                                   "gone": city.farmed_year(px, py, mn) + rng.uniform(-5, 10),
                                   "since": int(g["fill"][j, i]), "g": rng.uniform(0.75, 1.2)})
             x += step
         y += step
 
+    park_trees = []
+    for pk in parks:
+        pts = pk["pts"]
+        xs, ys = [q[0] for q in pts], [q[1] for q in pts]
+        area = abs(sum(x1 * y2 - x2 * y1 for (x1, y1), (x2, y2) in zip(pts, pts[1:] + pts[:1]))) / 2
+        if area < 15000:
+            continue
+        yy = min(ys)
+        while yy < max(ys):
+            xx = min(xs)
+            while xx < max(xs):
+                px, py = xx + rng.uniform(-5, 5), yy + rng.uniform(-5, 5)
+                inside = False
+                for (x1, y1), (x2, y2) in zip(pts, pts[1:] + pts[:1]):
+                    if (y1 > py) != (y2 > py) and px < x1 + (py - y1) * (x2 - x1) / (y2 - y1):
+                        inside = not inside
+                if inside and rng.random() < 0.75:
+                    park_trees.append({"x": px, "y": py, "z": pk["z"], "r": rng.uniform(3.5, 6.5),
+                                       "since": pk["year"] + rng.uniform(1, 14), "g": rng.uniform(0.85, 1.35)})
+                xx += 16
+            yy += 16
+
     real.sort(key=lambda r: r["year"])
     return {"city": city, "real": real, "older": older, "streets": streets, "parks": parks, "trees": trees,
+            "park_trees": park_trees, "bridges": bridges,
             "standing_years": sorted(r["year"] for r in real) if brief.get("count_focus_only")
             else sorted(YEAR_FIX.get(b[6], b[1]) for b in city.data["buildings"])}
 
@@ -435,7 +488,7 @@ def build(brief, p):
     H.HAZE_DISTANCE = brief.get("haze_distance", 24000.0)
     H.HAZE_AMOUNT = brief.get("haze_amount", 0.7)
     painted = H.painted_material()
-    facade = facade_material()
+    facade, night = facade_material()
     tmat, now = terrain_material()
     animated = terrain_objects(city, col, tmat)
 
@@ -511,6 +564,16 @@ def build(brief, p):
         ob = part.to_object("trees_%d_%d" % (gone, since), painted, col)
         animated.append({"ob": ob, "year": since, "grow": 0.0, "gone": gone * 4 + 2, "fade": 0.5})
 
+    pbins = {}
+    for t in p["park_trees"]:
+        k = int(t["since"] // 2)
+        g = t["g"]
+        r = t["r"]
+        vv = [(t["x"] + vx * r, t["y"] + vy * r, t["z"] + r * 0.9 + vz * r * 0.8) for vx, vy, vz in ico_v]
+        pbins.setdefault(k, H.Parts()).add(vv, ico_f, [(0.05 * g, 0.10 * g, 0.035 * g)] * len(ico_f))
+    for k, part in pbins.items():
+        animated.append({"ob": part.to_object("parktrees_%d" % k, painted, col), "year": k * 2, "grow": 3.0})
+
     # --- reconstructed landmarks -------------------------------------------
     marks = {}
     fort = Partsc()
@@ -554,38 +617,73 @@ def build(brief, p):
         mid = pts[len(pts) // 2]
         marks["wall"] = (mid.x, mid.y, city.elev(mid.x, mid.y) + 8)
 
-    # Brooklyn Bridge: towers rise from 1870, deck opens 1883
-    br = Partsc()
-    stone = (0.62, 0.57, 0.48, 0.0)
-    span = (BRIDGE_B_TOWER - BRIDGE_M_TOWER)
-    ux = span.normalized()
-    uy = Vector((-ux.y, ux.x))
-    for t in (BRIDGE_M_TOWER, BRIDGE_B_TOWER):
-        br.box(t.x, t.y, -2, tuple(ux), tuple(uy), 9, 21, 86, stone)
-    animated.append({"ob": br.to_object("BridgeTowers", painted, col), "year": 1870, "grow": 6.0})
-    deck = Partsc()
-    pts = [BRIDGE_M_END, BRIDGE_M_TOWER, BRIDGE_B_TOWER, BRIDGE_B_END]
-    for a, b in zip(pts, pts[1:]):
-        mid = (a + b) / 2
-        d = (b - a)
-        deck.box(mid.x, mid.y, 37, tuple(d.normalized()), tuple(uy), d.length / 2, 13, 3, (0.38, 0.36, 0.33, 0.0))
-    for side in (-1, 1):
-        for a, b, sag in ((BRIDGE_M_END, BRIDGE_M_TOWER, 40), (BRIDGE_M_TOWER, BRIDGE_B_TOWER, 45),
-                          (BRIDGE_B_TOWER, BRIDGE_B_END, 40)):
-            n = 16
-            for k in range(n):
-                t0, t1 = k / n, (k + 1) / n
-                p0, p1 = a.lerp(b, t0) + uy * side * 11, a.lerp(b, t1) + uy * side * 11
+    # bridges, from the roadway lines in the street data
+    for name, lines in p["bridges"].items():
+        t_start, t_open, tower_h, deck_h = BRIDGES[name]
+        allp = [q for line in lines for q in line]
+        c = sum(allp, Vector((0, 0))) / len(allp)
+        cov = [[0, 0], [0, 0]]
+        for q in allp:
+            d = q - c
+            cov[0][0] += d.x * d.x
+            cov[0][1] += d.x * d.y
+            cov[1][1] += d.y * d.y
+        ang = 0.5 * math.atan2(2 * cov[0][1], cov[0][0] - cov[1][1])
+        axis = Vector((math.cos(ang), math.sin(ang)))
+        side = Vector((-axis.y, axis.x))
+        wet = [(q - c).dot(axis) for q in allp if city.elev(q.x, q.y) < 0]
+        if not wet:
+            continue
+        s0, s1 = min(wet), max(wet)
+        span = s1 - s0
 
-                def zc(t):
-                    if a is BRIDGE_M_TOWER:
-                        return 84 - sag * 4 * t * (1 - t)
-                    return 40 + 44 * (t if a is BRIDGE_M_END else 1 - t)
-                z0, z1 = zc(t0), zc(t1)
-                deck.add([(p0.x, p0.y, z0), (p1.x, p1.y, z1), (p1.x, p1.y, z1 + 1.2), (p0.x, p0.y, z0 + 1.2)],
-                         [(0, 1, 2, 3)], [(0.30, 0.30, 0.30, 0.0)])
-    animated.append({"ob": deck.to_object("BridgeDeck", painted, col), "year": 1881, "grow": 2.0})
-    marks["bridge"] = (BRIDGE_M_TOWER.x, BRIDGE_M_TOWER.y, 92)
+        def deck_z(q):
+            sv = (q - c).dot(axis)
+            out = max(0.0, s0 - sv, sv - s1)
+            return max(city.elev(q.x, q.y) + 0.5, deck_h - out * 0.09)
+        deck = Partsc()
+        grey = (0.36, 0.35, 0.33, 0.0)
+        for line in lines:
+            for qa, qb in zip(line, line[1:]):
+                d = qb - qa
+                if d.length < 0.5:
+                    continue
+                nrm = Vector((-d.y, d.x)).normalized() * 6
+                za, zb = deck_z(qa), deck_z(qb)
+                deck.add([(*(qa - nrm), za), (*(qb - nrm), zb), (*(qb + nrm), zb), (*(qa + nrm), za)],
+                         [(0, 1, 2, 3)], [grey])
+        towers = Partsc()
+        stone = (0.60, 0.56, 0.48, 0.0) if name == "BROOKLYN BRG" else (0.42, 0.44, 0.46, 0.0)
+        tpos = [c + axis * (s0 + span * 0.18), c + axis * (s1 - span * 0.18)]
+        width = 14.0
+        for tp in tpos:
+            towers.box(tp.x, tp.y, -3, tuple(axis), tuple(side), 6, width, tower_h + 3, stone)
+        cab = Partsc()
+        a_end, b_end = c + axis * (s0 - span * 0.05), c + axis * (s1 + span * 0.05)
+        for sd in (-1, 1):
+            off = side * (width - 2) * sd
+            for qa, qb, mid in ((a_end, tpos[0], False), (tpos[0], tpos[1], True), (tpos[1], b_end, False)):
+                n = 14
+                for k in range(n):
+                    t0, t1 = k / n, (k + 1) / n
+
+                    def zc(t, qa=qa, mid=mid):
+                        if mid:
+                            return tower_h - (tower_h - deck_h - 3) * 4 * t * (1 - t)
+                        up = t if qa is a_end else 1 - t
+                        return deck_h + (tower_h - deck_h) * up
+                    p0, p1 = qa.lerp(qb, t0) + off, qa.lerp(qb, t1) + off
+                    z0, z1 = zc(t0), zc(t1)
+                    cab.add([(p0.x, p0.y, z0), (p1.x, p1.y, z1), (p1.x, p1.y, z1 + 1.2), (p0.x, p0.y, z0 + 1.2)],
+                            [(0, 1, 2, 3)], [(0.28, 0.28, 0.28, 0.0)])
+        animated.append({"ob": towers.to_object(name + "_towers", painted, col), "year": t_start,
+                         "grow": max(2.0, (t_open - t_start) * 0.6)})
+        animated.append({"ob": deck.to_object(name + "_deck", painted, col), "year": t_open - 1.5, "grow": 1.5})
+        animated.append({"ob": cab.to_object(name + "_cables", painted, col), "year": t_open - 2.5, "grow": 1.0})
+        key = name.split()[0].lower() if name != "ED KOCH QUEENSBORO BRG" else "queensboro"
+        marks[key + "_bridge"] = (tpos[0].x, tpos[0].y, tower_h + 10)
+    if "brooklyn_bridge" in marks:
+        marks["bridge"] = marks["brooklyn_bridge"]
 
     # Statue of Liberty on its star-shaped base
     lib = Partsc()
@@ -615,9 +713,54 @@ def build(brief, p):
         uy_ = (math.sin(ROT), math.cos(ROT))
         tw.box(t.x, t.y, z, ux_, uy_, 31.7, 31.7, h, (0.62, 0.63, 0.64, 1.0), top=(0.25, 0.25, 0.26, 0.0))
     animated.append({"ob": tw.to_object("TwinTowers", facade, col), "year": 1969, "grow": 4.0, "gone": 2001.7,
-                     "fade": 0.25})
+                     "fade": brief.get("twin_fade", 0.25)})
     marks["twins"] = (TWIN_NORTH.x, TWIN_NORTH.y, 440)
     marks["onewtc"] = (WTC_SITE.x - 20, WTC_SITE.y + 30, 470)
+
+    # fires, smoke and dust
+    fx = []
+    emit = bpy.data.materials.new("Flame")
+    ent = H.nodes(emit)
+    ent.nodes.clear()
+    em = ent.nodes.new("ShaderNodeEmission")
+    em.inputs["Color"].default_value = (1.0, 0.42, 0.08, 1)
+    em.inputs["Strength"].default_value = 12.0
+    outn = ent.nodes.new("ShaderNodeOutputMaterial")
+    ent.links.new(em.outputs[0], outn.inputs[0])
+    frng = random.Random(brief["seed"] + 9)
+    for e in brief.get("fx", []):
+        centre = proj(*e["ll"])
+        z0 = city.elev(centre.x, centre.y)
+        smoke_col = (0.20, 0.19, 0.18) if e["kind"] == "fire" else (0.50, 0.47, 0.43)
+        blobs = H.Parts()
+        fx_v, fx_f = smooth_sphere()
+        for _ in range(e.get("blobs", 40)):
+            r = frng.uniform(0.15, 1.0) * e["radius"]
+            a = frng.uniform(0, 2 * math.pi)
+            q = centre + Vector((math.cos(a), math.sin(a))) * r
+            rr = frng.uniform(14, 40) * e.get("size", 1.0)
+            zz = z0 + frng.uniform(0, 1.0) ** 2 * 70 * e.get("size", 1.0)
+            blobs.add([(q.x + vx * rr, q.y + vy * rr, zz + vz * rr * 0.55) for vx, vy, vz in fx_v], fx_f,
+                      [smoke_col] * len(fx_f))
+        smoke = blobs.to_object("smoke", painted, col)
+        smoke.location = (centre.x, centre.y, 0)
+        me = smoke.data
+        me.polygons.foreach_set("use_smooth", [True] * len(me.polygons))
+        for v in me.vertices:
+            v.co.x -= centre.x
+            v.co.y -= centre.y
+        flames = None
+        if e["kind"] == "fire":
+            fl = H.Parts()
+            for _ in range(e.get("flames", 120)):
+                r = frng.uniform(0, 1.0) * e["radius"]
+                a = frng.uniform(0, 2 * math.pi)
+                q = centre + Vector((math.cos(a), math.sin(a))) * r
+                rr = frng.uniform(4, 9)
+                fl.add([(q.x + vx * rr, q.y + vy * rr, z0 + 8 + vz * rr * 1.6) for vx, vy, vz in ico_v], ico_f,
+                       [(1, 0.5, 0.1)] * len(ico_f))
+            flames = fl.to_object("flames", emit, col)
+        fx.append({"e": e, "smoke": smoke, "flames": flames})
 
     # light, sky and camera
     sun = bpy.data.objects.new("Sun", bpy.data.lights.new("Sun", "SUN"))
@@ -651,10 +794,14 @@ def build(brief, p):
     marks.update(named)
     labels = []
     for lb in brief.get("labels", []):
-        if lb["at"] in marks:
+        if "ll" in lb:
+            q = proj(lb["ll"][0], lb["ll"][1])
+            labels.append(dict(lb, pos=Vector((q.x, q.y, city.elev(q.x, q.y) + lb["ll"][2]))))
+        elif lb.get("at") in marks:
             labels.append(dict(lb, pos=Vector(marks[lb["at"]])))
 
     return {"scene": scene, "camera": cam, "animated": animated, "now": now, "labels": labels,
+            "fx": fx, "sun": sun, "sky": bg, "night": night,
             "standing_years": p["standing_years"],
             "stats": "%d buildings from city records, %d reconstructed, %d trees" % (
                 len(p["real"]), len(p["older"]), len(p["trees"]))}
@@ -675,6 +822,19 @@ def camera_at(brief, t, total_s):
                 k0, k1 = a, b
                 s = H.ease((t - a["t"]) / max(1e-6, b["t"] - a["t"]))
                 break
+    if "target" in k0:
+        def parts(k):
+            q = proj(k["target"][0], k["target"][1])
+            return Vector((q.x, q.y, k.get("look_z", 0.0))), k["dist"], k["height"], k["bearing"]
+        t0_, d0, h0, b0 = parts(k0)
+        t1_, d1, h1, b1 = parts(k1)
+        db = (b1 - b0 + 180) % 360 - 180
+        look = t0_.lerp(t1_, s)
+        dist = d0 + (d1 - d0) * s
+        height = h0 + (h1 - h0) * s
+        bearing = math.radians(b0 + db * s)
+        loc = Vector((look.x - math.sin(bearing) * dist, look.y - math.cos(bearing) * dist, height))
+        return loc, look
     loc = Vector(k0["pos"]).lerp(Vector(k1["pos"]), s)
     look = Vector(k0["look"]).lerp(Vector(k1["look"]), s)
     return loc, look
@@ -696,6 +856,30 @@ def apply_frame(brief, rig, frame, total):
         a["ob"].hide_render = k <= 0.001
         a["ob"].scale.z = max(k, 0.001)
     rig["now"].outputs[0].default_value = year_norm(year)
+    for f in rig["fx"]:
+        e = f["e"]
+        prog = (year - e["from"]) / max(1e-6, e["to"] - e["from"])
+        on = 0.0 <= prog <= 1.0
+        if f["flames"]:
+            f["flames"].hide_render = not (0.0 <= prog <= 0.85)
+            f["flames"].scale.z = 0.7 + 0.3 * math.sin(t * 23.0) * math.sin(t * 7.0)
+        grow = H.ease(prog / 0.6) if prog > 0 else 0.0
+        fade = 1.0 - H.ease((prog - 1.0) / 0.5) if prog > 1.0 else 1.0
+        k = max(0.0, grow * fade)
+        f["smoke"].hide_render = k <= 0.01 or not (prog > 0 and prog < 1.5)
+        f["smoke"].scale = (0.4 + 0.8 * k, 0.4 + 0.8 * k, 0.4 + 1.2 * k)
+        f["smoke"].location.z = 40 * k
+        del on
+    dusk = brief.get("dusk")
+    d = H.ease((t - dusk["from"]) / (dusk["to"] - dusk["from"])) if dusk else 0.0
+    rig["night"].outputs[0].default_value = d
+    rig["sun"].data.energy = brief.get("sun", 6.5) * (1 - 0.8 * d)
+    rig["sun"].data.color = (1.0, 0.93 - 0.35 * d, 0.82 - 0.5 * d)
+    rig["sun"].rotation_euler = (math.radians(52 + 30 * d), 0, math.radians(-40 - 30 * d))
+    rig["sky"].inputs[1].default_value = brief.get("sky", 0.45) * (1 - 0.65 * d)
+    dusk_haze = (0.80 - 0.45 * d, 0.76 - 0.50 * d, 0.69 - 0.40 * d, 1)
+    for em in H.HAZE_NODES:
+        em.inputs["Color"].default_value = dusk_haze
 
     loc, look = camera_at(brief, t, total / fps)
     cam = rig["camera"]
@@ -716,6 +900,10 @@ def apply_frame(brief, rig, frame, total):
         pp = world_to_camera_view(scene, cam, lb["pos"])
         if pp.z <= 0 or not (0.03 < pp.x < 0.97 and 0.10 < pp.y < 0.84):
             continue
+        if (lb["pos"] - cam.location).length > brief.get("label_max_distance", 7500):
+            continue
+        if any(abs(pp.x - q["x"]) < 0.10 and abs((1.0 - pp.y) - q["y"]) < 0.04 for q in labels):
+            continue
         labels.append({"text": lb["text"], "x": pp.x, "y": 1.0 - pp.y, "alpha": round(alpha, 3),
                        "kind": lb.get("kind", "place")})
 
@@ -733,11 +921,15 @@ def apply_frame(brief, rig, frame, total):
     era = H.pick(brief["eras"], year)
     ruler = H.pick(brief["rulers"], year)
     standing = bisect.bisect_right(rig["standing_years"], year)
-    tc = brief.get("title_card")
     title = None
-    if tc and tc["start"] <= t <= tc["end"]:
-        a = H.ease((t - tc["start"]) / 0.7) * (1 - H.ease((t - tc["end"] + 0.7) / 0.7))
-        title = dict(tc, alpha=round(a, 3))
+    for tc in ([brief["title_card"]] if brief.get("title_card") else []) + brief.get("cards", []):
+        if tc["start"] <= t <= tc["end"]:
+            a = H.ease((t - tc["start"]) / 0.7) * (1 - H.ease((t - tc["end"] + 0.7) / 0.7))
+            title = dict(tc, alpha=round(a, 3))
+            if caption and tc.get("hide_caption", True):
+                caption = None
+            for q in labels:
+                q["alpha"] = round(q["alpha"] * (1 - a), 3)
     pop = H.interp(brief["population"], year)
     return {
         "design": "atlas", "year": int(year), "era": era["text"] if era else "",

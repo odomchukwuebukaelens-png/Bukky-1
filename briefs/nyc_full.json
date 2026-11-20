@@ -1,0 +1,1563 @@
+{
+ "name": "nyc_full",
+ "style": "nyc",
+ "data": "data/nyc",
+ "seed": 3,
+ "duration_seconds": 540,
+ "fps": 30,
+ "resolution": [
+  1280,
+  720
+ ],
+ "samples": 12,
+ "chunk_frames": 300,
+ "music": "generate",
+ "music_build_at": 7.5,
+ "music_accents": [
+  22,
+  66,
+  118,
+  122.5,
+  136,
+  143,
+  166,
+  192.5,
+  216,
+  268,
+  280,
+  304,
+  328,
+  340,
+  352,
+  404,
+  441,
+  470,
+  498
+ ],
+ "focus": [
+  0,
+  0
+ ],
+ "detail_radius": 40000,
+ "tree_spacing": 26,
+ "tree_spacing_outside": 40,
+ "tree_box": [
+  -7000,
+  -9500,
+  9000,
+  15500
+ ],
+ "caption_hold": 6.0,
+ "twin_fade": 0.06,
+ "fineprint": "Building dates: NYC Open Data · demolished buildings are reconstructions",
+ "dusk": {
+  "from": 496,
+  "to": 520
+ },
+ "year_keys": [
+  [
+   0,
+   1609
+  ],
+  [
+   16,
+   1609.7
+  ],
+  [
+   22,
+   1624
+  ],
+  [
+   30,
+   1626
+  ],
+  [
+   40,
+   1647
+  ],
+  [
+   48,
+   1653
+  ],
+  [
+   58,
+   1660
+  ],
+  [
+   66,
+   1664.7
+  ],
+  [
+   72,
+   1667
+  ],
+  [
+   80,
+   1673.6
+  ],
+  [
+   86,
+   1690
+  ],
+  [
+   94,
+   1700
+  ],
+  [
+   104,
+   1731
+  ],
+  [
+   112,
+   1766
+  ],
+  [
+   118,
+   1776.6
+  ],
+  [
+   121,
+   1776.71
+  ],
+  [
+   129,
+   1776.75
+  ],
+  [
+   136,
+   1783.9
+  ],
+  [
+   143,
+   1789.33
+  ],
+  [
+   152,
+   1800
+  ],
+  [
+   166,
+   1811
+  ],
+  [
+   182,
+   1825
+  ],
+  [
+   190,
+   1835.9
+  ],
+  [
+   192,
+   1835.95
+  ],
+  [
+   200,
+   1836.0
+  ],
+  [
+   208,
+   1842.5
+  ],
+  [
+   214,
+   1845.5
+  ],
+  [
+   216,
+   1845.55
+  ],
+  [
+   222,
+   1845.65
+  ],
+  [
+   234,
+   1857
+  ],
+  [
+   246,
+   1858.5
+  ],
+  [
+   258,
+   1873
+  ],
+  [
+   268,
+   1883.4
+  ],
+  [
+   280,
+   1886.82
+  ],
+  [
+   292,
+   1892
+  ],
+  [
+   304,
+   1898
+  ],
+  [
+   316,
+   1904.8
+  ],
+  [
+   328,
+   1913.3
+  ],
+  [
+   340,
+   1930.3
+  ],
+  [
+   352,
+   1931.4
+  ],
+  [
+   364,
+   1939
+  ],
+  [
+   378,
+   1952.8
+  ],
+  [
+   392,
+   1966
+  ],
+  [
+   404,
+   1973.3
+  ],
+  [
+   418,
+   1975.8
+  ],
+  [
+   430,
+   1990
+  ],
+  [
+   436,
+   2001.69
+  ],
+  [
+   441,
+   2001.7
+  ],
+  [
+   448,
+   2001.8
+  ],
+  [
+   456,
+   2002
+  ],
+  [
+   470,
+   2014.8
+  ],
+  [
+   486,
+   2020
+  ],
+  [
+   498,
+   2026
+  ],
+  [
+   540,
+   2026
+  ]
+ ],
+ "camera_keys": [
+  {
+   "t": 0,
+   "target": [
+    -74.012,
+    40.706
+   ],
+   "dist": 6500,
+   "height": 2600,
+   "bearing": 15,
+   "look_z": 0
+  },
+  {
+   "t": 16,
+   "target": [
+    -74.012,
+    40.706
+   ],
+   "dist": 3200,
+   "height": 1100,
+   "bearing": 20,
+   "look_z": 0
+  },
+  {
+   "t": 32,
+   "target": [
+    -74.0125,
+    40.7055
+   ],
+   "dist": 1600,
+   "height": 600,
+   "bearing": 30,
+   "look_z": 0
+  },
+  {
+   "t": 60,
+   "target": [
+    -74.009,
+    40.7065
+   ],
+   "dist": 1500,
+   "height": 520,
+   "bearing": 50,
+   "look_z": 0
+  },
+  {
+   "t": 90,
+   "target": [
+    -74.004,
+    40.711
+   ],
+   "dist": 2200,
+   "height": 800,
+   "bearing": 20,
+   "look_z": 0
+  },
+  {
+   "t": 110,
+   "target": [
+    -74.012,
+    40.706
+   ],
+   "dist": 2400,
+   "height": 880,
+   "bearing": 10,
+   "look_z": 0
+  },
+  {
+   "t": 126,
+   "target": [
+    -74.011,
+    40.709
+   ],
+   "dist": 1700,
+   "height": 650,
+   "bearing": 35,
+   "look_z": 0
+  },
+  {
+   "t": 142,
+   "target": [
+    -74.009,
+    40.7065
+   ],
+   "dist": 1600,
+   "height": 600,
+   "bearing": 60,
+   "look_z": 0
+  },
+  {
+   "t": 170,
+   "target": [
+    -73.995,
+    40.73
+   ],
+   "dist": 5200,
+   "height": 2300,
+   "bearing": 25,
+   "look_z": 0
+  },
+  {
+   "t": 194,
+   "target": [
+    -74.007,
+    40.7055
+   ],
+   "dist": 1700,
+   "height": 650,
+   "bearing": 330,
+   "look_z": 0
+  },
+  {
+   "t": 218,
+   "target": [
+    -74.009,
+    40.706
+   ],
+   "dist": 1800,
+   "height": 700,
+   "bearing": 345,
+   "look_z": 0
+  },
+  {
+   "t": 244,
+   "target": [
+    -73.9665,
+    40.7812
+   ],
+   "dist": 4600,
+   "height": 2000,
+   "bearing": 30,
+   "look_z": 0
+  },
+  {
+   "t": 266,
+   "target": [
+    -73.9969,
+    40.7061
+   ],
+   "dist": 2000,
+   "height": 700,
+   "bearing": 320,
+   "look_z": 0
+  },
+  {
+   "t": 282,
+   "target": [
+    -74.0445,
+    40.6892
+   ],
+   "dist": 1400,
+   "height": 420,
+   "bearing": 40,
+   "look_z": 0
+  },
+  {
+   "t": 302,
+   "target": [
+    -73.985,
+    40.745
+   ],
+   "dist": 9500,
+   "height": 4200,
+   "bearing": 20,
+   "look_z": 0
+  },
+  {
+   "t": 322,
+   "target": [
+    -74.008,
+    40.7123
+   ],
+   "dist": 1500,
+   "height": 520,
+   "bearing": 20,
+   "look_z": 60
+  },
+  {
+   "t": 344,
+   "target": [
+    -73.981,
+    40.75
+   ],
+   "dist": 2600,
+   "height": 750,
+   "bearing": 40,
+   "look_z": 120
+  },
+  {
+   "t": 362,
+   "target": [
+    -73.981,
+    40.75
+   ],
+   "dist": 2300,
+   "height": 650,
+   "bearing": 70,
+   "look_z": 120
+  },
+  {
+   "t": 384,
+   "target": [
+    -73.968,
+    40.749
+   ],
+   "dist": 2000,
+   "height": 620,
+   "bearing": 300,
+   "look_z": 60
+  },
+  {
+   "t": 408,
+   "target": [
+    -74.0127,
+    40.7114
+   ],
+   "dist": 2300,
+   "height": 780,
+   "bearing": 30,
+   "look_z": 120
+  },
+  {
+   "t": 446,
+   "target": [
+    -74.0127,
+    40.7114
+   ],
+   "dist": 2400,
+   "height": 820,
+   "bearing": 40,
+   "look_z": 100
+  },
+  {
+   "t": 472,
+   "target": [
+    -74.0127,
+    40.7114
+   ],
+   "dist": 1900,
+   "height": 700,
+   "bearing": 15,
+   "look_z": 150
+  },
+  {
+   "t": 492,
+   "target": [
+    -73.981,
+    40.766
+   ],
+   "dist": 2700,
+   "height": 750,
+   "bearing": 200,
+   "look_z": 150
+  },
+  {
+   "t": 514,
+   "target": [
+    -73.97,
+    40.78
+   ],
+   "dist": 12000,
+   "height": 5600,
+   "bearing": 25,
+   "look_z": 0
+  },
+  {
+   "t": 540,
+   "target": [
+    -73.97,
+    40.78
+   ],
+   "dist": 14500,
+   "height": 6600,
+   "bearing": 25,
+   "look_z": 0
+  }
+ ],
+ "title_card": {
+  "start": 0.5,
+  "end": 7.0,
+  "kicker": "Building by building",
+  "title": "New York",
+  "years": "1609 — 2026",
+  "note": "Every building standing today appears in the year it was built"
+ },
+ "cards": [
+  {
+   "start": 505,
+   "end": 519,
+   "kicker": "Manhattan, 2026",
+   "title": "45,156",
+   "years": "buildings still standing",
+   "note": "Each one appeared here in the year it was built"
+  },
+  {
+   "start": 521,
+   "end": 539,
+   "kicker": "Thanks for watching",
+   "title": "New York",
+   "years": "1609 — 2026",
+   "note": "Building data: NYC Open Data · lost buildings are approximate reconstructions"
+  }
+ ],
+ "events": [
+  {
+   "year": 1609,
+   "tag": "SEP 1609",
+   "title": "The Half Moon sails in",
+   "body": "Henry Hudson, an English captain sailing for the Dutch East India Company, explores the river that will carry his name",
+   "min_time": 7.5
+  },
+  {
+   "year": 1624,
+   "tag": "1624",
+   "title": "The first colonists",
+   "body": "About thirty families, most of them French-speaking Walloons, arrive for the Dutch West India Company"
+  },
+  {
+   "year": 1626,
+   "tag": "1626",
+   "title": "A deal for an island",
+   "body": "Peter Minuit pays the Lenape in trade goods valued at 60 guilders. The two sides understood land ownership very differently"
+  },
+  {
+   "year": 1647,
+   "tag": "1647",
+   "title": "Stuyvesant takes charge",
+   "body": "Peter Stuyvesant arrives to run the colony and governs it for seventeen years"
+  },
+  {
+   "year": 1653,
+   "tag": "1653",
+   "title": "A wall of timber",
+   "body": "A palisade is built across the island against English attack. Its path becomes Wall Street"
+  },
+  {
+   "year": 1664.6,
+   "tag": "1664",
+   "title": "New Amsterdam becomes New York",
+   "body": "English warships enter the harbour; the town surrenders without a fight and is renamed for the Duke of York"
+  },
+  {
+   "year": 1673.5,
+   "tag": "1673",
+   "title": "Dutch again, briefly",
+   "body": "A Dutch fleet recaptures the city as New Orange. A peace treaty hands it back to England in 1674"
+  },
+  {
+   "year": 1699,
+   "tag": "1699",
+   "title": "The wall comes down",
+   "body": "The old palisade is removed, but the street along its line keeps the name"
+  },
+  {
+   "year": 1731,
+   "tag": "1731",
+   "title": "A busy colonial port",
+   "body": "About 8,600 people live here. Wharves and warehouses crowd the East River shore"
+  },
+  {
+   "year": 1766,
+   "tag": "1766",
+   "title": "St. Paul's Chapel",
+   "body": "Completed this year, it is now the oldest surviving church building in Manhattan"
+  },
+  {
+   "year": 1776.6,
+   "tag": "AUG 1776",
+   "title": "A fleet of hundreds",
+   "body": "The largest British force of the war gathers in the harbour. By September the city is in British hands"
+  },
+  {
+   "year": 1776.712,
+   "tag": "21 SEP 1776",
+   "title": "The Great Fire",
+   "body": "Flames race up the west side, destroying hundreds of houses and Trinity Church"
+  },
+  {
+   "year": 1783.88,
+   "tag": "25 NOV 1783",
+   "title": "Evacuation Day",
+   "body": "The last British troops sail away and American forces march back in"
+  },
+  {
+   "year": 1789.32,
+   "tag": "30 APR 1789",
+   "title": "A capital and a president",
+   "body": "George Washington is sworn in at Federal Hall on Wall Street. New York is the nation's first capital"
+  },
+  {
+   "year": 1811,
+   "tag": "1811",
+   "title": "The grid",
+   "body": "The Commissioners' Plan lays 12 avenues and 155 streets over the island's hills, farms and streams"
+  },
+  {
+   "year": 1825,
+   "tag": "1825",
+   "title": "The Erie Canal opens",
+   "body": "Great Lakes cargo now reaches the harbour by water, and New York becomes the country's leading port"
+  },
+  {
+   "year": 1835.95,
+   "tag": "16 DEC 1835",
+   "title": "The Great Fire of 1835",
+   "body": "In freezing weather, fire levels roughly 17 blocks of the commercial district"
+  },
+  {
+   "year": 1842.5,
+   "tag": "1842",
+   "title": "Croton water",
+   "body": "An aqueduct brings fresh water 41 miles from the Croton River into the city"
+  },
+  {
+   "year": 1845.54,
+   "tag": "JUL 1845",
+   "title": "Fire again",
+   "body": "Another blaze destroys more than 300 buildings in lower Manhattan"
+  },
+  {
+   "year": 1857,
+   "tag": "1857",
+   "title": "Seneca Village",
+   "body": "A settlement of mostly Black landowners is cleared by the city to make room for a new park"
+  },
+  {
+   "year": 1858.5,
+   "tag": "1858",
+   "title": "Central Park",
+   "body": "Olmsted and Vaux win the design contest. Building the park takes about fifteen years"
+  },
+  {
+   "year": 1883.39,
+   "tag": "24 MAY 1883",
+   "title": "The Brooklyn Bridge opens",
+   "body": "Its 486 m main span is the longest of any suspension bridge until 1903"
+  },
+  {
+   "year": 1886.82,
+   "tag": "28 OCT 1886",
+   "title": "The Statue of Liberty",
+   "body": "A gift from the people of France is dedicated in the harbour"
+  },
+  {
+   "year": 1892,
+   "tag": "1892",
+   "title": "Ellis Island",
+   "body": "The immigration station opens. About 12 million people will pass through it"
+  },
+  {
+   "year": 1898,
+   "tag": "1 JAN 1898",
+   "title": "One city, five boroughs",
+   "body": "Manhattan joins Brooklyn, Queens, the Bronx and Staten Island as Greater New York"
+  },
+  {
+   "year": 1904.8,
+   "tag": "27 OCT 1904",
+   "title": "The subway opens",
+   "body": "The first line runs from City Hall to 145th Street"
+  },
+  {
+   "year": 1913.3,
+   "tag": "1913",
+   "title": "The Woolworth Building",
+   "body": "At 241 m it is the tallest building in the world"
+  },
+  {
+   "year": 1930.3,
+   "tag": "1930",
+   "title": "The Chrysler Building",
+   "body": "A steel spire, raised from inside the tower, lifts it to 319 m"
+  },
+  {
+   "year": 1931.33,
+   "tag": "1 MAY 1931",
+   "title": "The Empire State Building",
+   "body": "Built in just over a year, at 381 m it stays the world's tallest for almost four decades"
+  },
+  {
+   "year": 1952.8,
+   "tag": "1952",
+   "title": "The United Nations",
+   "body": "The UN Secretariat opens beside the East River"
+  },
+  {
+   "year": 1966,
+   "tag": "1966",
+   "title": "Radio Row cleared",
+   "body": "Blocks of electronics shops are demolished to make way for the World Trade Center"
+  },
+  {
+   "year": 1973.3,
+   "tag": "1973",
+   "title": "The Twin Towers",
+   "body": "At 417 m, the North Tower was briefly the tallest building on Earth"
+  },
+  {
+   "year": 1975.8,
+   "tag": "1975",
+   "title": "On the brink",
+   "body": "The city comes within hours of defaulting on its debts"
+  },
+  {
+   "year": 1990,
+   "tag": "1990",
+   "title": "Battery Park City",
+   "body": "Homes, offices and parks rise on new land along the Hudson"
+  },
+  {
+   "year": 2001.69,
+   "tag": "11 SEP 2001",
+   "title": "In memory",
+   "body": "The Twin Towers are destroyed in a terrorist attack. 2,753 people are killed at the World Trade Center"
+  },
+  {
+   "year": 2014.8,
+   "tag": "NOV 2014",
+   "title": "One World Trade Center",
+   "body": "At 1,776 ft (541 m), the tallest building in the Western Hemisphere"
+  },
+  {
+   "year": 2020,
+   "tag": "2020",
+   "title": "The supertalls",
+   "body": "Slender towers line 57th Street. Central Park Tower reaches 472 m"
+  }
+ ],
+ "fx": [
+  {
+   "kind": "fire",
+   "ll": [
+    -74.0125,
+    40.708
+   ],
+   "radius": 280,
+   "from": 1776.715,
+   "to": 1776.745,
+   "blobs": 90
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    -74.009,
+    40.7048
+   ],
+   "radius": 200,
+   "from": 1835.955,
+   "to": 1835.995,
+   "blobs": 90
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    -74.0118,
+    40.705
+   ],
+   "radius": 130,
+   "from": 1845.55,
+   "to": 1845.62,
+   "blobs": 90
+  },
+  {
+   "kind": "dust",
+   "ll": [
+    -74.0127,
+    40.711
+   ],
+   "radius": 380,
+   "from": 2001.7,
+   "to": 2001.76,
+   "size": 1.0,
+   "blobs": 160
+  }
+ ],
+ "eras": [
+  {
+   "from": 0,
+   "text": "Lenape homeland"
+  },
+  {
+   "from": 1624,
+   "text": "New Netherland"
+  },
+  {
+   "from": 1664,
+   "text": "Province of New York"
+  },
+  {
+   "from": 1776,
+   "text": "Revolution and occupation"
+  },
+  {
+   "from": 1783,
+   "text": "A new republic"
+  },
+  {
+   "from": 1825,
+   "text": "Gateway to a continent"
+  },
+  {
+   "from": 1865,
+   "text": "Age of steam and steel"
+  },
+  {
+   "from": 1898,
+   "text": "Five boroughs, one city"
+  },
+  {
+   "from": 1913,
+   "text": "The skyscraper race"
+  },
+  {
+   "from": 1946,
+   "text": "Post-war metropolis"
+  },
+  {
+   "from": 1975,
+   "text": "Crisis and comeback"
+  },
+  {
+   "from": 2001,
+   "text": "Remembrance and renewal"
+  },
+  {
+   "from": 2010,
+   "text": "Glass and sky"
+  }
+ ],
+ "rulers": [
+  {
+   "from": 0,
+   "realm": "Lenapehoking",
+   "name": "Munsee-speaking Lenape",
+   "badge": "lenape"
+  },
+  {
+   "from": 1624,
+   "realm": "Dutch Republic",
+   "name": "West India Company",
+   "badge": "nl"
+  },
+  {
+   "from": 1626,
+   "realm": "Dutch Republic",
+   "name": "Director Peter Minuit",
+   "badge": "nl"
+  },
+  {
+   "from": 1633,
+   "realm": "Dutch Republic",
+   "name": "Director Wouter van Twiller",
+   "badge": "nl"
+  },
+  {
+   "from": 1638,
+   "realm": "Dutch Republic",
+   "name": "Director Willem Kieft",
+   "badge": "nl"
+  },
+  {
+   "from": 1647,
+   "realm": "Dutch Republic",
+   "name": "Director-General Peter Stuyvesant",
+   "badge": "nl"
+  },
+  {
+   "from": 1664,
+   "realm": "Kingdom of England",
+   "name": "King Charles II",
+   "badge": "gb"
+  },
+  {
+   "from": 1673,
+   "realm": "Dutch Republic",
+   "name": "Governor Anthony Colve",
+   "badge": "nl"
+  },
+  {
+   "from": 1674,
+   "realm": "Kingdom of England",
+   "name": "King Charles II",
+   "badge": "gb"
+  },
+  {
+   "from": 1685,
+   "realm": "Kingdom of England",
+   "name": "King James II",
+   "badge": "gb"
+  },
+  {
+   "from": 1689,
+   "realm": "Kingdom of England",
+   "name": "William III and Mary II",
+   "badge": "gb"
+  },
+  {
+   "from": 1702,
+   "realm": "Kingdom of England",
+   "name": "Queen Anne",
+   "badge": "gb"
+  },
+  {
+   "from": 1707,
+   "realm": "Kingdom of Great Britain",
+   "name": "Queen Anne",
+   "badge": "gb"
+  },
+  {
+   "from": 1714,
+   "realm": "Kingdom of Great Britain",
+   "name": "King George I",
+   "badge": "gb"
+  },
+  {
+   "from": 1727,
+   "realm": "Kingdom of Great Britain",
+   "name": "King George II",
+   "badge": "gb"
+  },
+  {
+   "from": 1760,
+   "realm": "Kingdom of Great Britain",
+   "name": "King George III",
+   "badge": "gb"
+  },
+  {
+   "from": 1783,
+   "realm": "United States",
+   "name": "Confederation Congress",
+   "badge": "us"
+  },
+  {
+   "from": 1789,
+   "realm": "United States",
+   "name": "President George Washington",
+   "badge": "us"
+  },
+  {
+   "from": 1797,
+   "realm": "United States",
+   "name": "President John Adams",
+   "badge": "us"
+  },
+  {
+   "from": 1801,
+   "realm": "United States",
+   "name": "President Thomas Jefferson",
+   "badge": "us"
+  },
+  {
+   "from": 1809,
+   "realm": "United States",
+   "name": "President James Madison",
+   "badge": "us"
+  },
+  {
+   "from": 1817,
+   "realm": "United States",
+   "name": "President James Monroe",
+   "badge": "us"
+  },
+  {
+   "from": 1825,
+   "realm": "United States",
+   "name": "President John Quincy Adams",
+   "badge": "us"
+  },
+  {
+   "from": 1829,
+   "realm": "United States",
+   "name": "President Andrew Jackson",
+   "badge": "us"
+  },
+  {
+   "from": 1837,
+   "realm": "United States",
+   "name": "President Martin Van Buren",
+   "badge": "us"
+  },
+  {
+   "from": 1841,
+   "realm": "United States",
+   "name": "President John Tyler",
+   "badge": "us"
+  },
+  {
+   "from": 1845,
+   "realm": "United States",
+   "name": "President James K. Polk",
+   "badge": "us"
+  },
+  {
+   "from": 1849,
+   "realm": "United States",
+   "name": "President Zachary Taylor",
+   "badge": "us"
+  },
+  {
+   "from": 1850,
+   "realm": "United States",
+   "name": "President Millard Fillmore",
+   "badge": "us"
+  },
+  {
+   "from": 1853,
+   "realm": "United States",
+   "name": "President Franklin Pierce",
+   "badge": "us"
+  },
+  {
+   "from": 1857,
+   "realm": "United States",
+   "name": "President James Buchanan",
+   "badge": "us"
+  },
+  {
+   "from": 1861,
+   "realm": "United States",
+   "name": "President Abraham Lincoln",
+   "badge": "us"
+  },
+  {
+   "from": 1865,
+   "realm": "United States",
+   "name": "President Andrew Johnson",
+   "badge": "us"
+  },
+  {
+   "from": 1869,
+   "realm": "United States",
+   "name": "President Ulysses S. Grant",
+   "badge": "us"
+  },
+  {
+   "from": 1877,
+   "realm": "United States",
+   "name": "President Rutherford B. Hayes",
+   "badge": "us"
+  },
+  {
+   "from": 1881,
+   "realm": "United States",
+   "name": "President Chester A. Arthur",
+   "badge": "us"
+  },
+  {
+   "from": 1885,
+   "realm": "United States",
+   "name": "President Grover Cleveland",
+   "badge": "us"
+  },
+  {
+   "from": 1889,
+   "realm": "United States",
+   "name": "President Benjamin Harrison",
+   "badge": "us"
+  },
+  {
+   "from": 1893,
+   "realm": "United States",
+   "name": "President Grover Cleveland",
+   "badge": "us"
+  },
+  {
+   "from": 1897,
+   "realm": "United States",
+   "name": "President William McKinley",
+   "badge": "us"
+  },
+  {
+   "from": 1901,
+   "realm": "United States",
+   "name": "President Theodore Roosevelt",
+   "badge": "us"
+  },
+  {
+   "from": 1909,
+   "realm": "United States",
+   "name": "President William H. Taft",
+   "badge": "us"
+  },
+  {
+   "from": 1913,
+   "realm": "United States",
+   "name": "President Woodrow Wilson",
+   "badge": "us"
+  },
+  {
+   "from": 1921,
+   "realm": "United States",
+   "name": "President Warren G. Harding",
+   "badge": "us"
+  },
+  {
+   "from": 1923,
+   "realm": "United States",
+   "name": "President Calvin Coolidge",
+   "badge": "us"
+  },
+  {
+   "from": 1929,
+   "realm": "United States",
+   "name": "President Herbert Hoover",
+   "badge": "us"
+  },
+  {
+   "from": 1933,
+   "realm": "United States",
+   "name": "President Franklin D. Roosevelt",
+   "badge": "us"
+  },
+  {
+   "from": 1945,
+   "realm": "United States",
+   "name": "President Harry S. Truman",
+   "badge": "us"
+  },
+  {
+   "from": 1953,
+   "realm": "United States",
+   "name": "President Dwight D. Eisenhower",
+   "badge": "us"
+  },
+  {
+   "from": 1961,
+   "realm": "United States",
+   "name": "President John F. Kennedy",
+   "badge": "us"
+  },
+  {
+   "from": 1963,
+   "realm": "United States",
+   "name": "President Lyndon B. Johnson",
+   "badge": "us"
+  },
+  {
+   "from": 1969,
+   "realm": "United States",
+   "name": "President Richard Nixon",
+   "badge": "us"
+  },
+  {
+   "from": 1974,
+   "realm": "United States",
+   "name": "President Gerald Ford",
+   "badge": "us"
+  },
+  {
+   "from": 1977,
+   "realm": "United States",
+   "name": "President Jimmy Carter",
+   "badge": "us"
+  },
+  {
+   "from": 1981,
+   "realm": "United States",
+   "name": "President Ronald Reagan",
+   "badge": "us"
+  },
+  {
+   "from": 1989,
+   "realm": "United States",
+   "name": "President George H. W. Bush",
+   "badge": "us"
+  },
+  {
+   "from": 1993,
+   "realm": "United States",
+   "name": "President Bill Clinton",
+   "badge": "us"
+  },
+  {
+   "from": 2001,
+   "realm": "United States",
+   "name": "President George W. Bush",
+   "badge": "us"
+  },
+  {
+   "from": 2009,
+   "realm": "United States",
+   "name": "President Barack Obama",
+   "badge": "us"
+  },
+  {
+   "from": 2017,
+   "realm": "United States",
+   "name": "President Donald Trump",
+   "badge": "us"
+  },
+  {
+   "from": 2021,
+   "realm": "United States",
+   "name": "President Joe Biden",
+   "badge": "us"
+  },
+  {
+   "from": 2025,
+   "realm": "United States",
+   "name": "President Donald Trump",
+   "badge": "us"
+  }
+ ],
+ "population_label": "Population",
+ "population": [
+  [
+   1609,
+   0
+  ],
+  [
+   1623,
+   0
+  ],
+  [
+   1625,
+   270
+  ],
+  [
+   1664,
+   1500
+  ],
+  [
+   1700,
+   4900
+  ],
+  [
+   1771,
+   21800
+  ],
+  [
+   1790,
+   33131
+  ],
+  [
+   1800,
+   60515
+  ],
+  [
+   1820,
+   123706
+  ],
+  [
+   1850,
+   515547
+  ],
+  [
+   1870,
+   942292
+  ],
+  [
+   1890,
+   1515301
+  ],
+  [
+   1897,
+   1900000
+  ],
+  [
+   1898,
+   3300000
+  ],
+  [
+   1900,
+   3437202
+  ],
+  [
+   1930,
+   6930446
+  ],
+  [
+   1950,
+   7891957
+  ],
+  [
+   1980,
+   7071639
+  ],
+  [
+   2000,
+   8008278
+  ],
+  [
+   2020,
+   8804190
+  ],
+  [
+   2026,
+   8480000
+  ]
+ ],
+ "standing_label": "Built and still standing",
+ "labels": [
+  {
+   "text": "Fort Amsterdam",
+   "from": 1625,
+   "until": 1790,
+   "at": "fort"
+  },
+  {
+   "text": "The wall",
+   "from": 1653,
+   "until": 1699,
+   "at": "wall"
+  },
+  {
+   "text": "St. Paul's Chapel",
+   "from": 1766,
+   "ll": [
+    -74.0093,
+    40.7113,
+    70
+   ]
+  },
+  {
+   "text": "Federal Hall",
+   "from": 1789,
+   "ll": [
+    -74.0102,
+    40.7074,
+    30
+   ]
+  },
+  {
+   "text": "City Hall",
+   "from": 1812,
+   "ll": [
+    -74.006,
+    40.7128,
+    40
+   ]
+  },
+  {
+   "text": "Trinity Church",
+   "from": 1846,
+   "at": "trinity"
+  },
+  {
+   "text": "Greenwich Village",
+   "from": 1822,
+   "ll": [
+    -74.003,
+    40.7336,
+    25
+   ]
+  },
+  {
+   "text": "Seneca Village",
+   "from": 1825,
+   "until": 1857.3,
+   "ll": [
+    -73.969,
+    40.784,
+    15
+   ]
+  },
+  {
+   "text": "Central Park",
+   "from": 1858.5,
+   "ll": [
+    -73.9654,
+    40.7829,
+    25
+   ]
+  },
+  {
+   "text": "Brooklyn Bridge",
+   "from": 1883.4,
+   "at": "brooklyn_bridge"
+  },
+  {
+   "text": "Statue of Liberty",
+   "from": 1886.82,
+   "at": "liberty"
+  },
+  {
+   "text": "Ellis Island",
+   "from": 1892,
+   "at": "ellis"
+  },
+  {
+   "text": "Williamsburg Bridge",
+   "from": 1903,
+   "at": "williamsburg_bridge"
+  },
+  {
+   "text": "Manhattan Bridge",
+   "from": 1909,
+   "at": "manhattan_bridge"
+  },
+  {
+   "text": "Queensboro Bridge",
+   "from": 1909,
+   "at": "queensboro_bridge"
+  },
+  {
+   "text": "Times Square",
+   "from": 1904.3,
+   "ll": [
+    -73.9855,
+    40.758,
+    40
+   ]
+  },
+  {
+   "text": "Woolworth Building",
+   "from": 1913.3,
+   "at": "woolworth"
+  },
+  {
+   "text": "Chrysler Building",
+   "from": 1930.3,
+   "ll": [
+    -73.9755,
+    40.7516,
+    330
+   ]
+  },
+  {
+   "text": "Empire State Building",
+   "from": 1931.33,
+   "ll": [
+    -73.9857,
+    40.7484,
+    455
+   ]
+  },
+  {
+   "text": "George Washington Bridge",
+   "from": 1931,
+   "at": "george_bridge"
+  },
+  {
+   "text": "United Nations",
+   "from": 1952.8,
+   "ll": [
+    -73.968,
+    40.7489,
+    170
+   ]
+  },
+  {
+   "text": "World Trade Center",
+   "from": 1973.3,
+   "until": 2001.7,
+   "at": "twins"
+  },
+  {
+   "text": "Battery Park City",
+   "from": 1985,
+   "at": "bpc"
+  },
+  {
+   "text": "One World Trade Center",
+   "from": 2014.8,
+   "at": "onewtc"
+  },
+  {
+   "text": "Central Park Tower",
+   "from": 2020,
+   "ll": [
+    -73.9809,
+    40.7662,
+    485
+   ]
+  },
+  {
+   "text": "Harlem",
+   "from": 1880,
+   "ll": [
+    -73.9465,
+    40.8116,
+    30
+   ]
+  },
+  {
+   "text": "Governors Island",
+   "at": "governors"
+  },
+  {
+   "text": "Hudson River",
+   "at": "hudson"
+  },
+  {
+   "text": "East River",
+   "at": "east_river"
+  }
+ ],
+ "label_max_distance": 7000
+}

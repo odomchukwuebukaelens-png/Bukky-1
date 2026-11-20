@@ -552,7 +552,8 @@ def encode_chunk(brief, frames_dir, first, count, out_path):
     subprocess.run([ffmpeg_path(), "-y", "-loglevel", "error", "-framerate", str(brief["fps"]),
                     "-start_number", str(first + 1),
                     "-i", os.path.join(frames_dir, ("comp_%06d.png" if overlay else "frame_%06d.png")),
-                    "-frames:v", str(count), "-c:v", "libx264", "-crf", "17", "-pix_fmt", "yuv420p", tmp],
+                    "-frames:v", str(count), "-c:v", "libx264", "-crf", str(brief.get("crf", 19)),
+                    "-preset", "slow", "-pix_fmt", "yuv420p", tmp],
                    check=True)
     os.replace(tmp, out_path)
     for n in numbers:
@@ -586,7 +587,8 @@ def assemble(brief, out_dir, total):
         if music == "generate":
             music = os.path.join(out_dir, "music.wav")
             subprocess.run([STUDIO_PYTHON, os.path.join(HERE, "music.py"), music, "%.3f" % dur,
-                            str(brief["seed"]), str(brief.get("music_build_at", 4.0))], check=True)
+                            str(brief["seed"]), str(brief.get("music_build_at", 4.0)),
+                            ",".join(str(v) for v in brief.get("music_accents", []))], check=True)
         cmd += ["-i", music, "-map", "0:v", "-map", "1:a",
                 "-af", "loudnorm=I=-14:TP=-1.5:LRA=11,afade=t=out:st=%.3f:d=1.5" % max(0, dur - 1.5),
                 "-c:a", "aac", "-b:a", "192k", "-shortest"]

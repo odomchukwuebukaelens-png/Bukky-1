@@ -355,6 +355,7 @@ def nodes(mat):
 
 HAZE_DISTANCE = 11000.0
 HAZE_AMOUNT = 0.8
+HAZE_NODES = []          # every haze emission node, so lighting changes can dim them
 
 
 def add_haze(mat, distance=None, amount=None):
@@ -382,6 +383,7 @@ def add_haze(mat, distance=None, amount=None):
     em = nt.nodes.new("ShaderNodeEmission")
     em.inputs["Color"].default_value = (*HAZE, 1)
     em.inputs["Strength"].default_value = 1.0
+    HAZE_NODES.append(em)
     mix = nt.nodes.new("ShaderNodeMixShader")
     nt.links.new(fac.outputs[0], mix.inputs[0])
     nt.links.new(src, mix.inputs[1])

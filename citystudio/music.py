@@ -18,6 +18,11 @@ PROGRESSION = [
     (38, [57, 62, 65, 69]), (34, [58, 62, 65, 70]), (41, [57, 60, 65, 69]), (36, [55, 60, 64, 67]),
     (38, [57, 62, 65, 69]), (43, [55, 62, 67, 70]), (34, [58, 62, 65, 70]), (33, [57, 61, 64, 69]),
 ]
+# a brighter second section (F major colour) used in alternate passages
+PROGRESSION_B = [
+    (41, [57, 60, 65, 72]), (36, [55, 60, 64, 67]), (38, [57, 62, 65, 69]), (34, [58, 62, 65, 70]),
+    (41, [57, 60, 65, 69]), (43, [59, 62, 67, 71]), (36, [55, 60, 64, 72]), (33, [57, 61, 64, 69]),
+]
 
 
 def hz(m):
@@ -26,7 +31,7 @@ def hz(m):
 
 def env(n, attack, release):
     e = np.ones(n)
-    a, r = int(attack * SR), int(release * SR)
+    a, r = min(n, int(attack * SR)), min(n, int(release * SR))
     if a:
         e[:a] = np.linspace(0, 1, a) ** 2
     if r:
@@ -71,7 +76,7 @@ def reverb(x, seconds, seed):
     return out[: len(x)]
 
 
-def compose(seconds, seed=1, build_at=4.0):
+def compose(seconds, seed=1, build_at=4.0, accents=()):
     rng = np.random.default_rng(seed)
     total = int(seconds * SR)
     pads = np.zeros(total + SR * 3)
@@ -80,7 +85,9 @@ def compose(seconds, seed=1, build_at=4.0):
     bar_n = int(BAR * SR)
     bars = int(np.ceil(seconds / BAR)) + 1
     for b in range(bars):
-        root, tones = PROGRESSION[b % len(PROGRESSION)]
+        section = (b // 8) % 4
+        prog = PROGRESSION_B if section in (1, 3) and seconds > 60 else PROGRESSION
+        root, tones = prog[b % len(prog)]
         start = b * bar_n
         n = bar_n + int(1.6 * SR)                                   # overlap into next chord
         if start >= len(pads):
@@ -94,15 +101,20 @@ def compose(seconds, seed=1, build_at=4.0):
         # arpeggio in eighth notes, entering once the story starts moving
         pattern = [tones[0] + 12, tones[1] + 12, tones[2] + 12, tones[3] + 12, tones[2] + 12, tones[1] + 12,
                    tones[2] + 12, tones[3] + 12]
+        sparse = seconds > 60 and section == 2
         for k, m in enumerate(pattern):
+            if sparse and k % 2:
+                continue
             at = start + int(k * BEAT / 2 * SR)
             if at / SR < build_at or at >= len(arp):
                 continue
             ln = min(int(1.8 * SR), len(arp) - at)
             arp[at:at + ln] += pluck(hz(m), ln) * rng.uniform(0.75, 1.0) * 0.16
-    # a low swell where the story begins
-    if 0 < build_at < seconds:
-        at = int(build_at * SR)
+    # low swells where the story begins and at the big moments
+    for when in [build_at] + list(accents):
+        if not 0 < when < seconds:
+            continue
+        at = int(when * SR)
         ln = min(int(3.0 * SR), len(pads) - at)
         t = np.arange(ln) / SR
         boom = np.sin(2 * np.pi * (52 - 10 * t) * t) * np.exp(-t * 1.6) * np.minimum(1, t / 0.03)
@@ -132,5 +144,6 @@ if __name__ == "__main__":
     out, secs = sys.argv[1], float(sys.argv[2])
     seed = int(sys.argv[3]) if len(sys.argv) > 3 else 1
     build = float(sys.argv[4]) if len(sys.argv) > 4 else 4.0
-    write(out, compose(secs, seed, build))
+    acc = [float(v) for v in sys.argv[5].split(",") if v] if len(sys.argv) > 5 else []
+    write(out, compose(secs, seed, build, acc))
     print("[city-studio] Music written: %s (%.1f s)" % (out, secs))
