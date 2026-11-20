@@ -353,9 +353,15 @@ def nodes(mat):
     return mat.node_tree
 
 
-def add_haze(mat, distance=11000.0, amount=0.8):
+HAZE_DISTANCE = 11000.0
+HAZE_AMOUNT = 0.8
+
+
+def add_haze(mat, distance=None, amount=None):
     """Fade a material towards the haze colour with distance from the camera
     (aerial perspective). Cheap, and works in both Cycles and EEVEE."""
+    distance = distance or HAZE_DISTANCE
+    amount = amount if amount is not None else HAZE_AMOUNT
     nt = mat.node_tree
     out = next(n for n in nt.nodes if n.type == "OUTPUT_MATERIAL")
     src = out.inputs["Surface"].links[0].from_socket

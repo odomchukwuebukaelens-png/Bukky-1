@@ -50,6 +50,7 @@ To start a render completely fresh, delete the old output first:
 | Brief | Style |
 |---|---|
 | `briefs/test_city.json` | Simple toy-model city (first prototype) |
+| `briefs/nyc_test.json` | New York, building by building: every building standing in Manhattan today rises in its recorded year (NYC Open Data). Older, demolished buildings are reconstructions. 20-second test of Lower Manhattan |
 | `briefs/port_varen_test.json` | Realistic historical time-lapse: terrain, sea, forest, farmland, a town growing street by street, on-screen year, captions, labels and generated music. The city is invented |
 
 The realistic style adds:
@@ -98,6 +99,9 @@ Edit `briefs/test_city.json` (or copy it to a new file):
 - `citystudio/style_historic.py` - the realistic historical style (landscape, town growth, landmarks)
 - `citystudio/overlay.py` - draws the on-screen year, captions and labels onto each frame
 - `citystudio/music.py` - generates the original background music
+- `citystudio/style_nyc.py` - the New York style (real buildings, landfill shoreline, landmarks)
+- `citystudio/nyc_prepare.py` - turns raw NYC Open Data downloads into `data/nyc/`
+- `data/nyc/` - prepared New York data (building footprints, years, heights, land, streets, parks)
 - `output/` - renders (not stored in Git)
 
 ## Notes
