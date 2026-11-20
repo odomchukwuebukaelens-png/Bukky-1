@@ -43,6 +43,10 @@ DEFAULTS = {
 }
 
 
+HERE = os.path.dirname(os.path.abspath(__file__))
+STUDIO_PYTHON = os.environ.get("STUDIO_PYTHON", "python3")
+
+
 def load_brief(path):
     with open(path) as f:
         user = json.load(f)
@@ -464,6 +468,7 @@ def eevee_id():
 
 def configure_render(brief, scene, engine):
     r = scene.render
+    realistic = brief.get("style") == "historic"
     r.resolution_x, r.resolution_y = brief["resolution"]
     r.resolution_percentage = 100
     r.fps = brief["fps"]
@@ -471,9 +476,18 @@ def configure_render(brief, scene, engine):
     r.image_settings.compression = 15
     r.use_persistent_data = True
     try:
-        scene.view_settings.view_transform = "Standard"   # keeps colours bright and clean
+        # AgX gives soft, film-like highlights for the realistic style;
+        # Standard keeps the toy style bright and clean
+        scene.view_settings.view_transform = "AgX" if realistic else "Standard"
     except TypeError:
-        pass
+        scene.view_settings.view_transform = "Filmic" if realistic else "Standard"
+    if realistic:
+        for look in ("AgX - Punchy", "Punchy", "AgX - Medium High Contrast", "None"):
+            try:
+                scene.view_settings.look = look
+                break
+            except TypeError:
+                continue
     if engine == "eevee":
         r.engine = eevee_id()
         try:
@@ -520,17 +534,32 @@ def ffmpeg_path():
     return exe
 
 
+def run_overlay(frames_dir, numbers):
+    """Draw the on-screen graphics onto frames (comp_N.png) with system Python."""
+    for i in range(0, len(numbers), 60):
+        subprocess.run([STUDIO_PYTHON, os.path.join(HERE, "overlay.py"), frames_dir] +
+                       [str(n) for n in numbers[i:i + 60]], check=True)
+
+
 def encode_chunk(brief, frames_dir, first, count, out_path):
     """Frames of one chunk -> a small video file, then the frames are deleted
     so the disk never fills up."""
+    numbers = list(range(first + 1, first + count + 1))
+    overlay = os.path.exists(os.path.join(frames_dir, "frame_%06d.json" % numbers[0]))
+    if overlay:
+        run_overlay(frames_dir, numbers)
     tmp = out_path + ".part.mp4"
     subprocess.run([ffmpeg_path(), "-y", "-loglevel", "error", "-framerate", str(brief["fps"]),
-                    "-start_number", str(first + 1), "-i", os.path.join(frames_dir, "frame_%06d.png"),
+                    "-start_number", str(first + 1),
+                    "-i", os.path.join(frames_dir, ("comp_%06d.png" if overlay else "frame_%06d.png")),
                     "-frames:v", str(count), "-c:v", "libx264", "-crf", "17", "-pix_fmt", "yuv420p", tmp],
                    check=True)
     os.replace(tmp, out_path)
-    for f in range(first, first + count):
-        os.remove(os.path.join(frames_dir, "frame_%06d.png" % (f + 1)))
+    for n in numbers:
+        for pattern in ("frame_%06d.png", "frame_%06d.json", "comp_%06d.png"):
+            path = os.path.join(frames_dir, pattern % n)
+            if os.path.exists(path):
+                os.remove(path)
 
 
 def chunk_list(brief, total):
@@ -551,7 +580,17 @@ def assemble(brief, out_dir, total):
         f.writelines("file '%s'\n" % n for n in names)
     mp4 = os.path.join(out_dir, brief["name"] + ".mp4")
     cmd = [ffmpeg_path(), "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", listing]
-    if brief.get("sound"):
+    music = brief.get("music")
+    if music:
+        dur = total / brief["fps"]
+        if music == "generate":
+            music = os.path.join(out_dir, "music.wav")
+            subprocess.run([STUDIO_PYTHON, os.path.join(HERE, "music.py"), music, "%.3f" % dur,
+                            str(brief["seed"]), str(brief.get("music_build_at", 4.0))], check=True)
+        cmd += ["-i", music, "-map", "0:v", "-map", "1:a",
+                "-af", "loudnorm=I=-14:TP=-1.5:LRA=11,afade=t=out:st=%.3f:d=1.5" % max(0, dur - 1.5),
+                "-c:a", "aac", "-b:a", "192k", "-shortest"]
+    elif brief.get("sound"):
         dur = total / brief["fps"]
         cmd += ["-f", "lavfi", "-i",
                 "anoisesrc=color=brown:duration=%.3f:amplitude=0.5,lowpass=f=500,"
@@ -599,26 +638,48 @@ def main():
     tag = "[city-studio] worker %d:" % (index + 1)
 
     random.seed(brief["seed"])
-    plan = plan_city(brief)
-    rig = build_scene(brief, plan)
+    built = time.time()
+    if brief.get("style") == "historic":
+        sys.path.insert(0, HERE)
+        import style_historic as style
+        plan = style.plan(brief)
+        rig = style.build(brief, plan)
+        update = style.apply_frame
+        stats = rig["stats"]
+    else:
+        plan = plan_city(brief)
+        rig = build_scene(brief, plan)
+        update = apply_frame
+        stats = "%d buildings, %d trees" % (len(plan["buildings"]), len(plan["trees"]))
     scene = rig["scene"]
     status = configure_render(brief, scene, engine)
     if index == 0:
-        print("\n[city-studio] %s: %d buildings, %d trees, %d frames at %dx%d" % (
-            brief["name"], len(plan["buildings"]), len(plan["trees"]), total, *brief["resolution"]))
+        print("\n[city-studio] %s: %s, %d frames at %dx%d (scene built in %.0fs)" % (
+            brief["name"], stats, total, *brief["resolution"], time.time() - built))
         print("[city-studio] Rendering with: %s, %d worker(s)" % (status, count), flush=True)
 
     def render(f, path):
-        apply_frame(brief, rig, f, total)
+        info = update(brief, rig, f, total)
         scene.frame_set(f + 1)
         scene.render.filepath = path
         bpy.ops.render.render(write_still=True)
+        if info is not None:
+            with open(path[:-4] + ".json", "w") as fh:
+                json.dump(info, fh)
 
     if "stills" in opts:
         stills_dir = os.path.join(out_dir, "stills")
         os.makedirs(stills_dir, exist_ok=True)
-        for f in (0, total // 2, total - 1):
+        picks = opts.get("frames")
+        frames = [int(x) - 1 for x in str(picks).split(",")] if picks else [0, total // 2, total - 1]
+        for f in frames:
             render(f, os.path.join(stills_dir, "frame_%06d.png" % (f + 1)))
+        if os.path.exists(os.path.join(stills_dir, "frame_%06d.json" % (frames[0] + 1))):
+            for f in frames:
+                comp = os.path.join(stills_dir, "comp_%06d.png" % (f + 1))
+                if os.path.exists(comp):
+                    os.remove(comp)
+            run_overlay(stills_dir, [f + 1 for f in frames])
         print("[city-studio] Preview stills saved in %s" % stills_dir)
         return
 
@@ -645,7 +706,7 @@ def main():
         print("%s finished %d frames in %.1f min (%.2fs per frame)" % (
             tag, done, (time.time() - started) / 60, (time.time() - started) / done), flush=True)
     if index == 0:
-        apply_frame(brief, rig, total - 1, total)
+        update(brief, rig, total - 1, total)
         bpy.ops.wm.save_as_mainfile(filepath=os.path.join(out_dir, "scene.blend"))
 
 

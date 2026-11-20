@@ -19,7 +19,7 @@ If `/workspace/city-studio` already exists, use `cd /workspace/city-studio && gi
 
 | Command | What it does | Cost |
 |---|---|---|
-| `./studio setup` | Installs Blender 4.2 into this folder, plus FFmpeg. Run it after every pod start | 1-3 minutes |
+| `./studio setup` | Installs Blender 4.2 into this folder, plus FFmpeg, fonts and two small Python libraries. Run it after every pod start | 1-3 minutes |
 | `./studio check` | Confirms Blender can use the NVIDIA A40 and the fast renderer | seconds |
 | `./studio preview briefs/test_city.json` | Renders 3 still pictures to check the look | under a minute |
 | `./studio run briefs/test_city.json` | Renders every frame and builds the MP4 | printed at the end |
@@ -45,7 +45,35 @@ To start a render completely fresh, delete the old output first:
 - Frames are turned into video in small chunks and then deleted, so a long
   video does not fill the disk.
 
-## Changing the video
+## Two visual styles
+
+| Brief | Style |
+|---|---|
+| `briefs/test_city.json` | Simple toy-model city (first prototype) |
+| `briefs/port_varen_test.json` | Realistic historical time-lapse: terrain, sea, forest, farmland, a town growing street by street, on-screen year, captions, labels and generated music. The city is invented |
+
+The realistic style adds:
+- **On-screen graphics** drawn on every frame: big year and era (bottom left),
+  ruler and coat of arms (top left), population and compass (top right),
+  event captions (bottom centre), floating place labels and an opening title card.
+- **Original music**, generated fresh for each video. No copyrighted music is used.
+
+## Changing a realistic (historical) video
+
+Everything that appears on screen is plain text in the brief file:
+
+| Setting | Meaning |
+|---|---|
+| `year_keys` | Which year is shown at which second, e.g. `[4.6, 1626]` = 1626 at 4.6 s |
+| `title_card` | Opening title, subtitle line and years |
+| `events` | Captions. Each appears when its `year` is reached |
+| `eras`, `rulers` | Era name, realm, ruler and coat of arms, from a given year |
+| `population` | Year and population pairs; values in between are filled in |
+| `labels` | Place names that float over landmarks |
+| `camera` | Where the camera starts and ends, and what it looks at |
+| `music` | `"generate"` for original music, or a path to your own audio file |
+
+## Changing the toy-city video
 
 Edit `briefs/test_city.json` (or copy it to a new file):
 
@@ -67,6 +95,9 @@ Edit `briefs/test_city.json` (or copy it to a new file):
 - `studio` - the launcher
 - `briefs/` - production briefs
 - `citystudio/make_video.py` - plans the city, builds the scene, renders, assembles the MP4
+- `citystudio/style_historic.py` - the realistic historical style (landscape, town growth, landmarks)
+- `citystudio/overlay.py` - draws the on-screen year, captions and labels onto each frame
+- `citystudio/music.py` - generates the original background music
 - `output/` - renders (not stored in Git)
 
 ## Notes

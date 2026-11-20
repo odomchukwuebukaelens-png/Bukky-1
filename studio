@@ -29,7 +29,8 @@ case "${1:-}" in
     echo "[city-studio] Installing FFmpeg and system libraries..."
     $SUDO apt-get update -qq
     $SUDO apt-get install -y -qq ffmpeg xz-utils curl libgl1 libegl1 libxi6 libxxf86vm1 libxfixes3 \
-      libxrender1 libxkbcommon0 libsm6 libice6 >/dev/null
+      libxrender1 libxkbcommon0 libsm6 libice6 python3-pil python3-numpy \
+      fonts-bebas-neue fonts-roboto-unhinted fonts-dejavu-core >/dev/null
     if [ ! -x tools/blender/blender ]; then
       echo "[city-studio] Downloading Blender $BLENDER_VERSION (about 350 MB)..."
       mkdir -p tools
