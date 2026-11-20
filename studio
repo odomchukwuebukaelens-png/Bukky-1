@@ -6,6 +6,7 @@
 #   ./studio run briefs/X.json         - render everything and make the MP4
 #   ./studio start briefs/X.json       - same as run, but in the background (safe to close the page)
 #   ./studio progress                  - show how far a background render has got
+#   ./studio stop                      - stop a background render
 #   ./studio share                     - let you download finished videos through RunPod's port 8888
 # Optional: WORKERS=4 ./studio run ...   ENGINE=cycles ./studio run ...
 set -euo pipefail
@@ -33,7 +34,7 @@ case "${1:-}" in
     $SUDO apt-get update -qq
     $SUDO apt-get install -y -qq ffmpeg xz-utils curl libgl1 libegl1 libxi6 libxxf86vm1 libxfixes3 \
       libxrender1 libxkbcommon0 libsm6 libice6 python3-pil python3-numpy \
-      fonts-bebas-neue fonts-roboto-unhinted fonts-dejavu-core >/dev/null
+      fonts-bebas-neue fonts-roboto-unhinted fonts-dejavu-core fonts-league-spartan fonts-lato >/dev/null
     if [ ! -x tools/blender/blender ]; then
       echo "[city-studio] Downloading Blender $BLENDER_VERSION (about 350 MB)..."
       mkdir -p tools
@@ -44,6 +45,10 @@ case "${1:-}" in
       mv tools/unpack/blender-* tools/blender
       rm -rf tools/unpack tools/blender.tar.xz
     fi
+    for f in /usr/share/fonts/opentype/league-spartan/LeagueSpartan-Bold.otf /usr/share/fonts/truetype/lato/Lato-Bold.ttf \
+             /usr/share/fonts/opentype/bebas-neue/BebasNeue-Regular.otf; do
+      [ -f "$f" ] || echo "[city-studio] WARNING: missing font $f"
+    done
     echo "[city-studio] Setup finished. Next: ./studio check"
     ;;
   check)
@@ -83,7 +88,14 @@ case "${1:-}" in
     echo "[city-studio] Check on it any time with: ./studio progress"
     ;;
   progress)
-    tail -n 6 output/render.log 2>/dev/null || echo "No render log yet."
+    if [ -f output/render.log ]; then grep -v "font .* not found" output/render.log | tail -n 6
+    else echo "No render log yet."; fi
+    pgrep -f "make_video.py" >/dev/null && echo "[city-studio] Status: rendering" || echo "[city-studio] Status: not running"
+    ;;
+  stop)
+    pkill -f "studio run" || true
+    pkill -f "make_video.py" || true
+    echo "[city-studio] Render stopped. Run ./studio start again later to carry on."
     ;;
   share)
     PORT="${2:-8888}"
