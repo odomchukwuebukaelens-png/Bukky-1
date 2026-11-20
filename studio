@@ -87,7 +87,8 @@ case "${1:-}" in
       exit 0
     fi
     mkdir -p output
-    nohup "$0" run "$BRIEF" > output/render.log 2>&1 &
+    # setsid puts the render in its own session, so closing the web terminal cannot stop it
+    setsid nohup "$0" run "$BRIEF" > output/render.log 2>&1 < /dev/null &
     echo "[city-studio] Rendering in the background. You can close this page."
     echo "[city-studio] Check on it any time with: ./studio progress"
     ;;
