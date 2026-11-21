@@ -627,8 +627,19 @@ def main():
 
     brief = load_brief(paths[0])
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    out_dir = os.path.join(root, "output", brief["name"])
     total = int(round(brief["duration_seconds"] * brief["fps"]))
+    timeline_total, mapping = total, None
+    if "sample" in opts:
+        # a short video cut from several moments of the full timeline
+        segs = brief.get("sample_segments", [[3, 2.5], [62, 2.5], [123, 2.5], [268, 2.5], [345, 2.5], [442, 2.5]])
+        mapping = [int(round(a * brief["fps"])) + k for a, length in segs
+                   for k in range(int(round(length * brief["fps"])))]
+        mapping = [min(m, total - 1) for m in mapping]
+        brief["name"] = brief["name"] + "_sample"
+        brief["music_build_at"] = 0.5
+        brief["music_accents"] = [round(i * 2.5, 2) for i in range(1, len(segs))]
+        total = len(mapping)
+    out_dir = os.path.join(root, "output", brief["name"])
     if "assemble" in opts:
         assemble(brief, out_dir, total)
         return
@@ -664,7 +675,7 @@ def main():
         print("[city-studio] Rendering with: %s, %d worker(s)" % (status, count), flush=True)
 
     def render(f, path):
-        info = update(brief, rig, f, total)
+        info = update(brief, rig, mapping[f] if mapping else f, timeline_total)
         scene.frame_set(f + 1)
         scene.render.filepath = path
         bpy.ops.render.render(write_still=True)

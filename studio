@@ -4,6 +4,7 @@
 #   ./studio check                     - confirm Blender can use the GPU
 #   ./studio preview briefs/X.json     - render 3 still frames (cheap look)
 #   ./studio run briefs/X.json         - render everything and make the MP4
+#   ./studio sample briefs/X.json      - 15-second sample cut from six moments of the full video
 #   ./studio start briefs/X.json       - same as run, but in the background (safe to close the page)
 #   ./studio progress                  - show how far a background render has got
 #   ./studio stop                      - stop a background render
@@ -84,6 +85,25 @@ case "${1:-}" in
     for p in "${PIDS[@]}"; do wait "$p" || FAIL=1; done
     [ "$FAIL" -eq 0 ] || { echo "[city-studio] A worker stopped early. Run the same command again to continue."; exit 1; }
     bl "$BRIEF" --assemble 2>&1 | say
+    echo "[city-studio] Total time: $(( ($(date +%s) - START) / 60 )) min $(( ($(date +%s) - START) % 60 )) s"
+    ;;
+  sample)
+    need_blender
+    BRIEF="${2:?give a brief file}"
+    ENGINE_USED="$(pick_engine)"
+    if [ -z "${WORKERS:-}" ]; then
+      if command -v nvidia-smi >/dev/null 2>&1; then WORKERS=3; else WORKERS=1; fi
+    fi
+    START=$(date +%s)
+    PIDS=()
+    for ((i = 0; i < WORKERS; i++)); do
+      bl "$BRIEF" --sample --engine="$ENGINE_USED" --worker="$i/$WORKERS" 2>&1 | say &
+      PIDS+=($!)
+    done
+    FAIL=0
+    for p in "${PIDS[@]}"; do wait "$p" || FAIL=1; done
+    [ "$FAIL" -eq 0 ] || { echo "[city-studio] A worker stopped early. Run the same command again to continue."; exit 1; }
+    bl "$BRIEF" --sample --assemble 2>&1 | say
     echo "[city-studio] Total time: $(( ($(date +%s) - START) / 60 )) min $(( ($(date +%s) - START) % 60 )) s"
     ;;
   start)
