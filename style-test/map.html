@@ -1,0 +1,301 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:MX;src:url(node_modules/@fontsource/montserrat/files/montserrat-latin-900-normal.woff2)}
+@font-face{font-family:M8;src:url(node_modules/@fontsource/montserrat/files/montserrat-latin-800-normal.woff2)}
+@font-face{font-family:OS;src:url(node_modules/@fontsource/oswald/files/oswald-latin-700-normal.woff2)}
+html,body{margin:0;background:#000}
+</style>
+<script src="node_modules/d3-array/dist/d3-array.min.js"></script>
+<script src="node_modules/d3-geo/dist/d3-geo.min.js"></script>
+<script src="node_modules/topojson-client/dist/topojson-client.min.js"></script>
+</head><body><canvas id="c"></canvas>
+<script>
+const QS = new URLSearchParams(location.search);
+const W = +(QS.get('w') || 1920), H = +(QS.get('h') || 1080);
+const cv = document.getElementById('c'); cv.width = W; cv.height = H;
+const ctx = cv.getContext('2d');
+const UI = Math.min(W, H) / 1080;           // UI scale factor
+const TILE = 'https://tiles.local/';        // served by the renderer from NASA GIBS (public domain)
+
+// ---------- helpers ----------
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const ease = x => { x = clamp(x); return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+const back = x => { x = clamp(x); const c = 1.9; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const prog = (t, a, b) => clamp((t - a) / (b - a));
+const fade = (t, a, b, c, d) => Math.min(ease(prog(t, a, b)), 1 - ease(prog(t, c, d)));
+const lerp = (a, b, k) => a + (b - a) * k;
+
+let countries = {}, land;
+async function init() {
+  const topo = await (await fetch('node_modules/world-atlas/countries-10m.json')).json();
+  for (const f of topojson.feature(topo, topo.objects.countries).features) countries[f.id] = f;
+  await Promise.all(['MX', 'M8', 'OS'].map(f => document.fonts.load(`40px ${f}`)));
+}
+
+// ---------- satellite tiles ----------
+const tileCache = new Map();
+function tileImg(z, x, y) {
+  const k = `${z}/${y}/${x}`;
+  if (!tileCache.has(k)) tileCache.set(k, new Promise(res => {
+    const im = new Image(); im.crossOrigin = 'anonymous';
+    im.onload = () => res(im); im.onerror = () => res(null);
+    im.src = `${TILE}${k}.jpeg`;
+  }));
+  return tileCache.get(k);
+}
+const tileLon = (x, z) => x / 2 ** z * 360 - 180;
+const tileLat = (y, z) => Math.atan(Math.sinh(Math.PI * (1 - 2 * y / 2 ** z))) * 180 / Math.PI;
+async function drawTiles(proj, s) {
+  const z = clamp(Math.ceil(Math.log2(2 * Math.PI * s / 256) + 0.3), 1, 8);
+  const n = 2 ** z;
+  const [lonA, latA] = proj.invert([0, 0]), [lonB, latB] = proj.invert([W, H]);
+  const x0 = Math.floor((lonA + 180) / 360 * n), x1 = Math.floor((lonB + 180) / 360 * n);
+  const ty = lat => Math.floor((1 - Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360)) / Math.PI) / 2 * n);
+  const y0 = clamp(ty(Math.min(85, latA)), 0, n - 1), y1 = clamp(ty(Math.max(-85, latB)), 0, n - 1);
+  const jobs = [];
+  for (let x = x0; x <= x1; x++) for (let y = y0; y <= y1; y++) {
+    const xx = ((x % n) + n) % n;
+    jobs.push(tileImg(z, xx, y).then(im => ({ im, x, y })));
+  }
+  const tiles = await Promise.all(jobs);
+  for (const { im, x, y } of tiles) {
+    if (!im) continue;
+    const a = proj([tileLon(x, z), tileLat(y, z)]), b = proj([tileLon(x + 1, z), tileLat(y + 1, z)]);
+    ctx.drawImage(im, Math.floor(a[0]) - 0.5, Math.floor(a[1]) - 0.5, Math.ceil(b[0] - a[0]) + 1.5, Math.ceil(b[1] - a[1]) + 1.5);
+  }
+}
+
+// ---------- design elements ----------
+function strokeText(str, x, y, size, { font = 'MX', fill = '#fff', stroke = '#000', sw = 0.16, align = 'center', alpha = 1, scale = 1 } = {}) {
+  if (alpha <= 0) return;
+  ctx.save(); ctx.globalAlpha = alpha; ctx.translate(x, y); ctx.scale(scale, scale);
+  ctx.font = `${size}px ${font}`; ctx.textAlign = align; ctx.textBaseline = 'middle'; ctx.lineJoin = 'round';
+  ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = size * 0.25; ctx.shadowOffsetY = size * 0.06;
+  ctx.lineWidth = size * sw; ctx.strokeStyle = stroke; ctx.strokeText(str, 0, 0);
+  ctx.shadowColor = 'transparent'; ctx.fillStyle = fill; ctx.fillText(str, 0, 0);
+  ctx.restore();
+}
+
+// black label tag with pointer, anchored at point p (pointer tip). dir: 'down' (tag above point) or 'up' (tag below)
+function tag(p, label, k, { size = 34, dir = 'down', value = null, vk = 0, off = [0, 0] } = {}) {
+  if (k <= 0) return;
+  size *= UI;
+  const s = back(k);
+  ctx.save();
+  ctx.font = `${size}px OS`;
+  const tw = ctx.measureText(label).width;
+  let vw = 0, vs = size * 0.8;
+  if (value && vk > 0) { ctx.font = `${vs}px OS`; vw = ctx.measureText(value).width + size * 0.5; }
+  const padX = size * 0.4, h = size * 1.35, w = tw + vw * ease(vk) + padX * 2, ptr = size * 0.35;
+  const ax = p[0] + off[0] * UI, ay = p[1] + off[1] * UI;
+  if (off[0] || off[1]) { // leader line
+    ctx.globalAlpha = clamp(k * 2); ctx.strokeStyle = '#fff'; ctx.lineWidth = 2.5 * UI;
+    ctx.beginPath(); ctx.moveTo(p[0], p[1]); ctx.lineTo(ax, ay); ctx.stroke();
+  }
+  ctx.translate(ax, ay); ctx.scale(s, s);
+  const top = dir === 'down' ? -h - ptr : ptr;
+  ctx.globalAlpha = clamp(k * 2.5);
+  ctx.shadowColor = 'rgba(0,0,0,0.55)'; ctx.shadowBlur = 14 * UI; ctx.shadowOffsetY = 4 * UI;
+  ctx.fillStyle = '#0a0a0a';
+  ctx.beginPath(); ctx.roundRect(-w / 2, top, w, h, size * 0.18); ctx.fill();
+  ctx.beginPath();
+  if (dir === 'down') { ctx.moveTo(-ptr, -ptr - 1); ctx.lineTo(ptr, -ptr - 1); ctx.lineTo(0, 0); }
+  else { ctx.moveTo(-ptr, ptr + 1); ctx.lineTo(ptr, ptr + 1); ctx.lineTo(0, 0); }
+  ctx.fill();
+  ctx.shadowColor = 'transparent';
+  ctx.strokeStyle = 'rgba(255,255,255,0.9)'; ctx.lineWidth = 2 * UI;
+  ctx.beginPath(); ctx.roundRect(-w / 2, top, w, h, size * 0.18); ctx.stroke();
+  ctx.fillStyle = '#fff'; ctx.font = `${size}px OS`; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+  ctx.fillText(label, -w / 2 + padX, top + h / 2 + size * 0.03);
+  if (value && vk > 0) {
+    ctx.globalAlpha = ease(vk); ctx.fillStyle = '#ffd23f'; ctx.font = `${vs}px OS`;
+    ctx.fillText(value, -w / 2 + padX + tw + size * 0.35, top + h / 2 + size * 0.03);
+  }
+  ctx.restore();
+}
+
+// bold boxed callout (like "17 COUNTRY")
+function boxCallout(text, x, y, k, { bg = '#d7263d', size = 64 } = {}) {
+  if (k <= 0) return;
+  size *= UI;
+  const s = back(k);
+  ctx.save(); ctx.translate(x, y); ctx.scale(s, s); ctx.globalAlpha = clamp(k * 2);
+  ctx.font = `${size}px MX`;
+  const w = ctx.measureText(text).width + size * 0.8, h = size * 1.35;
+  ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 20 * UI; ctx.shadowOffsetY = 6 * UI;
+  ctx.fillStyle = bg; ctx.beginPath(); ctx.roundRect(-w / 2, -h / 2, w, h, 8 * UI); ctx.fill();
+  ctx.shadowColor = 'transparent'; ctx.strokeStyle = '#fff'; ctx.lineWidth = 4 * UI; ctx.stroke();
+  ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText(text, 0, size * 0.05);
+  ctx.restore();
+}
+
+// soft cartoon cloud puff
+function cloud(x, y, r, alpha, seed) {
+  if (alpha <= 0) return;
+  ctx.save(); ctx.globalAlpha = alpha;
+  const blobs = [[0, 0, 1], [-0.75, 0.15, 0.7], [0.75, 0.12, 0.75], [-0.3, -0.35, 0.72], [0.35, -0.3, 0.68], [0, 0.3, 0.8]];
+  for (const [bx, by, br] of blobs) {
+    const jx = Math.sin(seed * 7.1 + br * 13) * 0.08, jy = Math.cos(seed * 3.7 + br * 9) * 0.08;
+    const cx = x + (bx + jx) * r, cy = y + (by + jy) * r, rr = br * r;
+    const g = ctx.createRadialGradient(cx, cy - rr * 0.2, rr * 0.1, cx, cy, rr);
+    g.addColorStop(0, 'rgba(255,255,255,0.95)'); g.addColorStop(0.6, 'rgba(240,244,250,0.75)'); g.addColorStop(1, 'rgba(230,236,245,0)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, rr, 0, 7); ctx.fill();
+  }
+  ctx.restore();
+}
+
+// rotating dotted highlight ring
+function ring(p, r, t, alpha) {
+  if (alpha <= 0) return;
+  ctx.save(); ctx.globalAlpha = alpha; ctx.translate(p[0], p[1]); ctx.rotate(t * 0.8);
+  ctx.setLineDash([10 * UI, 9 * UI]); ctx.lineWidth = 4 * UI; ctx.strokeStyle = '#fff';
+  ctx.shadowColor = 'rgba(0,0,0,0.7)'; ctx.shadowBlur = 8 * UI;
+  ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.stroke();
+  ctx.setLineDash([]); ctx.globalAlpha = alpha * 0.5 * (1 - (t * 0.9 % 1));
+  ctx.beginPath(); ctx.arc(0, 0, r * (1 + (t * 0.9 % 1) * 0.6), 0, 7); ctx.stroke();
+  ctx.restore();
+}
+
+// curved white arrow drawn progressively
+function arrow(a, b, k, bend = 0.3, width = 7) {
+  if (k <= 0) return;
+  width *= UI;
+  const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2, dx = b[0] - a[0], dy = b[1] - a[1];
+  const c = [mx - dy * bend, my + dx * bend];
+  const q = u => [(1 - u) ** 2 * a[0] + 2 * (1 - u) * u * c[0] + u * u * b[0], (1 - u) ** 2 * a[1] + 2 * (1 - u) * u * c[1] + u * u * b[1]];
+  const kk = ease(k), N = 50;
+  ctx.save(); ctx.lineCap = 'round'; ctx.strokeStyle = '#fff'; ctx.lineWidth = width;
+  ctx.shadowColor = 'rgba(0,0,0,0.75)'; ctx.shadowBlur = 10 * UI; ctx.shadowOffsetY = 3 * UI;
+  ctx.beginPath(); for (let i = 0; i <= N; i++) { const p = q(i / N * kk); i ? ctx.lineTo(...p) : ctx.moveTo(...p); } ctx.stroke();
+  const p = q(kk), p2 = q(Math.max(0, kk - 0.02)), ang = Math.atan2(p[1] - p2[1], p[0] - p2[0]), hs = width * 3.2;
+  ctx.fillStyle = '#fff'; ctx.translate(...p); ctx.rotate(ang);
+  ctx.beginPath(); ctx.moveTo(hs * 0.6, 0); ctx.lineTo(-hs * 0.7, -hs * 0.65); ctx.lineTo(-hs * 0.35, 0); ctx.lineTo(-hs * 0.7, hs * 0.65); ctx.closePath(); ctx.fill();
+  ctx.restore();
+}
+
+// word-by-word bold subtitles
+function subtitles(t, cues) {
+  const cue = cues.find(c => t >= c[0] && t < c[1]);
+  if (!cue) return;
+  const [a, b, text] = cue, words = text.split(' ');
+  const per = Math.min(0.32, (b - a - 0.8) / words.length);
+  const size = 66 * UI;
+  ctx.font = `${size}px MX`;
+  // wrap into lines that fit
+  const maxW = W * 0.86, lines = [[]];
+  for (const w of words) { const L = lines[lines.length - 1]; if (ctx.measureText([...L, w].join(' ')).width > maxW && L.length) lines.push([w]); else L.push(w); }
+  const out = 1 - ease(prog(t, b - 0.25, b));
+  let idx = 0;
+  const baseY = H - (W > H ? 120 : 430) * UI - (lines.length - 1) * size * 1.15;
+  lines.forEach((L, li) => {
+    const lineW = ctx.measureText(L.join(' ')).width; let x = W / 2 - lineW / 2;
+    for (const w of L) {
+      const ww = ctx.measureText(w).width, wt = a + idx * per, k = prog(t, wt, wt + 0.18);
+      const hot = t >= wt && t < wt + per;
+      strokeText(w, x + ww / 2, baseY + li * size * 1.15, size, { fill: hot ? '#ffd23f' : '#fff', alpha: ease(k) * out, scale: 0.6 + 0.4 * back(k), sw: 0.2 });
+      x += ww + ctx.measureText(' ').width; idx++;
+    }
+  });
+}
+
+// ---------- scene data ----------
+const FILL = [ // id, color, label, anchor, tag options, value (share of world proven oil reserves, Energy Institute, end-2020)
+  ['682', '#2ecc40', 'Saudi Arabia', [45.0, 24.0], { dir: 'down' }, '17%'],
+  ['364', '#ff2d2d', 'Iran', [56.3, 30.6], { dir: 'down', size: 44 }, '9%'],
+  ['368', '#1fd6e8', 'Iraq', [43.6, 33.0], { dir: 'down' }, '8%'],
+  ['414', '#b44dff', 'Kuwait', [47.6, 29.35], { dir: 'down', size: 28, off: [-40, -40] }, '6%'],
+  ['048', '#ff8a00', 'Bahrain', [50.55, 26.05], { dir: 'down', size: 28, off: [-10, -95] }, null],
+  ['634', '#ffd400', 'Qatar', [51.2, 25.35], { dir: 'up', size: 28, off: [-70, 70] }, '1.5%'],
+  ['784', '#3b5bff', 'UAE', [54.2, 23.9], { dir: 'down', size: 32 }, '6%'],
+  ['512', '#ff3fa4', 'Oman', [56.9, 23.0], { dir: 'down', size: 32 }, null],
+];
+const CLOUDS = [[36, 37, 1], [61, 38, 1.1], [46, 17, 0.9], [63, 20, 1.2], [31, 27, 0.8], [58.5, 29.5, 0.7], [49.5, 34.5, 0.8], [40, 21, 0.7], [67, 31, 1], [53, 19, 0.75]];
+const CUES = [
+  [0.3, 3.1, 'AROUND ONE SMALL GULF...'],
+  [3.3, 7.6, 'SIT 8 COUNTRIES'],
+  [7.8, 12.3, "HOLDING NEARLY HALF OF THE WORLD'S OIL"],
+  [12.5, 17.2, 'AND MOST OF IT LEAVES THROUGH ONE 33 KM GAP'],
+  [17.4, 22, '84% OF IT SAILS TO ASIA'],
+];
+const CAM = [
+  [0, 46, 30, 950], [3.0, 48.5, 28.5, 1250],
+  [5.2, 50.5, 27.0, 3500], [12.4, 50.8, 26.9, 3800],
+  [14.6, 56.3, 26.3, 11000], [17.0, 56.35, 26.3, 12500],
+  ...(W < H ? [[19.2, 96, 28, 520], [22, 97, 28, 500]] : [[19.2, 84, 27, 900], [22, 85, 27, 860]]),
+];
+function camera(t) {
+  let i = 0; while (i < CAM.length - 2 && t > CAM[i + 1][0]) i++;
+  const [t0, x0, y0, s0] = CAM[i], [t1, x1, y1, s1] = CAM[i + 1], k = ease(prog(t, t0, t1));
+  return { lon: lerp(x0, x1, k), lat: lerp(y0, y1, k), s: Math.exp(lerp(Math.log(s0), Math.log(s1), k)) };
+}
+
+async function render(t) {
+  const cam = camera(t);
+  const proj = d3.geoMercator().center([cam.lon, cam.lat]).scale(cam.s).translate([W / 2, H / 2]).clipExtent([[-50, -50], [W + 50, H + 50]]);
+  const path = d3.geoPath(proj, ctx), P = ll => proj(ll);
+  ctx.fillStyle = '#06101e'; ctx.fillRect(0, 0, W, H);
+  await drawTiles(proj, cam.s);
+  ctx.fillStyle = 'rgba(4,10,22,0.18)'; ctx.fillRect(0, 0, W, H); // slight darken so fills pop
+
+  // country fills: pop in one by one
+  const fillOut = 1 - 0.35 * ease(prog(t, 12.6, 14.4)) - 0.4 * ease(prog(t, 17.2, 19));
+  FILL.forEach(([id, col], i) => {
+    const k = prog(t, 3.6 + i * 0.42, 4.0 + i * 0.42);
+    if (k <= 0 || !countries[id]) return;
+    ctx.save(); ctx.beginPath(); path(countries[id]);
+    ctx.globalAlpha = 0.86 * ease(k) * fillOut; ctx.fillStyle = col; ctx.fill();
+    ctx.globalAlpha = ease(k) * fillOut; ctx.lineWidth = 2 * UI; ctx.strokeStyle = 'rgba(255,255,255,0.85)'; ctx.stroke();
+    if (k < 1) { ctx.globalAlpha = (1 - k) * 0.7; ctx.fillStyle = '#fff'; ctx.fill(); } // flash
+    ctx.restore();
+  });
+
+  // clouds (geo-anchored, parallax-ish)
+  const cs = 70 * UI * Math.pow(cam.s / 1200, 0.55), ca = 0.9 * (1 - ease(prog(cam.s, 6000, 9000))) * (1 - 0.75 * ease(prog(t, 17.6, 18.8)));
+  CLOUDS.forEach(([lon, lat, sz], i) => { const p = P([lon + t * 0.05, lat]); cloud(p[0], p[1], cs * sz, ca, i); });
+
+  // tags
+  const tagOut = 1 - ease(prog(t, 12.4, 13.0));
+  FILL.forEach(([id, col, label, ll, opt, val], i) => {
+    const k = prog(t, 3.9 + i * 0.42, 4.35 + i * 0.42) * tagOut;
+    const vk = val ? prog(t, 8.4 + i * 0.25, 8.8 + i * 0.25) : 0;
+    tag(P(ll), label, k, { ...opt, value: val, vk });
+  });
+  boxCallout("≈ 48% OF WORLD OIL", W / 2, (W > H ? 150 : 330) * UI, prog(t, 8.0, 8.5) * (1 - prog(t, 12.0, 12.4)));
+
+  // Hormuz focus
+  const hz = P([56.35, 26.45]);
+  ring(hz, 110 * UI, t, fade(t, 14.3, 14.8, 17.3, 17.8));
+  boxCallout('STRAIT OF HORMUZ', W / 2, (W > H ? 150 : 330) * UI, prog(t, 14.6, 15.1) * (1 - prog(t, 17.0, 17.4)), { bg: '#0a0a0a', size: 58 });
+  if (t > 15.2 && t < 17.6) {
+    const a1 = fade(t, 15.2, 15.3, 17.2, 17.6);
+    ctx.save(); ctx.globalAlpha = a1;
+    arrow(P([55.1, 26.35]), P([57.1, 25.95]), prog(t, 15.3, 16.6), -0.5, 8);
+    ctx.restore();
+  }
+
+  // final: flows to Asia
+  const dests = [['CHINA', [118, 31]], ['INDIA', [73, 20]], ['JAPAN', [137.5, 35.8]], ['S. KOREA', [128.5, 36.3]]];
+  const o = P([57.3, 25.4]);
+  dests.forEach(([name, ll], i) => {
+    const k = prog(t, 18.6 + i * 0.25, 19.9 + i * 0.25);
+    const p = P(ll);
+    arrow(o, p, k, name === 'INDIA' ? 0.25 : -0.22, 6);
+    tag(p, name, prog(t, 19.7 + i * 0.25, 20.1 + i * 0.25), { size: 30, dir: name === 'INDIA' ? 'up' : 'down', off: name === 'S. KOREA' ? [-60, -10] : [0, 0] });
+  });
+  ring(o, 36 * UI, t, fade(t, 18.4, 18.8, 30, 31));
+
+  // vignette
+  const vg = ctx.createRadialGradient(W / 2, H / 2, Math.min(W, H) * 0.35, W / 2, H / 2, Math.hypot(W, H) * 0.58);
+  vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(0,0,0,0.6)');
+  ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
+
+  subtitles(t, CUES);
+  ctx.save(); ctx.font = `${17 * UI}px M8`; ctx.fillStyle = 'rgba(255,255,255,0.55)'; ctx.textAlign = 'right';
+  ctx.fillText('Imagery: NASA Blue Marble · Data: Energy Institute, U.S. EIA', W - 24 * UI, H - 22 * UI); ctx.restore();
+}
+window.ready = init();
+window.renderFrame = t => render(t);
+window.grab = () => cv.toDataURL('image/jpeg', 0.93);
+</script></body></html>
