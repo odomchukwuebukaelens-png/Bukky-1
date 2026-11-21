@@ -231,11 +231,55 @@ def weather(img, data):
     img.alpha_composite(layer.filter(ImageFilter.GaussianBlur(0.6 * s)))
 
 
+def grade(img, data):
+    g = data.get("grade")
+    if not g:
+        return img
+    from PIL import ImageEnhance
+    rgb = img.convert("RGB")
+    rgb = ImageEnhance.Color(rgb).enhance(g.get("saturation", 1.0))
+    rgb = ImageEnhance.Contrast(rgb).enhance(g.get("contrast", 1.0))
+    rgb = ImageEnhance.Brightness(rgb).enhance(g.get("brightness", 1.0))
+    return rgb.convert("RGBA")
+
+
+FW_COLOURS = [(255, 90, 80), (255, 210, 90), (120, 200, 255), (140, 255, 150), (255, 130, 230)]
+
+
+def fireworks(img, data):
+    fws = data.get("fireworks") or []
+    if not fws:
+        return
+    W, H = img.size
+    s = H / 720.0
+    layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    for fw in fws:
+        age = fw["age"]
+        if age > 1.3:
+            continue
+        r = (20 + 70 * min(1.0, age / 0.5)) * s * fw["scale"]
+        a = int(255 * max(0.0, 1.0 - max(0.0, age - 0.4) / 0.9))
+        cx, cy = fw["x"] * W, fw["y"] * H - 40 * s * fw["scale"]
+        col = FW_COLOURS[fw["hue"] % len(FW_COLOURS)]
+        for k in range(28):
+            ang = k * 2 * math.pi / 28
+            x1, y1 = cx + math.cos(ang) * r, cy + math.sin(ang) * r + age * 18 * s
+            x0, y0 = cx + math.cos(ang) * r * 0.75, cy + math.sin(ang) * r * 0.75 + age * 12 * s
+            d.line([x0, y0, x1, y1], fill=(*col, a), width=max(1, int(2 * s)))
+            d.ellipse([x1 - 1.6 * s, y1 - 1.6 * s, x1 + 1.6 * s, y1 + 1.6 * s], fill=(255, 250, 230, a))
+    glow = layer.filter(ImageFilter.GaussianBlur(4 * s))
+    img.alpha_composite(glow)
+    img.alpha_composite(layer)
+
+
 def compose_atlas(img, data):
     W, H = img.size
     s = H / 720.0
     X = lambda v: v * s  # noqa: E731
+    img = grade(img, data)
     weather(img, data)
+    fireworks(img, data)
     img.alpha_composite(atlas_gradients(W, H))
     L = Layers(img.size, s)
     amber, white, soft = (240, 178, 74), (255, 255, 255), (222, 226, 230)

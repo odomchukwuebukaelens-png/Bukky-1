@@ -716,6 +716,13 @@
    "body": "A gift from the people of France is dedicated in the harbour"
   },
   {
+   "year": 1888.2,
+   "min_time": 285,
+   "tag": "MAR 1888",
+   "title": "The Great Blizzard",
+   "body": "Hurricane-force winds and more than 20 inches of snow shut the city down for days"
+  },
+  {
    "year": 1892,
    "tag": "1892",
    "title": "Ellis Island",
@@ -788,6 +795,12 @@
    "body": "The Twin Towers are destroyed in a terrorist attack. 2,753 people are killed at the World Trade Center"
   },
   {
+   "year": 2002.2,
+   "tag": "MAR 2002",
+   "title": "Tribute in Light",
+   "body": "Two beams of light rise beside the site, in memory of those who were killed"
+  },
+  {
    "year": 2014.8,
    "tag": "NOV 2014",
    "title": "One World Trade Center",
@@ -798,6 +811,12 @@
    "tag": "2020",
    "title": "The supertalls",
    "body": "Slender towers line 57th Street. Central Park Tower reaches 472 m"
+  },
+  {
+   "year": 2023.4,
+   "tag": "JUN 2023",
+   "title": "An orange sky",
+   "body": "Smoke from Canadian wildfires gives New York some of the worst air on Earth for a day"
   }
  ],
  "fx": [
@@ -1566,20 +1585,20 @@
  "eevee_samples": 8,
  "view": "standard",
  "haze_color": [
-  0.74,
-  0.81,
-  0.9
+  0.96,
+  0.87,
+  0.72
  ],
- "haze_distance": 40000,
- "haze_amount": 0.4,
- "sun": 4.5,
- "sky": 0.75,
+ "haze_distance": 60000,
+ "haze_amount": 0.18,
+ "sun": 5.0,
+ "sky": 0.9,
  "filter_size": 0.9,
  "sharpen": 0.6,
  "crf": 18,
  "moods": [
   {
-   "from": 116,
+   "from": 121.5,
    "to": 131,
    "night": 1.0
   },
@@ -1595,11 +1614,6 @@
    "autumn": 1.0
   },
   {
-   "from": 297,
-   "to": 313,
-   "snow": 1.0
-  },
-  {
    "from": 371,
    "to": 393,
    "night": 1.0
@@ -1608,31 +1622,45 @@
    "from": 411,
    "to": 427,
    "rain": 1.0
+  },
+  {
+   "from": 285,
+   "to": 292.5,
+   "snow": 1.0,
+   "ramp": 1.5
+  },
+  {
+   "from": 456,
+   "to": 466,
+   "night": 1.0,
+   "ramp": 1.5
+  },
+  {
+   "from": 490.5,
+   "to": 497.5,
+   "smoke": 1.0,
+   "ramp": 2.0
   }
  ],
  "sample_segments": [
   [
-   3,
+   30,
    1.875
   ],
   [
-   123,
+   120,
    1.875
   ],
   [
-   194,
+   270,
    1.875
   ],
   [
-   268,
+   287,
    1.875
   ],
   [
-   305,
-   1.875
-  ],
-  [
-   345,
+   340,
    1.875
   ],
   [
@@ -1640,8 +1668,164 @@
    1.875
   ],
   [
-   442,
+   458,
+   1.875
+  ],
+  [
+   493,
    1.875
   ]
+ ],
+ "zenith": [
+  0.22,
+  0.42,
+  0.78
+ ],
+ "grade": {
+  "saturation": 1.28,
+  "contrast": 1.12,
+  "brightness": 1.02
+ },
+ "fleets": [
+  {
+   "ll": [
+    -74.031,
+    40.698
+   ],
+   "radius": 420,
+   "count": 80,
+   "from": 1776.58,
+   "to": 1776.7,
+   "heading": 30
+  }
+ ],
+ "beams": [
+  {
+   "ll": [
+    -74.0127,
+    40.7114
+   ],
+   "from": 456.5,
+   "to": 465.5
+  }
+ ],
+ "fireworks": [
+  {
+   "ll": [
+    -73.9969,
+    40.7061,
+    140
+   ],
+   "from": 268.3,
+   "to": 276,
+   "count": 7,
+   "spread": 300
+  },
+  {
+   "ll": [
+    -74.006,
+    40.762,
+    220
+   ],
+   "from": 506,
+   "to": 519,
+   "count": 9,
+   "spread": 700
+  }
+ ],
+ "music_tracks": [
+  "assets/music/packed.mp3",
+  "assets/music/outside_the_box.mp3"
+ ],
+ "sfx": [
+  {
+   "kind": "horn",
+   "at": 10,
+   "dur": 4
+  },
+  {
+   "kind": "bells",
+   "at": 143,
+   "dur": 5
+  },
+  {
+   "kind": "fire",
+   "at": 121,
+   "dur": 9
+  },
+  {
+   "kind": "cheer",
+   "at": 136,
+   "dur": 5
+  },
+  {
+   "kind": "fire",
+   "at": 192,
+   "dur": 9
+  },
+  {
+   "kind": "wind",
+   "at": 187,
+   "dur": 15,
+   "gain": 0.6
+  },
+  {
+   "kind": "fire",
+   "at": 216,
+   "dur": 6
+  },
+  {
+   "kind": "fireworks",
+   "at": 268.3,
+   "dur": 7.5
+  },
+  {
+   "kind": "cheer",
+   "at": 268,
+   "dur": 6
+  },
+  {
+   "kind": "cheer",
+   "at": 280,
+   "dur": 4,
+   "gain": 0.7
+  },
+  {
+   "kind": "horn",
+   "at": 281,
+   "dur": 3
+  },
+  {
+   "kind": "wind",
+   "at": 285,
+   "dur": 8
+  },
+  {
+   "kind": "cheer",
+   "at": 304,
+   "dur": 4,
+   "gain": 0.6
+  },
+  {
+   "kind": "rain",
+   "at": 411,
+   "dur": 16
+  },
+  {
+   "kind": "rumble",
+   "at": 441,
+   "dur": 7
+  },
+  {
+   "kind": "fireworks",
+   "at": 506,
+   "dur": 13
+  },
+  {
+   "kind": "cheer",
+   "at": 506,
+   "dur": 10,
+   "gain": 0.6
+  }
  ]
 }

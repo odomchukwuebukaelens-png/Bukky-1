@@ -73,7 +73,8 @@ class City:
             x0, y0, res, nx, ny = t[key + "_box"]
             self.grids[key] = {"x0": x0, "y0": y0, "res": res, "nx": int(nx), "ny": int(ny),
                                "land": t[key + "_land"], "elev": t[key + "_elev"], "fill": t[key + "_fill"],
-                               "mn": t[key + "_manhattan"]}
+                               "mn": t[key + "_manhattan"],
+                               "shore": t[key + "_shore"] if key + "_shore" in t.files else None}
         self.u_battery = self.data["u_battery"]
         self.frontier = self.data["frontier"]
         self.battery = Vector(self.data["battery"])
@@ -202,11 +203,11 @@ def water_material():
     mat = bpy.data.materials.new("NYCWater")
     nt = H.nodes(mat)
     bsdf = H.principled(nt)
-    bsdf.inputs["Base Color"].default_value = (0.035, 0.16, 0.24, 1)
-    bsdf.inputs["Roughness"].default_value = 0.06
+    bsdf.inputs["Base Color"].default_value = (0.006, 0.022, 0.065, 1)
+    bsdf.inputs["Roughness"].default_value = 0.10
     for name in ("Specular IOR Level", "Specular"):
         if name in bsdf.inputs:
-            bsdf.inputs[name].default_value = 0.6
+            bsdf.inputs[name].default_value = 0.06
             break
     geo = nt.nodes.new("ShaderNodeNewGeometry")
     sc = nt.nodes.new("ShaderNodeVectorMath")
@@ -221,6 +222,39 @@ def water_material():
     nt.links.new(tex.outputs["Fac"], bump.inputs["Height"])
     nt.links.new(bump.outputs[0], bsdf.inputs["Normal"])
     return H.add_haze(mat, amount=0.6)
+
+
+WATER_MAT = []
+
+
+def shore_water_material():
+    mat = bpy.data.materials.new("ShoreWater")
+    nt = H.nodes(mat)
+    bsdf = H.principled(nt)
+    sh = nt.nodes.new("ShaderNodeAttribute")
+    sh.attribute_name = "shorec"
+    col = H.mix_rgb(nt, H.smooth(nt, sh.outputs["Fac"], 0.0, 0.09), (0.05, 0.30, 0.38),
+                    H.mix_rgb(nt, H.smooth(nt, sh.outputs["Fac"], 0.0, 0.35), (0.010, 0.055, 0.13),
+                              (0.003, 0.012, 0.042)))
+    nt.links.new(col, bsdf.inputs["Base Color"])
+    bsdf.inputs["Roughness"].default_value = 0.22
+    for name in ("Specular IOR Level", "Specular"):
+        if name in bsdf.inputs:
+            bsdf.inputs[name].default_value = 0.12
+            break
+    geo = nt.nodes.new("ShaderNodeNewGeometry")
+    sc = nt.nodes.new("ShaderNodeVectorMath")
+    sc.operation = "MULTIPLY"
+    nt.links.new(geo.outputs["Position"], sc.inputs[0])
+    sc.inputs[1].default_value = (0.05, 0.1, 0.05)
+    tex = nt.nodes.new("ShaderNodeTexNoise")
+    tex.inputs["Detail"].default_value = 4
+    nt.links.new(sc.outputs[0], tex.inputs["Vector"])
+    bump = nt.nodes.new("ShaderNodeBump")
+    bump.inputs["Strength"].default_value = 0.05
+    nt.links.new(tex.outputs["Fac"], bump.inputs["Height"])
+    nt.links.new(bump.outputs[0], bsdf.inputs["Normal"])
+    return H.add_haze(mat, amount=0.5)
 
 
 def terrain_material():
@@ -283,12 +317,32 @@ def terrain_material():
     farmed = H.smooth(nt, H.math_node(nt, "SUBTRACT", now.outputs[0], farm_at), 0.0, 0.004)
     farmed = H.math_node(nt, "MULTIPLY", farmed, H.smooth(nt, pick.outputs[1], 0.08, 0.12))
     urban = H.smooth(nt, H.math_node(nt, "SUBTRACT", now.outputs[0], urban_at), 0.0, 0.004)
-    urban_col = H.mix_rgb(nt, tex_noise(0.05), (0.34, 0.33, 0.31), (0.29, 0.28, 0.27))
+    urban_col = H.mix_rgb(nt, tex_noise(0.05), (0.47, 0.40, 0.29), (0.41, 0.35, 0.26))
     land = H.mix_rgb(nt, urban, H.mix_rgb(nt, farmed, wild, farm_col), urban_col)
     beach = H.smooth(nt, inland, 0.55, 0.8)
     shore = H.mix_rgb(nt, beach, (0.33, 0.30, 0.22), land)
-    under = H.smooth(nt, inland, 0.35, 0.5)
-    final = H.mix_rgb(nt, under, (0.05, 0.07, 0.07), shore)
+    obinfo = nt.nodes.new("ShaderNodeObjectInfo")
+    obr = nt.nodes.new("ShaderNodeSeparateColor")
+    nt.links.new(obinfo.outputs["Color"], obr.inputs[0])
+    under = H.math_node(nt, "MULTIPLY", H.smooth(nt, inland, 0.35, 0.5), H.smooth(nt, obr.outputs[0], 0.3, 0.7))
+    sh = nt.nodes.new("ShaderNodeAttribute")
+    sh.attribute_name = "shore"
+    shallow = H.smooth(nt, sh.outputs["Fac"], 0.0, 1.0)
+    water_col = H.mix_rgb(nt, H.smooth(nt, sh.outputs["Fac"], 0.0, 0.20), (0.05, 0.30, 0.40),
+                          H.mix_rgb(nt, H.smooth(nt, sh.outputs["Fac"], 0.0, 0.60), (0.008, 0.05, 0.12),
+                                    (0.003, 0.012, 0.04)))
+    final = H.mix_rgb(nt, under, water_col, shore)
+    rough = nt.nodes.new("ShaderNodeMapRange")
+    nt.links.new(under, rough.inputs["Value"])
+    rough.inputs["To Min"].default_value = 0.30
+    rough.inputs["To Max"].default_value = 0.95
+    nt.links.new(rough.outputs[0], bsdf.inputs["Roughness"])
+    spec_name = "Specular IOR Level" if "Specular IOR Level" in bsdf.inputs else "Specular"
+    spec = nt.nodes.new("ShaderNodeMapRange")
+    nt.links.new(under, spec.inputs["Value"])
+    spec.inputs["To Min"].default_value = 0.06
+    spec.inputs["To Max"].default_value = 0.5
+    nt.links.new(spec.outputs[0], bsdf.inputs[spec_name])
     snowed = H.math_node(nt, "MULTIPLY", mood_value(nt, "snow"), H.smooth(nt, inland, 0.6, 0.9))
     final = H.mix_rgb(nt, H.math_node(nt, "MULTIPLY", snowed, 0.8), final, (0.62, 0.64, 0.68))
     nt.links.new(final, bsdf.inputs["Base Color"])
@@ -549,7 +603,7 @@ def terrain_objects(city, col, tmat):
                 groups.setdefault(yr, []).append((j, i))
         for yr, cells in groups.items():
             index = {}
-            verts, faces, era, inland = [], [], [], []
+            verts, faces, era, inland, shore = [], [], [], [], []
 
             def vid(j, i):
                 k = (j, i)
@@ -558,11 +612,13 @@ def terrain_objects(city, col, tmat):
                     x, y = float(xs[i]), float(ys[j])
                     e = float(elev[j, i])
                     land = e > -1
-                    verts.append((x, y, e if (land or yr == 0) else -3.0))
+                    verts.append((x, y, e if land else -2.0))
+                    sd = float(g["shore"][j, i]) if g.get("shore") is not None else 400.0
+                    shore.append(min(1.0, sd / 400.0))
                     mn = bool(g["mn"][j, i])
                     era.append((year_norm(city.farmed_year(x, y, mn)), year_norm(city.built_up_year(x, y, mn)),
                                 forest_at(x, y), 1.0))
-                    inland.append(1.0 if land else 0.0)
+                    inland.append(1.0 if (land or yr) else 0.0)
                 return index[k]
             for j, i in cells:
                 faces.append((vid(j, i), vid(j, i + 1), vid(j + 1, i + 1), vid(j + 1, i)))
@@ -573,11 +629,43 @@ def terrain_objects(city, col, tmat):
             a.data.foreach_set("color", [c for e4 in era for c in e4])
             b = me.attributes.new("inland", "FLOAT", "POINT")
             b.data.foreach_set("value", inland)
+            c = me.attributes.new("shore", "FLOAT", "POINT")
+            c.data.foreach_set("value", shore)
             me.materials.append(tmat)
             ob = bpy.data.objects.new(me.name, me)
             col.objects.link(ob)
+            ob.color = (1, 1, 1, 1)
             if yr:
                 out.append({"ob": ob, "year": yr, "grow": 0.0, "fill": True})
+        # calm water surface with a shoreline glow, sitting just above sea level
+        wverts, wfaces, wshore, windex = [], [], [], {}
+
+        def wid(j, i):
+            k = (j, i)
+            if k not in windex:
+                windex[k] = len(wverts)
+                wverts.append((float(xs[i]), float(ys[j]), 0.05))
+                sd = float(g["shore"][j, i]) if g.get("shore") is not None else 400.0
+                if key == "tip" and g["fill"][j, i] > 0:
+                    sd = 90.0
+                wshore.append(min(1.0, sd / 400.0))
+            return windex[k]
+        for j in range(ny - 1):
+            for i in range(nx - 1):
+                corners = ((j, i), (j, i + 1), (j + 1, i + 1), (j + 1, i))
+                if key == "wide":
+                    cx, cy = xs[i] + res / 2, ys[j] - res / 2
+                    if tip_box[0] + res < cx < tip_box[2] - res and tip_box[1] + res < cy < tip_box[3] - res:
+                        continue
+                wet = any(not g["land"][a, b] or (key == "tip" and g["fill"][a, b] > 0) for a, b in corners)
+                if wet:
+                    wfaces.append(tuple(wid(a, b) for a, b in corners))
+        wme = bpy.data.meshes.new("water_" + key)
+        wme.from_pydata(wverts, [], wfaces)
+        wa = wme.color_attributes.new("shorec", "FLOAT_COLOR", "POINT")
+        wa.data.foreach_set("color", [c for v in wshore for c in (v, v, v, 1.0)])
+        wme.materials.append(WATER_MAT[0])
+        col.objects.link(bpy.data.objects.new(wme.name, wme))
     return out
 
 
@@ -607,13 +695,17 @@ def build(brief, p):
     tree_mat = painted_nyc("Trees", trees=True)
     facade, night = facade_material()
     tmat, now = terrain_material()
+    WATER_MAT.clear()
+    WATER_MAT.append(shore_water_material())
     animated = terrain_objects(city, col, tmat)
 
     sea = bpy.data.meshes.new("Sea")
     s = 60000
     sea.from_pydata([(-s, -s, 0), (s, -s, 0), (s, s, 0), (-s, s, 0)], [], [(0, 1, 2, 3)])
     sea.materials.append(water_material())
-    col.objects.link(bpy.data.objects.new("Sea", sea))
+    sea_ob = bpy.data.objects.new("Sea", sea)
+    sea_ob.location.z = -0.6
+    col.objects.link(sea_ob)
 
     rng = random.Random(brief["seed"] + 1)
 
@@ -655,10 +747,10 @@ def build(brief, p):
             continue
         n = Vector((-d.y, d.x)).normalized() * st["w"] / 2
         part.add([(*(a - n), st["z"]), (*(b - n), st["z"]), (*(b + n), st["z"]), (*(a + n), st["z"])],
-                 [(0, 1, 2, 3)], [(0.50, 0.48, 0.45, 0.0)])
+                 [(0, 1, 2, 3)], [(0.36, 0.34, 0.31, 0.0)])
     for pk in p["parks"]:
         part = bins.setdefault(("park", int(pk["year"])), Partsc())
-        part.add([(x, y, pk["z"]) for x, y in pk["pts"]], [tuple(range(len(pk["pts"])))], [(0.12, 0.22, 0.06, 0.0)])
+        part.add([(x, y, pk["z"]) for x, y in pk["pts"]], [tuple(range(len(pk["pts"])))], [(0.10, 0.17, 0.05, 0.0)])
 
     for key, part in sorted(bins.items()):
         mat = facade if key[0] in ("real", "older") else painted
@@ -676,7 +768,7 @@ def build(brief, p):
         g = t["g"]
         r = t["r"]
         vv = [(t["x"] + vx * r, t["y"] + vy * r, t["z"] + r * 0.9 + vz * r * 0.8) for vx, vy, vz in ico_v]
-        tbins.setdefault(k, H.Parts()).add(vv, ico_f, [(0.045 * g, 0.075 * g, 0.030 * g)] * len(ico_f))
+        tbins.setdefault(k, H.Parts()).add(vv, ico_f, [(0.055 * g, 0.20 * g, 0.035 * g)] * len(ico_f))
     for (gone, since), part in tbins.items():
         ob = part.to_object("trees_%d_%d" % (gone, since), tree_mat, col)
         animated.append({"ob": ob, "year": since, "grow": 0.0, "gone": gone * 4 + 2, "fade": 0.5})
@@ -687,7 +779,7 @@ def build(brief, p):
         g = t["g"]
         r = t["r"]
         vv = [(t["x"] + vx * r, t["y"] + vy * r, t["z"] + r * 0.9 + vz * r * 0.8) for vx, vy, vz in ico_v]
-        pbins.setdefault(k, H.Parts()).add(vv, ico_f, [(0.05 * g, 0.10 * g, 0.035 * g)] * len(ico_f))
+        pbins.setdefault(k, H.Parts()).add(vv, ico_f, [(0.07 * g, 0.26 * g, 0.04 * g)] * len(ico_f))
     for k, part in pbins.items():
         animated.append({"ob": part.to_object("parktrees_%d" % k, tree_mat, col), "year": k * 2, "grow": 3.0})
 
@@ -887,6 +979,49 @@ def build(brief, p):
                               "from": y0 + srng.uniform(0, 30), "to": y1 - srng.uniform(0, 20),
                               "phase": srng.uniform(0, 1200)})
 
+    # large fleets (e.g. the British fleet of 1776)
+    for fl in brief.get("fleets", []):
+        c = proj(*fl["ll"])
+        frng2 = random.Random(brief["seed"] + int(fl["from"]))
+        part = Partsc()
+        n = 0
+        tries = 0
+        while n < fl.get("count", 60) and tries < 5000:
+            tries += 1
+            q = c + Vector((frng2.uniform(-1, 1), frng2.uniform(-1, 1))) * fl["radius"]
+            if city.elev(q.x, q.y) > -2:
+                continue
+            n += 1
+            L, B = 32.0, 7.0
+            ang = math.radians(fl.get("heading", 20) + frng2.uniform(-12, 12))
+            ux_, uy_ = (math.cos(ang), math.sin(ang)), (-math.sin(ang), math.cos(ang))
+            part.box(q.x, q.y, 0, ux_, uy_, L / 2, B / 2, 5, (0.22, 0.13, 0.08, 0.0), top=(0.45, 0.33, 0.22, 0.0))
+            for mx in (-9.0, 0.0, 9.0):
+                px, py = q.x + ux_[0] * mx, q.y + ux_[1] * mx
+                part.box(px, py, 5, ux_, uy_, 0.4, 0.4, 26, (0.20, 0.14, 0.10, 0.0))
+                for sz_ in (10.0, 19.0):
+                    part.box(px, py, sz_, ux_, uy_, 0.4, 5.5, 7, (0.95, 0.92, 0.84, 0.0))
+        animated.append({"ob": part.to_object("fleet", painted, col), "year": fl["from"], "grow": 0.0,
+                         "gone": fl["to"], "fade": 0.01})
+
+    # beams of light (Tribute in Light), shown by film time
+    beams = []
+    beam_mat = bpy.data.materials.new("Beam")
+    bnt = H.nodes(beam_mat)
+    bnt.nodes.clear()
+    bem = bnt.nodes.new("ShaderNodeEmission")
+    bem.inputs["Color"].default_value = (0.75, 0.85, 1.0, 1)
+    bem.inputs["Strength"].default_value = 2.5
+    bout = bnt.nodes.new("ShaderNodeOutputMaterial")
+    bnt.links.new(bem.outputs[0], bout.inputs[0])
+    for bm in brief.get("beams", []):
+        part = H.Parts()
+        for off in (-35.0, 35.0):
+            q = proj(*bm["ll"]) + Vector((off, 0))
+            part.box(q.x, q.y, 0, (1, 0), (0, 1), 1.6, 1.6, 2600, (1, 1, 1))
+        ob = part.to_object("beams", beam_mat, col)
+        beams.append({"ob": ob, "from": bm["from"], "to": bm["to"]})
+
     # fires, smoke and dust
     fx = []
     emit = bpy.data.materials.new("Flame")
@@ -947,6 +1082,20 @@ def build(brief, p):
     bg.inputs[0].default_value = (*H.HAZE, 1)
     bg.inputs[1].default_value = brief.get("sky", 0.45)
     scene.world = world
+    wnt = world.node_tree
+    tc = wnt.nodes.new("ShaderNodeTexCoord")
+    sz = wnt.nodes.new("ShaderNodeSeparateXYZ")
+    wnt.links.new(tc.outputs["Generated"], sz.inputs[0])
+    mr = wnt.nodes.new("ShaderNodeMapRange")
+    wnt.links.new(sz.outputs["Z"], mr.inputs["Value"])
+    mr.inputs["From Min"].default_value = 0.0
+    mr.inputs["From Max"].default_value = 0.35
+    zen = wnt.nodes.new("ShaderNodeMix")
+    zen.data_type = "RGBA"
+    wnt.links.new(mr.outputs[0], zen.inputs[0])
+    zen.inputs[7].default_value = (*brief.get("zenith", [0.22, 0.42, 0.78]), 1)
+    wnt.links.new(zen.outputs[2], bg.inputs[0])
+    H.SKY_MIX = zen
     cam = bpy.data.objects.new("Camera", bpy.data.cameras.new("Camera"))
     cam.data.lens = brief.get("lens", 32)
     cam.data.clip_start = brief.get("clip_start", 20.0)
@@ -974,7 +1123,7 @@ def build(brief, p):
             labels.append(dict(lb, pos=Vector(marks[lb["at"]])))
 
     return {"scene": scene, "camera": cam, "animated": animated, "now": now, "labels": labels,
-            "fx": fx, "sun": sun, "sky": bg, "night": night, "ships": ships, "city": city,
+            "fx": fx, "sun": sun, "sky": bg, "night": night, "ships": ships, "city": city, "beams": beams,
             "standing_years": p["standing_years"],
             "stats": "%d buildings from city records, %d reconstructed, %d trees" % (
                 len(p["real"]), len(p["older"]), len(p["trees"]))}
@@ -1020,8 +1169,9 @@ def apply_frame(brief, rig, frame, total):
     for a in rig["animated"]:
         if a.get("fill"):
             k = H.ease((year - a["year"]) / 3.0)
-            a["ob"].hide_render = k <= 0.001
-            a["ob"].location.z = -6.0 * (1 - k)
+            a["ob"].hide_render = False
+            a["ob"].scale.z = max(k, 0.001)
+            a["ob"].color = (k, k, k, 1.0)
             continue
         k = H.ease((year - a["year"]) / a["grow"]) if a["grow"] > 0 else (1.0 if year >= a["year"] else 0.0)
         if a.get("gone") is not None:
@@ -1030,6 +1180,8 @@ def apply_frame(brief, rig, frame, total):
         a["ob"].scale.z = max(k, 0.001)
     rig["now"].outputs[0].default_value = year_norm(year)
     city = rig.get("city")
+    for bm in rig.get("beams", []):
+        bm["ob"].hide_render = not (bm["from"] <= t <= bm["to"])
     for sh in rig["ships"]:
         sh["ob"].hide_render = not (sh["from"] <= year <= sh["to"])
         travel = (sh["phase"] + sh["speed"] * t) % 1200 - 600
@@ -1053,7 +1205,7 @@ def apply_frame(brief, rig, frame, total):
         del on
     dusk = brief.get("dusk")
     d = H.ease((t - dusk["from"]) / (dusk["to"] - dusk["from"])) if dusk else 0.0
-    w = {"night": 0.0, "snow": 0.0, "rain": 0.0, "autumn": 0.0}
+    w = {"night": 0.0, "snow": 0.0, "rain": 0.0, "autumn": 0.0, "smoke": 0.0}
     for m in brief.get("moods", []):
         ramp = m.get("ramp", 2.5)
         k = H.ease((t - m["from"]) / ramp) * (1 - H.ease((t - m["to"] + ramp) / ramp))
@@ -1081,6 +1233,18 @@ def apply_frame(brief, rig, frame, total):
         sky.inputs[1].default_value = base_sky * (1 - 0.88 * n) * (1 - 0.3 * rn)
         hz = [c + (nc - c) * n for c, nc in zip(H.HAZE, (0.05, 0.07, 0.14))]
     hz = [c + (rc - c) * rn * 0.7 for c, rc in zip(hz, (0.52, 0.55, 0.58))]
+    for em in H.HAZE_NODES:
+        pass
+    smoke = w.get("smoke", 0.0)
+    hz = [c + (oc - c) * smoke for c, oc in zip(hz, (0.85, 0.45, 0.16))]
+    zen = getattr(H, "SKY_MIX", None)
+    if zen is not None:
+        zen.inputs[6].default_value = (*hz, 1)
+        zc = brief.get("zenith", [0.22, 0.42, 0.78])
+        dark = max(n, d * 0.6)
+        zc = [c * (1 - 0.9 * dark) for c in zc]
+        zc = [c + (oc - c) * smoke for c, oc in zip(zc, (0.70, 0.36, 0.12))]
+        zen.inputs[7].default_value = (*zc, 1)
     sky.inputs[0].default_value = (*hz, 1)
     for em in H.HAZE_NODES:
         em.inputs["Color"].default_value = (*hz, 1)
@@ -1111,6 +1275,20 @@ def apply_frame(brief, rig, frame, total):
         labels.append({"text": lb["text"], "x": pp.x, "y": 1.0 - pp.y, "alpha": round(alpha, 3),
                        "kind": lb.get("kind", "place")})
 
+    fireworks = []
+    for fw in brief.get("fireworks", []):
+        if fw["from"] <= t <= fw["to"]:
+            q = proj(fw["ll"][0], fw["ll"][1])
+            for k in range(fw.get("count", 6)):
+                ang = k * 2.399
+                anchor = Vector((q.x + math.cos(ang) * fw.get("spread", 250) * (0.3 + 0.7 * ((k * 0.37) % 1)),
+                                 q.y + math.sin(ang) * fw.get("spread", 250) * (0.3 + 0.7 * ((k * 0.61) % 1)),
+                                 fw["ll"][2] + 60 * ((k * 0.53) % 1)))
+                pp = world_to_camera_view(scene, cam, anchor)
+                if pp.z > 0:
+                    dist = (anchor - cam.location).length
+                    fireworks.append({"x": pp.x, "y": 1.0 - pp.y, "age": round((t - fw["from"] + k * 0.37) % 1.6, 3),
+                                      "scale": round(min(2.5, 1500.0 / max(dist, 200)), 3), "hue": k % 5})
     caption = None
     events = brief.get("events", [])
     for i, ev in enumerate(events):
@@ -1144,4 +1322,5 @@ def apply_frame(brief, rig, frame, total):
         "heading": heading, "caption": caption, "title_card": title, "labels": labels,
         "fineprint": brief.get("fineprint", ""),
         "weather": {"snow": round(sn, 3), "rain": round(rn, 3), "t": round(t, 3)},
+        "fireworks": fireworks, "grade": brief.get("grade"),
     }

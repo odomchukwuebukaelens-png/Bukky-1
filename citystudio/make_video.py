@@ -496,6 +496,12 @@ def configure_render(brief, scene, engine):
         r.engine = eevee_id()
         try:
             scene.eevee.taa_render_samples = int(brief.get("eevee_samples", 16))
+            if brief.get("ao", True) and realistic:
+                ev = scene.eevee
+                for attr, val in (("use_gtao", True), ("gtao_distance", 25.0), ("gtao_factor", 1.3),
+                                  ("use_shadows", True), ("use_soft_shadows", True)):
+                    if hasattr(ev, attr):
+                        setattr(ev, attr, val)
         except AttributeError:
             pass
         return "EEVEE (fast mode)"
@@ -574,6 +580,28 @@ def chunk_list(brief, total):
     return [(i, start, min(size, total - start)) for i, start in enumerate(range(0, total, size))]
 
 
+def build_music_bed(tracks, out, dur):
+    """Chain the given songs with crossfades and repeat them to fill the video."""
+    cmd = [ffmpeg_path(), "-y", "-loglevel", "error"]
+    for t in tracks:
+        cmd += ["-i", t]
+    if len(tracks) == 1:
+        chain = "[0:a]aformat=sample_rates=44100:channel_layouts=stereo[a0]"
+        last = "[a0]"
+    else:
+        parts = ["[%d:a]aformat=sample_rates=44100:channel_layouts=stereo[s%d]" % (i, i) for i in range(len(tracks))]
+        last = "[s0]"
+        for i in range(1, len(tracks)):
+            parts.append("%s[s%d]acrossfade=d=4:c1=tri:c2=tri[x%d]" % (last, i, i))
+            last = "[x%d]" % i
+        chain = ";".join(parts)
+    one = out + ".once.wav"
+    subprocess.run(cmd + ["-filter_complex", chain, "-map", last, one], check=True)
+    subprocess.run([ffmpeg_path(), "-y", "-loglevel", "error", "-stream_loop", "-1", "-i", one, "-t", "%.3f" % dur,
+                    "-af", "afade=t=in:d=1.5", out], check=True)
+    os.remove(one)
+
+
 def assemble(brief, out_dir, total):
     chunks_dir = os.path.join(out_dir, "chunks")
     names = []
@@ -588,6 +616,36 @@ def assemble(brief, out_dir, total):
     mp4 = os.path.join(out_dir, brief["name"] + ".mp4")
     cmd = [ffmpeg_path(), "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", listing]
     music = brief.get("music")
+    root = os.path.dirname(HERE)
+    tracks = [os.path.join(root, t) for t in brief.get("music_tracks", [])]
+    found = [t for t in tracks if os.path.exists(t)]
+    for t in tracks:
+        if t not in found:
+            print("[city-studio] Music file not found: %s" % t)
+    dur = total / brief["fps"]
+    if found:
+        music = os.path.join(out_dir, "music_bed.wav")
+        build_music_bed(found, music, dur)
+    elif tracks:
+        print("[city-studio] Using generated music instead.")
+    sfx_events = brief.get("_sfx_timeline", brief.get("sfx", []))
+    if music and sfx_events:
+        bed = music
+        if bed == "generate":
+            bed = os.path.join(out_dir, "music.wav")
+            subprocess.run([STUDIO_PYTHON, os.path.join(HERE, "music.py"), bed, "%.3f" % dur,
+                            str(brief["seed"]), str(brief.get("music_build_at", 4.0)),
+                            ",".join(str(v) for v in brief.get("music_accents", []))], check=True)
+        ev_path = os.path.join(out_dir, "sfx_events.json")
+        with open(ev_path, "w") as f:
+            json.dump(sfx_events, f)
+        fx = os.path.join(out_dir, "sfx.wav")
+        subprocess.run([STUDIO_PYTHON, os.path.join(HERE, "sfx.py"), fx, "%.3f" % dur, ev_path], check=True)
+        mixed = os.path.join(out_dir, "soundtrack.wav")
+        subprocess.run([ffmpeg_path(), "-y", "-loglevel", "error", "-i", bed, "-i", fx, "-filter_complex",
+                        "[0:a]volume=%.2f[m];[1:a]volume=%.2f[f];[m][f]amix=inputs=2:duration=first:normalize=0"
+                        % (brief.get("music_volume", 0.8), brief.get("sfx_volume", 1.0)), mixed], check=True)
+        music = mixed
     if music:
         dur = total / brief["fps"]
         if music == "generate":
@@ -645,6 +703,15 @@ def main():
         brief["music_build_at"] = 0.5
         brief["music_accents"] = [round(i * 2.5, 2) for i in range(1, len(segs))]
         total = len(mapping)
+        # move sound effects onto the sample's shorter timeline
+        timeline, offset = [], 0.0
+        for a, length in segs:
+            for ev in brief.get("sfx", []):
+                s0, s1 = max(ev["at"], a), min(ev["at"] + ev["dur"], a + length)
+                if s1 - s0 > 0.2:
+                    timeline.append(dict(ev, at=round(offset + s0 - a, 3), dur=round(s1 - s0, 3)))
+            offset += length
+        brief["_sfx_timeline"] = timeline
     out_dir = os.path.join(root, "output", brief["name"])
     if "assemble" in opts:
         assemble(brief, out_dir, total)

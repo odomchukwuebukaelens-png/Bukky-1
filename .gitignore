@@ -1,3 +1,4 @@
 output/
 tools/
 __pycache__/
+assets/music/*.mp3

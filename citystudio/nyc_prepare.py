@@ -291,6 +291,22 @@ def landfill(raw, x0, y0, res, nx, ny, land, manhattan_land):
     return year
 
 
+def shore_distance(land, res, cap=800.0):
+    """Distance (m) from each water cell to the nearest land cell (0 on land)."""
+    big = 1e9
+    d = np.where(land, 0.0, big)
+    diag = res * 1.41421
+    for _ in range(int(cap / res) + 2):
+        p = np.pad(d, 1, mode="edge")
+        cand = np.minimum.reduce([p[1:-1, 1:-1], p[:-2, 1:-1] + res, p[2:, 1:-1] + res, p[1:-1, :-2] + res,
+                                  p[1:-1, 2:] + res, p[:-2, :-2] + diag, p[:-2, 2:] + diag, p[2:, :-2] + diag,
+                                  p[2:, 2:] + diag])
+        if np.array_equal(cand, d):
+            break
+        d = cand
+    return np.minimum(d, cap)
+
+
 def main():
     raw, out = sys.argv[1], sys.argv[2]
     os.makedirs(out, exist_ok=True)
@@ -312,6 +328,7 @@ def main():
         terrain[key + "_elev"] = elev.astype(np.float32)
         terrain[key + "_fill"] = fill
         terrain[key + "_manhattan"] = mn.astype(np.uint8)
+        terrain[key + "_shore"] = shore_distance(land, res).astype(np.float32)
         terrain[key + "_box"] = np.array([x0, y0, res, nx, ny], dtype=np.float64)
     np.savez_compressed(os.path.join(out, "terrain.npz"), **terrain)
 
