@@ -101,8 +101,11 @@ def largest_ring(geom):
     return best, area
 
 
-def buildings(raw, rng):
-    feats = json.load(open(os.path.join(raw, "manhattan_buildings.geojson")))["features"]
+def buildings(raw, rng, filename="manhattan_buildings.geojson", manhattan=True):
+    path = os.path.join(raw, filename)
+    if not os.path.exists(path):
+        return []
+    feats = json.load(open(path))["features"]
     out = []
     for f in feats:
         p, g = f["properties"], f["geometry"]
@@ -118,7 +121,12 @@ def buildings(raw, rng):
             pts = simplify(ring, tol)
         cx = sum(x for x, _ in pts) / len(pts)
         cy = sum(y for _, y in pts) / len(pts)
-        u = along(cx, cy) - U_BATTERY
+        if manhattan:
+            u = along(cx, cy) - U_BATTERY
+        else:
+            # other boroughs: built up later, roughly by distance from lower Manhattan
+            d = math.hypot(cx - BATTERY[0], cy - BATTERY[1])
+            u = max(0.0, d * 1.6 - 1500)
         year = int(float(p.get("construction_year") or 0))
         estimated = 0
         h_ft = float(p.get("height_roof") or 0)
@@ -288,15 +296,17 @@ def main():
     os.makedirs(out, exist_ok=True)
     rng = random.Random(7)
     bld = buildings(raw, rng)
+    outer = buildings(raw, rng, "bk_buildings.geojson", False) + buildings(raw, rng, "qn_buildings.geojson", False)
     st = streets(raw)
     pk = parks(raw)
-    print("[city-studio] %d buildings, %d street lines, %d parks" % (len(bld), len(st), len(pk)))
+    print("[city-studio] %d Manhattan buildings, %d Brooklyn/Queens buildings, %d street lines, %d parks" % (
+        len(bld), len(outer), len(st), len(pk)))
 
     terrain = {}
     for key, (x0, y0, x1, y1, res) in {"wide": (-7000, -9500, 9000, 15500, 30.0),
                                         "tip": (-3600, -7000, -300, -3400, 8.0)}.items():
         nx, ny = int((x1 - x0) / res), int((y1 - y0) / res)
-        land, elev, mn = raster(raw, x0, y0, res, nx, ny, bld)
+        land, elev, mn = raster(raw, x0, y0, res, nx, ny, bld + outer)
         fill = landfill(raw, x0, y0, res, nx, ny, land, mn)
         terrain[key + "_land"] = land.astype(np.uint8)
         terrain[key + "_elev"] = elev.astype(np.float32)
@@ -306,7 +316,7 @@ def main():
     np.savez_compressed(os.path.join(out, "terrain.npz"), **terrain)
 
     data = {"origin": [LAT0, LON0], "rotation_deg": 29.0, "battery": BATTERY, "u_battery": U_BATTERY,
-            "frontier": FRONTIER, "buildings": bld, "streets": st, "parks": pk,
+            "frontier": FRONTIER, "buildings": bld, "outer_buildings": outer, "streets": st, "parks": pk,
             "sources": ["NYC Open Data: Building Footprints (5zhs-2jue)", "NYC Open Data: Borough Boundaries (gthc-hcne)",
                         "NYC Open Data: Centerline (inkn-q76z)", "NYC Open Data: Parks Properties (enfh-gkve)"]}
     with gzip.open(os.path.join(out, "nyc.json.gz"), "wt") as f:

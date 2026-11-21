@@ -51,13 +51,14 @@ YEAR_FIX = {"Chrysler Building": 1930, "Tower 1 World Trade Ctr": 2014, "Tower 4
 SPIRES = {"Tower 1 World Trade Ctr": 541.0, "Empire State Building": 443.0, "Chrysler Building": 319.0}
 
 ERA_COLOURS = [  # (from year, list of wall colours)
-    (0, [(0.40, 0.16, 0.11), (0.46, 0.22, 0.15), (0.55, 0.47, 0.36), (0.36, 0.20, 0.14)]),
-    (1850, [(0.36, 0.20, 0.14), (0.42, 0.18, 0.12), (0.30, 0.20, 0.16), (0.52, 0.40, 0.30)]),
-    (1895, [(0.62, 0.56, 0.46), (0.55, 0.42, 0.30), (0.45, 0.24, 0.16), (0.68, 0.62, 0.52)]),
-    (1945, [(0.58, 0.58, 0.56), (0.66, 0.65, 0.62), (0.30, 0.32, 0.34), (0.50, 0.48, 0.44)]),
-    (1980, [(0.30, 0.38, 0.45), (0.42, 0.50, 0.56), (0.20, 0.24, 0.28), (0.60, 0.62, 0.62)]),
+    (0, [(0.52, 0.18, 0.10), (0.58, 0.26, 0.15), (0.70, 0.60, 0.44), (0.46, 0.22, 0.13)]),
+    (1850, [(0.50, 0.22, 0.13), (0.58, 0.20, 0.12), (0.42, 0.24, 0.17), (0.66, 0.50, 0.34)]),
+    (1895, [(0.80, 0.72, 0.58), (0.70, 0.52, 0.34), (0.56, 0.26, 0.15), (0.86, 0.80, 0.68)]),
+    (1945, [(0.74, 0.74, 0.72), (0.82, 0.81, 0.78), (0.36, 0.40, 0.44), (0.62, 0.58, 0.52)]),
+    (1980, [(0.30, 0.44, 0.56), (0.46, 0.58, 0.68), (0.22, 0.28, 0.34), (0.70, 0.73, 0.75)]),
 ]
-ROOF = (0.20, 0.20, 0.21)
+ROOF = (0.30, 0.30, 0.31)
+ROOFS_FLAT = [(0.30, 0.30, 0.31), (0.38, 0.36, 0.33), (0.24, 0.24, 0.25), (0.44, 0.42, 0.40)]
 
 
 class City:
@@ -156,6 +157,31 @@ def facade_material():
     return mat, night
 
 
+def water_material():
+    mat = bpy.data.materials.new("NYCWater")
+    nt = H.nodes(mat)
+    bsdf = H.principled(nt)
+    bsdf.inputs["Base Color"].default_value = (0.035, 0.16, 0.24, 1)
+    bsdf.inputs["Roughness"].default_value = 0.06
+    for name in ("Specular IOR Level", "Specular"):
+        if name in bsdf.inputs:
+            bsdf.inputs[name].default_value = 0.6
+            break
+    geo = nt.nodes.new("ShaderNodeNewGeometry")
+    sc = nt.nodes.new("ShaderNodeVectorMath")
+    sc.operation = "MULTIPLY"
+    nt.links.new(geo.outputs["Position"], sc.inputs[0])
+    sc.inputs[1].default_value = (0.045, 0.09, 0.045)
+    tex = nt.nodes.new("ShaderNodeTexNoise")
+    tex.inputs["Detail"].default_value = 5
+    nt.links.new(sc.outputs[0], tex.inputs["Vector"])
+    bump = nt.nodes.new("ShaderNodeBump")
+    bump.inputs["Strength"].default_value = 0.12
+    nt.links.new(tex.outputs["Fac"], bump.inputs["Height"])
+    nt.links.new(bump.outputs[0], bsdf.inputs["Normal"])
+    return H.add_haze(mat, amount=0.6)
+
+
 def terrain_material():
     mat = bpy.data.materials.new("NYCTerrain")
     nt = H.nodes(mat)
@@ -216,7 +242,7 @@ def terrain_material():
     farmed = H.smooth(nt, H.math_node(nt, "SUBTRACT", now.outputs[0], farm_at), 0.0, 0.004)
     farmed = H.math_node(nt, "MULTIPLY", farmed, H.smooth(nt, pick.outputs[1], 0.08, 0.12))
     urban = H.smooth(nt, H.math_node(nt, "SUBTRACT", now.outputs[0], urban_at), 0.0, 0.004)
-    urban_col = H.mix_rgb(nt, tex_noise(0.05), (0.29, 0.28, 0.26), (0.24, 0.23, 0.22))
+    urban_col = H.mix_rgb(nt, tex_noise(0.05), (0.34, 0.33, 0.31), (0.29, 0.28, 0.27))
     land = H.mix_rgb(nt, urban, H.mix_rgb(nt, farmed, wild, farm_col), urban_col)
     beach = H.smooth(nt, inland, 0.55, 0.8)
     shore = H.mix_rgb(nt, beach, (0.33, 0.30, 0.22), land)
@@ -258,6 +284,20 @@ def year_norm(y):
 # ----------------------------------------------------------------------------
 # Geometry helpers
 # ----------------------------------------------------------------------------
+def extrude_tiers(parts, pts, z0, h, wall, alpha, roof=ROOF):
+    """Tall buildings step in as they rise, like New York's setback towers."""
+    if h < 70 or len(pts) < 4:
+        extrude(parts, pts, z0, h, wall, alpha, roof)
+        return
+    cx = sum(p[0] for p in pts) / len(pts)
+    cy = sum(p[1] for p in pts) / len(pts)
+    tiers = [(0.0, 0.62, 1.0), (0.62, 0.86, 0.80), (0.86, 1.0, 0.58)] if h < 250 else \
+        [(0.0, 0.30, 1.0), (0.30, 0.75, 0.86), (0.75, 1.0, 0.70)]
+    for a, b, k in tiers:
+        tp = [(cx + (x - cx) * k, cy + (y - cy) * k) for x, y in pts]
+        extrude(parts, tp, z0 + h * a, h * (b - a) + 0.3, wall, alpha, roof)
+
+
 def extrude(parts, pts, z0, h, wall, alpha, roof=ROOF):
     n = len(pts)
     verts = [(x, y, z0) for x, y in pts] + [(x, y, z0 + h) for x, y in pts]
@@ -409,6 +449,19 @@ def plan(brief):
                 xx += 16
             yy += 16
 
+    for b in city.data.get("outer_buildings", []):
+        bin_id, year, est, h, g, flat, name = b
+        pts = [(flat[i] / 10.0, flat[i + 1] / 10.0) for i in range(0, len(flat), 2)]
+        cx = sum(p[0] for p in pts) / len(pts)
+        cy = sum(p[1] for p in pts) / len(pts)
+        bu = city.built_up_year(cx, cy, False)
+        z0 = city.elev(cx, cy) - 0.5
+        real.append({"pts": pts, "year": max(year, int(bu)), "h": h / 10.0,
+                     "z": z0, "name": name, "spire": None, "c": (cx, cy)})
+        start = bu + rng.uniform(0, 15)
+        if year - start >= 10:
+            older.append({"kind": "row", "pts": pts, "h": rng.uniform(9, 16), "start": start, "end": year, "z": z0})
+
     real.sort(key=lambda r: r["year"])
     return {"city": city, "real": real, "older": older, "streets": streets, "parks": parks, "trees": trees,
             "park_trees": park_trees, "bridges": bridges,
@@ -495,6 +548,8 @@ def build(brief, p):
     city = p["city"]
     H.HAZE_DISTANCE = brief.get("haze_distance", 24000.0)
     H.HAZE_AMOUNT = brief.get("haze_amount", 0.7)
+    if brief.get("haze_color"):
+        H.HAZE = tuple(brief["haze_color"])
     painted = H.painted_material()
     facade, night = facade_material()
     tmat, now = terrain_material()
@@ -503,7 +558,7 @@ def build(brief, p):
     sea = bpy.data.meshes.new("Sea")
     s = 60000
     sea.from_pydata([(-s, -s, 0), (s, -s, 0), (s, s, 0), (-s, s, 0)], [], [(0, 1, 2, 3)])
-    sea.materials.append(H.water_material())
+    sea.materials.append(water_material())
     col.objects.link(bpy.data.objects.new("Sea", sea))
 
     rng = random.Random(brief["seed"] + 1)
@@ -520,7 +575,7 @@ def build(brief, p):
     for r in p["real"]:
         part = bins.setdefault(("real", int(r["year"])), Partsc())
         alpha = 1.0 if r["h"] > 25 else 0.55
-        extrude(part, r["pts"], r["z"], r["h"] + 0.5, palette(r["year"]), alpha)
+        extrude_tiers(part, r["pts"], r["z"], r["h"] + 0.5, palette(r["year"]), alpha, rng.choice(ROOFS_FLAT))
         if r.get("spire") and r["spire"] > r["h"]:
             c = Vector(r["c"])
             top = r["z"] + r["h"]
@@ -546,7 +601,7 @@ def build(brief, p):
             continue
         n = Vector((-d.y, d.x)).normalized() * st["w"] / 2
         part.add([(*(a - n), st["z"]), (*(b - n), st["z"]), (*(b + n), st["z"]), (*(a + n), st["z"])],
-                 [(0, 1, 2, 3)], [(0.33, 0.32, 0.30, 0.0)])
+                 [(0, 1, 2, 3)], [(0.50, 0.48, 0.45, 0.0)])
     for pk in p["parks"]:
         part = bins.setdefault(("park", int(pk["year"])), Partsc())
         part.add([(x, y, pk["z"]) for x, y in pk["pts"]], [tuple(range(len(pk["pts"])))], [(0.12, 0.22, 0.06, 0.0)])
@@ -661,11 +716,15 @@ def build(brief, p):
                 deck.add([(*(qa - nrm), za), (*(qb - nrm), zb), (*(qb + nrm), zb), (*(qa + nrm), za)],
                          [(0, 1, 2, 3)], [grey])
         towers = Partsc()
-        stone = (0.60, 0.56, 0.48, 0.0) if name == "BROOKLYN BRG" else (0.42, 0.44, 0.46, 0.0)
+        stone = (0.46, 0.42, 0.35, 0.0) if name == "BROOKLYN BRG" else (0.34, 0.37, 0.40, 0.0)
         tpos = [c + axis * (s0 + span * 0.18), c + axis * (s1 - span * 0.18)]
         width = 14.0
         for tp in tpos:
-            towers.box(tp.x, tp.y, -3, tuple(axis), tuple(side), 6, width, tower_h + 3, stone)
+            for sd in (-1, 1):   # two legs joined by an arch beam, instead of one solid slab
+                leg = tp + side * sd * (width - 3.5)
+                towers.box(leg.x, leg.y, -3, tuple(axis), tuple(side), 6, 3.5, tower_h + 3, stone)
+            towers.box(tp.x, tp.y, tower_h - 8, tuple(axis), tuple(side), 6, width, 8, stone)
+            towers.box(tp.x, tp.y, deck_h - 6, tuple(axis), tuple(side), 5, width, 3, stone)
         cab = Partsc()
         a_end, b_end = c + axis * (s0 - span * 0.05), c + axis * (s1 + span * 0.05)
         for sd in (-1, 1):
@@ -725,6 +784,55 @@ def build(brief, p):
     marks["twins"] = (TWIN_NORTH.x, TWIN_NORTH.y, 440)
     marks["onewtc"] = (WTC_SITE.x - 20, WTC_SITE.y + 30, 470)
 
+    # ships of each era moving on the rivers and the harbour, with wakes
+    ships = []
+    srng = random.Random(brief["seed"] + 21)
+    lanes = brief.get("ship_lanes", [
+        [-74.020, 40.700, 200], [-74.030, 40.690, 120], [-74.025, 40.712, 25], [-74.018, 40.735, 20],
+        [-74.010, 40.760, 25], [-73.995, 40.703, 60], [-73.982, 40.712, 40], [-73.970, 40.735, 30],
+        [-73.962, 40.752, 25], [-74.045, 40.676, 90], [-74.005, 40.690, 150], [-74.012, 40.785, 22]])
+    eras = [("sail", 1609, 1875), ("steam", 1840, 1955), ("modern", 1950, 2100)]
+    for lon, lat, heading in lanes:
+        base = proj(lon, lat)
+        for kind, y0, y1 in eras:
+            for _ in range(2 if kind != "modern" else 1):
+                start = base + Vector((srng.uniform(-250, 250), srng.uniform(-250, 250)))
+                if city.elev(start.x, start.y) > -2:
+                    continue
+                part = Partsc()
+                L = {"sail": 34.0, "steam": 60.0, "modern": 110.0}[kind]
+                B = L * 0.2
+                hull_col = {"sail": (0.16, 0.10, 0.07, 0.0), "steam": (0.10, 0.10, 0.11, 0.0),
+                            "modern": (0.80, 0.80, 0.78, 0.0)}[kind]
+                hv = [(-L / 2, -B / 2, 0.0), (L / 2 - L * 0.2, -B / 2, 0.0), (L / 2, 0.0, 0.0), (L / 2 - L * 0.2, B / 2, 0.0),
+                      (-L / 2, B / 2, 0.0), (-L / 2, -B / 2, 5.0), (L / 2 - L * 0.2, -B / 2, 5.0), (L / 2, 0.0, 5.5),
+                      (L / 2 - L * 0.2, B / 2, 5.0), (-L / 2, B / 2, 5.0)]
+                part.add(hv, [(0, 1, 6, 5), (1, 2, 7, 6), (2, 3, 8, 7), (3, 4, 9, 8), (4, 0, 5, 9), (5, 6, 7, 8, 9)],
+                         [hull_col] * 5 + [(0.45, 0.38, 0.30, 0.0)])
+                if kind == "sail":
+                    for mx in (-L * 0.25, 0.0, L * 0.25):
+                        part.box(mx, 0, 5, (1, 0), (0, 1), 0.4, 0.4, 26, (0.20, 0.14, 0.10, 0.0))
+                        for sz in (10.0, 19.0):
+                            part.box(mx, 0, sz, (1, 0), (0, 1), 0.4, B * 0.75, 7, (0.92, 0.89, 0.82, 0.0))
+                elif kind == "steam":
+                    part.box(-L * 0.05, 0, 5, (1, 0), (0, 1), L * 0.22, B * 0.4, 6, (0.90, 0.88, 0.84, 0.0))
+                    part.box(0, 0, 11, (1, 0), (0, 1), 2.2, 2.2, 10, (0.75, 0.18, 0.12, 0.0))
+                else:
+                    part.box(-L * 0.3, 0, 5, (1, 0), (0, 1), L * 0.12, B * 0.45, 12, (0.95, 0.95, 0.94, 0.0))
+                    for k in range(4):
+                        part.box(-L * 0.05 + k * L * 0.1, 0, 5, (1, 0), (0, 1), L * 0.045, B * 0.42, 6,
+                                 [(0.70, 0.22, 0.14, 0.0), (0.20, 0.35, 0.55, 0.0), (0.82, 0.62, 0.20, 0.0)][k % 3])
+                wl = L * 2.2
+                part.add([(-L / 2, -B / 2, 0.25), (-L / 2, B / 2, 0.25), (-L / 2 - wl, B * 1.6, 0.25), (-L / 2 - wl, -B * 1.6, 0.25)],
+                         [(0, 1, 2, 3)], [(0.85, 0.88, 0.90, 0.0)])
+                ob = part.to_object("ship_" + kind, painted, col)
+                hd = math.radians(heading + srng.choice((0, 180)) + srng.uniform(-8, 8))
+                d = Vector((math.sin(hd), math.cos(hd)))
+                ob.rotation_euler.z = math.atan2(d.y, d.x)
+                ships.append({"ob": ob, "start": start, "dir": d, "speed": srng.uniform(6, 12),
+                              "from": y0 + srng.uniform(0, 30), "to": y1 - srng.uniform(0, 20),
+                              "phase": srng.uniform(0, 1200)})
+
     # fires, smoke and dust
     fx = []
     emit = bpy.data.materials.new("Flame")
@@ -739,7 +847,7 @@ def build(brief, p):
     for e in brief.get("fx", []):
         centre = proj(*e["ll"])
         z0 = city.elev(centre.x, centre.y)
-        smoke_col = (0.20, 0.19, 0.18) if e["kind"] == "fire" else (0.50, 0.47, 0.43)
+        smoke_col = (0.10, 0.09, 0.085) if e["kind"] == "fire" else (0.50, 0.47, 0.43)
         blobs = H.Parts()
         fx_v, fx_f = smooth_sphere()
         for _ in range(e.get("blobs", 40)):
@@ -810,7 +918,7 @@ def build(brief, p):
             labels.append(dict(lb, pos=Vector(marks[lb["at"]])))
 
     return {"scene": scene, "camera": cam, "animated": animated, "now": now, "labels": labels,
-            "fx": fx, "sun": sun, "sky": bg, "night": night,
+            "fx": fx, "sun": sun, "sky": bg, "night": night, "ships": ships, "city": city,
             "standing_years": p["standing_years"],
             "stats": "%d buildings from city records, %d reconstructed, %d trees" % (
                 len(p["real"]), len(p["older"]), len(p["trees"]))}
@@ -865,6 +973,14 @@ def apply_frame(brief, rig, frame, total):
         a["ob"].hide_render = k <= 0.001
         a["ob"].scale.z = max(k, 0.001)
     rig["now"].outputs[0].default_value = year_norm(year)
+    city = rig.get("city")
+    for sh in rig["ships"]:
+        sh["ob"].hide_render = not (sh["from"] <= year <= sh["to"])
+        travel = (sh["phase"] + sh["speed"] * t) % 1200 - 600
+        q = sh["start"] + sh["dir"] * travel
+        sh["ob"].location = (q.x, q.y, 0.0)
+        if city is not None and city.elev(q.x, q.y) > -1.5:
+            sh["ob"].hide_render = True
     for f in rig["fx"]:
         e = f["e"]
         prog = (year - e["from"]) / max(1e-6, e["to"] - e["from"])

@@ -478,11 +478,14 @@ def configure_render(brief, scene, engine):
     try:
         # AgX gives soft, film-like highlights for the realistic style;
         # Standard keeps the toy style bright and clean
-        scene.view_settings.view_transform = "AgX" if realistic else "Standard"
+        scene.view_settings.view_transform = ("Standard" if brief.get("view") == "standard" or not realistic
+                                              else "AgX")
     except TypeError:
         scene.view_settings.view_transform = "Filmic" if realistic else "Standard"
     if realistic:
-        for look in ("AgX - Punchy", "Punchy", "AgX - Medium High Contrast", "None"):
+        looks = ("Medium High Contrast", "Standard - Medium High Contrast", "None") \
+            if brief.get("view") == "standard" else ("AgX - Punchy", "Punchy", "AgX - Medium High Contrast", "None")
+        for look in looks:
             try:
                 scene.view_settings.look = look
                 break
