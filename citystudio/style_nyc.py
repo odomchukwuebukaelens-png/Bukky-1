@@ -17,6 +17,7 @@ import bpy
 import numpy as np
 from bpy_extras.object_utils import world_to_camera_view
 from mathutils import Vector
+from mathutils import noise as mnoise
 
 import style_historic as H
 
@@ -243,6 +244,13 @@ def smooth_sphere():
     return out
 
 
+def forest_at(x, y):
+    """Natural-looking forest / meadow patches (0..1)."""
+    v = mnoise.noise(Vector((x / 700.0 + 3.1, y / 700.0 - 1.7, 0.4))) * 0.7 + \
+        mnoise.noise(Vector((x / 230.0 - 5.2, y / 230.0 + 2.9, 1.3))) * 0.3
+    return max(0.0, min(1.0, 0.5 + v * 1.4))
+
+
 def year_norm(y):
     return (y - 1500.0) / 600.0
 
@@ -370,7 +378,7 @@ def plan(brief):
             g, j, i = city.grid_at(px, py)
             inside = "tree_box" in brief or (Vector((px, py)) - focus).length < radius
             if g is not None and g["land"][j, i] and inside:
-                f = 0.5 + 0.5 * math.sin(px / 410.0 + 1.3) * math.cos(py / 530.0 - 0.4)
+                f = forest_at(px, py)
                 mn = bool(g["mn"][j, i])
                 if (f > 0.42 or rng.random() < 0.12) and (mn or rng.random() < sparse):
                     trees.append({"x": px, "y": py, "z": float(g["elev"][j, i]), "r": rng.uniform(4.5, 8),
@@ -450,7 +458,7 @@ def terrain_objects(city, col, tmat):
                     verts.append((x, y, e if (land or yr == 0) else -3.0))
                     mn = bool(g["mn"][j, i])
                     era.append((year_norm(city.farmed_year(x, y, mn)), year_norm(city.built_up_year(x, y, mn)),
-                                0.5 + 0.5 * math.sin(x / 410.0 + 1.3) * math.cos(y / 530.0 - 0.4), 1.0))
+                                forest_at(x, y), 1.0))
                     inland.append(1.0 if land else 0.0)
                 return index[k]
             for j, i in cells:
