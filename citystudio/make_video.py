@@ -696,12 +696,16 @@ def main():
     if "sample" in opts:
         # a short video cut from several moments of the full timeline
         segs = brief.get("sample_segments", [[3, 2.5], [62, 2.5], [123, 2.5], [268, 2.5], [345, 2.5], [442, 2.5]])
+        want = float(opts.get("sample-seconds", 0) or 0)
+        if want > 0:
+            k = want / sum(length for _, length in segs)
+            segs = [[a, length * k] for a, length in segs]
         mapping = [int(round(a * brief["fps"])) + k for a, length in segs
                    for k in range(int(round(length * brief["fps"])))]
         mapping = [min(m, total - 1) for m in mapping]
         brief["name"] = brief["name"] + "_sample"
         brief["music_build_at"] = 0.5
-        brief["music_accents"] = [round(i * 2.5, 2) for i in range(1, len(segs))]
+        brief["music_accents"] = [round(sum(x[1] for x in segs[:i]), 2) for i in range(1, len(segs))]
         total = len(mapping)
         # move sound effects onto the sample's shorter timeline
         timeline, offset = [], 0.0
