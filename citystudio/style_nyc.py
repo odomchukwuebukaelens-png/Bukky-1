@@ -777,7 +777,8 @@ def build(brief, p):
     scene.world = world
     cam = bpy.data.objects.new("Camera", bpy.data.cameras.new("Camera"))
     cam.data.lens = brief.get("lens", 32)
-    cam.data.clip_end = 60000
+    cam.data.clip_start = brief.get("clip_start", 20.0)
+    cam.data.clip_end = brief.get("clip_end", 40000.0)
     col.objects.link(cam)
     scene.camera = cam
 

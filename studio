@@ -7,7 +7,7 @@
 #   ./studio start briefs/X.json       - same as run, but in the background (safe to close the page)
 #   ./studio progress                  - show how far a background render has got
 #   ./studio stop                      - stop a background render
-#   ./studio share                     - let you download finished videos through RunPod's port 8888
+#   ./studio share                     - serve the output folder (on RunPod, JupyterLab on port 8888 is easier)
 # Optional: WORKERS=4 ./studio run ...   ENGINE=cycles ./studio run ...
 set -euo pipefail
 cd "$(dirname "$0")"
@@ -106,7 +106,7 @@ case "${1:-}" in
     echo "[city-studio] Render stopped. Run ./studio start again later to carry on."
     ;;
   share)
-    PORT="${2:-8888}"
+    PORT="${2:-8890}"
     echo "[city-studio] Serving the output folder on port $PORT."
     echo "[city-studio] In RunPod, open Connect > HTTP Service [Port $PORT], then tap your video to download."
     echo "[city-studio] Press Ctrl+C here when you are done."
