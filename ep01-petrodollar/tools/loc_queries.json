@@ -1,0 +1,14 @@
+{
+ "nixon": {"q": "President Nixon", "dates": "1969/1974"},
+ "gasline": {"q": "gasoline line", "dates": "1973/1979"},
+ "simon": {"q": "William Simon Treasury", "dates": "1973/1977"},
+ "faisal": {"q": "King Faisal", "dates": "1960/1975"},
+ "degaulle": {"q": "de Gaulle", "dates": "1958/1969"},
+ "vietnam": {"q": "Vietnam soldiers", "dates": "1965/1970"},
+ "bretton": {"q": "Bretton Woods conference", "dates": "1944/1944"},
+ "fed": {"q": "Federal Reserve", "dates": "1975/1985"},
+ "traders": {"q": "stock exchange floor traders", "dates": "1960/1990"},
+ "oilworkers": {"q": "oil workers", "dates": "1940/1980"},
+ "treasury": {"q": "Treasury building"},
+ "gold": {"q": "gold bars"}
+}

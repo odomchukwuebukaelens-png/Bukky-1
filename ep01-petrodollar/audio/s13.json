@@ -1,0 +1,1685 @@
+[
+  {
+    "language_code": "",
+    "language_probability": 1,
+    "text": "And they are changing. America is now the biggest oil producer in history, and buys far less oil from the Gulf than it used to. Saudi Arabia's biggest customer today is China. In twenty twenty three, it was Beijing, not Washington, that brokered a deal restoring ties between Saudi Arabia and its old rival Iran. In twenty twenty four, Saudi Arabia's central bank joined In, a project that lets central banks settle payments directly in their own digital currencies, without touching the dollar. Beijing has been pushing to pay for more of its energy in its own currency, the yuan. And countries from Russia to India have settled some oil trades in currencies other than the dollar. The dollar's share of global reserves has slipped from about seventy one percent in the year two thousand to under sixty percent today.",
+    "words": [
+      {
+        "text": "And",
+        "start": 0.17,
+        "end": 0.35,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.35,
+        "end": 0.36,
+        "type": "spacing"
+      },
+      {
+        "text": "they",
+        "start": 0.36,
+        "end": 0.542,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.542,
+        "end": 0.55,
+        "type": "spacing"
+      },
+      {
+        "text": "are",
+        "start": 0.55,
+        "end": 0.729,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.729,
+        "end": 0.76,
+        "type": "spacing"
+      },
+      {
+        "text": "changing.",
+        "start": 0.76,
+        "end": 1.285,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.285,
+        "end": 2.09,
+        "type": "spacing"
+      },
+      {
+        "text": "America",
+        "start": 2.09,
+        "end": 2.687,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.687,
+        "end": 2.76,
+        "type": "spacing"
+      },
+      {
+        "text": "is",
+        "start": 2.76,
+        "end": 2.909,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.909,
+        "end": 2.92,
+        "type": "spacing"
+      },
+      {
+        "text": "now",
+        "start": 2.92,
+        "end": 3.129,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.129,
+        "end": 3.16,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 3.16,
+        "end": 3.309,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.309,
+        "end": 3.32,
+        "type": "spacing"
+      },
+      {
+        "text": "biggest",
+        "start": 3.32,
+        "end": 3.668,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.668,
+        "end": 3.72,
+        "type": "spacing"
+      },
+      {
+        "text": "oil",
+        "start": 3.72,
+        "end": 4.019,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.019,
+        "end": 4.04,
+        "type": "spacing"
+      },
+      {
+        "text": "producer",
+        "start": 4.04,
+        "end": 4.489,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.489,
+        "end": 4.52,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 4.52,
+        "end": 4.669,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.669,
+        "end": 4.68,
+        "type": "spacing"
+      },
+      {
+        "text": "history,",
+        "start": 4.68,
+        "end": 5.206,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.206,
+        "end": 5.56,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 5.56,
+        "end": 5.768,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.768,
+        "end": 5.8,
+        "type": "spacing"
+      },
+      {
+        "text": "buys",
+        "start": 5.8,
+        "end": 6.148,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.148,
+        "end": 6.2,
+        "type": "spacing"
+      },
+      {
+        "text": "far",
+        "start": 6.2,
+        "end": 6.408,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.408,
+        "end": 6.44,
+        "type": "spacing"
+      },
+      {
+        "text": "less",
+        "start": 6.44,
+        "end": 6.739,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.739,
+        "end": 6.76,
+        "type": "spacing"
+      },
+      {
+        "text": "oil",
+        "start": 6.76,
+        "end": 7.038,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.038,
+        "end": 7.08,
+        "type": "spacing"
+      },
+      {
+        "text": "from",
+        "start": 7.08,
+        "end": 7.262,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.262,
+        "end": 7.27,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 7.27,
+        "end": 7.367,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.367,
+        "end": 7.37,
+        "type": "spacing"
+      },
+      {
+        "text": "Gulf",
+        "start": 7.37,
+        "end": 7.758,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.758,
+        "end": 7.8,
+        "type": "spacing"
+      },
+      {
+        "text": "than",
+        "start": 7.8,
+        "end": 7.945,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.945,
+        "end": 7.945,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 7.945,
+        "end": 8.088,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.088,
+        "end": 8.12,
+        "type": "spacing"
+      },
+      {
+        "text": "used",
+        "start": 8.12,
+        "end": 8.302,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.302,
+        "end": 8.31,
+        "type": "spacing"
+      },
+      {
+        "text": "to.",
+        "start": 8.31,
+        "end": 8.76,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.76,
+        "end": 9.32,
+        "type": "spacing"
+      },
+      {
+        "text": "Saudi",
+        "start": 9.32,
+        "end": 9.6,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.6,
+        "end": 9.6,
+        "type": "spacing"
+      },
+      {
+        "text": "Arabia's",
+        "start": 9.6,
+        "end": 10.218,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.218,
+        "end": 10.218,
+        "type": "spacing"
+      },
+      {
+        "text": "biggest",
+        "start": 10.218,
+        "end": 10.568,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.568,
+        "end": 10.6,
+        "type": "spacing"
+      },
+      {
+        "text": "customer",
+        "start": 10.6,
+        "end": 11.048,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.048,
+        "end": 11.08,
+        "type": "spacing"
+      },
+      {
+        "text": "today",
+        "start": 11.08,
+        "end": 11.486,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.486,
+        "end": 11.56,
+        "type": "spacing"
+      },
+      {
+        "text": "is",
+        "start": 11.56,
+        "end": 11.827,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.827,
+        "end": 11.88,
+        "type": "spacing"
+      },
+      {
+        "text": "China.",
+        "start": 11.88,
+        "end": 12.512,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.512,
+        "end": 12.92,
+        "type": "spacing"
+      },
+      {
+        "text": "In",
+        "start": 12.92,
+        "end": 13.128,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.128,
+        "end": 13.16,
+        "type": "spacing"
+      },
+      {
+        "text": "twenty",
+        "start": 13.16,
+        "end": 13.394,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.394,
+        "end": 13.42,
+        "type": "spacing"
+      },
+      {
+        "text": "twenty",
+        "start": 13.42,
+        "end": 13.699,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.699,
+        "end": 13.72,
+        "type": "spacing"
+      },
+      {
+        "text": "three,",
+        "start": 13.72,
+        "end": 14.398,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.398,
+        "end": 14.44,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 14.44,
+        "end": 14.597,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.597,
+        "end": 14.61,
+        "type": "spacing"
+      },
+      {
+        "text": "was",
+        "start": 14.61,
+        "end": 14.808,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.808,
+        "end": 14.84,
+        "type": "spacing"
+      },
+      {
+        "text": "Beijing,",
+        "start": 14.84,
+        "end": 15.699,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.699,
+        "end": 15.72,
+        "type": "spacing"
+      },
+      {
+        "text": "not",
+        "start": 15.72,
+        "end": 16.046,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.046,
+        "end": 16.12,
+        "type": "spacing"
+      },
+      {
+        "text": "Washington,",
+        "start": 16.12,
+        "end": 16.766,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.766,
+        "end": 17,
+        "type": "spacing"
+      },
+      {
+        "text": "that",
+        "start": 17,
+        "end": 17.219,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.219,
+        "end": 17.24,
+        "type": "spacing"
+      },
+      {
+        "text": "brokered",
+        "start": 17.24,
+        "end": 17.64,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.64,
+        "end": 17.64,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 17.64,
+        "end": 17.784,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.784,
+        "end": 17.8,
+        "type": "spacing"
+      },
+      {
+        "text": "deal",
+        "start": 17.8,
+        "end": 18.085,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.085,
+        "end": 18.13,
+        "type": "spacing"
+      },
+      {
+        "text": "restoring",
+        "start": 18.13,
+        "end": 18.707,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.707,
+        "end": 18.76,
+        "type": "spacing"
+      },
+      {
+        "text": "ties",
+        "start": 18.76,
+        "end": 19.177,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.177,
+        "end": 19.24,
+        "type": "spacing"
+      },
+      {
+        "text": "between",
+        "start": 19.24,
+        "end": 19.587,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.587,
+        "end": 19.64,
+        "type": "spacing"
+      },
+      {
+        "text": "Saudi",
+        "start": 19.64,
+        "end": 19.912,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.912,
+        "end": 19.912,
+        "type": "spacing"
+      },
+      {
+        "text": "Arabia",
+        "start": 19.912,
+        "end": 20.548,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.548,
+        "end": 20.82,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 20.82,
+        "end": 20.989,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.989,
+        "end": 21,
+        "type": "spacing"
+      },
+      {
+        "text": "its",
+        "start": 21,
+        "end": 21.208,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.208,
+        "end": 21.24,
+        "type": "spacing"
+      },
+      {
+        "text": "old",
+        "start": 21.24,
+        "end": 21.507,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.507,
+        "end": 21.56,
+        "type": "spacing"
+      },
+      {
+        "text": "rival",
+        "start": 21.56,
+        "end": 21.928,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.928,
+        "end": 21.96,
+        "type": "spacing"
+      },
+      {
+        "text": "Iran.",
+        "start": 21.96,
+        "end": 22.598,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.598,
+        "end": 22.92,
+        "type": "spacing"
+      },
+      {
+        "text": "In",
+        "start": 22.92,
+        "end": 23.128,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.128,
+        "end": 23.16,
+        "type": "spacing"
+      },
+      {
+        "text": "twenty",
+        "start": 23.16,
+        "end": 23.386,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.386,
+        "end": 23.41,
+        "type": "spacing"
+      },
+      {
+        "text": "twenty",
+        "start": 23.41,
+        "end": 23.654,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.654,
+        "end": 23.66,
+        "type": "spacing"
+      },
+      {
+        "text": "four,",
+        "start": 23.66,
+        "end": 24.238,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.238,
+        "end": 24.28,
+        "type": "spacing"
+      },
+      {
+        "text": "Saudi",
+        "start": 24.28,
+        "end": 24.611,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.611,
+        "end": 24.63,
+        "type": "spacing"
+      },
+      {
+        "text": "Arabia's",
+        "start": 24.63,
+        "end": 25.219,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.219,
+        "end": 25.24,
+        "type": "spacing"
+      },
+      {
+        "text": "central",
+        "start": 25.24,
+        "end": 25.528,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.528,
+        "end": 25.56,
+        "type": "spacing"
+      },
+      {
+        "text": "bank",
+        "start": 25.56,
+        "end": 25.918,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.918,
+        "end": 25.96,
+        "type": "spacing"
+      },
+      {
+        "text": "joined",
+        "start": 25.96,
+        "end": 26.307,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.307,
+        "end": 26.36,
+        "type": "spacing"
+      },
+      {
+        "text": "In,",
+        "start": 26.36,
+        "end": 27.013,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.013,
+        "end": 27.32,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 27.32,
+        "end": 27.528,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.528,
+        "end": 27.56,
+        "type": "spacing"
+      },
+      {
+        "text": "project",
+        "start": 27.56,
+        "end": 27.928,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.928,
+        "end": 27.96,
+        "type": "spacing"
+      },
+      {
+        "text": "that",
+        "start": 27.96,
+        "end": 28.134,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.134,
+        "end": 28.14,
+        "type": "spacing"
+      },
+      {
+        "text": "lets",
+        "start": 28.14,
+        "end": 28.419,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.419,
+        "end": 28.44,
+        "type": "spacing"
+      },
+      {
+        "text": "central",
+        "start": 28.44,
+        "end": 28.728,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.728,
+        "end": 28.76,
+        "type": "spacing"
+      },
+      {
+        "text": "banks",
+        "start": 28.76,
+        "end": 29.097,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.097,
+        "end": 29.16,
+        "type": "spacing"
+      },
+      {
+        "text": "settle",
+        "start": 29.16,
+        "end": 29.448,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.448,
+        "end": 29.48,
+        "type": "spacing"
+      },
+      {
+        "text": "payments",
+        "start": 29.48,
+        "end": 29.838,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.838,
+        "end": 29.88,
+        "type": "spacing"
+      },
+      {
+        "text": "directly",
+        "start": 29.88,
+        "end": 30.408,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.408,
+        "end": 30.44,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 30.44,
+        "end": 30.552,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.552,
+        "end": 30.552,
+        "type": "spacing"
+      },
+      {
+        "text": "their",
+        "start": 30.552,
+        "end": 30.723,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.723,
+        "end": 30.723,
+        "type": "spacing"
+      },
+      {
+        "text": "own",
+        "start": 30.723,
+        "end": 30.947,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.947,
+        "end": 31,
+        "type": "spacing"
+      },
+      {
+        "text": "digital",
+        "start": 31,
+        "end": 31.389,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.389,
+        "end": 31.4,
+        "type": "spacing"
+      },
+      {
+        "text": "currencies,",
+        "start": 31.4,
+        "end": 32.148,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.148,
+        "end": 32.52,
+        "type": "spacing"
+      },
+      {
+        "text": "without",
+        "start": 32.52,
+        "end": 32.888,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.888,
+        "end": 32.92,
+        "type": "spacing"
+      },
+      {
+        "text": "touching",
+        "start": 32.92,
+        "end": 33.251,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.251,
+        "end": 33.27,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 33.27,
+        "end": 33.396,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.396,
+        "end": 33.41,
+        "type": "spacing"
+      },
+      {
+        "text": "dollar.",
+        "start": 33.41,
+        "end": 33.871,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.871,
+        "end": 34.26,
+        "type": "spacing"
+      },
+      {
+        "text": "Beijing",
+        "start": 34.26,
+        "end": 34.757,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.757,
+        "end": 34.8,
+        "type": "spacing"
+      },
+      {
+        "text": "has",
+        "start": 34.8,
+        "end": 34.909,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.909,
+        "end": 34.92,
+        "type": "spacing"
+      },
+      {
+        "text": "been",
+        "start": 34.92,
+        "end": 35.138,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 35.138,
+        "end": 35.16,
+        "type": "spacing"
+      },
+      {
+        "text": "pushing",
+        "start": 35.16,
+        "end": 35.448,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 35.448,
+        "end": 35.48,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 35.48,
+        "end": 35.629,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 35.629,
+        "end": 35.64,
+        "type": "spacing"
+      },
+      {
+        "text": "pay",
+        "start": 35.64,
+        "end": 35.848,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 35.848,
+        "end": 35.88,
+        "type": "spacing"
+      },
+      {
+        "text": "for",
+        "start": 35.88,
+        "end": 36.029,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.029,
+        "end": 36.04,
+        "type": "spacing"
+      },
+      {
+        "text": "more",
+        "start": 36.04,
+        "end": 36.236,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.236,
+        "end": 36.25,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 36.25,
+        "end": 36.349,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.349,
+        "end": 36.36,
+        "type": "spacing"
+      },
+      {
+        "text": "its",
+        "start": 36.36,
+        "end": 36.524,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.524,
+        "end": 36.54,
+        "type": "spacing"
+      },
+      {
+        "text": "energy",
+        "start": 36.54,
+        "end": 36.968,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.968,
+        "end": 37,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 37,
+        "end": 37.156,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 37.156,
+        "end": 37.17,
+        "type": "spacing"
+      },
+      {
+        "text": "its",
+        "start": 37.17,
+        "end": 37.309,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 37.309,
+        "end": 37.32,
+        "type": "spacing"
+      },
+      {
+        "text": "own",
+        "start": 37.32,
+        "end": 37.587,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 37.587,
+        "end": 37.64,
+        "type": "spacing"
+      },
+      {
+        "text": "currency,",
+        "start": 37.64,
+        "end": 38.205,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 38.205,
+        "end": 38.6,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 38.6,
+        "end": 38.756,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 38.756,
+        "end": 38.77,
+        "type": "spacing"
+      },
+      {
+        "text": "yuan.",
+        "start": 38.77,
+        "end": 39.405,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 39.405,
+        "end": 39.85,
+        "type": "spacing"
+      },
+      {
+        "text": "And",
+        "start": 39.85,
+        "end": 40.088,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 40.088,
+        "end": 40.12,
+        "type": "spacing"
+      },
+      {
+        "text": "countries",
+        "start": 40.12,
+        "end": 40.526,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 40.526,
+        "end": 40.6,
+        "type": "spacing"
+      },
+      {
+        "text": "from",
+        "start": 40.6,
+        "end": 40.818,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 40.818,
+        "end": 40.84,
+        "type": "spacing"
+      },
+      {
+        "text": "Russia",
+        "start": 40.84,
+        "end": 41.128,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 41.128,
+        "end": 41.16,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 41.16,
+        "end": 41.368,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 41.368,
+        "end": 41.4,
+        "type": "spacing"
+      },
+      {
+        "text": "India",
+        "start": 41.4,
+        "end": 41.747,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 41.747,
+        "end": 41.8,
+        "type": "spacing"
+      },
+      {
+        "text": "have",
+        "start": 41.8,
+        "end": 42.047,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 42.047,
+        "end": 42.05,
+        "type": "spacing"
+      },
+      {
+        "text": "settled",
+        "start": 42.05,
+        "end": 42.349,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 42.349,
+        "end": 42.36,
+        "type": "spacing"
+      },
+      {
+        "text": "some",
+        "start": 42.36,
+        "end": 42.578,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 42.578,
+        "end": 42.6,
+        "type": "spacing"
+      },
+      {
+        "text": "oil",
+        "start": 42.6,
+        "end": 42.898,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 42.898,
+        "end": 42.92,
+        "type": "spacing"
+      },
+      {
+        "text": "trades",
+        "start": 42.92,
+        "end": 43.336,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 43.336,
+        "end": 43.4,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 43.4,
+        "end": 43.549,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 43.549,
+        "end": 43.56,
+        "type": "spacing"
+      },
+      {
+        "text": "currencies",
+        "start": 43.56,
+        "end": 44.067,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 44.067,
+        "end": 44.12,
+        "type": "spacing"
+      },
+      {
+        "text": "other",
+        "start": 44.12,
+        "end": 44.356,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 44.356,
+        "end": 44.37,
+        "type": "spacing"
+      },
+      {
+        "text": "than",
+        "start": 44.37,
+        "end": 44.578,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 44.578,
+        "end": 44.6,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 44.6,
+        "end": 44.763,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 44.763,
+        "end": 44.78,
+        "type": "spacing"
+      },
+      {
+        "text": "dollar.",
+        "start": 44.78,
+        "end": 45.317,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 45.317,
+        "end": 45.58,
+        "type": "spacing"
+      },
+      {
+        "text": "The",
+        "start": 45.58,
+        "end": 45.789,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 45.789,
+        "end": 45.8,
+        "type": "spacing"
+      },
+      {
+        "text": "dollar's",
+        "start": 45.8,
+        "end": 46.195,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 46.195,
+        "end": 46.2,
+        "type": "spacing"
+      },
+      {
+        "text": "share",
+        "start": 46.2,
+        "end": 46.418,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 46.418,
+        "end": 46.44,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 46.44,
+        "end": 46.589,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 46.589,
+        "end": 46.6,
+        "type": "spacing"
+      },
+      {
+        "text": "global",
+        "start": 46.6,
+        "end": 46.968,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 46.968,
+        "end": 47,
+        "type": "spacing"
+      },
+      {
+        "text": "reserves",
+        "start": 47,
+        "end": 47.576,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 47.576,
+        "end": 47.64,
+        "type": "spacing"
+      },
+      {
+        "text": "has",
+        "start": 47.64,
+        "end": 47.796,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 47.796,
+        "end": 47.81,
+        "type": "spacing"
+      },
+      {
+        "text": "slipped",
+        "start": 47.81,
+        "end": 48.168,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 48.168,
+        "end": 48.2,
+        "type": "spacing"
+      },
+      {
+        "text": "from",
+        "start": 48.2,
+        "end": 48.381,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 48.381,
+        "end": 48.39,
+        "type": "spacing"
+      },
+      {
+        "text": "about",
+        "start": 48.39,
+        "end": 48.717,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 48.717,
+        "end": 48.76,
+        "type": "spacing"
+      },
+      {
+        "text": "seventy",
+        "start": 48.76,
+        "end": 49.048,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 49.048,
+        "end": 49.08,
+        "type": "spacing"
+      },
+      {
+        "text": "one",
+        "start": 49.08,
+        "end": 49.288,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 49.288,
+        "end": 49.32,
+        "type": "spacing"
+      },
+      {
+        "text": "percent",
+        "start": 49.32,
+        "end": 49.667,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 49.667,
+        "end": 49.72,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 49.72,
+        "end": 49.861,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 49.861,
+        "end": 49.87,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 49.87,
+        "end": 49.949,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 49.949,
+        "end": 49.96,
+        "type": "spacing"
+      },
+      {
+        "text": "year",
+        "start": 49.96,
+        "end": 50.178,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 50.178,
+        "end": 50.2,
+        "type": "spacing"
+      },
+      {
+        "text": "two",
+        "start": 50.2,
+        "end": 50.408,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 50.408,
+        "end": 50.44,
+        "type": "spacing"
+      },
+      {
+        "text": "thousand",
+        "start": 50.44,
+        "end": 50.917,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 50.917,
+        "end": 51.24,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 51.24,
+        "end": 51.448,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 51.448,
+        "end": 51.48,
+        "type": "spacing"
+      },
+      {
+        "text": "under",
+        "start": 51.48,
+        "end": 51.827,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 51.827,
+        "end": 51.88,
+        "type": "spacing"
+      },
+      {
+        "text": "sixty",
+        "start": 51.88,
+        "end": 52.189,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 52.189,
+        "end": 52.2,
+        "type": "spacing"
+      },
+      {
+        "text": "percent",
+        "start": 52.2,
+        "end": 52.547,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 52.547,
+        "end": 52.6,
+        "type": "spacing"
+      },
+      {
+        "text": "today.",
+        "start": 52.6,
+        "end": 53.038,
+        "type": "word"
+      }
+    ],
+    "transcription_id": "c01f0d529a4e0c7811f3",
+    "audio_duration_secs": 53.368163
+  }
+]

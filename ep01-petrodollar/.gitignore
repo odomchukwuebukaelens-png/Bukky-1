@@ -1,0 +1,8 @@
+node_modules
+tiles
+build/
+previews/
+img_candidates*/
+img_loc/
+narration.wav
+*.mp4

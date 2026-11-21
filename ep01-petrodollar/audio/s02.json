@@ -1,0 +1,1097 @@
+[
+  {
+    "language_code": "",
+    "language_probability": 1,
+    "text": "To understand it, we have to go back to July nineteen forty four. The second World War is still raging, but delegates from forty four Allied nations gather at a hotel in the mountains of New Hampshire, in a small town called Bretton Woods. Their job is to design the money system for the world after the war, and America walks in holding almost every card. Its factories are untouched, Europe is in ruins, and the United States holds roughly two thirds of all the gold in the world's central banks.",
+    "words": [
+      {
+        "text": "To",
+        "start": 0.12,
+        "end": 0.329,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.329,
+        "end": 0.36,
+        "type": "spacing"
+      },
+      {
+        "text": "understand",
+        "start": 0.36,
+        "end": 0.819,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.819,
+        "end": 0.84,
+        "type": "spacing"
+      },
+      {
+        "text": "it,",
+        "start": 0.84,
+        "end": 1.175,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.175,
+        "end": 1.18,
+        "type": "spacing"
+      },
+      {
+        "text": "we",
+        "start": 1.18,
+        "end": 1.309,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.309,
+        "end": 1.32,
+        "type": "spacing"
+      },
+      {
+        "text": "have",
+        "start": 1.32,
+        "end": 1.494,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.494,
+        "end": 1.5,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 1.5,
+        "end": 1.585,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.585,
+        "end": 1.585,
+        "type": "spacing"
+      },
+      {
+        "text": "go",
+        "start": 1.585,
+        "end": 1.768,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.768,
+        "end": 1.8,
+        "type": "spacing"
+      },
+      {
+        "text": "back",
+        "start": 1.8,
+        "end": 2.026,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.026,
+        "end": 2.05,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 2.05,
+        "end": 2.248,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.248,
+        "end": 2.28,
+        "type": "spacing"
+      },
+      {
+        "text": "July",
+        "start": 2.28,
+        "end": 2.686,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.686,
+        "end": 2.76,
+        "type": "spacing"
+      },
+      {
+        "text": "nineteen",
+        "start": 2.76,
+        "end": 3.128,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.128,
+        "end": 3.16,
+        "type": "spacing"
+      },
+      {
+        "text": "forty",
+        "start": 3.16,
+        "end": 3.484,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.484,
+        "end": 3.5,
+        "type": "spacing"
+      },
+      {
+        "text": "four.",
+        "start": 3.5,
+        "end": 3.907,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.907,
+        "end": 4.34,
+        "type": "spacing"
+      },
+      {
+        "text": "The",
+        "start": 4.34,
+        "end": 4.523,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.523,
+        "end": 4.54,
+        "type": "spacing"
+      },
+      {
+        "text": "second",
+        "start": 4.54,
+        "end": 4.828,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.828,
+        "end": 4.84,
+        "type": "spacing"
+      },
+      {
+        "text": "World",
+        "start": 4.84,
+        "end": 5.127,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.127,
+        "end": 5.16,
+        "type": "spacing"
+      },
+      {
+        "text": "War",
+        "start": 5.16,
+        "end": 5.375,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.375,
+        "end": 5.41,
+        "type": "spacing"
+      },
+      {
+        "text": "is",
+        "start": 5.41,
+        "end": 5.607,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.607,
+        "end": 5.64,
+        "type": "spacing"
+      },
+      {
+        "text": "still",
+        "start": 5.64,
+        "end": 5.854,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.854,
+        "end": 5.875,
+        "type": "spacing"
+      },
+      {
+        "text": "raging,",
+        "start": 5.875,
+        "end": 6.345,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.345,
+        "end": 6.754,
+        "type": "spacing"
+      },
+      {
+        "text": "but",
+        "start": 6.754,
+        "end": 6.962,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.962,
+        "end": 6.994,
+        "type": "spacing"
+      },
+      {
+        "text": "delegates",
+        "start": 6.994,
+        "end": 7.42,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.42,
+        "end": 7.474,
+        "type": "spacing"
+      },
+      {
+        "text": "from",
+        "start": 7.474,
+        "end": 7.692,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.692,
+        "end": 7.713,
+        "type": "spacing"
+      },
+      {
+        "text": "forty",
+        "start": 7.713,
+        "end": 7.983,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.983,
+        "end": 7.983,
+        "type": "spacing"
+      },
+      {
+        "text": "four",
+        "start": 7.983,
+        "end": 8.23,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.23,
+        "end": 8.273,
+        "type": "spacing"
+      },
+      {
+        "text": "Allied",
+        "start": 8.273,
+        "end": 8.679,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.679,
+        "end": 8.753,
+        "type": "spacing"
+      },
+      {
+        "text": "nations",
+        "start": 8.753,
+        "end": 9.169,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.169,
+        "end": 9.232,
+        "type": "spacing"
+      },
+      {
+        "text": "gather",
+        "start": 9.232,
+        "end": 9.517,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.517,
+        "end": 9.52,
+        "type": "spacing"
+      },
+      {
+        "text": "at",
+        "start": 9.52,
+        "end": 9.612,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.612,
+        "end": 9.62,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 9.62,
+        "end": 9.76,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.76,
+        "end": 9.792,
+        "type": "spacing"
+      },
+      {
+        "text": "hotel",
+        "start": 9.792,
+        "end": 10.284,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.284,
+        "end": 10.36,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 10.36,
+        "end": 10.463,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.463,
+        "end": 10.463,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 10.463,
+        "end": 10.587,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.587,
+        "end": 10.6,
+        "type": "spacing"
+      },
+      {
+        "text": "mountains",
+        "start": 10.6,
+        "end": 10.929,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.929,
+        "end": 10.95,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 10.95,
+        "end": 11.074,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.074,
+        "end": 11.09,
+        "type": "spacing"
+      },
+      {
+        "text": "New",
+        "start": 11.09,
+        "end": 11.31,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.31,
+        "end": 11.31,
+        "type": "spacing"
+      },
+      {
+        "text": "Hampshire,",
+        "start": 11.31,
+        "end": 11.789,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.789,
+        "end": 12.09,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 12.09,
+        "end": 12.23,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.23,
+        "end": 12.23,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 12.23,
+        "end": 12.339,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.339,
+        "end": 12.35,
+        "type": "spacing"
+      },
+      {
+        "text": "small",
+        "start": 12.35,
+        "end": 12.718,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.718,
+        "end": 12.75,
+        "type": "spacing"
+      },
+      {
+        "text": "town",
+        "start": 12.75,
+        "end": 13.108,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.108,
+        "end": 13.15,
+        "type": "spacing"
+      },
+      {
+        "text": "called",
+        "start": 13.15,
+        "end": 13.369,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.369,
+        "end": 13.39,
+        "type": "spacing"
+      },
+      {
+        "text": "Bretton",
+        "start": 13.39,
+        "end": 13.758,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.758,
+        "end": 13.79,
+        "type": "spacing"
+      },
+      {
+        "text": "Woods.",
+        "start": 13.79,
+        "end": 14.447,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.447,
+        "end": 14.79,
+        "type": "spacing"
+      },
+      {
+        "text": "Their",
+        "start": 14.79,
+        "end": 15.059,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.059,
+        "end": 15.07,
+        "type": "spacing"
+      },
+      {
+        "text": "job",
+        "start": 15.07,
+        "end": 15.368,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.368,
+        "end": 15.39,
+        "type": "spacing"
+      },
+      {
+        "text": "is",
+        "start": 15.39,
+        "end": 15.553,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.553,
+        "end": 15.57,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 15.57,
+        "end": 15.699,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.699,
+        "end": 15.71,
+        "type": "spacing"
+      },
+      {
+        "text": "design",
+        "start": 15.71,
+        "end": 16.1,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.1,
+        "end": 16.14,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 16.14,
+        "end": 16.259,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.259,
+        "end": 16.27,
+        "type": "spacing"
+      },
+      {
+        "text": "money",
+        "start": 16.27,
+        "end": 16.558,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.558,
+        "end": 16.59,
+        "type": "spacing"
+      },
+      {
+        "text": "system",
+        "start": 16.59,
+        "end": 17.017,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.017,
+        "end": 17.07,
+        "type": "spacing"
+      },
+      {
+        "text": "for",
+        "start": 17.07,
+        "end": 17.196,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.196,
+        "end": 17.2,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 17.2,
+        "end": 17.298,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.298,
+        "end": 17.31,
+        "type": "spacing"
+      },
+      {
+        "text": "world",
+        "start": 17.31,
+        "end": 17.656,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.656,
+        "end": 17.71,
+        "type": "spacing"
+      },
+      {
+        "text": "after",
+        "start": 17.71,
+        "end": 17.952,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.952,
+        "end": 17.97,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 17.97,
+        "end": 18.093,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.093,
+        "end": 18.105,
+        "type": "spacing"
+      },
+      {
+        "text": "war,",
+        "start": 18.105,
+        "end": 18.445,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.445,
+        "end": 18.99,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 18.99,
+        "end": 19.137,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.137,
+        "end": 19.15,
+        "type": "spacing"
+      },
+      {
+        "text": "America",
+        "start": 19.15,
+        "end": 19.709,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.709,
+        "end": 19.783,
+        "type": "spacing"
+      },
+      {
+        "text": "walks",
+        "start": 19.783,
+        "end": 20.076,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.076,
+        "end": 20.11,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 20.11,
+        "end": 20.311,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.311,
+        "end": 20.343,
+        "type": "spacing"
+      },
+      {
+        "text": "holding",
+        "start": 20.343,
+        "end": 20.689,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.689,
+        "end": 20.742,
+        "type": "spacing"
+      },
+      {
+        "text": "almost",
+        "start": 20.742,
+        "end": 21.11,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.11,
+        "end": 21.17,
+        "type": "spacing"
+      },
+      {
+        "text": "every",
+        "start": 21.17,
+        "end": 21.51,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.51,
+        "end": 21.542,
+        "type": "spacing"
+      },
+      {
+        "text": "card.",
+        "start": 21.542,
+        "end": 22.152,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.152,
+        "end": 22.501,
+        "type": "spacing"
+      },
+      {
+        "text": "Its",
+        "start": 22.501,
+        "end": 22.779,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.779,
+        "end": 22.821,
+        "type": "spacing"
+      },
+      {
+        "text": "factories",
+        "start": 22.821,
+        "end": 23.269,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.269,
+        "end": 23.3,
+        "type": "spacing"
+      },
+      {
+        "text": "are",
+        "start": 23.3,
+        "end": 23.509,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.509,
+        "end": 23.54,
+        "type": "spacing"
+      },
+      {
+        "text": "untouched,",
+        "start": 23.54,
+        "end": 24.223,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.223,
+        "end": 24.59,
+        "type": "spacing"
+      },
+      {
+        "text": "Europe",
+        "start": 24.59,
+        "end": 24.959,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.959,
+        "end": 24.98,
+        "type": "spacing"
+      },
+      {
+        "text": "is",
+        "start": 24.98,
+        "end": 25.144,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.144,
+        "end": 25.16,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 25.16,
+        "end": 25.289,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.289,
+        "end": 25.3,
+        "type": "spacing"
+      },
+      {
+        "text": "ruins,",
+        "start": 25.3,
+        "end": 25.871,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.871,
+        "end": 26.35,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 26.35,
+        "end": 26.489,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.489,
+        "end": 26.5,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 26.5,
+        "end": 26.59,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.59,
+        "end": 26.59,
+        "type": "spacing"
+      },
+      {
+        "text": "United",
+        "start": 26.59,
+        "end": 27.028,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.028,
+        "end": 27.06,
+        "type": "spacing"
+      },
+      {
+        "text": "States",
+        "start": 27.06,
+        "end": 27.396,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.396,
+        "end": 27.46,
+        "type": "spacing"
+      },
+      {
+        "text": "holds",
+        "start": 27.46,
+        "end": 27.748,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.748,
+        "end": 27.78,
+        "type": "spacing"
+      },
+      {
+        "text": "roughly",
+        "start": 27.78,
+        "end": 28.148,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.148,
+        "end": 28.18,
+        "type": "spacing"
+      },
+      {
+        "text": "two",
+        "start": 28.18,
+        "end": 28.388,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.388,
+        "end": 28.42,
+        "type": "spacing"
+      },
+      {
+        "text": "thirds",
+        "start": 28.42,
+        "end": 28.728,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.728,
+        "end": 28.74,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 28.74,
+        "end": 28.947,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.947,
+        "end": 28.98,
+        "type": "spacing"
+      },
+      {
+        "text": "all",
+        "start": 28.98,
+        "end": 29.15,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.15,
+        "end": 29.17,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 29.17,
+        "end": 29.288,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.288,
+        "end": 29.3,
+        "type": "spacing"
+      },
+      {
+        "text": "gold",
+        "start": 29.3,
+        "end": 29.573,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.573,
+        "end": 29.615,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 29.615,
+        "end": 29.745,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.745,
+        "end": 29.75,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 29.75,
+        "end": 29.854,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.854,
+        "end": 29.87,
+        "type": "spacing"
+      },
+      {
+        "text": "world's",
+        "start": 29.87,
+        "end": 30.235,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.235,
+        "end": 30.254,
+        "type": "spacing"
+      },
+      {
+        "text": "central",
+        "start": 30.254,
+        "end": 30.546,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.546,
+        "end": 30.58,
+        "type": "spacing"
+      },
+      {
+        "text": "banks.",
+        "start": 30.58,
+        "end": 31.095,
+        "type": "word"
+      }
+    ],
+    "transcription_id": "f77bb591d08b56ca9505",
+    "audio_duration_secs": 31.425306
+  }
+]

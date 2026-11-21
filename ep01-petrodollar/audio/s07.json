@@ -1,0 +1,1241 @@
+[
+  {
+    "language_code": "",
+    "language_probability": 1,
+    "text": "So Washington makes a calculation. If it can't control the oil, it can try to control the money the oil produces. In July nineteen seventy four, the new Treasury Secretary, William Simon, flies to Saudi Arabia, the most powerful oil producer in the region. What comes out of those meetings shapes the next fifty years. Saudi Arabia keeps selling its oil in dollars, and backs dollar pricing across OPEC. It takes the flood of dollars it earns and invests a huge share of them back into America, buying U.S. government debt. In return, America offers weapons, investment, and security cooperation with the kingdom.",
+    "words": [
+      {
+        "text": "So",
+        "start": 0.38,
+        "end": 0.708,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.708,
+        "end": 0.76,
+        "type": "spacing"
+      },
+      {
+        "text": "Washington",
+        "start": 0.76,
+        "end": 1.209,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.209,
+        "end": 1.24,
+        "type": "spacing"
+      },
+      {
+        "text": "makes",
+        "start": 1.24,
+        "end": 1.437,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.437,
+        "end": 1.45,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 1.45,
+        "end": 1.549,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.549,
+        "end": 1.56,
+        "type": "spacing"
+      },
+      {
+        "text": "calculation.",
+        "start": 1.56,
+        "end": 2.351,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.351,
+        "end": 2.68,
+        "type": "spacing"
+      },
+      {
+        "text": "If",
+        "start": 2.68,
+        "end": 2.829,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.829,
+        "end": 2.84,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 2.84,
+        "end": 3.011,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.011,
+        "end": 3.03,
+        "type": "spacing"
+      },
+      {
+        "text": "can't",
+        "start": 3.03,
+        "end": 3.309,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.309,
+        "end": 3.32,
+        "type": "spacing"
+      },
+      {
+        "text": "control",
+        "start": 3.32,
+        "end": 3.667,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.667,
+        "end": 3.72,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 3.72,
+        "end": 3.869,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.869,
+        "end": 3.88,
+        "type": "spacing"
+      },
+      {
+        "text": "oil,",
+        "start": 3.88,
+        "end": 4.499,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.499,
+        "end": 4.52,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 4.52,
+        "end": 4.691,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.691,
+        "end": 4.71,
+        "type": "spacing"
+      },
+      {
+        "text": "can",
+        "start": 4.71,
+        "end": 4.829,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.829,
+        "end": 4.84,
+        "type": "spacing"
+      },
+      {
+        "text": "try",
+        "start": 4.84,
+        "end": 4.997,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.997,
+        "end": 5.01,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 5.01,
+        "end": 5.208,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.208,
+        "end": 5.24,
+        "type": "spacing"
+      },
+      {
+        "text": "control",
+        "start": 5.24,
+        "end": 5.536,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.536,
+        "end": 5.57,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 5.57,
+        "end": 5.709,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.709,
+        "end": 5.72,
+        "type": "spacing"
+      },
+      {
+        "text": "money",
+        "start": 5.72,
+        "end": 6.008,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.008,
+        "end": 6.04,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 6.04,
+        "end": 6.189,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.189,
+        "end": 6.2,
+        "type": "spacing"
+      },
+      {
+        "text": "oil",
+        "start": 6.2,
+        "end": 6.478,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.478,
+        "end": 6.52,
+        "type": "spacing"
+      },
+      {
+        "text": "produces.",
+        "start": 6.52,
+        "end": 7.276,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.276,
+        "end": 7.64,
+        "type": "spacing"
+      },
+      {
+        "text": "In",
+        "start": 7.64,
+        "end": 7.789,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.789,
+        "end": 7.8,
+        "type": "spacing"
+      },
+      {
+        "text": "July",
+        "start": 7.8,
+        "end": 8.206,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.206,
+        "end": 8.28,
+        "type": "spacing"
+      },
+      {
+        "text": "nineteen",
+        "start": 8.28,
+        "end": 8.648,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.648,
+        "end": 8.68,
+        "type": "spacing"
+      },
+      {
+        "text": "seventy",
+        "start": 8.68,
+        "end": 9.048,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.048,
+        "end": 9.08,
+        "type": "spacing"
+      },
+      {
+        "text": "four,",
+        "start": 9.08,
+        "end": 9.508,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.508,
+        "end": 9.79,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 9.79,
+        "end": 9.956,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.956,
+        "end": 9.97,
+        "type": "spacing"
+      },
+      {
+        "text": "new",
+        "start": 9.97,
+        "end": 10.168,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.168,
+        "end": 10.2,
+        "type": "spacing"
+      },
+      {
+        "text": "Treasury",
+        "start": 10.2,
+        "end": 10.648,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.648,
+        "end": 10.68,
+        "type": "spacing"
+      },
+      {
+        "text": "Secretary,",
+        "start": 10.68,
+        "end": 11.42,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.42,
+        "end": 11.72,
+        "type": "spacing"
+      },
+      {
+        "text": "William",
+        "start": 11.72,
+        "end": 12.126,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.126,
+        "end": 12.2,
+        "type": "spacing"
+      },
+      {
+        "text": "Simon,",
+        "start": 12.2,
+        "end": 12.877,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.877,
+        "end": 12.92,
+        "type": "spacing"
+      },
+      {
+        "text": "flies",
+        "start": 12.92,
+        "end": 13.277,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.277,
+        "end": 13.32,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 13.32,
+        "end": 13.476,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.476,
+        "end": 13.49,
+        "type": "spacing"
+      },
+      {
+        "text": "Saudi",
+        "start": 13.49,
+        "end": 13.752,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.752,
+        "end": 13.752,
+        "type": "spacing"
+      },
+      {
+        "text": "Arabia,",
+        "start": 13.752,
+        "end": 14.416,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.416,
+        "end": 14.75,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 14.75,
+        "end": 14.894,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.894,
+        "end": 14.9,
+        "type": "spacing"
+      },
+      {
+        "text": "most",
+        "start": 14.9,
+        "end": 15.138,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.138,
+        "end": 15.16,
+        "type": "spacing"
+      },
+      {
+        "text": "powerful",
+        "start": 15.16,
+        "end": 15.607,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.607,
+        "end": 15.64,
+        "type": "spacing"
+      },
+      {
+        "text": "oil",
+        "start": 15.64,
+        "end": 15.938,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.938,
+        "end": 15.96,
+        "type": "spacing"
+      },
+      {
+        "text": "producer",
+        "start": 15.96,
+        "end": 16.407,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.407,
+        "end": 16.44,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 16.44,
+        "end": 16.566,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.566,
+        "end": 16.57,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 16.57,
+        "end": 16.668,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.668,
+        "end": 16.68,
+        "type": "spacing"
+      },
+      {
+        "text": "region.",
+        "start": 16.68,
+        "end": 17.134,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.134,
+        "end": 17.47,
+        "type": "spacing"
+      },
+      {
+        "text": "What",
+        "start": 17.47,
+        "end": 17.693,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.693,
+        "end": 17.715,
+        "type": "spacing"
+      },
+      {
+        "text": "comes",
+        "start": 17.715,
+        "end": 17.936,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.936,
+        "end": 17.96,
+        "type": "spacing"
+      },
+      {
+        "text": "out",
+        "start": 17.96,
+        "end": 18.114,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.114,
+        "end": 18.13,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 18.13,
+        "end": 18.26,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.26,
+        "end": 18.275,
+        "type": "spacing"
+      },
+      {
+        "text": "those",
+        "start": 18.275,
+        "end": 18.492,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.492,
+        "end": 18.515,
+        "type": "spacing"
+      },
+      {
+        "text": "meetings",
+        "start": 18.515,
+        "end": 19.067,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.067,
+        "end": 19.2,
+        "type": "spacing"
+      },
+      {
+        "text": "shapes",
+        "start": 19.2,
+        "end": 19.649,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.649,
+        "end": 19.67,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 19.67,
+        "end": 19.783,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.783,
+        "end": 19.794,
+        "type": "spacing"
+      },
+      {
+        "text": "next",
+        "start": 19.794,
+        "end": 20.075,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.075,
+        "end": 20.12,
+        "type": "spacing"
+      },
+      {
+        "text": "fifty",
+        "start": 20.12,
+        "end": 20.427,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.427,
+        "end": 20.44,
+        "type": "spacing"
+      },
+      {
+        "text": "years.",
+        "start": 20.44,
+        "end": 20.89,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.89,
+        "end": 21.48,
+        "type": "spacing"
+      },
+      {
+        "text": "Saudi",
+        "start": 21.48,
+        "end": 21.882,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.882,
+        "end": 21.9,
+        "type": "spacing"
+      },
+      {
+        "text": "Arabia",
+        "start": 21.9,
+        "end": 22.38,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.38,
+        "end": 22.433,
+        "type": "spacing"
+      },
+      {
+        "text": "keeps",
+        "start": 22.433,
+        "end": 22.742,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.742,
+        "end": 22.753,
+        "type": "spacing"
+      },
+      {
+        "text": "selling",
+        "start": 22.753,
+        "end": 22.987,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.987,
+        "end": 23,
+        "type": "spacing"
+      },
+      {
+        "text": "its",
+        "start": 23,
+        "end": 23.201,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.201,
+        "end": 23.233,
+        "type": "spacing"
+      },
+      {
+        "text": "oil",
+        "start": 23.233,
+        "end": 23.536,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.536,
+        "end": 23.56,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 23.56,
+        "end": 23.761,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.761,
+        "end": 23.793,
+        "type": "spacing"
+      },
+      {
+        "text": "dollars,",
+        "start": 23.793,
+        "end": 24.364,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.364,
+        "end": 24.673,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 24.673,
+        "end": 24.881,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.881,
+        "end": 24.913,
+        "type": "spacing"
+      },
+      {
+        "text": "backs",
+        "start": 24.913,
+        "end": 25.28,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.28,
+        "end": 25.313,
+        "type": "spacing"
+      },
+      {
+        "text": "dollar",
+        "start": 25.313,
+        "end": 25.6,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.6,
+        "end": 25.632,
+        "type": "spacing"
+      },
+      {
+        "text": "pricing",
+        "start": 25.632,
+        "end": 26.086,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.086,
+        "end": 26.12,
+        "type": "spacing"
+      },
+      {
+        "text": "across",
+        "start": 26.12,
+        "end": 26.539,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.539,
+        "end": 26.592,
+        "type": "spacing"
+      },
+      {
+        "text": "OPEC.",
+        "start": 26.592,
+        "end": 27.127,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.127,
+        "end": 27.47,
+        "type": "spacing"
+      },
+      {
+        "text": "It",
+        "start": 27.47,
+        "end": 27.621,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.621,
+        "end": 27.632,
+        "type": "spacing"
+      },
+      {
+        "text": "takes",
+        "start": 27.632,
+        "end": 27.856,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.856,
+        "end": 27.88,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 27.88,
+        "end": 28.021,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.021,
+        "end": 28.032,
+        "type": "spacing"
+      },
+      {
+        "text": "flood",
+        "start": 28.032,
+        "end": 28.274,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.274,
+        "end": 28.29,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 28.29,
+        "end": 28.48,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.48,
+        "end": 28.512,
+        "type": "spacing"
+      },
+      {
+        "text": "dollars",
+        "start": 28.512,
+        "end": 28.776,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.776,
+        "end": 28.8,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 28.8,
+        "end": 28.96,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.96,
+        "end": 28.991,
+        "type": "spacing"
+      },
+      {
+        "text": "earns",
+        "start": 28.991,
+        "end": 29.471,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.471,
+        "end": 29.57,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 29.57,
+        "end": 29.7,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.7,
+        "end": 29.711,
+        "type": "spacing"
+      },
+      {
+        "text": "invests",
+        "start": 29.711,
+        "end": 30.107,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.107,
+        "end": 30.12,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 30.12,
+        "end": 30.267,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.267,
+        "end": 30.28,
+        "type": "spacing"
+      },
+      {
+        "text": "huge",
+        "start": 30.28,
+        "end": 30.629,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.629,
+        "end": 30.671,
+        "type": "spacing"
+      },
+      {
+        "text": "share",
+        "start": 30.671,
+        "end": 30.896,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.896,
+        "end": 30.92,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 30.92,
+        "end": 31.015,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.015,
+        "end": 31.02,
+        "type": "spacing"
+      },
+      {
+        "text": "them",
+        "start": 31.02,
+        "end": 31.21,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.21,
+        "end": 31.231,
+        "type": "spacing"
+      },
+      {
+        "text": "back",
+        "start": 31.231,
+        "end": 31.45,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.45,
+        "end": 31.471,
+        "type": "spacing"
+      },
+      {
+        "text": "into",
+        "start": 31.471,
+        "end": 31.714,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.714,
+        "end": 31.73,
+        "type": "spacing"
+      },
+      {
+        "text": "America,",
+        "start": 31.73,
+        "end": 32.378,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.378,
+        "end": 32.71,
+        "type": "spacing"
+      },
+      {
+        "text": "buying",
+        "start": 32.71,
+        "end": 33.039,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.039,
+        "end": 33.07,
+        "type": "spacing"
+      },
+      {
+        "text": "U.S.",
+        "start": 33.07,
+        "end": 33.428,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.428,
+        "end": 33.47,
+        "type": "spacing"
+      },
+      {
+        "text": "government",
+        "start": 33.47,
+        "end": 33.839,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.839,
+        "end": 33.87,
+        "type": "spacing"
+      },
+      {
+        "text": "debt.",
+        "start": 33.87,
+        "end": 34.417,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.417,
+        "end": 34.75,
+        "type": "spacing"
+      },
+      {
+        "text": "In",
+        "start": 34.75,
+        "end": 34.936,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.936,
+        "end": 34.96,
+        "type": "spacing"
+      },
+      {
+        "text": "return,",
+        "start": 34.96,
+        "end": 35.748,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 35.748,
+        "end": 35.79,
+        "type": "spacing"
+      },
+      {
+        "text": "America",
+        "start": 35.79,
+        "end": 36.357,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.357,
+        "end": 36.43,
+        "type": "spacing"
+      },
+      {
+        "text": "offers",
+        "start": 36.43,
+        "end": 36.785,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.785,
+        "end": 36.84,
+        "type": "spacing"
+      },
+      {
+        "text": "weapons,",
+        "start": 36.84,
+        "end": 37.588,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 37.588,
+        "end": 37.63,
+        "type": "spacing"
+      },
+      {
+        "text": "investment,",
+        "start": 37.63,
+        "end": 38.43,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 38.43,
+        "end": 38.43,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 38.43,
+        "end": 38.638,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 38.638,
+        "end": 38.67,
+        "type": "spacing"
+      },
+      {
+        "text": "security",
+        "start": 38.67,
+        "end": 39.154,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 39.154,
+        "end": 39.17,
+        "type": "spacing"
+      },
+      {
+        "text": "cooperation",
+        "start": 39.17,
+        "end": 39.918,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 39.918,
+        "end": 39.95,
+        "type": "spacing"
+      },
+      {
+        "text": "with",
+        "start": 39.95,
+        "end": 40.124,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 40.124,
+        "end": 40.13,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 40.13,
+        "end": 40.23,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 40.23,
+        "end": 40.23,
+        "type": "spacing"
+      },
+      {
+        "text": "kingdom.",
+        "start": 40.23,
+        "end": 40.649,
+        "type": "word"
+      }
+    ],
+    "transcription_id": "ca386f3f0275d45bb83a",
+    "audio_duration_secs": 40.96
+  }
+]

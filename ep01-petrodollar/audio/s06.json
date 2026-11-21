@@ -1,0 +1,1541 @@
+[
+  {
+    "language_code": "",
+    "language_probability": 1,
+    "text": "Two years later, the answer arrives from the Middle East. In October nineteen seventy three, Egypt and Syria launch a surprise attack on Israel. When America rushes weapons to Israel, the Arab oil producers strike back with the most powerful weapon they have. They cut production and they embargo oil shipments to the United States. Within three months, the price of a barrel jumps from about three dollars to nearly twelve. Americans wait for hours in lines at gas stations. Pumps run dry. The government cuts the national speed limit to fifty five miles an hour, and even keeps the clocks on daylight saving time through the winter, just to save fuel. And Washington learns just how much power now sits on the other side of the world.",
+    "words": [
+      {
+        "text": "Two",
+        "start": 0.18,
+        "end": 0.375,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.375,
+        "end": 0.38,
+        "type": "spacing"
+      },
+      {
+        "text": "years",
+        "start": 0.38,
+        "end": 0.659,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.659,
+        "end": 0.68,
+        "type": "spacing"
+      },
+      {
+        "text": "later,",
+        "start": 0.68,
+        "end": 1.123,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.123,
+        "end": 1.48,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 1.48,
+        "end": 1.689,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.689,
+        "end": 1.72,
+        "type": "spacing"
+      },
+      {
+        "text": "answer",
+        "start": 1.72,
+        "end": 2.089,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.089,
+        "end": 2.12,
+        "type": "spacing"
+      },
+      {
+        "text": "arrives",
+        "start": 2.12,
+        "end": 2.569,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.569,
+        "end": 2.6,
+        "type": "spacing"
+      },
+      {
+        "text": "from",
+        "start": 2.6,
+        "end": 2.818,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.818,
+        "end": 2.818,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 2.818,
+        "end": 2.917,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.917,
+        "end": 2.93,
+        "type": "spacing"
+      },
+      {
+        "text": "Middle",
+        "start": 2.93,
+        "end": 3.16,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.16,
+        "end": 3.16,
+        "type": "spacing"
+      },
+      {
+        "text": "East.",
+        "start": 3.16,
+        "end": 3.588,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.588,
+        "end": 3.88,
+        "type": "spacing"
+      },
+      {
+        "text": "In",
+        "start": 3.88,
+        "end": 4.089,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.089,
+        "end": 4.12,
+        "type": "spacing"
+      },
+      {
+        "text": "October",
+        "start": 4.12,
+        "end": 4.569,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.569,
+        "end": 4.6,
+        "type": "spacing"
+      },
+      {
+        "text": "nineteen",
+        "start": 4.6,
+        "end": 4.948,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.948,
+        "end": 5,
+        "type": "spacing"
+      },
+      {
+        "text": "seventy",
+        "start": 5,
+        "end": 5.289,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.289,
+        "end": 5.32,
+        "type": "spacing"
+      },
+      {
+        "text": "three,",
+        "start": 5.32,
+        "end": 5.806,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.806,
+        "end": 6.17,
+        "type": "spacing"
+      },
+      {
+        "text": "Egypt",
+        "start": 6.17,
+        "end": 6.569,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.569,
+        "end": 6.6,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 6.6,
+        "end": 6.75,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.75,
+        "end": 6.76,
+        "type": "spacing"
+      },
+      {
+        "text": "Syria",
+        "start": 6.76,
+        "end": 7.195,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.195,
+        "end": 7.25,
+        "type": "spacing"
+      },
+      {
+        "text": "launch",
+        "start": 7.25,
+        "end": 7.535,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.535,
+        "end": 7.54,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 7.54,
+        "end": 7.63,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.63,
+        "end": 7.64,
+        "type": "spacing"
+      },
+      {
+        "text": "surprise",
+        "start": 7.64,
+        "end": 8.099,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.099,
+        "end": 8.12,
+        "type": "spacing"
+      },
+      {
+        "text": "attack",
+        "start": 8.12,
+        "end": 8.499,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.499,
+        "end": 8.521,
+        "type": "spacing"
+      },
+      {
+        "text": "on",
+        "start": 8.521,
+        "end": 8.677,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.677,
+        "end": 8.69,
+        "type": "spacing"
+      },
+      {
+        "text": "Israel.",
+        "start": 8.69,
+        "end": 9.367,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.367,
+        "end": 9.721,
+        "type": "spacing"
+      },
+      {
+        "text": "When",
+        "start": 9.721,
+        "end": 9.939,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.939,
+        "end": 9.96,
+        "type": "spacing"
+      },
+      {
+        "text": "America",
+        "start": 9.96,
+        "end": 10.388,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.388,
+        "end": 10.441,
+        "type": "spacing"
+      },
+      {
+        "text": "rushes",
+        "start": 10.441,
+        "end": 10.788,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.788,
+        "end": 10.841,
+        "type": "spacing"
+      },
+      {
+        "text": "weapons",
+        "start": 10.841,
+        "end": 11.199,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.199,
+        "end": 11.241,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 11.241,
+        "end": 11.39,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.39,
+        "end": 11.401,
+        "type": "spacing"
+      },
+      {
+        "text": "Israel,",
+        "start": 11.401,
+        "end": 11.951,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.951,
+        "end": 12.25,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 12.25,
+        "end": 12.459,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.459,
+        "end": 12.48,
+        "type": "spacing"
+      },
+      {
+        "text": "Arab",
+        "start": 12.48,
+        "end": 12.775,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.775,
+        "end": 12.78,
+        "type": "spacing"
+      },
+      {
+        "text": "oil",
+        "start": 12.78,
+        "end": 13.06,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.06,
+        "end": 13.081,
+        "type": "spacing"
+      },
+      {
+        "text": "producers",
+        "start": 13.081,
+        "end": 13.668,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.668,
+        "end": 13.721,
+        "type": "spacing"
+      },
+      {
+        "text": "strike",
+        "start": 13.721,
+        "end": 14.079,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.079,
+        "end": 14.121,
+        "type": "spacing"
+      },
+      {
+        "text": "back",
+        "start": 14.121,
+        "end": 14.34,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.34,
+        "end": 14.361,
+        "type": "spacing"
+      },
+      {
+        "text": "with",
+        "start": 14.361,
+        "end": 14.542,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.542,
+        "end": 14.55,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 14.55,
+        "end": 14.627,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.627,
+        "end": 14.63,
+        "type": "spacing"
+      },
+      {
+        "text": "most",
+        "start": 14.63,
+        "end": 14.9,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.9,
+        "end": 14.921,
+        "type": "spacing"
+      },
+      {
+        "text": "powerful",
+        "start": 14.921,
+        "end": 15.369,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.369,
+        "end": 15.401,
+        "type": "spacing"
+      },
+      {
+        "text": "weapon",
+        "start": 15.401,
+        "end": 15.696,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.696,
+        "end": 15.73,
+        "type": "spacing"
+      },
+      {
+        "text": "they",
+        "start": 15.73,
+        "end": 15.902,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.902,
+        "end": 15.91,
+        "type": "spacing"
+      },
+      {
+        "text": "have.",
+        "start": 15.91,
+        "end": 16.259,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.259,
+        "end": 16.761,
+        "type": "spacing"
+      },
+      {
+        "text": "They",
+        "start": 16.761,
+        "end": 16.99,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.99,
+        "end": 17.001,
+        "type": "spacing"
+      },
+      {
+        "text": "cut",
+        "start": 17.001,
+        "end": 17.22,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.22,
+        "end": 17.241,
+        "type": "spacing"
+      },
+      {
+        "text": "production",
+        "start": 17.241,
+        "end": 17.82,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.82,
+        "end": 18.17,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 18.17,
+        "end": 18.327,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.327,
+        "end": 18.33,
+        "type": "spacing"
+      },
+      {
+        "text": "they",
+        "start": 18.33,
+        "end": 18.55,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.55,
+        "end": 18.56,
+        "type": "spacing"
+      },
+      {
+        "text": "embargo",
+        "start": 18.56,
+        "end": 19.049,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.049,
+        "end": 19.081,
+        "type": "spacing"
+      },
+      {
+        "text": "oil",
+        "start": 19.081,
+        "end": 19.306,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.306,
+        "end": 19.33,
+        "type": "spacing"
+      },
+      {
+        "text": "shipments",
+        "start": 19.33,
+        "end": 19.78,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.78,
+        "end": 19.801,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 19.801,
+        "end": 19.942,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.942,
+        "end": 19.95,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 19.95,
+        "end": 20.033,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.033,
+        "end": 20.041,
+        "type": "spacing"
+      },
+      {
+        "text": "United",
+        "start": 20.041,
+        "end": 20.437,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.437,
+        "end": 20.45,
+        "type": "spacing"
+      },
+      {
+        "text": "States.",
+        "start": 20.45,
+        "end": 20.948,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.948,
+        "end": 21.55,
+        "type": "spacing"
+      },
+      {
+        "text": "Within",
+        "start": 21.55,
+        "end": 21.85,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.85,
+        "end": 21.881,
+        "type": "spacing"
+      },
+      {
+        "text": "three",
+        "start": 21.881,
+        "end": 22.142,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.142,
+        "end": 22.15,
+        "type": "spacing"
+      },
+      {
+        "text": "months,",
+        "start": 22.15,
+        "end": 22.527,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.527,
+        "end": 22.53,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 22.53,
+        "end": 22.671,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.671,
+        "end": 22.681,
+        "type": "spacing"
+      },
+      {
+        "text": "price",
+        "start": 22.681,
+        "end": 22.884,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.884,
+        "end": 22.9,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 22.9,
+        "end": 22.997,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.997,
+        "end": 23.01,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 23.01,
+        "end": 23.151,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.151,
+        "end": 23.161,
+        "type": "spacing"
+      },
+      {
+        "text": "barrel",
+        "start": 23.161,
+        "end": 23.45,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.45,
+        "end": 23.481,
+        "type": "spacing"
+      },
+      {
+        "text": "jumps",
+        "start": 23.481,
+        "end": 23.85,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.85,
+        "end": 23.881,
+        "type": "spacing"
+      },
+      {
+        "text": "from",
+        "start": 23.881,
+        "end": 24.047,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.047,
+        "end": 24.06,
+        "type": "spacing"
+      },
+      {
+        "text": "about",
+        "start": 24.06,
+        "end": 24.302,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.302,
+        "end": 24.31,
+        "type": "spacing"
+      },
+      {
+        "text": "three",
+        "start": 24.31,
+        "end": 24.58,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.58,
+        "end": 24.601,
+        "type": "spacing"
+      },
+      {
+        "text": "dollars",
+        "start": 24.601,
+        "end": 24.949,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.949,
+        "end": 25.001,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 25.001,
+        "end": 25.151,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.151,
+        "end": 25.161,
+        "type": "spacing"
+      },
+      {
+        "text": "nearly",
+        "start": 25.161,
+        "end": 25.456,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.456,
+        "end": 25.49,
+        "type": "spacing"
+      },
+      {
+        "text": "twelve.",
+        "start": 25.49,
+        "end": 26.031,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.031,
+        "end": 26.442,
+        "type": "spacing"
+      },
+      {
+        "text": "Americans",
+        "start": 26.442,
+        "end": 27.029,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.029,
+        "end": 27.082,
+        "type": "spacing"
+      },
+      {
+        "text": "wait",
+        "start": 27.082,
+        "end": 27.3,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.3,
+        "end": 27.322,
+        "type": "spacing"
+      },
+      {
+        "text": "for",
+        "start": 27.322,
+        "end": 27.53,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.53,
+        "end": 27.562,
+        "type": "spacing"
+      },
+      {
+        "text": "hours",
+        "start": 27.562,
+        "end": 27.845,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.845,
+        "end": 27.89,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 27.89,
+        "end": 28.031,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.031,
+        "end": 28.042,
+        "type": "spacing"
+      },
+      {
+        "text": "lines",
+        "start": 28.042,
+        "end": 28.399,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.399,
+        "end": 28.442,
+        "type": "spacing"
+      },
+      {
+        "text": "at",
+        "start": 28.442,
+        "end": 28.591,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.591,
+        "end": 28.602,
+        "type": "spacing"
+      },
+      {
+        "text": "gas",
+        "start": 28.602,
+        "end": 28.82,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.82,
+        "end": 28.842,
+        "type": "spacing"
+      },
+      {
+        "text": "stations.",
+        "start": 28.842,
+        "end": 29.479,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.479,
+        "end": 29.87,
+        "type": "spacing"
+      },
+      {
+        "text": "Pumps",
+        "start": 29.87,
+        "end": 30.239,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.239,
+        "end": 30.282,
+        "type": "spacing"
+      },
+      {
+        "text": "run",
+        "start": 30.282,
+        "end": 30.549,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.549,
+        "end": 30.602,
+        "type": "spacing"
+      },
+      {
+        "text": "dry.",
+        "start": 30.602,
+        "end": 30.951,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.951,
+        "end": 31.482,
+        "type": "spacing"
+      },
+      {
+        "text": "The",
+        "start": 31.482,
+        "end": 31.644,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.644,
+        "end": 31.66,
+        "type": "spacing"
+      },
+      {
+        "text": "government",
+        "start": 31.66,
+        "end": 32.09,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.09,
+        "end": 32.122,
+        "type": "spacing"
+      },
+      {
+        "text": "cuts",
+        "start": 32.122,
+        "end": 32.426,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.426,
+        "end": 32.45,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 32.45,
+        "end": 32.597,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.597,
+        "end": 32.61,
+        "type": "spacing"
+      },
+      {
+        "text": "national",
+        "start": 32.61,
+        "end": 32.924,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.924,
+        "end": 32.94,
+        "type": "spacing"
+      },
+      {
+        "text": "speed",
+        "start": 32.94,
+        "end": 33.301,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.301,
+        "end": 33.322,
+        "type": "spacing"
+      },
+      {
+        "text": "limit",
+        "start": 33.322,
+        "end": 33.564,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.564,
+        "end": 33.58,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 33.58,
+        "end": 33.77,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.77,
+        "end": 33.802,
+        "type": "spacing"
+      },
+      {
+        "text": "fifty",
+        "start": 33.802,
+        "end": 34.111,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.111,
+        "end": 34.122,
+        "type": "spacing"
+      },
+      {
+        "text": "five",
+        "start": 34.122,
+        "end": 34.4,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.4,
+        "end": 34.442,
+        "type": "spacing"
+      },
+      {
+        "text": "miles",
+        "start": 34.442,
+        "end": 34.684,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.684,
+        "end": 34.7,
+        "type": "spacing"
+      },
+      {
+        "text": "an",
+        "start": 34.7,
+        "end": 34.831,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.831,
+        "end": 34.842,
+        "type": "spacing"
+      },
+      {
+        "text": "hour,",
+        "start": 34.842,
+        "end": 35.176,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 35.176,
+        "end": 35.562,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 35.562,
+        "end": 35.724,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 35.724,
+        "end": 35.74,
+        "type": "spacing"
+      },
+      {
+        "text": "even",
+        "start": 35.74,
+        "end": 36.01,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.01,
+        "end": 36.042,
+        "type": "spacing"
+      },
+      {
+        "text": "keeps",
+        "start": 36.042,
+        "end": 36.351,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.351,
+        "end": 36.362,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 36.362,
+        "end": 36.465,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.465,
+        "end": 36.47,
+        "type": "spacing"
+      },
+      {
+        "text": "clocks",
+        "start": 36.47,
+        "end": 36.831,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.831,
+        "end": 36.842,
+        "type": "spacing"
+      },
+      {
+        "text": "on",
+        "start": 36.842,
+        "end": 36.991,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.991,
+        "end": 37.002,
+        "type": "spacing"
+      },
+      {
+        "text": "daylight",
+        "start": 37.002,
+        "end": 37.44,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 37.44,
+        "end": 37.482,
+        "type": "spacing"
+      },
+      {
+        "text": "saving",
+        "start": 37.482,
+        "end": 37.85,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 37.85,
+        "end": 37.882,
+        "type": "spacing"
+      },
+      {
+        "text": "time",
+        "start": 37.882,
+        "end": 38.101,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 38.101,
+        "end": 38.122,
+        "type": "spacing"
+      },
+      {
+        "text": "through",
+        "start": 38.122,
+        "end": 38.393,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 38.393,
+        "end": 38.393,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 38.393,
+        "end": 38.442,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 38.442,
+        "end": 38.442,
+        "type": "spacing"
+      },
+      {
+        "text": "winter,",
+        "start": 38.442,
+        "end": 38.911,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 38.911,
+        "end": 39.322,
+        "type": "spacing"
+      },
+      {
+        "text": "just",
+        "start": 39.322,
+        "end": 39.502,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 39.502,
+        "end": 39.51,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 39.51,
+        "end": 39.69,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 39.69,
+        "end": 39.722,
+        "type": "spacing"
+      },
+      {
+        "text": "save",
+        "start": 39.722,
+        "end": 40,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 40,
+        "end": 40.042,
+        "type": "spacing"
+      },
+      {
+        "text": "fuel.",
+        "start": 40.042,
+        "end": 40.476,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 40.476,
+        "end": 40.842,
+        "type": "spacing"
+      },
+      {
+        "text": "And",
+        "start": 40.842,
+        "end": 41.109,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 41.109,
+        "end": 41.162,
+        "type": "spacing"
+      },
+      {
+        "text": "Washington",
+        "start": 41.162,
+        "end": 41.61,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 41.61,
+        "end": 41.642,
+        "type": "spacing"
+      },
+      {
+        "text": "learns",
+        "start": 41.642,
+        "end": 42.01,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 42.01,
+        "end": 42.042,
+        "type": "spacing"
+      },
+      {
+        "text": "just",
+        "start": 42.042,
+        "end": 42.32,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 42.32,
+        "end": 42.363,
+        "type": "spacing"
+      },
+      {
+        "text": "how",
+        "start": 42.363,
+        "end": 42.475,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 42.475,
+        "end": 42.48,
+        "type": "spacing"
+      },
+      {
+        "text": "much",
+        "start": 42.48,
+        "end": 42.741,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 42.741,
+        "end": 42.763,
+        "type": "spacing"
+      },
+      {
+        "text": "power",
+        "start": 42.763,
+        "end": 43.11,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 43.11,
+        "end": 43.163,
+        "type": "spacing"
+      },
+      {
+        "text": "now",
+        "start": 43.163,
+        "end": 43.37,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 43.37,
+        "end": 43.403,
+        "type": "spacing"
+      },
+      {
+        "text": "sits",
+        "start": 43.403,
+        "end": 43.626,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 43.626,
+        "end": 43.65,
+        "type": "spacing"
+      },
+      {
+        "text": "on",
+        "start": 43.65,
+        "end": 43.819,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 43.819,
+        "end": 43.84,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 43.84,
+        "end": 43.915,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 43.915,
+        "end": 43.92,
+        "type": "spacing"
+      },
+      {
+        "text": "other",
+        "start": 43.92,
+        "end": 44.117,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 44.117,
+        "end": 44.13,
+        "type": "spacing"
+      },
+      {
+        "text": "side",
+        "start": 44.13,
+        "end": 44.367,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 44.367,
+        "end": 44.37,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 44.37,
+        "end": 44.502,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 44.502,
+        "end": 44.51,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 44.51,
+        "end": 44.604,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 44.604,
+        "end": 44.62,
+        "type": "spacing"
+      },
+      {
+        "text": "world.",
+        "start": 44.62,
+        "end": 45.147,
+        "type": "word"
+      }
+    ],
+    "transcription_id": "3d7b66f20395981ba2bd",
+    "audio_duration_secs": 45.374694
+  }
+]

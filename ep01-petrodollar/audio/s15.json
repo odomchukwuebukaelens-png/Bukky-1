@@ -1,0 +1,761 @@
+[
+  {
+    "language_code": "",
+    "language_probability": 1,
+    "text": "And that's why central banks are quietly hedging their bets by buying gold at the fastest pace in decades. More than a thousand tons a year, three years in a row. The same metal the dollar was cut loose from in nineteen seventy one. In the next video, we follow that gold. Who's buying it, where it's going, and what they're preparing for.",
+    "words": [
+      {
+        "text": "And",
+        "start": 0.19,
+        "end": 0.349,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.349,
+        "end": 0.36,
+        "type": "spacing"
+      },
+      {
+        "text": "that's",
+        "start": 0.36,
+        "end": 0.599,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.599,
+        "end": 0.599,
+        "type": "spacing"
+      },
+      {
+        "text": "why",
+        "start": 0.599,
+        "end": 0.787,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.787,
+        "end": 0.84,
+        "type": "spacing"
+      },
+      {
+        "text": "central",
+        "start": 0.84,
+        "end": 1.128,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.128,
+        "end": 1.16,
+        "type": "spacing"
+      },
+      {
+        "text": "banks",
+        "start": 1.16,
+        "end": 1.517,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.517,
+        "end": 1.56,
+        "type": "spacing"
+      },
+      {
+        "text": "are",
+        "start": 1.56,
+        "end": 1.768,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.768,
+        "end": 1.8,
+        "type": "spacing"
+      },
+      {
+        "text": "quietly",
+        "start": 1.8,
+        "end": 2.248,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.248,
+        "end": 2.28,
+        "type": "spacing"
+      },
+      {
+        "text": "hedging",
+        "start": 2.28,
+        "end": 2.647,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.647,
+        "end": 2.68,
+        "type": "spacing"
+      },
+      {
+        "text": "their",
+        "start": 2.68,
+        "end": 2.894,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.894,
+        "end": 2.915,
+        "type": "spacing"
+      },
+      {
+        "text": "bets",
+        "start": 2.915,
+        "end": 3.284,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.284,
+        "end": 3.7,
+        "type": "spacing"
+      },
+      {
+        "text": "by",
+        "start": 3.7,
+        "end": 3.921,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.921,
+        "end": 3.953,
+        "type": "spacing"
+      },
+      {
+        "text": "buying",
+        "start": 3.953,
+        "end": 4.24,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.24,
+        "end": 4.272,
+        "type": "spacing"
+      },
+      {
+        "text": "gold",
+        "start": 4.272,
+        "end": 4.584,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.584,
+        "end": 4.61,
+        "type": "spacing"
+      },
+      {
+        "text": "at",
+        "start": 4.61,
+        "end": 4.762,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.762,
+        "end": 4.78,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 4.78,
+        "end": 4.9,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.9,
+        "end": 4.911,
+        "type": "spacing"
+      },
+      {
+        "text": "fastest",
+        "start": 4.911,
+        "end": 5.359,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.359,
+        "end": 5.39,
+        "type": "spacing"
+      },
+      {
+        "text": "pace",
+        "start": 5.39,
+        "end": 5.668,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.668,
+        "end": 5.71,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 5.71,
+        "end": 5.859,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.859,
+        "end": 5.87,
+        "type": "spacing"
+      },
+      {
+        "text": "decades.",
+        "start": 5.87,
+        "end": 6.538,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.538,
+        "end": 6.83,
+        "type": "spacing"
+      },
+      {
+        "text": "More",
+        "start": 6.83,
+        "end": 7.04,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.04,
+        "end": 7.04,
+        "type": "spacing"
+      },
+      {
+        "text": "than",
+        "start": 7.04,
+        "end": 7.207,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.207,
+        "end": 7.207,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 7.207,
+        "end": 7.358,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.358,
+        "end": 7.39,
+        "type": "spacing"
+      },
+      {
+        "text": "thousand",
+        "start": 7.39,
+        "end": 7.817,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.817,
+        "end": 7.87,
+        "type": "spacing"
+      },
+      {
+        "text": "tons",
+        "start": 7.87,
+        "end": 8.088,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.088,
+        "end": 8.11,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 8.11,
+        "end": 8.258,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.258,
+        "end": 8.27,
+        "type": "spacing"
+      },
+      {
+        "text": "year,",
+        "start": 8.27,
+        "end": 8.688,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.688,
+        "end": 9.064,
+        "type": "spacing"
+      },
+      {
+        "text": "three",
+        "start": 9.064,
+        "end": 9.282,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.282,
+        "end": 9.304,
+        "type": "spacing"
+      },
+      {
+        "text": "years",
+        "start": 9.304,
+        "end": 9.541,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.541,
+        "end": 9.57,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 9.57,
+        "end": 9.675,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.675,
+        "end": 9.68,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 9.68,
+        "end": 9.772,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.772,
+        "end": 9.783,
+        "type": "spacing"
+      },
+      {
+        "text": "row.",
+        "start": 9.783,
+        "end": 10.135,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.135,
+        "end": 10.64,
+        "type": "spacing"
+      },
+      {
+        "text": "The",
+        "start": 10.64,
+        "end": 10.81,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.81,
+        "end": 10.821,
+        "type": "spacing"
+      },
+      {
+        "text": "same",
+        "start": 10.821,
+        "end": 11.119,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.119,
+        "end": 11.14,
+        "type": "spacing"
+      },
+      {
+        "text": "metal",
+        "start": 11.14,
+        "end": 11.436,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.436,
+        "end": 11.47,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 11.47,
+        "end": 11.609,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.609,
+        "end": 11.62,
+        "type": "spacing"
+      },
+      {
+        "text": "dollar",
+        "start": 11.62,
+        "end": 11.908,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.908,
+        "end": 11.94,
+        "type": "spacing"
+      },
+      {
+        "text": "was",
+        "start": 11.94,
+        "end": 12.089,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.089,
+        "end": 12.1,
+        "type": "spacing"
+      },
+      {
+        "text": "cut",
+        "start": 12.1,
+        "end": 12.319,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.319,
+        "end": 12.34,
+        "type": "spacing"
+      },
+      {
+        "text": "loose",
+        "start": 12.34,
+        "end": 12.639,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.639,
+        "end": 12.66,
+        "type": "spacing"
+      },
+      {
+        "text": "from",
+        "start": 12.66,
+        "end": 12.886,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.886,
+        "end": 12.91,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 12.91,
+        "end": 13.049,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.049,
+        "end": 13.06,
+        "type": "spacing"
+      },
+      {
+        "text": "nineteen",
+        "start": 13.06,
+        "end": 13.407,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.407,
+        "end": 13.46,
+        "type": "spacing"
+      },
+      {
+        "text": "seventy",
+        "start": 13.46,
+        "end": 13.828,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.828,
+        "end": 13.86,
+        "type": "spacing"
+      },
+      {
+        "text": "one.",
+        "start": 13.86,
+        "end": 14.43,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.43,
+        "end": 14.814,
+        "type": "spacing"
+      },
+      {
+        "text": "In",
+        "start": 14.814,
+        "end": 14.945,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.945,
+        "end": 14.95,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 14.95,
+        "end": 15.042,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.042,
+        "end": 15.054,
+        "type": "spacing"
+      },
+      {
+        "text": "next",
+        "start": 15.054,
+        "end": 15.271,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.271,
+        "end": 15.293,
+        "type": "spacing"
+      },
+      {
+        "text": "video,",
+        "start": 15.293,
+        "end": 15.871,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.871,
+        "end": 16.1,
+        "type": "spacing"
+      },
+      {
+        "text": "we",
+        "start": 16.1,
+        "end": 16.3,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.3,
+        "end": 16.331,
+        "type": "spacing"
+      },
+      {
+        "text": "follow",
+        "start": 16.331,
+        "end": 16.699,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.699,
+        "end": 16.731,
+        "type": "spacing"
+      },
+      {
+        "text": "that",
+        "start": 16.731,
+        "end": 16.949,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.949,
+        "end": 16.97,
+        "type": "spacing"
+      },
+      {
+        "text": "gold.",
+        "start": 16.97,
+        "end": 17.413,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.413,
+        "end": 17.77,
+        "type": "spacing"
+      },
+      {
+        "text": "Who's",
+        "start": 17.77,
+        "end": 18.069,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.069,
+        "end": 18.09,
+        "type": "spacing"
+      },
+      {
+        "text": "buying",
+        "start": 18.09,
+        "end": 18.378,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.378,
+        "end": 18.41,
+        "type": "spacing"
+      },
+      {
+        "text": "it,",
+        "start": 18.41,
+        "end": 18.695,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.695,
+        "end": 19.05,
+        "type": "spacing"
+      },
+      {
+        "text": "where",
+        "start": 19.05,
+        "end": 19.239,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.239,
+        "end": 19.25,
+        "type": "spacing"
+      },
+      {
+        "text": "it's",
+        "start": 19.25,
+        "end": 19.456,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.456,
+        "end": 19.46,
+        "type": "spacing"
+      },
+      {
+        "text": "going,",
+        "start": 19.46,
+        "end": 19.969,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.969,
+        "end": 20.18,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 20.18,
+        "end": 20.317,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.317,
+        "end": 20.33,
+        "type": "spacing"
+      },
+      {
+        "text": "what",
+        "start": 20.33,
+        "end": 20.512,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.512,
+        "end": 20.52,
+        "type": "spacing"
+      },
+      {
+        "text": "they're",
+        "start": 20.52,
+        "end": 20.723,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.723,
+        "end": 20.724,
+        "type": "spacing"
+      },
+      {
+        "text": "preparing",
+        "start": 20.724,
+        "end": 21.176,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.176,
+        "end": 21.21,
+        "type": "spacing"
+      },
+      {
+        "text": "for.",
+        "start": 21.21,
+        "end": 21.669,
+        "type": "word"
+      }
+    ],
+    "transcription_id": "e8ff2ce05c6c7a3ca635",
+    "audio_duration_secs": 21.733878
+  }
+]

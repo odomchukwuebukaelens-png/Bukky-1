@@ -1,0 +1,1061 @@
+[
+  {
+    "language_code": "",
+    "language_probability": 1,
+    "text": "But the loop had a dark side. In the nineteen seventies, Western banks were overflowing with petrodollars, and they lent them out, much of it to Latin America. Then, starting in nineteen seventy nine, the U.S. Federal Reserve pushed interest rates sharply higher to crush inflation. At one point they hit around twenty percent. Loans in dollars suddenly became crushing. In August nineteen eighty two, Mexico announced it could no longer pay. Country after country followed, and Latin America fell into what became known as the lost decade.",
+    "words": [
+      {
+        "text": "But",
+        "start": 0.12,
+        "end": 0.284,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.284,
+        "end": 0.3,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 0.3,
+        "end": 0.437,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.437,
+        "end": 0.45,
+        "type": "spacing"
+      },
+      {
+        "text": "loop",
+        "start": 0.45,
+        "end": 0.739,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.739,
+        "end": 0.76,
+        "type": "spacing"
+      },
+      {
+        "text": "had",
+        "start": 0.76,
+        "end": 0.895,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.895,
+        "end": 0.9,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 0.9,
+        "end": 0.99,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.99,
+        "end": 1,
+        "type": "spacing"
+      },
+      {
+        "text": "dark",
+        "start": 1,
+        "end": 1.299,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.299,
+        "end": 1.32,
+        "type": "spacing"
+      },
+      {
+        "text": "side.",
+        "start": 1.32,
+        "end": 1.881,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.881,
+        "end": 2.2,
+        "type": "spacing"
+      },
+      {
+        "text": "In",
+        "start": 2.2,
+        "end": 2.372,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.372,
+        "end": 2.39,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 2.39,
+        "end": 2.509,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.509,
+        "end": 2.52,
+        "type": "spacing"
+      },
+      {
+        "text": "nineteen",
+        "start": 2.52,
+        "end": 2.875,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.875,
+        "end": 2.93,
+        "type": "spacing"
+      },
+      {
+        "text": "seventies,",
+        "start": 2.93,
+        "end": 3.657,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.657,
+        "end": 3.72,
+        "type": "spacing"
+      },
+      {
+        "text": "Western",
+        "start": 3.72,
+        "end": 4.088,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.088,
+        "end": 4.12,
+        "type": "spacing"
+      },
+      {
+        "text": "banks",
+        "start": 4.12,
+        "end": 4.419,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.419,
+        "end": 4.44,
+        "type": "spacing"
+      },
+      {
+        "text": "were",
+        "start": 4.44,
+        "end": 4.659,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.659,
+        "end": 4.68,
+        "type": "spacing"
+      },
+      {
+        "text": "overflowing",
+        "start": 4.68,
+        "end": 5.237,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.237,
+        "end": 5.25,
+        "type": "spacing"
+      },
+      {
+        "text": "with",
+        "start": 5.25,
+        "end": 5.459,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.459,
+        "end": 5.48,
+        "type": "spacing"
+      },
+      {
+        "text": "petrodollars,",
+        "start": 5.48,
+        "end": 6.304,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.304,
+        "end": 6.75,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 6.75,
+        "end": 6.857,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.857,
+        "end": 6.86,
+        "type": "spacing"
+      },
+      {
+        "text": "they",
+        "start": 6.86,
+        "end": 7.059,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.059,
+        "end": 7.08,
+        "type": "spacing"
+      },
+      {
+        "text": "lent",
+        "start": 7.08,
+        "end": 7.255,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.255,
+        "end": 7.26,
+        "type": "spacing"
+      },
+      {
+        "text": "them",
+        "start": 7.26,
+        "end": 7.459,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.459,
+        "end": 7.48,
+        "type": "spacing"
+      },
+      {
+        "text": "out,",
+        "start": 7.48,
+        "end": 7.799,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.799,
+        "end": 8.08,
+        "type": "spacing"
+      },
+      {
+        "text": "much",
+        "start": 8.08,
+        "end": 8.345,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.345,
+        "end": 8.345,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 8.345,
+        "end": 8.422,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.422,
+        "end": 8.43,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 8.43,
+        "end": 8.568,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.568,
+        "end": 8.6,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 8.6,
+        "end": 8.749,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.749,
+        "end": 8.76,
+        "type": "spacing"
+      },
+      {
+        "text": "Latin",
+        "start": 8.76,
+        "end": 8.997,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.997,
+        "end": 9.01,
+        "type": "spacing"
+      },
+      {
+        "text": "America.",
+        "start": 9.01,
+        "end": 9.528,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.528,
+        "end": 10.16,
+        "type": "spacing"
+      },
+      {
+        "text": "Then,",
+        "start": 10.16,
+        "end": 10.777,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.777,
+        "end": 10.84,
+        "type": "spacing"
+      },
+      {
+        "text": "starting",
+        "start": 10.84,
+        "end": 11.171,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.171,
+        "end": 11.19,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 11.19,
+        "end": 11.368,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.368,
+        "end": 11.4,
+        "type": "spacing"
+      },
+      {
+        "text": "nineteen",
+        "start": 11.4,
+        "end": 11.696,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.696,
+        "end": 11.73,
+        "type": "spacing"
+      },
+      {
+        "text": "seventy",
+        "start": 11.73,
+        "end": 12.088,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.088,
+        "end": 12.12,
+        "type": "spacing"
+      },
+      {
+        "text": "nine,",
+        "start": 12.12,
+        "end": 12.555,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.555,
+        "end": 12.84,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 12.84,
+        "end": 13.048,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.048,
+        "end": 13.08,
+        "type": "spacing"
+      },
+      {
+        "text": "U.S.",
+        "start": 13.08,
+        "end": 13.379,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.379,
+        "end": 13.4,
+        "type": "spacing"
+      },
+      {
+        "text": "Federal",
+        "start": 13.4,
+        "end": 13.811,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.811,
+        "end": 13.83,
+        "type": "spacing"
+      },
+      {
+        "text": "Reserve",
+        "start": 13.83,
+        "end": 14.282,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.282,
+        "end": 14.65,
+        "type": "spacing"
+      },
+      {
+        "text": "pushed",
+        "start": 14.65,
+        "end": 14.968,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.968,
+        "end": 15,
+        "type": "spacing"
+      },
+      {
+        "text": "interest",
+        "start": 15,
+        "end": 15.299,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.299,
+        "end": 15.32,
+        "type": "spacing"
+      },
+      {
+        "text": "rates",
+        "start": 15.32,
+        "end": 15.678,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.678,
+        "end": 15.72,
+        "type": "spacing"
+      },
+      {
+        "text": "sharply",
+        "start": 15.72,
+        "end": 16.124,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.124,
+        "end": 16.14,
+        "type": "spacing"
+      },
+      {
+        "text": "higher",
+        "start": 16.14,
+        "end": 16.518,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.518,
+        "end": 16.76,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 16.76,
+        "end": 16.968,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.968,
+        "end": 17,
+        "type": "spacing"
+      },
+      {
+        "text": "crush",
+        "start": 17,
+        "end": 17.288,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.288,
+        "end": 17.32,
+        "type": "spacing"
+      },
+      {
+        "text": "inflation.",
+        "start": 17.32,
+        "end": 18.061,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.061,
+        "end": 18.41,
+        "type": "spacing"
+      },
+      {
+        "text": "At",
+        "start": 18.41,
+        "end": 18.604,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.604,
+        "end": 18.62,
+        "type": "spacing"
+      },
+      {
+        "text": "one",
+        "start": 18.62,
+        "end": 18.808,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.808,
+        "end": 18.84,
+        "type": "spacing"
+      },
+      {
+        "text": "point",
+        "start": 18.84,
+        "end": 19.118,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.118,
+        "end": 19.16,
+        "type": "spacing"
+      },
+      {
+        "text": "they",
+        "start": 19.16,
+        "end": 19.334,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.334,
+        "end": 19.34,
+        "type": "spacing"
+      },
+      {
+        "text": "hit",
+        "start": 19.34,
+        "end": 19.502,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.502,
+        "end": 19.51,
+        "type": "spacing"
+      },
+      {
+        "text": "around",
+        "start": 19.51,
+        "end": 19.848,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.848,
+        "end": 19.88,
+        "type": "spacing"
+      },
+      {
+        "text": "twenty",
+        "start": 19.88,
+        "end": 20.158,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.158,
+        "end": 20.2,
+        "type": "spacing"
+      },
+      {
+        "text": "percent.",
+        "start": 20.2,
+        "end": 20.682,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.682,
+        "end": 21.34,
+        "type": "spacing"
+      },
+      {
+        "text": "Loans",
+        "start": 21.34,
+        "end": 21.758,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.758,
+        "end": 21.8,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 21.8,
+        "end": 21.949,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.949,
+        "end": 21.96,
+        "type": "spacing"
+      },
+      {
+        "text": "dollars",
+        "start": 21.96,
+        "end": 22.307,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.307,
+        "end": 22.36,
+        "type": "spacing"
+      },
+      {
+        "text": "suddenly",
+        "start": 22.36,
+        "end": 22.808,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.808,
+        "end": 22.84,
+        "type": "spacing"
+      },
+      {
+        "text": "became",
+        "start": 22.84,
+        "end": 23.218,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.218,
+        "end": 23.24,
+        "type": "spacing"
+      },
+      {
+        "text": "crushing.",
+        "start": 23.24,
+        "end": 23.937,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.937,
+        "end": 24.36,
+        "type": "spacing"
+      },
+      {
+        "text": "In",
+        "start": 24.36,
+        "end": 24.568,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.568,
+        "end": 24.6,
+        "type": "spacing"
+      },
+      {
+        "text": "August",
+        "start": 24.6,
+        "end": 25.027,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.027,
+        "end": 25.08,
+        "type": "spacing"
+      },
+      {
+        "text": "nineteen",
+        "start": 25.08,
+        "end": 25.368,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.368,
+        "end": 25.4,
+        "type": "spacing"
+      },
+      {
+        "text": "eighty",
+        "start": 25.4,
+        "end": 25.636,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.636,
+        "end": 25.65,
+        "type": "spacing"
+      },
+      {
+        "text": "two,",
+        "start": 25.65,
+        "end": 26.103,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.103,
+        "end": 26.44,
+        "type": "spacing"
+      },
+      {
+        "text": "Mexico",
+        "start": 26.44,
+        "end": 26.888,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.888,
+        "end": 26.92,
+        "type": "spacing"
+      },
+      {
+        "text": "announced",
+        "start": 26.92,
+        "end": 27.331,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.331,
+        "end": 27.35,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 27.35,
+        "end": 27.469,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.469,
+        "end": 27.48,
+        "type": "spacing"
+      },
+      {
+        "text": "could",
+        "start": 27.48,
+        "end": 27.698,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.698,
+        "end": 27.72,
+        "type": "spacing"
+      },
+      {
+        "text": "no",
+        "start": 27.72,
+        "end": 27.82,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.82,
+        "end": 27.82,
+        "type": "spacing"
+      },
+      {
+        "text": "longer",
+        "start": 27.82,
+        "end": 28.168,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.168,
+        "end": 28.2,
+        "type": "spacing"
+      },
+      {
+        "text": "pay.",
+        "start": 28.2,
+        "end": 28.557,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.557,
+        "end": 29.19,
+        "type": "spacing"
+      },
+      {
+        "text": "Country",
+        "start": 29.19,
+        "end": 29.608,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.608,
+        "end": 29.64,
+        "type": "spacing"
+      },
+      {
+        "text": "after",
+        "start": 29.64,
+        "end": 29.928,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.928,
+        "end": 29.96,
+        "type": "spacing"
+      },
+      {
+        "text": "country",
+        "start": 29.96,
+        "end": 30.366,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.366,
+        "end": 30.44,
+        "type": "spacing"
+      },
+      {
+        "text": "followed,",
+        "start": 30.44,
+        "end": 30.943,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.943,
+        "end": 31.33,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 31.33,
+        "end": 31.528,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.528,
+        "end": 31.56,
+        "type": "spacing"
+      },
+      {
+        "text": "Latin",
+        "start": 31.56,
+        "end": 31.876,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.876,
+        "end": 31.89,
+        "type": "spacing"
+      },
+      {
+        "text": "America",
+        "start": 31.89,
+        "end": 32.366,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.366,
+        "end": 32.44,
+        "type": "spacing"
+      },
+      {
+        "text": "fell",
+        "start": 32.44,
+        "end": 32.658,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.658,
+        "end": 32.68,
+        "type": "spacing"
+      },
+      {
+        "text": "into",
+        "start": 32.68,
+        "end": 32.909,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.909,
+        "end": 32.92,
+        "type": "spacing"
+      },
+      {
+        "text": "what",
+        "start": 32.92,
+        "end": 33.109,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.109,
+        "end": 33.12,
+        "type": "spacing"
+      },
+      {
+        "text": "became",
+        "start": 33.12,
+        "end": 33.458,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.458,
+        "end": 33.48,
+        "type": "spacing"
+      },
+      {
+        "text": "known",
+        "start": 33.48,
+        "end": 33.837,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.837,
+        "end": 33.88,
+        "type": "spacing"
+      },
+      {
+        "text": "as",
+        "start": 33.88,
+        "end": 34.043,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.043,
+        "end": 34.06,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 34.06,
+        "end": 34.189,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.189,
+        "end": 34.2,
+        "type": "spacing"
+      },
+      {
+        "text": "lost",
+        "start": 34.2,
+        "end": 34.557,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.557,
+        "end": 34.6,
+        "type": "spacing"
+      },
+      {
+        "text": "decade.",
+        "start": 34.6,
+        "end": 35.225,
+        "type": "word"
+      }
+    ],
+    "transcription_id": "6e8214758583f545bdea",
+    "audio_duration_secs": 35.448163
+  }
+]

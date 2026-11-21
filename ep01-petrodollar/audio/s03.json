@@ -1,0 +1,929 @@
+[
+  {
+    "language_code": "",
+    "language_probability": 1,
+    "text": "So the system they build puts the dollar at the center of everything. The dollar is fixed to gold at thirty five dollars an ounce. The British pound, the French franc, the German mark, and the Japanese yen are all fixed to the dollar. And if a foreign central bank holds dollars, it can hand them back to America and get gold in return. The dollar becomes as good as gold. For about twenty years it works.",
+    "words": [
+      {
+        "text": "So",
+        "start": 0.33,
+        "end": 0.531,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.531,
+        "end": 0.55,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 0.55,
+        "end": 0.728,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.728,
+        "end": 0.76,
+        "type": "spacing"
+      },
+      {
+        "text": "system",
+        "start": 0.76,
+        "end": 1.128,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.128,
+        "end": 1.16,
+        "type": "spacing"
+      },
+      {
+        "text": "they",
+        "start": 1.16,
+        "end": 1.322,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.322,
+        "end": 1.33,
+        "type": "spacing"
+      },
+      {
+        "text": "build",
+        "start": 1.33,
+        "end": 1.597,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.597,
+        "end": 1.64,
+        "type": "spacing"
+      },
+      {
+        "text": "puts",
+        "start": 1.64,
+        "end": 1.948,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.948,
+        "end": 1.96,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 1.96,
+        "end": 2.103,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.103,
+        "end": 2.115,
+        "type": "spacing"
+      },
+      {
+        "text": "dollar",
+        "start": 2.115,
+        "end": 2.401,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.401,
+        "end": 2.434,
+        "type": "spacing"
+      },
+      {
+        "text": "at",
+        "start": 2.434,
+        "end": 2.565,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.565,
+        "end": 2.57,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 2.57,
+        "end": 2.667,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.667,
+        "end": 2.68,
+        "type": "spacing"
+      },
+      {
+        "text": "center",
+        "start": 2.68,
+        "end": 2.972,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.972,
+        "end": 2.98,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 2.98,
+        "end": 3.104,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.104,
+        "end": 3.13,
+        "type": "spacing"
+      },
+      {
+        "text": "everything.",
+        "start": 3.13,
+        "end": 3.709,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.709,
+        "end": 4.03,
+        "type": "spacing"
+      },
+      {
+        "text": "The",
+        "start": 4.03,
+        "end": 4.239,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.239,
+        "end": 4.27,
+        "type": "spacing"
+      },
+      {
+        "text": "dollar",
+        "start": 4.27,
+        "end": 4.558,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.558,
+        "end": 4.59,
+        "type": "spacing"
+      },
+      {
+        "text": "is",
+        "start": 4.59,
+        "end": 4.747,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.747,
+        "end": 4.76,
+        "type": "spacing"
+      },
+      {
+        "text": "fixed",
+        "start": 4.76,
+        "end": 5.059,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.059,
+        "end": 5.07,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 5.07,
+        "end": 5.214,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.214,
+        "end": 5.23,
+        "type": "spacing"
+      },
+      {
+        "text": "gold",
+        "start": 5.23,
+        "end": 5.684,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.684,
+        "end": 5.79,
+        "type": "spacing"
+      },
+      {
+        "text": "at",
+        "start": 5.79,
+        "end": 5.946,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.946,
+        "end": 5.96,
+        "type": "spacing"
+      },
+      {
+        "text": "thirty",
+        "start": 5.96,
+        "end": 6.257,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.257,
+        "end": 6.27,
+        "type": "spacing"
+      },
+      {
+        "text": "five",
+        "start": 6.27,
+        "end": 6.541,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.541,
+        "end": 6.584,
+        "type": "spacing"
+      },
+      {
+        "text": "dollars",
+        "start": 6.584,
+        "end": 6.839,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.839,
+        "end": 6.86,
+        "type": "spacing"
+      },
+      {
+        "text": "an",
+        "start": 6.86,
+        "end": 6.984,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.984,
+        "end": 7,
+        "type": "spacing"
+      },
+      {
+        "text": "ounce.",
+        "start": 7,
+        "end": 7.445,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.445,
+        "end": 7.781,
+        "type": "spacing"
+      },
+      {
+        "text": "The",
+        "start": 7.781,
+        "end": 7.944,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.944,
+        "end": 7.96,
+        "type": "spacing"
+      },
+      {
+        "text": "British",
+        "start": 7.96,
+        "end": 8.319,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.319,
+        "end": 8.34,
+        "type": "spacing"
+      },
+      {
+        "text": "pound,",
+        "start": 8.34,
+        "end": 8.907,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.907,
+        "end": 8.91,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 8.91,
+        "end": 9.056,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.056,
+        "end": 9.07,
+        "type": "spacing"
+      },
+      {
+        "text": "French",
+        "start": 9.07,
+        "end": 9.438,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.438,
+        "end": 9.46,
+        "type": "spacing"
+      },
+      {
+        "text": "franc,",
+        "start": 9.46,
+        "end": 10.078,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.078,
+        "end": 10.1,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 10.1,
+        "end": 10.243,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.243,
+        "end": 10.255,
+        "type": "spacing"
+      },
+      {
+        "text": "German",
+        "start": 10.255,
+        "end": 10.621,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.621,
+        "end": 10.654,
+        "type": "spacing"
+      },
+      {
+        "text": "mark,",
+        "start": 10.654,
+        "end": 10.983,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.983,
+        "end": 10.983,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 10.983,
+        "end": 11.097,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.097,
+        "end": 11.1,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 11.1,
+        "end": 11.201,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.201,
+        "end": 11.212,
+        "type": "spacing"
+      },
+      {
+        "text": "Japanese",
+        "start": 11.212,
+        "end": 11.718,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.718,
+        "end": 11.771,
+        "type": "spacing"
+      },
+      {
+        "text": "yen",
+        "start": 11.771,
+        "end": 12.225,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.225,
+        "end": 12.33,
+        "type": "spacing"
+      },
+      {
+        "text": "are",
+        "start": 12.33,
+        "end": 12.538,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.538,
+        "end": 12.57,
+        "type": "spacing"
+      },
+      {
+        "text": "all",
+        "start": 12.57,
+        "end": 12.837,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.837,
+        "end": 12.89,
+        "type": "spacing"
+      },
+      {
+        "text": "fixed",
+        "start": 12.89,
+        "end": 13.126,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.126,
+        "end": 13.14,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 13.14,
+        "end": 13.286,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.286,
+        "end": 13.3,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 13.3,
+        "end": 13.439,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.439,
+        "end": 13.45,
+        "type": "spacing"
+      },
+      {
+        "text": "dollar.",
+        "start": 13.45,
+        "end": 13.935,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.935,
+        "end": 14.245,
+        "type": "spacing"
+      },
+      {
+        "text": "And",
+        "start": 14.245,
+        "end": 14.367,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.367,
+        "end": 14.37,
+        "type": "spacing"
+      },
+      {
+        "text": "if",
+        "start": 14.37,
+        "end": 14.477,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.477,
+        "end": 14.49,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 14.49,
+        "end": 14.632,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.632,
+        "end": 14.644,
+        "type": "spacing"
+      },
+      {
+        "text": "foreign",
+        "start": 14.644,
+        "end": 15.011,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.011,
+        "end": 15.043,
+        "type": "spacing"
+      },
+      {
+        "text": "central",
+        "start": 15.043,
+        "end": 15.364,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.364,
+        "end": 15.38,
+        "type": "spacing"
+      },
+      {
+        "text": "bank",
+        "start": 15.38,
+        "end": 15.719,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.719,
+        "end": 15.761,
+        "type": "spacing"
+      },
+      {
+        "text": "holds",
+        "start": 15.761,
+        "end": 16.049,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.049,
+        "end": 16.08,
+        "type": "spacing"
+      },
+      {
+        "text": "dollars,",
+        "start": 16.08,
+        "end": 16.838,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.838,
+        "end": 16.88,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 16.88,
+        "end": 17,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17,
+        "end": 17,
+        "type": "spacing"
+      },
+      {
+        "text": "can",
+        "start": 17,
+        "end": 17.168,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.168,
+        "end": 17.2,
+        "type": "spacing"
+      },
+      {
+        "text": "hand",
+        "start": 17.2,
+        "end": 17.374,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.374,
+        "end": 17.38,
+        "type": "spacing"
+      },
+      {
+        "text": "them",
+        "start": 17.38,
+        "end": 17.578,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.578,
+        "end": 17.6,
+        "type": "spacing"
+      },
+      {
+        "text": "back",
+        "start": 17.6,
+        "end": 17.818,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.818,
+        "end": 17.84,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 17.84,
+        "end": 17.988,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.988,
+        "end": 18,
+        "type": "spacing"
+      },
+      {
+        "text": "America",
+        "start": 18,
+        "end": 18.717,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.717,
+        "end": 18.873,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 18.873,
+        "end": 18.973,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.973,
+        "end": 18.973,
+        "type": "spacing"
+      },
+      {
+        "text": "get",
+        "start": 18.973,
+        "end": 19.219,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.219,
+        "end": 19.272,
+        "type": "spacing"
+      },
+      {
+        "text": "gold",
+        "start": 19.272,
+        "end": 19.549,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.549,
+        "end": 19.592,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 19.592,
+        "end": 19.702,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.702,
+        "end": 19.71,
+        "type": "spacing"
+      },
+      {
+        "text": "return.",
+        "start": 19.71,
+        "end": 20.428,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.428,
+        "end": 20.79,
+        "type": "spacing"
+      },
+      {
+        "text": "The",
+        "start": 20.79,
+        "end": 20.97,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.97,
+        "end": 21.03,
+        "type": "spacing"
+      },
+      {
+        "text": "dollar",
+        "start": 21.03,
+        "end": 21.318,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.318,
+        "end": 21.35,
+        "type": "spacing"
+      },
+      {
+        "text": "becomes",
+        "start": 21.35,
+        "end": 21.728,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.728,
+        "end": 21.75,
+        "type": "spacing"
+      },
+      {
+        "text": "as",
+        "start": 21.75,
+        "end": 21.853,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.853,
+        "end": 21.853,
+        "type": "spacing"
+      },
+      {
+        "text": "good",
+        "start": 21.853,
+        "end": 22.076,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.076,
+        "end": 22.08,
+        "type": "spacing"
+      },
+      {
+        "text": "as",
+        "start": 22.08,
+        "end": 22.277,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.277,
+        "end": 22.31,
+        "type": "spacing"
+      },
+      {
+        "text": "gold.",
+        "start": 22.31,
+        "end": 22.794,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.794,
+        "end": 23.103,
+        "type": "spacing"
+      },
+      {
+        "text": "For",
+        "start": 23.103,
+        "end": 23.264,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.264,
+        "end": 23.28,
+        "type": "spacing"
+      },
+      {
+        "text": "about",
+        "start": 23.28,
+        "end": 23.56,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.56,
+        "end": 23.582,
+        "type": "spacing"
+      },
+      {
+        "text": "twenty",
+        "start": 23.582,
+        "end": 23.939,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.939,
+        "end": 23.981,
+        "type": "spacing"
+      },
+      {
+        "text": "years",
+        "start": 23.981,
+        "end": 24.317,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.317,
+        "end": 24.38,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 24.38,
+        "end": 24.529,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.529,
+        "end": 24.54,
+        "type": "spacing"
+      },
+      {
+        "text": "works.",
+        "start": 24.54,
+        "end": 25.065,
+        "type": "word"
+      }
+    ],
+    "transcription_id": "f4dbac81c2ec003043cc",
+    "audio_duration_secs": 25.469388
+  }
+]

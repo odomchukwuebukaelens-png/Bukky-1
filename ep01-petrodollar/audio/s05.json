@@ -1,0 +1,1157 @@
+[
+  {
+    "language_code": "",
+    "language_probability": 1,
+    "text": "By the summer of nineteen seventy one, there are far more dollars abroad than gold left to cover them. So on the evening of August fifteenth, President Richard Nixon goes on live television and announces that foreign governments can no longer swap their dollars for gold. He calls it temporary. It never comes back. Overnight, the world's main currency is backed by nothing but trust in the United States. They call it the Nixon shock, and it raises a dangerous question. If the dollar isn't tied to gold anymore, why should the world keep holding it?",
+    "words": [
+      {
+        "text": "By",
+        "start": 0.19,
+        "end": 0.372,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.372,
+        "end": 0.39,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 0.39,
+        "end": 0.51,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.51,
+        "end": 0.52,
+        "type": "spacing"
+      },
+      {
+        "text": "summer",
+        "start": 0.52,
+        "end": 0.837,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.837,
+        "end": 0.85,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 0.85,
+        "end": 1.049,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.049,
+        "end": 1.08,
+        "type": "spacing"
+      },
+      {
+        "text": "nineteen",
+        "start": 1.08,
+        "end": 1.428,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.428,
+        "end": 1.48,
+        "type": "spacing"
+      },
+      {
+        "text": "seventy",
+        "start": 1.48,
+        "end": 1.769,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.769,
+        "end": 1.8,
+        "type": "spacing"
+      },
+      {
+        "text": "one,",
+        "start": 1.8,
+        "end": 2.286,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.286,
+        "end": 2.66,
+        "type": "spacing"
+      },
+      {
+        "text": "there",
+        "start": 2.66,
+        "end": 2.862,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.862,
+        "end": 2.87,
+        "type": "spacing"
+      },
+      {
+        "text": "are",
+        "start": 2.87,
+        "end": 3.049,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.049,
+        "end": 3.08,
+        "type": "spacing"
+      },
+      {
+        "text": "far",
+        "start": 3.08,
+        "end": 3.288,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.288,
+        "end": 3.32,
+        "type": "spacing"
+      },
+      {
+        "text": "more",
+        "start": 3.32,
+        "end": 3.598,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.598,
+        "end": 3.64,
+        "type": "spacing"
+      },
+      {
+        "text": "dollars",
+        "start": 3.64,
+        "end": 3.943,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.943,
+        "end": 3.98,
+        "type": "spacing"
+      },
+      {
+        "text": "abroad",
+        "start": 3.98,
+        "end": 4.398,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.398,
+        "end": 4.44,
+        "type": "spacing"
+      },
+      {
+        "text": "than",
+        "start": 4.44,
+        "end": 4.659,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.659,
+        "end": 4.68,
+        "type": "spacing"
+      },
+      {
+        "text": "gold",
+        "start": 4.68,
+        "end": 5.038,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.038,
+        "end": 5.08,
+        "type": "spacing"
+      },
+      {
+        "text": "left",
+        "start": 5.08,
+        "end": 5.299,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.299,
+        "end": 5.32,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 5.32,
+        "end": 5.432,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.432,
+        "end": 5.432,
+        "type": "spacing"
+      },
+      {
+        "text": "cover",
+        "start": 5.432,
+        "end": 5.687,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.687,
+        "end": 5.69,
+        "type": "spacing"
+      },
+      {
+        "text": "them.",
+        "start": 5.69,
+        "end": 5.932,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.932,
+        "end": 6.28,
+        "type": "spacing"
+      },
+      {
+        "text": "So",
+        "start": 6.28,
+        "end": 6.488,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.488,
+        "end": 6.52,
+        "type": "spacing"
+      },
+      {
+        "text": "on",
+        "start": 6.52,
+        "end": 6.647,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.647,
+        "end": 6.65,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 6.65,
+        "end": 6.808,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.808,
+        "end": 6.84,
+        "type": "spacing"
+      },
+      {
+        "text": "evening",
+        "start": 6.84,
+        "end": 7.164,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.164,
+        "end": 7.18,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 7.18,
+        "end": 7.368,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.368,
+        "end": 7.4,
+        "type": "spacing"
+      },
+      {
+        "text": "August",
+        "start": 7.4,
+        "end": 7.688,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.688,
+        "end": 7.72,
+        "type": "spacing"
+      },
+      {
+        "text": "fifteenth,",
+        "start": 7.72,
+        "end": 8.453,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.453,
+        "end": 8.87,
+        "type": "spacing"
+      },
+      {
+        "text": "President",
+        "start": 8.87,
+        "end": 9.368,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.368,
+        "end": 9.4,
+        "type": "spacing"
+      },
+      {
+        "text": "Richard",
+        "start": 9.4,
+        "end": 9.688,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.688,
+        "end": 9.72,
+        "type": "spacing"
+      },
+      {
+        "text": "Nixon",
+        "start": 9.72,
+        "end": 10.168,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.168,
+        "end": 10.2,
+        "type": "spacing"
+      },
+      {
+        "text": "goes",
+        "start": 10.2,
+        "end": 10.419,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.419,
+        "end": 10.44,
+        "type": "spacing"
+      },
+      {
+        "text": "on",
+        "start": 10.44,
+        "end": 10.648,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.648,
+        "end": 10.68,
+        "type": "spacing"
+      },
+      {
+        "text": "live",
+        "start": 10.68,
+        "end": 10.958,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.958,
+        "end": 11,
+        "type": "spacing"
+      },
+      {
+        "text": "television",
+        "start": 11,
+        "end": 11.573,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.573,
+        "end": 11.93,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 11.93,
+        "end": 12.072,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.072,
+        "end": 12.072,
+        "type": "spacing"
+      },
+      {
+        "text": "announces",
+        "start": 12.072,
+        "end": 12.568,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.568,
+        "end": 12.6,
+        "type": "spacing"
+      },
+      {
+        "text": "that",
+        "start": 12.6,
+        "end": 12.878,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.878,
+        "end": 12.92,
+        "type": "spacing"
+      },
+      {
+        "text": "foreign",
+        "start": 12.92,
+        "end": 13.208,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.208,
+        "end": 13.24,
+        "type": "spacing"
+      },
+      {
+        "text": "governments",
+        "start": 13.24,
+        "end": 13.787,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.787,
+        "end": 14.16,
+        "type": "spacing"
+      },
+      {
+        "text": "can",
+        "start": 14.16,
+        "end": 14.408,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.408,
+        "end": 14.44,
+        "type": "spacing"
+      },
+      {
+        "text": "no",
+        "start": 14.44,
+        "end": 14.597,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.597,
+        "end": 14.61,
+        "type": "spacing"
+      },
+      {
+        "text": "longer",
+        "start": 14.61,
+        "end": 14.968,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.968,
+        "end": 15,
+        "type": "spacing"
+      },
+      {
+        "text": "swap",
+        "start": 15,
+        "end": 15.358,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.358,
+        "end": 15.4,
+        "type": "spacing"
+      },
+      {
+        "text": "their",
+        "start": 15.4,
+        "end": 15.619,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.619,
+        "end": 15.64,
+        "type": "spacing"
+      },
+      {
+        "text": "dollars",
+        "start": 15.64,
+        "end": 15.987,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.987,
+        "end": 16.04,
+        "type": "spacing"
+      },
+      {
+        "text": "for",
+        "start": 16.04,
+        "end": 16.189,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.189,
+        "end": 16.2,
+        "type": "spacing"
+      },
+      {
+        "text": "gold.",
+        "start": 16.2,
+        "end": 16.798,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.798,
+        "end": 17.07,
+        "type": "spacing"
+      },
+      {
+        "text": "He",
+        "start": 17.07,
+        "end": 17.229,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.229,
+        "end": 17.24,
+        "type": "spacing"
+      },
+      {
+        "text": "calls",
+        "start": 17.24,
+        "end": 17.512,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.512,
+        "end": 17.512,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 17.512,
+        "end": 17.747,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.747,
+        "end": 17.8,
+        "type": "spacing"
+      },
+      {
+        "text": "temporary.",
+        "start": 17.8,
+        "end": 18.585,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.585,
+        "end": 18.92,
+        "type": "spacing"
+      },
+      {
+        "text": "It",
+        "start": 18.92,
+        "end": 19.128,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.128,
+        "end": 19.16,
+        "type": "spacing"
+      },
+      {
+        "text": "never",
+        "start": 19.16,
+        "end": 19.448,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.448,
+        "end": 19.48,
+        "type": "spacing"
+      },
+      {
+        "text": "comes",
+        "start": 19.48,
+        "end": 19.758,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.758,
+        "end": 19.8,
+        "type": "spacing"
+      },
+      {
+        "text": "back.",
+        "start": 19.8,
+        "end": 20.191,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.191,
+        "end": 20.46,
+        "type": "spacing"
+      },
+      {
+        "text": "Overnight,",
+        "start": 20.46,
+        "end": 21.298,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.298,
+        "end": 21.32,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 21.32,
+        "end": 21.491,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.491,
+        "end": 21.51,
+        "type": "spacing"
+      },
+      {
+        "text": "world's",
+        "start": 21.51,
+        "end": 21.949,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.949,
+        "end": 21.96,
+        "type": "spacing"
+      },
+      {
+        "text": "main",
+        "start": 21.96,
+        "end": 22.237,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.237,
+        "end": 22.28,
+        "type": "spacing"
+      },
+      {
+        "text": "currency",
+        "start": 22.28,
+        "end": 22.846,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.846,
+        "end": 22.92,
+        "type": "spacing"
+      },
+      {
+        "text": "is",
+        "start": 22.92,
+        "end": 23.128,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.128,
+        "end": 23.16,
+        "type": "spacing"
+      },
+      {
+        "text": "backed",
+        "start": 23.16,
+        "end": 23.448,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.448,
+        "end": 23.48,
+        "type": "spacing"
+      },
+      {
+        "text": "by",
+        "start": 23.48,
+        "end": 23.688,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.688,
+        "end": 23.72,
+        "type": "spacing"
+      },
+      {
+        "text": "nothing",
+        "start": 23.72,
+        "end": 24.008,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.008,
+        "end": 24.04,
+        "type": "spacing"
+      },
+      {
+        "text": "but",
+        "start": 24.04,
+        "end": 24.248,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.248,
+        "end": 24.28,
+        "type": "spacing"
+      },
+      {
+        "text": "trust",
+        "start": 24.28,
+        "end": 24.637,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.637,
+        "end": 24.68,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 24.68,
+        "end": 24.814,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.814,
+        "end": 24.82,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 24.82,
+        "end": 24.909,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.909,
+        "end": 24.92,
+        "type": "spacing"
+      },
+      {
+        "text": "United",
+        "start": 24.92,
+        "end": 25.368,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.368,
+        "end": 25.4,
+        "type": "spacing"
+      },
+      {
+        "text": "States.",
+        "start": 25.4,
+        "end": 25.871,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.871,
+        "end": 26.28,
+        "type": "spacing"
+      },
+      {
+        "text": "They",
+        "start": 26.28,
+        "end": 26.512,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.512,
+        "end": 26.52,
+        "type": "spacing"
+      },
+      {
+        "text": "call",
+        "start": 26.52,
+        "end": 26.738,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.738,
+        "end": 26.76,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 26.76,
+        "end": 26.931,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.931,
+        "end": 26.95,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 26.95,
+        "end": 27.076,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.076,
+        "end": 27.09,
+        "type": "spacing"
+      },
+      {
+        "text": "Nixon",
+        "start": 27.09,
+        "end": 27.528,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.528,
+        "end": 27.56,
+        "type": "spacing"
+      },
+      {
+        "text": "shock,",
+        "start": 27.56,
+        "end": 28.045,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.045,
+        "end": 28.28,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 28.28,
+        "end": 28.333,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.333,
+        "end": 28.333,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 28.333,
+        "end": 28.568,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.568,
+        "end": 28.6,
+        "type": "spacing"
+      },
+      {
+        "text": "raises",
+        "start": 28.6,
+        "end": 28.968,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.968,
+        "end": 29,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 29,
+        "end": 29.208,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.208,
+        "end": 29.24,
+        "type": "spacing"
+      },
+      {
+        "text": "dangerous",
+        "start": 29.24,
+        "end": 29.688,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.688,
+        "end": 29.72,
+        "type": "spacing"
+      },
+      {
+        "text": "question.",
+        "start": 29.72,
+        "end": 30.278,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.278,
+        "end": 30.6,
+        "type": "spacing"
+      },
+      {
+        "text": "If",
+        "start": 30.6,
+        "end": 30.808,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.808,
+        "end": 30.84,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 30.84,
+        "end": 30.996,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.996,
+        "end": 31.01,
+        "type": "spacing"
+      },
+      {
+        "text": "dollar",
+        "start": 31.01,
+        "end": 31.375,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.375,
+        "end": 31.41,
+        "type": "spacing"
+      },
+      {
+        "text": "isn't",
+        "start": 31.41,
+        "end": 31.719,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.719,
+        "end": 31.72,
+        "type": "spacing"
+      },
+      {
+        "text": "tied",
+        "start": 31.72,
+        "end": 32.018,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.018,
+        "end": 32.04,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 32.04,
+        "end": 32.187,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.187,
+        "end": 32.2,
+        "type": "spacing"
+      },
+      {
+        "text": "gold",
+        "start": 32.2,
+        "end": 32.536,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.536,
+        "end": 32.6,
+        "type": "spacing"
+      },
+      {
+        "text": "anymore,",
+        "start": 32.6,
+        "end": 33.114,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.114,
+        "end": 33.36,
+        "type": "spacing"
+      },
+      {
+        "text": "why",
+        "start": 33.36,
+        "end": 33.608,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.608,
+        "end": 33.64,
+        "type": "spacing"
+      },
+      {
+        "text": "should",
+        "start": 33.64,
+        "end": 33.882,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.882,
+        "end": 33.89,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 33.89,
+        "end": 33.992,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.992,
+        "end": 34,
+        "type": "spacing"
+      },
+      {
+        "text": "world",
+        "start": 34,
+        "end": 34.258,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.258,
+        "end": 34.28,
+        "type": "spacing"
+      },
+      {
+        "text": "keep",
+        "start": 34.28,
+        "end": 34.578,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.578,
+        "end": 34.6,
+        "type": "spacing"
+      },
+      {
+        "text": "holding",
+        "start": 34.6,
+        "end": 34.888,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.888,
+        "end": 34.92,
+        "type": "spacing"
+      },
+      {
+        "text": "it?",
+        "start": 34.92,
+        "end": 35.225,
+        "type": "word"
+      }
+    ],
+    "transcription_id": "0494adeb16b87b29d8c9",
+    "audio_duration_secs": 35.448163
+  }
+]

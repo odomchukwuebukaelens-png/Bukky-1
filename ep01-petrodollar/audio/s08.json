@@ -1,0 +1,809 @@
+[
+  {
+    "language_code": "",
+    "language_probability": 1,
+    "text": "The most sensitive part, the Saudi purchases of American debt, was kept quiet. For more than four decades, the Treasury hid exactly how much Saudi Arabia held, by lumping it together with other oil exporters. The number only came out in twenty sixteen, after a news investigation and a records request. By then, the kingdom held over one hundred and sixteen billion dollars of U.S. government debt.",
+    "words": [
+      {
+        "text": "The",
+        "start": 0.18,
+        "end": 0.35,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.35,
+        "end": 0.36,
+        "type": "spacing"
+      },
+      {
+        "text": "most",
+        "start": 0.36,
+        "end": 0.579,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.579,
+        "end": 0.6,
+        "type": "spacing"
+      },
+      {
+        "text": "sensitive",
+        "start": 0.6,
+        "end": 1.049,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.049,
+        "end": 1.08,
+        "type": "spacing"
+      },
+      {
+        "text": "part,",
+        "start": 1.08,
+        "end": 1.619,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.619,
+        "end": 1.64,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 1.64,
+        "end": 1.804,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.804,
+        "end": 1.82,
+        "type": "spacing"
+      },
+      {
+        "text": "Saudi",
+        "start": 1.82,
+        "end": 2.169,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.169,
+        "end": 2.2,
+        "type": "spacing"
+      },
+      {
+        "text": "purchases",
+        "start": 2.2,
+        "end": 2.684,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.684,
+        "end": 2.7,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 2.7,
+        "end": 2.829,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.829,
+        "end": 2.84,
+        "type": "spacing"
+      },
+      {
+        "text": "American",
+        "start": 2.84,
+        "end": 3.368,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.368,
+        "end": 3.4,
+        "type": "spacing"
+      },
+      {
+        "text": "debt,",
+        "start": 3.4,
+        "end": 3.821,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.821,
+        "end": 3.821,
+        "type": "spacing"
+      },
+      {
+        "text": "was",
+        "start": 3.821,
+        "end": 4.008,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.008,
+        "end": 4.04,
+        "type": "spacing"
+      },
+      {
+        "text": "kept",
+        "start": 4.04,
+        "end": 4.318,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.318,
+        "end": 4.36,
+        "type": "spacing"
+      },
+      {
+        "text": "quiet.",
+        "start": 4.36,
+        "end": 4.876,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.876,
+        "end": 5.31,
+        "type": "spacing"
+      },
+      {
+        "text": "For",
+        "start": 5.31,
+        "end": 5.484,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.484,
+        "end": 5.5,
+        "type": "spacing"
+      },
+      {
+        "text": "more",
+        "start": 5.5,
+        "end": 5.655,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.655,
+        "end": 5.66,
+        "type": "spacing"
+      },
+      {
+        "text": "than",
+        "start": 5.66,
+        "end": 5.829,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.829,
+        "end": 5.84,
+        "type": "spacing"
+      },
+      {
+        "text": "four",
+        "start": 5.84,
+        "end": 6.099,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.099,
+        "end": 6.12,
+        "type": "spacing"
+      },
+      {
+        "text": "decades,",
+        "start": 6.12,
+        "end": 6.885,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.885,
+        "end": 6.93,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 6.93,
+        "end": 7.069,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.069,
+        "end": 7.08,
+        "type": "spacing"
+      },
+      {
+        "text": "Treasury",
+        "start": 7.08,
+        "end": 7.528,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.528,
+        "end": 7.56,
+        "type": "spacing"
+      },
+      {
+        "text": "hid",
+        "start": 7.56,
+        "end": 7.779,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.779,
+        "end": 7.8,
+        "type": "spacing"
+      },
+      {
+        "text": "exactly",
+        "start": 7.8,
+        "end": 8.328,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.328,
+        "end": 8.36,
+        "type": "spacing"
+      },
+      {
+        "text": "how",
+        "start": 8.36,
+        "end": 8.509,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.509,
+        "end": 8.52,
+        "type": "spacing"
+      },
+      {
+        "text": "much",
+        "start": 8.52,
+        "end": 8.739,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.739,
+        "end": 8.76,
+        "type": "spacing"
+      },
+      {
+        "text": "Saudi",
+        "start": 8.76,
+        "end": 9.084,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.084,
+        "end": 9.1,
+        "type": "spacing"
+      },
+      {
+        "text": "Arabia",
+        "start": 9.1,
+        "end": 9.587,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.587,
+        "end": 9.64,
+        "type": "spacing"
+      },
+      {
+        "text": "held,",
+        "start": 9.64,
+        "end": 10.046,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.046,
+        "end": 10.44,
+        "type": "spacing"
+      },
+      {
+        "text": "by",
+        "start": 10.44,
+        "end": 10.648,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.648,
+        "end": 10.68,
+        "type": "spacing"
+      },
+      {
+        "text": "lumping",
+        "start": 10.68,
+        "end": 10.996,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.996,
+        "end": 11.01,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 11.01,
+        "end": 11.156,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.156,
+        "end": 11.17,
+        "type": "spacing"
+      },
+      {
+        "text": "together",
+        "start": 11.17,
+        "end": 11.556,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.556,
+        "end": 11.57,
+        "type": "spacing"
+      },
+      {
+        "text": "with",
+        "start": 11.57,
+        "end": 11.742,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.742,
+        "end": 11.75,
+        "type": "spacing"
+      },
+      {
+        "text": "other",
+        "start": 11.75,
+        "end": 12.008,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.008,
+        "end": 12.04,
+        "type": "spacing"
+      },
+      {
+        "text": "oil",
+        "start": 12.04,
+        "end": 12.325,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.325,
+        "end": 12.37,
+        "type": "spacing"
+      },
+      {
+        "text": "exporters.",
+        "start": 12.37,
+        "end": 13.002,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.002,
+        "end": 13.54,
+        "type": "spacing"
+      },
+      {
+        "text": "The",
+        "start": 13.54,
+        "end": 13.665,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.665,
+        "end": 13.665,
+        "type": "spacing"
+      },
+      {
+        "text": "number",
+        "start": 13.665,
+        "end": 14.008,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.008,
+        "end": 14.04,
+        "type": "spacing"
+      },
+      {
+        "text": "only",
+        "start": 14.04,
+        "end": 14.328,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.328,
+        "end": 14.36,
+        "type": "spacing"
+      },
+      {
+        "text": "came",
+        "start": 14.36,
+        "end": 14.542,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.542,
+        "end": 14.55,
+        "type": "spacing"
+      },
+      {
+        "text": "out",
+        "start": 14.55,
+        "end": 14.728,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.728,
+        "end": 14.76,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 14.76,
+        "end": 14.916,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.916,
+        "end": 14.93,
+        "type": "spacing"
+      },
+      {
+        "text": "twenty",
+        "start": 14.93,
+        "end": 15.198,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.198,
+        "end": 15.24,
+        "type": "spacing"
+      },
+      {
+        "text": "sixteen,",
+        "start": 15.24,
+        "end": 15.915,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.915,
+        "end": 16.28,
+        "type": "spacing"
+      },
+      {
+        "text": "after",
+        "start": 16.28,
+        "end": 16.516,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.516,
+        "end": 16.53,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 16.53,
+        "end": 16.654,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.654,
+        "end": 16.66,
+        "type": "spacing"
+      },
+      {
+        "text": "news",
+        "start": 16.66,
+        "end": 16.917,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.917,
+        "end": 16.92,
+        "type": "spacing"
+      },
+      {
+        "text": "investigation",
+        "start": 16.92,
+        "end": 17.865,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.865,
+        "end": 17.96,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 17.96,
+        "end": 18.116,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.116,
+        "end": 18.13,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 18.13,
+        "end": 18.269,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.269,
+        "end": 18.28,
+        "type": "spacing"
+      },
+      {
+        "text": "records",
+        "start": 18.28,
+        "end": 18.648,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.648,
+        "end": 18.68,
+        "type": "spacing"
+      },
+      {
+        "text": "request.",
+        "start": 18.68,
+        "end": 19.303,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.303,
+        "end": 19.64,
+        "type": "spacing"
+      },
+      {
+        "text": "By",
+        "start": 19.64,
+        "end": 19.848,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.848,
+        "end": 19.88,
+        "type": "spacing"
+      },
+      {
+        "text": "then,",
+        "start": 19.88,
+        "end": 20.397,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.397,
+        "end": 20.44,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 20.44,
+        "end": 20.589,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.589,
+        "end": 20.6,
+        "type": "spacing"
+      },
+      {
+        "text": "kingdom",
+        "start": 20.6,
+        "end": 20.968,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.968,
+        "end": 21,
+        "type": "spacing"
+      },
+      {
+        "text": "held",
+        "start": 21,
+        "end": 21.218,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.218,
+        "end": 21.24,
+        "type": "spacing"
+      },
+      {
+        "text": "over",
+        "start": 21.24,
+        "end": 21.528,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.528,
+        "end": 21.56,
+        "type": "spacing"
+      },
+      {
+        "text": "one",
+        "start": 21.56,
+        "end": 21.709,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.709,
+        "end": 21.72,
+        "type": "spacing"
+      },
+      {
+        "text": "hundred",
+        "start": 21.72,
+        "end": 22.022,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.022,
+        "end": 22.06,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 22.06,
+        "end": 22.248,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.248,
+        "end": 22.28,
+        "type": "spacing"
+      },
+      {
+        "text": "sixteen",
+        "start": 22.28,
+        "end": 22.707,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.707,
+        "end": 22.76,
+        "type": "spacing"
+      },
+      {
+        "text": "billion",
+        "start": 22.76,
+        "end": 23.187,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.187,
+        "end": 23.24,
+        "type": "spacing"
+      },
+      {
+        "text": "dollars",
+        "start": 23.24,
+        "end": 23.587,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.587,
+        "end": 23.64,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 23.64,
+        "end": 23.803,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.803,
+        "end": 23.82,
+        "type": "spacing"
+      },
+      {
+        "text": "U.S.",
+        "start": 23.82,
+        "end": 24.157,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.157,
+        "end": 24.2,
+        "type": "spacing"
+      },
+      {
+        "text": "government",
+        "start": 24.2,
+        "end": 24.648,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.648,
+        "end": 24.68,
+        "type": "spacing"
+      },
+      {
+        "text": "debt.",
+        "start": 24.68,
+        "end": 25.057,
+        "type": "word"
+      }
+    ],
+    "transcription_id": "b864ee9f233d1e6220e4",
+    "audio_duration_secs": 25.208163
+  }
+]
