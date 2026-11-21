@@ -2,7 +2,7 @@
 yellow line-art victim, white line-art threat from the right. Usage: python3 thumbs.py video02"""
 import math, os, sys
 import skia
-from engine import C, Pen, font, FONTS, W, H
+from engine import C, Pen, font, FONTS, W, H, music_note
 
 YEL, BLK, WHT = "#FFE000", "#000000", "#FFFFFF"
 OUT = 12  # outline weight
@@ -83,7 +83,48 @@ def video02(pen):
     dog(pen, 250, 1060, 1.05, 0.4, facing=1, head_turn=0.7, tail=-1, ears=0.5)
     pen.mood = "normal"
 
-THUMBS = {"video02": video02}
+
+def video03(pen):
+    c = pen.c; c.clear(C(BLK))
+    heavy(pen, "DON'T BUY", 50, 190, 150, WHT)
+    heavy(pen, "ANYTHING", 40, 420, 205, YEL)
+    # threat: the truck (white line art) on the right, dark serving window with a grinning face, long arm with a cone
+    pen.rect(1250, 470, 700, 520, stroke=WHT, w=12, r=20)
+    pen.rect(1300, 540, 380, 260, fill=BLK, stroke=WHT, w=10)
+    for x in (1350, 1820): pen.circle(x, 1010, 70, stroke=WHT, w=12)
+    pen.poly([(1500, 470), (1530, 400), (1600, 380), (1600, 470)], stroke=WHT, w=8)
+    for k in range(3): music_note(pen, 1620 + k * 70, 360 - k * 30, 1.0, WHT)
+    fx, fy = 1490, 650  # face in the window
+    pen.oval(fx, fy, 120, 95, fill=WHT)
+    for sx in (-1, 1):
+        pen.oval(fx + sx * 50, fy - 20, 34, 36, fill=BLK); pen.circle(fx + sx * 50, fy - 18, 22, fill=YEL); pen.circle(fx + sx * 50, fy - 18, 8, fill=BLK)
+    pen.path(lambda p: (p.moveTo(fx - 100, fy + 20), p.quadTo(fx, fy + 140, fx + 100, fy + 15), p.quadTo(fx, fy + 70, fx - 100, fy + 20), p.close()), fill=BLK)
+    for k in range(10):
+        tx = fx - 88 + k * 18; pen.poly([(tx, fy + 35), (tx + 8, fy + 62), (tx + 16, fy + 35)], fill=WHT)
+    arm = lambda p: (p.moveTo(1310, 740), p.cubicTo(1200, 760, 1100, 700, 980, 640))
+    pen.path(arm, stroke=WHT, w=30); pen.path(arm, stroke=BLK, w=12)
+    for k in range(4): pen.ln(980, 640, 930, 600 + k * 22, WHT, 9)
+    pen.poly([(900, 600), (960, 600), (930, 720)], fill=YEL, stroke=BLK, w=8); pen.circle(930, 575, 42, fill=WHT, stroke=BLK, w=6)
+    # victim: you in yellow pyjamas, reaching for the cone, eyes wide
+    vx, vy, r = 520, 700, 170
+    fill_line(pen, lambda p: (p.moveTo(vx - 290, 1090), p.cubicTo(vx - 260, 920, vx + 260, 920, vx + 290, 1090), p.close()), YEL)
+    fill_line(pen, lambda p: p.addRect(skia.Rect.MakeXYWH(vx - 50, vy + 120, 100, 110)), YEL)
+    for k in range(13):
+        a = math.radians(200 + k * 11.5); pen.circle(vx + math.cos(a) * r * 0.95, vy + math.sin(a) * r * 0.95, 40, fill=YEL, stroke=BLK, w=OUT)
+    fill_line(pen, lambda p: p.addCircle(vx, vy, r), YEL)
+    for sx in (-1, 1):
+        pen.circle(vx + sx * 62, vy - 10, 38, fill=WHT, stroke=BLK, w=8); pen.circle(vx + sx * 62 + 14, vy - 10, 16, fill=BLK)
+        pen.ln(vx + sx * 30, vy - 80, vx + sx * 100, vy - 66, BLK, 10)
+    pen.oval(vx, vy + 85, 40, 30, fill=BLK)
+    arm2 = lambda p: (p.moveTo(vx + 200, 980), p.cubicTo(vx + 330, 880, vx + 340, 760, 860, 690))
+    pen.path(arm2, stroke=BLK, w=62); pen.path(arm2, stroke=YEL, w=46)
+    fill_line(pen, lambda p: p.addCircle(870, 690, 34), YEL)
+    for k, (a, L) in enumerate(((-60, 70), (-35, 80), (-10, 64))):
+        ang = math.radians(a); x0, y0 = vx + 210 + k * 6, vy - 200
+        pen.poly([(x0, y0), (x0 + math.cos(ang) * L, y0 + math.sin(ang) * L), (x0 + math.cos(ang) * L + 12, y0 + math.sin(ang) * L + 10)], fill=WHT)
+
+THUMBS = {"video02": video02, "video03": video03}
+
 
 if __name__ == "__main__":
     name = sys.argv[1] if len(sys.argv) > 1 else "video02"

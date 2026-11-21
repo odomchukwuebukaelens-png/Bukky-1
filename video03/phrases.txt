@@ -1,0 +1,334 @@
+  0 [1.75] s0   If the ice cream truck ever comes
+  1 [1.20] s0   down your street after
+  2 [1.36] s0   midnight, don't buy
+  3 [0.70] s0   anything.
+  4 [1.47] s1   Don't go to the window.
+  5 [1.57] s2   Don't count your coins.
+  6 [1.47] s3   And whatever you do,
+  7 [1.03] s3   don't let it play your
+  8 [1.05] s3   song.
+  9 [1.77] s4   I'm not talking about the truck that
+ 10 [1.90] s4   comes on Saturday afternoons,
+ 11 [1.62] s4   with the sprinkles and the dented
+ 12 [1.74] s4   freezer and the guy who knows
+ 13 [1.09] s4   your order.
+ 14 [1.07] s5   I'm talking about
+ 15 [1.55] s5   this.
+ 16 [1.30] s6   It's summer.
+ 17 [1.88] s7   It's too hot to sleep.
+ 18 [1.56] s8   Your window is open,
+ 19 [1.75] s8   and the clock on your nightstand
+ 20 [0.96] s8   says twelve
+ 21 [1.13] s8   fourteen.
+ 22 [1.55] s9   And then you hear it.
+ 23 [1.16] s10  That song,
+ 24 [0.85] s10  faint.
+ 25 [1.80] s11  A few streets away.
+ 26 [1.53] s12  But it's slower than it should
+ 27 [1.82] s12  be, and some of the notes are
+ 28 [1.36] s12  missing.
+ 29 [1.83] s13  It's getting closer.
+ 30 [1.69] s14  The truck turns onto your
+ 31 [1.44] s14  street with its headlights
+ 32 [0.66] s14  off.
+ 33 [1.50] s15  Only the menu board is
+ 34 [1.68] s15  lit, glowing pink and
+ 35 [0.72] s15  blue.
+ 36 [1.52] s16  It rolls past every
+ 37 [1.84] s16  house, and it stops right
+ 38 [1.29] s16  outside yours.
+ 39 [1.84] s17  The engine keeps running.
+ 40 [1.51] s18  Nobody else's lights come
+ 41 [0.81] s18  on.
+ 42 [1.43] s19  The driver's window is
+ 43 [0.73] s19  dark.
+ 44 [1.71] s20  You can't see who's driving.
+ 45 [1.88] s21  Then a little bell on the side of the
+ 46 [1.29] s21  truck rings.
+ 47 [0.95] s22  Once.
+ 48 [1.44] s23  Like someone waiting at a
+ 49 [1.05] s23  counter.
+ 50 [1.74] s24  Look at the menu board.
+ 51 [1.62] s25  If one of the flavors has your
+ 52 [1.89] s25  name on it, this isn't a truck you
+ 53 [1.59] s25  can buy from.
+ 54 [1.88] s26  There are seven rules.
+ 55 [1.59] s27  Most kids break the second
+ 56 [0.57] s27  one.
+ 57 [1.43] s28  Because it smells so
+ 58 [0.72] s28  good.
+ 59 [1.48] s29  And the last one,
+ 60 [1.24] s29  your dad already
+ 61 [0.97] s29  knows.
+ 62 [0.97] s29  
+ 63 [1.55] s30  Rule number one.
+ 64 [1.83] s31  Don't go to the window while the
+ 65 [1.43] s31  song is playing.
+ 66 [1.85] s32  The song isn't for selling ice
+ 67 [0.81] s32  cream.
+ 68 [1.63] s33  It's for finding kids who are
+ 69 [1.09] s33  awake.
+ 70 [1.43] s34  Every time a window lights
+ 71 [1.76] s34  up, the song gets one
+ 72 [1.38] s34  note longer.
+ 73 [1.40] s35  Stay in bed.
+ 74 [1.63] s36  Keep your lamp off.
+ 75 [1.76] s37  If the song stops in the middle of
+ 76 [1.67] s37  a note, freeze.
+ 77 [1.52] s38  That means it heard your sheets
+ 78 [0.89] s38  move.
+ 79 [1.43] s39  And if your lamp is already
+ 80 [1.52] s39  on, don't turn it
+ 81 [0.73] s39  off.
+ 82 [1.51] s40  A window that suddenly
+ 83 [1.44] s40  goes dark tells the
+ 84 [1.65] s40  truck one thing.
+ 85 [1.39] s41  A kid is coming
+ 86 [1.18] s41  downstairs.
+ 87 [1.19] s41  
+ 88 [1.69] s42  Rule number two.
+ 89 [1.18] s43  Never take a free
+ 90 [0.96] s43  sample.
+ 91 [1.20] s44  At some point,
+ 92 [1.68] s44  the window on the side of the truck
+ 93 [1.44] s44  will slide open.
+ 94 [1.44] s45  A long arm will reach
+ 95 [1.85] s45  out, holding a cone.
+ 96 [1.27] s46  First one's free,
+ 97 [1.81] s46  a voice will say.
+ 98 [1.63] s47  It will smell like birthday
+ 99 [1.62] s47  cake, like the last day of
+100 [1.75] s47  school, like the best day of
+101 [1.28] s47  your whole life.
+102 [1.12] s48  Don't take it.
+103 [1.59] s49  That cone never melts,
+104 [1.60] s49  and kids who taste it wake up
+105 [1.76] s49  cold every morning for the rest of
+106 [1.36] s49  their lives, even in
+107 [0.87] s49  July.
+108 [1.64] s50  If it's already in your hand,
+109 [1.17] s50  don't lick it.
+110 [1.76] s51  Put it on the windowsill
+111 [1.37] s51  and step back.
+112 [1.11] s52  By morning,
+113 [1.68] s52  there'll be a small sticky
+114 [1.56] s52  puddle, and in the middle of
+115 [1.48] s52  it, one old
+116 [0.99] s52  coin.
+117 [0.99] s52  
+118 [1.67] s53  Rule number three.
+119 [0.73] s54  Read the
+120 [1.19] s54  prices.
+121 [1.51] s55  On a normal truck,
+122 [1.76] s55  a rocket pop costs
+123 [1.13] s55  two dollars.
+124 [1.44] s56  Look at this menu.
+125 [1.03] s57  Rocket pop,
+126 [1.05] s57  one year.
+127 [1.19] s58  Chocolate cone,
+128 [1.32] s58  three years.
+129 [1.60] s59  And at the very bottom,
+130 [1.44] s59  in your handwriting,
+131 [1.21] s59  your name.
+132 [0.93] s60  Price.
+133 [1.34] s61  Everything.
+134 [1.80] s62  This truck doesn't take money,
+135 [1.53] s62  it takes time.
+136 [1.60] s63  And if you look again,
+137 [1.83] s63  and the price next to your name has
+138 [1.60] s63  changed to one word,
+139 [0.95] s63  paid,
+140 [1.54] s63  don't feel relieved.
+141 [1.36] s64  Somebody paid it.
+142 [0.80] s65  Somebody in your
+143 [1.13] s65  house.
+144 [1.14] s65  
+145 [1.84] s66  Now think about something.
+146 [1.88] s67  Have you ever noticed that your dad
+147 [1.52] s67  is always tired in the
+148 [0.81] s67  summer?
+149 [0.95] s68  He yawns at
+150 [1.01] s68  breakfast.
+151 [1.79] s69  He falls asleep on the couch
+152 [1.01] s69  at seven.
+153 [1.15] s70  Every August,
+154 [1.68] s70  he looks a little older than he
+155 [1.42] s70  did in June.
+156 [0.74] s71  Keep that in
+157 [1.07] s71  mind.
+158 [1.07] s71  
+159 [1.76] s72  Rule number four.
+160 [1.18] s73  Count the kids in
+161 [1.03] s73  line.
+162 [1.45] s74  In the glow of the menu
+163 [0.94] s74  board,
+164 [1.70] s74  you'll see a line of kids
+165 [1.87] s74  standing on the sidewalk.
+166 [1.34] s75  Pajamas.
+167 [1.36] s76  Bare feet.
+168 [1.84] s77  Nobody you know.
+169 [1.83] s78  One of them is holding a cone
+170 [1.69] s78  that hasn't melted.
+171 [1.35] s79  One of them is wearing a
+172 [1.68] s79  basketball jersey,
+173 [1.29] s79  from a team that hasn't
+174 [1.19] s79  existed for twenty
+175 [1.54] s79  years.
+176 [1.03] s80  Count them.
+177 [1.64] s81  Then count them again.
+178 [1.71] s82  If there's one more every
+179 [1.26] s82  time you count,
+180 [1.71] s82  don't count a third time.
+181 [1.83] s83  The new one is always at the
+182 [0.73] s83  back.
+183 [1.83] s84  And the back of the line is
+184 [0.72] s84  facing your
+185 [1.68] s84  house.
+186 [1.72] s85  There was a boy in Fresno
+187 [1.76] s85  named Mason who learned
+188 [1.29] s85  this the hard way.
+189 [1.35] s86  He was nine.
+190 [1.68] s87  He bought one scoop of moon
+191 [1.13] s87  mint, for one
+192 [1.03] s87  week.
+193 [1.28] s88  The next morning,
+194 [1.70] s88  it was the next Sunday.
+195 [1.58] s89  His mom said he'd been at the
+196 [1.32] s89  table every day that
+197 [1.64] s89  week, eating,
+198 [0.98] s89  smiling,
+199 [1.59] s89  just not talking.
+200 [1.65] s90  Mason doesn't remember any of
+201 [0.69] s90  it.
+202 [1.49] s91  Every summer since,
+203 [1.76] s91  the truck slows down outside
+204 [1.22] s91  his house.
+205 [1.48] s92  Not to sell,
+206 [0.90] s92  just to check the
+207 [1.06] s92  receipt.
+208 [1.06] s92  
+209 [1.62] s93  Rule number five.
+210 [1.83] s94  If it plays your song,
+211 [1.85] s94  hum something else.
+212 [1.27] s95  Sooner or later,
+213 [1.68] s95  the music will change.
+214 [1.74] s96  It'll become your song.
+215 [1.81] s97  The one your mom sang when you were
+216 [1.65] s97  too little to sleep.
+217 [1.12] s98  It learned it from your
+218 [1.13] s98  window.
+219 [1.76] s99  Your feet will want to walk
+220 [0.73] s99  to it.
+221 [1.74] s100 So put your hands over your
+222 [1.68] s100 ears and hum anything
+223 [0.78] s100 else.
+224 [1.31] s101 Hum it loud.
+225 [1.36] s102 Hum it badly.
+226 [1.75] s103 A song it doesn't know can't
+227 [1.23] s103 lead you anywhere.
+228 [1.81] s104 If you can't think of a single
+229 [1.84] s104 song, count backward
+230 [1.25] s104 from one hundred,
+231 [1.08] s104 out loud.
+232 [1.11] s105 Numbers don't have a
+233 [1.07] s105 tune.
+234 [1.07] s105 
+235 [1.09] s106 Rule number
+236 [1.00] s106 six.
+237 [1.16] s107 Check your dad's
+238 [1.13] s107 shoes.
+239 [0.95] s108 Don't wake your
+240 [1.01] s108 parents.
+241 [1.87] s109 Tiptoe to the front door
+242 [1.88] s109 and look at the shoe rack.
+243 [1.48] s110 If your dad's shoes are
+244 [1.68] s110 gone and the front door is
+245 [0.94] s110 unlocked,
+246 [0.82] s110 he's already
+247 [1.11] s110 outside.
+248 [1.46] s111 Don't follow him.
+249 [0.87] s112 Don't open the
+250 [1.13] s112 door.
+251 [1.75] s113 If his shoes are still there
+252 [1.36] s113 and the door is locked,
+253 [1.28] s113 the truck isn't here for you
+254 [0.76] s113 tonight.
+255 [1.65] s114 Go back to sleep.
+256 [1.27] s115 But if they're gone,
+257 [1.02] s115 he's paying.
+258 [1.02] s115 
+259 [1.64] s116 Because when your dad was nine
+260 [1.76] s116 years old, on a hot summer
+261 [1.83] s116 night just like this one,
+262 [1.73] s116 he bought an ice cream from this
+263 [0.83] s116 truck.
+264 [1.57] s117 There's a photo of him in the
+265 [1.23] s117 hallway,
+266 [1.26] s117 a skinny kid with a
+267 [1.59] s117 cone, squinting at the
+268 [1.05] s117 camera.
+269 [1.27] s118 Summer, nineteen
+270 [1.58] s118 ninety-four.
+271 [1.87] s119 He couldn't pay it all back,
+272 [1.27] s119 and when you were born,
+273 [1.76] s119 the truck came to collect from you
+274 [1.21] s119 instead.
+275 [1.83] s120 So every summer since,
+276 [1.62] s120 your dad has walked out at
+277 [1.82] s120 midnight in his slippers and
+278 [1.27] s120 paid for you:
+279 [1.42] s120 a month here,
+280 [1.34] s120 a year there.
+281 [1.09] s121 That's why he's so
+282 [0.81] s121 tired.
+283 [1.67] s122 That's why he looks older than the
+284 [1.19] s122 other dads.
+285 [1.53] s123 That's why he has never,
+286 [1.82] s123 ever let you buy anything from
+287 [0.66] s123 an ice cream
+288 [1.02] s123 truck.
+289 [1.02] s123 
+290 [1.67] s124 Rule number seven:
+291 [0.96] s124 don't wait up for
+292 [0.97] s124 him.
+293 [1.43] s125 If you look out the window
+294 [1.76] s125 anyway, you'll see him at the
+295 [1.28] s125 counter in his old
+296 [1.83] s125 robe, counting something
+297 [1.12] s125 into that long
+298 [1.02] s125 hand,
+299 [1.61] s125 not coins,
+300 [1.60] s125 something that glows
+301 [1.28] s125 faintly like
+302 [1.90] s125 fireflies in a jar.
+303 [1.60] s126 Don't watch for long.
+304 [1.63] s127 That's his time he's handing
+305 [1.01] s127 over.
+306 [1.47] s128 Go back to bed.
+307 [1.48] s129 Close your eyes.
+308 [1.63] s130 When the engine fades and the
+309 [1.70] s130 song goes quiet,
+310 [1.82] s130 you'll hear the front door close
+311 [1.51] s130 very softly.
+312 [0.90] s131 In the morning,
+313 [1.69] s131 he'll be at the kitchen table,
+314 [1.10] s131 a little grayer than
+315 [1.06] s131 yesterday,
+316 [1.10] s131 making your favorite
+317 [1.37] s131 pancakes.
+318 [1.36] s132 Don't ask him where he
+319 [0.58] s132 went.
+320 [1.77] s133 Don't tell him you know.
+321 [1.88] s134 Just hug him a little longer than
+322 [1.03] s134 usual.
+323 [1.02] s134 
+324 [1.59] s135 So if the ice cream truck
+325 [1.68] s135 ever comes down your street
+326 [1.23] s135 after midnight,
+327 [1.55] s135 don't buy anything,
+328 [1.56] s135 don't go to the window,
+329 [1.82] s135 and if you hear the front door close
+330 [1.64] s135 at twelve fifteen,
+331 [1.67] s135 go back to sleep.
+332 [1.76] s136 That's your dad buying
+333 [1.34] s136 you another summer.
