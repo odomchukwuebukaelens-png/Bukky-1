@@ -491,7 +491,7 @@ def configure_render(brief, scene, engine):
     if engine == "eevee":
         r.engine = eevee_id()
         try:
-            scene.eevee.taa_render_samples = 16
+            scene.eevee.taa_render_samples = int(brief.get("eevee_samples", 16))
         except AttributeError:
             pass
         return "EEVEE (fast mode)"

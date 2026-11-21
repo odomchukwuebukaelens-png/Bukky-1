@@ -1559,5 +1559,6 @@
    "at": "east_river"
   }
  ],
- "label_max_distance": 7000
+ "label_max_distance": 7000,
+ "eevee_samples": 8
 }
