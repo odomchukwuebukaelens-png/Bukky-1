@@ -20,6 +20,12 @@ bl() { "$BLENDER" -b -P "$SCRIPT" -- "$@"; }
 say() { grep --line-buffered -F "[city-studio]" || true; }
 need_blender() {
   command -v "$BLENDER" >/dev/null 2>&1 || { echo "Blender not found. Run ./studio setup first."; exit 1; }
+  # a restarted pod loses its system libraries; reinstall them automatically
+  if ! ldconfig -p 2>/dev/null | grep -q "libEGL.so.1" || ! command -v ffmpeg >/dev/null 2>&1 \
+     || [ ! -f /usr/share/fonts/truetype/lato/Lato-Bold.ttf ]; then
+    echo "[city-studio] Pod was restarted - reinstalling system libraries first..."
+    "$0" setup
+  fi
 }
 
 pick_engine() {   # fast EEVEE if it works on this machine, otherwise Cycles
@@ -82,6 +88,7 @@ case "${1:-}" in
     ;;
   start)
     BRIEF="${2:?give a brief file}"
+    need_blender
     if pgrep -f "make_video.py" >/dev/null; then
       echo "[city-studio] A render is already running. Check it with ./studio progress (or stop it with ./studio stop)."
       exit 0
