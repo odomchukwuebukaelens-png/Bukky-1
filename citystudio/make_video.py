@@ -475,6 +475,7 @@ def configure_render(brief, scene, engine):
     r.image_settings.file_format = "PNG"
     r.image_settings.compression = 15
     r.use_persistent_data = True
+    r.filter_size = float(brief.get("filter_size", 1.5))   # smaller = crisper pixels
     try:
         # AgX gives soft, film-like highlights for the realistic style;
         # Standard keeps the toy style bright and clean
@@ -555,7 +556,9 @@ def encode_chunk(brief, frames_dir, first, count, out_path):
     subprocess.run([ffmpeg_path(), "-y", "-loglevel", "error", "-framerate", str(brief["fps"]),
                     "-start_number", str(first + 1),
                     "-i", os.path.join(frames_dir, ("comp_%06d.png" if overlay else "frame_%06d.png")),
-                    "-frames:v", str(count), "-c:v", "libx264", "-crf", str(brief.get("crf", 19)),
+                    "-frames:v", str(count)] + (["-vf", "unsharp=5:5:%.2f:5:5:0" % brief["sharpen"]]
+                                                if brief.get("sharpen") else []) +
+                   ["-c:v", "libx264", "-crf", str(brief.get("crf", 19)),
                     "-preset", "slow", "-pix_fmt", "yuv420p", tmp],
                    check=True)
     os.replace(tmp, out_path)

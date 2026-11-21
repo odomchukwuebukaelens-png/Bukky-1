@@ -9,6 +9,7 @@ Runs with the normal system Python (needs Pillow), not inside Blender.
 import json
 import math
 import os
+import random
 import sys
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -202,10 +203,39 @@ def atlas_gradients(w, h):
     return _agrad[(w, h)]
 
 
+def weather(img, data):
+    """Falling snow and rain, drawn over the rendered picture."""
+    w = data.get("weather") or {}
+    snow, rain, t = w.get("snow", 0), w.get("rain", 0), w.get("t", 0)
+    if snow < 0.02 and rain < 0.02:
+        return
+    W, H = img.size
+    s = H / 720.0
+    layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    rnd = random.Random(42)
+    for i in range(int(420 * snow)):
+        x0, y0 = rnd.uniform(0, W), rnd.uniform(0, H)
+        speed, size = rnd.uniform(40, 110) * s, rnd.uniform(1.0, 3.2) * s
+        y = (y0 + t * speed) % H
+        x = (x0 + 14 * s * math.sin(t * 0.9 + i)) % W
+        d.ellipse([x - size, y - size, x + size, y + size], fill=(255, 255, 255, int(210 * snow)))
+    for i in range(int(520 * rain)):
+        x0, y0 = rnd.uniform(0, W), rnd.uniform(0, H)
+        speed, length = rnd.uniform(700, 1100) * s, rnd.uniform(14, 30) * s
+        y = (y0 + t * speed) % H
+        x = (x0 - t * speed * 0.18) % W
+        d.line([x, y, x - length * 0.18, y + length], fill=(205, 215, 230, int(95 * rain)), width=max(1, int(s)))
+    if rain > 0.02:
+        img.alpha_composite(Image.new("RGBA", img.size, (60, 70, 85, int(40 * rain))))
+    img.alpha_composite(layer.filter(ImageFilter.GaussianBlur(0.6 * s)))
+
+
 def compose_atlas(img, data):
     W, H = img.size
     s = H / 720.0
     X = lambda v: v * s  # noqa: E731
+    weather(img, data)
     img.alpha_composite(atlas_gradients(W, H))
     L = Layers(img.size, s)
     amber, white, soft = (240, 178, 74), (255, 255, 255), (222, 226, 230)

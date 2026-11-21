@@ -118,6 +118,45 @@ class City:
 # ----------------------------------------------------------------------------
 # Materials
 # ----------------------------------------------------------------------------
+MOOD = {"snow": [], "autumn": [], "night": []}
+
+
+def mood_value(nt, kind):
+    v = nt.nodes.new("ShaderNodeValue")
+    v.outputs[0].default_value = 0.0
+    MOOD[kind].append(v)
+    return v.outputs[0]
+
+
+def snowify(nt, colour, normal_z, amount=1.0):
+    """Mix white onto upward-facing surfaces when it has snowed."""
+    up = H.smooth(nt, normal_z, 0.45, 0.8)
+    fac = H.math_node(nt, "MULTIPLY", H.math_node(nt, "MULTIPLY", up, mood_value(nt, "snow")), amount)
+    return H.mix_rgb(nt, fac, colour, (0.78, 0.80, 0.84))
+
+
+def painted_nyc(name="PaintedNYC", trees=False):
+    mat = bpy.data.materials.new(name)
+    nt = H.nodes(mat)
+    bsdf = H.principled(nt)
+    bsdf.inputs["Roughness"].default_value = 0.85
+    attr = nt.nodes.new("ShaderNodeAttribute")
+    attr.attribute_name = "col"
+    geo = nt.nodes.new("ShaderNodeNewGeometry")
+    nz = nt.nodes.new("ShaderNodeSeparateXYZ")
+    nt.links.new(geo.outputs["Normal"], nz.inputs[0])
+    colour = attr.outputs["Color"]
+    if trees:
+        tex = nt.nodes.new("ShaderNodeTexNoise")
+        tex.inputs["Scale"].default_value = 0.02
+        nt.links.new(geo.outputs["Position"], tex.inputs["Vector"])
+        autumn = H.math_node(nt, "MULTIPLY", mood_value(nt, "autumn"), H.smooth(nt, tex.outputs["Fac"], 0.3, 0.6))
+        colour = H.mix_rgb(nt, autumn, colour, (0.40, 0.17, 0.04))
+    colour = snowify(nt, colour, nz.outputs["Z"], 0.9 if trees else 1.0)
+    nt.links.new(colour, bsdf.inputs["Base Color"])
+    return H.add_haze(mat)
+
+
 def facade_material():
     """Colour from the mesh; a grid of dark windows on walls, strength set by
     the colour's alpha (0 = no windows)."""
@@ -140,19 +179,21 @@ def facade_material():
     mask = m(nt, "MULTIPLY", m(nt, "MULTIPLY", floors, bays), walls)
     mask = m(nt, "MULTIPLY", mask, attr.outputs["Alpha"])
     col = H.mix_rgb(nt, mask, attr.outputs["Color"], (0.045, 0.06, 0.08))
+    col = snowify(nt, col, nrm.outputs["Z"])
     nt.links.new(col, bsdf.inputs["Base Color"])
     night = nt.nodes.new("ShaderNodeValue")
+    MOOD["night"].append(night)
     night.name = "night"
     night.outputs[0].default_value = 0.0
     lit = m(nt, "GREATER_THAN", m(nt, "FRACT", m(nt, "MULTIPLY", m(nt, "ADD", pos.outputs["X"],
                                                                      m(nt, "MULTIPLY", pos.outputs["Z"], 7.3)), 0.37)),
-            0.45)
+            0.68)
     glow = m(nt, "MULTIPLY", m(nt, "MULTIPLY", mask, lit), night.outputs[0])
     for name in ("Emission Color", "Emission"):
         if name in bsdf.inputs:
             bsdf.inputs[name].default_value = (1.0, 0.72, 0.38, 1)
             break
-    nt.links.new(m(nt, "MULTIPLY", glow, 6.0), bsdf.inputs["Emission Strength"])
+    nt.links.new(m(nt, "MULTIPLY", glow, 2.2), bsdf.inputs["Emission Strength"])
     H.add_haze(mat)
     return mat, night
 
@@ -248,7 +289,16 @@ def terrain_material():
     shore = H.mix_rgb(nt, beach, (0.33, 0.30, 0.22), land)
     under = H.smooth(nt, inland, 0.35, 0.5)
     final = H.mix_rgb(nt, under, (0.05, 0.07, 0.07), shore)
+    snowed = H.math_node(nt, "MULTIPLY", mood_value(nt, "snow"), H.smooth(nt, inland, 0.6, 0.9))
+    final = H.mix_rgb(nt, H.math_node(nt, "MULTIPLY", snowed, 0.8), final, (0.62, 0.64, 0.68))
     nt.links.new(final, bsdf.inputs["Base Color"])
+    for name in ("Emission Color", "Emission"):
+        if name in bsdf.inputs:
+            bsdf.inputs[name].default_value = (1.0, 0.70, 0.38, 1)
+            break
+    glow = H.math_node(nt, "MULTIPLY", H.math_node(nt, "MULTIPLY", urban, mood_value(nt, "night")),
+                       H.smooth(nt, tex_noise(0.6), 0.62, 0.72))
+    nt.links.new(H.math_node(nt, "MULTIPLY", glow, 0.35), bsdf.inputs["Emission Strength"])
     bump = nt.nodes.new("ShaderNodeBump")
     bump.inputs["Strength"].default_value = 0.35
     bump.inputs["Distance"].default_value = 2.0
@@ -550,7 +600,11 @@ def build(brief, p):
     H.HAZE_AMOUNT = brief.get("haze_amount", 0.7)
     if brief.get("haze_color"):
         H.HAZE = tuple(brief["haze_color"])
-    painted = H.painted_material()
+    for k in MOOD:
+        MOOD[k].clear()
+    H.HAZE_NODES.clear()
+    painted = painted_nyc()
+    tree_mat = painted_nyc("Trees", trees=True)
     facade, night = facade_material()
     tmat, now = terrain_material()
     animated = terrain_objects(city, col, tmat)
@@ -624,7 +678,7 @@ def build(brief, p):
         vv = [(t["x"] + vx * r, t["y"] + vy * r, t["z"] + r * 0.9 + vz * r * 0.8) for vx, vy, vz in ico_v]
         tbins.setdefault(k, H.Parts()).add(vv, ico_f, [(0.045 * g, 0.075 * g, 0.030 * g)] * len(ico_f))
     for (gone, since), part in tbins.items():
-        ob = part.to_object("trees_%d_%d" % (gone, since), painted, col)
+        ob = part.to_object("trees_%d_%d" % (gone, since), tree_mat, col)
         animated.append({"ob": ob, "year": since, "grow": 0.0, "gone": gone * 4 + 2, "fade": 0.5})
 
     pbins = {}
@@ -635,7 +689,7 @@ def build(brief, p):
         vv = [(t["x"] + vx * r, t["y"] + vy * r, t["z"] + r * 0.9 + vz * r * 0.8) for vx, vy, vz in ico_v]
         pbins.setdefault(k, H.Parts()).add(vv, ico_f, [(0.05 * g, 0.10 * g, 0.035 * g)] * len(ico_f))
     for k, part in pbins.items():
-        animated.append({"ob": part.to_object("parktrees_%d" % k, painted, col), "year": k * 2, "grow": 3.0})
+        animated.append({"ob": part.to_object("parktrees_%d" % k, tree_mat, col), "year": k * 2, "grow": 3.0})
 
     # --- reconstructed landmarks -------------------------------------------
     marks = {}
@@ -839,15 +893,15 @@ def build(brief, p):
     ent = H.nodes(emit)
     ent.nodes.clear()
     em = ent.nodes.new("ShaderNodeEmission")
-    em.inputs["Color"].default_value = (1.0, 0.42, 0.08, 1)
-    em.inputs["Strength"].default_value = 12.0
+    em.inputs["Color"].default_value = (1.0, 0.22, 0.02, 1)
+    em.inputs["Strength"].default_value = 1.6
     outn = ent.nodes.new("ShaderNodeOutputMaterial")
     ent.links.new(em.outputs[0], outn.inputs[0])
     frng = random.Random(brief["seed"] + 9)
     for e in brief.get("fx", []):
         centre = proj(*e["ll"])
         z0 = city.elev(centre.x, centre.y)
-        smoke_col = (0.10, 0.09, 0.085) if e["kind"] == "fire" else (0.50, 0.47, 0.43)
+        smoke_col = (0.24, 0.22, 0.20) if e["kind"] == "fire" else (0.50, 0.47, 0.43)
         blobs = H.Parts()
         fx_v, fx_f = smooth_sphere()
         for _ in range(e.get("blobs", 40)):
@@ -868,20 +922,22 @@ def build(brief, p):
         flames = None
         if e["kind"] == "fire":
             fl = H.Parts()
-            for _ in range(e.get("flames", 120)):
-                r = frng.uniform(0, 1.0) * e["radius"]
+            for _ in range(e.get("flames", 320)):
+                r = frng.uniform(0, 1.0) ** 0.7 * e["radius"]
                 a = frng.uniform(0, 2 * math.pi)
                 q = centre + Vector((math.cos(a), math.sin(a))) * r
-                rr = frng.uniform(4, 9)
-                fl.add([(q.x + vx * rr, q.y + vy * rr, z0 + 8 + vz * rr * 1.6) for vx, vy, vz in ico_v], ico_f,
-                       [(1, 0.5, 0.1)] * len(ico_f))
+                rr = frng.uniform(2.0, 5.0)
+                zz = z0 + frng.uniform(4, 12)
+                fl.add([(q.x + vx * rr, q.y + vy * rr, zz + vz * rr * 2.2) for vx, vy, vz in fx_v], fx_f,
+                       [(1, 0.5, 0.1)] * len(fx_f))
             flames = fl.to_object("flames", emit, col)
+            flames.data.polygons.foreach_set("use_smooth", [True] * len(flames.data.polygons))
         fx.append({"e": e, "smoke": smoke, "flames": flames})
 
     # light, sky and camera
     sun = bpy.data.objects.new("Sun", bpy.data.lights.new("Sun", "SUN"))
     sun.data.energy = brief.get("sun", 6.5)
-    sun.data.angle = math.radians(2.5)
+    sun.data.angle = math.radians(brief.get("sun_angle", 1.0))
     sun.data.color = (1.0, 0.93, 0.82)
     sun.rotation_euler = (math.radians(52), 0, math.radians(-40))
     col.objects.link(sun)
@@ -997,14 +1053,37 @@ def apply_frame(brief, rig, frame, total):
         del on
     dusk = brief.get("dusk")
     d = H.ease((t - dusk["from"]) / (dusk["to"] - dusk["from"])) if dusk else 0.0
-    rig["night"].outputs[0].default_value = d
-    rig["sun"].data.energy = brief.get("sun", 6.5) * (1 - 0.8 * d)
-    rig["sun"].data.color = (1.0, 0.93 - 0.35 * d, 0.82 - 0.5 * d)
-    rig["sun"].rotation_euler = (math.radians(52 + 30 * d), 0, math.radians(-40 - 30 * d))
-    rig["sky"].inputs[1].default_value = brief.get("sky", 0.45) * (1 - 0.65 * d)
-    dusk_haze = (0.80 - 0.45 * d, 0.76 - 0.50 * d, 0.69 - 0.40 * d, 1)
+    w = {"night": 0.0, "snow": 0.0, "rain": 0.0, "autumn": 0.0}
+    for m in brief.get("moods", []):
+        ramp = m.get("ramp", 2.5)
+        k = H.ease((t - m["from"]) / ramp) * (1 - H.ease((t - m["to"] + ramp) / ramp))
+        for key in w:
+            w[key] = max(w[key], k * m.get(key, 0.0))
+    n, sn, rn = w["night"], w["snow"], w["rain"]
+    for node in MOOD["night"]:
+        node.outputs[0].default_value = max(d, n)
+    for node in MOOD["snow"]:
+        node.outputs[0].default_value = sn
+    for node in MOOD["autumn"]:
+        node.outputs[0].default_value = w["autumn"]
+    base_sun, base_sky = brief.get("sun", 6.5), brief.get("sky", 0.45)
+    sun, sky = rig["sun"], rig["sky"]
+    if d >= n:     # golden dusk at the end of the film
+        sun.data.energy = base_sun * (1 - 0.8 * d) * (1 - 0.6 * rn)
+        sun.data.color = (1.0, 0.93 - 0.35 * d, 0.82 - 0.5 * d)
+        sun.rotation_euler = (math.radians(52 + 30 * d), 0, math.radians(-40 - 30 * d))
+        sky.inputs[1].default_value = base_sky * (1 - 0.65 * d) * (1 - 0.3 * rn)
+        hz = [c + (dc - c) * d for c, dc in zip(H.HAZE, (0.40, 0.28, 0.32))]
+    else:          # moonlit night
+        sun.data.energy = base_sun * (1 - 0.94 * n) * (1 - 0.6 * rn)
+        sun.data.color = (1.0 - 0.45 * n, 0.93 - 0.25 * n, 0.82 + 0.18 * n)
+        sun.rotation_euler = (math.radians(52), 0, math.radians(-40))
+        sky.inputs[1].default_value = base_sky * (1 - 0.88 * n) * (1 - 0.3 * rn)
+        hz = [c + (nc - c) * n for c, nc in zip(H.HAZE, (0.05, 0.07, 0.14))]
+    hz = [c + (rc - c) * rn * 0.7 for c, rc in zip(hz, (0.52, 0.55, 0.58))]
+    sky.inputs[0].default_value = (*hz, 1)
     for em in H.HAZE_NODES:
-        em.inputs["Color"].default_value = dusk_haze
+        em.inputs["Color"].default_value = (*hz, 1)
 
     loc, look = camera_at(brief, t, total / fps)
     cam = rig["camera"]
@@ -1064,4 +1143,5 @@ def apply_frame(brief, rig, frame, total):
         "standing": "{:,}".format(standing), "standing_label": brief.get("standing_label", "Still standing"),
         "heading": heading, "caption": caption, "title_card": title, "labels": labels,
         "fineprint": brief.get("fineprint", ""),
+        "weather": {"snow": round(sn, 3), "rain": round(rn, 3), "t": round(t, 3)},
     }
