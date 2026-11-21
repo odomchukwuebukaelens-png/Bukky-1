@@ -237,10 +237,11 @@ def head_close(pen, kind, x, y, r, f, t, seed=0, tilt=0, shoulders=True):
     """Close-up: a big head with shoulders below, for CU / ECU shots."""
     if shoulders:
         nw = r * 0.62
-        pen.rect(x - nw / 2, y + r * 0.6, nw, r * 1.4, fill=pen.white, stroke=pen.line, w=4, r=nw * 0.25)  # neck
-        pen.path(lambda p: (p.moveTo(x - r * 1.75, y + r * 3.2), p.cubicTo(x - r * 1.65, y + r * 1.75, x + r * 1.65, y + r * 1.75, x + r * 1.75, y + r * 3.2), p.close()),
+        # neck runs from inside the head down BEHIND the shoulders (the shoulder curve peaks at ~1.81r) - no gap
+        pen.rect(x - nw / 2, y + r * 0.6, nw, r * 2.0, fill=pen.white, stroke=pen.line, w=4, r=nw * 0.25)
+        pen.path(lambda p: (p.moveTo(x - r * 1.75, y + r * 3.2), p.cubicTo(x - r * 1.65, y + r * 1.35, x + r * 1.65, y + r * 1.35, x + r * 1.75, y + r * 3.2), p.close()),
                  fill=pen.white, stroke=pen.line, w=4)
-        pen.arc(x, y + r * 1.86, nw * 0.62, r * 0.16, 20, 140, pen.line, 3)  # collar
+        pen.arc(x, y + r * 1.82, nw * 0.62, r * 0.16, 20, 140, pen.line, 3)  # collar where neck meets shoulders
     head(pen, kind, x, y, r, f, t, seed, tilt)
 
 # ---------------- props ----------------
