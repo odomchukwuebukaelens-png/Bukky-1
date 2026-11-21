@@ -8,8 +8,9 @@
 ## Visuals
 - Simple flat 2D line-art: white figures on black, drawn and animated in code with `anim2d/` (Skia). **No AI images, no zooming on still pictures, no 3D or GPU pod.**
 - Every shot needs micro-actions (blink, breathe, tremble, talk, steam, flicker). The picture must change at least every 2 seconds.
-- **Never repeat a shot to fill time.** No splitting one shot into "micro-change" copies. Every cut is a new composition (a different angle, subject, set area or format), and neighbouring shots must look clearly different. `video02/build.py` stops with an error if a planned shot would exceed 2 seconds: add a new shot to the plan.
-- **Characters always have necks**, in full-body figures and close-ups (`anim2d/engine.py`).
+- **Never repeat a shot to fill time.** No splitting one shot into "micro-change" copies. Every cut is a new composition (a different angle, subject, set area or format), and neighbouring shots must look clearly different. `video03/build.py` is the current template.
+- **Every shot must show what the narration is saying at that moment. No filler shots.** Split each sentence into phrases of 1.9 seconds or less (`python3 build.py phrases` in `video03/`) and author ONE specific shot per phrase in `shotplan.py`. There are no filler pools: the build fails if any phrase has no shot.
+- **Characters always have necks** that join the head and the shoulders with no gap, in full-body figures and close-ups (`anim2d/engine.py`).
 - **Scenery is detailed and beautiful but simple:** layered skies, moon and clouds, tree lines, fences, plants, furniture, light spill, fireflies and moths (`anim2d/scenes.py`). No empty black voids, except deliberate pattern breaks.
 - Top bar: "<VIDEO COMMAND> · NIGHT/SUNDAY NN · RULE n" with a red REC dot and timecode. Captions: bold caps with the spoken word in acid green.
 
