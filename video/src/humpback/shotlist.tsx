@@ -48,6 +48,7 @@ registerKind("footage", V);
 const NOAA = "ВІДЕО · NOAA SANCTUARIES · CC BY 3.0";
 const FISH = "ВІДЕО · ADAM FISH · CC BY 3.0";
 const ILL = "ІЛЮСТРАТИВНЕ ВІДЕО";
+const CALF = "ВІДЕО · WALKINGKOOKA · CC BY 3.0";
 const SEAL = "ТЮЛЕНЬ ІНШОГО ВИДУ";
 const PROMISES = ["ЧИ МОЖЕ ВІН ТЕБЕ ПРОКОВТНУТИ?", "СКІЛЬКИ ТИ ПРОТРИМАЄШСЯ?", "ЧОМУ ВІН РЯТУЄ ІНШИХ?"];
 const PATH: [number, number][] = [[-84, 10], [-86, 3], [-84, -8], [-82, -20], [-79, -32], [-76, -44], [-72, -54], [-68, -60], [-64, -64]];
@@ -435,7 +436,7 @@ export const SHOTS: React.ReactNode[] = [
   /* 351 вод біля полюсів, де */ <V id="8080" t={0} />,
   /* 352 годуються, до теплих */ <UnderShot krill={{ x: 1350, y: 500 }} whale={{ x0: 500, x1: 800, y0: 520, jaw: 1, b0: 0.3, b1: 0.8 }} deep={0.3} />,
   /* 353 спокійних вод біля тропіків, */ <V id="48089" t={6} />,
-  /* 354 де народжують. */ <UnderShot whale={{ x0: 300, x1: 600, y0: 440, s: 0.9 }} calf deep={0} />,
+  /* 354 де народжують. */ <V id="w3" t={55} label={CALF} />,
   /* 355 Деякі горбаті кити */ <WorldMap lon={-75} lat={-25} z0={0.6} z1={0.65} path={PATH} pins={[{ lon: -84, lat: 10, label: "КОСТА-РИКА" }]} />,
   /* 356 пропливають понад вісім тисяч */ <WorldMap lon={-75} lat={-25} z0={0.62} z1={0.67} path={PATH} counter={{ to: 8300, unit: "КМ" }} />,
   /* 357 кілометрів в один бік. */ <WorldMap lon={-70} lat={-30} z0={0.65} z1={0.72} path={PATH} pins={[{ lon: -84, lat: 10, label: "КОСТА-РИКА" }, { lon: -64, lat: -64, label: "АНТАРКТИДА" }]} />,
@@ -445,7 +446,7 @@ export const SHOTS: React.ReactNode[] = [
   /* 361 … */ <UnderShot whale={{ x0: -300, x1: 900, y0: 520, s: 0.8 }} deep={0} />,
   /* 362 У теплих водах їм майже */ <><UnderShot whale={{ x0: 500, x1: 620, y0: 560 }} deep={0} /><K text="ЇЖІ НЕМАЄ" color={C.red} /></>,
   /* 363 нічого їсти. */ <GaugeShot frac={0.04} text="0" label="ЇЖА" bg="deep" color={C.red} />,
-  /* 364 Тож місяцями матері живуть */ <UnderShot whale={{ x0: 400, x1: 650, y0: 440, s: 0.9 }} calf deep={0.1} />,
+  /* 364 Тож місяцями матері живуть */ <V id="w3" t={72} label={CALF} />,
   /* 365 за рахунок свого жиру. */ <TimerShot rows={[{ label: "ЗАПАС ЖИРУ", frac: 0.45, text: "↓", color: C.accent }]} />,
   /* 366 І вигодовують дитинча, яке */ <UnderShot whale={{ x0: 600, y0: 440, s: 0.9 }} calf z0={1.8} z1={1.9} zx={1000} zy={680} />,
   /* 367 росте. А потім пливуть */ <UnderShot whale={{ x0: 300, x1: 700, y0: 440, s: 0.9 }} calf deep={0.1} z0={1.1} z1={1.2} />,
@@ -567,7 +568,7 @@ export const SHOTS: React.ReactNode[] = [
   /* 475 Не зможе. Кілька секунд, */ <CutawayShot mode="person" note="НЕ ЗМОЖЕ" />,
   /* 476 … */ <V id="w1" t={6} label={FISH} />,
   /* 477 може, пів хвилини, ти будеш */ <TimerShot rows={[{ label: "У ПАЩІ", frac: 0.5, text: "~30 С", color: C.red }]} />,
-  /* 478 у пащі одного з найлагідніших */ <UnderShot whale={{ x0: -200, x1: 500, y0: 440, s: 0.9 }} calf deep={0} />,
+  /* 478 у пащі одного з найлагідніших */ <V id="w3" t={88} label={CALF} />,
   /* 479 велетнів на Землі. */ <V id="w2" t={0} label={NOAA} />,
   /* 480 У темряві. Стиснутий. */ <MouthPOV squeeze torch={false} />,
   /* 481 … */ <Dark text="..." />,

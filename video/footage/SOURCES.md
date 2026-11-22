@@ -76,3 +76,4 @@ Video pieces `v<id>_<t>.mp4` are cut by `tools/cut_footage.py`; `<t>` is the sta
 Narration: ai33.pro voice library, "Storyteller - Deep & Calm" (`elevenlabs_fs9omVbVxtW4Sh0OZ0ii`), a native Ukrainian voice chosen by the owner's instruction (22 Nov 2026) in place of the "Deep sea" clone for this Ukrainian-language test.
 Music: the crocodile video's tracks, reused with the owner's OK (22 Nov 2026).
 Fonts: Montserrat and JetBrains Mono Cyrillic subsets from Fontsource (SIL Open Font License), same licence as the Latin files.
+- `w3` = "Humpback whale mother and calf south of Gerringong Boat Harbour, NSW, Australia", WalkingKooka, CC BY 3.0, Wikimedia Commons. Credited on screen and in the description.

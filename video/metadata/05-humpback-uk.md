@@ -49,7 +49,7 @@
 • Порятунок тюленів: Pitman et al., Marine Mammal Science, 2016/2017
 • Розміри, чисельність і китобійний промисел: NOAA Fisheries
 
-Відео: Adam Fish (CC BY 3.0) і NOAA Sanctuaries (CC BY 3.0), Wikimedia Commons; Mixkit. Ілюстративні кадри позначено на екрані. Анімація: Abyss Theory.
+Відео: Adam Fish (CC BY 3.0), WalkingKooka (CC BY 3.0) і NOAA Sanctuaries (CC BY 3.0), Wikimedia Commons; Mixkit. Ілюстративні кадри позначено на екрані. Анімація: Abyss Theory.
 
 #горбатийкит #кит #океан #тварини #природа #документальне
 
