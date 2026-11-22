@@ -47,6 +47,11 @@ SERVIAN = [(12.4800, 41.8970), (12.4880, 41.9030), (12.4960, 41.9040), (12.5030,
            (12.4780, 41.8920)]
 
 FORUM = (12.4853, 41.8925)
+# open ground kept clear of houses: (lon, lat, radius m)
+CLEAR = [(12.4853, 41.8925, 130), (12.4875, 41.8888, 170), (12.4922, 41.8902, 125), (12.4851, 41.8861, 150),
+         (12.4815, 41.8840, 150), (12.4887, 41.8882, 150), (12.4817, 41.8929, 80), (12.4768, 41.8986, 60),
+         (12.4848, 41.8955, 110), (12.4763, 41.9060, 65), (12.4925, 41.8791, 240), (12.4880, 41.8918, 70),
+         (12.4799, 41.8918, 60), (12.4730, 41.8950, 90), (12.4977, 41.9031, 160), (12.4890, 41.8908, 80)]
 PALATINE = (12.4875, 41.8895)
 
 
@@ -200,6 +205,30 @@ def terrain_material():
     return mat, now
 
 
+def arcade_material():
+    """Travertine with rows of tall arched openings (used for the Colosseum)."""
+    mat = bpy.data.materials.new("Arcade")
+    nt = H.nodes(mat)
+    bsdf = H.principled(nt)
+    bsdf.inputs["Roughness"].default_value = 0.85
+    attr = nt.nodes.new("ShaderNodeAttribute")
+    attr.attribute_name = "col"
+    geo = nt.nodes.new("ShaderNodeNewGeometry")
+    pos = nt.nodes.new("ShaderNodeSeparateXYZ")
+    nrm = nt.nodes.new("ShaderNodeSeparateXYZ")
+    nt.links.new(geo.outputs["Position"], pos.inputs[0])
+    nt.links.new(geo.outputs["Normal"], nrm.inputs[0])
+    m = H.math_node
+    storey = m(nt, "FRACT", m(nt, "DIVIDE", pos.outputs["Z"], 12.0))
+    opening = m(nt, "MULTIPLY", m(nt, "GREATER_THAN", storey, 0.12), m(nt, "LESS_THAN", storey, 0.80))
+    bays = m(nt, "GREATER_THAN", m(nt, "FRACT", m(nt, "DIVIDE", m(nt, "ADD", pos.outputs["X"], pos.outputs["Y"]), 6.5)), 0.42)
+    walls = m(nt, "LESS_THAN", m(nt, "ABSOLUTE", nrm.outputs["Z"]), 0.5)
+    mask = m(nt, "MULTIPLY", m(nt, "MULTIPLY", m(nt, "MULTIPLY", opening, bays), walls), attr.outputs["Alpha"])
+    c = H.mix_rgb(nt, mask, attr.outputs["Color"], (0.10, 0.08, 0.06))
+    nt.links.new(c, bsdf.inputs["Base Color"])
+    return H.add_haze(mat)
+
+
 def yn(y):
     return (y - 1500.0) / 600.0
 
@@ -282,6 +311,7 @@ def build(brief, plan_unused=None):
     tree_mat = N.painted_nyc("TreesRome", trees=True)
     facade, night = N.facade_material()
     tmat, now = terrain_material()
+    arch_mat = arcade_material()
     N.WATER_MAT.clear()
     N.WATER_MAT.append(N.shore_water_material())
     animated = []
@@ -350,6 +380,8 @@ def build(brief, plan_unused=None):
         elif "giustizia" in low:
             start, grow = 1889, 22.0
         wall = rng.choice(WALL_COLS) if year < 1870 else rng.choice(WALL_COLS + [(0.86, 0.84, 0.78), (0.70, 0.66, 0.60)])
+        if name:
+            wall = MARBLE
         key = ("bld", int(start // 2) * 2, int(grow))
         put(key, lambda part, pts=pts, zz=zz, h=h, wall=wall: N.extrude(part, pts, zz, h, wall, 0.55, (0.55, 0.22, 0.12)))
         zn = city.zone(cx, cy)
@@ -369,7 +401,10 @@ def build(brief, plan_unused=None):
         xx = x0
         while xx < 2800:
             px_, py_ = xx + rng.uniform(-10, 10), yy + rng.uniform(-10, 10)
-            if city.is_land(px_, py_):
+            clear = any((Vector((px_, py_)) - P2((lo, la))).length < r_ for lo, la, r_ in CLEAR)
+            near_water = not (city.is_land(px_ + 18, py_) and city.is_land(px_ - 18, py_) and
+                              city.is_land(px_, py_ + 18) and city.is_land(px_, py_ - 18))
+            if city.is_land(px_, py_) and not clear and not near_water:
                 zn = city.zone(px_, py_)
                 if zn != "outside" and zn != "prati" and zn != "vatican":
                     u, ab, re_, _f = city.eras(px_, py_)
@@ -406,15 +441,15 @@ def build(brief, plan_unused=None):
                                                     ((0.62, 0.42, 0.28, 0.2)), top=((0.5, 0.3, 0.2, 0.0))))
 
     # --- monuments ------------------------------------------------------------
-    def mon(name, t0, t1, fn, grow=4.0, label=None, ruin=None):
+    def mon(name, t0, t1, fn, grow=4.0, label=None, ruin=None, mat=None):
         part = N.Partsc()
         fn(part)
-        ob = part.to_object(name, painted, col)
+        ob = part.to_object(name, mat or painted, col)
         animated.append({"ob": ob, "year": t0, "grow": grow, "gone": t1, "fade": 3.0})
         if ruin:
             rpart = N.Partsc()
             ruin["fn"](rpart)
-            rob = rpart.to_object(name + "_ruin", painted, col)
+            rob = rpart.to_object(name + "_ruin", mat or painted, col)
             animated.append({"ob": rob, "year": ruin["from"], "grow": 0.5, "gone": ruin.get("to", 99999), "fade": 3.0})
         return ob
 
@@ -448,6 +483,18 @@ def build(brief, plan_unused=None):
         mon(nm_, t0, 600, lambda p, tx=tx, ty=ty, tz=tz, w_=w_, d_=d_, yaw_=yaw_: temple(p, tx, ty, tz, w_, d_, 13, yaw_, cols=6 if w_ < 40 else 10),
             ruin={"from": 600, "fn": lambda p, tx=tx, ty=ty, tz=tz, w_=w_, d_=d_, yaw_=yaw_: temple(p, tx, ty, tz, w_, d_, 13, yaw_, ruin=True)})
     marks["forum"] = (*at(FORUM)[:2], at(FORUM)[2] + 15)
+
+    # imperial palaces on the Palatine (from 92 AD), ruined after the 6th century
+    px0, py0, pz0 = at((12.4865, 41.8885))
+    def palace(p, h, ruined):
+        yaw = math.radians(-30)
+        ux, uy = (math.cos(yaw), math.sin(yaw)), (-math.sin(yaw), math.cos(yaw))
+        for dx, dy, w, d in ((0, 0, 70, 55), (85, -20, 60, 45), (-70, 30, 45, 40), (30, 70, 50, 30)):
+            q = Vector((px0, py0)) + Vector(ux) * dx + Vector(uy) * dy
+            p.box(q.x, q.y, pz0, ux, uy, w / 2, d / 2, h * (0.4 if ruined else 1.0), (*BRICK, 0.5 if not ruined else 0.0),
+                  top=(*TILE, 0.0) if not ruined else None)
+    mon("PalatinePalace", 92, 600, lambda p: palace(p, 24, False), 6,
+        ruin={"from": 600, "fn": lambda p: palace(p, 24, True)})
 
     # Circus Maximus
     cx_, cy_, cz_ = at((12.4851, 41.8861))
@@ -483,7 +530,7 @@ def build(brief, plan_unused=None):
         p.add([(ox + 50 * math.cos(a), oy + 30 * math.sin(a), oz + 0.6) for a in [2 * math.pi * k / 24 for k in range(24)]],
               [tuple(range(24))], [(0.72, 0.62, 0.42, 0.0)])
     mon("Colosseum", 72, 1349, lambda p: colosseum(p, False), 8,
-        ruin={"from": 1349, "fn": lambda p: colosseum(p, True)})
+        ruin={"from": 1349, "fn": lambda p: colosseum(p, True)}, mat=arch_mat)
     marks["colosseum"] = (ox, oy, oz + 55)
 
     # Mausoleum of Augustus (28 BC)
@@ -706,9 +753,14 @@ def build(brief, plan_unused=None):
 
     def auc(year):
         y = int(round(year))
+        if y < -753:
+            return "—"
         return y + 754 if y < 0 else y + 753
 
-    return {"proj": lambda lon, lat: proj(lon, lat), "year_text": year_text, "counter": auc,
+    def ground(x, y):
+        return max(z(x, y), 0.3)
+
+    return {"proj": lambda lon, lat: proj(lon, lat), "year_text": year_text, "counter": auc, "ground": ground,
             "before_frame": before,
             "scene": scene, "camera": cam, "animated": animated, "now": now, "labels": labels, "fx": fx,
             "sun": sun, "sky": bg, "night": night, "ships": [], "city": None, "beams": [], "groups": groups,

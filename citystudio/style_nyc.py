@@ -1253,6 +1253,9 @@ def apply_frame(brief, rig, frame, total):
         em.inputs["Color"].default_value = (*hz, 1)
 
     loc, look = camera_at(brief, t, total / fps, rig.get("proj"))
+    if rig.get("ground"):          # heights in the brief are above the local ground
+        loc.z += rig["ground"](loc.x, loc.y)
+        look.z += rig["ground"](look.x, look.y)
     cam = rig["camera"]
     cam.location = loc
     cam.rotation_euler = (look - loc).to_track_quat("-Z", "Y").to_euler()
@@ -1273,6 +1276,12 @@ def apply_frame(brief, rig, frame, total):
             continue
         if (lb["pos"] - cam.location).length > brief.get("label_max_distance", 7500):
             continue
+        if brief.get("label_occlusion"):
+            to = lb["pos"] - cam.location
+            hit = scene.ray_cast(bpy.context.evaluated_depsgraph_get(), cam.location, to.normalized(),
+                                 distance=max(0.0, to.length - 25.0))
+            if hit[0]:
+                continue
         if any(abs(pp.x - q["x"]) < 0.10 and abs((1.0 - pp.y) - q["y"]) < 0.04 for q in labels):
             continue
         labels.append({"text": lb["text"], "x": pp.x, "y": 1.0 - pp.y, "alpha": round(alpha, 3),
@@ -1325,7 +1334,7 @@ def apply_frame(brief, rig, frame, total):
         "realm": ruler["realm"] if ruler else "", "ruler": ruler.get("name", "") if ruler else "",
         "badge": ruler.get("badge", "") if ruler else "",
         "population": H.fmt_pop(pop) or "", "population_label": brief.get("population_label", "Population"),
-        "standing": "{:,}".format(standing), "standing_label": brief.get("standing_label", "Still standing"),
+        "standing": "{:,}".format(standing) if isinstance(standing, int) else str(standing), "standing_label": brief.get("standing_label", "Still standing"),
         "heading": heading, "caption": caption, "title_card": title, "labels": labels,
         "fineprint": brief.get("fineprint", ""),
         "weather": {"snow": round(sn, 3), "rain": round(rn, 3), "t": round(t, 3)},
