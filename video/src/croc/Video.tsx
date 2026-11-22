@@ -22,6 +22,33 @@ for (const key of cues.keys) {
 }
 export const CROC_FRAMES = cursor + END_CARD;
 
+// Frames where the narrator is speaking, across the whole video, for ducking the music.
+const SPEECH: [number, number][] = [];
+cues.keys.forEach((key, i) => {
+  for (const c of EVENTS[key].captions) SPEECH.push([starts[i] + cues.lead + Math.round(c.t0 * FPS), starts[i] + cues.lead + Math.round(c.t1 * FPS)]);
+});
+// Music sits low under the voice and rises gently in pauses and at section breaks.
+const musicLevel = (frame: number) => {
+  let d = Infinity;
+  let lo = 0;
+  let hi = SPEECH.length - 1;
+  while (lo <= hi) {
+    const mid = (lo + hi) >> 1;
+    const [a, b] = SPEECH[mid];
+    if (frame < a) {
+      d = Math.min(d, a - frame);
+      hi = mid - 1;
+    } else if (frame > b) {
+      d = Math.min(d, frame - b);
+      lo = mid + 1;
+    } else {
+      d = 0;
+      break;
+    }
+  }
+  return 0.13 + 0.12 * Math.min(1, Math.max(0, (d - 4) / 12));
+};
+
 // Four music clips laid end to end with short crossfades, ducked well under the voice.
 const MUSIC = ["croc-tense-1", "croc-tense-2", "croc-calm-1", "croc-calm-2"];
 const MUSIC_LEN = [222.8, 214.8, 212.0, 204.4].map((s) => Math.floor(s * FPS));
@@ -53,7 +80,7 @@ export const CrocVideo: React.FC = () => {
           <Sequence key={name} from={from} durationInFrames={len}>
             <Audio
               src={staticFile(`audio/music/${name}.mp3`)}
-              volume={(fr) => 0.2 * Math.min(interpolate(fr, [0, XF], [0, 1], { extrapolateRight: "clamp" }), interpolate(fr, [len - XF, len], [1, 0], { extrapolateLeft: "clamp" }))}
+              volume={(fr) => musicLevel(from + fr) * Math.min(interpolate(fr, [0, XF], [0, 1], { extrapolateRight: "clamp" }), interpolate(fr, [len - XF, len], [1, 0], { extrapolateLeft: "clamp" }))}
             />
           </Sequence>
         );

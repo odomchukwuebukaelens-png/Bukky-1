@@ -18,50 +18,25 @@ export const usePunch = () => useContext(PunchCtx);
 
 const easeOut = (t: number) => 1 - Math.pow(1 - Math.min(1, Math.max(0, t)), 3);
 
-// Camera targets the shot snaps between on each event: alternating push-ins and small pans.
-const SHOTS: Punch[] = [
-  { s: 1.0, tx: 0, ty: 0 },
-  { s: 1.06, tx: -18, ty: -8 },
-  { s: 1.03, tx: 22, ty: 6 },
-  { s: 1.09, tx: 0, ty: -14 },
-  { s: 1.02, tx: -10, ty: 10 },
-  { s: 1.07, tx: 16, ty: -4 },
-];
 
-// Wraps one scene: camera punches on every caption change and filler event, a shake on impacts,
-// and a fast whip-in when the scene starts.
+// Wraps one scene. The only camera movement it adds is a short shake on an impact word,
+// so every move on screen has a reason.
 export const RetentionScene: React.FC<{ ev: SceneEvents; lead: number; children: React.ReactNode }> = ({ ev, lead, children }) => {
   const f = useCurrentFrame();
-  const times = [...ev.captions.map((c) => c.t0), ...ev.punches].map((t) => lead + Math.round(t * FPS)).sort((a, b) => a - b);
-  let idx = 0;
-  let since = f;
-  for (let i = 0; i < times.length; i++) {
-    if (times[i] <= f) {
-      idx = i + 1;
-      since = f - times[i];
-    }
-  }
-  const from = SHOTS[(idx + SHOTS.length - 1) % SHOTS.length];
-  const to = SHOTS[idx % SHOTS.length];
-  const k = idx === 0 ? 1 : easeOut(since / 6);
-  const p: Punch = { s: from.s + (to.s - from.s) * k, tx: from.tx + (to.tx - from.tx) * k, ty: from.ty + (to.ty - from.ty) * k };
-  // Impact shake.
   let sx = 0;
   let sy = 0;
   for (const t of ev.impacts) {
     const d = f - (lead + Math.round(t * FPS));
     if (d >= 0 && d < 12) {
-      const a = 16 * (1 - d / 12);
+      const a = 14 * (1 - d / 12);
       sx += (random(`sx${t}${d}`) - 0.5) * 2 * a;
       sy += (random(`sy${t}${d}`) - 0.5) * 2 * a;
     }
   }
-  // Whip-in from the right over the first 7 frames.
-  const w = 1 - easeOut(f / 7);
-  const total: Punch = { s: p.s, tx: p.tx + sx + w * 260, ty: p.ty + sy };
+  const total: Punch = { s: 1, tx: sx, ty: sy };
   return (
     <PunchCtx.Provider value={total}>
-      <AbsoluteFill style={{ transform: `translate(${total.tx}px, ${total.ty}px) scale(${total.s})`, filter: w > 0.02 ? `blur(${w * 14}px)` : undefined }}>{children}</AbsoluteFill>
+      <AbsoluteFill style={{ transform: `translate(${sx}px, ${sy}px)` }}>{children}</AbsoluteFill>
     </PunchCtx.Provider>
   );
 };
@@ -76,10 +51,8 @@ export const Captions: React.FC<{ ev: SceneEvents; lead: number }> = ({ ev, lead
   const c = ev.captions[cur];
   const next = ev.captions[cur + 1];
   if (t > c.t1 + 0.6 && (!next || t < next.t0)) return null;
-  const since = (f - (lead + Math.round(c.t0 * FPS))) / FPS;
-  const pop = 1 + 0.14 * (1 - easeOut(since / 0.18));
   return (
-    <div style={{ position: "absolute", left: 360, right: 360, top: 812, display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "0 18px", transform: `scale(${pop})`, transformOrigin: "center" }}>
+    <div style={{ position: "absolute", left: 360, right: 360, top: 812, display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "0 18px" }}>
       {c.words.map(([w, wt], i) => {
         const on = t >= wt - 0.03;
         const em = i === c.em;
@@ -158,21 +131,12 @@ export const Teaser: React.FC<{ text: string; len: number }> = ({ text, len }) =
 };
 
 const at = (lead: number, t: number) => lead + Math.round(t * FPS);
-const WHOOSH = ["whoosh1", "whoosh2", "whoosh3", "whoosh4"];
 const IMPACT = ["impact2", "bass", "impact1", "bass", "impact3"];
 const SPLASH = ["splash2", "splash1", "splash3"];
 
 // Every sound effect for one scene.
 export const SceneSfx: React.FC<{ ev: SceneEvents; lead: number; index: number; beatFrames: number[]; teaserAt?: number }> = ({ ev, lead, index, beatFrames, teaserAt }) => (
   <>
-    <Sequence from={0} durationInFrames={60}>
-      <Audio src={staticFile(`sfx/${WHOOSH[index % WHOOSH.length]}.mp3`)} volume={0.36} />
-    </Sequence>
-    {index > 0 ? (
-      <Sequence from={6} durationInFrames={30}>
-        <Audio src={staticFile("sfx/click1.mp3")} volume={0.3} />
-      </Sequence>
-    ) : null}
     {ev.impacts.map((t, i) => (
       <Sequence key={`i${i}`} from={Math.max(0, at(lead, t) - 2)} durationInFrames={90}>
         <Audio src={staticFile(`sfx/${IMPACT[(index + i) % IMPACT.length]}.mp3`)} volume={0.34} />
@@ -181,11 +145,6 @@ export const SceneSfx: React.FC<{ ev: SceneEvents; lead: number; index: number; 
     {ev.splashes.map((t, i) => (
       <Sequence key={`s${i}`} from={at(lead, t)} durationInFrames={70}>
         <Audio src={staticFile(`sfx/${SPLASH[(index + i) % SPLASH.length]}.mp3`)} volume={0.28} />
-      </Sequence>
-    ))}
-    {beatFrames.map((fr, i) => (
-      <Sequence key={`b${i}`} from={fr} durationInFrames={20}>
-        <Audio src={staticFile(`sfx/${i % 3 === 0 ? "pop4" : i % 3 === 1 ? "click3" : "click2"}.mp3`)} volume={0.16} />
       </Sequence>
     ))}
     {teaserAt !== undefined ? (

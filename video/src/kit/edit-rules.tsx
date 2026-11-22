@@ -32,56 +32,95 @@ export const kindOf = (node: React.ReactNode): ShotKind => {
   return "other";
 };
 
-const DANGER = /\b(jaws?|bite|bites|strike|attack|attacks|death|took|kill|killed|fatal|drown|eaten|crush|snap|rolled|faster|eyes)\b/i;
-const ROT: Record<ShotKind, TransitionKind[]> = {
-  footage: ["whip", "ripple", "whipLeft", "leak", "zoom"],
-  photo: ["leak", "burn", "zoomOut"],
+const DANGER = /\b(jaws?|bite|strike|attack|death|took|killed|fatal|drown|eaten|crush|snap)\b/i;
+
+// Transitions used inside a section, by what the incoming shot is. Light leaks and glitches are
+// kept for section changes only.
+const POOL: Record<ShotKind, TransitionKind[]> = {
+  footage: ["whip", "ripple", "zoom", "whipLeft"],
+  photo: ["zoomOut", "iris", "whip"],
   map: ["iris", "zoom"],
-  chapter: ["zoom"],
+  chapter: ["zoom", "split"],
   title: ["flash", "zoomOut", "split"],
-  stamp: ["glitch"],
-  graphic: ["slash", "push", "blinds", "spin", "split", "whipLeft"],
-  drawn: ["claw", "whip", "zoomOut", "ripple", "slash", "zoom"],
+  stamp: ["flash"],
+  graphic: ["slash", "push", "blinds", "spin", "split"],
+  drawn: ["claw", "whip", "zoomOut", "slash", "ripple"],
   other: ["whip"],
 };
 
-export type EditPlan = { transition: TransitionKind; grade: GradeKind; letterbox: boolean; freeze: boolean; rgb: number; sfx: string; sfxVol: number };
+export type EditPlan = { transition: TransitionKind; grade: GradeKind; letterbox: boolean; freeze: boolean; rgb: number; sfx: string | null; sfxVol: number };
 
-const SFX: Record<TransitionKind, [string, number]> = {
-  cut: ["click3", 0.12],
+// Every transition has its own sound, synced to its first frame. Hard cuts are silent.
+const SFX: Record<TransitionKind, [string | null, number]> = {
+  cut: [null, 0],
   whip: ["whoosh3", 0.22],
   whipLeft: ["whoosh3", 0.22],
   zoom: ["whoosh1", 0.2],
   zoomOut: ["whoosh1", 0.2],
-  flash: ["bass", 0.28],
-  glitch: ["glitch1", 0.22],
+  flash: ["bass", 0.26],
+  glitch: ["glitch1", 0.24],
   iris: ["click1", 0.2],
   slash: ["whoosh2", 0.2],
   claw: ["whoosh2", 0.22],
-  ripple: ["splash1", 0.14],
-  burn: ["whoosh4", 0.18],
-  leak: ["whoosh4", 0.16],
+  ripple: ["splash1", 0.16],
+  burn: ["whoosh4", 0.2],
+  leak: ["whoosh4", 0.2],
   spin: ["whoosh1", 0.2],
-  push: ["click2", 0.16],
-  blinds: ["click2", 0.16],
-  split: ["click1", 0.16],
+  push: ["click2", 0.18],
+  blinds: ["click2", 0.18],
+  split: ["click1", 0.18],
 };
 
-// `history` lists shot indexes that show the past and get the old-film grade.
-export const planShot = (i: number, node: React.ReactNode, text: string, first: boolean, history: Set<number>): EditPlan => {
-  const kind = kindOf(node);
-  const danger = DANGER.test(text);
-  let transition: TransitionKind = first ? "cut" : ROT[kind][i % ROT[kind].length];
-  if (!first && danger && (kind === "footage" || kind === "drawn")) transition = i % 2 ? "flash" : "glitch";
-  if (history.has(i) && !first) transition = "burn";
-  const [sfx, sfxVol] = SFX[transition];
-  return {
-    transition,
-    grade: history.has(i) ? "film" : danger && kind === "footage" ? "danger" : "none",
-    letterbox: danger && (kind === "footage" || kind === "drawn"),
-    freeze: danger && kind === "footage",
-    rgb: danger ? 4 : 0,
-    sfx,
-    sfxVol,
-  };
+type Row = { scene: string; text: string };
+
+// Plans the whole video at once so it can see what came before each shot:
+// - section changes (first shot of a scene) get a light leak, or a glitch when the section is about danger;
+// - inside a section, a shot gets a transition only when the kind of picture changes (footage to drawing,
+//   drawing to graphic…) or a new kind of moment starts (a title, a map, a stamp); otherwise a hard cut;
+// - never the same transition twice in a row;
+// - danger accents (letterbox, freeze-frame, RGB split) at most once per section, on the strongest moment;
+// - history gets the old-film grade, with a film burn only into the first shot of each history run.
+export const planAll = (nodes: React.ReactNode[], rows: Row[], history: Set<number>): EditPlan[] => {
+  const plans: EditPlan[] = [];
+  let last: TransitionKind = "cut";
+  let scene = "";
+  let accentUsed = false;
+  let sectionCount = 0;
+  rows.forEach((r, i) => {
+    const kind = kindOf(nodes[i]);
+    const prevKind = i > 0 ? kindOf(nodes[i - 1]) : "other";
+    const first = r.scene !== scene;
+    if (first) {
+      scene = r.scene;
+      accentUsed = false;
+      sectionCount++;
+    }
+    const sectionDanger = rows.filter((x) => x.scene === r.scene).some((x) => DANGER.test(x.text));
+    let t: TransitionKind = "cut";
+    if (i === 0) t = "cut";
+    else if (first) t = sectionDanger && sectionCount % 2 === 0 ? "glitch" : "leak";
+    else if (history.has(i) && !history.has(i - 1)) t = "burn";
+    else if (history.has(i)) t = "cut";
+    else if (kind !== prevKind || kind === "title" || kind === "map" || kind === "chapter" || kind === "stamp") {
+      const pool = POOL[kind];
+      t = pool[i % pool.length];
+      if (t === last) t = pool[(i + 1) % pool.length];
+      if (t === last) t = "cut";
+    }
+    const danger = DANGER.test(r.text);
+    const accent = danger && !accentUsed && (kind === "footage" || kind === "drawn");
+    if (accent) accentUsed = true;
+    const [sfx, sfxVol] = SFX[t];
+    plans.push({
+      transition: t,
+      grade: history.has(i) ? "film" : accent && kind === "footage" ? "danger" : "none",
+      letterbox: accent,
+      freeze: accent && kind === "footage",
+      rgb: t === "glitch" ? 4 : 0,
+      sfx,
+      sfxVol,
+    });
+    if (t !== "cut") last = t;
+  });
+  return plans;
 };

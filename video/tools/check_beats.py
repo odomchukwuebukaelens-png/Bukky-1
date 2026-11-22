@@ -37,7 +37,19 @@ worst = []
 for key in sorted(set(cues) | set(caps)):
     end = UNTIL.get(key, timing[key]["duration"])
     ev = set(cues.get(key, set()))
-    if key in caps:
+    shots_path = f"src/{NAME}/shots.json"
+    if os.path.exists(shots_path):
+        # A shot list: visual changes are shot starts, plus the cut-in halfway through shots over 2 s.
+        rows = [r for r in json.load(open(shots_path)) if r["scene"] == key]
+        ev = set()
+        for j, r in enumerate(rows):
+            # Scene seconds: the first shot also covers the lead-in before the narration.
+            a = -lead if j == 0 else r["t0"]
+            if j > 0:
+                ev.add(r["t0"])
+            if r["t1"] - a > 1.8:
+                ev.add(a + (r["t1"] - a) / 2)
+    elif key in caps:
         ev |= {c["t0"] for c in caps[key]["captions"]} | set(caps[key]["punches"])
     # Times in scene seconds: the scene cut at 0, narration starts after the lead-in.
     pts = sorted({0.0} | {lead + t for t in ev if t < end} | {lead + end + tail})

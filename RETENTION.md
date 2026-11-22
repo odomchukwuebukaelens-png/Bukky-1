@@ -50,6 +50,14 @@ Professional YouTube editors keep energy with motivated transitions (whip pans, 
 
 Sources: [ShortGenius on transitions](https://shortgenius.com/blog/transitions-for-videos), [Inside Editors on transitions](https://insideeditors.com/video-editing-transitions/), [AIR on retention editing](https://air.io/en/youtube-hacks/advanced-retention-editing-cutting-patterns-that-keep-viewers-past-minute-8), [Motion Array on Johnny Harris-style editing](https://motionarray.com/learn/premiere-pro/edit-documentary-in-premiere-pro/), [Gling on video effects](https://www.gling.ai/blog/master-video-editing-effects), [Remotion transitions](https://www.remotion.dev/docs/transitions/presentations).
 
+### 3c. Restraint (owner, 22 Nov 2026)
+Constant zooms, captions, sound hits and overlays create activity without meaning, and viewers tire before the information is complete. So:
+- Every effect has a reason.
+- Vary the transitions, because one repeated type becomes a pattern viewers tune out.
+- Light leaks and glitches only at section changes.
+- Every transition gets a synced sound effect.
+- Get the audio right before adding more effects.
+
 ### 4. Sound
 - Continuous music bed under the voice, about 15 dB below it.
 - A whoosh on every scene cut, a soft tick on every new visual element, an impact with a screen shake and red flash on danger words (bite, strike, attack, kill), splashes on water moments, a riser into every "coming up".

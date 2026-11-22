@@ -45,13 +45,13 @@ for key, entry in sorted(timing.items()):
     for c in chunks:
         texts = [w[0].rstrip(",;:") for w in c]
         caps.append({"t0": c[0][1], "t1": c[-1][2], "words": [[t, w[1]] for t, w in zip(texts, c)], "em": emphasis(texts)})
-    # Impact and splash moments, at most one every 3.5 s each.
+    # Impact moments at most every 10 s, splashes at most every 20 s, so each one still lands.
     impacts, splashes, last_i, last_s = [], [], -9, -9
     for w in words:
         n = norm(w[0])
-        if n in IMPACT and w[1] - last_i > 3.5:
+        if n in IMPACT and w[1] - last_i > 10:
             impacts.append(w[1]); last_i = w[1]
-        elif n in SPLASH and w[1] - last_s > 6:
+        elif n in SPLASH and w[1] - last_s > 20:
             splashes.append(w[1]); last_s = w[1]
     # Filler camera moves wherever captions alone leave a gap longer than MAX_GAP.
     events = sorted([0.0] + [c["t0"] for c in caps] + [entry["duration"] + 0.4])
