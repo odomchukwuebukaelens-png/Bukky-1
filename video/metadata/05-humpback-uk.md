@@ -8,7 +8,7 @@
 
 ## Thumbnail
 
-`05-humpback-uk-thumbnail.jpg`, text «ВІН ЗАКРИВ ПАЩУ».
+Main: `05-humpback-uk-thumbnail-b.jpg`, text «ТИ В ЙОГО ПАЩІ..» (black field, monochrome animal, tiny diver with torch, arrow). Alternative: `05-humpback-uk-thumbnail.jpg`, «ВІН ЗАКРИВ ПАЩУ».
 
 ## Description
 
