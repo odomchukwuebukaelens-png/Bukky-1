@@ -41,6 +41,15 @@ What to do with this:
 - Chapter cards at every section start.
 - Big numbers count up rather than appearing still.
 
+### 3b. Transitions and effects (researched 22 Nov 2026)
+Professional YouTube editors keep energy with motivated transitions (whip pans, zoom transitions, match cuts), speed ramps and freeze-frames on key moments, text pops on single words, glitch hits for shocking lines, and film burns, light leaks and grain on archival material. Documentary audiences still expect clarity, so every effect is tied to a moment in the narration rather than applied at random. Our rules:
+- **Every shot enters with a transition matched to its type:** whips and ripples into footage; claws, zooms and slashes into drawn animation; slashes, pushes and blinds into graphics; irises into maps; flashes into title cards; a glitch into myth stamps; film burns into history.
+- **Danger lines get more:** a flash or glitch cut, letterbox bars, an RGB split, a freeze-frame with a camera-flash on footage, and a screen shake with an impact sound.
+- **History** (1945, 1950s, 1985) gets an old-film grade: sepia, flicker, gate weave, scratches and dust.
+- **Light grain over the whole video,** and a sound for every transition (whoosh, glitch, splash, impact).
+
+Sources: [ShortGenius on transitions](https://shortgenius.com/blog/transitions-for-videos), [Inside Editors on transitions](https://insideeditors.com/video-editing-transitions/), [AIR on retention editing](https://air.io/en/youtube-hacks/advanced-retention-editing-cutting-patterns-that-keep-viewers-past-minute-8), [Motion Array on Johnny Harris-style editing](https://motionarray.com/learn/premiere-pro/edit-documentary-in-premiere-pro/), [Gling on video effects](https://www.gling.ai/blog/master-video-editing-effects), [Remotion transitions](https://www.remotion.dev/docs/transitions/presentations).
+
 ### 4. Sound
 - Continuous music bed under the voice, about 15 dB below it.
 - A whoosh on every scene cut, a soft tick on every new visual element, an impact with a screen shake and red flash on danger words (bite, strike, attack, kill), splashes on water moments, a riser into every "coming up".

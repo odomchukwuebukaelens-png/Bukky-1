@@ -2,6 +2,7 @@ import React from "react";
 import { AbsoluteFill, Audio, interpolate, Sequence, staticFile, useCurrentFrame } from "remotion";
 import { Head, Lines } from "../kit/devices";
 import { Captions, ChapterChip, ImpactFx, RetentionScene, SceneSfx, Teaser, type SceneEvents } from "../kit/retention";
+import { Grain } from "../kit/fx";
 import { C, FPS } from "../kit/theme";
 import { ramp } from "../kit/ui";
 import captions from "./captions.json";
@@ -82,6 +83,7 @@ export const CrocVideo: React.FC = () => {
           </Sequence>
         );
       })}
+      <Grain />
       <Sequence from={cursor} durationInFrames={END_CARD} name="End card">
         <EndCard />
       </Sequence>

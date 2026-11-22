@@ -124,7 +124,7 @@ const RELATED: Record<string, string> = {
 };
 
 // A two-second piece of a free Mixkit clip, cut by tools/cut_footage.py to footage/croc2/v<id>_<t>.mp4.
-export const V: React.FC<{ id: string; t?: number; dir?: number; zoom?: number }> = ({ id, t = 0, dir = 1, zoom = 1.06 }) => {
+export const V: React.FC<{ id: string; t?: number; dir?: number; zoom?: number; rate?: number }> = ({ id, t = 0, dir = 1, zoom = 1.06, rate = 1 }) => {
   const { k } = useShot();
   const s = zoom + 0.08 * k;
   const label = RELATED[id];
@@ -133,6 +133,7 @@ export const V: React.FC<{ id: string; t?: number; dir?: number; zoom?: number }
       <OffthreadVideo
         src={staticFile(`footage/croc2/v${id}_${t}.mp4`)}
         muted
+        playbackRate={rate}
         style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${s}) translateX(${dir * (k - 0.5) * 30}px)`, filter: "saturate(0.92) contrast(1.06)" }}
       />
       <AbsoluteFill style={{ background: "linear-gradient(rgba(0,0,0,0.25), transparent 30%, transparent 70%, rgba(0,0,0,0.35))" }} />
@@ -321,7 +322,9 @@ export const NumShot: React.FC<{ to: number; from?: number; unit?: string; label
 }) => {
   const { f, dur } = useShot();
   const v = interpolate(f, [2, Math.max(3, dur * 0.7)], [from, to], clamp);
-  const txt = v.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+  // Years count up without a thousands comma.
+  const year = Number.isInteger(to) && to >= 1800 && to <= 2100 && from >= 1000;
+  const txt = v.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals, useGrouping: !year });
   const p = pop(f, 0, 6);
   return (
     <Backdrop v={bg}>
