@@ -10,8 +10,8 @@ How every video is written and edited to keep people watching. Written 19 Nov 20
 
 ## What our own analytics show
 
-**Crocodile video, first upload (22 Nov 2026).** This was the 11:33 cut, before the 2-second shot rebuild. About 60 views, so the curve is noisy. Average view duration was 3:36, 31.2%, against well under 10% for the octopus video.
-- **The intro is the big leak.** Retention fell from 100% to about 62% in the first 20 seconds, during the old 44-second scene-setting opening.
+**Crocodile video (22 Nov 2026).** Average view duration was 3:36, 31.2%, on about 60 views, so the curve is noisy. That is far better than the octopus video, but well short of the owner's 60–70% target.
+- **The intro is the big leak.** Retention fell from 100% to about 62% in the first 20 seconds, during the opening.
 - **Real stories hold people.** The only rise in the curve is around 4:45–5:20, the Val Plumwood death-roll story; people rewatched or skipped to it. There was a smaller bump at the Ramree Island myth.
 - **Statistics and history lose them.** The steepest mid-video drop is around 7:35–8:15, the attack-statistics and hunting-history section.
 - **The end holds.** About 17% stayed through the last three minutes.
