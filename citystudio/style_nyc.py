@@ -1132,7 +1132,8 @@ def build(brief, p):
 # ----------------------------------------------------------------------------
 # Per frame
 # ----------------------------------------------------------------------------
-def camera_at(brief, t, total_s):
+def camera_at(brief, t, total_s, project=None):
+    project = project or proj
     keys = brief["camera_keys"]
     if t <= keys[0]["t"]:
         k0 = k1 = keys[0]
@@ -1146,7 +1147,7 @@ def camera_at(brief, t, total_s):
                 break
     if "target" in k0:
         def parts(k):
-            q = proj(k["target"][0], k["target"][1])
+            q = project(k["target"][0], k["target"][1])
             return Vector((q.x, q.y, k.get("look_z", 0.0))), k["dist"], k["height"], k["bearing"]
         t0_, d0, h0, b0 = parts(k0)
         t1_, d1, h1, b1 = parts(k1)
@@ -1166,6 +1167,8 @@ def apply_frame(brief, rig, frame, total):
     fps = brief["fps"]
     t = frame / fps
     year = H.year_at(brief, t)
+    if rig.get("before_frame"):
+        rig["before_frame"](t, year)
     for a in rig["animated"]:
         if a.get("fill"):
             k = H.ease((year - a["year"]) / 3.0)
@@ -1249,7 +1252,7 @@ def apply_frame(brief, rig, frame, total):
     for em in H.HAZE_NODES:
         em.inputs["Color"].default_value = (*hz, 1)
 
-    loc, look = camera_at(brief, t, total / fps)
+    loc, look = camera_at(brief, t, total / fps, rig.get("proj"))
     cam = rig["camera"]
     cam.location = loc
     cam.rotation_euler = (look - loc).to_track_quat("-Z", "Y").to_euler()
@@ -1278,7 +1281,7 @@ def apply_frame(brief, rig, frame, total):
     fireworks = []
     for fw in brief.get("fireworks", []):
         if fw["from"] <= t <= fw["to"]:
-            q = proj(fw["ll"][0], fw["ll"][1])
+            q = (rig.get("proj") or proj)(fw["ll"][0], fw["ll"][1])
             for k in range(fw.get("count", 6)):
                 ang = k * 2.399
                 anchor = Vector((q.x + math.cos(ang) * fw.get("spread", 250) * (0.3 + 0.7 * ((k * 0.37) % 1)),
@@ -1302,7 +1305,10 @@ def apply_frame(brief, rig, frame, total):
                        "alpha": round(a, 3)}
     era = H.pick(brief["eras"], year)
     ruler = H.pick(brief["rulers"], year)
-    standing = bisect.bisect_right(rig["standing_years"], year)
+    if rig.get("counter"):
+        standing = rig["counter"](year)
+    else:
+        standing = bisect.bisect_right(rig["standing_years"], year)
     title = None
     for tc in ([brief["title_card"]] if brief.get("title_card") else []) + brief.get("cards", []):
         if tc["start"] <= t <= tc["end"]:
@@ -1314,7 +1320,8 @@ def apply_frame(brief, rig, frame, total):
                 q["alpha"] = round(q["alpha"] * (1 - a), 3)
     pop = H.interp(brief["population"], year)
     return {
-        "design": "atlas", "year": int(year), "era": era["text"] if era else "",
+        "design": "atlas", "year": int(year), "year_text": rig["year_text"](year) if rig.get("year_text") else None,
+        "era": era["text"] if era else "",
         "realm": ruler["realm"] if ruler else "", "ruler": ruler.get("name", "") if ruler else "",
         "badge": ruler.get("badge", "") if ruler else "",
         "population": H.fmt_pop(pop) or "", "population_label": brief.get("population_label", "Population"),

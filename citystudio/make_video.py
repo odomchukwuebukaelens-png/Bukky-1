@@ -468,7 +468,7 @@ def eevee_id():
 
 def configure_render(brief, scene, engine):
     r = scene.render
-    realistic = brief.get("style") in ("historic", "nyc")
+    realistic = brief.get("style") in ("historic", "nyc", "rome")
     r.resolution_x, r.resolution_y = brief["resolution"]
     r.resolution_percentage = 100
     r.fps = brief["fps"]
@@ -602,6 +602,23 @@ def build_music_bed(tracks, out, dur):
     os.remove(one)
 
 
+def shrink(mp4, limit_mb, dur):
+    """Two-pass re-encode to fit under limit_mb, keeping the audio as it is."""
+    audio_kbps = 192
+    video_kbps = int(limit_mb * 8 * 1024 * 0.97 / dur - audio_kbps)
+    print("[city-studio] Video is over %d MB - re-encoding at %d kbps to fit" % (limit_mb, video_kbps), flush=True)
+    tmp = mp4 + ".small.mp4"
+    log = mp4 + ".pass"
+    base = [ffmpeg_path(), "-y", "-loglevel", "error", "-i", mp4, "-c:v", "libx264", "-preset", "slow",
+            "-b:v", "%dk" % video_kbps, "-pix_fmt", "yuv420p", "-passlogfile", log]
+    subprocess.run(base + ["-pass", "1", "-an", "-f", "mp4", os.devnull], check=True)
+    subprocess.run(base + ["-pass", "2", "-c:a", "copy", "-movflags", "+faststart", tmp], check=True)
+    os.replace(tmp, mp4)
+    for f in os.listdir(os.path.dirname(mp4) or "."):
+        if f.startswith(os.path.basename(log)):
+            os.remove(os.path.join(os.path.dirname(mp4), f))
+
+
 def assemble(brief, out_dir, total):
     chunks_dir = os.path.join(out_dir, "chunks")
     names = []
@@ -664,7 +681,10 @@ def assemble(brief, out_dir, total):
                 "-c:a", "aac", "-b:a", "128k", "-shortest"]
     cmd += ["-c:v", "copy", "-movflags", "+faststart", mp4]
     subprocess.run(cmd, check=True)
-    print("[city-studio] DONE. Video saved: %s" % mp4)
+    limit = brief.get("max_size_mb")
+    if limit and os.path.getsize(mp4) > limit * 1024 * 1024:
+        shrink(mp4, limit, total / brief["fps"])
+    print("[city-studio] DONE. Video saved: %s (%.0f MB)" % (mp4, os.path.getsize(mp4) / 1048576))
 
 
 def main():
@@ -729,9 +749,11 @@ def main():
 
     random.seed(brief["seed"])
     built = time.time()
-    if brief.get("style") in ("historic", "nyc"):
+    if brief.get("style") in ("historic", "nyc", "rome"):
         sys.path.insert(0, HERE)
-        if brief["style"] == "nyc":
+        if brief["style"] == "rome":
+            import style_rome as style
+        elif brief["style"] == "nyc":
             import style_nyc as style
         else:
             import style_historic as style

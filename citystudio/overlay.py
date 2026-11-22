@@ -170,6 +170,32 @@ def badge(layer, draw, cx, cy, r, kind, alpha):
             fd.rectangle([0, i * S / 7, S, (i + 0.5) * S / 7], fill=(190, 30, 45, 255))
             fd.rectangle([0, (i + 0.5) * S / 7, S, (i + 1) * S / 7], fill=(245, 245, 240, 255))
         fd.rectangle([0, 0, S * 0.5, S * 0.5], fill=(30, 50, 110, 255))
+    elif kind == "spqr":
+        fd.rectangle([0, 0, S, S], fill=(130, 18, 30, 255))
+        fd.rectangle([S * 0.18, S * 0.42, S * 0.82, S * 0.58], fill=(226, 184, 70, 255))
+        fd.polygon([(S * 0.5, S * 0.12), (S * 0.62, S * 0.36), (S * 0.38, S * 0.36)], fill=(226, 184, 70, 255))
+    elif kind == "kingdom":
+        fd.rectangle([0, 0, S, S], fill=(110, 70, 40, 255))
+        fd.ellipse([S * 0.3, S * 0.3, S * 0.7, S * 0.7], fill=(220, 190, 120, 255))
+    elif kind == "goth":
+        fd.rectangle([0, 0, S, S], fill=(60, 70, 95, 255))
+        fd.rectangle([S * 0.44, S * 0.12, S * 0.56, S * 0.88], fill=(220, 200, 140, 255))
+    elif kind == "byz":
+        fd.rectangle([0, 0, S, S], fill=(95, 30, 110, 255))
+        fd.rectangle([S * 0.44, S * 0.15, S * 0.56, S * 0.85], fill=(235, 195, 70, 255))
+        fd.rectangle([S * 0.2, S * 0.38, S * 0.8, S * 0.5], fill=(235, 195, 70, 255))
+    elif kind == "papal":
+        fd.rectangle([0, 0, S / 2, S], fill=(250, 215, 40, 255))
+        fd.rectangle([S / 2, 0, S, S], fill=(245, 245, 240, 255))
+    elif kind in ("italy", "italy_k", "repub1849", "france"):
+        cols = [(20, 140, 70), (245, 245, 240), (205, 33, 42)] if kind != "france" else [(30, 60, 150), (245, 245, 240), (205, 33, 42)]
+        for i, c in enumerate(cols):
+            fd.rectangle([i * S / 3, 0, (i + 1) * S / 3, S], fill=(*c, 255))
+        if kind == "italy_k":
+            fd.rectangle([S * 0.42, S * 0.36, S * 0.58, S * 0.62], fill=(205, 33, 42, 255))
+            fd.rectangle([S * 0.48, S * 0.38, S * 0.52, S * 0.6], fill=(245, 245, 240, 255))
+    elif kind == "occupied":
+        fd.rectangle([0, 0, S, S], fill=(110, 110, 110, 255))
     elif kind == "lenape":
         fd.rectangle([0, 0, S, S], fill=(70, 110, 70, 255))
         fd.ellipse([S * 0.3, S * 0.3, S * 0.7, S * 0.7], outline=(240, 230, 200, 255), width=max(1, S // 14))
@@ -300,7 +326,8 @@ def compose_atlas(img, data):
 
     # top left: era, year, ruler badge
     L.text((left + X(2), X(42)), data.get("era", "").upper(), font("Lato-Bold.ttf", int(X(14))), amber, spacing=X(3.5))
-    L.text((left - X(2), X(128)), str(data.get("year", "")), font("LeagueSpartan-Bold.otf", int(X(92))), white,
+    yt = data.get("year_text") or str(data.get("year", ""))
+    L.text((left - X(2), X(128)), yt, font("LeagueSpartan-Bold.otf", int(X(92 if len(yt) <= 6 else 74))), white,
            anchor="ls", shadow=0.85)
     by = X(156)
     tx = left

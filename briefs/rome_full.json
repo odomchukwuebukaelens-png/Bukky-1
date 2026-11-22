@@ -1,0 +1,3145 @@
+{
+ "name": "rome_full",
+ "style": "rome",
+ "data": "data/rome",
+ "seed": 7,
+ "duration_seconds": 660,
+ "fps": 30,
+ "resolution": [
+  1280,
+  720
+ ],
+ "eevee_samples": 8,
+ "chunk_frames": 300,
+ "crf": 18,
+ "sharpen": 0.6,
+ "filter_size": 0.9,
+ "music": "generate",
+ "music_tracks": [
+  "assets/music/packed.mp3",
+  "assets/music/outside_the_box.mp3"
+ ],
+ "music_volume": 0.7,
+ "view": "standard",
+ "haze_color": [
+  0.96,
+  0.87,
+  0.72
+ ],
+ "haze_distance": 60000,
+ "haze_amount": 0.18,
+ "zenith": [
+  0.22,
+  0.42,
+  0.78
+ ],
+ "sky": 0.9,
+ "sun": 5.0,
+ "grade": {
+  "saturation": 1.25,
+  "contrast": 1.12,
+  "brightness": 1.02
+ },
+ "caption_hold": 6.0,
+ "label_max_distance": 5000,
+ "clip_start": 1.0,
+ "clip_end": 30000,
+ "fineprint": "Illustrative reconstruction · today's buildings: Overture Maps / OpenStreetMap · dates estimated",
+ "dusk": {
+  "from": 628,
+  "to": 650
+ },
+ "year_keys": [
+  [
+   0,
+   -1000
+  ],
+  [
+   8,
+   -800
+  ],
+  [
+   20,
+   -770
+  ],
+  [
+   28,
+   -753
+  ],
+  [
+   40,
+   -700
+  ],
+  [
+   52,
+   -520
+  ],
+  [
+   56,
+   -509
+  ],
+  [
+   68,
+   -392
+  ],
+  [
+   74,
+   -389
+  ],
+  [
+   92,
+   -200
+  ],
+  [
+   106,
+   -60
+  ],
+  [
+   114,
+   -44.5
+  ],
+  [
+   120,
+   -43.5
+  ],
+  [
+   132,
+   -27
+  ],
+  [
+   146,
+   14
+  ],
+  [
+   158,
+   63.5
+  ],
+  [
+   168,
+   64.7
+  ],
+  [
+   180,
+   72
+  ],
+  [
+   192,
+   80.5
+  ],
+  [
+   205,
+   100
+  ],
+  [
+   220,
+   126
+  ],
+  [
+   232,
+   138
+  ],
+  [
+   244,
+   216
+  ],
+  [
+   256,
+   275
+  ],
+  [
+   268,
+   312
+  ],
+  [
+   280,
+   330
+  ],
+  [
+   292,
+   409.6
+  ],
+  [
+   300,
+   410.7
+  ],
+  [
+   308,
+   455.4
+  ],
+  [
+   314,
+   455.6
+  ],
+  [
+   326,
+   476
+  ],
+  [
+   338,
+   537
+  ],
+  [
+   350,
+   600
+  ],
+  [
+   362,
+   800
+  ],
+  [
+   372,
+   800.99
+  ],
+  [
+   386,
+   1084
+  ],
+  [
+   398,
+   1300
+  ],
+  [
+   408,
+   1377
+  ],
+  [
+   420,
+   1450
+  ],
+  [
+   434,
+   1506
+  ],
+  [
+   444,
+   1526.3
+  ],
+  [
+   452,
+   1527.45
+  ],
+  [
+   464,
+   1590
+  ],
+  [
+   478,
+   1667
+  ],
+  [
+   490,
+   1750
+  ],
+  [
+   500,
+   1849.3
+  ],
+  [
+   508,
+   1849.6
+  ],
+  [
+   522,
+   1870.7
+  ],
+  [
+   530,
+   1870.73
+  ],
+  [
+   542,
+   1911.5
+  ],
+  [
+   554,
+   1932.5
+  ],
+  [
+   562,
+   1943.5
+  ],
+  [
+   568,
+   1943.6
+  ],
+  [
+   576,
+   1946.5
+  ],
+  [
+   590,
+   1960.7
+  ],
+  [
+   604,
+   2000
+  ],
+  [
+   620,
+   2026
+  ],
+  [
+   660,
+   2026
+  ]
+ ],
+ "camera_keys": [
+  {
+   "t": 0,
+   "target": [
+    12.485,
+    41.895
+   ],
+   "dist": 6000,
+   "height": 2600,
+   "bearing": 20,
+   "look_z": 0
+  },
+  {
+   "t": 12,
+   "target": [
+    12.485,
+    41.895
+   ],
+   "dist": 3000,
+   "height": 1200,
+   "bearing": 25,
+   "look_z": 0
+  },
+  {
+   "t": 18,
+   "target": [
+    12.4835,
+    41.8893
+   ],
+   "dist": 45,
+   "height": 6,
+   "bearing": 200,
+   "look_z": 1
+  },
+  {
+   "t": 26,
+   "target": [
+    12.4835,
+    41.8893
+   ],
+   "dist": 70,
+   "height": 9,
+   "bearing": 230,
+   "look_z": 1
+  },
+  {
+   "t": 32,
+   "target": [
+    12.4875,
+    41.8895
+   ],
+   "dist": 450,
+   "height": 170,
+   "bearing": 30,
+   "look_z": 0
+  },
+  {
+   "t": 46,
+   "target": [
+    12.4853,
+    41.8925
+   ],
+   "dist": 700,
+   "height": 260,
+   "bearing": 60,
+   "look_z": 0
+  },
+  {
+   "t": 62,
+   "target": [
+    12.493,
+    41.901
+   ],
+   "dist": 1000,
+   "height": 360,
+   "bearing": 220,
+   "look_z": 0
+  },
+  {
+   "t": 78,
+   "target": [
+    12.49,
+    41.899
+   ],
+   "dist": 900,
+   "height": 320,
+   "bearing": 210,
+   "look_z": 0
+  },
+  {
+   "t": 94,
+   "target": [
+    12.4853,
+    41.8925
+   ],
+   "dist": 2200,
+   "height": 900,
+   "bearing": 10,
+   "look_z": 0
+  },
+  {
+   "t": 108,
+   "target": [
+    12.473,
+    41.895
+   ],
+   "dist": 130,
+   "height": 20,
+   "bearing": 70,
+   "look_z": 2
+  },
+  {
+   "t": 122,
+   "target": [
+    12.473,
+    41.895
+   ],
+   "dist": 160,
+   "height": 26,
+   "bearing": 90,
+   "look_z": 2
+  },
+  {
+   "t": 134,
+   "target": [
+    12.48,
+    41.898
+   ],
+   "dist": 1500,
+   "height": 520,
+   "bearing": 150,
+   "look_z": 0
+  },
+  {
+   "t": 156,
+   "target": [
+    12.4851,
+    41.8861
+   ],
+   "dist": 1300,
+   "height": 480,
+   "bearing": 340,
+   "look_z": 0
+  },
+  {
+   "t": 170,
+   "target": [
+    12.4851,
+    41.8861
+   ],
+   "dist": 1200,
+   "height": 450,
+   "bearing": 320,
+   "look_z": 0
+  },
+  {
+   "t": 182,
+   "target": [
+    12.4922,
+    41.8902
+   ],
+   "dist": 520,
+   "height": 190,
+   "bearing": 300,
+   "look_z": 0
+  },
+  {
+   "t": 194,
+   "target": [
+    12.4922,
+    41.8902
+   ],
+   "dist": 110,
+   "height": 45,
+   "bearing": 300,
+   "look_z": 12
+  },
+  {
+   "t": 204,
+   "target": [
+    12.4853,
+    41.8925
+   ],
+   "dist": 70,
+   "height": 8,
+   "bearing": 130,
+   "look_z": 2
+  },
+  {
+   "t": 214,
+   "target": [
+    12.4853,
+    41.8925
+   ],
+   "dist": 60,
+   "height": 7,
+   "bearing": 160,
+   "look_z": 2
+  },
+  {
+   "t": 226,
+   "target": [
+    12.4768,
+    41.8986
+   ],
+   "dist": 320,
+   "height": 120,
+   "bearing": 200,
+   "look_z": 0
+  },
+  {
+   "t": 240,
+   "target": [
+    12.49,
+    41.882
+   ],
+   "dist": 1700,
+   "height": 640,
+   "bearing": 340,
+   "look_z": 0
+  },
+  {
+   "t": 258,
+   "target": [
+    12.49,
+    41.882
+   ],
+   "dist": 1800,
+   "height": 700,
+   "bearing": 10,
+   "look_z": 0
+  },
+  {
+   "t": 272,
+   "target": [
+    12.454,
+    41.9022
+   ],
+   "dist": 700,
+   "height": 260,
+   "bearing": 90,
+   "look_z": 0
+  },
+  {
+   "t": 288,
+   "target": [
+    12.496,
+    41.909
+   ],
+   "dist": 520,
+   "height": 170,
+   "bearing": 200,
+   "look_z": 0
+  },
+  {
+   "t": 300,
+   "target": [
+    12.496,
+    41.909
+   ],
+   "dist": 480,
+   "height": 150,
+   "bearing": 190,
+   "look_z": 0
+  },
+  {
+   "t": 310,
+   "target": [
+    12.481,
+    41.879
+   ],
+   "dist": 900,
+   "height": 350,
+   "bearing": 0,
+   "look_z": 0
+  },
+  {
+   "t": 326,
+   "target": [
+    12.4853,
+    41.8925
+   ],
+   "dist": 2600,
+   "height": 1100,
+   "bearing": 30,
+   "look_z": 0
+  },
+  {
+   "t": 344,
+   "target": [
+    12.4853,
+    41.8925
+   ],
+   "dist": 2400,
+   "height": 1000,
+   "bearing": 60,
+   "look_z": 0
+  },
+  {
+   "t": 358,
+   "target": [
+    12.474,
+    41.898
+   ],
+   "dist": 900,
+   "height": 320,
+   "bearing": 100,
+   "look_z": 0
+  },
+  {
+   "t": 370,
+   "target": [
+    12.454,
+    41.9022
+   ],
+   "dist": 320,
+   "height": 95,
+   "bearing": 80,
+   "look_z": 0
+  },
+  {
+   "t": 384,
+   "target": [
+    12.474,
+    41.898
+   ],
+   "dist": 1200,
+   "height": 420,
+   "bearing": 120,
+   "look_z": 0
+  },
+  {
+   "t": 402,
+   "target": [
+    12.4853,
+    41.8925
+   ],
+   "dist": 3000,
+   "height": 1300,
+   "bearing": 200,
+   "look_z": 0
+  },
+  {
+   "t": 424,
+   "target": [
+    12.454,
+    41.9022
+   ],
+   "dist": 650,
+   "height": 230,
+   "bearing": 80,
+   "look_z": 0
+  },
+  {
+   "t": 442,
+   "target": [
+    12.459,
+    41.901
+   ],
+   "dist": 520,
+   "height": 170,
+   "bearing": 60,
+   "look_z": 0
+  },
+  {
+   "t": 452,
+   "target": [
+    12.459,
+    41.901
+   ],
+   "dist": 450,
+   "height": 150,
+   "bearing": 70,
+   "look_z": 0
+  },
+  {
+   "t": 460,
+   "target": [
+    12.4731,
+    41.8992
+   ],
+   "dist": 75,
+   "height": 6,
+   "bearing": 0,
+   "look_z": 1
+  },
+  {
+   "t": 472,
+   "target": [
+    12.4731,
+    41.8992
+   ],
+   "dist": 70,
+   "height": 6,
+   "bearing": 20,
+   "look_z": 1
+  },
+  {
+   "t": 482,
+   "target": [
+    12.454,
+    41.9022
+   ],
+   "dist": 700,
+   "height": 250,
+   "bearing": 90,
+   "look_z": 0
+  },
+  {
+   "t": 498,
+   "target": [
+    12.464,
+    41.888
+   ],
+   "dist": 750,
+   "height": 230,
+   "bearing": 60,
+   "look_z": 0
+  },
+  {
+   "t": 512,
+   "target": [
+    12.5015,
+    41.9093
+   ],
+   "dist": 600,
+   "height": 200,
+   "bearing": 210,
+   "look_z": 0
+  },
+  {
+   "t": 524,
+   "target": [
+    12.5015,
+    41.9093
+   ],
+   "dist": 240,
+   "height": 55,
+   "bearing": 200,
+   "look_z": 2
+  },
+  {
+   "t": 536,
+   "target": [
+    12.5015,
+    41.9093
+   ],
+   "dist": 320,
+   "height": 80,
+   "bearing": 190,
+   "look_z": 2
+  },
+  {
+   "t": 546,
+   "target": [
+    12.4828,
+    41.8946
+   ],
+   "dist": 600,
+   "height": 200,
+   "bearing": 180,
+   "look_z": 0
+  },
+  {
+   "t": 556,
+   "target": [
+    12.488,
+    41.893
+   ],
+   "dist": 500,
+   "height": 150,
+   "bearing": 300,
+   "look_z": 0
+  },
+  {
+   "t": 566,
+   "target": [
+    12.518,
+    41.899
+   ],
+   "dist": 1500,
+   "height": 520,
+   "bearing": 270,
+   "look_z": 0
+  },
+  {
+   "t": 578,
+   "target": [
+    12.48,
+    41.898
+   ],
+   "dist": 2500,
+   "height": 900,
+   "bearing": 330,
+   "look_z": 0
+  },
+  {
+   "t": 592,
+   "target": [
+    12.48,
+    41.898
+   ],
+   "dist": 2200,
+   "height": 800,
+   "bearing": 0,
+   "look_z": 0
+  },
+  {
+   "t": 604,
+   "target": [
+    12.4826,
+    41.896
+   ],
+   "dist": 85,
+   "height": 6,
+   "bearing": 180,
+   "look_z": 1
+  },
+  {
+   "t": 618,
+   "target": [
+    12.4826,
+    41.896
+   ],
+   "dist": 75,
+   "height": 6,
+   "bearing": 200,
+   "look_z": 1
+  },
+  {
+   "t": 630,
+   "target": [
+    12.485,
+    41.895
+   ],
+   "dist": 4000,
+   "height": 1700,
+   "bearing": 25,
+   "look_z": 0
+  },
+  {
+   "t": 660,
+   "target": [
+    12.485,
+    41.895
+   ],
+   "dist": 9000,
+   "height": 4200,
+   "bearing": 25,
+   "look_z": 0
+  }
+ ],
+ "title_card": {
+  "start": 0.5,
+  "end": 7.5,
+  "kicker": "From legend to capital",
+  "title": "Rome",
+  "years": "753 BC — 2026",
+  "note": "A city rebuilt in 3D through 2,779 years"
+ },
+ "cards": [
+  {
+   "start": 640,
+   "end": 659,
+   "kicker": "Rome, 2026",
+   "title": "2,779 years",
+   "years": "from a hilltop village to the Eternal City",
+   "note": "Illustrative reconstruction · data: Overture Maps, OpenStreetMap contributors, Copernicus"
+  }
+ ],
+ "events": [
+  {
+   "year": -800,
+   "tag": "c. 800 BC",
+   "title": "Hills above a river",
+   "body": "Shepherds and farmers live on wooded hills beside a bend of the Tiber"
+  },
+  {
+   "year": -771,
+   "tag": "LEGEND",
+   "title": "Romulus and Remus",
+   "body": "Abandoned by the river, twin boys are found and fed by a she-wolf, says the legend",
+   "min_time": 16
+  },
+  {
+   "year": -753,
+   "tag": "21 APR 753 BC",
+   "title": "The founding",
+   "body": "Legend says Romulus draws the city's boundary on the Palatine Hill and names Rome after himself"
+  },
+  {
+   "year": -700,
+   "tag": "7TH CENTURY BC",
+   "title": "Kings of Rome",
+   "body": "Seven kings, the story goes. The marshy valley below the hills is drained and becomes the Forum"
+  },
+  {
+   "year": -509,
+   "tag": "509 BC",
+   "title": "The Republic",
+   "body": "The last king is expelled. Rome is now ruled by the Senate and elected consuls"
+  },
+  {
+   "year": -390,
+   "tag": "390 BC",
+   "title": "The Gauls sack Rome",
+   "body": "Gallic warriors storm in from the north and burn the city. Only the Capitoline holds out"
+  },
+  {
+   "year": -200,
+   "tag": "2ND CENTURY BC",
+   "title": "Mistress of the Mediterranean",
+   "body": "After the wars with Carthage, wealth and slaves pour into a fast-growing city"
+  },
+  {
+   "year": -44.8,
+   "tag": "15 MAR 44 BC",
+   "title": "The Ides of March",
+   "body": "Julius Caesar is stabbed to death by senators at a meeting in the Theatre of Pompey"
+  },
+  {
+   "year": -27,
+   "tag": "27 BC",
+   "title": "Augustus",
+   "body": "Rome's first emperor claims he found a city of brick and left it a city of marble"
+  },
+  {
+   "year": 64.05,
+   "tag": "JULY AD 64",
+   "title": "The Great Fire",
+   "body": "Fire burns for six days near the Circus Maximus. Much of Rome is destroyed. Nero is blamed"
+  },
+  {
+   "year": 80,
+   "tag": "AD 80",
+   "title": "The Colosseum opens",
+   "body": "Up to 50,000 spectators watch 100 days of games to celebrate its opening"
+  },
+  {
+   "year": 100,
+   "tag": "AD 100",
+   "title": "A city of a million",
+   "body": "Perhaps a million people live here, the largest city in the world at the time"
+  },
+  {
+   "year": 126,
+   "tag": "AD 126",
+   "title": "The Pantheon",
+   "body": "Hadrian's temple gets its great concrete dome, still the largest unreinforced dome on Earth"
+  },
+  {
+   "year": 216,
+   "tag": "AD 216",
+   "title": "The Baths of Caracalla",
+   "body": "Vast public baths open, with room for over 1,500 bathers at a time"
+  },
+  {
+   "year": 271,
+   "tag": "AD 271",
+   "title": "The Aurelian Walls",
+   "body": "With enemies at Italy's borders, Rome builds 19 km of new walls"
+  },
+  {
+   "year": 312,
+   "tag": "AD 312",
+   "title": "Constantine",
+   "body": "The first Christian emperor. Churches like Old St. Peter's begin to rise"
+  },
+  {
+   "year": 410.62,
+   "tag": "24 AUG 410",
+   "title": "The Visigoths sack Rome",
+   "body": "Alaric's army enters through the Salarian Gate at night. Rome is plundered for three days"
+  },
+  {
+   "year": 455.45,
+   "tag": "455",
+   "title": "The Vandals",
+   "body": "A second sack, this time for two weeks. The word 'vandalism' comes from it"
+  },
+  {
+   "year": 476,
+   "tag": "476",
+   "title": "The end of the Western Empire",
+   "body": "The last emperor in the West is deposed. Rome's population collapses"
+  },
+  {
+   "year": 537,
+   "tag": "537",
+   "title": "The aqueducts are cut",
+   "body": "During a siege the aqueducts are broken. The hills empty and people move down to the river"
+  },
+  {
+   "year": 800.9,
+   "tag": "25 DEC 800",
+   "title": "Charlemagne crowned",
+   "body": "The Pope crowns the Frankish king emperor in Old St. Peter's"
+  },
+  {
+   "year": 1150,
+   "tag": "12TH CENTURY",
+   "title": "City of towers",
+   "body": "Noble families build fortified towers and fight each other in the streets"
+  },
+  {
+   "year": 1309,
+   "tag": "1309",
+   "title": "The popes leave",
+   "body": "The papacy moves to Avignon. Rome shrinks to perhaps 20,000 people among the ruins"
+  },
+  {
+   "year": 1450,
+   "tag": "1450",
+   "title": "The Renaissance",
+   "body": "Popes return, rebuild and invite the great artists of the age"
+  },
+  {
+   "year": 1506,
+   "tag": "1506",
+   "title": "A new St. Peter's",
+   "body": "The 1,200-year-old basilica is pulled down. Its replacement will take 120 years"
+  },
+  {
+   "year": 1527.34,
+   "tag": "6 MAY 1527",
+   "title": "The Sack of Rome",
+   "body": "Mutinous imperial troops storm the walls. The Swiss Guard dies defending the Pope"
+  },
+  {
+   "year": 1590,
+   "tag": "1590",
+   "title": "Michelangelo's dome",
+   "body": "The great dome of St. Peter's is completed, 26 years after Michelangelo's death"
+  },
+  {
+   "year": 1651,
+   "tag": "1651",
+   "title": "Baroque Rome",
+   "body": "Bernini's fountains and squares transform the city. The Four Rivers Fountain fills Piazza Navona"
+  },
+  {
+   "year": 1667,
+   "tag": "1667",
+   "title": "St. Peter's Square",
+   "body": "Bernini's colonnade embraces the square like two open arms"
+  },
+  {
+   "year": 1849.4,
+   "tag": "1849",
+   "title": "The Roman Republic",
+   "body": "Revolutionaries declare a republic. French troops besiege the Janiculum and restore the Pope"
+  },
+  {
+   "year": 1870.71,
+   "tag": "20 SEP 1870",
+   "title": "The breach of Porta Pia",
+   "body": "Italian troops break through the walls. Rome becomes part of Italy, and soon its capital"
+  },
+  {
+   "year": 1890,
+   "tag": "1880s",
+   "title": "A new capital",
+   "body": "Ministries, boulevards and new districts rise inside and beyond the old walls"
+  },
+  {
+   "year": 1911,
+   "tag": "1911",
+   "title": "The Vittoriano",
+   "body": "A vast white monument to Italy's first king opens, 50 years after unification"
+  },
+  {
+   "year": 1932,
+   "tag": "1932",
+   "title": "Via dei Fori Imperiali",
+   "body": "A broad avenue is cut through the ancient forums, demolishing a neighbourhood"
+  },
+  {
+   "year": 1943.53,
+   "tag": "19 JUL 1943",
+   "title": "The bombing of San Lorenzo",
+   "body": "Allied bombers strike the rail yards. Around 1,500 people are killed in the district"
+  },
+  {
+   "year": 1946.5,
+   "tag": "1946",
+   "title": "The Italian Republic",
+   "body": "Italians vote to end the monarchy"
+  },
+  {
+   "year": 1960.65,
+   "tag": "1960",
+   "title": "The Olympic Games",
+   "body": "Rome hosts the Summer Olympics, the 'Dolce Vita' years"
+  },
+  {
+   "year": 2000,
+   "tag": "2000",
+   "title": "The Great Jubilee",
+   "body": "Some 25 million pilgrims visit the city"
+  },
+  {
+   "year": 2026,
+   "tag": "2026",
+   "title": "Rome today",
+   "body": "Nearly three million people live in the Eternal City"
+  }
+ ],
+ "eras": [
+  {
+   "from": -2000,
+   "text": "Before Rome"
+  },
+  {
+   "from": -753,
+   "text": "The age of kings"
+  },
+  {
+   "from": -509,
+   "text": "The Roman Republic"
+  },
+  {
+   "from": -27,
+   "text": "The Roman Empire"
+  },
+  {
+   "from": 235,
+   "text": "Crisis and recovery"
+  },
+  {
+   "from": 312,
+   "text": "Christian Rome"
+  },
+  {
+   "from": 476,
+   "text": "After the fall"
+  },
+  {
+   "from": 800,
+   "text": "Medieval Rome"
+  },
+  {
+   "from": 1309,
+   "text": "The Avignon years"
+  },
+  {
+   "from": 1420,
+   "text": "Renaissance Rome"
+  },
+  {
+   "from": 1600,
+   "text": "Baroque Rome"
+  },
+  {
+   "from": 1798,
+   "text": "Revolutions"
+  },
+  {
+   "from": 1870,
+   "text": "Capital of Italy"
+  },
+  {
+   "from": 1922,
+   "text": "The Fascist era"
+  },
+  {
+   "from": 1943,
+   "text": "War and occupation"
+  },
+  {
+   "from": 1946,
+   "text": "The Republic"
+  },
+  {
+   "from": 2000,
+   "text": "The Eternal City"
+  }
+ ],
+ "rulers": [
+  {
+   "from": -2000,
+   "realm": "Latium",
+   "name": "Latin and Sabine villages",
+   "badge": ""
+  },
+  {
+   "from": -753,
+   "realm": "Kingdom of Rome",
+   "name": "King Romulus (legendary)",
+   "badge": "kingdom"
+  },
+  {
+   "from": -716,
+   "realm": "Kingdom of Rome",
+   "name": "King Numa Pompilius",
+   "badge": "kingdom"
+  },
+  {
+   "from": -673,
+   "realm": "Kingdom of Rome",
+   "name": "King Tullus Hostilius",
+   "badge": "kingdom"
+  },
+  {
+   "from": -642,
+   "realm": "Kingdom of Rome",
+   "name": "King Ancus Marcius",
+   "badge": "kingdom"
+  },
+  {
+   "from": -616,
+   "realm": "Kingdom of Rome",
+   "name": "King Tarquinius Priscus",
+   "badge": "kingdom"
+  },
+  {
+   "from": -578,
+   "realm": "Kingdom of Rome",
+   "name": "King Servius Tullius",
+   "badge": "kingdom"
+  },
+  {
+   "from": -534,
+   "realm": "Kingdom of Rome",
+   "name": "King Tarquinius Superbus",
+   "badge": "kingdom"
+  },
+  {
+   "from": -509,
+   "realm": "Roman Republic",
+   "name": "Senate and two consuls",
+   "badge": "spqr"
+  },
+  {
+   "from": -49,
+   "realm": "Roman Republic",
+   "name": "Dictator Julius Caesar",
+   "badge": "spqr"
+  },
+  {
+   "from": -43.5,
+   "realm": "Roman Republic",
+   "name": "The Second Triumvirate",
+   "badge": "spqr"
+  },
+  {
+   "from": -27,
+   "realm": "Roman Empire",
+   "name": "Emperor Augustus",
+   "badge": "spqr"
+  },
+  {
+   "from": 14,
+   "realm": "Roman Empire",
+   "name": "Emperor Tiberius",
+   "badge": "spqr"
+  },
+  {
+   "from": 37,
+   "realm": "Roman Empire",
+   "name": "Emperor Caligula",
+   "badge": "spqr"
+  },
+  {
+   "from": 41,
+   "realm": "Roman Empire",
+   "name": "Emperor Claudius",
+   "badge": "spqr"
+  },
+  {
+   "from": 54,
+   "realm": "Roman Empire",
+   "name": "Emperor Nero",
+   "badge": "spqr"
+  },
+  {
+   "from": 69,
+   "realm": "Roman Empire",
+   "name": "Emperor Vespasian",
+   "badge": "spqr"
+  },
+  {
+   "from": 79,
+   "realm": "Roman Empire",
+   "name": "Emperor Titus",
+   "badge": "spqr"
+  },
+  {
+   "from": 81,
+   "realm": "Roman Empire",
+   "name": "Emperor Domitian",
+   "badge": "spqr"
+  },
+  {
+   "from": 96,
+   "realm": "Roman Empire",
+   "name": "Emperor Nerva",
+   "badge": "spqr"
+  },
+  {
+   "from": 98,
+   "realm": "Roman Empire",
+   "name": "Emperor Trajan",
+   "badge": "spqr"
+  },
+  {
+   "from": 117,
+   "realm": "Roman Empire",
+   "name": "Emperor Hadrian",
+   "badge": "spqr"
+  },
+  {
+   "from": 138,
+   "realm": "Roman Empire",
+   "name": "Emperor Antoninus Pius",
+   "badge": "spqr"
+  },
+  {
+   "from": 161,
+   "realm": "Roman Empire",
+   "name": "Emperor Marcus Aurelius",
+   "badge": "spqr"
+  },
+  {
+   "from": 180,
+   "realm": "Roman Empire",
+   "name": "Emperor Commodus",
+   "badge": "spqr"
+  },
+  {
+   "from": 193,
+   "realm": "Roman Empire",
+   "name": "Emperor Septimius Severus",
+   "badge": "spqr"
+  },
+  {
+   "from": 211,
+   "realm": "Roman Empire",
+   "name": "Emperor Caracalla",
+   "badge": "spqr"
+  },
+  {
+   "from": 235,
+   "realm": "Roman Empire",
+   "name": "Many short-lived emperors",
+   "badge": "spqr"
+  },
+  {
+   "from": 270,
+   "realm": "Roman Empire",
+   "name": "Emperor Aurelian",
+   "badge": "spqr"
+  },
+  {
+   "from": 284,
+   "realm": "Roman Empire",
+   "name": "Emperor Diocletian",
+   "badge": "spqr"
+  },
+  {
+   "from": 306,
+   "realm": "Roman Empire",
+   "name": "Emperor Constantine",
+   "badge": "spqr"
+  },
+  {
+   "from": 379,
+   "realm": "Roman Empire",
+   "name": "Emperor Theodosius I",
+   "badge": "spqr"
+  },
+  {
+   "from": 395,
+   "realm": "Western Roman Empire",
+   "name": "Emperor Honorius",
+   "badge": "spqr"
+  },
+  {
+   "from": 425,
+   "realm": "Western Roman Empire",
+   "name": "Emperor Valentinian III",
+   "badge": "spqr"
+  },
+  {
+   "from": 475,
+   "realm": "Western Roman Empire",
+   "name": "Emperor Romulus Augustulus",
+   "badge": "spqr"
+  },
+  {
+   "from": 476,
+   "realm": "Kingdom of Italy",
+   "name": "King Odoacer",
+   "badge": "goth"
+  },
+  {
+   "from": 493,
+   "realm": "Ostrogothic Kingdom",
+   "name": "King Theodoric",
+   "badge": "goth"
+  },
+  {
+   "from": 536,
+   "realm": "Eastern Roman Empire",
+   "name": "Emperor Justinian I",
+   "badge": "byz"
+  },
+  {
+   "from": 565,
+   "realm": "Eastern Roman Empire",
+   "name": "Byzantine emperors",
+   "badge": "byz"
+  },
+  {
+   "from": 756,
+   "realm": "Papal States",
+   "name": "Pope Stephen II",
+   "badge": "papal"
+  },
+  {
+   "from": 795,
+   "realm": "Papal States",
+   "name": "Pope Leo III",
+   "badge": "papal"
+  },
+  {
+   "from": 816,
+   "realm": "Papal States",
+   "name": "The popes",
+   "badge": "papal"
+  },
+  {
+   "from": 1073,
+   "realm": "Papal States",
+   "name": "Pope Gregory VII",
+   "badge": "papal"
+  },
+  {
+   "from": 1198,
+   "realm": "Papal States",
+   "name": "Pope Innocent III",
+   "badge": "papal"
+  },
+  {
+   "from": 1294,
+   "realm": "Papal States",
+   "name": "Pope Boniface VIII",
+   "badge": "papal"
+  },
+  {
+   "from": 1309,
+   "realm": "Papal States",
+   "name": "Popes in Avignon",
+   "badge": "papal"
+  },
+  {
+   "from": 1417,
+   "realm": "Papal States",
+   "name": "Pope Martin V",
+   "badge": "papal"
+  },
+  {
+   "from": 1447,
+   "realm": "Papal States",
+   "name": "Pope Nicholas V",
+   "badge": "papal"
+  },
+  {
+   "from": 1503,
+   "realm": "Papal States",
+   "name": "Pope Julius II",
+   "badge": "papal"
+  },
+  {
+   "from": 1513,
+   "realm": "Papal States",
+   "name": "Pope Leo X",
+   "badge": "papal"
+  },
+  {
+   "from": 1523,
+   "realm": "Papal States",
+   "name": "Pope Clement VII",
+   "badge": "papal"
+  },
+  {
+   "from": 1534,
+   "realm": "Papal States",
+   "name": "Pope Paul III",
+   "badge": "papal"
+  },
+  {
+   "from": 1585,
+   "realm": "Papal States",
+   "name": "Pope Sixtus V",
+   "badge": "papal"
+  },
+  {
+   "from": 1623,
+   "realm": "Papal States",
+   "name": "Pope Urban VIII",
+   "badge": "papal"
+  },
+  {
+   "from": 1655,
+   "realm": "Papal States",
+   "name": "Pope Alexander VII",
+   "badge": "papal"
+  },
+  {
+   "from": 1775,
+   "realm": "Papal States",
+   "name": "Pope Pius VI",
+   "badge": "papal"
+  },
+  {
+   "from": 1798,
+   "realm": "Roman Republic",
+   "name": "Under French control",
+   "badge": "france"
+  },
+  {
+   "from": 1800,
+   "realm": "Papal States",
+   "name": "Pope Pius VII",
+   "badge": "papal"
+  },
+  {
+   "from": 1809,
+   "realm": "French Empire",
+   "name": "Emperor Napoleon I",
+   "badge": "france"
+  },
+  {
+   "from": 1814,
+   "realm": "Papal States",
+   "name": "Pope Pius VII",
+   "badge": "papal"
+  },
+  {
+   "from": 1831,
+   "realm": "Papal States",
+   "name": "Pope Gregory XVI",
+   "badge": "papal"
+  },
+  {
+   "from": 1846,
+   "realm": "Papal States",
+   "name": "Pope Pius IX",
+   "badge": "papal"
+  },
+  {
+   "from": 1849.1,
+   "realm": "Roman Republic",
+   "name": "Triumvirate incl. Giuseppe Mazzini",
+   "badge": "repub1849"
+  },
+  {
+   "from": 1849.5,
+   "realm": "Papal States",
+   "name": "Pope Pius IX",
+   "badge": "papal"
+  },
+  {
+   "from": 1870.72,
+   "realm": "Kingdom of Italy",
+   "name": "King Victor Emmanuel II",
+   "badge": "italy_k"
+  },
+  {
+   "from": 1878,
+   "realm": "Kingdom of Italy",
+   "name": "King Umberto I",
+   "badge": "italy_k"
+  },
+  {
+   "from": 1900,
+   "realm": "Kingdom of Italy",
+   "name": "King Victor Emmanuel III",
+   "badge": "italy_k"
+  },
+  {
+   "from": 1922.8,
+   "realm": "Kingdom of Italy",
+   "name": "King Victor Emmanuel III · PM Mussolini",
+   "badge": "italy_k"
+  },
+  {
+   "from": 1943.7,
+   "realm": "German occupation",
+   "name": "Rome under German control",
+   "badge": "occupied"
+  },
+  {
+   "from": 1944.43,
+   "realm": "Kingdom of Italy",
+   "name": "King Victor Emmanuel III",
+   "badge": "italy_k"
+  },
+  {
+   "from": 1946.45,
+   "realm": "Italian Republic",
+   "name": "President Enrico De Nicola",
+   "badge": "italy"
+  },
+  {
+   "from": 1948,
+   "realm": "Italian Republic",
+   "name": "President Luigi Einaudi",
+   "badge": "italy"
+  },
+  {
+   "from": 1955,
+   "realm": "Italian Republic",
+   "name": "President Giovanni Gronchi",
+   "badge": "italy"
+  },
+  {
+   "from": 1962,
+   "realm": "Italian Republic",
+   "name": "President Antonio Segni",
+   "badge": "italy"
+  },
+  {
+   "from": 1964,
+   "realm": "Italian Republic",
+   "name": "President Giuseppe Saragat",
+   "badge": "italy"
+  },
+  {
+   "from": 1971,
+   "realm": "Italian Republic",
+   "name": "President Giovanni Leone",
+   "badge": "italy"
+  },
+  {
+   "from": 1978,
+   "realm": "Italian Republic",
+   "name": "President Sandro Pertini",
+   "badge": "italy"
+  },
+  {
+   "from": 1985,
+   "realm": "Italian Republic",
+   "name": "President Francesco Cossiga",
+   "badge": "italy"
+  },
+  {
+   "from": 1992,
+   "realm": "Italian Republic",
+   "name": "President Oscar Luigi Scalfaro",
+   "badge": "italy"
+  },
+  {
+   "from": 1999,
+   "realm": "Italian Republic",
+   "name": "President Carlo Azeglio Ciampi",
+   "badge": "italy"
+  },
+  {
+   "from": 2006,
+   "realm": "Italian Republic",
+   "name": "President Giorgio Napolitano",
+   "badge": "italy"
+  },
+  {
+   "from": 2015,
+   "realm": "Italian Republic",
+   "name": "President Sergio Mattarella",
+   "badge": "italy"
+  }
+ ],
+ "population_label": "Population (estimate)",
+ "population": [
+  [
+   -1000,
+   0
+  ],
+  [
+   -760,
+   0
+  ],
+  [
+   -753,
+   1000
+  ],
+  [
+   -509,
+   30000
+  ],
+  [
+   -390,
+   40000
+  ],
+  [
+   -200,
+   200000
+  ],
+  [
+   -50,
+   600000
+  ],
+  [
+   1,
+   800000
+  ],
+  [
+   100,
+   1000000
+  ],
+  [
+   300,
+   800000
+  ],
+  [
+   410,
+   500000
+  ],
+  [
+   476,
+   200000
+  ],
+  [
+   550,
+   40000
+  ],
+  [
+   800,
+   30000
+  ],
+  [
+   1300,
+   30000
+  ],
+  [
+   1377,
+   20000
+  ],
+  [
+   1450,
+   40000
+  ],
+  [
+   1526,
+   55000
+  ],
+  [
+   1528,
+   30000
+  ],
+  [
+   1600,
+   100000
+  ],
+  [
+   1700,
+   140000
+  ],
+  [
+   1800,
+   150000
+  ],
+  [
+   1870,
+   210000
+  ],
+  [
+   1900,
+   420000
+  ],
+  [
+   1936,
+   1150000
+  ],
+  [
+   1960,
+   2200000
+  ],
+  [
+   1981,
+   2840000
+  ],
+  [
+   2026,
+   2750000
+  ]
+ ],
+ "standing_label": "Years since the founding",
+ "labels": [
+  {
+   "text": "The she-wolf (legend)",
+   "from": -775,
+   "until": -752,
+   "at": "shewolf"
+  },
+  {
+   "text": "Palatine Hill",
+   "from": -760,
+   "at": "palatine"
+  },
+  {
+   "text": "Capitoline Hill",
+   "ll": [
+    12.4817,
+    41.8935,
+    60
+   ]
+  },
+  {
+   "text": "Temple of Jupiter",
+   "from": -509,
+   "until": 455,
+   "at": "jupiter"
+  },
+  {
+   "text": "Forum Romanum",
+   "from": -600,
+   "at": "forum"
+  },
+  {
+   "text": "Circus Maximus",
+   "from": -46,
+   "at": "circus"
+  },
+  {
+   "text": "Theatre of Pompey",
+   "from": -55,
+   "until": 600,
+   "ll": [
+    12.473,
+    41.895,
+    40
+   ]
+  },
+  {
+   "text": "Mausoleum of Augustus",
+   "from": -28,
+   "at": "mausoleum"
+  },
+  {
+   "text": "Colosseum",
+   "from": 72,
+   "at": "colosseum"
+  },
+  {
+   "text": "Pantheon",
+   "from": 126,
+   "ll": [
+    12.4768,
+    41.8986,
+    55
+   ]
+  },
+  {
+   "text": "Trajan's Column",
+   "from": 112,
+   "at": "trajan"
+  },
+  {
+   "text": "Baths of Caracalla",
+   "from": 216,
+   "at": "caracalla"
+  },
+  {
+   "text": "Aurelian Walls",
+   "from": 271,
+   "at": "aurelian"
+  },
+  {
+   "text": "Old St. Peter's",
+   "from": 326,
+   "until": 1606,
+   "at": "stpeters"
+  },
+  {
+   "text": "St. Peter's Basilica",
+   "from": 1606,
+   "ll": [
+    12.4534,
+    41.9022,
+    150
+   ]
+  },
+  {
+   "text": "Mausoleum of Hadrian",
+   "from": 139,
+   "until": 590,
+   "ll": [
+    12.4663,
+    41.9031,
+    50
+   ]
+  },
+  {
+   "text": "Castel Sant'Angelo",
+   "from": 590,
+   "ll": [
+    12.4663,
+    41.9031,
+    50
+   ]
+  },
+  {
+   "text": "Piazza Navona",
+   "from": 1651,
+   "ll": [
+    12.4731,
+    41.8992,
+    20
+   ]
+  },
+  {
+   "text": "Porta Pia",
+   "from": 1565,
+   "ll": [
+    12.5015,
+    41.9093,
+    25
+   ]
+  },
+  {
+   "text": "Vittoriano",
+   "from": 1911,
+   "ll": [
+    12.4828,
+    41.8946,
+    80
+   ]
+  },
+  {
+   "text": "Palace of Justice",
+   "from": 1911,
+   "ll": [
+    12.47,
+    41.904,
+    60
+   ]
+  },
+  {
+   "text": "Termini Station",
+   "from": 1950,
+   "ll": [
+    12.5016,
+    41.901,
+    30
+   ]
+  },
+  {
+   "text": "Janiculum",
+   "ll": [
+    12.464,
+    41.888,
+    80
+   ]
+  },
+  {
+   "text": "Tiber",
+   "ll": [
+    12.476,
+    41.893,
+    2
+   ]
+  },
+  {
+   "text": "Tiber Island",
+   "ll": [
+    12.4776,
+    41.8906,
+    12
+   ]
+  },
+  {
+   "text": "San Lorenzo",
+   "from": 1880,
+   "ll": [
+    12.518,
+    41.899,
+    30
+   ]
+  }
+ ],
+ "groups": [
+  {
+   "kind": "latin",
+   "count": 14,
+   "from": 12,
+   "to": 30,
+   "path": [
+    [
+     12.4837,
+     41.8894
+    ]
+   ],
+   "formation": "crowd",
+   "width": 12,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "latin",
+   "count": 70,
+   "from": 26,
+   "to": 42,
+   "path": [
+    [
+     12.4875,
+     41.8897
+    ]
+   ],
+   "formation": "crowd",
+   "width": 45,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "gaul",
+   "count": 520,
+   "from": 63,
+   "to": 79,
+   "path": [
+    [
+     12.501,
+     41.909
+    ],
+    [
+     12.49,
+     41.8995
+    ],
+    [
+     12.4855,
+     41.893
+    ]
+   ],
+   "formation": "block",
+   "width": 30,
+   "scale": 1.0,
+   "speed": 137.98
+  },
+  {
+   "kind": "senator",
+   "count": 70,
+   "from": 104,
+   "to": 124,
+   "path": [
+    [
+     12.4731,
+     41.8949
+    ]
+   ],
+   "formation": "crowd",
+   "width": 14,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "roman",
+   "count": 60,
+   "from": 104,
+   "to": 124,
+   "path": [
+    [
+     12.4734,
+     41.8953
+    ]
+   ],
+   "formation": "crowd",
+   "width": 22,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "legionary",
+   "count": 400,
+   "from": 126,
+   "to": 146,
+   "path": [
+    [
+     12.4922,
+     41.8902
+    ],
+    [
+     12.487,
+     41.8918
+    ],
+    [
+     12.4835,
+     41.893
+    ]
+   ],
+   "formation": "block",
+   "width": 14,
+   "scale": 1.0,
+   "speed": 39.27
+  },
+  {
+   "kind": "roman",
+   "count": 300,
+   "from": 126,
+   "to": 146,
+   "path": [
+    [
+     12.4865,
+     41.8924
+    ]
+   ],
+   "formation": "crowd",
+   "width": 45,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "legionary",
+   "count": 14,
+   "from": 186,
+   "to": 204,
+   "path": [
+    [
+     12.4922,
+     41.8902
+    ]
+   ],
+   "formation": "crowd",
+   "width": 10,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "roman",
+   "count": 320,
+   "from": 198,
+   "to": 222,
+   "path": [
+    [
+     12.4855,
+     41.8926
+    ]
+   ],
+   "formation": "crowd",
+   "width": 40,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "senator",
+   "count": 30,
+   "from": 198,
+   "to": 222,
+   "path": [
+    [
+     12.485,
+     41.8927
+    ]
+   ],
+   "formation": "crowd",
+   "width": 20,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "chariot",
+   "count": 6,
+   "from": 198,
+   "to": 222,
+   "path": [
+    [
+     12.487,
+     41.8918
+    ],
+    [
+     12.4835,
+     41.8932
+    ]
+   ],
+   "formation": "line",
+   "width": 4,
+   "scale": 1.0,
+   "speed": 6,
+   "loop": true
+  },
+  {
+   "kind": "goth",
+   "count": 700,
+   "from": 286,
+   "to": 304,
+   "path": [
+    [
+     12.497,
+     41.9105
+    ],
+    [
+     12.491,
+     41.903
+    ],
+    [
+     12.486,
+     41.8945
+    ]
+   ],
+   "formation": "block",
+   "width": 34,
+   "scale": 1.0,
+   "speed": 111.22
+  },
+  {
+   "kind": "goth",
+   "count": 520,
+   "from": 304,
+   "to": 318,
+   "path": [
+    [
+     12.48,
+     41.872
+    ],
+    [
+     12.4815,
+     41.879
+    ],
+    [
+     12.4835,
+     41.887
+    ]
+   ],
+   "formation": "block",
+   "width": 30,
+   "scale": 1.0,
+   "speed": 120.87
+  },
+  {
+   "kind": "medieval",
+   "count": 300,
+   "from": 364,
+   "to": 380,
+   "path": [
+    [
+     12.4553,
+     41.9022
+    ]
+   ],
+   "formation": "crowd",
+   "width": 38,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "monk",
+   "count": 40,
+   "from": 364,
+   "to": 380,
+   "path": [
+    [
+     12.4548,
+     41.9024
+    ]
+   ],
+   "formation": "crowd",
+   "width": 12,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "medieval",
+   "count": 180,
+   "from": 350,
+   "to": 364,
+   "path": [
+    [
+     12.474,
+     41.8985
+    ]
+   ],
+   "formation": "crowd",
+   "width": 50,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "landsknecht",
+   "count": 900,
+   "from": 438,
+   "to": 456,
+   "path": [
+    [
+     12.459,
+     41.896
+    ],
+    [
+     12.46,
+     41.901
+    ],
+    [
+     12.4562,
+     41.9022
+    ]
+   ],
+   "formation": "block",
+   "width": 32,
+   "scale": 1.0,
+   "speed": 50.21
+  },
+  {
+   "kind": "renaissance",
+   "count": 60,
+   "from": 440,
+   "to": 452,
+   "path": [
+    [
+     12.4545,
+     41.9023
+    ]
+   ],
+   "formation": "crowd",
+   "width": 12,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "renaissance",
+   "count": 260,
+   "from": 456,
+   "to": 476,
+   "path": [
+    [
+     12.4731,
+     41.8992
+    ]
+   ],
+   "formation": "crowd",
+   "width": 40,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "carriage",
+   "count": 6,
+   "from": 456,
+   "to": 476,
+   "path": [
+    [
+     12.4729,
+     41.8975
+    ],
+    [
+     12.4733,
+     41.901
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 4,
+   "loop": true
+  },
+  {
+   "kind": "french1849",
+   "count": 500,
+   "from": 494,
+   "to": 510,
+   "path": [
+    [
+     12.456,
+     41.884
+    ],
+    [
+     12.461,
+     41.8865
+    ]
+   ],
+   "formation": "block",
+   "width": 30,
+   "scale": 1.0,
+   "speed": 31.18
+  },
+  {
+   "kind": "garibaldini",
+   "count": 200,
+   "from": 494,
+   "to": 510,
+   "path": [
+    [
+     12.465,
+     41.8885
+    ]
+   ],
+   "formation": "crowd",
+   "width": 30,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "bersaglieri",
+   "count": 600,
+   "from": 514,
+   "to": 534,
+   "path": [
+    [
+     12.506,
+     41.914
+    ],
+    [
+     12.5015,
+     41.9093
+    ],
+    [
+     12.4985,
+     41.9062
+    ]
+   ],
+   "formation": "block",
+   "width": 24,
+   "scale": 1.0,
+   "speed": 53.33
+  },
+  {
+   "kind": "papal",
+   "count": 80,
+   "from": 514,
+   "to": 530,
+   "path": [
+    [
+     12.5005,
+     41.9085
+    ]
+   ],
+   "formation": "crowd",
+   "width": 20,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "c19",
+   "count": 280,
+   "from": 538,
+   "to": 552,
+   "path": [
+    [
+     12.4828,
+     41.8952
+    ]
+   ],
+   "formation": "crowd",
+   "width": 45,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "tram",
+   "count": 3,
+   "from": 538,
+   "to": 556,
+   "path": [
+    [
+     12.492,
+     41.9
+    ],
+    [
+     12.483,
+     41.8962
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 10,
+   "loop": true
+  },
+  {
+   "kind": "c1940",
+   "count": 360,
+   "from": 552,
+   "to": 562,
+   "path": [
+    [
+     12.492,
+     41.8905
+    ],
+    [
+     12.484,
+     41.8948
+    ]
+   ],
+   "formation": "block",
+   "width": 20,
+   "scale": 1.0,
+   "speed": 81.72
+  },
+  {
+   "kind": "car",
+   "count": 24,
+   "from": 552,
+   "to": 562,
+   "path": [
+    [
+     12.4925,
+     41.8902
+    ],
+    [
+     12.4838,
+     41.8949
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 14,
+   "loop": true
+  },
+  {
+   "kind": "modern",
+   "count": 220,
+   "from": 600,
+   "to": 632,
+   "path": [
+    [
+     12.4826,
+     41.8962
+    ]
+   ],
+   "formation": "crowd",
+   "width": 40,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "car",
+   "count": 40,
+   "from": 600,
+   "to": 632,
+   "path": [
+    [
+     12.481,
+     41.8995
+    ],
+    [
+     12.4823,
+     41.8958
+    ],
+    [
+     12.488,
+     41.893
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 12,
+   "loop": true
+  },
+  {
+   "kind": "vespa",
+   "count": 30,
+   "from": 600,
+   "to": 632,
+   "path": [
+    [
+     12.488,
+     41.8932
+    ],
+    [
+     12.4824,
+     41.8958
+    ],
+    [
+     12.4808,
+     41.8998
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 15,
+   "loop": true
+  },
+  {
+   "kind": "car",
+   "count": 30,
+   "from": 580,
+   "to": 600,
+   "path": [
+    [
+     12.481,
+     41.8995
+    ],
+    [
+     12.4823,
+     41.8958
+    ],
+    [
+     12.488,
+     41.893
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 12,
+   "loop": true
+  },
+  {
+   "kind": "vespa",
+   "count": 20,
+   "from": 580,
+   "to": 600,
+   "path": [
+    [
+     12.488,
+     41.8932
+    ],
+    [
+     12.4824,
+     41.8958
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 15,
+   "loop": true
+  }
+ ],
+ "fx": [
+  {
+   "kind": "fire",
+   "ll": [
+    12.4855,
+    41.893
+   ],
+   "radius": 320,
+   "from": -390.6,
+   "to": -389.4
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    12.487,
+    41.888
+   ],
+   "radius": 650,
+   "from": 64.05,
+   "to": 64.6
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    12.4935,
+    41.907
+   ],
+   "radius": 300,
+   "from": 410.63,
+   "to": 410.72
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    12.485,
+    41.893
+   ],
+   "radius": 250,
+   "from": 455.46,
+   "to": 455.58
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    12.461,
+    41.902
+   ],
+   "radius": 300,
+   "from": 1527.0,
+   "to": 1527.45
+  },
+  {
+   "kind": "dust",
+   "ll": [
+    12.462,
+    41.887
+   ],
+   "radius": 250,
+   "from": 1849.38,
+   "to": 1849.58,
+   "blobs": 60
+  },
+  {
+   "kind": "dust",
+   "ll": [
+    12.5015,
+    41.9093
+   ],
+   "radius": 60,
+   "from": 1870.712,
+   "to": 1870.73,
+   "blobs": 40
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    12.52,
+    41.899
+   ],
+   "radius": 420,
+   "from": 1943.53,
+   "to": 1943.6
+  }
+ ],
+ "moods": [
+  {
+   "from": 158,
+   "to": 170,
+   "night": 1.0,
+   "ramp": 1.5
+  },
+  {
+   "from": 288,
+   "to": 302,
+   "night": 1.0,
+   "ramp": 1.5
+  },
+  {
+   "from": 338,
+   "to": 350,
+   "rain": 0.7,
+   "ramp": 2.0
+  },
+  {
+   "from": 400,
+   "to": 410,
+   "autumn": 1.0
+  },
+  {
+   "from": 562,
+   "to": 569,
+   "smoke": 0.5,
+   "ramp": 1.0
+  }
+ ],
+ "sfx": [
+  {
+   "kind": "birds",
+   "at": 0,
+   "dur": 60,
+   "gain": 0.9
+  },
+  {
+   "kind": "water",
+   "at": 0,
+   "dur": 40,
+   "gain": 0.7
+  },
+  {
+   "kind": "hammer",
+   "at": 28,
+   "dur": 67,
+   "gain": 0.7
+  },
+  {
+   "kind": "chatter",
+   "at": 40,
+   "dur": 70,
+   "gain": 0.6
+  },
+  {
+   "kind": "hooves",
+   "at": 60,
+   "dur": 270,
+   "gain": 0.5
+  },
+  {
+   "kind": "chisel",
+   "at": 92,
+   "dur": 188,
+   "gain": 0.7
+  },
+  {
+   "kind": "chatter",
+   "at": 110,
+   "dur": 220,
+   "gain": 1.0
+  },
+  {
+   "kind": "cart",
+   "at": 130,
+   "dur": 200,
+   "gain": 0.5
+  },
+  {
+   "kind": "birds",
+   "at": 326,
+   "dur": 94,
+   "gain": 0.8
+  },
+  {
+   "kind": "bells",
+   "at": 350,
+   "dur": 150,
+   "gain": 0.5
+  },
+  {
+   "kind": "chatter",
+   "at": 350,
+   "dur": 150,
+   "gain": 0.6
+  },
+  {
+   "kind": "cart",
+   "at": 360,
+   "dur": 160,
+   "gain": 0.5
+  },
+  {
+   "kind": "hooves",
+   "at": 360,
+   "dur": 200,
+   "gain": 0.6
+  },
+  {
+   "kind": "chisel",
+   "at": 424,
+   "dur": 56,
+   "gain": 0.5
+  },
+  {
+   "kind": "bells",
+   "at": 500,
+   "dur": 60,
+   "gain": 0.4
+  },
+  {
+   "kind": "chatter",
+   "at": 500,
+   "dur": 160,
+   "gain": 0.9
+  },
+  {
+   "kind": "tram",
+   "at": 536,
+   "dur": 54,
+   "gain": 0.6
+  },
+  {
+   "kind": "traffic",
+   "at": 550,
+   "dur": 110,
+   "gain": 0.9
+  },
+  {
+   "kind": "carhorn",
+   "at": 556,
+   "dur": 104,
+   "gain": 0.6
+  },
+  {
+   "kind": "scooter",
+   "at": 578,
+   "dur": 82,
+   "gain": 0.8
+  },
+  {
+   "kind": "siren",
+   "at": 612,
+   "dur": 18,
+   "gain": 0.4
+  },
+  {
+   "kind": "horn",
+   "at": 28,
+   "dur": 3,
+   "gain": 1.0
+  },
+  {
+   "kind": "march",
+   "at": 63,
+   "dur": 15,
+   "gain": 1.0
+  },
+  {
+   "kind": "shouts",
+   "at": 66,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "sword",
+   "at": 68,
+   "dur": 6,
+   "gain": 1.0
+  },
+  {
+   "kind": "fire",
+   "at": 69,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "drums",
+   "at": 63,
+   "dur": 15,
+   "gain": 0.8
+  },
+  {
+   "kind": "shouts",
+   "at": 112,
+   "dur": 5,
+   "gain": 0.6
+  },
+  {
+   "kind": "cheer",
+   "at": 126,
+   "dur": 18,
+   "gain": 0.7
+  },
+  {
+   "kind": "march",
+   "at": 126,
+   "dur": 18,
+   "gain": 0.8
+  },
+  {
+   "kind": "horn",
+   "at": 127,
+   "dur": 3,
+   "gain": 1.0
+  },
+  {
+   "kind": "fire",
+   "at": 158,
+   "dur": 12,
+   "gain": 1.0
+  },
+  {
+   "kind": "cheer",
+   "at": 186,
+   "dur": 18,
+   "gain": 1.0
+  },
+  {
+   "kind": "sword",
+   "at": 188,
+   "dur": 14,
+   "gain": 0.6
+  },
+  {
+   "kind": "drums",
+   "at": 286,
+   "dur": 16,
+   "gain": 1.0
+  },
+  {
+   "kind": "march",
+   "at": 286,
+   "dur": 16,
+   "gain": 1.0
+  },
+  {
+   "kind": "shouts",
+   "at": 292,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "fire",
+   "at": 293,
+   "dur": 9,
+   "gain": 1.0
+  },
+  {
+   "kind": "sword",
+   "at": 294,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "march",
+   "at": 304,
+   "dur": 12,
+   "gain": 1.0
+  },
+  {
+   "kind": "shouts",
+   "at": 308,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "fire",
+   "at": 308,
+   "dur": 6,
+   "gain": 1.0
+  },
+  {
+   "kind": "bells",
+   "at": 364,
+   "dur": 12,
+   "gain": 0.8
+  },
+  {
+   "kind": "cheer",
+   "at": 366,
+   "dur": 8,
+   "gain": 0.5
+  },
+  {
+   "kind": "drums",
+   "at": 438,
+   "dur": 16,
+   "gain": 1.0
+  },
+  {
+   "kind": "gunfire",
+   "at": 444,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "cannon",
+   "at": 444,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "shouts",
+   "at": 446,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "sword",
+   "at": 447,
+   "dur": 6,
+   "gain": 1.0
+  },
+  {
+   "kind": "fire",
+   "at": 448,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "bells",
+   "at": 476,
+   "dur": 6,
+   "gain": 0.7
+  },
+  {
+   "kind": "cannon",
+   "at": 494,
+   "dur": 14,
+   "gain": 1.0
+  },
+  {
+   "kind": "gunfire",
+   "at": 496,
+   "dur": 12,
+   "gain": 1.0
+  },
+  {
+   "kind": "cannon",
+   "at": 520,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "march",
+   "at": 514,
+   "dur": 18,
+   "gain": 1.0
+  },
+  {
+   "kind": "cheer",
+   "at": 528,
+   "dur": 6,
+   "gain": 1.0
+  },
+  {
+   "kind": "bomb",
+   "at": 562,
+   "dur": 7,
+   "gain": 1.0
+  },
+  {
+   "kind": "siren",
+   "at": 561,
+   "dur": 8,
+   "gain": 0.6
+  },
+  {
+   "kind": "cheer",
+   "at": 586,
+   "dur": 6,
+   "gain": 0.7
+  },
+  {
+   "kind": "bells",
+   "at": 604,
+   "dur": 8,
+   "gain": 0.6
+  },
+  {
+   "kind": "fireworks",
+   "at": 640,
+   "dur": 14,
+   "gain": 0.7
+  }
+ ],
+ "music_build_at": 8,
+ "music_accents": [
+  28,
+  68,
+  114,
+  160,
+  293,
+  446,
+  522,
+  563
+ ],
+ "sample_segments": [
+  [
+   22,
+   1
+  ],
+  [
+   72,
+   1
+  ],
+  [
+   110,
+   1
+  ],
+  [
+   196,
+   1
+  ],
+  [
+   212,
+   1
+  ],
+  [
+   296,
+   1
+  ],
+  [
+   450,
+   1
+  ],
+  [
+   466,
+   1
+  ],
+  [
+   526,
+   1
+  ],
+  [
+   564,
+   1
+  ],
+  [
+   614,
+   1
+  ]
+ ],
+ "max_size_mb": 290
+}
