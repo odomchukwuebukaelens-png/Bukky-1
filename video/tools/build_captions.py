@@ -13,12 +13,18 @@ MAX_CHUNK = 1.6        # seconds per caption chunk
 STOP = set("a an the and or but so of to in on at by for with from as is are was were be been it its it's this that these those you your you're i we they he she his her their them our not no do does did can could will would just very than then there here what when how who which into onto over under up out about after before once one".split())
 IMPACT = set("eyes strike strikes bite bites bit jaws snap snaps death deadly kill kills killed fatal attack attacks attacked drown drowned crush crushes eaten took fight myth sink sinks sank rolled spins grips explode strongest".split())
 SPLASH = set("water sink sinks sank splash surface dive under underwater swim swam".split())
-NUM = re.compile(r"^\d[\d,\.]*$|^(one|two|three|four|five|six|seven|eight|nine|ten|twenty|fifty|hundred|thousand|million|sixteen|ninety-two|seventy-nine)$")
+# Ukrainian: stop words, and stems (words inflect, so match by prefix).
+STOP |= set("і й та а але або що це цей ця ці той та ті як коли де хто який яка яке які в у на з із зі до від по за для про під над при без через не ні так вже ще лише тільки його її їх він вона воно вони ти ми ви я ним нею них собі себе бо щоб чи навіть усе все".split())
+IMPACT_UK = ("паща", "пащ", "смерт", "помр", "мертв", "вбив", "убив", "косат", "напад", "удар", "проковт", "акул", "міф", "розтрощ", "поран", "стиска", "кидк", "викинув", "виплюну")
+SPLASH_UK = ("вод", "пірна", "виринув", "поверхн", "хвил", "бульбаш")
+NUM = re.compile(r"^\d[\d,\.]*$|^(one|two|three|four|five|six|seven|eight|nine|ten|twenty|fifty|hundred|thousand|million|sixteen|ninety-two|seventy-nine|один|два|дві|три|чотири|п'ять|шість|сім|вісім|дев'ять|десять|сто|сорок|тисяч\w*|сотн\w*|двадцят\w*|тридцят\w*|сорока|чотирнадцят\w*|сімнадцят\w*|п'ятнадцят\w*|дев'яносто\w*)$")
 
 name = sys.argv[1]
 tfile = sys.argv[2] if len(sys.argv) > 2 else f"src/{name}/timing-fast.json"
 timing = json.load(open(tfile))
-norm = lambda w: re.sub(r"[^a-z0-9\-']", "", w.lower())
+norm = lambda w: re.sub(r"[^\w\-'’]", "", w.lower())
+is_impact = lambda n: n in IMPACT or n.startswith(IMPACT_UK)
+is_splash = lambda n: n in SPLASH or n.startswith(SPLASH_UK)
 
 def emphasis(words):
     best, score = 0, -1
@@ -26,7 +32,7 @@ def emphasis(words):
         n = norm(w)
         sc = 0 if n in STOP else len(n)
         if NUM.match(n) or any(ch.isdigit() for ch in w): sc += 20
-        if n in IMPACT: sc += 15
+        if is_impact(n): sc += 15
         if sc > score: best, score = i, sc
     return best
 
@@ -49,9 +55,9 @@ for key, entry in sorted(timing.items()):
     impacts, splashes, last_i, last_s = [], [], -9, -9
     for w in words:
         n = norm(w[0])
-        if n in IMPACT and w[1] - last_i > 10:
+        if is_impact(n) and w[1] - last_i > 10:
             impacts.append(w[1]); last_i = w[1]
-        elif n in SPLASH and w[1] - last_s > 20:
+        elif is_splash(n) and w[1] - last_s > 20:
             splashes.append(w[1]); last_s = w[1]
     # Filler camera moves wherever captions alone leave a gap longer than MAX_GAP.
     events = sorted([0.0] + [c["t0"] for c in caps] + [entry["duration"] + 0.4])

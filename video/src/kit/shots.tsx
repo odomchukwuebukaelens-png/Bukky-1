@@ -124,14 +124,15 @@ const RELATED: Record<string, string> = {
 };
 
 // A two-second piece of a free Mixkit clip, cut by tools/cut_footage.py to footage/croc2/v<id>_<t>.mp4.
-export const V: React.FC<{ id: string; t?: number; dir?: number; zoom?: number; rate?: number }> = ({ id, t = 0, dir = 1, zoom = 1.06, rate = 1 }) => {
+// `base` is the video's footage folder; `label` overrides the related-species note (or carries a credit).
+export const V: React.FC<{ id: string; t?: number; dir?: number; zoom?: number; rate?: number; base?: string; label?: string }> = ({ id, t = 0, dir = 1, zoom = 1.06, rate = 1, base = "footage/croc2", label: own }) => {
   const { k } = useShot();
   const s = zoom + 0.08 * k;
-  const label = RELATED[id];
+  const label = own ?? RELATED[id];
   return (
     <AbsoluteFill style={{ background: "#000" }}>
       <OffthreadVideo
-        src={staticFile(`footage/croc2/v${id}_${t}.mp4`)}
+        src={staticFile(`${base}/v${id}_${t}.mp4`)}
         muted
         playbackRate={rate}
         style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${s}) translateX(${dir * (k - 0.5) * 30}px)`, filter: "saturate(0.92) contrast(1.06)" }}

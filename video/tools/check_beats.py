@@ -47,8 +47,10 @@ for key in sorted(set(cues) | set(caps)):
             a = -lead if j == 0 else r["t0"]
             if j > 0:
                 ev.add(r["t0"])
-            if r["t1"] - a > 1.8:
-                ev.add(a + (r["t1"] - a) / 2)
+            # The renderer runs each shot until the next one starts, and the last one to the scene end.
+            b = rows[j + 1]["t0"] if j + 1 < len(rows) else end + tail
+            if b - a > 1.8:
+                ev.add(a + (b - a) / 2)
     elif key in caps:
         ev |= {c["t0"] for c in caps[key]["captions"]} | set(caps[key]["punches"])
     # Times in scene seconds: the scene cut at 0, narration starts after the lead-in.

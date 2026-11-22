@@ -17,10 +17,15 @@ const base = (node: React.ReactNode): React.ReactElement | null => {
   return node;
 };
 
+// Each video registers its own drawn or graphic components here, so the rules know what they are.
+const EXTRA = new Map<unknown, ShotKind>();
+export const registerKind = (kind: ShotKind, ...components: unknown[]) => components.forEach((c) => EXTRA.set(c, kind));
+
 export const kindOf = (node: React.ReactNode): ShotKind => {
   const b = base(node);
   if (!b) return "other";
   const t = b.type;
+  if (EXTRA.has(t)) return EXTRA.get(t)!;
   if (t === S.V) return "footage";
   if (t === S.P || (typeof t === "function" && (t as { name?: string }).name === "Ph")) return "photo";
   if (t === S.MapShot) return "map";
@@ -32,7 +37,10 @@ export const kindOf = (node: React.ReactNode): ShotKind => {
   return "other";
 };
 
-const DANGER = /\b(jaws?|bite|strike|attack|death|took|killed|fatal|drown|eaten|crush|snap)\b/i;
+const DANGER_EN = /\b(jaws?|bite|strike|attack|death|took|killed|fatal|drown|eaten|crush|snap)\b/i;
+// Ukrainian words inflect, so these are stems (JS \b does not work on Cyrillic).
+const DANGER_UK = /(паща|пащ[іуею]|смерт|помр|мертв|напад|удар|косат|проковт|акул|розтрощ|стиска|вбив|убив|збила)/i;
+const DANGER = { test: (s: string) => DANGER_EN.test(s) || DANGER_UK.test(s) };
 
 // Transitions used inside a section, by what the incoming shot is. Light leaks and glitches are
 // kept for section changes only.

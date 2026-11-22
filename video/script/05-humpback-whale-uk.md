@@ -9,7 +9,7 @@ On-screen promises (scene 1):
 2. Скільки ти протримаєшся в його пащі?
 3. Чому цей кит рятує інших тварин від убивць?
 
-`[CHECK]` marks a claim still to be confirmed before voiceover, as in the English draft.
+`` marks a claim still to be confirmed before voiceover, as in the English draft.
 
 ---
 
@@ -51,11 +51,11 @@ On-screen promises (scene 1):
 
 Дорослий кит має від чотирнадцяти до сімнадцяти метрів завдовжки. Довший за міський автобус.
 
-Він може важити до сорока тонн. Це більше, ніж шість слонів. [CHECK: African elephant about 6 t]
+Він може важити до сорока тонн. Це більше, ніж шість слонів.
 
-Його грудні плавці найдовші серед усіх китів. Кожен до п'яти метрів. Третина його тіла. [CHECK: NOAA]
+Його грудні плавці найдовші серед усіх китів. Кожен до п'яти метрів. Третина його тіла.
 
-Ці горбики на голові не мушлі. У кожному росте одна волосина, як вус. [CHECK]
+Ці горбики на голові не мушлі. У кожному росте одна волосина, як вус.
 
 І в нього взагалі немає зубів. Жодного.
 
@@ -65,7 +65,7 @@ On-screen promises (scene 1):
 
 **Visual:** Side cutaway: the jaw drops open almost ninety degrees, the pleated throat stretching like a balloon. Krill as a pink cloud. Baleen as a comb, water out, krill in. Sources: NOAA; Goldbogen et al.
 
-Замість зубів у нього китовий вус. Сотні пластин звисають з верхньої щелепи, як зубці гігантського гребеня. [CHECK: about 270–400 plates per side]
+Замість зубів у нього китовий вус. Сотні пластин звисають з верхньої щелепи, як зубці гігантського гребеня.
 
 Він полює на дрібноту. На криль, крихітних рачків. І на дрібну рибу.
 
@@ -73,7 +73,7 @@ On-screen promises (scene 1):
 
 Його горло складене довгими складками, як гармошка. Коли всередину вривається вода, складки розтягуються, і горло роздувається, мов куля.
 
-За один ковток він набирає десятки тисяч літрів води. [CHECK: Goldbogen; humpback engulfment volume]
+За один ковток він набирає тонни води.
 
 Потім виштовхує воду крізь гребінь. А їжа лишається всередині.
 
@@ -157,7 +157,7 @@ On-screen promises (scene 1):
 
 ## 9. Людина в киті
 
-**Visual:** Old-film grade: a 19th-century whaling ship, harpoon lines, a sailor overboard. A newspaper page with the year counting up to 1891. Then a red "МІФ" stamp. Source: Edward B. Davis, 1991. [CHECK]
+**Visual:** Old-film grade: a 19th-century whaling ship, harpoon lines, a sailor overboard. A newspaper page with the year counting up to 1891. Then a red "МІФ" stamp. Source: Edward B. Davis, 1991 (ship records, Maritime History Archive; Mrs Killam's 1907 letter).
 
 У тисяча вісімсот дев'яносто першому році газети розповіли історію моряка на ім'я Джеймс Бартлі.
 
@@ -167,7 +167,7 @@ On-screen promises (scene 1):
 
 Ця історія облетіла весь світ. Її досі переказують.
 
-Але коли через сто років її перевірив історик, майже ніщо не збіглося. Дружина капітана написала, що з корабля її чоловіка за борт не падав жоден моряк. [CHECK]
+Але коли через сто років її перевірив історик, майже ніщо не збіглося. «Зоря Сходу» навіть не була китобійним судном. А в списках команди немає жодного Джеймса Бартлі. Ще тоді дружина капітана написала, що в цій історії немає ані слова правди.
 
 І той кит нібито був кашалотом. Єдиним китом, який справді міг би проковтнути людину.
 
@@ -175,11 +175,11 @@ On-screen promises (scene 1):
 
 ## 10. Бульбашкова сітка
 
-**Visual:** Top-down: a ring of bubbles spiralling up, a school of fish trapped in the middle, several whale mouths breaking the surface together. A whale calling, a sound-wave line. Source: NOAA. [CHECK]
+**Visual:** Top-down: a ring of bubbles spiralling up, a school of fish trapped in the middle, several whale mouths breaking the surface together. A whale calling, a sound-wave line. Source: NOAA.
 
 Бо горбаті кити не просто великі. Вони кмітливі.
 
-На Алясці вони полюють групами, і мають трюк, яким жоден інший кит так не користується.
+На Алясці вони полюють групами, і в них є особливий трюк.
 
 Один кит пірнає під зграю риби і пливе колом, випускаючи потік бульбашок.
 
@@ -195,7 +195,7 @@ On-screen promises (scene 1):
 
 ## 11. Пісня
 
-**Visual:** A male hanging head-down in blue water, flippers out. A spectrogram line scrolling, a timer counting to 20:00. A Pacific map with the song spreading east from Australia as coloured waves. Sources: NOAA; Garland et al., 2011. [CHECK]
+**Visual:** A male hanging head-down in blue water, flippers out. A spectrogram line scrolling, a timer counting to 20:00. A Pacific map with the song spreading east from Australia as coloured waves. Sources: NOAA; Garland et al., 2011.
 
 У самців є ще одне вміння. Вони співають.
 
@@ -205,7 +205,7 @@ On-screen promises (scene 1):
 
 Усі самці в одному районі співають одну й ту саму пісню. Але пісня весь час змінюється.
 
-У південній частині Тихого океану науковці бачили, як нові пісні передавалися від кита до кита, з Австралії на схід, через увесь океан, за кілька років. [CHECK: Garland 2011]
+У південній частині Тихого океану науковці бачили, як нові пісні передавалися від кита до кита, з Австралії на схід, аж до Французької Полінезії, приблизно за два роки.
 
 Ніхто точно не знає, навіщо вони співають. Можливо, щоб привабити самицю. Або щоб попередити інших самців.
 
@@ -213,7 +213,7 @@ On-screen promises (scene 1):
 
 ## 12. Ми майже змусили їх замовкнути
 
-**Visual:** Old-film grade: a steam whaling ship, a harpoon cannon, a whale on a slipway. A population line falling steeply, a "ПІД ЗАХИСТОМ" marker, then rising. One whale alone in empty water, then many. Source: NOAA. [CHECK]
+**Visual:** Old-film grade: a steam whaling ship, a harpoon cannon, a whale on a slipway. A population line falling steeply, a "ПІД ЗАХИСТОМ" marker, then rising. One whale alone in empty water, then many. Source: NOAA.
 
 Близько століття на горбатих китів полювали майже всюди, де вони пливли.
 
@@ -225,13 +225,13 @@ On-screen promises (scene 1):
 
 Потім люди зупинилися. І сталося щось дивовижне.
 
-Горбаті кити повернулися. У багатьох океанах їх знову десятки тисяч. [CHECK: IUCN Least Concern]
+Горбаті кити повернулися. У багатьох океанах їх знову десятки тисяч.
 
 А отже, більше китів годуються там, де люди плавають на каяках, пірнають і купаються. Тому зустрічі, як у Адріана, знімають частіше, ніж будь-коли.
 
 ## 13. Найдовша подорож
 
-**Visual:** Pacific map: a tagged whale's path from Costa Rica to Antarctica, a distance counter to 8,300 km and a day counter. Warm water with a mother and calf; cold water with a krill cloud. Source: NOAA; Rasmussen et al., 2007. [CHECK]
+**Visual:** Pacific map: a tagged whale's path from Costa Rica to Antarctica, a distance counter to 8,300 km and a day counter. Warm water with a mother and calf; cold water with a krill cloud. Source: NOAA; Rasmussen et al., 2007.
 
 І ці кити подорожують далі, ніж майже будь-хто з живих істот.
 
@@ -269,11 +269,11 @@ On-screen promises (scene 1):
 
 **Visual:** A grid of icons filling one by one: seal, sea lion, gray whale calf, sunfish. A counter to 115. A humpback charging an orca pack, flippers swinging, barnacles drawn as weapons. Promise 3 answered on screen. Source: Pitman et al., 2016.
 
-Він знайшов понад сотню випадків, коли горбаті кити зустрічалися з косатками.
+Він знайшов сто п'ятнадцять випадків, коли горбаті кити зустрічалися з косатками.
 
 У більшості з них горбаті кити кидалися, щоб зірвати напад.
 
-І здебільшого жертвою був не горбатий кит. А тюлень. Морський лев. Дитинча сірого кита. Навіть риба-місяць.
+І здебільшого жертвою був не горбатий кит. А тюлень. Морський лев. Дитинча сірого кита. Навіть риба.
 
 Горбаті кити одні з небагатьох, хто дає відсіч косаткам. Їхні плавці вкриті гострими вусоногими раками, і один удар може поранити.
 
@@ -287,7 +287,7 @@ On-screen promises (scene 1):
 
 ## 16. Якщо це станеться з тобою
 
-**Visual:** A checklist with a small drawing per line: seabirds diving, a ring of bubbles, the 100 m line from a boat, a diver with a surface buoy. A calm kayak far from a feeding whale. Sources: NOAA viewing guidelines; local rules vary. [CHECK]
+**Visual:** A checklist with a small drawing per line: seabirds diving, a ring of bubbles, the 100 m line from a boat, a diver with a surface buoy. A calm kayak far from a feeding whale. Sources: NOAA viewing guidelines; local rules vary.
 
 То як зробити так, щоб із тобою такого ніколи не сталося?
 
@@ -295,11 +295,11 @@ On-screen promises (scene 1):
 
 Якщо бачиш це, відпливай від того місця. Не наближайся, щоб краще роздивитися.
 
-Тримай дистанцію. У багатьох країнах правило для човнів приблизно сто метрів від кита. [CHECK]
+Тримай дистанцію. У багатьох країнах правило для човнів приблизно сто метрів від кита.
 
 Якщо пірнаєш там, де є кити, бери поверхневий буй, щоб човни й кити бачили, де ти.
 
-А якщо найгірше станеться і ти опинишся в його пащі? Обидва, хто вижив, зробили одне й те саме: трималися якомога спокійніше і чекали. [CHECK: no official guidance on this] Кит хоче тебе позбутися навіть більше, ніж ти хочеш вибратися.
+А якщо найгірше станеться і ти опинишся в його пащі? Обидва, хто вижив, кажуть одне: вони не встигли нічого зробити. Кит відпустив їх сам. Кит хоче тебе позбутися навіть більше, ніж ти хочеш вибратися.
 
 ## 17. Фінал
 

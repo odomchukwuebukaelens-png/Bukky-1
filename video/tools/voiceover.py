@@ -20,7 +20,7 @@ def parse(path):
     for m in re.finditer(r"^## (\d+)\. (.+?)\n(.*?)(?=^## |\Z)", text, flags=re.M | re.S):
         lines = [l.strip() for l in m.group(3).split("\n")]
         lines = [l for l in lines if l and not l.startswith("**Visual") and l != "---"]
-        body = "\n\n".join(re.sub(r"\s*\[CHECK\]", "", l) for l in lines)
+        body = "\n\n".join(re.sub(r"\s*\[CHECK[^\]]*\]", "", l) for l in lines)
         scenes.append({"n": int(m.group(1)), "title": m.group(2).strip(), "text": body})
     return scenes
 

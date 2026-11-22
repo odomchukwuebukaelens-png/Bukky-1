@@ -69,10 +69,10 @@ export const Readout: React.FC<{
   );
 };
 
-export const AirGauge: React.FC<{ bar: number; on: number }> = ({ bar, on }) => (
+export const AirGauge: React.FC<{ bar: number; on: number; label?: string; unit?: string }> = ({ bar, on, label = "AIR", unit = "BAR" }) => (
   <div style={{ position: "absolute", right: 120, top: 84, opacity: on, textAlign: "right" }}>
-    <div style={mono(20, "rgba(127,233,255,0.65)")}>AIR</div>
-    <div style={{ ...mono(46), marginTop: 2 }}>{Math.round(bar)} BAR</div>
+    <div style={mono(20, "rgba(127,233,255,0.65)")}>{label}</div>
+    <div style={{ ...mono(46), marginTop: 2 }}>{Math.round(bar)} {unit}</div>
     <div style={{ width: 260, height: 10, background: "rgba(127,233,255,0.18)", marginTop: 8, marginLeft: "auto" }}>
       <div style={{ width: `${(bar / 200) * 100}%`, height: "100%", background: bar < 70 ? C.red : HUD }} />
     </div>

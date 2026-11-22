@@ -64,3 +64,15 @@ The crocodile clips show Nile crocodiles, a close relative, and are labelled as 
 Video pieces `v<id>_<t>.mp4` are cut from Mixkit clips (Mixkit Stock Video Free License: free for commercial and YouTube use, no attribution required) by `tools/cut_footage.py`; `<id>` is the Mixkit clip number and `<t>` the start second. Crocodile clips of related species are labelled on screen.
 
 Photos: `jump.jpg` (Matt from Melbourne, CC BY 2.0), `sign.jpg` (dronepicr, CC BY 2.0), `lolong1.jpg` (Maffeth.opiana, CC0), `skull.jpg` (Australian Museum, CC BY 4.0), `head.jpg` (Holger Krisp, CC BY 3.0), all via Wikimedia Commons.
+
+## Humpback whale video, Ukrainian (public/footage/humpback)
+
+Video pieces `v<id>_<t>.mp4` are cut by `tools/cut_footage.py`; `<t>` is the start second.
+
+- Mixkit clips (Mixkit Stock Video Free License, no attribution required): 1273, 178, 2058, 4092, 4116, 4291, 8080, 10141, 17969, 18705, 21744, 21935, 22156, 25308, 28138, 29397, 34891, 35659, 44976, 46208, 47710, 48089, 48090, 48402. Divers, boats and ice that stand in for the real people and places are labelled on screen "ІЛЮСТРАТИВНЕ ВІДЕО"; seals are labelled as another species.
+- `w1` = "Aerial view of three humpback whales (Megaptera novaeangliae) near Cape Solander, New South Wales, Australia", Adam Fish, CC BY 3.0, Wikimedia Commons. Credited on screen and in the description.
+- `w2` = "Humpback whale Tail Sailing behaviour", NOAA Sanctuaries, CC BY 3.0, Wikimedia Commons. Credited on screen and in the description.
+
+Narration: ai33.pro voice library, "Storyteller - Deep & Calm" (`elevenlabs_fs9omVbVxtW4Sh0OZ0ii`), a native Ukrainian voice chosen by the owner's instruction (22 Nov 2026) in place of the "Deep sea" clone for this Ukrainian-language test.
+Music: the crocodile video's tracks, reused with the owner's OK (22 Nov 2026).
+Fonts: Montserrat and JetBrains Mono Cyrillic subsets from Fontsource (SIL Open Font License), same licence as the Latin files.

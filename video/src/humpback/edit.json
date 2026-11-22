@@ -1,0 +1,14 @@
+{
+  "lead": 0.27,
+  "tail": 0.4,
+  "timing": "timing-fast.json",
+  "voiceDir": "audio/humpback-fast",
+  "tempo": 1.1,
+  "voice": "elevenlabs_fs9omVbVxtW4Sh0OZ0ii (Storyteller - Deep & Calm, native Ukrainian, ai33.pro library)",
+  "teasers": {
+    "03": "ДАЛІ · 40 СЕКУНД У ПАЩІ КИТА",
+    "07": "ДАЛІ · МОРЯК, ЯКОГО «ПРОКОВТНУВ» КИТ",
+    "10": "ДАЛІ · КИТ, ЩО РЯТУЄ ТЮЛЕНІВ",
+    "15": "ДАЛІ · ЩО РОБИТИ, ЯКЩО ЦЕ ТИ"
+  }
+}
