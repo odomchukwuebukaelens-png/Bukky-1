@@ -8,6 +8,20 @@ How every video is written and edited to keep people watching. Written 19 Nov 20
 - **The first 30 seconds decide most of it.** YouTube's own "Intro" metric is the share still watching at 30 seconds; it counts 50% or more as an above-typical intro. Most of a video's drop happens there. MrBeast's production notes call the first minute "the most important minute of each video".
 - **Average view duration is what matters, not length.** A shorter, tighter video with a higher percentage usually beats a padded long one.
 
+## What our own analytics show
+
+**Crocodile video, first upload (22 Nov 2026).** This was the 11:33 cut, before the 2-second shot rebuild. About 60 views, so the curve is noisy. Average view duration was 3:36, 31.2%, against well under 10% for the octopus video.
+- **The intro is the big leak.** Retention fell from 100% to about 62% in the first 20 seconds, during the old 44-second scene-setting opening.
+- **Real stories hold people.** The only rise in the curve is around 4:45–5:20, the Val Plumwood death-roll story; people rewatched or skipped to it. There was a smaller bump at the Ramree Island myth.
+- **Statistics and history lose them.** The steepest mid-video drop is around 7:35–8:15, the attack-statistics and hunting-history section.
+- **The end holds.** About 17% stayed through the last three minutes.
+
+What to do with this:
+- Open on a real story or the most dramatic moment.
+- Put a true human story every 2–3 minutes.
+- Turn statistics into a story or cut them.
+- Aim for about 8 minutes.
+
 ## The rules
 
 ### 1. Packaging and hook (0:00–0:30)
