@@ -77,3 +77,7 @@ Narration: ai33.pro voice library, "Storyteller - Deep & Calm" (`elevenlabs_fs9o
 Music: the crocodile video's tracks, reused with the owner's OK (22 Nov 2026).
 Fonts: Montserrat and JetBrains Mono Cyrillic subsets from Fontsource (SIL Open Font License), same licence as the Latin files.
 - `w3` = "Humpback whale mother and calf south of Gerringong Boat Harbour, NSW, Australia", WalkingKooka, CC BY 3.0, Wikimedia Commons. Credited on screen and in the description.
+
+## Humpback whale video, English (HumpbackEn)
+
+Same footage, music and fonts as the Ukrainian version above (same 497 shots, English text on screen). Narration: the owner's "Deep sea" clone (`clone_2719063`), speed 0.95, then x1.1 with `tools/tempo.py`.

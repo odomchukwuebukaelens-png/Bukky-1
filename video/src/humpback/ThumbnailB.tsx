@@ -18,7 +18,7 @@ const UPPER = "M 760 520 C 900 430 1200 330 1500 290 C 1700 265 1850 258 1920 26
 const INSIDE = "M 1000 520 C 1300 500 1700 520 1920 560 L 1920 770 C 1600 708 1200 655 860 640 C 840 600 900 540 1000 520 Z";
 const LOWER = "M 790 612 C 900 640 1300 664 1920 770 L 1920 1080 L 1120 1080 C 960 900 840 760 790 612 Z";
 
-export const HumpbackThumbnailB: React.FC = () => (
+export const HumpbackThumbnailB: React.FC<{ lead?: string; accent?: string; size?: number }> = ({ lead = "ТИ В ЙОГО ", accent = "ПАЩІ..", size = 150 }) => (
   <AbsoluteFill style={{ background: "radial-gradient(ellipse at 70% 55%, #161616 0%, #050505 60%, #000 100%)" }}>
     <svg style={{ position: "absolute", left: 0, top: 0 }} width={1920} height={1080}>
       <defs>
@@ -96,8 +96,8 @@ export const HumpbackThumbnailB: React.FC = () => (
       <path d="M 360 690 L 400 735 L 430 680" stroke="#e3231b" strokeWidth={14} fill="none" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
     <div style={{ position: "absolute", left: 60, top: 50 }}>
-      <span style={{ ...text, fontSize: 150, color: "#fff" }}>ТИ В ЙОГО </span>
-      <span style={{ ...text, fontSize: 150, color: C.accent }}>ПАЩІ..</span>
+      <span style={{ ...text, fontSize: size, color: "#fff" }}>{lead}</span>
+      <span style={{ ...text, fontSize: size, color: C.accent }}>{accent}</span>
     </div>
   </AbsoluteFill>
 );

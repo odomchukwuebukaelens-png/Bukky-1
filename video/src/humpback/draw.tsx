@@ -7,6 +7,7 @@ import { HUD, MONO } from "../kit/hud";
 import { Backdrop, ease, Kicker, Label, pop, Svg, useShot } from "../kit/shots";
 import { C } from "../kit/theme";
 import { FONT } from "../kit/ui";
+import { useLang, useT } from "./lang";
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
@@ -743,6 +744,7 @@ export const WorldMap: React.FC<{
   label?: string;
   counter?: { to: number; unit: string };
 }> = ({ lon, lat, z0 = 1, z1 = 1.12, pacific = false, pins = [], path, waves, label, counter }) => {
+  const lang = useLang();
   const { f, k, dur } = useShot();
   const z = (z0 + (z1 - z0) * ease(k)) * 9;
   const L = (lo: number) => (pacific && lo < 0 ? lo + 360 : lo);
@@ -784,7 +786,7 @@ export const WorldMap: React.FC<{
       {label ? <Label text={label} x={150} y={150} size={40} /> : null}
       {counter ? (
         <div style={{ position: "absolute", right: 150, bottom: 200, fontFamily: FONT, fontWeight: 800, fontSize: 110, color: C.accent, textShadow: SHADOW }}>
-          {Math.round(counter.to * ease(f / (dur * 0.8))).toLocaleString("uk-UA")}
+          {Math.round(counter.to * ease(f / (dur * 0.8))).toLocaleString(lang === "en" ? "en-US" : "uk-UA")}
           <span style={{ fontSize: 50 }}> {counter.unit}</span>
         </div>
       ) : null}
@@ -930,6 +932,7 @@ export const FightShot: React.FC<{ stage: "charge" | "swing" | "scatter" }> = ({
 
 // One line of the safety list with its own little drawing on the right.
 export const TipShot: React.FC<{ n: number; text: string; pic: "birds" | "fish" | "ring" | "away" | "distance" | "buoy" | "calm" }> = ({ n, text, pic }) => {
+  const tr = useT();
   const { f, k } = useShot();
   const e = ease(k);
   return (
@@ -948,7 +951,7 @@ export const TipShot: React.FC<{ n: number; text: string; pic: "birds" | "fish" 
             <SurfaceShot sky="day" boat whaleFar>
               <Svg>
                 <line x1={640} y1={600} x2={640 + 600 * e} y2={600} stroke={C.accent} strokeWidth={8} strokeDasharray="20 10" />
-                <text x={880} y={680} fill={C.accent} fontFamily={FONT} fontWeight={800} fontSize={64} stroke="#000" strokeWidth={6} paintOrder="stroke">100 М</text>
+                <text x={880} y={680} fill={C.accent} fontFamily={FONT} fontWeight={800} fontSize={64} stroke="#000" strokeWidth={6} paintOrder="stroke">{tr("100 М", "100 M")}</text>
               </Svg>
             </SurfaceShot>
           ) : null}

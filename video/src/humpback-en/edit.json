@@ -1,0 +1,14 @@
+{
+  "lead": 0.27,
+  "tail": 0.4,
+  "timing": "timing-fast.json",
+  "voiceDir": "audio/humpback-en-fast",
+  "tempo": 1.1,
+  "voice": "clone_2719063 (Deep sea), speed 0.95, then x1.1",
+  "teasers": {
+    "03": "COMING UP · 40 SECONDS IN A WHALE'S MOUTH",
+    "07": "COMING UP · THE SAILOR A WHALE \"SWALLOWED\"",
+    "10": "COMING UP · THE WHALE THAT SAVES SEALS",
+    "15": "COMING UP · WHAT TO DO IF IT'S YOU"
+  }
+}

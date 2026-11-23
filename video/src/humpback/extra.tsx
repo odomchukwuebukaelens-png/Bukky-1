@@ -8,6 +8,7 @@ import { Backdrop, ease, Kicker, Label, pop, Svg, useShot } from "../kit/shots";
 import { C } from "../kit/theme";
 import { FONT } from "../kit/ui";
 import { Diver, Kayak, Orca, Seal, SHADOW, Whale } from "./draw";
+import { useT } from "./lang";
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
@@ -114,6 +115,7 @@ export const Baleen: React.FC<{ filter?: boolean; krill?: boolean; comb?: boolea
 
 // One krill, big, swimming.
 export const KrillOne: React.FC = () => {
+  const tr = useT();
   const { f } = useShot();
   return (
     <Backdrop v="deep">
@@ -125,7 +127,7 @@ export const KrillOne: React.FC = () => {
           <circle cx={82} cy={-8} r={5} fill="#111" />
         </g>
       </Svg>
-      <Label text="КРИЛЬ · ~5 СМ" x={150} y={150} size={40} color={C.accent} />
+      <Label text={tr("КРИЛЬ · ~5 СМ", "KRILL · ~5 CM")} x={150} y={150} size={40} color={C.accent} />
     </Backdrop>
   );
 };
@@ -187,6 +189,7 @@ export const ScanKayak: React.FC<{ text: string }> = ({ text }) => {
 
 // A shark shape in the dark, for "he thought it was a shark".
 export const SharkShot: React.FC = () => {
+  const tr = useT();
   const { f, k } = useShot();
   return (
     <Backdrop v="night">
@@ -198,7 +201,7 @@ export const SharkShot: React.FC = () => {
           <path d="M 170 14 l 10 10 l 10 -10 l 10 10" stroke="#fff" strokeWidth={4} fill="none" />
         </g>
       </Svg>
-      <Kicker text="АКУЛА?" y={180} align="center" x={0} width={1920} color={C.red} />
+      <Kicker text={tr("АКУЛА?", "A SHARK?")} y={180} align="center" x={0} width={1920} color={C.red} />
     </Backdrop>
   );
 };
@@ -235,6 +238,7 @@ export const Thrown: React.FC = () => {
 
 // A hospital sign.
 export const HospitalShot: React.FC = () => {
+  const tr = useT();
   const { f } = useShot();
   const p = pop(f, 2, 10);
   return (
@@ -247,7 +251,7 @@ export const HospitalShot: React.FC = () => {
           <rect x={-120} y={-40} width={240} height={80} fill={C.red} />
         </g>
       </Svg>
-      <Label text="КЕЙП-КОД · ЛІКАРНЯ" x={560} y={880} size={38} />
+      <Label text={tr("КЕЙП-КОД · ЛІКАРНЯ", "CAPE COD · HOSPITAL")} x={560} y={880} size={38} />
     </Backdrop>
   );
 };
@@ -328,11 +332,12 @@ export const XList: React.FC<{ items: string[]; title?: string }> = ({ items, ti
 
 // A ship's crew list being checked with a magnifier.
 export const Roster: React.FC<{ missing?: string }> = ({ missing }) => {
+  const tr = useT();
   const { f, k } = useShot();
   return (
     <Backdrop v="radial-gradient(ellipse at 50% 40%, #3a2c1c 0%, #140d06 80%)" specks={false}>
       <div style={{ position: "absolute", left: 460, top: 100, width: 1000, height: 700, background: "#efe6cc", boxShadow: "0 20px 60px rgba(0,0,0,0.4)", padding: 50 }}>
-        <div style={{ fontFamily: "Georgia, serif", fontWeight: 700, fontSize: 44, color: "#2a1d10", borderBottom: "3px solid #2a1d10", paddingBottom: 12 }}>«ЗОРЯ СХОДУ» · КОМАНДА</div>
+        <div style={{ fontFamily: "Georgia, serif", fontWeight: 700, fontSize: 44, color: "#2a1d10", borderBottom: "3px solid #2a1d10", paddingBottom: 12 }}>{tr("«ЗОРЯ СХОДУ» · КОМАНДА", "STAR OF THE EAST · CREW")}</div>
         {/* Unreadable lines, not names: this is an illustration, not the real record. */}
         {Array.from({ length: 6 }, (_, i) => (
           <div key={i} style={{ height: 16, width: `${45 + random(`ro${i}`) * 40}%`, background: "rgba(58,42,24,0.45)", marginTop: 40 }} />
@@ -458,13 +463,14 @@ export const Pod: React.FC<{ n?: number; heart?: boolean; waves?: boolean }> = (
 
 // A stack of report cards counting up.
 export const Files: React.FC<{ to: number }> = ({ to }) => {
+  const tr = useT();
   const { f, dur } = useShot();
   const n = Math.round(to * ease(f / (dur * 0.8)));
   return (
     <Backdrop v="deep">
       {Array.from({ length: 9 }, (_, i) => (
         <div key={i} style={{ position: "absolute", left: 520 + i * 14, top: 220 + i * 10, width: 700, height: 520, background: "#e8eef0", borderRadius: 10, boxShadow: "0 6px 20px rgba(0,0,0,0.4)", opacity: pop(f, i * 2, 6), transform: `rotate(${(random(`fi${i}`) - 0.5) * 8}deg)` }}>
-          <div style={{ margin: 40, fontFamily: MONO, fontWeight: 700, fontSize: 30, color: "#2a3a46" }}>ЗВІТ · ГОРБАТИЙ КИТ / КОСАТКИ</div>
+          <div style={{ margin: 40, fontFamily: MONO, fontWeight: 700, fontSize: 30, color: "#2a3a46" }}>{tr("ЗВІТ · ГОРБАТИЙ КИТ / КОСАТКИ", "REPORT · HUMPBACK / ORCAS")}</div>
           {Array.from({ length: 6 }, (_, j) => <div key={j} style={{ marginLeft: 40, marginTop: 22, height: 12, width: `${50 + random(`fl${i}${j}`) * 40}%`, background: "#9fb0ba" }} />)}
         </div>
       ))}
@@ -475,6 +481,7 @@ export const Files: React.FC<{ to: number }> = ({ to }) => {
 
 // Barnacles on the flipper's edge, close up.
 export const Barnacles: React.FC = () => {
+  const tr = useT();
   const { f } = useShot();
   return (
     <Backdrop v="deep">
@@ -492,7 +499,7 @@ export const Barnacles: React.FC = () => {
           );
         })}
       </Svg>
-      <Label text="ВУСОНОГІ РАКИ" x={150} y={150} size={44} color={C.accent} />
+      <Label text={tr("ВУСОНОГІ РАКИ", "BARNACLES")} x={150} y={150} size={44} color={C.accent} />
     </Backdrop>
   );
 };
