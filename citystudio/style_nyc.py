@@ -119,7 +119,7 @@ class City:
 # ----------------------------------------------------------------------------
 # Materials
 # ----------------------------------------------------------------------------
-MOOD = {"snow": [], "autumn": [], "night": []}
+MOOD = {"snow": [], "autumn": [], "night": [], "ice": []}
 
 
 def mood_value(nt, kind):
@@ -236,6 +236,7 @@ def shore_water_material():
     col = H.mix_rgb(nt, H.smooth(nt, sh.outputs["Fac"], 0.0, 0.09), (0.05, 0.30, 0.38),
                     H.mix_rgb(nt, H.smooth(nt, sh.outputs["Fac"], 0.0, 0.35), (0.010, 0.055, 0.13),
                               (0.003, 0.012, 0.042)))
+    col = H.mix_rgb(nt, mood_value(nt, "ice"), col, (0.72, 0.78, 0.84))    # frozen river
     nt.links.new(col, bsdf.inputs["Base Color"])
     bsdf.inputs["Roughness"].default_value = 0.22
     for name in ("Specular IOR Level", "Specular"):
@@ -1208,7 +1209,7 @@ def apply_frame(brief, rig, frame, total):
         del on
     dusk = brief.get("dusk")
     d = H.ease((t - dusk["from"]) / (dusk["to"] - dusk["from"])) if dusk else 0.0
-    w = {"night": 0.0, "snow": 0.0, "rain": 0.0, "autumn": 0.0, "smoke": 0.0, "fog": 0.0}
+    w = {"night": 0.0, "snow": 0.0, "rain": 0.0, "autumn": 0.0, "smoke": 0.0, "fog": 0.0, "ice": 0.0}
     for m in brief.get("moods", []):
         ramp = m.get("ramp", 2.5)
         k = H.ease((t - m["from"]) / ramp) * (1 - H.ease((t - m["to"] + ramp) / ramp))
@@ -1221,6 +1222,8 @@ def apply_frame(brief, rig, frame, total):
         node.outputs[0].default_value = sn
     for node in MOOD["autumn"]:
         node.outputs[0].default_value = w["autumn"]
+    for node in MOOD.get("ice", []):
+        node.outputs[0].default_value = w["ice"]
     base_sun, base_sky = brief.get("sun", 6.5), brief.get("sky", 0.45)
     sun, sky = rig["sun"], rig["sky"]
     if d >= n:     # golden dusk at the end of the film

@@ -535,7 +535,7 @@ def build(brief, plan_unused=None):
 
     # Westminster Abbey (1245-1269, west towers 1745) and the Palace of Westminster
     wx_, wy_, wz_ = at((-0.1275, 51.4994))
-    mon("WestminsterAbbey", 1245, 99999, lambda p: (p.box(wx_, wy_, wz_, (1, 0), (0, 1), 50, 11, 31, (*STONE, 0.3), top=(*SLATE, 0.0)),
+    mon("WestminsterAbbey", 1060, 99999, lambda p: (p.box(wx_, wy_, wz_, (1, 0), (0, 1), 50, 11, 31, (*STONE, 0.3), top=(*SLATE, 0.0)),
                                                     p.box(wx_ + 15, wy_, wz_, (1, 0), (0, 1), 11, 30, 31, (*STONE, 0.3), top=(*SLATE, 0.0))), 25)
     mon("AbbeyTowers", 1745, 99999, lambda p: [p.box(wx_ - 52, wy_ + sd * 8, wz_, (1, 0), (0, 1), 5, 5, 69, (*STONE, 0.0)) for sd in (-1, 1)], 10)
     marks["abbey"] = (wx_, wy_, wz_ + 75)
@@ -567,12 +567,19 @@ def build(brief, plan_unused=None):
         v = Vector((-u.y, u.x))
         for f in (0.36, 0.64):
             q = a + d * f
-            p.box(q.x, q.y, -3, tuple(u), tuple(v), 12, 14, 68, (0.80, 0.76, 0.66, 0.6), top=(0.25, 0.28, 0.32, 0.0))
+            p.box(q.x, q.y, -3, tuple(u), tuple(v), 9, 11, 8, (0.62, 0.60, 0.55, 0.0))           # pier
+            for sd in (-1, 1):
+                leg = q + v * sd * 7
+                p.box(leg.x, leg.y, 5, tuple(u), tuple(v), 5, 3.5, 52, (0.80, 0.76, 0.66, 0.7))
+                p.add([(leg.x - 5, leg.y - 3.5, 57), (leg.x + 5, leg.y - 3.5, 57), (leg.x + 5, leg.y + 3.5, 57),
+                       (leg.x - 5, leg.y + 3.5, 57), (leg.x, leg.y, 66)], [(0, 1, 4), (1, 2, 4), (2, 3, 4), (3, 0, 4)],
+                      [(0.28, 0.32, 0.36, 0.0)] * 4)
+            p.box(q.x, q.y, 34, tuple(u), tuple(v), 5, 7, 14, (0.80, 0.76, 0.66, 0.7))
         q0, q1 = a + d * 0.36, a + d * 0.64
         for sd in (-1, 1):
             m = (q0 + q1) / 2 + v * sd * 4
             p.box(m.x, m.y, 44, tuple(u), tuple(v), (q1 - q0).length / 2, 2.2, 4, (0.25, 0.45, 0.65, 0.0))
-        p.box((a.x + b.x) / 2, (a.y + b.y) / 2, 9, tuple(u), tuple(v), d.length / 2, 9, 2.5, (0.25, 0.45, 0.65, 0.0))
+        p.box((a.x + b.x) / 2, (a.y + b.y) / 2, 9, tuple(u), tuple(v), d.length / 2, 8, 2.0, (0.30, 0.34, 0.38, 0.0))
     mon("TowerBridge", 1886, 99999, tower_bridge, 8)
     marks["towerbridge"] = (*tuple(P2((-0.0753, 51.5055))), 80)
 
@@ -602,7 +609,7 @@ def build(brief, plan_unused=None):
         kind = key[0]
         if kind == "bld":
             animated.append({"ob": ob, "year": key[1], "grow": max(2.0, key[2]), "gone": None})
-        elif kind in ("med", "rep", "imp", "tow"):
+        elif kind in ("med", "rep", "imp", "tow", "rom", "geo"):
             animated.append({"ob": ob, "year": key[1], "grow": 3.0, "gone": key[2] + 12.5, "fade": 15.0})
 
     # trees: forest on hills and riverbanks, cleared by farms/town
