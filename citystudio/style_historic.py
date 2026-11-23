@@ -308,7 +308,7 @@ class Parts:
             return (x + ux[0] * a + uy[0] * b, y + ux[1] * a + uy[1] * b, zz)
         v = [P(-hx, -hy, z0), P(hx, -hy, z0), P(hx, hy, z0), P(-hx, hy, z0),
              P(-hx, -hy, wz), P(hx, -hy, wz), P(hx, hy, wz), P(-hx, hy, wz),
-             P(-hx, 0, rz), P(hx, 0, rz)]
+             P(-max(0.0, hx - hy) if hs.get("hip") else -hx, 0, rz), P(max(0.0, hx - hy) if hs.get("hip") else hx, 0, rz)]
         f = [(0, 1, 5, 4), (2, 3, 7, 6), (1, 2, 6, 5), (3, 0, 4, 7),
              (5, 6, 9), (7, 4, 8), (4, 5, 9, 8), (6, 7, 8, 9)]
         w, r = hs["wall"], hs["roof"]

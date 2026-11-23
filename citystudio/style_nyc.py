@@ -403,6 +403,20 @@ def extrude_tiers(parts, pts, z0, h, wall, alpha, roof=ROOF):
         extrude(parts, tp, z0 + h * a, h * (b - a) + 0.3, wall, alpha, roof)
 
 
+def extrude_roofed(parts, pts, z0, h, wall, alpha, roof=ROOF):
+    """A low building with a hipped (pyramid) roof over its footprint."""
+    extrude(parts, pts, z0, h, wall, alpha, roof)
+    xs, ys = [p[0] for p in pts], [p[1] for p in pts]
+    rise = min(6.0, 0.35 * min(max(xs) - min(xs), max(ys) - min(ys)))
+    if rise < 0.8:
+        return
+    cx, cy = sum(xs) / len(xs), sum(ys) / len(ys)
+    n = len(pts)
+    top = z0 + h
+    verts = [(x, y, top + 0.05) for x, y in pts] + [(cx, cy, top + rise)]
+    parts.add(verts, [(i, (i + 1) % n, n) for i in range(n)], [(*roof, 0.0)] * n)
+
+
 def extrude(parts, pts, z0, h, wall, alpha, roof=ROOF):
     n = len(pts)
     verts = [(x, y, z0) for x, y in pts] + [(x, y, z0 + h) for x, y in pts]
@@ -1230,14 +1244,16 @@ def apply_frame(brief, rig, frame, total):
     sun, sky = rig["sun"], rig["sky"]
     if d >= n:     # golden dusk at the end of the film
         sun.data.energy = base_sun * (1 - 0.8 * d) * (1 - 0.6 * rn)
-        sun.data.color = (1.0, 0.93 - 0.35 * d, 0.82 - 0.5 * d)
-        sun.rotation_euler = (math.radians(52 + 30 * d), 0, math.radians(-40 - 30 * d))
+        sc_ = brief.get("sun_color", [1.0, 0.93, 0.82])
+        sun.data.color = (sc_[0], sc_[1] - 0.35 * d, max(0.1, sc_[2] - 0.5 * d))
+        sun.rotation_euler = (math.radians(brief.get("sun_tilt", 52) + (88 - brief.get("sun_tilt", 52)) * 0.6 * d), 0,
+                              math.radians(brief.get("sun_heading", -40) - 30 * d))
         sky.inputs[1].default_value = base_sky * (1 - 0.65 * d) * (1 - 0.3 * rn)
         hz = [c + (dc - c) * d for c, dc in zip(H.HAZE, (0.40, 0.28, 0.32))]
     else:          # moonlit night
         sun.data.energy = base_sun * (1 - 0.94 * n) * (1 - 0.6 * rn)
         sun.data.color = (1.0 - 0.45 * n, 0.93 - 0.25 * n, 0.82 + 0.18 * n)
-        sun.rotation_euler = (math.radians(52), 0, math.radians(-40))
+        sun.rotation_euler = (math.radians(brief.get("sun_tilt", 52)), 0, math.radians(brief.get("sun_heading", -40)))
         sky.inputs[1].default_value = base_sky * (1 - 0.88 * n) * (1 - 0.3 * rn)
         hz = [c + (nc - c) * n for c, nc in zip(H.HAZE, (0.05, 0.07, 0.14))]
     hz = [c + (rc - c) * rn * 0.7 for c, rc in zip(hz, (0.52, 0.55, 0.58))]

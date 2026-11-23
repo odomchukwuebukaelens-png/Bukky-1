@@ -695,8 +695,8 @@ def build(brief, plan_unused=None):
     sun = bpy.data.objects.new("Sun", bpy.data.lights.new("Sun", "SUN"))
     sun.data.energy = brief.get("sun", 5.0)
     sun.data.angle = math.radians(1.0)
-    sun.data.color = (1.0, 0.93, 0.82)
-    sun.rotation_euler = (math.radians(52), 0, math.radians(-40))
+    sun.data.color = tuple(brief.get("sun_color", [1.0, 0.93, 0.82]))
+    sun.rotation_euler = (math.radians(brief.get("sun_tilt", 52)), 0, math.radians(brief.get("sun_heading", -40)))
     col.objects.link(sun)
     world = bpy.data.worlds.new("Sky")
     world.use_nodes = True
