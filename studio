@@ -75,7 +75,12 @@ case "${1:-}" in
     BRIEF="${2:?give a brief file}"
     ENGINE_USED="$(pick_engine)"
     if [ -z "${WORKERS:-}" ]; then
-      WORKERS=$(( $(nproc) / 3 )); [ "$WORKERS" -lt 1 ] && WORKERS=1    # about one Blender per 3 CPU cores
+      WORKERS=$(( $(nproc) / 3 ))                                          # about one Blender per 3 CPU cores
+      MEMW=$(( $(awk '/MemAvailable/ {print int($2/1048576)}' /proc/meminfo) / 5 ))  # and about 5 GB of memory each
+      [ "$MEMW" -lt "$WORKERS" ] && WORKERS=$MEMW
+      [ "$WORKERS" -gt 12 ] && WORKERS=12
+      [ "$WORKERS" -lt 1 ] && WORKERS=1
+      echo "[city-studio] Using $WORKERS workers ($(nproc) CPU cores, $(awk '/MemAvailable/ {print int($2/1048576)}' /proc/meminfo) GB free memory)"
     fi
     START=$(date +%s)
     PIDS=()
@@ -122,7 +127,12 @@ case "${1:-}" in
     BRIEF="${2:?give a brief file}"
     ENGINE_USED="$(pick_engine)"
     if [ -z "${WORKERS:-}" ]; then
-      WORKERS=$(( $(nproc) / 3 )); [ "$WORKERS" -lt 1 ] && WORKERS=1    # about one Blender per 3 CPU cores
+      WORKERS=$(( $(nproc) / 3 ))                                          # about one Blender per 3 CPU cores
+      MEMW=$(( $(awk '/MemAvailable/ {print int($2/1048576)}' /proc/meminfo) / 5 ))  # and about 5 GB of memory each
+      [ "$MEMW" -lt "$WORKERS" ] && WORKERS=$MEMW
+      [ "$WORKERS" -gt 12 ] && WORKERS=12
+      [ "$WORKERS" -lt 1 ] && WORKERS=1
+      echo "[city-studio] Using $WORKERS workers ($(nproc) CPU cores, $(awk '/MemAvailable/ {print int($2/1048576)}' /proc/meminfo) GB free memory)"
     fi
     START=$(date +%s)
     PIDS=()
