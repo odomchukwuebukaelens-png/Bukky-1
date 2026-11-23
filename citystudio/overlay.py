@@ -196,6 +196,25 @@ def badge(layer, draw, cx, cy, r, kind, alpha):
             fd.rectangle([S * 0.48, S * 0.38, S * 0.52, S * 0.6], fill=(245, 245, 240, 255))
     elif kind == "occupied":
         fd.rectangle([0, 0, S, S], fill=(110, 110, 110, 255))
+    elif kind == "england":
+        fd.rectangle([0, 0, S, S], fill=(245, 245, 240, 255))
+        fd.rectangle([S * 0.42, 0, S * 0.58, S], fill=(200, 16, 46, 255))
+        fd.rectangle([0, S * 0.42, S, S * 0.58], fill=(200, 16, 46, 255))
+    elif kind == "uk":
+        fd.rectangle([0, 0, S, S], fill=(1, 33, 105, 255))
+        for w_, c_ in ((S * 0.2, (245, 245, 240)), (S * 0.08, (200, 16, 46))):
+            fd.line([0, 0, S, S], fill=(*c_, 255), width=int(w_))
+            fd.line([0, S, S, 0], fill=(*c_, 255), width=int(w_))
+        fd.rectangle([S * 0.38, 0, S * 0.62, S], fill=(245, 245, 240, 255))
+        fd.rectangle([0, S * 0.38, S, S * 0.62], fill=(245, 245, 240, 255))
+        fd.rectangle([S * 0.44, 0, S * 0.56, S], fill=(200, 16, 46, 255))
+        fd.rectangle([0, S * 0.44, S, S * 0.56], fill=(200, 16, 46, 255))
+    elif kind == "saxon":
+        fd.rectangle([0, 0, S, S], fill=(160, 30, 30, 255))
+        fd.ellipse([S * 0.3, S * 0.3, S * 0.7, S * 0.7], fill=(230, 190, 60, 255))
+    elif kind == "dane":
+        fd.rectangle([0, 0, S, S], fill=(40, 40, 50, 255))
+        fd.polygon([(S * 0.25, S * 0.7), (S * 0.5, S * 0.25), (S * 0.75, S * 0.7)], fill=(220, 200, 160, 255))
     elif kind == "lenape":
         fd.rectangle([0, 0, S, S], fill=(70, 110, 70, 255))
         fd.ellipse([S * 0.3, S * 0.3, S * 0.7, S * 0.7], outline=(240, 230, 200, 255), width=max(1, S // 14))

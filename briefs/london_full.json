@@ -1,0 +1,3694 @@
+{
+ "fps": 30,
+ "eevee_samples": 8,
+ "crf": 18,
+ "sharpen": 0.6,
+ "filter_size": 0.9,
+ "music": "generate",
+ "music_tracks": [
+  "assets/music/packed.mp3",
+  "assets/music/outside_the_box.mp3"
+ ],
+ "music_volume": 0.7,
+ "view": "standard",
+ "haze_color": [
+  0.96,
+  0.87,
+  0.72
+ ],
+ "haze_distance": 60000,
+ "haze_amount": 0.18,
+ "zenith": [
+  0.22,
+  0.42,
+  0.78
+ ],
+ "sky": 0.9,
+ "sun": 5.0,
+ "grade": {
+  "saturation": 1.25,
+  "contrast": 1.12,
+  "brightness": 1.02
+ },
+ "caption_hold": 6.0,
+ "label_occlusion": true,
+ "clip_start": 1.0,
+ "clip_end": 30000,
+ "max_size_mb": 290,
+ "name": "london_full",
+ "style": "london",
+ "data": "data/london",
+ "seed": 5,
+ "duration_seconds": 660,
+ "resolution": [
+  1280,
+  720
+ ],
+ "chunk_frames": 300,
+ "label_max_distance": 2600,
+ "fineprint": "Illustrative reconstruction · today's buildings: Overture Maps / OpenStreetMap · dates estimated",
+ "dusk": {
+  "from": 628,
+  "to": 648
+ },
+ "music_build_at": 8,
+ "year_keys": [
+  [
+   0,
+   43
+  ],
+  [
+   10,
+   43
+  ],
+  [
+   22,
+   50
+  ],
+  [
+   34,
+   60.6
+  ],
+  [
+   46,
+   60.85
+  ],
+  [
+   58,
+   61.2
+  ],
+  [
+   70,
+   100
+  ],
+  [
+   82,
+   200
+  ],
+  [
+   92,
+   300
+  ],
+  [
+   100,
+   410
+  ],
+  [
+   108,
+   600
+  ],
+  [
+   116,
+   840
+  ],
+  [
+   128,
+   842.5
+  ],
+  [
+   138,
+   886
+  ],
+  [
+   148,
+   1000
+  ],
+  [
+   156,
+   1066.95
+  ],
+  [
+   168,
+   1078
+  ],
+  [
+   180,
+   1209
+  ],
+  [
+   192,
+   1300
+  ],
+  [
+   204,
+   1381.45
+  ],
+  [
+   214,
+   1382
+  ],
+  [
+   224,
+   1561.5
+  ],
+  [
+   234,
+   1599
+  ],
+  [
+   246,
+   1605.84
+  ],
+  [
+   256,
+   1640
+  ],
+  [
+   266,
+   1665.5
+  ],
+  [
+   276,
+   1666.66
+  ],
+  [
+   290,
+   1666.73
+  ],
+  [
+   300,
+   1667
+  ],
+  [
+   310,
+   1684.05
+  ],
+  [
+   318,
+   1684.1
+  ],
+  [
+   328,
+   1710
+  ],
+  [
+   340,
+   1750
+  ],
+  [
+   352,
+   1800
+  ],
+  [
+   364,
+   1834.79
+  ],
+  [
+   374,
+   1835
+  ],
+  [
+   386,
+   1863.03
+  ],
+  [
+   398,
+   1894.5
+  ],
+  [
+   410,
+   1900
+  ],
+  [
+   420,
+   1940.6
+  ],
+  [
+   432,
+   1940.75
+  ],
+  [
+   444,
+   1941.3
+  ],
+  [
+   454,
+   1945.35
+  ],
+  [
+   462,
+   1952.92
+  ],
+  [
+   470,
+   1953.42
+  ],
+  [
+   480,
+   1966.5
+  ],
+  [
+   492,
+   1990
+  ],
+  [
+   502,
+   2000
+  ],
+  [
+   512,
+   2004
+  ],
+  [
+   524,
+   2012.0
+  ],
+  [
+   536,
+   2012.57
+  ],
+  [
+   556,
+   2020
+  ],
+  [
+   600,
+   2026
+  ],
+  [
+   660,
+   2026
+  ]
+ ],
+ "camera_keys": [
+  {
+   "t": 0,
+   "target": [
+    -0.095,
+    51.51
+   ],
+   "dist": 5200,
+   "height": 2300,
+   "bearing": 20,
+   "look_z": 0
+  },
+  {
+   "t": 10,
+   "target": [
+    -0.095,
+    51.51
+   ],
+   "dist": 2400,
+   "height": 950,
+   "bearing": 30,
+   "look_z": 0
+  },
+  {
+   "t": 18,
+   "target": [
+    -0.11,
+    51.509
+   ],
+   "dist": 420,
+   "height": 70,
+   "bearing": 80,
+   "look_z": 0
+  },
+  {
+   "t": 28,
+   "target": [
+    -0.0873,
+    51.5065
+   ],
+   "dist": 300,
+   "height": 55,
+   "bearing": 110,
+   "look_z": 0
+  },
+  {
+   "t": 38,
+   "target": [
+    -0.0855,
+    51.5132
+   ],
+   "dist": 360,
+   "height": 95,
+   "bearing": 200,
+   "look_z": 0
+  },
+  {
+   "t": 48,
+   "target": [
+    -0.077,
+    51.5135
+   ],
+   "dist": 330,
+   "height": 80,
+   "bearing": 230,
+   "look_z": 0
+  },
+  {
+   "t": 58,
+   "target": [
+    -0.0855,
+    51.5132
+   ],
+   "dist": 300,
+   "height": 90,
+   "bearing": 260,
+   "look_z": 5
+  },
+  {
+   "t": 68,
+   "target": [
+    -0.0855,
+    51.5132
+   ],
+   "dist": 200,
+   "height": 45,
+   "bearing": 300,
+   "look_z": 5
+  },
+  {
+   "t": 78,
+   "target": [
+    -0.092,
+    51.5156
+   ],
+   "dist": 220,
+   "height": 60,
+   "bearing": 20,
+   "look_z": 0
+  },
+  {
+   "t": 88,
+   "target": [
+    -0.094,
+    51.514
+   ],
+   "dist": 380,
+   "height": 110,
+   "bearing": 60,
+   "look_z": 0
+  },
+  {
+   "t": 98,
+   "target": [
+    -0.0873,
+    51.5065
+   ],
+   "dist": 420,
+   "height": 120,
+   "bearing": 140,
+   "look_z": 0
+  },
+  {
+   "t": 108,
+   "target": [
+    -0.115,
+    51.511
+   ],
+   "dist": 300,
+   "height": 70,
+   "bearing": 150,
+   "look_z": 0
+  },
+  {
+   "t": 118,
+   "target": [
+    -0.11,
+    51.509
+   ],
+   "dist": 380,
+   "height": 60,
+   "bearing": 90,
+   "look_z": 0
+  },
+  {
+   "t": 128,
+   "target": [
+    -0.115,
+    51.511
+   ],
+   "dist": 280,
+   "height": 70,
+   "bearing": 60,
+   "look_z": 0
+  },
+  {
+   "t": 138,
+   "target": [
+    -0.094,
+    51.514
+   ],
+   "dist": 340,
+   "height": 95,
+   "bearing": 100,
+   "look_z": 0
+  },
+  {
+   "t": 148,
+   "target": [
+    -0.1275,
+    51.4994
+   ],
+   "dist": 400,
+   "height": 120,
+   "bearing": 40,
+   "look_z": 0
+  },
+  {
+   "t": 158,
+   "target": [
+    -0.1275,
+    51.4994
+   ],
+   "dist": 220,
+   "height": 55,
+   "bearing": 70,
+   "look_z": 10
+  },
+  {
+   "t": 168,
+   "target": [
+    -0.076,
+    51.5081
+   ],
+   "dist": 330,
+   "height": 90,
+   "bearing": 300,
+   "look_z": 10
+  },
+  {
+   "t": 178,
+   "target": [
+    -0.076,
+    51.5081
+   ],
+   "dist": 280,
+   "height": 70,
+   "bearing": 250,
+   "look_z": 10
+  },
+  {
+   "t": 188,
+   "target": [
+    -0.0873,
+    51.5065
+   ],
+   "dist": 230,
+   "height": 50,
+   "bearing": 280,
+   "look_z": 8
+  },
+  {
+   "t": 198,
+   "target": [
+    -0.094,
+    51.514
+   ],
+   "dist": 250,
+   "height": 60,
+   "bearing": 40,
+   "look_z": 0
+  },
+  {
+   "t": 208,
+   "target": [
+    -0.0873,
+    51.5065
+   ],
+   "dist": 260,
+   "height": 60,
+   "bearing": 330,
+   "look_z": 8
+  },
+  {
+   "t": 218,
+   "target": [
+    -0.0984,
+    51.5138
+   ],
+   "dist": 380,
+   "height": 110,
+   "bearing": 120,
+   "look_z": 30
+  },
+  {
+   "t": 228,
+   "target": [
+    -0.0984,
+    51.5138
+   ],
+   "dist": 300,
+   "height": 90,
+   "bearing": 160,
+   "look_z": 40
+  },
+  {
+   "t": 238,
+   "target": [
+    -0.0972,
+    51.5081
+   ],
+   "dist": 220,
+   "height": 45,
+   "bearing": 60,
+   "look_z": 5
+  },
+  {
+   "t": 248,
+   "target": [
+    -0.1246,
+    51.4995
+   ],
+   "dist": 330,
+   "height": 90,
+   "bearing": 250,
+   "look_z": 10
+  },
+  {
+   "t": 258,
+   "target": [
+    -0.095,
+    51.51
+   ],
+   "dist": 2600,
+   "height": 1100,
+   "bearing": 15,
+   "look_z": 0
+  },
+  {
+   "t": 268,
+   "target": [
+    -0.094,
+    51.514
+   ],
+   "dist": 300,
+   "height": 85,
+   "bearing": 200,
+   "look_z": 0
+  },
+  {
+   "t": 278,
+   "target": [
+    -0.0855,
+    51.5108
+   ],
+   "dist": 420,
+   "height": 140,
+   "bearing": 240,
+   "look_z": 0
+  },
+  {
+   "t": 288,
+   "target": [
+    -0.0984,
+    51.5138
+   ],
+   "dist": 520,
+   "height": 170,
+   "bearing": 280,
+   "look_z": 30
+  },
+  {
+   "t": 298,
+   "target": [
+    -0.086,
+    51.5101
+   ],
+   "dist": 350,
+   "height": 110,
+   "bearing": 330,
+   "look_z": 0
+  },
+  {
+   "t": 308,
+   "target": [
+    -0.0873,
+    51.5065
+   ],
+   "dist": 420,
+   "height": 90,
+   "bearing": 250,
+   "look_z": 5
+  },
+  {
+   "t": 318,
+   "target": [
+    -0.0873,
+    51.5065
+   ],
+   "dist": 350,
+   "height": 70,
+   "bearing": 210,
+   "look_z": 5
+  },
+  {
+   "t": 328,
+   "target": [
+    -0.0984,
+    51.5138
+   ],
+   "dist": 280,
+   "height": 70,
+   "bearing": 140,
+   "look_z": 50
+  },
+  {
+   "t": 338,
+   "target": [
+    -0.0984,
+    51.5138
+   ],
+   "dist": 260,
+   "height": 60,
+   "bearing": 100,
+   "look_z": 60
+  },
+  {
+   "t": 348,
+   "target": [
+    -0.115,
+    51.511
+   ],
+   "dist": 330,
+   "height": 90,
+   "bearing": 200,
+   "look_z": 0
+  },
+  {
+   "t": 358,
+   "target": [
+    -0.11,
+    51.509
+   ],
+   "dist": 420,
+   "height": 100,
+   "bearing": 60,
+   "look_z": 0
+  },
+  {
+   "t": 368,
+   "target": [
+    -0.1246,
+    51.4995
+   ],
+   "dist": 380,
+   "height": 110,
+   "bearing": 120,
+   "look_z": 20
+  },
+  {
+   "t": 378,
+   "target": [
+    -0.1246,
+    51.4995
+   ],
+   "dist": 300,
+   "height": 80,
+   "bearing": 150,
+   "look_z": 20
+  },
+  {
+   "t": 388,
+   "target": [
+    -0.089,
+    51.5133
+   ],
+   "dist": 320,
+   "height": 90,
+   "bearing": 250,
+   "look_z": 0
+  },
+  {
+   "t": 398,
+   "target": [
+    -0.0753,
+    51.5055
+   ],
+   "dist": 380,
+   "height": 80,
+   "bearing": 320,
+   "look_z": 30
+  },
+  {
+   "t": 408,
+   "target": [
+    -0.0753,
+    51.5055
+   ],
+   "dist": 330,
+   "height": 70,
+   "bearing": 20,
+   "look_z": 30
+  },
+  {
+   "t": 418,
+   "target": [
+    -0.095,
+    51.51
+   ],
+   "dist": 2800,
+   "height": 1200,
+   "bearing": 350,
+   "look_z": 0
+  },
+  {
+   "t": 430,
+   "target": [
+    -0.0984,
+    51.5138
+   ],
+   "dist": 500,
+   "height": 170,
+   "bearing": 30,
+   "look_z": 60
+  },
+  {
+   "t": 442,
+   "target": [
+    -0.094,
+    51.514
+   ],
+   "dist": 420,
+   "height": 140,
+   "bearing": 70,
+   "look_z": 0
+  },
+  {
+   "t": 452,
+   "target": [
+    -0.128,
+    51.508
+   ],
+   "dist": 300,
+   "height": 80,
+   "bearing": 170,
+   "look_z": 10
+  },
+  {
+   "t": 462,
+   "target": [
+    -0.0984,
+    51.5138
+   ],
+   "dist": 340,
+   "height": 95,
+   "bearing": 200,
+   "look_z": 50
+  },
+  {
+   "t": 472,
+   "target": [
+    -0.135,
+    51.5045
+   ],
+   "dist": 260,
+   "height": 55,
+   "bearing": 250,
+   "look_z": 5
+  },
+  {
+   "t": 482,
+   "target": [
+    -0.1419,
+    51.5014
+   ],
+   "dist": 320,
+   "height": 80,
+   "bearing": 280,
+   "look_z": 10
+  },
+  {
+   "t": 492,
+   "target": [
+    -0.089,
+    51.5133
+   ],
+   "dist": 360,
+   "height": 140,
+   "bearing": 320,
+   "look_z": 40
+  },
+  {
+   "t": 502,
+   "target": [
+    -0.1246,
+    51.4995
+   ],
+   "dist": 420,
+   "height": 120,
+   "bearing": 340,
+   "look_z": 30
+  },
+  {
+   "t": 512,
+   "target": [
+    -0.0803,
+    51.5145
+   ],
+   "dist": 420,
+   "height": 150,
+   "bearing": 30,
+   "look_z": 90
+  },
+  {
+   "t": 522,
+   "target": [
+    -0.0865,
+    51.5045
+   ],
+   "dist": 520,
+   "height": 190,
+   "bearing": 80,
+   "look_z": 150
+  },
+  {
+   "t": 534,
+   "target": [
+    -0.0865,
+    51.5045
+   ],
+   "dist": 380,
+   "height": 140,
+   "bearing": 140,
+   "look_z": 170
+  },
+  {
+   "t": 546,
+   "target": [
+    -0.0753,
+    51.5055
+   ],
+   "dist": 360,
+   "height": 90,
+   "bearing": 200,
+   "look_z": 40
+  },
+  {
+   "t": 558,
+   "target": [
+    -0.09,
+    51.5045
+   ],
+   "dist": 300,
+   "height": 80,
+   "bearing": 260,
+   "look_z": 20
+  },
+  {
+   "t": 570,
+   "target": [
+    -0.089,
+    51.5133
+   ],
+   "dist": 260,
+   "height": 70,
+   "bearing": 300,
+   "look_z": 30
+  },
+  {
+   "t": 582,
+   "target": [
+    -0.128,
+    51.508
+   ],
+   "dist": 220,
+   "height": 45,
+   "bearing": 10,
+   "look_z": 10
+  },
+  {
+   "t": 594,
+   "target": [
+    -0.135,
+    51.5045
+   ],
+   "dist": 260,
+   "height": 55,
+   "bearing": 60,
+   "look_z": 5
+  },
+  {
+   "t": 606,
+   "target": [
+    -0.11,
+    51.509
+   ],
+   "dist": 380,
+   "height": 90,
+   "bearing": 100,
+   "look_z": 10
+  },
+  {
+   "t": 618,
+   "target": [
+    -0.0984,
+    51.5138
+   ],
+   "dist": 340,
+   "height": 100,
+   "bearing": 150,
+   "look_z": 60
+  },
+  {
+   "t": 632,
+   "target": [
+    -0.095,
+    51.51
+   ],
+   "dist": 4200,
+   "height": 1900,
+   "bearing": 30,
+   "look_z": 0
+  },
+  {
+   "t": 660,
+   "target": [
+    -0.095,
+    51.51
+   ],
+   "dist": 8600,
+   "height": 3900,
+   "bearing": 30,
+   "look_z": 0
+  }
+ ],
+ "title_card": {
+  "start": 0.5,
+  "end": 8.0,
+  "kicker": "From Roman outpost to world city",
+  "title": "London",
+  "years": "AD 43 — 2026",
+  "note": "A city rebuilt in 3D through almost 2,000 years"
+ },
+ "cards": [
+  {
+   "start": 640,
+   "end": 659,
+   "kicker": "London, 2026",
+   "title": "1,979 years",
+   "years": "from a river crossing to a world city",
+   "note": "Illustrative reconstruction · data: Overture Maps, OpenStreetMap contributors, Copernicus"
+  }
+ ],
+ "events": [
+  {
+   "year": 43,
+   "tag": "AD 43",
+   "title": "The Romans arrive",
+   "body": "Emperor Claudius sends four legions across the Channel. They cross the Thames near here",
+   "min_time": 8
+  },
+  {
+   "year": 50,
+   "tag": "c. AD 50",
+   "title": "Londinium",
+   "body": "Traders build a timber bridge and a new town grows on the north bank"
+  },
+  {
+   "year": 60.6,
+   "tag": "AD 60",
+   "title": "Boudica's revolt",
+   "body": "The Iceni queen leads a British army against the Romans"
+  },
+  {
+   "year": 60.85,
+   "tag": "AD 60–61",
+   "title": "Londinium burns",
+   "body": "Boudica's warriors destroy the town. A layer of red ash still lies under the City"
+  },
+  {
+   "year": 100,
+   "tag": "c. AD 100",
+   "title": "A Roman capital",
+   "body": "Rebuilt in stone, with the largest forum north of the Alps"
+  },
+  {
+   "year": 200,
+   "tag": "c. AD 200",
+   "title": "The London Wall",
+   "body": "A wall about 3 km long is built around the city. Its line shaped the City for 1,500 years"
+  },
+  {
+   "year": 410,
+   "tag": "AD 410",
+   "title": "The Romans leave",
+   "body": "Roman rule ends. Within decades the walled town is almost empty"
+  },
+  {
+   "year": 600,
+   "tag": "7TH CENTURY",
+   "title": "Lundenwic",
+   "body": "Anglo-Saxon traders settle a new town upriver, along today's Strand"
+  },
+  {
+   "year": 842.3,
+   "tag": "842",
+   "title": "Viking raids",
+   "body": "Danish longships sail up the Thames. Lundenwic is attacked again and again"
+  },
+  {
+   "year": 886,
+   "tag": "886",
+   "title": "Alfred the Great",
+   "body": "The King of Wessex moves Londoners back inside the old Roman walls"
+  },
+  {
+   "year": 1066.95,
+   "tag": "25 DEC 1066",
+   "title": "A Norman king",
+   "body": "William the Conqueror is crowned in Westminster Abbey on Christmas Day"
+  },
+  {
+   "year": 1078,
+   "tag": "1078",
+   "title": "The White Tower",
+   "body": "William orders a stone fortress to watch over the city. It becomes the Tower of London"
+  },
+  {
+   "year": 1209,
+   "tag": "1209",
+   "title": "Old London Bridge",
+   "body": "A stone bridge with houses and shops along it. For 600 years it is the only bridge across the Thames"
+  },
+  {
+   "year": 1381.45,
+   "tag": "JUNE 1381",
+   "title": "The Peasants' Revolt",
+   "body": "Rebels from Kent and Essex pour across London Bridge and into the city"
+  },
+  {
+   "year": 1561.5,
+   "tag": "1561",
+   "title": "Lightning strike",
+   "body": "Old St. Paul's loses its spire, one of the tallest in Europe. It is never rebuilt"
+  },
+  {
+   "year": 1599,
+   "tag": "1599",
+   "title": "The Globe",
+   "body": "Shakespeare's company opens its theatre on the south bank"
+  },
+  {
+   "year": 1605.84,
+   "tag": "5 NOV 1605",
+   "title": "The Gunpowder Plot",
+   "body": "A plan to blow up Parliament is foiled. Bonfires celebrate it to this day"
+  },
+  {
+   "year": 1665.5,
+   "tag": "1665",
+   "title": "The Great Plague",
+   "body": "About 100,000 Londoners die, nearly a quarter of the city"
+  },
+  {
+   "year": 1666.67,
+   "tag": "2 SEP 1666",
+   "title": "The Great Fire",
+   "body": "Fire starts in a bakery on Pudding Lane. It burns for four days"
+  },
+  {
+   "year": 1666.71,
+   "tag": "SEP 1666",
+   "title": "A city destroyed",
+   "body": "More than 13,000 houses and 87 churches burn, including Old St. Paul's"
+  },
+  {
+   "year": 1684.05,
+   "tag": "WINTER 1683–84",
+   "title": "The Frost Fair",
+   "body": "The Thames freezes solid. Londoners hold a fair on the ice"
+  },
+  {
+   "year": 1710,
+   "tag": "1710",
+   "title": "Wren's St. Paul's",
+   "body": "Christopher Wren's cathedral is declared complete, 35 years after work began"
+  },
+  {
+   "year": 1750,
+   "tag": "1750s",
+   "title": "Georgian London",
+   "body": "Elegant squares and terraces spread west across fields and farms"
+  },
+  {
+   "year": 1800,
+   "tag": "1801",
+   "title": "A city of a million",
+   "body": "London becomes the largest city in the world"
+  },
+  {
+   "year": 1834.79,
+   "tag": "16 OCT 1834",
+   "title": "Parliament burns",
+   "body": "The old Palace of Westminster is destroyed. A new Gothic palace replaces it"
+  },
+  {
+   "year": 1863.03,
+   "tag": "10 JAN 1863",
+   "title": "The Underground",
+   "body": "The world's first underground railway opens"
+  },
+  {
+   "year": 1894.5,
+   "tag": "1894",
+   "title": "Tower Bridge",
+   "body": "The new bridge's roadway lifts to let tall ships through"
+  },
+  {
+   "year": 1940.68,
+   "tag": "7 SEP 1940",
+   "title": "The Blitz",
+   "body": "German bombers strike London for 57 nights in a row"
+  },
+  {
+   "year": 1940.97,
+   "tag": "29 DEC 1940",
+   "title": "The Second Great Fire",
+   "body": "Incendiary bombs set the City ablaze. St. Paul's survives"
+  },
+  {
+   "year": 1945.35,
+   "tag": "8 MAY 1945",
+   "title": "Victory in Europe",
+   "body": "Crowds fill the streets to celebrate the end of the war in Europe"
+  },
+  {
+   "year": 1952.92,
+   "tag": "DEC 1952",
+   "title": "The Great Smog",
+   "body": "Five days of thick smog kill thousands and lead to the Clean Air Act"
+  },
+  {
+   "year": 1953.42,
+   "tag": "2 JUN 1953",
+   "title": "A coronation",
+   "body": "Elizabeth II is crowned at Westminster Abbey"
+  },
+  {
+   "year": 1966.5,
+   "tag": "1960s",
+   "title": "Swinging London",
+   "body": "A post-war city of music, fashion and new towers"
+  },
+  {
+   "year": 2000,
+   "tag": "1 JAN 2000",
+   "title": "A new millennium",
+   "body": "Fireworks over the Thames greet the year 2000"
+  },
+  {
+   "year": 2004,
+   "tag": "2004",
+   "title": "The Gherkin",
+   "body": "30 St Mary Axe opens and changes the City's skyline"
+  },
+  {
+   "year": 2012.0,
+   "tag": "2012",
+   "title": "The Shard",
+   "body": "At 310 m, the tallest building in the United Kingdom"
+  },
+  {
+   "year": 2012.57,
+   "tag": "JULY 2012",
+   "title": "The Olympic Games",
+   "body": "London becomes the first city to host the modern Summer Olympics three times"
+  },
+  {
+   "year": 2026,
+   "tag": "2026",
+   "title": "London today",
+   "body": "About nine million people live in Greater London"
+  }
+ ],
+ "eras": [
+  {
+   "from": 0,
+   "text": "Roman Britain"
+  },
+  {
+   "from": 410,
+   "text": "After the Romans"
+  },
+  {
+   "from": 600,
+   "text": "Anglo-Saxon London"
+  },
+  {
+   "from": 1066,
+   "text": "Norman and medieval London"
+  },
+  {
+   "from": 1485,
+   "text": "Tudor London"
+  },
+  {
+   "from": 1603,
+   "text": "Stuart London"
+  },
+  {
+   "from": 1714,
+   "text": "Georgian London"
+  },
+  {
+   "from": 1837,
+   "text": "Victorian London"
+  },
+  {
+   "from": 1901,
+   "text": "A new century"
+  },
+  {
+   "from": 1939,
+   "text": "The Second World War"
+  },
+  {
+   "from": 1945,
+   "text": "Post-war London"
+  },
+  {
+   "from": 1990,
+   "text": "Global city"
+  }
+ ],
+ "rulers": [
+  {
+   "from": 0,
+   "realm": "Roman Empire",
+   "name": "Emperor Claudius",
+   "badge": "spqr"
+  },
+  {
+   "from": 54,
+   "realm": "Roman Empire",
+   "name": "Emperor Nero",
+   "badge": "spqr"
+  },
+  {
+   "from": 69,
+   "realm": "Roman Empire",
+   "name": "Emperor Vespasian",
+   "badge": "spqr"
+  },
+  {
+   "from": 98,
+   "realm": "Roman Empire",
+   "name": "Emperor Trajan",
+   "badge": "spqr"
+  },
+  {
+   "from": 117,
+   "realm": "Roman Empire",
+   "name": "Emperor Hadrian",
+   "badge": "spqr"
+  },
+  {
+   "from": 193,
+   "realm": "Roman Empire",
+   "name": "Emperor Septimius Severus",
+   "badge": "spqr"
+  },
+  {
+   "from": 306,
+   "realm": "Roman Empire",
+   "name": "Emperor Constantine",
+   "badge": "spqr"
+  },
+  {
+   "from": 395,
+   "realm": "Western Roman Empire",
+   "name": "Emperor Honorius",
+   "badge": "spqr"
+  },
+  {
+   "from": 410,
+   "realm": "Britain",
+   "name": "Romano-British leaders",
+   "badge": ""
+  },
+  {
+   "from": 600,
+   "realm": "Kingdom of Essex",
+   "name": "Saxon kings",
+   "badge": "saxon"
+  },
+  {
+   "from": 825,
+   "realm": "Kingdom of Wessex",
+   "name": "King Egbert",
+   "badge": "saxon"
+  },
+  {
+   "from": 871,
+   "realm": "Kingdom of Wessex",
+   "name": "King Alfred the Great",
+   "badge": "saxon"
+  },
+  {
+   "from": 899,
+   "realm": "Kingdom of Wessex",
+   "name": "King Edward the Elder",
+   "badge": "saxon"
+  },
+  {
+   "from": 927,
+   "realm": "Kingdom of England",
+   "name": "King Æthelstan",
+   "badge": "saxon"
+  },
+  {
+   "from": 1016,
+   "realm": "Kingdom of England",
+   "name": "King Cnut",
+   "badge": "dane"
+  },
+  {
+   "from": 1042,
+   "realm": "Kingdom of England",
+   "name": "King Edward the Confessor",
+   "badge": "saxon"
+  },
+  {
+   "from": 1066.0,
+   "realm": "Kingdom of England",
+   "name": "King Harold II",
+   "badge": "saxon"
+  },
+  {
+   "from": 1066.8,
+   "realm": "Kingdom of England",
+   "name": "King William I",
+   "badge": "england"
+  },
+  {
+   "from": 1087,
+   "realm": "Kingdom of England",
+   "name": "King William II",
+   "badge": "england"
+  },
+  {
+   "from": 1100,
+   "realm": "Kingdom of England",
+   "name": "King Henry I",
+   "badge": "england"
+  },
+  {
+   "from": 1154,
+   "realm": "Kingdom of England",
+   "name": "King Henry II",
+   "badge": "england"
+  },
+  {
+   "from": 1189,
+   "realm": "Kingdom of England",
+   "name": "King Richard I",
+   "badge": "england"
+  },
+  {
+   "from": 1199,
+   "realm": "Kingdom of England",
+   "name": "King John",
+   "badge": "england"
+  },
+  {
+   "from": 1216,
+   "realm": "Kingdom of England",
+   "name": "King Henry III",
+   "badge": "england"
+  },
+  {
+   "from": 1272,
+   "realm": "Kingdom of England",
+   "name": "King Edward I",
+   "badge": "england"
+  },
+  {
+   "from": 1327,
+   "realm": "Kingdom of England",
+   "name": "King Edward III",
+   "badge": "england"
+  },
+  {
+   "from": 1377,
+   "realm": "Kingdom of England",
+   "name": "King Richard II",
+   "badge": "england"
+  },
+  {
+   "from": 1399,
+   "realm": "Kingdom of England",
+   "name": "King Henry IV",
+   "badge": "england"
+  },
+  {
+   "from": 1413,
+   "realm": "Kingdom of England",
+   "name": "King Henry V",
+   "badge": "england"
+  },
+  {
+   "from": 1422,
+   "realm": "Kingdom of England",
+   "name": "King Henry VI",
+   "badge": "england"
+  },
+  {
+   "from": 1461,
+   "realm": "Kingdom of England",
+   "name": "King Edward IV",
+   "badge": "england"
+  },
+  {
+   "from": 1485,
+   "realm": "Kingdom of England",
+   "name": "King Henry VII",
+   "badge": "england"
+  },
+  {
+   "from": 1509,
+   "realm": "Kingdom of England",
+   "name": "King Henry VIII",
+   "badge": "england"
+  },
+  {
+   "from": 1547,
+   "realm": "Kingdom of England",
+   "name": "King Edward VI",
+   "badge": "england"
+  },
+  {
+   "from": 1553,
+   "realm": "Kingdom of England",
+   "name": "Queen Mary I",
+   "badge": "england"
+  },
+  {
+   "from": 1558,
+   "realm": "Kingdom of England",
+   "name": "Queen Elizabeth I",
+   "badge": "england"
+  },
+  {
+   "from": 1603,
+   "realm": "Kingdom of England",
+   "name": "King James I",
+   "badge": "england"
+  },
+  {
+   "from": 1625,
+   "realm": "Kingdom of England",
+   "name": "King Charles I",
+   "badge": "england"
+  },
+  {
+   "from": 1649,
+   "realm": "Commonwealth of England",
+   "name": "Oliver Cromwell",
+   "badge": "england"
+  },
+  {
+   "from": 1660,
+   "realm": "Kingdom of England",
+   "name": "King Charles II",
+   "badge": "england"
+  },
+  {
+   "from": 1685,
+   "realm": "Kingdom of England",
+   "name": "King James II",
+   "badge": "england"
+  },
+  {
+   "from": 1689,
+   "realm": "Kingdom of England",
+   "name": "William III and Mary II",
+   "badge": "england"
+  },
+  {
+   "from": 1702,
+   "realm": "Kingdom of England",
+   "name": "Queen Anne",
+   "badge": "england"
+  },
+  {
+   "from": 1707,
+   "realm": "Kingdom of Great Britain",
+   "name": "Queen Anne",
+   "badge": "uk"
+  },
+  {
+   "from": 1714,
+   "realm": "Kingdom of Great Britain",
+   "name": "King George I",
+   "badge": "uk"
+  },
+  {
+   "from": 1727,
+   "realm": "Kingdom of Great Britain",
+   "name": "King George II",
+   "badge": "uk"
+  },
+  {
+   "from": 1760,
+   "realm": "Kingdom of Great Britain",
+   "name": "King George III",
+   "badge": "uk"
+  },
+  {
+   "from": 1801,
+   "realm": "United Kingdom",
+   "name": "King George III",
+   "badge": "uk"
+  },
+  {
+   "from": 1820,
+   "realm": "United Kingdom",
+   "name": "King George IV",
+   "badge": "uk"
+  },
+  {
+   "from": 1830,
+   "realm": "United Kingdom",
+   "name": "King William IV",
+   "badge": "uk"
+  },
+  {
+   "from": 1837,
+   "realm": "United Kingdom",
+   "name": "Queen Victoria",
+   "badge": "uk"
+  },
+  {
+   "from": 1901,
+   "realm": "United Kingdom",
+   "name": "King Edward VII",
+   "badge": "uk"
+  },
+  {
+   "from": 1910,
+   "realm": "United Kingdom",
+   "name": "King George V",
+   "badge": "uk"
+  },
+  {
+   "from": 1936,
+   "realm": "United Kingdom",
+   "name": "King George VI",
+   "badge": "uk"
+  },
+  {
+   "from": 1952.1,
+   "realm": "United Kingdom",
+   "name": "Queen Elizabeth II",
+   "badge": "uk"
+  },
+  {
+   "from": 2022.7,
+   "realm": "United Kingdom",
+   "name": "King Charles III",
+   "badge": "uk"
+  }
+ ],
+ "population_label": "Population (estimate)",
+ "population": [
+  [
+   43,
+   0
+  ],
+  [
+   50,
+   1000
+  ],
+  [
+   60.8,
+   10000
+  ],
+  [
+   61,
+   200
+  ],
+  [
+   100,
+   25000
+  ],
+  [
+   200,
+   30000
+  ],
+  [
+   400,
+   10000
+  ],
+  [
+   450,
+   500
+  ],
+  [
+   600,
+   2000
+  ],
+  [
+   850,
+   8000
+  ],
+  [
+   1000,
+   15000
+  ],
+  [
+   1100,
+   18000
+  ],
+  [
+   1300,
+   80000
+  ],
+  [
+   1350,
+   40000
+  ],
+  [
+   1500,
+   50000
+  ],
+  [
+   1600,
+   200000
+  ],
+  [
+   1665,
+   450000
+  ],
+  [
+   1666,
+   400000
+  ],
+  [
+   1700,
+   575000
+  ],
+  [
+   1801,
+   1000000
+  ],
+  [
+   1851,
+   2650000
+  ],
+  [
+   1901,
+   6500000
+  ],
+  [
+   1939,
+   8600000
+  ],
+  [
+   1951,
+   8200000
+  ],
+  [
+   1991,
+   6400000
+  ],
+  [
+   2011,
+   8200000
+  ],
+  [
+   2026,
+   9000000
+  ]
+ ],
+ "standing_label": "Years since Londinium",
+ "labels": [
+  {
+   "text": "River Thames",
+   "ll": [
+    -0.105,
+    51.5085,
+    2
+   ]
+  },
+  {
+   "text": "Forum",
+   "from": 80,
+   "until": 300,
+   "at": "forum"
+  },
+  {
+   "text": "Amphitheatre",
+   "from": 70,
+   "until": 350,
+   "at": "amphitheatre"
+  },
+  {
+   "text": "London Wall",
+   "from": 200,
+   "until": 1790,
+   "at": "wall"
+  },
+  {
+   "text": "London Bridge",
+   "from": 50,
+   "at": "bridge"
+  },
+  {
+   "text": "Lundenwic",
+   "from": 600,
+   "until": 890,
+   "ll": [
+    -0.118,
+    51.5115,
+    15
+   ]
+  },
+  {
+   "text": "Tower of London",
+   "from": 1078,
+   "at": "tower"
+  },
+  {
+   "text": "Old St. Paul's",
+   "from": 1100,
+   "until": 1666.73,
+   "ll": [
+    -0.0984,
+    51.5138,
+    90
+   ]
+  },
+  {
+   "text": "St. Paul's Cathedral",
+   "from": 1690,
+   "at": "stpauls"
+  },
+  {
+   "text": "Westminster Abbey",
+   "from": 1100,
+   "at": "abbey"
+  },
+  {
+   "text": "Palace of Westminster",
+   "from": 1100,
+   "at": "parliament"
+  },
+  {
+   "text": "The Globe",
+   "from": 1599,
+   "until": 1644,
+   "at": "globe"
+  },
+  {
+   "text": "Shakespeare's Globe",
+   "from": 1997,
+   "at": "globe"
+  },
+  {
+   "text": "Pudding Lane",
+   "from": 1600,
+   "until": 1700,
+   "ll": [
+    -0.0855,
+    51.5108,
+    15
+   ]
+  },
+  {
+   "text": "The Monument",
+   "from": 1677,
+   "ll": [
+    -0.086,
+    51.5101,
+    70
+   ]
+  },
+  {
+   "text": "Southwark",
+   "from": 900,
+   "ll": [
+    -0.092,
+    51.503,
+    20
+   ]
+  },
+  {
+   "text": "The Strand",
+   "from": 1300,
+   "ll": [
+    -0.115,
+    51.511,
+    15
+   ]
+  },
+  {
+   "text": "Trafalgar Square",
+   "from": 1844,
+   "ll": [
+    -0.128,
+    51.508,
+    20
+   ]
+  },
+  {
+   "text": "Buckingham Palace",
+   "from": 1703,
+   "ll": [
+    -0.1419,
+    51.5014,
+    35
+   ]
+  },
+  {
+   "text": "Tower Bridge",
+   "from": 1894,
+   "at": "towerbridge"
+  },
+  {
+   "text": "The Shard",
+   "from": 2012,
+   "at": "shard"
+  },
+  {
+   "text": "The Gherkin",
+   "from": 2004,
+   "at": "gherkin"
+  },
+  {
+   "text": "Bank of England",
+   "from": 1734,
+   "ll": [
+    -0.0886,
+    51.5142,
+    30
+   ]
+  },
+  {
+   "text": "Big Ben",
+   "from": 1859,
+   "ll": [
+    -0.1246,
+    51.5007,
+    105
+   ]
+  }
+ ],
+ "groups": [
+  {
+   "kind": "legionary",
+   "count": 600,
+   "from": 10,
+   "to": 28,
+   "path": [
+    [
+     -0.125,
+     51.502
+    ],
+    [
+     -0.105,
+     51.509
+    ],
+    [
+     -0.088,
+     51.51
+    ]
+   ],
+   "formation": "block",
+   "width": 16,
+   "scale": 1.0,
+   "speed": 154.0
+  },
+  {
+   "kind": "roman",
+   "count": 160,
+   "from": 22,
+   "to": 34,
+   "path": [
+    [
+     -0.087,
+     51.51
+    ]
+   ],
+   "formation": "crowd",
+   "width": 55,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "boat",
+   "count": 6,
+   "from": 22,
+   "to": 34,
+   "path": [
+    [
+     -0.06,
+     51.506
+    ],
+    [
+     -0.076,
+     51.507
+    ],
+    [
+     -0.087,
+     51.5072
+    ],
+    [
+     -0.1,
+     51.509
+    ],
+    [
+     -0.115,
+     51.5085
+    ],
+    [
+     -0.123,
+     51.506
+    ]
+   ],
+   "formation": "line",
+   "width": 4,
+   "scale": 1.0,
+   "speed": 8,
+   "loop": true
+  },
+  {
+   "kind": "briton",
+   "count": 900,
+   "from": 34,
+   "to": 48,
+   "path": [
+    [
+     -0.07,
+     51.525
+    ],
+    [
+     -0.08,
+     51.516
+    ],
+    [
+     -0.087,
+     51.512
+    ]
+   ],
+   "formation": "block",
+   "width": 40,
+   "scale": 1.0,
+   "speed": 133.9
+  },
+  {
+   "kind": "roman",
+   "count": 220,
+   "from": 60,
+   "to": 80,
+   "path": [
+    [
+     -0.0855,
+     51.512
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "legionary",
+   "count": 30,
+   "from": 60,
+   "to": 80,
+   "path": [
+    [
+     -0.0855,
+     51.5126
+    ]
+   ],
+   "formation": "crowd",
+   "width": 20,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "cart",
+   "count": 8,
+   "from": 60,
+   "to": 80,
+   "path": [
+    [
+     -0.08,
+     51.5135
+    ],
+    [
+     -0.095,
+     51.514
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 5,
+   "loop": true
+  },
+  {
+   "kind": "roman",
+   "count": 120,
+   "from": 82,
+   "to": 96,
+   "path": [
+    [
+     -0.092,
+     51.515
+    ]
+   ],
+   "formation": "crowd",
+   "width": 30,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "medieval",
+   "count": 160,
+   "from": 104,
+   "to": 118,
+   "path": [
+    [
+     -0.115,
+     51.511
+    ]
+   ],
+   "formation": "crowd",
+   "width": 55,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "barge",
+   "count": 4,
+   "from": 104,
+   "to": 118,
+   "path": [
+    [
+     -0.123,
+     51.506
+    ],
+    [
+     -0.115,
+     51.5085
+    ],
+    [
+     -0.1,
+     51.509
+    ],
+    [
+     -0.087,
+     51.5072
+    ],
+    [
+     -0.076,
+     51.507
+    ],
+    [
+     -0.06,
+     51.506
+    ]
+   ],
+   "formation": "line",
+   "width": 3,
+   "scale": 1.0,
+   "speed": 6,
+   "loop": true
+  },
+  {
+   "kind": "longship",
+   "count": 10,
+   "from": 116,
+   "to": 132,
+   "path": [
+    [
+     -0.123,
+     51.506
+    ],
+    [
+     -0.115,
+     51.5085
+    ],
+    [
+     -0.1,
+     51.509
+    ],
+    [
+     -0.087,
+     51.5072
+    ],
+    [
+     -0.076,
+     51.507
+    ],
+    [
+     -0.06,
+     51.506
+    ]
+   ],
+   "formation": "line",
+   "width": 30,
+   "scale": 1.0,
+   "speed": 11
+  },
+  {
+   "kind": "viking",
+   "count": 420,
+   "from": 122,
+   "to": 134,
+   "path": [
+    [
+     -0.105,
+     51.5095
+    ],
+    [
+     -0.115,
+     51.511
+    ]
+   ],
+   "formation": "block",
+   "width": 30,
+   "scale": 1.0,
+   "speed": 59.38
+  },
+  {
+   "kind": "medieval",
+   "count": 200,
+   "from": 134,
+   "to": 146,
+   "path": [
+    [
+     -0.094,
+     51.514
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "norman",
+   "count": 500,
+   "from": 150,
+   "to": 164,
+   "path": [
+    [
+     -0.12,
+     51.501
+    ],
+    [
+     -0.127,
+     51.4998
+    ]
+   ],
+   "formation": "block",
+   "width": 22,
+   "scale": 1.0,
+   "speed": 35.92
+  },
+  {
+   "kind": "medieval",
+   "count": 180,
+   "from": 152,
+   "to": 164,
+   "path": [
+    [
+     -0.1265,
+     51.5
+    ]
+   ],
+   "formation": "crowd",
+   "width": 40,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "norman",
+   "count": 120,
+   "from": 164,
+   "to": 178,
+   "path": [
+    [
+     -0.078,
+     51.509
+    ]
+   ],
+   "formation": "crowd",
+   "width": 30,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "medieval",
+   "count": 260,
+   "from": 186,
+   "to": 202,
+   "path": [
+    [
+     -0.094,
+     51.514
+    ]
+   ],
+   "formation": "crowd",
+   "width": 70,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "cart",
+   "count": 10,
+   "from": 186,
+   "to": 202,
+   "path": [
+    [
+     -0.087,
+     51.505
+    ],
+    [
+     -0.0878,
+     51.5082
+    ],
+    [
+     -0.093,
+     51.5138
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 5,
+   "loop": true
+  },
+  {
+   "kind": "medieval",
+   "count": 900,
+   "from": 202,
+   "to": 214,
+   "path": [
+    [
+     -0.0868,
+     51.503
+    ],
+    [
+     -0.0874,
+     51.5065
+    ],
+    [
+     -0.088,
+     51.51
+    ]
+   ],
+   "formation": "block",
+   "width": 14,
+   "scale": 1.0,
+   "speed": 65.2
+  },
+  {
+   "kind": "tudor",
+   "count": 220,
+   "from": 232,
+   "to": 246,
+   "path": [
+    [
+     -0.0975,
+     51.5079
+    ]
+   ],
+   "formation": "crowd",
+   "width": 40,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "boat",
+   "count": 14,
+   "from": 232,
+   "to": 250,
+   "path": [
+    [
+     -0.06,
+     51.506
+    ],
+    [
+     -0.076,
+     51.507
+    ],
+    [
+     -0.087,
+     51.5072
+    ],
+    [
+     -0.1,
+     51.509
+    ],
+    [
+     -0.115,
+     51.5085
+    ],
+    [
+     -0.123,
+     51.506
+    ]
+   ],
+   "formation": "line",
+   "width": 8,
+   "scale": 1.0,
+   "speed": 9,
+   "loop": true
+  },
+  {
+   "kind": "tudor",
+   "count": 160,
+   "from": 244,
+   "to": 256,
+   "path": [
+    [
+     -0.124,
+     51.5
+    ]
+   ],
+   "formation": "crowd",
+   "width": 35,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "monk",
+   "count": 30,
+   "from": 262,
+   "to": 270,
+   "path": [
+    [
+     -0.095,
+     51.514
+    ]
+   ],
+   "formation": "crowd",
+   "width": 40,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "cart",
+   "count": 5,
+   "from": 262,
+   "to": 270,
+   "path": [
+    [
+     -0.095,
+     51.514
+    ],
+    [
+     -0.08,
+     51.516
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 3
+  },
+  {
+   "kind": "tudor",
+   "count": 400,
+   "from": 280,
+   "to": 298,
+   "path": [
+    [
+     -0.095,
+     51.512
+    ],
+    [
+     -0.088,
+     51.5078
+    ],
+    [
+     -0.087,
+     51.505
+    ]
+   ],
+   "formation": "block",
+   "width": 20,
+   "scale": 1.0,
+   "speed": 55.1
+  },
+  {
+   "kind": "boat",
+   "count": 20,
+   "from": 280,
+   "to": 298,
+   "path": [
+    [
+     -0.06,
+     51.506
+    ],
+    [
+     -0.076,
+     51.507
+    ],
+    [
+     -0.087,
+     51.5072
+    ],
+    [
+     -0.1,
+     51.509
+    ],
+    [
+     -0.115,
+     51.5085
+    ],
+    [
+     -0.123,
+     51.506
+    ]
+   ],
+   "formation": "line",
+   "width": 10,
+   "scale": 1.0,
+   "speed": 10,
+   "loop": true
+  },
+  {
+   "kind": "tudor",
+   "count": 350,
+   "from": 306,
+   "to": 320,
+   "path": [
+    [
+     -0.09,
+     51.5072
+    ]
+   ],
+   "formation": "crowd",
+   "width": 90,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "c19",
+   "count": 240,
+   "from": 336,
+   "to": 352,
+   "path": [
+    [
+     -0.115,
+     51.511
+    ]
+   ],
+   "formation": "crowd",
+   "width": 50,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "carriage",
+   "count": 8,
+   "from": 336,
+   "to": 352,
+   "path": [
+    [
+     -0.125,
+     51.5085
+    ],
+    [
+     -0.103,
+     51.5135
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 6,
+   "loop": true
+  },
+  {
+   "kind": "redcoat",
+   "count": 120,
+   "from": 346,
+   "to": 356,
+   "path": [
+    [
+     -0.1419,
+     51.5025
+    ],
+    [
+     -0.13,
+     51.506
+    ]
+   ],
+   "formation": "block",
+   "width": 8,
+   "scale": 1.0,
+   "speed": 91.16
+  },
+  {
+   "kind": "c19",
+   "count": 300,
+   "from": 364,
+   "to": 380,
+   "path": [
+    [
+     -0.124,
+     51.501
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "barge",
+   "count": 8,
+   "from": 370,
+   "to": 400,
+   "path": [
+    [
+     -0.06,
+     51.506
+    ],
+    [
+     -0.076,
+     51.507
+    ],
+    [
+     -0.087,
+     51.5072
+    ],
+    [
+     -0.1,
+     51.509
+    ],
+    [
+     -0.115,
+     51.5085
+    ],
+    [
+     -0.123,
+     51.506
+    ]
+   ],
+   "formation": "line",
+   "width": 10,
+   "scale": 1.0,
+   "speed": 7,
+   "loop": true
+  },
+  {
+   "kind": "c19",
+   "count": 260,
+   "from": 384,
+   "to": 396,
+   "path": [
+    [
+     -0.089,
+     51.5133
+    ]
+   ],
+   "formation": "crowd",
+   "width": 55,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "carriage",
+   "count": 14,
+   "from": 384,
+   "to": 396,
+   "path": [
+    [
+     -0.095,
+     51.514
+    ],
+    [
+     -0.083,
+     51.5128
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 7,
+   "loop": true
+  },
+  {
+   "kind": "c19",
+   "count": 200,
+   "from": 396,
+   "to": 412,
+   "path": [
+    [
+     -0.076,
+     51.507
+    ]
+   ],
+   "formation": "crowd",
+   "width": 50,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "boat",
+   "count": 10,
+   "from": 396,
+   "to": 412,
+   "path": [
+    [
+     -0.06,
+     51.506
+    ],
+    [
+     -0.076,
+     51.507
+    ],
+    [
+     -0.087,
+     51.5072
+    ],
+    [
+     -0.1,
+     51.509
+    ],
+    [
+     -0.115,
+     51.5085
+    ],
+    [
+     -0.123,
+     51.506
+    ]
+   ],
+   "formation": "line",
+   "width": 10,
+   "scale": 1.0,
+   "speed": 9,
+   "loop": true
+  },
+  {
+   "kind": "c1940",
+   "count": 200,
+   "from": 420,
+   "to": 450,
+   "path": [
+    [
+     -0.095,
+     51.513
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "c1940",
+   "count": 900,
+   "from": 450,
+   "to": 460,
+   "path": [
+    [
+     -0.128,
+     51.508
+    ]
+   ],
+   "formation": "crowd",
+   "width": 70,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "c1940",
+   "count": 120,
+   "from": 458,
+   "to": 466,
+   "path": [
+    [
+     -0.0984,
+     51.5125
+    ]
+   ],
+   "formation": "crowd",
+   "width": 40,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "car",
+   "count": 20,
+   "from": 458,
+   "to": 466,
+   "path": [
+    [
+     -0.1,
+     51.514
+    ],
+    [
+     -0.09,
+     51.513
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 6,
+   "loop": true
+  },
+  {
+   "kind": "c1940",
+   "count": 900,
+   "from": 466,
+   "to": 480,
+   "path": [
+    [
+     -0.135,
+     51.5045
+    ]
+   ],
+   "formation": "crowd",
+   "width": 40,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "carriage",
+   "count": 4,
+   "from": 466,
+   "to": 480,
+   "path": [
+    [
+     -0.1419,
+     51.502
+    ],
+    [
+     -0.13,
+     51.5065
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 5
+  },
+  {
+   "kind": "modern",
+   "count": 300,
+   "from": 480,
+   "to": 500,
+   "path": [
+    [
+     -0.089,
+     51.5133
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "bus",
+   "count": 12,
+   "from": 480,
+   "to": 500,
+   "path": [
+    [
+     -0.095,
+     51.514
+    ],
+    [
+     -0.083,
+     51.5128
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 8,
+   "loop": true
+  },
+  {
+   "kind": "modern",
+   "count": 600,
+   "from": 500,
+   "to": 512,
+   "path": [
+    [
+     -0.124,
+     51.502
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "modern",
+   "count": 360,
+   "from": 512,
+   "to": 660,
+   "path": [
+    [
+     -0.089,
+     51.5133
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "bus",
+   "count": 16,
+   "from": 512,
+   "to": 660,
+   "path": [
+    [
+     -0.095,
+     51.514
+    ],
+    [
+     -0.083,
+     51.5128
+    ],
+    [
+     -0.08,
+     51.5135
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 8,
+   "loop": true
+  },
+  {
+   "kind": "cab",
+   "count": 30,
+   "from": 512,
+   "to": 660,
+   "path": [
+    [
+     -0.083,
+     51.5128
+    ],
+    [
+     -0.095,
+     51.514
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 10,
+   "loop": true
+  },
+  {
+   "kind": "modern",
+   "count": 400,
+   "from": 560,
+   "to": 660,
+   "path": [
+    [
+     -0.128,
+     51.508
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "bus",
+   "count": 12,
+   "from": 560,
+   "to": 660,
+   "path": [
+    [
+     -0.135,
+     51.505
+    ],
+    [
+     -0.128,
+     51.508
+    ],
+    [
+     -0.125,
+     51.509
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 8,
+   "loop": true
+  },
+  {
+   "kind": "cab",
+   "count": 24,
+   "from": 560,
+   "to": 660,
+   "path": [
+    [
+     -0.125,
+     51.509
+    ],
+    [
+     -0.135,
+     51.505
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 10,
+   "loop": true
+  },
+  {
+   "kind": "modern",
+   "count": 300,
+   "from": 546,
+   "to": 660,
+   "path": [
+    [
+     -0.092,
+     51.5045
+    ]
+   ],
+   "formation": "crowd",
+   "width": 55,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "boat",
+   "count": 10,
+   "from": 520,
+   "to": 660,
+   "path": [
+    [
+     -0.06,
+     51.506
+    ],
+    [
+     -0.076,
+     51.507
+    ],
+    [
+     -0.087,
+     51.5072
+    ],
+    [
+     -0.1,
+     51.509
+    ],
+    [
+     -0.115,
+     51.5085
+    ],
+    [
+     -0.123,
+     51.506
+    ]
+   ],
+   "formation": "line",
+   "width": 30,
+   "scale": 1.0,
+   "speed": 10,
+   "loop": true
+  }
+ ],
+ "fx": [
+  {
+   "kind": "fire",
+   "ll": [
+    -0.087,
+    51.512
+   ],
+   "radius": 420,
+   "from": 60.8,
+   "to": 61.05
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    -0.115,
+    51.511
+   ],
+   "radius": 220,
+   "from": 842.35,
+   "to": 842.6
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    -0.0855,
+    51.5108
+   ],
+   "radius": 250,
+   "from": 1666.665,
+   "to": 1666.69
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    -0.093,
+    51.5125
+   ],
+   "radius": 650,
+   "from": 1666.68,
+   "to": 1666.725,
+   "blobs": 70
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    -0.101,
+    51.514
+   ],
+   "radius": 420,
+   "from": 1666.69,
+   "to": 1666.73
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    -0.1246,
+    51.4995
+   ],
+   "radius": 110,
+   "from": 1834.785,
+   "to": 1834.8
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    -0.08,
+    51.508
+   ],
+   "radius": 400,
+   "from": 1940.68,
+   "to": 1940.72
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    -0.095,
+    51.515
+   ],
+   "radius": 520,
+   "from": 1940.97,
+   "to": 1941.0,
+   "blobs": 70
+  },
+  {
+   "kind": "dust",
+   "ll": [
+    -0.088,
+    51.513
+   ],
+   "radius": 200,
+   "from": 1940.75,
+   "to": 1940.9
+  }
+ ],
+ "fireworks": [
+  {
+   "ll": [
+    -0.118,
+    51.507,
+    200
+   ],
+   "from": 502,
+   "to": 511,
+   "count": 9,
+   "spread": 500
+  },
+  {
+   "ll": [
+    -0.122,
+    51.503,
+    200
+   ],
+   "from": 640,
+   "to": 658,
+   "count": 9,
+   "spread": 500
+  },
+  {
+   "ll": [
+    -0.088,
+    51.506,
+    120
+   ],
+   "from": 246,
+   "to": 253,
+   "count": 4,
+   "spread": 300
+  }
+ ],
+ "moods": [
+  {
+   "from": 30,
+   "to": 58,
+   "night": 0.6,
+   "ramp": 3
+  },
+  {
+   "from": 120,
+   "to": 132,
+   "rain": 0.6,
+   "ramp": 2
+  },
+  {
+   "from": 198,
+   "to": 214,
+   "autumn": 1.0
+  },
+  {
+   "from": 244,
+   "to": 254,
+   "night": 1.0,
+   "ramp": 1.5
+  },
+  {
+   "from": 260,
+   "to": 272,
+   "fog": 0.5
+  },
+  {
+   "from": 274,
+   "to": 298,
+   "night": 1.0,
+   "ramp": 2
+  },
+  {
+   "from": 304,
+   "to": 322,
+   "snow": 1.0,
+   "ramp": 2
+  },
+  {
+   "from": 360,
+   "to": 372,
+   "night": 0.9,
+   "ramp": 1.5
+  },
+  {
+   "from": 376,
+   "to": 396,
+   "fog": 0.6,
+   "rain": 0.4,
+   "ramp": 2
+  },
+  {
+   "from": 418,
+   "to": 448,
+   "night": 1.0,
+   "ramp": 2
+  },
+  {
+   "from": 458,
+   "to": 468,
+   "fog": 1.0,
+   "ramp": 1.5
+  },
+  {
+   "from": 500,
+   "to": 512,
+   "night": 1.0,
+   "ramp": 1.5
+  }
+ ],
+ "sfx": [
+  {
+   "kind": "birds",
+   "at": 0,
+   "dur": 22,
+   "gain": 0.9
+  },
+  {
+   "kind": "water",
+   "at": 0,
+   "dur": 30,
+   "gain": 0.7
+  },
+  {
+   "kind": "hammer",
+   "at": 20,
+   "dur": 14,
+   "gain": 0.8
+  },
+  {
+   "kind": "chatter",
+   "at": 58,
+   "dur": 42,
+   "gain": 0.8
+  },
+  {
+   "kind": "chisel",
+   "at": 62,
+   "dur": 34,
+   "gain": 0.6
+  },
+  {
+   "kind": "cart",
+   "at": 60,
+   "dur": 40,
+   "gain": 0.5
+  },
+  {
+   "kind": "birds",
+   "at": 100,
+   "dur": 12,
+   "gain": 0.8
+  },
+  {
+   "kind": "chatter",
+   "at": 104,
+   "dur": 14,
+   "gain": 0.6
+  },
+  {
+   "kind": "water",
+   "at": 104,
+   "dur": 26,
+   "gain": 0.6
+  },
+  {
+   "kind": "chatter",
+   "at": 134,
+   "dur": 126,
+   "gain": 0.7
+  },
+  {
+   "kind": "hooves",
+   "at": 134,
+   "dur": 196,
+   "gain": 0.5
+  },
+  {
+   "kind": "bells",
+   "at": 146,
+   "dur": 184,
+   "gain": 0.4
+  },
+  {
+   "kind": "hammer",
+   "at": 168,
+   "dur": 32,
+   "gain": 0.5
+  },
+  {
+   "kind": "cart",
+   "at": 180,
+   "dur": 150,
+   "gain": 0.5
+  },
+  {
+   "kind": "chisel",
+   "at": 168,
+   "dur": 16,
+   "gain": 0.5
+  },
+  {
+   "kind": "chatter",
+   "at": 300,
+   "dur": 120,
+   "gain": 0.8
+  },
+  {
+   "kind": "hooves",
+   "at": 330,
+   "dur": 90,
+   "gain": 0.6
+  },
+  {
+   "kind": "cart",
+   "at": 330,
+   "dur": 80,
+   "gain": 0.5
+  },
+  {
+   "kind": "tram",
+   "at": 386,
+   "dur": 26,
+   "gain": 0.5
+  },
+  {
+   "kind": "traffic",
+   "at": 466,
+   "dur": 174,
+   "gain": 0.8
+  },
+  {
+   "kind": "chatter",
+   "at": 466,
+   "dur": 174,
+   "gain": 0.8
+  },
+  {
+   "kind": "carhorn",
+   "at": 480,
+   "dur": 160,
+   "gain": 0.5
+  },
+  {
+   "kind": "siren",
+   "at": 520,
+   "dur": 20,
+   "gain": 0.3
+  },
+  {
+   "kind": "horn",
+   "at": 392,
+   "dur": 20,
+   "gain": 0.4
+  },
+  {
+   "kind": "march",
+   "at": 10,
+   "dur": 18,
+   "gain": 1.0
+  },
+  {
+   "kind": "drums",
+   "at": 10,
+   "dur": 12,
+   "gain": 0.6
+  },
+  {
+   "kind": "horn",
+   "at": 22,
+   "dur": 3,
+   "gain": 0.6
+  },
+  {
+   "kind": "shouts",
+   "at": 36,
+   "dur": 12,
+   "gain": 1.0
+  },
+  {
+   "kind": "drums",
+   "at": 34,
+   "dur": 14,
+   "gain": 1.0
+  },
+  {
+   "kind": "sword",
+   "at": 40,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "fire",
+   "at": 44,
+   "dur": 14,
+   "gain": 1.0
+  },
+  {
+   "kind": "cheer",
+   "at": 60,
+   "dur": 6,
+   "gain": 0.5
+  },
+  {
+   "kind": "shouts",
+   "at": 122,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "sword",
+   "at": 124,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "fire",
+   "at": 124,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "bells",
+   "at": 152,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "cheer",
+   "at": 158,
+   "dur": 6,
+   "gain": 1.0
+  },
+  {
+   "kind": "march",
+   "at": 150,
+   "dur": 12,
+   "gain": 1.0
+  },
+  {
+   "kind": "shouts",
+   "at": 202,
+   "dur": 12,
+   "gain": 1.0
+  },
+  {
+   "kind": "march",
+   "at": 202,
+   "dur": 12,
+   "gain": 1.0
+  },
+  {
+   "kind": "rumble",
+   "at": 222,
+   "dur": 3,
+   "gain": 1.0
+  },
+  {
+   "kind": "rain",
+   "at": 222,
+   "dur": 3,
+   "gain": 0.6
+  },
+  {
+   "kind": "cheer",
+   "at": 234,
+   "dur": 8,
+   "gain": 0.5
+  },
+  {
+   "kind": "fireworks",
+   "at": 246,
+   "dur": 7,
+   "gain": 0.5
+  },
+  {
+   "kind": "bells",
+   "at": 262,
+   "dur": 8,
+   "gain": 0.4
+  },
+  {
+   "kind": "fire",
+   "at": 276,
+   "dur": 22,
+   "gain": 1.0
+  },
+  {
+   "kind": "shouts",
+   "at": 278,
+   "dur": 10,
+   "gain": 0.5
+  },
+  {
+   "kind": "rumble",
+   "at": 286,
+   "dur": 4,
+   "gain": 1.0
+  },
+  {
+   "kind": "wind",
+   "at": 304,
+   "dur": 16,
+   "gain": 1.0
+  },
+  {
+   "kind": "cheer",
+   "at": 306,
+   "dur": 10,
+   "gain": 0.6
+  },
+  {
+   "kind": "bells",
+   "at": 326,
+   "dur": 8,
+   "gain": 0.6
+  },
+  {
+   "kind": "march",
+   "at": 346,
+   "dur": 10,
+   "gain": 0.6
+  },
+  {
+   "kind": "drums",
+   "at": 346,
+   "dur": 10,
+   "gain": 0.5
+  },
+  {
+   "kind": "fire",
+   "at": 362,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "tram",
+   "at": 386,
+   "dur": 10,
+   "gain": 0.6
+  },
+  {
+   "kind": "horn",
+   "at": 398,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "siren",
+   "at": 420,
+   "dur": 26,
+   "gain": 0.6
+  },
+  {
+   "kind": "bomb",
+   "at": 426,
+   "dur": 18,
+   "gain": 1.0
+  },
+  {
+   "kind": "fire",
+   "at": 430,
+   "dur": 16,
+   "gain": 1.0
+  },
+  {
+   "kind": "rumble",
+   "at": 440,
+   "dur": 6,
+   "gain": 1.0
+  },
+  {
+   "kind": "cheer",
+   "at": 450,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "bells",
+   "at": 452,
+   "dur": 8,
+   "gain": 0.7
+  },
+  {
+   "kind": "cheer",
+   "at": 468,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "bells",
+   "at": 470,
+   "dur": 8,
+   "gain": 0.6
+  },
+  {
+   "kind": "fireworks",
+   "at": 502,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "cheer",
+   "at": 502,
+   "dur": 10,
+   "gain": 0.6
+  },
+  {
+   "kind": "cheer",
+   "at": 534,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "fireworks",
+   "at": 640,
+   "dur": 16,
+   "gain": 0.7
+  }
+ ],
+ "music_accents": [
+  34,
+  46,
+  122,
+  156,
+  204,
+  276,
+  364,
+  426,
+  502,
+  534
+ ],
+ "sample_segments": [
+  [
+   24,
+   1
+  ],
+  [
+   44,
+   1
+  ],
+  [
+   124,
+   1
+  ],
+  [
+   158,
+   1
+  ],
+  [
+   210,
+   1
+  ],
+  [
+   240,
+   1
+  ],
+  [
+   284,
+   1
+  ],
+  [
+   312,
+   1
+  ],
+  [
+   402,
+   1
+  ],
+  [
+   436,
+   1
+  ],
+  [
+   474,
+   1
+  ],
+  [
+   590,
+   1
+  ]
+ ]
+}

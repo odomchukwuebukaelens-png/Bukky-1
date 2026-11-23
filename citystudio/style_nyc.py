@@ -1208,7 +1208,7 @@ def apply_frame(brief, rig, frame, total):
         del on
     dusk = brief.get("dusk")
     d = H.ease((t - dusk["from"]) / (dusk["to"] - dusk["from"])) if dusk else 0.0
-    w = {"night": 0.0, "snow": 0.0, "rain": 0.0, "autumn": 0.0, "smoke": 0.0}
+    w = {"night": 0.0, "snow": 0.0, "rain": 0.0, "autumn": 0.0, "smoke": 0.0, "fog": 0.0}
     for m in brief.get("moods", []):
         ramp = m.get("ramp", 2.5)
         k = H.ease((t - m["from"]) / ramp) * (1 - H.ease((t - m["to"] + ramp) / ramp))
@@ -1240,6 +1240,9 @@ def apply_frame(brief, rig, frame, total):
         pass
     smoke = w.get("smoke", 0.0)
     hz = [c + (oc - c) * smoke for c, oc in zip(hz, (0.85, 0.45, 0.16))]
+    fog = w.get("fog", 0.0)
+    hz = [c + (fc - c) * fog for c, fc in zip(hz, (0.62, 0.60, 0.48))]
+    H_fog = fog
     zen = getattr(H, "SKY_MIX", None)
     if zen is not None:
         zen.inputs[6].default_value = (*hz, 1)
@@ -1247,6 +1250,7 @@ def apply_frame(brief, rig, frame, total):
         dark = max(n, d * 0.6)
         zc = [c * (1 - 0.9 * dark) for c in zc]
         zc = [c + (oc - c) * smoke for c, oc in zip(zc, (0.70, 0.36, 0.12))]
+        zc = [c + (fc - c) * fog for c, fc in zip(zc, (0.55, 0.54, 0.44))]
         zen.inputs[7].default_value = (*zc, 1)
     sky.inputs[0].default_value = (*hz, 1)
     for em in H.HAZE_NODES:
