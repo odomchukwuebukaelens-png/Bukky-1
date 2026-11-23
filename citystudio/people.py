@@ -49,6 +49,16 @@ COSTUMES = {
     "redcoat": {"body": [(0.75, 0.10, 0.08)], "legs": (0.90, 0.88, 0.82), "hat": (0.08, 0.08, 0.10), "weapon": "rifle"},
     "tudor": {"body": [(0.40, 0.10, 0.12), (0.10, 0.12, 0.25), (0.25, 0.20, 0.12), (0.12, 0.12, 0.12)],
               "legs": (0.15, 0.12, 0.10), "hat": (0.10, 0.10, 0.10), "dress": [(0.55, 0.15, 0.20), (0.30, 0.25, 0.45)]},
+    "hun": {"body": [(0.35, 0.28, 0.20), (0.45, 0.35, 0.22), (0.30, 0.25, 0.22)], "legs": (0.30, 0.24, 0.18),
+            "helmet": (0.40, 0.32, 0.22), "shield": (0.45, 0.30, 0.18), "round": True, "weapon": "spear"},
+    "frank": {"body": [(0.45, 0.20, 0.15), (0.25, 0.30, 0.45), (0.40, 0.35, 0.25)], "legs": (0.35, 0.28, 0.20),
+              "helmet": (0.55, 0.55, 0.58), "shield": (0.55, 0.20, 0.15), "round": True, "weapon": "spear"},
+    "grenadier": {"body": [(0.12, 0.18, 0.45)], "legs": (0.92, 0.90, 0.86), "hat": (0.06, 0.06, 0.08), "weapon": "rifle"},
+    "sansculotte": {"body": [(0.35, 0.28, 0.22), (0.20, 0.22, 0.35), (0.92, 0.90, 0.85), (0.45, 0.20, 0.15)],
+                    "legs": (0.75, 0.72, 0.68), "hat": (0.75, 0.10, 0.08), "weapon": "pike",
+                    "dress": [(0.55, 0.25, 0.20), (0.85, 0.82, 0.75)]},
+    "poilu": {"body": [(0.45, 0.55, 0.68)], "legs": (0.45, 0.55, 0.68), "helmet": (0.42, 0.50, 0.58), "weapon": "rifle"},
+    "wehrmacht": {"body": [(0.36, 0.38, 0.34)], "legs": (0.32, 0.34, 0.30), "helmet": (0.32, 0.34, 0.30), "weapon": "rifle"},
     "french1849": {"body": [(0.15, 0.20, 0.45)], "legs": (0.65, 0.10, 0.10), "hat": (0.60, 0.10, 0.10),
                    "weapon": "rifle"},
     "garibaldini": {"body": [(0.80, 0.10, 0.08)], "legs": (0.45, 0.45, 0.48), "hat": (0.10, 0.10, 0.10),
@@ -171,6 +181,9 @@ def add_vehicle(m, x, y, z, yaw, kind, rng):
     elif kind == "boat":
         m.box(x, y, z, 4.5, 1.3, 1.0, (0.35, 0.22, 0.12), yaw=yaw, ox=x, oy=y)
         add_person(m, x - 1.0, y, z + 0.5, yaw, "tudor", rng, 0.9)
+    elif kind == "riverboat":
+        m.box(x, y, z, 14.0, 3.0, 1.4, (0.92, 0.92, 0.90), yaw=yaw, ox=x, oy=y)
+        m.box(x - 1, y, z + 1.4, 10.0, 2.6, 1.8, (0.40, 0.55, 0.65), yaw=yaw, ox=x, oy=y)
     elif kind == "barge":
         m.box(x, y, z, 12.0, 2.8, 1.4, (0.30, 0.22, 0.15), yaw=yaw, ox=x, oy=y)
         m.box(x + 2, y, z + 1.4, 0.2, 0.2, 9.0, (0.30, 0.22, 0.15), yaw=yaw, ox=x, oy=y)
@@ -224,15 +237,15 @@ def make_group(spec, ground, mat, collection, seed):
     width = spec.get("width", 20.0)
     yaw = 0.0
     vehicles = spec["kind"] in ("chariot", "cart", "carriage", "tram", "car", "vespa", "bus", "cab", "boat", "barge",
-                                "longship")
+                                "longship", "riverboat")
     for k in range(n):
         if form == "block":
             cols = max(1, int(width / 1.2))
             dx, dy = -(k // cols) * 1.3, (k % cols) * 1.2 - width / 2
         elif form == "line":
-            gap = {"bus": 16.0, "barge": 30.0, "longship": 32.0, "boat": 14.0}.get(spec["kind"], 8.0)
+            gap = {"bus": 16.0, "barge": 30.0, "longship": 32.0, "boat": 14.0, "riverboat": 40.0}.get(spec["kind"], 8.0)
             dx = -k * (gap if vehicles else 1.5)
-            dy = rng.uniform(-width / 2, width / 2) if (not vehicles or spec["kind"] in ("longship", "boat", "barge")) else 0
+            dy = rng.uniform(-width / 2, width / 2) if (not vehicles or spec["kind"] in ("longship", "boat", "barge", "riverboat")) else 0
         else:
             dx, dy = rng.uniform(-width, width), rng.uniform(-width, width)
         f_yaw = yaw if form != "crowd" else rng.uniform(0, 2 * math.pi)

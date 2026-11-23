@@ -196,6 +196,18 @@ def badge(layer, draw, cx, cy, r, kind, alpha):
             fd.rectangle([S * 0.48, S * 0.38, S * 0.52, S * 0.6], fill=(245, 245, 240, 255))
     elif kind == "occupied":
         fd.rectangle([0, 0, S, S], fill=(110, 110, 110, 255))
+    elif kind == "gaul":
+        fd.rectangle([0, 0, S, S], fill=(40, 90, 60, 255))
+        fd.ellipse([S * 0.28, S * 0.28, S * 0.72, S * 0.72], outline=(230, 200, 110, 255), width=max(1, S // 10))
+    elif kind == "frank":
+        fd.rectangle([0, 0, S, S], fill=(150, 40, 40, 255))
+        fd.polygon([(S * 0.5, S * 0.2), (S * 0.62, S * 0.5), (S * 0.5, S * 0.8), (S * 0.38, S * 0.5)], fill=(235, 195, 70, 255))
+    elif kind == "fleur":
+        fd.rectangle([0, 0, S, S], fill=(25, 50, 140, 255))
+        for cx_, cy_ in ((0.3, 0.32), (0.7, 0.32), (0.5, 0.68)):
+            fd.ellipse([S * (cx_ - 0.09), S * (cy_ - 0.09), S * (cx_ + 0.09), S * (cy_ + 0.09)], fill=(235, 200, 70, 255))
+    elif kind == "commune":
+        fd.rectangle([0, 0, S, S], fill=(190, 20, 25, 255))
     elif kind == "england":
         fd.rectangle([0, 0, S, S], fill=(245, 245, 240, 255))
         fd.rectangle([S * 0.42, 0, S * 0.58, S], fill=(200, 16, 46, 255))

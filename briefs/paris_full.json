@@ -1,0 +1,3937 @@
+{
+ "fps": 30,
+ "eevee_samples": 8,
+ "crf": 18,
+ "sharpen": 0.6,
+ "filter_size": 0.9,
+ "music": "generate",
+ "music_tracks": [
+  "assets/music/packed.mp3",
+  "assets/music/outside_the_box.mp3"
+ ],
+ "music_volume": 0.7,
+ "view": "standard",
+ "sky": 0.9,
+ "grade": {
+  "saturation": 1.25,
+  "contrast": 1.12,
+  "brightness": 1.02
+ },
+ "caption_hold": 6.0,
+ "label_occlusion": true,
+ "clip_start": 1.0,
+ "clip_end": 30000,
+ "max_size_mb": 290,
+ "name": "paris_full",
+ "style": "paris",
+ "data": "data/paris",
+ "seed": 9,
+ "duration_seconds": 660,
+ "resolution": [
+  1280,
+  720
+ ],
+ "chunk_frames": 300,
+ "label_max_distance": 1800,
+ "intro_end": 9,
+ "music_build_at": 9.5,
+ "haze_color": [
+  0.98,
+  0.86,
+  0.68
+ ],
+ "haze_distance": 60000,
+ "haze_amount": 0.16,
+ "zenith": [
+  0.3,
+  0.5,
+  0.8
+ ],
+ "sun": 4.2,
+ "sun_tilt": 66,
+ "sun_heading": -60,
+ "sun_color": [
+  1.0,
+  0.82,
+  0.6
+ ],
+ "fineprint": "Illustrative reconstruction · today's buildings: Overture Maps / OpenStreetMap · dates estimated",
+ "dusk": {
+  "from": 630,
+  "to": 650
+ },
+ "year_keys": [
+  [
+   0,
+   2026
+  ],
+  [
+   3,
+   2026
+  ],
+  [
+   9,
+   -60
+  ],
+  [
+   14,
+   -60
+  ],
+  [
+   22,
+   -52.5
+  ],
+  [
+   32,
+   -52.3
+  ],
+  [
+   42,
+   0
+  ],
+  [
+   54,
+   100
+  ],
+  [
+   66,
+   250
+  ],
+  [
+   76,
+   280
+  ],
+  [
+   86,
+   360
+  ],
+  [
+   96,
+   451.4
+  ],
+  [
+   106,
+   508
+  ],
+  [
+   118,
+   845.25
+  ],
+  [
+   130,
+   885.9
+  ],
+  [
+   140,
+   887
+  ],
+  [
+   150,
+   1000
+  ],
+  [
+   160,
+   1163
+  ],
+  [
+   170,
+   1190
+  ],
+  [
+   182,
+   1248
+  ],
+  [
+   192,
+   1260
+  ],
+  [
+   202,
+   1356
+  ],
+  [
+   212,
+   1370
+  ],
+  [
+   222,
+   1420
+  ],
+  [
+   232,
+   1528
+  ],
+  [
+   242,
+   1572.65
+  ],
+  [
+   252,
+   1607
+  ],
+  [
+   262,
+   1612
+  ],
+  [
+   272,
+   1682
+  ],
+  [
+   282,
+   1706
+  ],
+  [
+   292,
+   1789.53
+  ],
+  [
+   302,
+   1789.6
+  ],
+  [
+   312,
+   1793.05
+  ],
+  [
+   322,
+   1804.92
+  ],
+  [
+   332,
+   1814.25
+  ],
+  [
+   342,
+   1836.57
+  ],
+  [
+   352,
+   1848.15
+  ],
+  [
+   362,
+   1853.5
+  ],
+  [
+   376,
+   1870.8
+  ],
+  [
+   386,
+   1871.39
+  ],
+  [
+   396,
+   1871.5
+  ],
+  [
+   406,
+   1889.3
+  ],
+  [
+   416,
+   1900.3
+  ],
+  [
+   426,
+   1914.6
+  ],
+  [
+   436,
+   1918.86
+  ],
+  [
+   446,
+   1940.45
+  ],
+  [
+   456,
+   1944.65
+  ],
+  [
+   466,
+   1968.4
+  ],
+  [
+   476,
+   1973
+  ],
+  [
+   486,
+   1977
+  ],
+  [
+   496,
+   1989.2
+  ],
+  [
+   506,
+   1998.53
+  ],
+  [
+   516,
+   2019.29
+  ],
+  [
+   526,
+   2019.4
+  ],
+  [
+   536,
+   2024.55
+  ],
+  [
+   546,
+   2024.95
+  ],
+  [
+   560,
+   2026
+  ],
+  [
+   660,
+   2026
+  ]
+ ],
+ "camera_keys": [
+  {
+   "t": 0,
+   "target": [
+    2.342,
+    48.856
+   ],
+   "dist": 700,
+   "height": 400,
+   "bearing": 15,
+   "look_z": 20
+  },
+  {
+   "t": 3,
+   "target": [
+    2.342,
+    48.856
+   ],
+   "dist": 680,
+   "height": 390,
+   "bearing": 18,
+   "look_z": 20
+  },
+  {
+   "t": 9,
+   "target": [
+    2.347,
+    48.8545
+   ],
+   "dist": 650,
+   "height": 370,
+   "bearing": 25,
+   "look_z": 10
+  },
+  {
+   "t": 15,
+   "target": [
+    2.347,
+    48.8545
+   ],
+   "dist": 520,
+   "height": 300,
+   "bearing": 40,
+   "look_z": 10
+  },
+  {
+   "t": 22,
+   "target": [
+    2.347,
+    48.8545
+   ],
+   "dist": 260,
+   "height": 151,
+   "bearing": 70,
+   "look_z": 0
+  },
+  {
+   "t": 30,
+   "target": [
+    2.344,
+    48.849
+   ],
+   "dist": 240,
+   "height": 139,
+   "bearing": 110,
+   "look_z": 0
+  },
+  {
+   "t": 38,
+   "target": [
+    2.3415,
+    48.8465
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 150,
+   "look_z": 0
+  },
+  {
+   "t": 48,
+   "target": [
+    2.3527,
+    48.8452
+   ],
+   "dist": 200,
+   "height": 116,
+   "bearing": 200,
+   "look_z": 0
+  },
+  {
+   "t": 58,
+   "target": [
+    2.3415,
+    48.8465
+   ],
+   "dist": 190,
+   "height": 110,
+   "bearing": 250,
+   "look_z": 0
+  },
+  {
+   "t": 68,
+   "target": [
+    2.347,
+    48.8545
+   ],
+   "dist": 240,
+   "height": 139,
+   "bearing": 300,
+   "look_z": 0
+  },
+  {
+   "t": 78,
+   "target": [
+    2.344,
+    48.849
+   ],
+   "dist": 260,
+   "height": 151,
+   "bearing": 330,
+   "look_z": 0
+  },
+  {
+   "t": 88,
+   "target": [
+    2.347,
+    48.8545
+   ],
+   "dist": 230,
+   "height": 133,
+   "bearing": 10,
+   "look_z": 0
+  },
+  {
+   "t": 98,
+   "target": [
+    2.36,
+    48.848
+   ],
+   "dist": 300,
+   "height": 174,
+   "bearing": 300,
+   "look_z": 0
+  },
+  {
+   "t": 108,
+   "target": [
+    2.347,
+    48.8545
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 60,
+   "look_z": 0
+  },
+  {
+   "t": 118,
+   "target": [
+    2.305,
+    48.862
+   ],
+   "dist": 320,
+   "height": 186,
+   "bearing": 90,
+   "look_z": 0
+  },
+  {
+   "t": 128,
+   "target": [
+    2.3413,
+    48.8569
+   ],
+   "dist": 240,
+   "height": 139,
+   "bearing": 120,
+   "look_z": 0
+  },
+  {
+   "t": 138,
+   "target": [
+    2.347,
+    48.8545
+   ],
+   "dist": 230,
+   "height": 133,
+   "bearing": 160,
+   "look_z": 0
+  },
+  {
+   "t": 148,
+   "target": [
+    2.342,
+    48.856
+   ],
+   "dist": 1000,
+   "height": 600,
+   "bearing": 20,
+   "look_z": 0
+  },
+  {
+   "t": 158,
+   "target": [
+    2.3499,
+    48.853
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 200,
+   "look_z": 20
+  },
+  {
+   "t": 168,
+   "target": [
+    2.3376,
+    48.8604
+   ],
+   "dist": 240,
+   "height": 139,
+   "bearing": 230,
+   "look_z": 10
+  },
+  {
+   "t": 178,
+   "target": [
+    2.345,
+    48.8554
+   ],
+   "dist": 160,
+   "height": 93,
+   "bearing": 260,
+   "look_z": 20
+  },
+  {
+   "t": 188,
+   "target": [
+    2.3499,
+    48.853
+   ],
+   "dist": 200,
+   "height": 116,
+   "bearing": 300,
+   "look_z": 30
+  },
+  {
+   "t": 198,
+   "target": [
+    2.3522,
+    48.8566
+   ],
+   "dist": 230,
+   "height": 133,
+   "bearing": 330,
+   "look_z": 0
+  },
+  {
+   "t": 208,
+   "target": [
+    2.3691,
+    48.8532
+   ],
+   "dist": 230,
+   "height": 133,
+   "bearing": 20,
+   "look_z": 10
+  },
+  {
+   "t": 218,
+   "target": [
+    2.3376,
+    48.8604
+   ],
+   "dist": 260,
+   "height": 151,
+   "bearing": 60,
+   "look_z": 0
+  },
+  {
+   "t": 228,
+   "target": [
+    2.3413,
+    48.8569
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 90,
+   "look_z": 0
+  },
+  {
+   "t": 238,
+   "target": [
+    2.3376,
+    48.8604
+   ],
+   "dist": 230,
+   "height": 133,
+   "bearing": 120,
+   "look_z": 10
+  },
+  {
+   "t": 248,
+   "target": [
+    2.3413,
+    48.8569
+   ],
+   "dist": 180,
+   "height": 104,
+   "bearing": 160,
+   "look_z": 0
+  },
+  {
+   "t": 258,
+   "target": [
+    2.3655,
+    48.8556
+   ],
+   "dist": 200,
+   "height": 116,
+   "bearing": 200,
+   "look_z": 0
+  },
+  {
+   "t": 268,
+   "target": [
+    2.3301,
+    48.8626
+   ],
+   "dist": 260,
+   "height": 151,
+   "bearing": 230,
+   "look_z": 0
+  },
+  {
+   "t": 278,
+   "target": [
+    2.3127,
+    48.855
+   ],
+   "dist": 300,
+   "height": 174,
+   "bearing": 260,
+   "look_z": 20
+  },
+  {
+   "t": 288,
+   "target": [
+    2.3691,
+    48.8532
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 290,
+   "look_z": 10
+  },
+  {
+   "t": 298,
+   "target": [
+    2.3691,
+    48.8532
+   ],
+   "dist": 180,
+   "height": 104,
+   "bearing": 320,
+   "look_z": 10
+  },
+  {
+   "t": 308,
+   "target": [
+    2.3212,
+    48.8656
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 350,
+   "look_z": 0
+  },
+  {
+   "t": 318,
+   "target": [
+    2.3499,
+    48.853
+   ],
+   "dist": 200,
+   "height": 116,
+   "bearing": 20,
+   "look_z": 30
+  },
+  {
+   "t": 328,
+   "target": [
+    2.295,
+    48.8738
+   ],
+   "dist": 260,
+   "height": 151,
+   "bearing": 60,
+   "look_z": 20
+  },
+  {
+   "t": 338,
+   "target": [
+    2.295,
+    48.8738
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 100,
+   "look_z": 25
+  },
+  {
+   "t": 348,
+   "target": [
+    2.3522,
+    48.8566
+   ],
+   "dist": 200,
+   "height": 116,
+   "bearing": 140,
+   "look_z": 0
+  },
+  {
+   "t": 358,
+   "target": [
+    2.3316,
+    48.872
+   ],
+   "dist": 260,
+   "height": 151,
+   "bearing": 170,
+   "look_z": 0
+  },
+  {
+   "t": 368,
+   "target": [
+    2.342,
+    48.856
+   ],
+   "dist": 1000,
+   "height": 600,
+   "bearing": 200,
+   "look_z": 0
+  },
+  {
+   "t": 378,
+   "target": [
+    2.3301,
+    48.8626
+   ],
+   "dist": 240,
+   "height": 139,
+   "bearing": 230,
+   "look_z": 10
+  },
+  {
+   "t": 388,
+   "target": [
+    2.3301,
+    48.8626
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 260,
+   "look_z": 10
+  },
+  {
+   "t": 398,
+   "target": [
+    2.2945,
+    48.8584
+   ],
+   "dist": 420,
+   "height": 244,
+   "bearing": 290,
+   "look_z": 120
+  },
+  {
+   "t": 408,
+   "target": [
+    2.2945,
+    48.8584
+   ],
+   "dist": 380,
+   "height": 220,
+   "bearing": 330,
+   "look_z": 140
+  },
+  {
+   "t": 418,
+   "target": [
+    2.289,
+    48.862
+   ],
+   "dist": 300,
+   "height": 174,
+   "bearing": 20,
+   "look_z": 40
+  },
+  {
+   "t": 428,
+   "target": [
+    2.3316,
+    48.872
+   ],
+   "dist": 240,
+   "height": 139,
+   "bearing": 60,
+   "look_z": 0
+  },
+  {
+   "t": 438,
+   "target": [
+    2.305,
+    48.87
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 90,
+   "look_z": 10
+  },
+  {
+   "t": 448,
+   "target": [
+    2.305,
+    48.87
+   ],
+   "dist": 200,
+   "height": 116,
+   "bearing": 120,
+   "look_z": 10
+  },
+  {
+   "t": 458,
+   "target": [
+    2.3522,
+    48.8566
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 150,
+   "look_z": 0
+  },
+  {
+   "t": 468,
+   "target": [
+    2.344,
+    48.849
+   ],
+   "dist": 200,
+   "height": 116,
+   "bearing": 180,
+   "look_z": 0
+  },
+  {
+   "t": 478,
+   "target": [
+    2.3217,
+    48.8421
+   ],
+   "dist": 380,
+   "height": 220,
+   "bearing": 210,
+   "look_z": 80
+  },
+  {
+   "t": 488,
+   "target": [
+    2.3522,
+    48.8566
+   ],
+   "dist": 240,
+   "height": 139,
+   "bearing": 240,
+   "look_z": 0
+  },
+  {
+   "t": 498,
+   "target": [
+    2.3376,
+    48.8604
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 270,
+   "look_z": 10
+  },
+  {
+   "t": 508,
+   "target": [
+    2.305,
+    48.87
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 300,
+   "look_z": 10
+  },
+  {
+   "t": 518,
+   "target": [
+    2.3499,
+    48.853
+   ],
+   "dist": 240,
+   "height": 139,
+   "bearing": 330,
+   "look_z": 40
+  },
+  {
+   "t": 528,
+   "target": [
+    2.3499,
+    48.853
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 0,
+   "look_z": 40
+  },
+  {
+   "t": 538,
+   "target": [
+    2.3413,
+    48.8569
+   ],
+   "dist": 260,
+   "height": 151,
+   "bearing": 30,
+   "look_z": 10
+  },
+  {
+   "t": 548,
+   "target": [
+    2.3499,
+    48.853
+   ],
+   "dist": 200,
+   "height": 116,
+   "bearing": 60,
+   "look_z": 40
+  },
+  {
+   "t": 560,
+   "target": [
+    2.3431,
+    48.8867
+   ],
+   "dist": 320,
+   "height": 186,
+   "bearing": 90,
+   "look_z": 50
+  },
+  {
+   "t": 572,
+   "target": [
+    2.3316,
+    48.872
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 120,
+   "look_z": 0
+  },
+  {
+   "t": 584,
+   "target": [
+    2.2945,
+    48.8584
+   ],
+   "dist": 400,
+   "height": 232,
+   "bearing": 150,
+   "look_z": 120
+  },
+  {
+   "t": 596,
+   "target": [
+    2.3212,
+    48.8656
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 180,
+   "look_z": 0
+  },
+  {
+   "t": 608,
+   "target": [
+    2.3413,
+    48.8569
+   ],
+   "dist": 200,
+   "height": 116,
+   "bearing": 210,
+   "look_z": 0
+  },
+  {
+   "t": 620,
+   "target": [
+    2.347,
+    48.8545
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 240,
+   "look_z": 0
+  },
+  {
+   "t": 634,
+   "target": [
+    2.342,
+    48.856
+   ],
+   "dist": 1100,
+   "height": 620,
+   "bearing": 270,
+   "look_z": 0
+  },
+  {
+   "t": 660,
+   "target": [
+    2.342,
+    48.856
+   ],
+   "dist": 1400,
+   "height": 800,
+   "bearing": 280,
+   "look_z": 0
+  }
+ ],
+ "title_card": {
+  "start": 9.5,
+  "end": 16.5,
+  "kicker": "From island village to the City of Light",
+  "title": "Paris",
+  "years": "52 BC — 2026",
+  "note": "A city rebuilt in 3D through 2,078 years"
+ },
+ "cards": [
+  {
+   "start": 640,
+   "end": 659,
+   "kicker": "Paris, 2026",
+   "title": "2,078 years",
+   "years": "from the Parisii to the City of Light",
+   "note": "Illustrative reconstruction · data: Overture Maps, OpenStreetMap contributors, Copernicus"
+  }
+ ],
+ "events": [
+  {
+   "year": -60,
+   "tag": "c. 60 BC",
+   "title": "The Parisii",
+   "body": "A Celtic people live on an island in the Seine, trading along the river",
+   "min_time": 16.5
+  },
+  {
+   "year": -52.5,
+   "tag": "52 BC",
+   "title": "Rome arrives",
+   "body": "Caesar's general Labienus defeats the Gauls beside the river. The town is burned"
+  },
+  {
+   "year": 0,
+   "tag": "1ST CENTURY",
+   "title": "Lutetia",
+   "body": "A Roman town rises on the left bank with a forum, baths and an arena"
+  },
+  {
+   "year": 250,
+   "tag": "c. AD 250",
+   "title": "Saint Denis",
+   "body": "The first bishop of Paris is put to death on the hill later called Montmartre"
+  },
+  {
+   "year": 280,
+   "tag": "c. AD 280",
+   "title": "Behind walls",
+   "body": "After raids, the people retreat to the walled island"
+  },
+  {
+   "year": 360,
+   "tag": "AD 360",
+   "title": "An emperor in Paris",
+   "body": "Julian is proclaimed emperor by his soldiers here. The town takes the name Paris"
+  },
+  {
+   "year": 451.4,
+   "tag": "AD 451",
+   "title": "Attila turns away",
+   "body": "The Huns sweep across Gaul. Led by Genevieve, Parisians stay and pray. Attila passes by"
+  },
+  {
+   "year": 508,
+   "tag": "AD 508",
+   "title": "Clovis",
+   "body": "The King of the Franks makes Paris his capital"
+  },
+  {
+   "year": 845.25,
+   "tag": "845",
+   "title": "Vikings on the Seine",
+   "body": "Ragnar's fleet sails upriver and sacks the town. A huge ransom sends them away"
+  },
+  {
+   "year": 885.9,
+   "tag": "885–886",
+   "title": "The great siege",
+   "body": "Hundreds of longships besiege Paris for nearly a year. The island holds"
+  },
+  {
+   "year": 1163,
+   "tag": "1163",
+   "title": "Notre-Dame",
+   "body": "Work begins on a new cathedral. It will take nearly two centuries"
+  },
+  {
+   "year": 1190,
+   "tag": "1190",
+   "title": "A king's wall",
+   "body": "Philip II rings Paris with a wall and builds a fortress: the first Louvre"
+  },
+  {
+   "year": 1248,
+   "tag": "1248",
+   "title": "Sainte-Chapelle",
+   "body": "Louis IX's chapel of stained glass is consecrated to hold holy relics"
+  },
+  {
+   "year": 1356,
+   "tag": "1356",
+   "title": "A larger wall",
+   "body": "Charles V builds a new wall around the growing right bank"
+  },
+  {
+   "year": 1370,
+   "tag": "1370",
+   "title": "The Bastille",
+   "body": "A fortress rises at the city's eastern gate"
+  },
+  {
+   "year": 1420,
+   "tag": "1420",
+   "title": "The English in Paris",
+   "body": "During the Hundred Years' War, English troops hold the city for 16 years"
+  },
+  {
+   "year": 1572.65,
+   "tag": "24 AUG 1572",
+   "title": "St. Bartholomew's Day",
+   "body": "Thousands of Protestants are killed in the streets in a night of religious violence"
+  },
+  {
+   "year": 1607,
+   "tag": "1607",
+   "title": "Pont Neuf",
+   "body": "The 'New Bridge', now the oldest standing bridge in Paris, opens without houses on it"
+  },
+  {
+   "year": 1612,
+   "tag": "1612",
+   "title": "Place Royale",
+   "body": "The elegant square later called Place des Vosges is inaugurated"
+  },
+  {
+   "year": 1682,
+   "tag": "1682",
+   "title": "The court leaves",
+   "body": "Louis XIV moves the royal court to Versailles"
+  },
+  {
+   "year": 1706,
+   "tag": "1706",
+   "title": "Les Invalides",
+   "body": "A golden dome rises over the home for old soldiers"
+  },
+  {
+   "year": 1789.53,
+   "tag": "14 JUL 1789",
+   "title": "The Bastille falls",
+   "body": "Crowds storm the old fortress. The Revolution has begun"
+  },
+  {
+   "year": 1793.05,
+   "tag": "21 JAN 1793",
+   "title": "The King is executed",
+   "body": "Louis XVI is guillotined on today's Place de la Concorde"
+  },
+  {
+   "year": 1804.92,
+   "tag": "2 DEC 1804",
+   "title": "An emperor crowned",
+   "body": "Napoleon crowns himself Emperor in Notre-Dame"
+  },
+  {
+   "year": 1814.25,
+   "tag": "31 MAR 1814",
+   "title": "Allied armies arrive",
+   "body": "Russian and Prussian troops march into Paris. Napoleon abdicates"
+  },
+  {
+   "year": 1836.57,
+   "tag": "1836",
+   "title": "The Arc de Triomphe",
+   "body": "Napoleon's victory arch is finished, 30 years after work began"
+  },
+  {
+   "year": 1848.15,
+   "tag": "FEB 1848",
+   "title": "Barricades",
+   "body": "A revolution ends France's last monarchy"
+  },
+  {
+   "year": 1853.5,
+   "tag": "1853",
+   "title": "Haussmann's Paris",
+   "body": "Napoleon III's prefect tears down old quarters for wide boulevards and stone apartment blocks"
+  },
+  {
+   "year": 1870.8,
+   "tag": "1870–71",
+   "title": "The Siege of Paris",
+   "body": "Prussian armies surround the city through a bitter winter"
+  },
+  {
+   "year": 1871.39,
+   "tag": "MAY 1871",
+   "title": "The Commune",
+   "body": "Fighting ends Paris's revolutionary government. The Tuileries Palace burns"
+  },
+  {
+   "year": 1889.3,
+   "tag": "1889",
+   "title": "The Eiffel Tower",
+   "body": "Built for the World's Fair, at 300 m it is the tallest structure on Earth"
+  },
+  {
+   "year": 1900.3,
+   "tag": "1900",
+   "title": "The Métro",
+   "body": "The first underground line opens during another World's Fair"
+  },
+  {
+   "year": 1914.6,
+   "tag": "1914",
+   "title": "War",
+   "body": "Soldiers march to the front. The Germans are stopped at the Marne"
+  },
+  {
+   "year": 1918.86,
+   "tag": "11 NOV 1918",
+   "title": "Armistice",
+   "body": "Paris celebrates the end of the First World War"
+  },
+  {
+   "year": 1940.45,
+   "tag": "14 JUN 1940",
+   "title": "Occupation",
+   "body": "German troops enter an almost empty Paris"
+  },
+  {
+   "year": 1944.65,
+   "tag": "25 AUG 1944",
+   "title": "Liberation",
+   "body": "Free French and Allied troops free the city. Crowds fill the streets"
+  },
+  {
+   "year": 1968.4,
+   "tag": "MAY 1968",
+   "title": "May '68",
+   "body": "Students and workers fill the streets. The country nearly stops"
+  },
+  {
+   "year": 1973,
+   "tag": "1973",
+   "title": "Tour Montparnasse",
+   "body": "Paris's only skyscraper so tall within the city. Taller towers are then banned"
+  },
+  {
+   "year": 1977,
+   "tag": "1977",
+   "title": "Centre Pompidou",
+   "body": "A museum with its pipes and escalators on the outside"
+  },
+  {
+   "year": 1989.2,
+   "tag": "1989",
+   "title": "The Louvre Pyramid",
+   "body": "A glass pyramid becomes the museum's new entrance"
+  },
+  {
+   "year": 1998.53,
+   "tag": "12 JUL 1998",
+   "title": "World champions",
+   "body": "France wins the World Cup. Over a million people fill the Champs-Élysées"
+  },
+  {
+   "year": 2019.29,
+   "tag": "15 APR 2019",
+   "title": "Notre-Dame burns",
+   "body": "Fire destroys the roof and the spire. The world watches"
+  },
+  {
+   "year": 2024.55,
+   "tag": "26 JUL 2024",
+   "title": "The Olympic Games",
+   "body": "The opening ceremony is held on the Seine, with boats instead of a stadium"
+  },
+  {
+   "year": 2024.95,
+   "tag": "7 DEC 2024",
+   "title": "Notre-Dame reopens",
+   "body": "Five years after the fire, the restored cathedral opens its doors"
+  },
+  {
+   "year": 2026,
+   "tag": "2026",
+   "title": "Paris today",
+   "body": "About 2.1 million people in the city and 12 million in the region"
+  }
+ ],
+ "eras": [
+  {
+   "from": -2000,
+   "text": "Celtic Gaul"
+  },
+  {
+   "from": -52,
+   "text": "Roman Gaul"
+  },
+  {
+   "from": 486,
+   "text": "The Frankish kingdom"
+  },
+  {
+   "from": 987,
+   "text": "Capetian France"
+  },
+  {
+   "from": 1163,
+   "text": "Gothic Paris"
+  },
+  {
+   "from": 1500,
+   "text": "Renaissance Paris"
+  },
+  {
+   "from": 1600,
+   "text": "The Grand Siècle"
+  },
+  {
+   "from": 1715,
+   "text": "The Enlightenment"
+  },
+  {
+   "from": 1789,
+   "text": "The Revolution"
+  },
+  {
+   "from": 1804,
+   "text": "The Empire"
+  },
+  {
+   "from": 1815,
+   "text": "Restoration and revolution"
+  },
+  {
+   "from": 1852,
+   "text": "Haussmann's Paris"
+  },
+  {
+   "from": 1871,
+   "text": "The Belle Époque"
+  },
+  {
+   "from": 1914,
+   "text": "War and the Années folles"
+  },
+  {
+   "from": 1940,
+   "text": "Occupation"
+  },
+  {
+   "from": 1944,
+   "text": "Liberation"
+  },
+  {
+   "from": 1958,
+   "text": "Modern Paris"
+  },
+  {
+   "from": 2000,
+   "text": "The City of Light"
+  }
+ ],
+ "rulers": [
+  {
+   "from": -2000,
+   "realm": "Gaul",
+   "name": "The Parisii",
+   "badge": "gaul"
+  },
+  {
+   "from": -52,
+   "realm": "Roman Republic",
+   "name": "Julius Caesar",
+   "badge": "spqr"
+  },
+  {
+   "from": -27,
+   "realm": "Roman Empire",
+   "name": "Emperor Augustus",
+   "badge": "spqr"
+  },
+  {
+   "from": 14,
+   "realm": "Roman Empire",
+   "name": "Roman emperors",
+   "badge": "spqr"
+  },
+  {
+   "from": 360,
+   "realm": "Roman Empire",
+   "name": "Emperor Julian",
+   "badge": "spqr"
+  },
+  {
+   "from": 364,
+   "realm": "Roman Empire",
+   "name": "Roman emperors",
+   "badge": "spqr"
+  },
+  {
+   "from": 451,
+   "realm": "Roman Empire",
+   "name": "Emperor Valentinian III",
+   "badge": "spqr"
+  },
+  {
+   "from": 486,
+   "realm": "Kingdom of the Franks",
+   "name": "King Clovis I",
+   "badge": "frank"
+  },
+  {
+   "from": 511,
+   "realm": "Kingdom of the Franks",
+   "name": "Merovingian kings",
+   "badge": "frank"
+  },
+  {
+   "from": 751,
+   "realm": "Kingdom of the Franks",
+   "name": "King Pepin the Short",
+   "badge": "frank"
+  },
+  {
+   "from": 768,
+   "realm": "Frankish Empire",
+   "name": "Charlemagne",
+   "badge": "frank"
+  },
+  {
+   "from": 814,
+   "realm": "Frankish Empire",
+   "name": "Louis the Pious",
+   "badge": "frank"
+  },
+  {
+   "from": 843,
+   "realm": "West Francia",
+   "name": "King Charles the Bald",
+   "badge": "frank"
+  },
+  {
+   "from": 884,
+   "realm": "West Francia",
+   "name": "Emperor Charles the Fat",
+   "badge": "frank"
+  },
+  {
+   "from": 888,
+   "realm": "West Francia",
+   "name": "King Odo, Count of Paris",
+   "badge": "frank"
+  },
+  {
+   "from": 987,
+   "realm": "Kingdom of France",
+   "name": "King Hugh Capet",
+   "badge": "fleur"
+  },
+  {
+   "from": 1137,
+   "realm": "Kingdom of France",
+   "name": "King Louis VII",
+   "badge": "fleur"
+  },
+  {
+   "from": 1180,
+   "realm": "Kingdom of France",
+   "name": "King Philip II Augustus",
+   "badge": "fleur"
+  },
+  {
+   "from": 1226,
+   "realm": "Kingdom of France",
+   "name": "King Louis IX",
+   "badge": "fleur"
+  },
+  {
+   "from": 1285,
+   "realm": "Kingdom of France",
+   "name": "King Philip IV",
+   "badge": "fleur"
+  },
+  {
+   "from": 1350,
+   "realm": "Kingdom of France",
+   "name": "King John II",
+   "badge": "fleur"
+  },
+  {
+   "from": 1364,
+   "realm": "Kingdom of France",
+   "name": "King Charles V",
+   "badge": "fleur"
+  },
+  {
+   "from": 1380,
+   "realm": "Kingdom of France",
+   "name": "King Charles VI",
+   "badge": "fleur"
+  },
+  {
+   "from": 1420,
+   "realm": "English occupation",
+   "name": "Henry V of England",
+   "badge": "england"
+  },
+  {
+   "from": 1436,
+   "realm": "Kingdom of France",
+   "name": "King Charles VII",
+   "badge": "fleur"
+  },
+  {
+   "from": 1461,
+   "realm": "Kingdom of France",
+   "name": "King Louis XI",
+   "badge": "fleur"
+  },
+  {
+   "from": 1515,
+   "realm": "Kingdom of France",
+   "name": "King Francis I",
+   "badge": "fleur"
+  },
+  {
+   "from": 1547,
+   "realm": "Kingdom of France",
+   "name": "King Henry II",
+   "badge": "fleur"
+  },
+  {
+   "from": 1560,
+   "realm": "Kingdom of France",
+   "name": "King Charles IX",
+   "badge": "fleur"
+  },
+  {
+   "from": 1574,
+   "realm": "Kingdom of France",
+   "name": "King Henry III",
+   "badge": "fleur"
+  },
+  {
+   "from": 1589,
+   "realm": "Kingdom of France",
+   "name": "King Henry IV",
+   "badge": "fleur"
+  },
+  {
+   "from": 1610,
+   "realm": "Kingdom of France",
+   "name": "King Louis XIII",
+   "badge": "fleur"
+  },
+  {
+   "from": 1643,
+   "realm": "Kingdom of France",
+   "name": "King Louis XIV",
+   "badge": "fleur"
+  },
+  {
+   "from": 1715,
+   "realm": "Kingdom of France",
+   "name": "King Louis XV",
+   "badge": "fleur"
+  },
+  {
+   "from": 1774,
+   "realm": "Kingdom of France",
+   "name": "King Louis XVI",
+   "badge": "fleur"
+  },
+  {
+   "from": 1792.7,
+   "realm": "French Republic",
+   "name": "National Convention",
+   "badge": "france"
+  },
+  {
+   "from": 1795.8,
+   "realm": "French Republic",
+   "name": "The Directory",
+   "badge": "france"
+  },
+  {
+   "from": 1799.86,
+   "realm": "French Republic",
+   "name": "First Consul Napoleon Bonaparte",
+   "badge": "france"
+  },
+  {
+   "from": 1804.38,
+   "realm": "French Empire",
+   "name": "Emperor Napoleon I",
+   "badge": "france"
+  },
+  {
+   "from": 1814.3,
+   "realm": "Kingdom of France",
+   "name": "King Louis XVIII",
+   "badge": "fleur"
+  },
+  {
+   "from": 1824.7,
+   "realm": "Kingdom of France",
+   "name": "King Charles X",
+   "badge": "fleur"
+  },
+  {
+   "from": 1830.6,
+   "realm": "Kingdom of the French",
+   "name": "King Louis-Philippe",
+   "badge": "france"
+  },
+  {
+   "from": 1848.15,
+   "realm": "French Republic",
+   "name": "Provisional government",
+   "badge": "france"
+  },
+  {
+   "from": 1848.95,
+   "realm": "French Republic",
+   "name": "President Louis-Napoléon Bonaparte",
+   "badge": "france"
+  },
+  {
+   "from": 1852.92,
+   "realm": "French Empire",
+   "name": "Emperor Napoleon III",
+   "badge": "france"
+  },
+  {
+   "from": 1870.68,
+   "realm": "French Republic",
+   "name": "Government of National Defence",
+   "badge": "france"
+  },
+  {
+   "from": 1871.22,
+   "realm": "Paris Commune",
+   "name": "Commune council",
+   "badge": "commune"
+  },
+  {
+   "from": 1871.4,
+   "realm": "French Republic",
+   "name": "President Adolphe Thiers",
+   "badge": "france"
+  },
+  {
+   "from": 1879,
+   "realm": "French Republic",
+   "name": "President Jules Grévy",
+   "badge": "france"
+  },
+  {
+   "from": 1913,
+   "realm": "French Republic",
+   "name": "President Raymond Poincaré",
+   "badge": "france"
+  },
+  {
+   "from": 1920,
+   "realm": "French Republic",
+   "name": "Presidents of the Third Republic",
+   "badge": "france"
+  },
+  {
+   "from": 1940.45,
+   "realm": "German occupation",
+   "name": "Paris under German control",
+   "badge": "occupied"
+  },
+  {
+   "from": 1944.65,
+   "realm": "French Republic",
+   "name": "General Charles de Gaulle",
+   "badge": "france"
+  },
+  {
+   "from": 1947,
+   "realm": "French Republic",
+   "name": "President Vincent Auriol",
+   "badge": "france"
+  },
+  {
+   "from": 1959,
+   "realm": "French Republic",
+   "name": "President Charles de Gaulle",
+   "badge": "france"
+  },
+  {
+   "from": 1969.5,
+   "realm": "French Republic",
+   "name": "President Georges Pompidou",
+   "badge": "france"
+  },
+  {
+   "from": 1974.4,
+   "realm": "French Republic",
+   "name": "President Valéry Giscard d'Estaing",
+   "badge": "france"
+  },
+  {
+   "from": 1981.4,
+   "realm": "French Republic",
+   "name": "President François Mitterrand",
+   "badge": "france"
+  },
+  {
+   "from": 1995.4,
+   "realm": "French Republic",
+   "name": "President Jacques Chirac",
+   "badge": "france"
+  },
+  {
+   "from": 2007.4,
+   "realm": "French Republic",
+   "name": "President Nicolas Sarkozy",
+   "badge": "france"
+  },
+  {
+   "from": 2012.4,
+   "realm": "French Republic",
+   "name": "President François Hollande",
+   "badge": "france"
+  },
+  {
+   "from": 2017.37,
+   "realm": "French Republic",
+   "name": "President Emmanuel Macron",
+   "badge": "france"
+  }
+ ],
+ "population_label": "Population (estimate)",
+ "population": [
+  [
+   -60,
+   0
+  ],
+  [
+   -55,
+   2000
+  ],
+  [
+   -52.4,
+   300
+  ],
+  [
+   0,
+   4000
+  ],
+  [
+   150,
+   8000
+  ],
+  [
+   280,
+   4000
+  ],
+  [
+   500,
+   5000
+  ],
+  [
+   845,
+   15000
+  ],
+  [
+   1000,
+   20000
+  ],
+  [
+   1200,
+   50000
+  ],
+  [
+   1328,
+   200000
+  ],
+  [
+   1420,
+   100000
+  ],
+  [
+   1500,
+   200000
+  ],
+  [
+   1600,
+   300000
+  ],
+  [
+   1700,
+   500000
+  ],
+  [
+   1789,
+   620000
+  ],
+  [
+   1801,
+   550000
+  ],
+  [
+   1851,
+   1050000
+  ],
+  [
+   1872,
+   1850000
+  ],
+  [
+   1901,
+   2700000
+  ],
+  [
+   1921,
+   2900000
+  ],
+  [
+   1954,
+   2850000
+  ],
+  [
+   1999,
+   2125000
+  ],
+  [
+   2026,
+   2100000
+  ]
+ ],
+ "standing_label": "Years since 52 BC",
+ "labels": [
+  {
+   "text": "The Seine",
+   "ll": [
+    2.356,
+    48.8505,
+    2
+   ]
+  },
+  {
+   "text": "Île de la Cité",
+   "ll": [
+    2.344,
+    48.8556,
+    15
+   ]
+  },
+  {
+   "text": "Forum",
+   "from": 30,
+   "until": 280,
+   "at": "forum"
+  },
+  {
+   "text": "Arena",
+   "from": 100,
+   "until": 280,
+   "at": "arena"
+  },
+  {
+   "text": "Notre-Dame",
+   "from": 1180,
+   "at": "notredame"
+  },
+  {
+   "text": "Sainte-Chapelle",
+   "from": 1248,
+   "at": "saintechapelle"
+  },
+  {
+   "text": "The Louvre",
+   "from": 1190,
+   "at": "louvre"
+  },
+  {
+   "text": "Tuileries Palace",
+   "from": 1564,
+   "until": 1871.4,
+   "at": "tuileries"
+  },
+  {
+   "text": "Pont Neuf",
+   "from": 1607,
+   "at": "pontneuf"
+  },
+  {
+   "text": "The Bastille",
+   "from": 1370,
+   "until": 1789.6,
+   "at": "bastille"
+  },
+  {
+   "text": "Place de la Bastille",
+   "from": 1840,
+   "at": "bastille"
+  },
+  {
+   "text": "Place des Vosges",
+   "from": 1612,
+   "ll": [
+    2.3655,
+    48.8556,
+    25
+   ]
+  },
+  {
+   "text": "Les Invalides",
+   "from": 1706,
+   "at": "invalides"
+  },
+  {
+   "text": "Panthéon",
+   "from": 1790,
+   "at": "pantheon"
+  },
+  {
+   "text": "Arc de Triomphe",
+   "from": 1836,
+   "at": "arc"
+  },
+  {
+   "text": "Champs-Élysées",
+   "from": 1700,
+   "ll": [
+    2.305,
+    48.87,
+    15
+   ]
+  },
+  {
+   "text": "Place de la Concorde",
+   "from": 1772,
+   "ll": [
+    2.3212,
+    48.8656,
+    15
+   ]
+  },
+  {
+   "text": "Eiffel Tower",
+   "from": 1889,
+   "at": "eiffel"
+  },
+  {
+   "text": "Sacré-Cœur",
+   "from": 1914,
+   "at": "sacrecoeur"
+  },
+  {
+   "text": "Montmartre",
+   "ll": [
+    2.34,
+    48.886,
+    40
+   ]
+  },
+  {
+   "text": "Opéra Garnier",
+   "from": 1875,
+   "ll": [
+    2.3316,
+    48.872,
+    45
+   ]
+  },
+  {
+   "text": "Hôtel de Ville",
+   "from": 1628,
+   "ll": [
+    2.3522,
+    48.8566,
+    40
+   ]
+  },
+  {
+   "text": "Louvre Pyramid",
+   "from": 1989,
+   "at": "pyramid"
+  },
+  {
+   "text": "Latin Quarter",
+   "from": 1200,
+   "ll": [
+    2.344,
+    48.849,
+    20
+   ]
+  },
+  {
+   "text": "Tour Montparnasse",
+   "from": 1973,
+   "ll": [
+    2.3217,
+    48.8421,
+    215
+   ]
+  }
+ ],
+ "groups": [
+  {
+   "kind": "gaul",
+   "count": 120,
+   "from": 14,
+   "to": 24,
+   "path": [
+    [
+     2.347,
+     48.8545
+    ]
+   ],
+   "formation": "crowd",
+   "width": 40,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "boat",
+   "count": 6,
+   "from": 14,
+   "to": 30,
+   "path": [
+    [
+     2.37,
+     48.846
+    ],
+    [
+     2.356,
+     48.8505
+    ],
+    [
+     2.347,
+     48.857
+    ],
+    [
+     2.338,
+     48.859
+    ],
+    [
+     2.325,
+     48.862
+    ],
+    [
+     2.305,
+     48.862
+    ],
+    [
+     2.295,
+     48.86
+    ]
+   ],
+   "formation": "line",
+   "width": 4,
+   "scale": 1.0,
+   "speed": 6,
+   "loop": true
+  },
+  {
+   "kind": "gaul",
+   "count": 500,
+   "from": 20,
+   "to": 34,
+   "path": [
+    [
+     2.346,
+     48.849
+    ],
+    [
+     2.344,
+     48.847
+    ]
+   ],
+   "formation": "block",
+   "width": 30,
+   "scale": 1.0,
+   "speed": 19.01
+  },
+  {
+   "kind": "legionary",
+   "count": 500,
+   "from": 20,
+   "to": 34,
+   "path": [
+    [
+     2.335,
+     48.842
+    ],
+    [
+     2.342,
+     48.8465
+    ]
+   ],
+   "formation": "block",
+   "width": 22,
+   "scale": 1.0,
+   "speed": 51.16
+  },
+  {
+   "kind": "roman",
+   "count": 220,
+   "from": 40,
+   "to": 66,
+   "path": [
+    [
+     2.3415,
+     48.8465
+    ]
+   ],
+   "formation": "crowd",
+   "width": 55,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "cart",
+   "count": 8,
+   "from": 40,
+   "to": 66,
+   "path": [
+    [
+     2.344,
+     48.842
+    ],
+    [
+     2.346,
+     48.851
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 5,
+   "loop": true
+  },
+  {
+   "kind": "roman",
+   "count": 140,
+   "from": 48,
+   "to": 60,
+   "path": [
+    [
+     2.3527,
+     48.8452
+    ]
+   ],
+   "formation": "crowd",
+   "width": 30,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "roman",
+   "count": 120,
+   "from": 76,
+   "to": 90,
+   "path": [
+    [
+     2.347,
+     48.8545
+    ]
+   ],
+   "formation": "crowd",
+   "width": 35,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "legionary",
+   "count": 200,
+   "from": 84,
+   "to": 92,
+   "path": [
+    [
+     2.347,
+     48.8545
+    ]
+   ],
+   "formation": "block",
+   "width": 14,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "hun",
+   "count": 900,
+   "from": 90,
+   "to": 100,
+   "path": [
+    [
+     2.4,
+     48.86
+    ],
+    [
+     2.38,
+     48.858
+    ]
+   ],
+   "formation": "block",
+   "width": 50,
+   "scale": 1.0,
+   "speed": 148.17
+  },
+  {
+   "kind": "monk",
+   "count": 80,
+   "from": 92,
+   "to": 104,
+   "path": [
+    [
+     2.348,
+     48.854
+    ]
+   ],
+   "formation": "crowd",
+   "width": 25,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "frank",
+   "count": 300,
+   "from": 102,
+   "to": 112,
+   "path": [
+    [
+     2.347,
+     48.855
+    ]
+   ],
+   "formation": "block",
+   "width": 18,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "longship",
+   "count": 14,
+   "from": 114,
+   "to": 134,
+   "path": [
+    [
+     2.295,
+     48.86
+    ],
+    [
+     2.305,
+     48.862
+    ],
+    [
+     2.325,
+     48.862
+    ],
+    [
+     2.338,
+     48.859
+    ],
+    [
+     2.347,
+     48.857
+    ]
+   ],
+   "formation": "line",
+   "width": 30,
+   "scale": 1.0,
+   "speed": 10
+  },
+  {
+   "kind": "viking",
+   "count": 500,
+   "from": 124,
+   "to": 136,
+   "path": [
+    [
+     2.34,
+     48.858
+    ],
+    [
+     2.345,
+     48.8565
+    ]
+   ],
+   "formation": "block",
+   "width": 30,
+   "scale": 1.0,
+   "speed": 33.53
+  },
+  {
+   "kind": "medieval",
+   "count": 260,
+   "from": 150,
+   "to": 170,
+   "path": [
+    [
+     2.348,
+     48.8535
+    ]
+   ],
+   "formation": "crowd",
+   "width": 50,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "cart",
+   "count": 8,
+   "from": 150,
+   "to": 170,
+   "path": [
+    [
+     2.347,
+     48.8527
+    ],
+    [
+     2.348,
+     48.856
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 4,
+   "loop": true
+  },
+  {
+   "kind": "medieval",
+   "count": 180,
+   "from": 166,
+   "to": 180,
+   "path": [
+    [
+     2.3376,
+     48.8615
+    ]
+   ],
+   "formation": "crowd",
+   "width": 40,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "monk",
+   "count": 40,
+   "from": 176,
+   "to": 186,
+   "path": [
+    [
+     2.345,
+     48.855
+    ]
+   ],
+   "formation": "crowd",
+   "width": 15,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "medieval",
+   "count": 200,
+   "from": 196,
+   "to": 212,
+   "path": [
+    [
+     2.3522,
+     48.8566
+    ]
+   ],
+   "formation": "crowd",
+   "width": 45,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "norman",
+   "count": 300,
+   "from": 216,
+   "to": 226,
+   "path": [
+    [
+     2.3376,
+     48.858
+    ],
+    [
+     2.346,
+     48.856
+    ]
+   ],
+   "formation": "block",
+   "width": 20,
+   "scale": 1.0,
+   "speed": 65.42
+  },
+  {
+   "kind": "renaissance",
+   "count": 300,
+   "from": 236,
+   "to": 248,
+   "path": [
+    [
+     2.339,
+     48.859
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "renaissance",
+   "count": 200,
+   "from": 246,
+   "to": 258,
+   "path": [
+    [
+     2.3413,
+     48.8569
+    ]
+   ],
+   "formation": "crowd",
+   "width": 20,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "boat",
+   "count": 12,
+   "from": 246,
+   "to": 258,
+   "path": [
+    [
+     2.37,
+     48.846
+    ],
+    [
+     2.356,
+     48.8505
+    ],
+    [
+     2.347,
+     48.857
+    ],
+    [
+     2.338,
+     48.859
+    ],
+    [
+     2.325,
+     48.862
+    ],
+    [
+     2.305,
+     48.862
+    ],
+    [
+     2.295,
+     48.86
+    ]
+   ],
+   "formation": "line",
+   "width": 10,
+   "scale": 1.0,
+   "speed": 8,
+   "loop": true
+  },
+  {
+   "kind": "carriage",
+   "count": 8,
+   "from": 256,
+   "to": 270,
+   "path": [
+    [
+     2.362,
+     48.8556
+    ],
+    [
+     2.369,
+     48.8556
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 4,
+   "loop": true
+  },
+  {
+   "kind": "renaissance",
+   "count": 160,
+   "from": 256,
+   "to": 270,
+   "path": [
+    [
+     2.3655,
+     48.8556
+    ]
+   ],
+   "formation": "crowd",
+   "width": 40,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "renaissance",
+   "count": 140,
+   "from": 266,
+   "to": 282,
+   "path": [
+    [
+     2.33,
+     48.864
+    ]
+   ],
+   "formation": "crowd",
+   "width": 50,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "sansculotte",
+   "count": 1000,
+   "from": 284,
+   "to": 302,
+   "path": [
+    [
+     2.36,
+     48.856
+    ],
+    [
+     2.3685,
+     48.8536
+    ]
+   ],
+   "formation": "block",
+   "width": 30,
+   "scale": 1.0,
+   "speed": 37.63
+  },
+  {
+   "kind": "grenadier",
+   "count": 60,
+   "from": 286,
+   "to": 296,
+   "path": [
+    [
+     2.3695,
+     48.853
+    ]
+   ],
+   "formation": "block",
+   "width": 10,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "sansculotte",
+   "count": 600,
+   "from": 304,
+   "to": 316,
+   "path": [
+    [
+     2.3212,
+     48.8656
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "grenadier",
+   "count": 500,
+   "from": 316,
+   "to": 328,
+   "path": [
+    [
+     2.342,
+     48.856
+    ],
+    [
+     2.349,
+     48.8535
+    ]
+   ],
+   "formation": "block",
+   "width": 20,
+   "scale": 1.0,
+   "speed": 48.6
+  },
+  {
+   "kind": "c19",
+   "count": 300,
+   "from": 316,
+   "to": 328,
+   "path": [
+    [
+     2.3505,
+     48.854
+    ]
+   ],
+   "formation": "crowd",
+   "width": 40,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "redcoat",
+   "count": 400,
+   "from": 328,
+   "to": 336,
+   "path": [
+    [
+     2.295,
+     48.8738
+    ],
+    [
+     2.31,
+     48.869
+    ]
+   ],
+   "formation": "block",
+   "width": 20,
+   "scale": 1.0,
+   "speed": 152.67
+  },
+  {
+   "kind": "grenadier",
+   "count": 200,
+   "from": 336,
+   "to": 346,
+   "path": [
+    [
+     2.299,
+     48.8725
+    ]
+   ],
+   "formation": "block",
+   "width": 16,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "c19",
+   "count": 300,
+   "from": 346,
+   "to": 356,
+   "path": [
+    [
+     2.3522,
+     48.8566
+    ]
+   ],
+   "formation": "crowd",
+   "width": 40,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "cart",
+   "count": 12,
+   "from": 358,
+   "to": 372,
+   "path": [
+    [
+     2.3316,
+     48.872
+    ],
+    [
+     2.342,
+     48.865
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 4,
+   "loop": true
+  },
+  {
+   "kind": "c19",
+   "count": 150,
+   "from": 358,
+   "to": 372,
+   "path": [
+    [
+     2.336,
+     48.869
+    ]
+   ],
+   "formation": "crowd",
+   "width": 50,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "c19",
+   "count": 200,
+   "from": 372,
+   "to": 382,
+   "path": [
+    [
+     2.342,
+     48.856
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "c19",
+   "count": 300,
+   "from": 384,
+   "to": 396,
+   "path": [
+    [
+     2.3301,
+     48.864
+    ]
+   ],
+   "formation": "crowd",
+   "width": 50,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "c19",
+   "count": 700,
+   "from": 400,
+   "to": 414,
+   "path": [
+    [
+     2.2945,
+     48.86
+    ]
+   ],
+   "formation": "crowd",
+   "width": 80,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "carriage",
+   "count": 10,
+   "from": 400,
+   "to": 414,
+   "path": [
+    [
+     2.299,
+     48.862
+    ],
+    [
+     2.29,
+     48.857
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 5,
+   "loop": true
+  },
+  {
+   "kind": "c19",
+   "count": 300,
+   "from": 414,
+   "to": 424,
+   "path": [
+    [
+     2.3316,
+     48.871
+    ]
+   ],
+   "formation": "crowd",
+   "width": 50,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "tram",
+   "count": 3,
+   "from": 414,
+   "to": 424,
+   "path": [
+    [
+     2.32,
+     48.87
+    ],
+    [
+     2.34,
+     48.874
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 8,
+   "loop": true
+  },
+  {
+   "kind": "poilu",
+   "count": 600,
+   "from": 424,
+   "to": 434,
+   "path": [
+    [
+     2.305,
+     48.87
+    ],
+    [
+     2.32,
+     48.866
+    ]
+   ],
+   "formation": "block",
+   "width": 20,
+   "scale": 1.0,
+   "speed": 118.52
+  },
+  {
+   "kind": "c1940",
+   "count": 900,
+   "from": 434,
+   "to": 442,
+   "path": [
+    [
+     2.315,
+     48.868
+    ]
+   ],
+   "formation": "crowd",
+   "width": 70,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "wehrmacht",
+   "count": 500,
+   "from": 444,
+   "to": 452,
+   "path": [
+    [
+     2.295,
+     48.8738
+    ],
+    [
+     2.315,
+     48.868
+    ]
+   ],
+   "formation": "block",
+   "width": 18,
+   "scale": 1.0,
+   "speed": 200.06
+  },
+  {
+   "kind": "c1940",
+   "count": 1000,
+   "from": 452,
+   "to": 462,
+   "path": [
+    [
+     2.3522,
+     48.8566
+    ]
+   ],
+   "formation": "crowd",
+   "width": 70,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "car",
+   "count": 14,
+   "from": 452,
+   "to": 462,
+   "path": [
+    [
+     2.342,
+     48.856
+    ],
+    [
+     2.356,
+     48.857
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 6,
+   "loop": true
+  },
+  {
+   "kind": "modern",
+   "count": 600,
+   "from": 462,
+   "to": 472,
+   "path": [
+    [
+     2.344,
+     48.8495
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "modern",
+   "count": 400,
+   "from": 474,
+   "to": 660,
+   "path": [
+    [
+     2.3522,
+     48.8566
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "car",
+   "count": 30,
+   "from": 474,
+   "to": 660,
+   "path": [
+    [
+     2.33,
+     48.864
+    ],
+    [
+     2.3522,
+     48.8566
+    ],
+    [
+     2.36,
+     48.854
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 11,
+   "loop": true
+  },
+  {
+   "kind": "vespa",
+   "count": 20,
+   "from": 474,
+   "to": 660,
+   "path": [
+    [
+     2.36,
+     48.854
+    ],
+    [
+     2.33,
+     48.864
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 13,
+   "loop": true
+  },
+  {
+   "kind": "riverboat",
+   "count": 8,
+   "from": 474,
+   "to": 660,
+   "path": [
+    [
+     2.37,
+     48.846
+    ],
+    [
+     2.356,
+     48.8505
+    ],
+    [
+     2.347,
+     48.857
+    ],
+    [
+     2.338,
+     48.859
+    ],
+    [
+     2.325,
+     48.862
+    ],
+    [
+     2.305,
+     48.862
+    ],
+    [
+     2.295,
+     48.86
+    ]
+   ],
+   "formation": "line",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 6,
+   "loop": true
+  },
+  {
+   "kind": "modern",
+   "count": 500,
+   "from": 500,
+   "to": 520,
+   "path": [
+    [
+     2.305,
+     48.87
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "modern",
+   "count": 400,
+   "from": 512,
+   "to": 530,
+   "path": [
+    [
+     2.348,
+     48.8512
+    ]
+   ],
+   "formation": "crowd",
+   "width": 50,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "riverboat",
+   "count": 30,
+   "from": 530,
+   "to": 546,
+   "path": [
+    [
+     2.295,
+     48.86
+    ],
+    [
+     2.305,
+     48.862
+    ],
+    [
+     2.325,
+     48.862
+    ],
+    [
+     2.338,
+     48.859
+    ],
+    [
+     2.347,
+     48.857
+    ],
+    [
+     2.356,
+     48.8505
+    ],
+    [
+     2.37,
+     48.846
+    ]
+   ],
+   "formation": "line",
+   "width": 20,
+   "scale": 1.0,
+   "speed": 7,
+   "loop": true
+  },
+  {
+   "kind": "modern",
+   "count": 400,
+   "from": 560,
+   "to": 660,
+   "path": [
+    [
+     2.2945,
+     48.86
+    ]
+   ],
+   "formation": "crowd",
+   "width": 70,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "modern",
+   "count": 300,
+   "from": 570,
+   "to": 660,
+   "path": [
+    [
+     2.3316,
+     48.871
+    ]
+   ],
+   "formation": "crowd",
+   "width": 50,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "car",
+   "count": 20,
+   "from": 570,
+   "to": 660,
+   "path": [
+    [
+     2.32,
+     48.87
+    ],
+    [
+     2.34,
+     48.874
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 11,
+   "loop": true
+  }
+ ],
+ "fx": [
+  {
+   "kind": "fire",
+   "ll": [
+    2.346,
+    48.855
+   ],
+   "radius": 150,
+   "from": -52.45,
+   "to": -52.3
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    2.344,
+    48.848
+   ],
+   "radius": 250,
+   "from": 276,
+   "to": 282
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    2.346,
+    48.8555
+   ],
+   "radius": 200,
+   "from": 845.27,
+   "to": 845.5
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    2.35,
+    48.858
+   ],
+   "radius": 250,
+   "from": 885.95,
+   "to": 886.4
+  },
+  {
+   "kind": "dust",
+   "ll": [
+    2.3691,
+    48.8532
+   ],
+   "radius": 90,
+   "from": 1789.535,
+   "to": 1789.6,
+   "blobs": 35,
+   "size": 0.35
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    2.3301,
+    48.8626
+   ],
+   "radius": 160,
+   "from": 1871.39,
+   "to": 1871.45
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    2.3522,
+    48.8566
+   ],
+   "radius": 80,
+   "from": 1871.4,
+   "to": 1871.45
+  },
+  {
+   "kind": "dust",
+   "ll": [
+    2.344,
+    48.8495
+   ],
+   "radius": 120,
+   "from": 1968.38,
+   "to": 1968.42,
+   "blobs": 35,
+   "size": 0.35
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    2.3505,
+    48.8528
+   ],
+   "radius": 45,
+   "from": 2019.29,
+   "to": 2019.32,
+   "blobs": 18,
+   "flames": 90,
+   "size": 0.3
+  }
+ ],
+ "fireworks": [
+  {
+   "ll": [
+    2.2945,
+    48.8584,
+    250
+   ],
+   "from": 402,
+   "to": 410,
+   "count": 7,
+   "spread": 300
+  },
+  {
+   "ll": [
+    2.34,
+    48.858,
+    150
+   ],
+   "from": 536,
+   "to": 544,
+   "count": 8,
+   "spread": 500
+  },
+  {
+   "ll": [
+    2.2945,
+    48.8584,
+    250
+   ],
+   "from": 640,
+   "to": 658,
+   "count": 9,
+   "spread": 400
+  },
+  {
+   "ll": [
+    2.305,
+    48.87,
+    120
+   ],
+   "from": 506,
+   "to": 512,
+   "count": 6,
+   "spread": 400
+  }
+ ],
+ "moods": [
+  {
+   "from": 118,
+   "to": 132,
+   "rain": 0.5,
+   "ramp": 2
+  },
+  {
+   "from": 150,
+   "to": 160,
+   "autumn": 1.0
+  },
+  {
+   "from": 236,
+   "to": 248,
+   "night": 0.8,
+   "ramp": 1.5
+  },
+  {
+   "from": 372,
+   "to": 383,
+   "snow": 1.0,
+   "ramp": 2
+  },
+  {
+   "from": 384,
+   "to": 396,
+   "night": 0.9,
+   "ramp": 1.5
+  },
+  {
+   "from": 514,
+   "to": 528,
+   "night": 0.7,
+   "ramp": 2
+  },
+  {
+   "from": 532,
+   "to": 546,
+   "night": 1.0,
+   "rain": 0.6,
+   "ramp": 2
+  }
+ ],
+ "sfx": [
+  {
+   "kind": "traffic",
+   "at": 0,
+   "dur": 5,
+   "gain": 0.8
+  },
+  {
+   "kind": "chatter",
+   "at": 0,
+   "dur": 4,
+   "gain": 0.6
+  },
+  {
+   "kind": "wind",
+   "at": 3,
+   "dur": 4,
+   "gain": 0.8
+  },
+  {
+   "kind": "birds",
+   "at": 8,
+   "dur": 32,
+   "gain": 0.9
+  },
+  {
+   "kind": "water",
+   "at": 8,
+   "dur": 32,
+   "gain": 0.6
+  },
+  {
+   "kind": "chatter",
+   "at": 40,
+   "dur": 30,
+   "gain": 0.7
+  },
+  {
+   "kind": "chisel",
+   "at": 42,
+   "dur": 24,
+   "gain": 0.5
+  },
+  {
+   "kind": "cart",
+   "at": 42,
+   "dur": 28,
+   "gain": 0.4
+  },
+  {
+   "kind": "birds",
+   "at": 70,
+   "dur": 80,
+   "gain": 0.6
+  },
+  {
+   "kind": "chatter",
+   "at": 150,
+   "dur": 140,
+   "gain": 0.7
+  },
+  {
+   "kind": "hammer",
+   "at": 150,
+   "dur": 50,
+   "gain": 0.6
+  },
+  {
+   "kind": "chisel",
+   "at": 156,
+   "dur": 44,
+   "gain": 0.6
+  },
+  {
+   "kind": "bells",
+   "at": 186,
+   "dur": 104,
+   "gain": 0.4
+  },
+  {
+   "kind": "hooves",
+   "at": 200,
+   "dur": 170,
+   "gain": 0.5
+  },
+  {
+   "kind": "cart",
+   "at": 240,
+   "dur": 130,
+   "gain": 0.5
+  },
+  {
+   "kind": "water",
+   "at": 246,
+   "dur": 12,
+   "gain": 0.6
+  },
+  {
+   "kind": "chatter",
+   "at": 300,
+   "dur": 170,
+   "gain": 0.7
+  },
+  {
+   "kind": "hooves",
+   "at": 300,
+   "dur": 100,
+   "gain": 0.5
+  },
+  {
+   "kind": "hammer",
+   "at": 358,
+   "dur": 14,
+   "gain": 0.6
+  },
+  {
+   "kind": "tram",
+   "at": 414,
+   "dur": 10,
+   "gain": 0.6
+  },
+  {
+   "kind": "traffic",
+   "at": 440,
+   "dur": 220,
+   "gain": 0.8
+  },
+  {
+   "kind": "chatter",
+   "at": 470,
+   "dur": 190,
+   "gain": 0.8
+  },
+  {
+   "kind": "carhorn",
+   "at": 474,
+   "dur": 186,
+   "gain": 0.5
+  },
+  {
+   "kind": "scooter",
+   "at": 474,
+   "dur": 186,
+   "gain": 0.6
+  },
+  {
+   "kind": "siren",
+   "at": 516,
+   "dur": 10,
+   "gain": 0.5
+  },
+  {
+   "kind": "march",
+   "at": 20,
+   "dur": 14,
+   "gain": 1.0
+  },
+  {
+   "kind": "shouts",
+   "at": 22,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "sword",
+   "at": 24,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "fire",
+   "at": 26,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "drums",
+   "at": 20,
+   "dur": 12,
+   "gain": 0.6
+  },
+  {
+   "kind": "cheer",
+   "at": 42,
+   "dur": 6,
+   "gain": 0.5
+  },
+  {
+   "kind": "fire",
+   "at": 74,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "march",
+   "at": 90,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "drums",
+   "at": 90,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "bells",
+   "at": 94,
+   "dur": 8,
+   "gain": 0.6
+  },
+  {
+   "kind": "horn",
+   "at": 114,
+   "dur": 4,
+   "gain": 0.6
+  },
+  {
+   "kind": "shouts",
+   "at": 124,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "sword",
+   "at": 126,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "fire",
+   "at": 126,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "bells",
+   "at": 160,
+   "dur": 8,
+   "gain": 0.5
+  },
+  {
+   "kind": "bells",
+   "at": 182,
+   "dur": 6,
+   "gain": 0.7
+  },
+  {
+   "kind": "march",
+   "at": 216,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "shouts",
+   "at": 240,
+   "dur": 8,
+   "gain": 0.7
+  },
+  {
+   "kind": "bells",
+   "at": 240,
+   "dur": 6,
+   "gain": 0.5
+  },
+  {
+   "kind": "cheer",
+   "at": 250,
+   "dur": 6,
+   "gain": 0.5
+  },
+  {
+   "kind": "shouts",
+   "at": 286,
+   "dur": 14,
+   "gain": 1.0
+  },
+  {
+   "kind": "cannon",
+   "at": 288,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "gunfire",
+   "at": 288,
+   "dur": 12,
+   "gain": 1.0
+  },
+  {
+   "kind": "rumble",
+   "at": 296,
+   "dur": 4,
+   "gain": 1.0
+  },
+  {
+   "kind": "cheer",
+   "at": 300,
+   "dur": 6,
+   "gain": 1.0
+  },
+  {
+   "kind": "drums",
+   "at": 304,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "shouts",
+   "at": 308,
+   "dur": 4,
+   "gain": 0.6
+  },
+  {
+   "kind": "bells",
+   "at": 318,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "cheer",
+   "at": 320,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "march",
+   "at": 318,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "march",
+   "at": 328,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "drums",
+   "at": 328,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "cheer",
+   "at": 338,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "gunfire",
+   "at": 348,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "shouts",
+   "at": 348,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "cannon",
+   "at": 374,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "wind",
+   "at": 372,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "fire",
+   "at": 384,
+   "dur": 12,
+   "gain": 1.0
+  },
+  {
+   "kind": "gunfire",
+   "at": 386,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "cheer",
+   "at": 400,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "fireworks",
+   "at": 402,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "march",
+   "at": 424,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "drums",
+   "at": 424,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "cheer",
+   "at": 434,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "bells",
+   "at": 436,
+   "dur": 6,
+   "gain": 1.0
+  },
+  {
+   "kind": "march",
+   "at": 444,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "drums",
+   "at": 444,
+   "dur": 8,
+   "gain": 0.6
+  },
+  {
+   "kind": "cheer",
+   "at": 452,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "bells",
+   "at": 452,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "gunfire",
+   "at": 454,
+   "dur": 4,
+   "gain": 0.5
+  },
+  {
+   "kind": "shouts",
+   "at": 462,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "cheer",
+   "at": 506,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "fireworks",
+   "at": 506,
+   "dur": 6,
+   "gain": 1.0
+  },
+  {
+   "kind": "fire",
+   "at": 516,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "siren",
+   "at": 516,
+   "dur": 10,
+   "gain": 0.6
+  },
+  {
+   "kind": "rumble",
+   "at": 522,
+   "dur": 4,
+   "gain": 1.0
+  },
+  {
+   "kind": "cheer",
+   "at": 536,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "fireworks",
+   "at": 536,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "bells",
+   "at": 546,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "fireworks",
+   "at": 640,
+   "dur": 16,
+   "gain": 0.7
+  }
+ ],
+ "music_accents": [
+  22,
+  96,
+  124,
+  242,
+  292,
+  322,
+  386,
+  406,
+  446,
+  456,
+  516,
+  536
+ ],
+ "sample_segments": [
+  [
+   24,
+   1
+  ],
+  [
+   96,
+   1
+  ],
+  [
+   126,
+   1
+  ],
+  [
+   184,
+   1
+  ],
+  [
+   244,
+   1
+  ],
+  [
+   294,
+   1
+  ],
+  [
+   322,
+   1
+  ],
+  [
+   388,
+   1
+  ],
+  [
+   404,
+   1
+  ],
+  [
+   456,
+   1
+  ],
+  [
+   520,
+   1
+  ],
+  [
+   600,
+   1
+  ]
+ ]
+}
