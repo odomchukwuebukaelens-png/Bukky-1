@@ -798,7 +798,8 @@ def year_at(brief, t):
 
 
 def first_time(brief, year, total, fps):
-    for f in range(total):
+    """First moment the timeline reaches a year (ignoring a rewind intro)."""
+    for f in range(int(brief.get("intro_end", 0) * fps), total):
         if year_at(brief, f / fps) >= year:
             return f / fps
     return total / fps

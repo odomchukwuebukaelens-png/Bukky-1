@@ -1196,6 +1196,8 @@ def apply_frame(brief, rig, frame, total):
     for f in rig["fx"]:
         e = f["e"]
         prog = (year - e["from"]) / max(1e-6, e["to"] - e["from"])
+        if t < brief.get("intro_end", 0):
+            prog = -1.0                      # no fires or smoke while time rewinds
         on = 0.0 <= prog <= 1.0
         if f["flames"]:
             f["flames"].hide_render = not (0.0 <= prog <= 0.85)

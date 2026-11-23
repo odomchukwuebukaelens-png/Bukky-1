@@ -92,16 +92,16 @@ class London:
         d = Vector((x, y)).length
         never = 99999
         if zn == "city":
-            return 50 + d * 0.01, 420, 886 + d * 0.05, -500
+            return 50 + d * 0.01, 420, 886 + d * 0.05, 70 + d * 0.02
         if zn == "southwark":
-            return 70, 420, 1000 + d * 0.03, -500
+            return 70, 420, 1000 + d * 0.03, 70 + d * 0.02
         if zn == "strand":
-            return 650, 890, 1550 + d * 0.02, -500
+            return 650, 890, 1550 + d * 0.02, 70 + d * 0.02
         if zn == "westminster":
-            return 1050, never, never, -500
+            return 1050, never, never, 70 + d * 0.02
         if zn == "westend":
-            return 1660 + max(0.0, -x - 2500) * 0.04, never, never, -500
-        return min(1930.0, 1760 + d * 0.025), never, never, -500
+            return 1660 + max(0.0, -x - 2500) * 0.04, never, never, 70 + d * 0.02
+        return min(1930.0, 1760 + d * 0.025), never, never, 70 + d * 0.02
 
 
 # ----------------------------------------------------------------------------

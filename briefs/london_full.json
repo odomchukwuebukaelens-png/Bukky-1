@@ -51,14 +51,22 @@
   "from": 628,
   "to": 648
  },
- "music_build_at": 8,
+ "music_build_at": 9.5,
  "year_keys": [
   [
    0,
+   2026
+  ],
+  [
+   3,
+   2026
+  ],
+  [
+   9,
    43
   ],
   [
-   10,
+   14,
    43
   ],
   [
@@ -277,21 +285,43 @@
     -0.095,
     51.51
    ],
-   "dist": 5200,
-   "height": 2300,
-   "bearing": 20,
-   "look_z": 0
+   "dist": 1500,
+   "height": 480,
+   "bearing": 15,
+   "look_z": 20
   },
   {
-   "t": 10,
+   "t": 3,
    "target": [
     -0.095,
     51.51
    ],
-   "dist": 2400,
-   "height": 950,
-   "bearing": 30,
-   "look_z": 0
+   "dist": 1450,
+   "height": 460,
+   "bearing": 18,
+   "look_z": 20
+  },
+  {
+   "t": 9,
+   "target": [
+    -0.095,
+    51.51
+   ],
+   "dist": 1250,
+   "height": 400,
+   "bearing": 25,
+   "look_z": 20
+  },
+  {
+   "t": 15,
+   "target": [
+    -0.095,
+    51.51
+   ],
+   "dist": 900,
+   "height": 280,
+   "bearing": 40,
+   "look_z": 20
   },
   {
    "t": 18,
@@ -966,8 +996,8 @@
   }
  ],
  "title_card": {
-  "start": 0.5,
-  "end": 8.0,
+  "start": 9.5,
+  "end": 16.5,
   "kicker": "From Roman outpost to world city",
   "title": "London",
   "years": "AD 43 — 2026",
@@ -989,7 +1019,7 @@
    "tag": "AD 43",
    "title": "The Romans arrive",
    "body": "Emperor Claudius sends four legions across the Channel. They cross the Thames near here",
-   "min_time": 8
+   "min_time": 16.5
   },
   {
    "year": 50,
@@ -3222,18 +3252,6 @@
  ],
  "sfx": [
   {
-   "kind": "birds",
-   "at": 0,
-   "dur": 22,
-   "gain": 0.9
-  },
-  {
-   "kind": "water",
-   "at": 0,
-   "dur": 30,
-   "gain": 0.7
-  },
-  {
    "kind": "hammer",
    "at": 20,
    "dur": 14,
@@ -3628,6 +3646,36 @@
    "at": 640,
    "dur": 16,
    "gain": 0.7
+  },
+  {
+   "kind": "traffic",
+   "at": 0,
+   "dur": 5,
+   "gain": 0.8
+  },
+  {
+   "kind": "chatter",
+   "at": 0,
+   "dur": 4,
+   "gain": 0.6
+  },
+  {
+   "kind": "wind",
+   "at": 3,
+   "dur": 7,
+   "gain": 0.8
+  },
+  {
+   "kind": "birds",
+   "at": 8,
+   "dur": 14,
+   "gain": 0.9
+  },
+  {
+   "kind": "water",
+   "at": 8,
+   "dur": 22,
+   "gain": 0.7
   }
  ],
  "music_accents": [
@@ -3691,5 +3739,6 @@
    590,
    1
   ]
- ]
+ ],
+ "intro_end": 9
 }
