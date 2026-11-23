@@ -6,6 +6,7 @@
 #   ./studio run briefs/X.json         - render everything and make the MP4
 #   ./studio sample briefs/X.json [S]  - short sample cut from moments of the full video (S seconds, default 15)
 #   ./studio songs LINK1 LINK2         - download the two background songs from Google Drive
+#   ./studio getsfx                    - download real, freely licensed sound effects (Wikimedia Commons)
 #   ./studio start briefs/X.json       - same as run, but in the background (safe to close the page)
 #   ./studio progress                  - show how far a background render has got
 #   ./studio stop                      - stop a background render
@@ -99,6 +100,12 @@ case "${1:-}" in
     }
     get "${2:?give the Drive link for Packed}" packed.mp3
     get "${3:?give the Drive link for Outside the Box}" outside_the_box.mp3
+    ;;
+  getsfx)
+    # download real, freely licensed sound effects from Wikimedia Commons (about 15-25 minutes)
+    mkdir -p assets/sfx
+    python3 citystudio/fetch_sfx.py assets/sfx
+    [ -f assets/sfx/CREDITS.txt ] && { echo "[city-studio] Paste these credits into the YouTube description:"; cat assets/sfx/CREDITS.txt; }
     ;;
   sfx)
     # ./studio sfx <Google Drive link to a .zip of sound files named by kind, e.g. traffic.mp3>

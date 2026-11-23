@@ -33,14 +33,15 @@ SEARCHES = {
 OK = re.compile(r"^(public domain|pd|cc0|cc by( \d\.\d)?( [a-z]{2})?)$", re.I)
 
 
-def api(params, tries=4):
+def api(params, tries=6):
     url = API + "?" + urllib.parse.urlencode(dict(params, format="json"))
     for k in range(tries):
         r = subprocess.run(["curl", "-sS", "-m", "60", "-A", UA, url], capture_output=True, text=True)
         try:
             return json.loads(r.stdout)
         except ValueError:
-            time.sleep(15 * (k + 1))
+            print("[city-studio] Wikimedia asked us to slow down - waiting %d s" % (30 * (k + 1)), flush=True)
+            time.sleep(30 * (k + 1))
     return {}
 
 
