@@ -57,7 +57,7 @@ def candidates(query):
         artist = re.sub("<[^>]+>", "", m.get("Artist", {}).get("value", "")).strip()
         url = ii.get("url", "")
         size = ii.get("size", 0)
-        ext = url.rsplit(".", 1)[-1].lower()
+        ext = url.split("?", 1)[0].rsplit(".", 1)[-1].lower()
         if not OK.match(lic) or ext not in ("ogg", "oga", "mp3", "wav", "flac", "opus") or not 20_000 < size < 25_000_000:
             continue
         title = p["title"][5:]
