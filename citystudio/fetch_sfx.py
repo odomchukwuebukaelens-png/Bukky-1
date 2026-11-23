@@ -30,6 +30,21 @@ SEARCHES = {
     "drums": ["war drum", "military drum"], "cannon": ["cannon fire", "cannon shot"], "gunfire": ["musket fire", "gunshots"],
     "bomb": ["explosion"], "fire": ["fire crackling", "fire burning"], "rumble": ["thunder rumble", "building collapse"],
 }
+# words that must appear in a file's title for each kind
+KEYWORDS = {
+    "birds": ("bird", "dawn chorus", "songbird", "blackbird", "robin", "thrush"), "water": ("river", "stream", "brook", "creek", "water flow", "flowing water"),
+    "hammer": ("hammer", "carpent", "nailing", "hammering"), "chisel": ("chisel", "stonemason", "stone carving"),
+    "saw": ("saw", "sawing"), "chatter": ("crowd", "chatter", "market", "people talking", "babble", "murmur"),
+    "hooves": ("hoof", "hooves", "horse"), "cart": ("cart", "carriage", "wagon", "horse-drawn", "horse drawn"),
+    "bells": ("bell",), "traffic": ("traffic", "street", "road noise", "cars"), "carhorn": ("horn", "honk"),
+    "scooter": ("moped", "scooter", "vespa", "motorbike", "motorcycle"), "siren": ("siren",),
+    "tram": ("tram", "streetcar", "trolley"), "cheer": ("cheer", "applause", "crowd"), "fireworks": ("firework",),
+    "wind": ("wind",), "rain": ("rain",), "horn": ("ship horn", "foghorn", "fog horn", "ship's horn", "steam whistle", "horn"),
+    "sword": ("sword", "blade", "clash"), "shouts": ("shout", "battle cry", "war cry", "yell", "crowd"),
+    "march": ("march", "footstep", "soldier"), "drums": ("drum",), "cannon": ("cannon", "artillery"),
+    "gunfire": ("gunshot", "gun shot", "gunfire", "musket", "rifle", "shot"), "bomb": ("explosion", "blast", "bomb", "explode"),
+    "fire": ("fire", "crackl", "flame", "burning"), "rumble": ("thunder", "rumble", "collapse"),
+}
 OK = re.compile(r"^(public domain|pd|cc0|cc by( \d\.\d)?( [a-z]{2})?)$", re.I)
 
 
@@ -45,7 +60,7 @@ def api(params, tries=6):
     return {}
 
 
-def candidates(query):
+def candidates(query, want=()):
     d = api({"action": "query", "generator": "search", "gsrsearch": query + " filetype:audio", "gsrnamespace": 6,
              "gsrlimit": 15, "prop": "imageinfo", "iiprop": "url|size|extmetadata|mediatype",
              "iiextmetadatafilter": "LicenseShortName|Artist|LicenseUrl"})
@@ -61,8 +76,11 @@ def candidates(query):
         if not OK.match(lic) or ext not in ("ogg", "oga", "mp3", "wav", "flac", "opus") or not 20_000 < size < 25_000_000:
             continue
         title = p["title"][5:]
-        if re.search(r"(^LL-|pronunc|spoken|voice of|\bword\b|\.mid$)", title, re.I):
+        if re.search(r"(^LL-|pronunc|spoken|voice of|\bword\b|\.mid$|speech|song|music|rag\b|piano|sonata|"
+                     r"symphon|interview|lecture|reading|poem|anthem|march by|sermon|radio|broadcast)", title, re.I):
             continue
+        if not any(w in title.lower() for w in want):
+            continue                       # the title must actually name the sound
         out.append({"title": title, "license": lic, "artist": artist or "unknown", "url": url, "size": size,
                     "ext": ext, "page": "https://commons.wikimedia.org/wiki/" + urllib.parse.quote(p["title"].replace(" ", "_"))})
     out.sort(key=lambda c: (0 if re.match("public|pd|cc0", c["license"], re.I) else 1, -min(c["size"], 3_000_000)))
@@ -91,7 +109,7 @@ def main():
             continue
         got = None
         for q in queries:
-            for c in candidates(q):
+            for c in candidates(q, KEYWORDS.get(kind, tuple(w for w in q.lower().split() if len(w) > 3))):
                 tmp = os.path.join(out, "_dl." + c["ext"])
                 r = subprocess.run(["curl", "-sS", "-m", "300", "-L", "-A", UA, "-o", tmp, c["url"]])
                 if r.returncode or duration(tmp) < 1.5:

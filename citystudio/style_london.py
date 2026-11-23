@@ -40,6 +40,8 @@ def P2(lonlat):
 LONDON_BRIDGE = ((-0.0877, 51.5081), (-0.0868, 51.5049))
 TOWER = (-0.0760, 51.5081)
 STPAULS = (-0.0984, 51.5138)
+# area covered by real building data (metres); beyond it the suburbs are generated
+DATA_X, DATA_Y = (-5950.0, 5100.0), (-3680.0, 2400.0)
 CLEAR = [(-0.0984, 51.5138, 90), (-0.0760, 51.5081, 140), (-0.1275, 51.4994, 80), (-0.1246, 51.4995, 110),
          (-0.0855, 51.5132, 70), (-0.0920, 51.5156, 45), (-0.0865, 51.5045, 45), (-0.0803, 51.5145, 30),
          (-0.0972, 51.5081, 25)]
@@ -373,7 +375,7 @@ def build(brief, plan_unused=None):
                                                                "roof": TILE}, zz))
 
     # --- historic fabric: Roman, medieval timber, post-Fire brick, Georgian ----
-    step_ = 34.0
+    step_ = 40.0
     fr = random.Random(brief["seed"] + 3)
     yy = city.y0
     while yy < city.y0 + ny * res:
@@ -386,7 +388,8 @@ def build(brief, plan_unused=None):
             if any((Vector((px_, py_)) - P2((lo, la))).length < r_ for lo, la, r_ in CLEAR):
                 continue
             zn = city.zone(px_, py_)
-            if zn == "outside" and fr.random() < 0.6:
+            beyond = not (DATA_X[0] < px_ < DATA_X[1] and DATA_Y[0] < py_ < DATA_Y[1])
+            if zn == "outside" and fr.random() < (0.35 if beyond else 0.6):
                 continue
             u, ab, re_, _f = city.eras(px_, py_)
             zz = z(px_, py_)
@@ -411,7 +414,7 @@ def build(brief, plan_unused=None):
                                                                                "roof": fr.choice([(0.32, 0.28, 0.25), (0.50, 0.25, 0.15)])}, zz))
             g0 = 1667.5 + fr.uniform(0, 20) if city.in_fire(px_, py_) else max(u, 1700) + fr.uniform(0, 80)
             if g0 < 1900:                             # brick and stucco terraces
-                g1 = fr.uniform(max(g0 + 40, 1860), 2010)
+                g1 = 99999 if beyond else fr.uniform(max(g0 + 40, 1860), 2010)
                 stucco = zn == "westend" and fr.random() < 0.5
                 put(("geo", int(g0 // 10) * 10, int(g1 // 25) * 25),
                     lambda part, px_=px_, py_=py_, zz=zz, stucco=stucco: part.box(px_, py_, zz, ux, uy, fr.uniform(9, 14), fr.uniform(6, 9),
@@ -741,7 +744,28 @@ def build(brief, plan_unused=None):
     def ground(x, y):
         return max(z(x, y), 0.3)
 
-    return {"proj": lambda lon, lat: proj(lon, lat), "year_text": year_text, "counter": auc, "ground": ground,
+    # height map of tall buildings (with the year they appear) for camera clearance
+    cell = 40.0
+    tall = {}
+    for b in city.data["buildings"]:
+        cx, cy, year, est, h, flat, name = b
+        if h < 35:
+            continue
+        for dx in (-2, -1, 0, 1, 2):
+            for dy in (-2, -1, 0, 1, 2):
+                k = (int(cx // cell) + dx, int(cy // cell) + dy)
+                tall.setdefault(k, []).append((year, h))
+    for extra in ((-0.0865, 51.5045, 2010, 310), (-0.0803, 51.5145, 2002, 180), (-0.0984, 51.5138, 1675, 112)):
+        q = P2(extra[:2])
+        for dx in range(-3, 4):
+            for dy in range(-3, 4):
+                tall.setdefault((int(q.x // cell) + dx, int(q.y // cell) + dy), []).append((extra[2], extra[3]))
+
+    def clearance(x, y, year):
+        hs = [h for yr, h in tall.get((int(x // cell), int(y // cell)), ()) if yr <= year + 3]
+        return ground(x, y) + (max(hs) + 30.0 if hs else 0.0)
+
+    return {"proj": lambda lon, lat: proj(lon, lat), "year_text": year_text, "counter": auc, "ground": ground, "clearance": clearance,
             "before_frame": before,
             "scene": scene, "camera": cam, "animated": animated, "now": now, "labels": labels, "fx": fx,
             "sun": sun, "sky": bg, "night": night, "ships": [], "city": None, "beams": [], "groups": groups,

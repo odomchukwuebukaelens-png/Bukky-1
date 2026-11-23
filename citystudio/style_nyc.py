@@ -1265,6 +1265,8 @@ def apply_frame(brief, rig, frame, total):
     if rig.get("ground"):          # heights in the brief are above the local ground
         loc.z += rig["ground"](loc.x, loc.y)
         look.z += rig["ground"](look.x, look.y)
+    if rig.get("clearance"):       # never fly into a tall building
+        loc.z = max(loc.z, rig["clearance"](loc.x, loc.y, year))
     cam = rig["camera"]
     cam.location = loc
     cam.rotation_euler = (look - loc).to_track_quat("-Z", "Y").to_euler()

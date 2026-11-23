@@ -24,8 +24,8 @@ from shapely.geometry import Point, Polygon
 LAT0, LON0 = 51.5133, -0.0890
 KX = 111320.0 * math.cos(math.radians(LAT0))
 KY = 111132.0
-BOX = (-5600.0, -2600.0, 4800.0, 2400.0)          # x0, y0, x1, y1 in metres
-RES = 12.0
+BOX = (-9000.0, -7000.0, 9000.0, 6500.0)          # x0, y0, x1, y1 in metres
+RES = 18.0
 
 
 def proj(lon, lat):
