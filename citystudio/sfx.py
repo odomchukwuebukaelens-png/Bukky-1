@@ -7,6 +7,8 @@ Everything is synthesised here (no recordings), so there are no licence issues.
 Runs with the normal system Python (needs numpy).
 """
 import json
+import os
+import subprocess
 import sys
 import wave
 
@@ -351,6 +353,30 @@ LEVEL = {"fire": 0.35, "wind": 0.30, "rain": 0.30, "fireworks": 0.45, "cheer": 0
          "gunfire": 0.30, "tram": 0.18, "water": 0.12}
 
 
+REAL_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets", "sfx")
+_real_cache = {}
+
+
+def real_sound(kind):
+    """A recorded sound for this kind, if one was supplied (assets/sfx/<kind>*.mp3|wav), as stereo float."""
+    if kind in _real_cache:
+        return _real_cache[kind]
+    found = None
+    if os.path.isdir(REAL_DIR):
+        for f in sorted(os.listdir(REAL_DIR)):
+            if f.lower().startswith(kind) and f.lower().rsplit(".", 1)[-1] in ("mp3", "wav", "ogg", "m4a", "flac"):
+                found = os.path.join(REAL_DIR, f)
+                break
+    data = None
+    if found:
+        raw = subprocess.run(["ffmpeg", "-v", "error", "-i", found, "-f", "f32le", "-ac", "2", "-ar", str(SR), "-"],
+                             capture_output=True, check=True).stdout
+        data = np.frombuffer(raw, dtype="<f4").reshape(-1, 2).astype(np.float64)
+        data /= max(1e-9, np.max(np.abs(data)))
+    _real_cache[kind] = data
+    return data
+
+
 def build(seconds, events, seed=5):
     rng = np.random.default_rng(seed)
     total = int(seconds * SR)
@@ -363,9 +389,18 @@ def build(seconds, events, seed=5):
         n = min(int(ev["dur"] * SR), total - at)
         if n <= SR // 10:
             continue
+        env = envelope(n, min(1.0, ev["dur"] / 4), min(1.5, ev["dur"] / 3)) * ev.get("gain", 1.0)
+        rec = real_sound(ev["kind"])
+        if rec is not None:
+            reps = int(np.ceil(n / len(rec)))
+            off = int(rng.integers(0, len(rec)))
+            loop = np.roll(np.tile(rec, (reps + 1, 1)), -off, axis=0)[:n]
+            left[at:at + n] += loop[:, 0] * env * 0.55
+            right[at:at + n] += loop[:, 1] * env * 0.55
+            continue
         sig = KINDS[ev["kind"]](n, rng)
         sig = sig / max(1e-9, np.max(np.abs(sig)))
-        sig *= envelope(n, min(1.0, ev["dur"] / 4), min(1.5, ev["dur"] / 3)) * LEVEL[ev["kind"]] * ev.get("gain", 1.0)
+        sig *= env * LEVEL[ev["kind"]]
         pan = rng.uniform(-0.3, 0.3)
         left[at:at + n] += sig * (1 - pan)
         right[at:at + n] += sig * (1 + pan)

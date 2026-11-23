@@ -367,8 +367,8 @@ def compose_atlas(img, data):
             L.text((left, X(634) + i * X(24)), line, bf, soft, a, "ls")
 
     # place labels: amber ring and text to the right
-    lf = font("Lato-Bold.ttf", int(X(14)))
-    label_col = tuple(data.get("label_color") or (255, 214, 10))   # bright yellow by default
+    lf = font("LeagueSpartan-Bold.otf", int(X(17)))
+    label_col = tuple(data.get("label_color") or (255, 255, 255))   # bold white with a dark outline
     for lb in data.get("labels", []):
         a = lb["alpha"]
         if a <= 0.003:
@@ -378,8 +378,11 @@ def compose_atlas(img, data):
         L.ds.ellipse([px - r + 1, py - r + 1, px + r + 1, py + r + 1], outline=(0, 0, 0, int(160 * a)),
                      width=max(1, int(X(2))))
         L.dt.ellipse([px - r, py - r, px + r, py + r], outline=(*amber, int(255 * a)), width=max(1, int(X(2))))
-        L.dt.ellipse([px - X(1.4), py - X(1.4), px + X(1.4), py + X(1.4)], fill=(*label_col, int(255 * a)))
-        L.text((px + X(9), py), lb["text"].upper(), lf, label_col, a, "lm", spacing=X(1.0), shadow=1.0)
+        L.dt.ellipse([px - X(1.6), py - X(1.6), px + X(1.6), py + X(1.6)], fill=(255, 255, 255, int(255 * a)))
+        L.ds.text((px + X(10.5), py + X(1.5)), lb["text"].upper(), font=lf, fill=(0, 0, 0, int(200 * a)), anchor="lm",
+                  stroke_width=max(1, int(X(2.5))), stroke_fill=(0, 0, 0, int(200 * a)))
+        L.dt.text((px + X(9), py), lb["text"].upper(), font=lf, fill=(*label_col, int(255 * a)), anchor="lm",
+                  stroke_width=max(1, int(X(1.6))), stroke_fill=(10, 10, 12, int(235 * a)))
 
     # bottom right: compass arrow and fine print
     cx, cy = right - X(10), H - X(62)

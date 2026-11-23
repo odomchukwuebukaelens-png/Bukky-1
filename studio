@@ -100,6 +100,16 @@ case "${1:-}" in
     get "${2:?give the Drive link for Packed}" packed.mp3
     get "${3:?give the Drive link for Outside the Box}" outside_the_box.mp3
     ;;
+  sfx)
+    # ./studio sfx <Google Drive link to a .zip of sound files named by kind, e.g. traffic.mp3>
+    mkdir -p assets/sfx
+    id=$(echo "${2:?give the Drive link to the zip}" | sed -E 's#.*/d/([^/?]+).*#\1#; s#.*[?&]id=([^&]+).*#\1#')
+    curl -fsSL --retry 3 -o assets/sfx.zip "https://drive.usercontent.google.com/download?id=$id&export=download&confirm=t" \
+      || { echo "[city-studio] Download failed - is the zip shared as 'Anyone with the link'?"; exit 1; }
+    python3 -c "import zipfile,os; z=zipfile.ZipFile('assets/sfx.zip'); [open(os.path.join('assets/sfx', os.path.basename(n).lower()), 'wb').write(z.read(n)) for n in z.namelist() if os.path.basename(n)]"
+    rm -f assets/sfx.zip
+    echo "[city-studio] Sound files ready:"; ls assets/sfx
+    ;;
   sample)
     need_blender
     BRIEF="${2:?give a brief file}"
