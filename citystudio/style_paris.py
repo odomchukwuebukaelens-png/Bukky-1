@@ -371,6 +371,8 @@ def build(brief, plan_unused=None):
     for b in city.data["buildings"]:
         cx, cy, year, est, h, flat, name = b
         pts = [(flat[i], flat[i + 1]) for i in range(0, len(flat), 2)]
+        if not city.is_land(cx, cy):
+            continue
         zz = z(cx, cy) - 0.5
         grow = 3.0
         start = year
@@ -404,7 +406,7 @@ def build(brief, plan_unused=None):
         while xx < city.x0 + nx * res:
             px_, py_ = xx + fr.uniform(-8, 8), yy + fr.uniform(-8, 8)
             xx += step_
-            if not city.is_land(px_, py_):
+            if not all(city.is_land(px_ + ox, py_ + oy) for ox, oy in ((0, 0), (12, 0), (-12, 0), (0, 12), (0, -12))):
                 continue
             if any((Vector((px_, py_)) - P2((lo, la))).length < r_ for lo, la, r_ in CLEAR):
                 continue
@@ -471,8 +473,29 @@ def build(brief, plan_unused=None):
         p = P2(lonlat)
         return p.x, p.y, z(p.x, p.y)
 
+    def fit_span(a, b):
+        """Stretch a bridge so it runs from bank to bank of the river as drawn."""
+        m = (a + b) / 2
+        u = (b - a).normalized()
+        if city.is_land(m.x, m.y):
+            best = None
+            for k in range(-40, 41):                     # find the water nearest the given middle
+                q = m + u * (k * 5.0)
+                if not city.is_land(q.x, q.y) and (best is None or abs(k) < abs(best)):
+                    best = k
+            if best is None:
+                return a, b
+            m = m + u * (best * 5.0)
+        ends = []
+        for sgn in (-1, 1):
+            t = 0.0
+            while t < 600 and not city.is_land(m.x + u.x * sgn * t, m.y + u.y * sgn * t):
+                t += 3.0
+            ends.append(m + u * sgn * (t + 14.0))        # rest 14 m onto the bank
+        return ends[0], ends[1]
+
     def bridge(p, a, b, z_deck, w, col_, houses=False, arches=True):
-        a, b = P2(a), P2(b)
+        a, b = fit_span(P2(a), P2(b))
         d = b - a
         u = d.normalized()
         v = Vector((-u.y, u.x))

@@ -222,9 +222,16 @@ def main():
         return ((p[0] - x0) / RES, (y0 + ny * RES - p[1]) / RES)
     for poly in polys:
         d.polygon([px(p) for p in poly], fill=255)
+    # centre lines fill any stretch of river the outlines do not cover
+    lmask = Image.new("L", (nx, ny), 0)
+    ld = ImageDraw.Draw(lmask)
     for line in lines:
-        d.line([px(p) for p in line], fill=255, width=int(200 / RES))
+        ld.line([px(p) for p in line], fill=255, width=int(230 / RES))
     water = np.array(water) > 127
+    near = water.copy()
+    for _ in range(int(150 / RES)):                    # within 150 m of a drawn outline
+        near = near | np.roll(near, 1, 0) | np.roll(near, -1, 0) | np.roll(near, 1, 1) | np.roll(near, -1, 1)
+    water = water | ((np.array(lmask) > 127) & ~near)
     land = ~water
     elev = np.where(water, -2.0, np.maximum(elev, 0.6))
     shore = shore_distance(land, RES)
