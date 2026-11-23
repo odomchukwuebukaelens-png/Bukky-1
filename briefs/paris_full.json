@@ -3219,8 +3219,8 @@
    "radius": 90,
    "from": 1789.535,
    "to": 1789.6,
-   "blobs": 35,
-   "size": 0.35
+   "blobs": 25,
+   "size": 0.2
   },
   {
    "kind": "fire",
@@ -3251,8 +3251,8 @@
    "radius": 120,
    "from": 1968.38,
    "to": 1968.42,
-   "blobs": 35,
-   "size": 0.35
+   "blobs": 25,
+   "size": 0.2
   },
   {
    "kind": "fire",

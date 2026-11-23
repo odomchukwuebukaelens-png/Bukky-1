@@ -170,7 +170,7 @@ def terrain_material():
     farmed = m(nt, "MULTIPLY", step(farm_at), H.smooth(nt, pick.outputs[1], 0.1, 0.14))
     urban = m(nt, "ADD", m(nt, "MULTIPLY", step(urban_at), m(nt, "SUBTRACT", 1.0, step(abandon_at))),
               step(reurban_at), clamp=True)
-    town = H.mix_rgb(nt, tex(0.06), (0.38, 0.32, 0.24), (0.32, 0.27, 0.21))
+    town = H.mix_rgb(nt, tex(0.06), (0.17, 0.26, 0.08), (0.24, 0.30, 0.11))   # gardens and courtyards stay green
     ruin_field = m(nt, "MULTIPLY", step(abandon_at), m(nt, "SUBTRACT", 1.0, step(reurban_at)))
     vineyard = H.mix_rgb(nt, tex(0.3, 2), (0.30, 0.32, 0.12), (0.38, 0.33, 0.18))
     land = H.mix_rgb(nt, farmed, wild, ramp.outputs["Color"])
@@ -356,6 +356,17 @@ def build(brief, plan_unused=None):
         part = bins.setdefault(key, N.Partsc())
         fn(part)
 
+    OCC = 12.0
+    occupied = {}
+
+    def occupy(x, y, year, radius=8.0):
+        r = int(radius // OCC) + 1
+        for dx in range(-r, r + 1):
+            for dy in range(-r, r + 1):
+                k = (int((x // OCC) + dx), int((y // OCC) + dy))
+                if year < occupied.get(k, 1e9):
+                    occupied[k] = year
+
     # --- today's buildings (estimated dates) and their predecessors --------
     for b in city.data["buildings"]:
         cx, cy, year, est, h, flat, name = b
@@ -370,6 +381,7 @@ def build(brief, plan_unused=None):
         wall = rng.choice(MODERN) if modern else rng.choice(LIMESTONE)
         roof = rng.choice(ZINC) if 1800 <= year < 1950 else rng.choice([SLATE, (0.62, 0.30, 0.18)])
         key = ("bld", int(start // 2) * 2, int(grow))
+        occupy(cx, cy, start, 10.0)
         if h < 32 and not modern:
             put(key, lambda part, pts=pts, zz=zz, h=h, wall=wall, roof=roof: N.extrude_roofed(part, pts, zz, h, wall, 0.6, roof))
         else:
@@ -405,12 +417,14 @@ def build(brief, plan_unused=None):
             yaw = fr.uniform(-0.3, 0.3)
             ux, uy = (math.cos(yaw), math.sin(yaw)), (-math.sin(yaw), math.cos(yaw))
             if zn == "cite":                          # the Parisii's huts
+                occupy(px_, py_, -250, 6.0)
                 put(("gal", -250, 25), lambda part, px_=px_, py_=py_, zz=zz: part.house(
                     {"x": px_, "y": py_, "ux": ux, "uy": uy, "d": 7, "w": 6, "h": 4.5, "hip": True,
                      "wall": (0.48, 0.36, 0.24), "roof": (0.62, 0.52, 0.30)}, zz))
             if zn in ("cite", "left"):                # Roman Lutetia
                 a0 = max(u, 0) + fr.uniform(10, 120)
                 a1 = (ab if ab < 9000 else 500) + fr.uniform(-30, 20)
+                occupy(px_, py_, a0, 9.0)
                 put(("rom", int(a0 // 25) * 25, int(a1 // 25) * 25),
                     lambda part, px_=px_, py_=py_, zz=zz: part.house({"x": px_, "y": py_, "ux": ux, "uy": uy, "hip": True,
                                                                        "d": fr.uniform(10, 16), "w": fr.uniform(7, 11),
@@ -420,6 +434,7 @@ def build(brief, plan_unused=None):
                 m0 = (re_ if re_ < 9000 else max(u, 500)) + fr.uniform(0, 150)
                 if m0 < 1700:
                     m1 = fr.uniform(1853, 1880) if zn in ("haussmann", "charles", "philippe", "left") else fr.uniform(1750, 1900)
+                    occupy(px_, py_, m0, 8.0)
                     put(("med", int(m0 // 25) * 25, int(m1 // 5) * 5),
                         lambda part, px_=px_, py_=py_, zz=zz: part.house({"x": px_, "y": py_, "ux": ux, "uy": uy,
                                                                            "hip": fr.random() < 0.5,
@@ -429,6 +444,7 @@ def build(brief, plan_unused=None):
             g0 = max(u, 1640) + fr.uniform(0, 120)
             if g0 < 1880 and (zn in ("haussmann", "outside") or beyond):
                 g1 = 99999 if beyond else fr.uniform(1855, 1900)
+                occupy(px_, py_, g0, 9.0)
                 put(("geo", int(g0 // 10) * 10, int(g1 // 25) * 25),
                     lambda part, px_=px_, py_=py_, zz=zz: part.house({"x": px_, "y": py_, "ux": ux, "uy": uy, "hip": True,
                                                                        "d": fr.uniform(12, 16), "w": fr.uniform(9, 12),
@@ -673,19 +689,53 @@ def build(brief, plan_unused=None):
         elif kind in ("med", "rep", "imp", "tow", "rom", "geo", "gal"):
             animated.append({"ob": ob, "year": key[1], "grow": 3.0, "gone": key[2] + 12.5, "fade": 15.0})
 
-    # trees: forest on hills and riverbanks, cleared by farms/town
+    # streets from the map data, appearing as each district is built up
+    sb = {}
+    for name, w, flat in city.data.get("roads", []):
+        pts = [Vector((flat[i], flat[i + 1])) for i in range(0, len(flat), 2)]
+        for a, b in zip(pts, pts[1:]):
+            m = (a + b) / 2
+            if not (DATA_X[0] < m.x < DATA_X[1] and DATA_Y[0] < m.y < DATA_Y[1]) or not city.is_land(m.x, m.y):
+                continue
+            d = b - a
+            if d.length < 1.0:
+                continue
+            u_, ab_, re_, _f = city.eras(m.x, m.y)
+            yr = max((re_ if (ab_ < 9000 and re_ < 9000) else u_) + 5, 1120 + (m.length * 0.04))
+            if yr > 2030:
+                continue
+            nrm = Vector((-d.y, d.x)).normalized() * (w / 2)
+            zz = z(m.x, m.y) + 0.35
+            sb.setdefault(int(yr // 10) * 10, N.Partsc()).add(
+                [(*(a - nrm), zz), (*(b - nrm), zz), (*(b + nrm), zz), (*(a + nrm), zz)], [(0, 1, 2, 3)],
+                [(0.56, 0.52, 0.46, 0.0) if yr < 1850 else (0.40, 0.40, 0.42, 0.0)])
+            steps = max(1, int(d.length / OCC))
+            for k in range(steps + 1):
+                q = a + d * (k / steps)
+                occupy(q.x, q.y, yr, w / 2 + 2)
+    for yr, part in sb.items():
+        animated.append({"ob": part.to_object("streets_%d" % yr, painted, col), "year": yr, "grow": 0.0, "gone": None})
+
+    # trees: they stay until a building or a street is put on their own plot
     ico_v, ico_f = H.ico_template()
     tb = {}
     tr = random.Random(9)
-    for _ in range(26000):
-        x_, y_ = tr.uniform(city.x0, city.x0 + nx * res), tr.uniform(city.y0, city.y0 + ny * res)
+    for k_ in range(90000):
+        if k_ % 2:      # half the trees within the detailed city area
+            x_, y_ = tr.uniform(DATA_X[0], DATA_X[1]), tr.uniform(DATA_Y[0], DATA_Y[1])
+        else:
+            x_, y_ = tr.uniform(city.x0, city.x0 + nx * res), tr.uniform(city.y0, city.y0 + ny * res)
         if not city.is_land(x_, y_):
             continue
         fo = 0.5 + 0.7 * mnoise.noise(Vector((x_ / 650.0 + 3.1, y_ / 650.0 - 1.7, 0.4)))
-        if fo < 0.5:
+        if fo < 0.35:
             continue
         u, ab, re_, farm = city.eras(x_, y_)
-        gone = min(u, farm + tr.uniform(0, 600))
+        built = occupied.get((int(x_ // OCC), int(y_ // OCC)), 99999)
+        if fo < 0.55:
+            gone = built                                  # hedgerows and garden trees
+        else:
+            gone = min(built, farm + tr.uniform(0, 900) if tr.random() < 0.4 else 99999)
         back = ab + tr.uniform(20, 200) if ab < 9000 else 99999      # trees return in the abandoned city
         back_gone = re_ if back < 9000 else 99999
         r = tr.uniform(4, 7)
