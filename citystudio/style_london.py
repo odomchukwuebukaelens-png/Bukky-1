@@ -362,6 +362,44 @@ def build(brief, plan_unused=None):
                 if year < occupied.get(k, 1e9):
                     occupied[k] = year
 
+    # --- fire and bomb damage: buildings standing in a burnt or bombed area are
+    # blackened and reduced to ruins, then (for some events) rebuilt later
+    CHAR = (0.07, 0.06, 0.05, 0.0)
+    burns = []
+    for e in brief.get("fx", []):
+        if e.get("destroy", 0) <= 0:
+            continue
+        burns.append({"c": P2(e["ll"]), "r": e["radius"], "t": e["from"] + 0.6 * (e["to"] - e["from"]),
+                      "p": e["destroy"], "ruin": e.get("ruin", 0.3), "rebuild": e.get("rebuild", 10.0),
+                      "zone": e.get("zone")})
+    dr = random.Random(brief["seed"] + 51)
+
+    def damage(x, y, start, end):
+        for bn in burns:
+            if not (start < bn["t"] < end):
+                continue
+            hit = (Vector((x, y)) - bn["c"]).length < bn["r"]
+            if not hit and bn["zone"] == "fire":
+                hit = city.in_fire(x, y)
+            if hit and dr.random() < bn["p"]:
+                return bn
+        return None
+
+    def place(kind, start, end, x, y, zz, ux, uy, d, w, h, wall, roof, shape="house", bucket=25):
+        """A generated building that may burn or be bombed during its life."""
+        def draw(part, hh, col_, rf, sh):
+            if sh == "house":
+                part.house({"x": x, "y": y, "ux": ux, "uy": uy, "d": d, "w": w, "h": hh, "wall": col_, "roof": rf}, zz)
+            else:
+                part.box(x, y, zz, ux, uy, d / 2, w / 2, hh, (*col_, 0.6), top=(*rf, 0.0))
+        bn = damage(x, y, start, end)
+        if bn is None:
+            put((kind, int(start // bucket) * bucket, int(end // bucket) * bucket), lambda part: draw(part, h, wall, roof, shape))
+            return
+        put((kind + "_b", int(start // bucket) * bucket, round(bn["t"], 3)), lambda part: draw(part, h, wall, roof, shape))
+        put(("shell", round(bn["t"], 3), int(bn["t"] + bn["rebuild"])),
+            lambda part: part.box(x, y, zz, ux, uy, d / 2, w / 2, h * bn["ruin"] * dr.uniform(0.6, 1.4), CHAR))
+
     # --- today's buildings (estimated dates) and their predecessors --------
     for b in city.data["buildings"]:
         cx, cy, year, est, h, flat, name = b
@@ -379,9 +417,21 @@ def build(brief, plan_unused=None):
         wall = rng.choice(BRICKS) if year < 1900 else rng.choice(BRICKS + MODERN)
         if name and year < 1950:
             wall = PORTLAND
-        key = ("bld", int(start // 2) * 2, int(grow))
+        win = 0.0 if (name and year < 1800) else 0.55       # old stone landmarks: no office-style window grid
         occupy(cx, cy, start, 10.0)
-        put(key, lambda part, pts=pts, zz=zz, h=h, wall=wall: N.extrude(part, pts, zz, h, wall, 0.55, (0.55, 0.22, 0.12)))
+        bn = damage(cx, cy, start, 99999)
+        if bn is None:
+            put(("bld", int(start // 2) * 2, int(grow), 99999),
+                lambda part, pts=pts, zz=zz, h=h, wall=wall, win=win: N.extrude(part, pts, zz, h, wall, win, (0.55, 0.22, 0.12)))
+        else:
+            t_, back = bn["t"], int(bn["t"] + bn["rebuild"] * dr.uniform(0.8, 1.6))
+            put(("bld", int(start // 2) * 2, int(grow), round(t_, 3)),
+                lambda part, pts=pts, zz=zz, h=h, wall=wall, win=win: N.extrude(part, pts, zz, h, wall, win, (0.55, 0.22, 0.12)))
+            put(("shell", round(t_, 3), back),
+                lambda part, pts=pts, zz=zz, h=h: N.extrude(part, pts, zz, max(3.0, h * bn["ruin"] * dr.uniform(0.5, 1.3)),
+                                                            CHAR[:3], 0.0, roof=CHAR[:3]))
+            put(("bld", back, 3, 99999),
+                lambda part, pts=pts, zz=zz, h=h, wall=wall, win=win: N.extrude(part, pts, zz, h, wall, win, (0.55, 0.22, 0.12)))
         zn = city.zone(cx, cy)
         if False:
             m0 = 0
@@ -415,32 +465,23 @@ def build(brief, plan_unused=None):
             if zn in ("city", "southwark"):          # Roman Londinium
                 a0, a1 = u + fr.uniform(0, 120), ab + fr.uniform(-30, 20)
                 occupy(px_, py_, a0, 9.0)
-                put(("rom", int(a0 // 25) * 25, int(a1 // 25) * 25),
-                    lambda part, px_=px_, py_=py_, zz=zz: part.house({"x": px_, "y": py_, "ux": ux, "uy": uy,
-                                                                       "d": fr.uniform(10, 16), "w": fr.uniform(7, 11),
-                                                                       "h": fr.uniform(5, 8), "wall": (0.86, 0.80, 0.66),
-                                                                       "roof": TILE}, zz))
+                place("rom", a0, a1, px_, py_, zz, ux, uy, fr.uniform(10, 16), fr.uniform(7, 11), fr.uniform(5, 8),
+                      (0.86, 0.80, 0.66), TILE)
             if zn != "outside":                       # medieval / Tudor timber houses
                 m0 = (re_ if re_ < 9000 else u) + fr.uniform(0, 200)
                 if m0 < 1680:
-                    m1 = 1666.72 if city.in_fire(px_, py_) else fr.uniform(1700, 1880)
+                    m1 = 1666.8 if city.in_fire(px_, py_) else fr.uniform(1700, 1880)
                     if m1 > m0 + 5:
                         occupy(px_, py_, m0, 8.0)
-                        put(("med", int(m0 // 25) * 25, int(m1 // 5) * 5),
-                            lambda part, px_=px_, py_=py_, zz=zz: part.house({"x": px_, "y": py_, "ux": ux, "uy": uy,
-                                                                               "d": fr.uniform(8, 12), "w": fr.uniform(5, 8),
-                                                                               "h": fr.uniform(9, 14), "wall": fr.choice(TIMBER),
-                                                                               "roof": fr.choice([(0.32, 0.28, 0.25), (0.50, 0.25, 0.15)])}, zz))
+                        place("med", m0, m1, px_, py_, zz, ux, uy, fr.uniform(8, 12), fr.uniform(5, 8), fr.uniform(9, 14),
+                              fr.choice(TIMBER), fr.choice([(0.32, 0.28, 0.25), (0.50, 0.25, 0.15)]))
             g0 = 1667.5 + fr.uniform(0, 20) if city.in_fire(px_, py_) else max(u, 1700) + fr.uniform(0, 80)
             if g0 < 1900:                             # brick and stucco terraces
                 g1 = 99999 if beyond else fr.uniform(max(g0 + 40, 1860), 2010)
                 stucco = zn == "westend" and fr.random() < 0.5
                 occupy(px_, py_, g0, 9.0)
-                put(("geo", int(g0 // 10) * 10, int(g1 // 25) * 25),
-                    lambda part, px_=px_, py_=py_, zz=zz, stucco=stucco: part.box(px_, py_, zz, ux, uy, fr.uniform(9, 14), fr.uniform(6, 9),
-                                                                                  fr.uniform(12, 18),
-                                                                                  ((0.92, 0.90, 0.84, 0.6) if stucco else (*fr.choice(BRICKS[:3]), 0.6)),
-                                                                                  top=(*SLATE, 0.0)))
+                place("geo", g0, g1, px_, py_, zz, ux, uy, fr.uniform(18, 28), fr.uniform(12, 18), fr.uniform(12, 18),
+                      (0.92, 0.90, 0.84) if stucco else fr.choice(BRICKS[:3]), SLATE, shape="box", bucket=10)
         yy += step_
 
     # --- monuments ------------------------------------------------------------
@@ -496,14 +537,28 @@ def build(brief, plan_unused=None):
                 p.box(q.x, q.y, -3, tuple(u), tuple(v), 3.5, w / 2 + 1.5, z_deck + 3, col_)
         if houses:
             hr = random.Random(41)
-            t = 12.0
-            while t < d.length - 12:
-                if hr.random() < 0.8:
-                    for sd in (-1, 1):
-                        q = a + u * t + v * sd * (w / 2 - 3.5)
-                        p.box(q.x, q.y, z_deck + 2.5, tuple(u), tuple(v), hr.uniform(3, 5), 3.2, hr.uniform(9, 14),
-                              (*hr.choice(TIMBER), 0.0), top=((0.40, 0.22, 0.14, 0.0)))
-                t += hr.uniform(8, 12)
+            t = 14.0
+            while t < d.length - 14:
+                gap = hr.uniform(7.5, 10.5)
+                if abs(t - d.length * 0.5) < 9:            # the chapel of St Thomas in the middle
+                    q = a + u * t + v * (w / 2 - 6)
+                    p.house({"x": q.x, "y": q.y, "ux": tuple(u), "uy": tuple(v), "d": 18, "w": 9, "h": 15,
+                             "wall": (0.78, 0.74, 0.64), "roof": (0.30, 0.30, 0.33)}, z_deck + 2.5)
+                    t += 20
+                    continue
+                if abs(t - d.length * 0.2) < 6:            # an open gap to the river
+                    t += 12
+                    continue
+                for sd in (-1, 1):
+                    q = a + u * (t + gap / 2) + v * sd * (w / 2 - 2.6)
+                    p.house({"x": q.x, "y": q.y, "ux": tuple(v), "uy": tuple(u), "d": 6.2, "w": gap - 0.6,
+                             "h": hr.uniform(11, 16), "wall": hr.choice(TIMBER + [(0.70, 0.52, 0.34)]),
+                             "roof": hr.choice([(0.30, 0.28, 0.26), (0.52, 0.26, 0.15), (0.40, 0.36, 0.32)])},
+                            z_deck + 2.5)
+                t += gap
+            for f in (0.08, 0.86):                          # gatehouses at both ends
+                q = a + u * (d.length * f)
+                p.box(q.x, q.y, z_deck + 2.5, tuple(u), tuple(v), 5, w / 2 + 1, 16, (*STONE, 0.0), top=((0.30, 0.30, 0.33, 0.0)))
 
     # Roman Londinium: wooden bridge, forum, amphitheatre, the wall
     mon("RomanBridge", 52, 420, lambda p: bridge(p, LONDON_BRIDGE[0], LONDON_BRIDGE[1], 5, 7, (0.40, 0.30, 0.20, 0.0)), 2)
@@ -652,7 +707,12 @@ def build(brief, plan_unused=None):
         ob = part.to_object("_".join(str(k) for k in key), facade if key[0] in ("bld", "imp") else painted, col)
         kind = key[0]
         if kind == "bld":
-            animated.append({"ob": ob, "year": key[1], "grow": max(2.0, key[2]), "gone": None})
+            animated.append({"ob": ob, "year": key[1], "grow": max(2.0, key[2]),
+                             "gone": None if key[3] >= 99999 else key[3], "fade": 0.004})
+        elif kind.endswith("_b"):                       # burnt or bombed: vanish at the moment of the fire
+            animated.append({"ob": ob, "year": key[1], "grow": 3.0, "gone": key[2], "fade": 0.004})
+        elif kind == "shell":                           # blackened ruins until rebuilt
+            animated.append({"ob": ob, "year": key[1], "grow": 0.0, "gone": key[2], "fade": 2.0})
         elif kind in ("med", "rep", "imp", "tow", "rom", "geo"):
             animated.append({"ob": ob, "year": key[1], "grow": 3.0, "gone": key[2] + 12.5, "fade": 15.0})
 

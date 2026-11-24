@@ -516,10 +516,10 @@
     -0.0873,
     51.5065
    ],
-   "dist": 138,
-   "height": 80,
+   "dist": 170,
+   "height": 60,
    "bearing": 280,
-   "look_z": 8
+   "look_z": 14
   },
   {
    "t": 198,
@@ -538,10 +538,10 @@
     -0.0873,
     51.5065
    ],
-   "dist": 156,
-   "height": 90,
+   "dist": 170,
+   "height": 60,
    "bearing": 330,
-   "look_z": 8
+   "look_z": 14
   },
   {
    "t": 218,
@@ -549,10 +549,10 @@
     -0.0984,
     51.5138
    ],
-   "dist": 228,
-   "height": 132,
+   "dist": 340,
+   "height": 150,
    "bearing": 120,
-   "look_z": 30
+   "look_z": 50
   },
   {
    "t": 228,
@@ -560,10 +560,10 @@
     -0.0984,
     51.5138
    ],
-   "dist": 180,
-   "height": 104,
+   "dist": 340,
+   "height": 150,
    "bearing": 160,
-   "look_z": 30
+   "look_z": 50
   },
   {
    "t": 238,
@@ -626,10 +626,10 @@
     -0.0984,
     51.5138
    ],
-   "dist": 312,
+   "dist": 340,
    "height": 181,
    "bearing": 280,
-   "look_z": 30
+   "look_z": 50
   },
   {
    "t": 298,
@@ -670,10 +670,10 @@
     -0.0984,
     51.5138
    ],
-   "dist": 168,
-   "height": 97,
+   "dist": 340,
+   "height": 150,
    "bearing": 140,
-   "look_z": 30
+   "look_z": 50
   },
   {
    "t": 338,
@@ -681,10 +681,10 @@
     -0.0984,
     51.5138
    ],
-   "dist": 156,
-   "height": 90,
+   "dist": 340,
+   "height": 150,
    "bearing": 100,
-   "look_z": 30
+   "look_z": 50
   },
   {
    "t": 348,
@@ -780,10 +780,10 @@
     -0.0984,
     51.5138
    ],
-   "dist": 300,
+   "dist": 340,
    "height": 174,
    "bearing": 30,
-   "look_z": 30
+   "look_z": 50
   },
   {
    "t": 442,
@@ -813,10 +813,10 @@
     -0.0984,
     51.5138
    ],
-   "dist": 204,
-   "height": 118,
+   "dist": 340,
+   "height": 150,
    "bearing": 200,
-   "look_z": 30
+   "look_z": 50
   },
   {
    "t": 472,
@@ -967,10 +967,10 @@
     -0.0984,
     51.5138
    ],
-   "dist": 204,
-   "height": 118,
+   "dist": 340,
+   "height": 150,
    "bearing": 150,
-   "look_z": 30
+   "look_z": 50
   },
   {
    "t": 632,
@@ -1772,11 +1772,6 @@
    "at": "wall"
   },
   {
-   "text": "London Bridge",
-   "from": 50,
-   "at": "bridge"
-  },
-  {
    "text": "Lundenwic",
    "from": 600,
    "until": 890,
@@ -1914,6 +1909,23 @@
     51.5007,
     105
    ]
+  },
+  {
+   "text": "London Bridge",
+   "from": 50,
+   "until": 1209,
+   "at": "bridge"
+  },
+  {
+   "text": "Old London Bridge",
+   "from": 1209,
+   "until": 1831,
+   "at": "bridge"
+  },
+  {
+   "text": "London Bridge",
+   "from": 1831,
+   "at": "bridge"
   }
  ],
  "groups": [
@@ -3056,7 +3068,10 @@
    ],
    "radius": 420,
    "from": 60.8,
-   "to": 61.05
+   "to": 61.05,
+   "destroy": 1.0,
+   "ruin": 0.25,
+   "rebuild": 8
   },
   {
    "kind": "fire",
@@ -3066,7 +3081,10 @@
    ],
    "radius": 220,
    "from": 842.35,
-   "to": 842.6
+   "to": 842.6,
+   "destroy": 0.6,
+   "ruin": 0.3,
+   "rebuild": 30
   },
   {
    "kind": "fire",
@@ -3076,7 +3094,10 @@
    ],
    "radius": 250,
    "from": 1666.665,
-   "to": 1666.69
+   "to": 1666.69,
+   "destroy": 0.95,
+   "ruin": 0.3,
+   "rebuild": 5
   },
   {
    "kind": "fire",
@@ -3087,7 +3108,11 @@
    "radius": 650,
    "from": 1666.68,
    "to": 1666.725,
-   "blobs": 70
+   "blobs": 70,
+   "destroy": 0.95,
+   "ruin": 0.3,
+   "rebuild": 5,
+   "zone": "fire"
   },
   {
    "kind": "fire",
@@ -3097,7 +3122,10 @@
    ],
    "radius": 420,
    "from": 1666.69,
-   "to": 1666.73
+   "to": 1666.73,
+   "destroy": 0.95,
+   "ruin": 0.3,
+   "rebuild": 5
   },
   {
    "kind": "fire",
@@ -3117,7 +3145,10 @@
    ],
    "radius": 400,
    "from": 1940.68,
-   "to": 1940.72
+   "to": 1940.72,
+   "destroy": 0.35,
+   "ruin": 0.5,
+   "rebuild": 15
   },
   {
    "kind": "fire",
@@ -3128,7 +3159,10 @@
    "radius": 520,
    "from": 1940.97,
    "to": 1941.0,
-   "blobs": 70
+   "blobs": 70,
+   "destroy": 0.45,
+   "ruin": 0.45,
+   "rebuild": 18
   },
   {
    "kind": "dust",
@@ -3138,7 +3172,10 @@
    ],
    "radius": 200,
    "from": 1940.75,
-   "to": 1940.9
+   "to": 1940.9,
+   "destroy": 0.3,
+   "ruin": 0.6,
+   "rebuild": 15
   }
  ],
  "fireworks": [

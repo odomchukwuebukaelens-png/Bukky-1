@@ -25,7 +25,7 @@ def garden_trees(plots, occupied, cell, is_land, rng, limit=110000, max_per_plot
                 continue
             start = year + rng.uniform(2.0, 12.0)
             taken = occupied.get((int(px // cell), int(py // cell)), 99999)
-            if taken <= start:
-                continue                       # that spot is already built on
-            out.append((px, py, rng.uniform(2.6, 4.6), start, taken))
+            if taken < year - 0.5:
+                continue                       # something older already stands on that spot
+            out.append((px, py, rng.uniform(2.6, 4.6), start, taken if taken > start else 99999))
     return out
