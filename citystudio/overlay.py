@@ -355,6 +355,8 @@ def compose_atlas(img, data):
     amber, white = (236, 170, 40), (255, 255, 255)
     left, right = X(56), W - X(56)
     HEAVY, BOLD = "LeagueSpartan-Bold.otf", "Lato-Black.ttf"
+    panel_img = Image.new("RGBA", img.size, (0, 0, 0, 0))   # dark panels behind every text
+    PANEL = ImageDraw.Draw(panel_img)
 
     def bold(xy, text, size, anchor="la", alpha=1.0, face=BOLD, spacing=0.0, outline=2.2):
         if alpha <= 0.003 or not text:
@@ -363,6 +365,16 @@ def compose_atlas(img, data):
         a = int(255 * alpha)
         sw = max(1, int(X(outline)))
         x, y = xy
+        if spacing > 0:
+            tw_ = sum(L.dt.textlength(ch, font=f) for ch in text) + spacing * (len(text) - 1)
+        else:
+            tw_ = L.dt.textlength(text, font=f)
+        bx = x - (tw_ / 2 if anchor[0] == "m" else (tw_ if anchor[0] == "r" else 0))
+        asc, desc = f.getmetrics()
+        top = {"a": y, "m": y - (asc + desc) / 2, "s": y - asc, "d": y - asc - desc}.get(anchor[1], y)
+        pad = X(6) + sw
+        PANEL.rounded_rectangle([bx - pad, top + asc * 0.12 - pad * 0.7, bx + tw_ + pad, top + asc + desc * 0.6 + pad * 0.7],
+                                radius=X(6), fill=(8, 10, 14, int(150 * alpha)))
         if spacing > 0:                                   # letter-spaced: draw char by char
             widths = [L.dt.textlength(ch, font=f) for ch in text]
             total = sum(widths) + spacing * (len(text) - 1)
@@ -457,6 +469,7 @@ def compose_atlas(img, data):
     bold((cx, cy - X(26)), "N", 14, "mm")
     if data.get("fineprint"):
         bold((right, H - X(16)), data["fineprint"], 12, "rs", 0.9, outline=1.6)
+    img.alpha_composite(panel_img)
     return L.finish(img)
 
 

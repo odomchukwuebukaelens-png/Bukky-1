@@ -110,6 +110,98 @@ class Tokyo:
         return u, never, never, max(f + 2, u - 35)       # fields appear only shortly before a district is built
 
 
+_PHI = (1 + 5 ** 0.5) / 2
+_ICO_V = [(-1, _PHI, 0), (1, _PHI, 0), (-1, -_PHI, 0), (1, -_PHI, 0), (0, -1, _PHI), (0, 1, _PHI), (0, -1, -_PHI),
+          (0, 1, -_PHI), (_PHI, 0, -1), (_PHI, 0, 1), (-_PHI, 0, -1), (-_PHI, 0, 1)]
+_ICO_V = [tuple(c / math.sqrt(1 + _PHI * _PHI) for c in v) for v in _ICO_V]
+_ICO_F = [(0, 11, 5), (0, 5, 1), (0, 1, 7), (0, 7, 10), (0, 10, 11), (1, 5, 9), (5, 11, 4), (11, 10, 2), (10, 7, 6),
+          (7, 1, 8), (3, 9, 4), (3, 4, 2), (3, 2, 6), (3, 6, 8), (3, 8, 9), (4, 9, 5), (2, 4, 11), (6, 2, 10),
+          (8, 6, 7), (9, 8, 1)]
+TRUNK = (0.16, 0.10, 0.06)
+
+
+def add_tree(part, x, y, zb, r, rng, kind=None, shade=1.0):
+    """A low-poly tree with a trunk: a broadleaf (two lumpy crowns) or a
+    conifer (Japanese cedar / pine: stacked cones). r is the crown radius."""
+    kind = kind or ("con" if rng.random() < 0.4 else "broad")
+    g = rng.uniform(0.82, 1.18) * shade
+    ang = rng.uniform(0, 2 * math.pi)
+    tw = max(0.5, r * 0.11)
+    th = r * (0.9 if kind == "broad" else 0.6)
+    tv = [(x + math.cos(ang + k * 2.094) * tw, y + math.sin(ang + k * 2.094) * tw, zz)
+          for zz in (zb - 0.5, zb + th) for k in range(3)]
+    part.add(tv, [(0, 1, 4, 3), (1, 2, 5, 4), (2, 0, 3, 5)], [TRUNK] * 3)
+    if kind == "broad":
+        lo = (0.05 * g, 0.19 * g, 0.035 * g)
+        hi = (0.08 * g, 0.27 * g, 0.05 * g)
+        c1 = zb + th + r * 0.72
+        part.add([(x + vx * r, y + vy * r, c1 + vz * r * 0.82) for vx, vy, vz in _ICO_V], _ICO_F, [lo] * 20)
+        r2 = r * rng.uniform(0.55, 0.72)
+        ox, oy = math.cos(ang + 2.5) * r * 0.38, math.sin(ang + 2.5) * r * 0.38
+        part.add([(x + ox + vx * r2, y + oy + vy * r2, c1 + r * 0.55 + vz * r2 * 0.85) for vx, vy, vz in _ICO_V],
+                 _ICO_F, [hi] * 20)
+    else:
+        dk = (0.03 * g, 0.13 * g, 0.04 * g)
+        lt = (0.045 * g, 0.18 * g, 0.05 * g)
+        for base, rad, top, c_ in ((th, r * 0.78, th + r * 1.7, dk), (th + r * 1.0, r * 0.52, th + r * 2.6, lt)):
+            v = [(x + math.cos(ang + k * 1.0472) * rad, y + math.sin(ang + k * 1.0472) * rad, zb + base) for k in range(6)]
+            v.append((x, y, zb + top))
+            part.add(v, [(k, (k + 1) % 6, 6) for k in range(6)], [c_] * 6)
+
+
+TREE_KINDS = [("broad", 0.85), ("broad", 1.0), ("broad", 1.18), ("con", 0.85), ("con", 1.08)]
+
+
+def tree_instancer(tree_mat, collection):
+    """Five tree models (3 broadleaf, 2 conifer) stored once; every forest
+    bucket is a cloud of points that copies them (very little memory)."""
+    kinds = bpy.data.collections.new("TreeKinds")
+    for n, (kind, shade) in enumerate(TREE_KINDS):
+        part = H.Parts()
+        add_tree(part, 0.0, 0.0, 0.0, 1.0, random.Random(40 + n), kind, shade)
+        ob = part.to_object("treekind_%d" % n, tree_mat, kinds)
+        ob.name = "treekind_%d" % n
+    ng = bpy.data.node_groups.new("ForestInstances", "GeometryNodeTree")
+    ng.interface.new_socket("Geometry", in_out="INPUT", socket_type="NodeSocketGeometry")
+    ng.interface.new_socket("Geometry", in_out="OUTPUT", socket_type="NodeSocketGeometry")
+    nn, ln = ng.nodes, ng.links
+    gi, go = nn.new("NodeGroupInput"), nn.new("NodeGroupOutput")
+    ci = nn.new("GeometryNodeCollectionInfo")
+    ci.inputs["Collection"].default_value = kinds
+    ci.inputs["Separate Children"].default_value = True
+    ci.inputs["Reset Children"].default_value = True
+    iop = nn.new("GeometryNodeInstanceOnPoints")
+    iop.inputs["Pick Instance"].default_value = True
+
+    def named(name, dtype):
+        a = nn.new("GeometryNodeInputNamedAttribute")
+        a.data_type = dtype
+        a.inputs["Name"].default_value = name
+        return a.outputs["Attribute"]
+    comb = nn.new("ShaderNodeCombineXYZ")
+    ln.new(named("rz", "FLOAT"), comb.inputs["Z"])
+    e2r = nn.new("FunctionNodeEulerToRotation")
+    ln.new(comb.outputs[0], e2r.inputs[0])
+    ln.new(gi.outputs[0], iop.inputs["Points"])
+    ln.new(ci.outputs[0], iop.inputs["Instance"])
+    ln.new(named("var", "INT"), iop.inputs["Instance Index"])
+    ln.new(e2r.outputs[0], iop.inputs["Rotation"])
+    ln.new(named("scl", "FLOAT"), iop.inputs["Scale"])
+    ln.new(iop.outputs[0], go.inputs[0])
+
+    def make(name, pts):
+        me = bpy.data.meshes.new(name)
+        me.from_pydata([(p[0], p[1], p[2]) for p in pts], [], [])
+        for an, at, idx in (("scl", "FLOAT", 3), ("rz", "FLOAT", 4), ("var", "INT", 5)):
+            a = me.attributes.new(an, at, "POINT")
+            a.data.foreach_set("value", [p[idx] for p in pts])
+        ob = bpy.data.objects.new(name, me)
+        collection.objects.link(ob)
+        ob.modifiers.new("forest", "NODES").node_group = ng
+        return ob
+    return make
+
+
 def inside(pt, poly):
     x, y = pt
     res = False
@@ -406,7 +498,7 @@ def build(brief, plan_unused=None):
     def occupy(x, y, year, radius=8.0, house=True):
         if house:
             plots.append((x, y, year, radius))
-        r = int(radius // OCC) + 1
+        r = int(radius // OCC)
         for dx in range(-r, r + 1):
             for dy in range(-r, r + 1):
                 k = (int((x // OCC) + dx), int((y // OCC) + dy))
@@ -470,7 +562,8 @@ def build(brief, plan_unused=None):
         else:
             wall = rng.choice(CONCRETE + PLASTER + GLASS[:1])
         win = 0.6
-        occupy(cx, cy, start, 10.0)
+        xs_, ys_ = [q[0] for q in pts], [q[1] for q in pts]
+        occupy(cx, cy, start, max(6.0, 0.5 * max(max(xs_) - min(xs_), max(ys_) - min(ys_))))
         bn = damage(cx, cy, start, 99999)
         if bn is None:
             put(("bld", int(start // 2) * 2, int(grow), 99999),
@@ -493,6 +586,32 @@ def build(brief, plan_unused=None):
                                                                "h": rng.uniform(9, 13), "wall": rng.choice(H.WALLS),
                                                                "roof": TILE}, zz))
 
+    # road mask: generated houses are never put on a street or walkway
+    RC = 5.0
+    roadcells = set()
+    for _n, w_, flat_ in city.data.get("roads", []):
+        rp = [(flat_[i], flat_[i + 1]) for i in range(0, len(flat_), 2)]
+        rr_ = int((w_ / 2 + 1.5) // RC) + 1
+        for (ax, ay), (bx, by) in zip(rp, rp[1:]):
+            n_ = max(1, int(math.hypot(bx - ax, by - ay) / 2.5))
+            for k in range(n_ + 1):
+                qx, qy = ax + (bx - ax) * k / n_, ay + (by - ay) * k / n_
+                ci, cj = int(qx // RC), int(qy // RC)
+                for di in range(-rr_ + 1, rr_):
+                    for dj in range(-rr_ + 1, rr_):
+                        roadcells.add((ci + di, cj + dj))
+
+    def off_road(x, y, half):
+        k = int(half // RC) + 1
+        ci, cj = int(x // RC), int(y // RC)
+        return not any((ci + di, cj + dj) in roadcells for di in range(-k, k + 1) for dj in range(-k, k + 1))
+
+    def free_spot(x, y, half):
+        for ox, oy in ((0, 0), (7, 0), (-7, 0), (0, 7), (0, -7), (7, 7), (-7, -7), (7, -7), (-7, 7)):
+            if off_road(x + ox, y + oy, half):
+                return x + ox, y + oy
+        return None
+
     # --- historic fabric: farm villages, Edo townhouses and samurai estates, Meiji and Showa houses ----
     step_ = 28.0
     fr = random.Random(brief["seed"] + 3)
@@ -507,6 +626,10 @@ def build(brief, plan_unused=None):
                 continue
             if any((Vector((px_, py_)) - P2((lo, la))).length < r_ for lo, la, r_ in CLEAR):
                 continue
+            spot = free_spot(px_, py_, 6.0)
+            if spot is None:
+                continue
+            px_, py_ = spot
             zn = city.zone(px_, py_)
             beyond = not (DATA_X[0] < px_ < DATA_X[1] and DATA_Y[0] < py_ < DATA_Y[1])
             fy = city.fill(px_, py_)
@@ -528,7 +651,8 @@ def build(brief, plan_unused=None):
                     occupy(px_, py_, m0, 7.0)
                     place("edo", m0, m1, px_, py_, zz, ux, uy, fr.uniform(9, 13), fr.uniform(5, 7), fr.uniform(6.5, 9),
                           fr.choice(WOOD + PLASTER[:1]), KAWARA)
-            if (zn == "yamanote" or (u < 1860 and fr.random() < 0.3)) and u < 1870 and fr.random() < 0.55:   # samurai estates
+            if (zn == "yamanote" or (u < 1860 and fr.random() < 0.3)) and u < 1870 and fr.random() < 0.55 \
+                    and off_road(px_, py_, 9.0):   # samurai estates
                 m0 = u + fr.uniform(0, 80)
                 m1 = fr.uniform(1870, 1920)
                 occupy(px_, py_, m0, 9.0)
@@ -825,52 +949,67 @@ def build(brief, plan_unused=None):
             steps = max(1, int(d.length / OCC))
             for k in range(steps + 1):
                 q = a + d * (k / steps)
-                occupy(q.x, q.y, yr, w / 2 + 2, house=False)
+                occupy(q.x, q.y, yr, w / 2, house=False)
     for yr, part in sb.items():
         animated.append({"ob": part.to_object("streets_%d" % yr, painted, col), "year": yr, "grow": 0.0, "gone": None})
 
-    # trees: they stay until a building or a street is put on their own plot
-    ico_v, ico_f = H.ico_template()
+    # trees: a dense forest on every piece of open land. A tree stays until a
+    # building or street is put under its crown; abandoned land grows back.
     tb = {}
     tr = random.Random(9)
-    for k_ in range(brief.get("forest_trees", 170000)):
-        if k_ % 2:      # half the trees within the detailed city area
-            x_, y_ = tr.uniform(DATA_X[0], DATA_X[1]), tr.uniform(DATA_Y[0], DATA_Y[1])
-        else:
-            x_, y_ = tr.uniform(city.x0, city.x0 + nx * res), tr.uniform(city.y0, city.y0 + ny * res)
-        if not city.is_land(x_, y_):
-            continue
-        fo = 0.5 + 0.7 * mnoise.noise(Vector((x_ / 650.0 + 3.1, y_ / 650.0 - 1.7, 0.4)))
-        if fo < 0.42 and tr.random() < 0.6:
-            continue                                  # thinner woodland between the forests
-        since = city.fill(x_, y_) + (12 if city.fill(x_, y_) else 0)
-        u, ab, re_, farm = city.eras(x_, y_)
-        built = occupied.get((int(x_ // OCC), int(y_ // OCC)), 99999)
-        gone = built                                      # only building clears the forest
-        back = ab + tr.uniform(20, 200) if ab < 9000 else 99999      # trees return in the abandoned city
-        back_gone = re_ if back < 9000 else 99999
-        r = tr.uniform(6.5, 10.5) if fo >= 0.42 else tr.uniform(4.5, 7.5)
-        g = tr.uniform(0.8, 1.2)
-        vv = [(x_ + vx * r, y_ + vy * r, z(x_, y_) + r * 0.9 + vz * r * 0.8) for vx, vy, vz in ico_v]
-        col_ = (0.055 * g, 0.20 * g, 0.035 * g)
-        if since >= gone:
-            continue
-        tb.setdefault(("t", int(since // 10) * 10 if since else -3000, int(gone // 10) * 10), H.Parts()).add(
-            vv, ico_f, [col_] * len(ico_f))
-        if back < 9000:
-            tb.setdefault(("t", int(back // 50) * 50, int(back_gone // 50) * 50), H.Parts()).add(vv, ico_f, [col_] * len(ico_f))
+    sp_in, sp_out = brief.get("tree_spacing", 15.0), brief.get("tree_spacing_outer", 21.0)
+
+    def first_built(x_, y_, r):
+        return min(occupied.get((int((x_ + ox) // OCC), int((y_ + oy) // OCC)), 99999)
+                   for ox, oy in ((0, 0), (r * 0.7, 0), (-r * 0.7, 0), (0, r * 0.7), (0, -r * 0.7)))
+
+    n_trees = 0
+    gy_ = city.y0
+    while gy_ < city.y0 + ny * res:
+        inner_row = DATA_Y[0] < gy_ < DATA_Y[1]
+        gx_ = city.x0
+        while gx_ < city.x0 + nx * res:
+            inner = inner_row and DATA_X[0] < gx_ < DATA_X[1]
+            step = sp_in if inner else sp_out
+            x_, y_ = gx_ + tr.uniform(-0.35, 0.35) * step, gy_ + tr.uniform(-0.35, 0.35) * step
+            gx_ += step
+            if not city.is_land(x_, y_):
+                continue
+            r = tr.uniform(6.0, 8.5) if inner else tr.uniform(8.5, 11.5)
+            fy_ = city.fill(x_, y_)
+            since = fy_ + 12 if fy_ else 0
+            u, ab, re_, farm = city.eras(x_, y_)
+            gone = first_built(x_, y_, r)
+            if since >= gone:
+                continue
+            back = ab + tr.uniform(20, 200) if ab < 9000 else 99999      # trees return in the abandoned city
+            back_gone = re_ if back < 9000 else 99999
+            pt = (x_, y_, z(x_, y_), r, tr.uniform(0, 6.283), tr.randrange(5))
+            town = u + 4 if (inner and u < 9000) else 99999         # the wild wood thins once a district is settled
+            if town < gone and town > since:
+                tb.setdefault(("t", int(since // 10) * 10 if since else -3000, int(town // 10) * 10), []).append(pt)
+                small = (x_, y_, pt[2], r * tr.uniform(0.42, 0.55), pt[4], tr.choice((1, 2, 2, 3, 4)))
+                tb.setdefault(("t", int(town // 10) * 10, int(gone // 10) * 10), []).append(small)
+            else:
+                tb.setdefault(("t", int(since // 10) * 10 if since else -3000, int(gone // 10) * 10), []).append(pt)
+            n_trees += 1
+            if back < 9000:
+                tb.setdefault(("t", int(back // 50) * 50, int(back_gone // 50) * 50), []).append(pt)
+        gy_ += sp_in if inner_row else sp_out
+    print("[city-studio] forest trees:", n_trees, flush=True)
 
     # garden trees: planted around each house a few years after it is built
     import greenery
     gr = random.Random(brief["seed"] + 77)
     for gx, gy, gr_r, g0, g1 in greenery.garden_trees(plots, occupied, OCC, city.is_land, gr,
                                                       limit=brief.get("garden_trees", 110000)):
-        g = gr.uniform(0.8, 1.25)
-        vv = [(gx + vx * gr_r, gy + vy * gr_r, z(gx, gy) + gr_r * 0.9 + vz * gr_r * 0.85) for vx, vy, vz in ico_v]
-        col_ = (0.06 * g, 0.22 * g, 0.04 * g)
-        tb.setdefault(("t", int(g0 // 10) * 10, int(g1 // 25) * 25), H.Parts()).add(vv, ico_f, [col_] * len(ico_f))
-    for key, part in tb.items():
-        ob = part.to_object("trees_%d_%d" % key[1:], tree_mat, col)
+        if not off_road(gx, gy, 2.0):
+            continue                                   # not on the street
+        tb.setdefault(("t", int(g0 // 10) * 10, int(g1 // 25) * 25), []).append(
+            (gx, gy, z(gx, gy), gr_r * 1.15, gr.uniform(0, 6.283), gr.choice((1, 2, 2, 4))))
+    make_forest = tree_instancer(tree_mat, col)
+    for key, pts_ in tb.items():
+        ob = make_forest("trees_%d_%d" % key[1:], pts_)
         animated.append({"ob": ob, "year": key[1], "grow": 0.0, "gone": key[2], "fade": 20.0})
 
     # people, armies and vehicles from the brief
@@ -896,15 +1035,24 @@ def build(brief, plan_unused=None):
         c = P2(e["ll"])
         z0 = z(c.x, c.y)
         blobs = H.Parts()
-        smoke_col = (0.11, 0.10, 0.09) if e["kind"] == "fire" else (0.42, 0.40, 0.37)
-        for _ in range(e.get("blobs", 45)):
-            r = frng.uniform(0.15, 1.0) * e["radius"]
+        sz = e.get("size", 0.75)
+        wind = Vector((0.55, 0.25))
+        for _ in range(max(4, e.get("blobs", 45) // 4)):          # thin plumes rising and leaning downwind
+            r = frng.uniform(0.1, 0.9) * e["radius"]
             a = frng.uniform(0, 2 * math.pi)
             q = Vector((math.cos(a), math.sin(a))) * r
-            rr = frng.uniform(14, 40) * e.get("size", 0.75)
-            zz = z0 + frng.uniform(0, 1.0) ** 2 * 70 * e.get("size", 0.75)
-            blobs.add([(q.x + vx * rr, q.y + vy * rr, zz + vz * rr * 0.55) for vx, vy, vz in fx_v], fx_f,
-                      [smoke_col] * len(fx_f))
+            hgt = frng.uniform(60, 140) * sz
+            for k in range(10):
+                f_ = k / 9.0
+                rr = (2.5 + 9.0 * f_) * sz * frng.uniform(0.8, 1.2)
+                zz = z0 + 6 + hgt * f_
+                d_ = q + wind * hgt * f_ * f_ * 0.8
+                if e["kind"] == "fire":
+                    sc = (0.05 + 0.12 * f_, 0.045 + 0.115 * f_, 0.04 + 0.11 * f_)
+                else:
+                    sc = (0.34 + 0.12 * f_, 0.32 + 0.12 * f_, 0.30 + 0.11 * f_)
+                blobs.add([(d_.x + vx * rr, d_.y + vy * rr, zz + vz * rr * 0.8) for vx, vy, vz in fx_v], fx_f,
+                          [sc] * len(fx_f))
         smoke = blobs.to_object("smoke", painted, col)
         smoke.location = (c.x, c.y, 0)
         smoke.data.polygons.foreach_set("use_smooth", [True] * len(smoke.data.polygons))
