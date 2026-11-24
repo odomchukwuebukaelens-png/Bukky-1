@@ -1303,11 +1303,25 @@ def apply_frame(brief, rig, frame, total):
             continue
         if (lb["pos"] - cam.location).length > brief.get("label_max_distance", 7500):
             continue
-        if brief.get("label_occlusion"):
+        if brief.get("label_occlusion") and lb.get("kind") not in ("area", "village", "region", "water"):
             to = lb["pos"] - cam.location
-            hit = scene.ray_cast(bpy.context.evaluated_depsgraph_get(), cam.location, to.normalized(),
-                                 distance=max(0.0, to.length - 25.0))
-            if hit[0]:
+            origin, left_ = cam.location.copy(), max(0.0, to.length - 25.0)
+            blocked = False
+            for _ in range(6):                  # trees and smoke do not hide a label; buildings do
+                hit = scene.ray_cast(bpy.context.evaluated_depsgraph_get(), origin, to.normalized(), distance=left_)
+                if not hit[0]:
+                    break
+                name_ = hit[4].name if hit[4] else ""
+                if name_.startswith(("trees", "parktrees", "smoke", "flames", "group_")):
+                    step_ = (hit[1] - origin).length + 1.0
+                    origin = hit[1] + to.normalized() * 1.0
+                    left_ -= step_
+                    if left_ <= 0:
+                        break
+                    continue
+                blocked = True
+                break
+            if blocked:
                 continue
         if any(abs(pp.x - q["x"]) < 0.10 and abs((1.0 - pp.y) - q["y"]) < 0.04 for q in labels):
             continue

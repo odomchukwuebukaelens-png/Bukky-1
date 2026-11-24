@@ -28,7 +28,7 @@ SEARCHES = {
     "rain": ["rain falling", "rain"], "horn": ["ship horn", "foghorn"], "sword": ["sword clash", "swords fighting"],
     "shouts": ["battle cry", "crowd shouting"], "march": ["marching soldiers", "soldiers marching"],
     "drums": ["war drum", "military drum"], "cannon": ["cannon fire", "cannon shot"], "gunfire": ["musket fire", "gunshots"],
-    "bomb": ["explosion"], "fire": ["fire crackling", "fire burning"], "rumble": ["thunder rumble", "building collapse"],
+    "bomb": ["explosion"], "chant": ["war cry", "crowd chanting", "soldiers chanting"], "fire": ["fire crackling", "fire burning"], "rumble": ["thunder rumble", "building collapse"],
 }
 # words that must appear in a file's title for each kind
 KEYWORDS = {
@@ -43,7 +43,7 @@ KEYWORDS = {
     "sword": ("sword", "blade", "clash"), "shouts": ("shout", "battle cry", "war cry", "yell", "crowd"),
     "march": ("march", "footstep", "soldier"), "drums": ("drum",), "cannon": ("cannon", "artillery"),
     "gunfire": ("gunshot", "gun shot", "gunfire", "musket", "rifle", "shot"), "bomb": ("explosion", "blast", "bomb", "explode"),
-    "fire": ("fire", "crackl", "flame", "burning"), "rumble": ("thunder", "rumble", "collapse"),
+    "fire": ("fire", "crackl", "flame", "burning"), "chant": ("chant", "war cry", "battle cry"), "rumble": ("thunder", "rumble", "collapse"),
 }
 OK = re.compile(r"^(public domain|pd|cc0|cc by( \d\.\d)?( [a-z]{2})?)$", re.I)
 

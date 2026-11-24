@@ -1,0 +1,4086 @@
+{
+ "fps": 30,
+ "eevee_samples": 8,
+ "crf": 18,
+ "sharpen": 0.6,
+ "filter_size": 0.9,
+ "music": "generate",
+ "music_tracks": [
+  "assets/music/packed.mp3",
+  "assets/music/outside_the_box.mp3"
+ ],
+ "music_volume": 0.7,
+ "view": "standard",
+ "sky": 0.9,
+ "grade": {
+  "saturation": 1.25,
+  "contrast": 1.12,
+  "brightness": 1.02
+ },
+ "caption_hold": 6.0,
+ "label_occlusion": true,
+ "clip_start": 1.0,
+ "clip_end": 30000,
+ "max_size_mb": 290,
+ "haze_color": [
+  0.98,
+  0.86,
+  0.68
+ ],
+ "haze_distance": 60000,
+ "haze_amount": 0.16,
+ "zenith": [
+  0.3,
+  0.5,
+  0.8
+ ],
+ "sun": 4.2,
+ "sun_tilt": 66,
+ "sun_heading": -60,
+ "sun_color": [
+  1.0,
+  0.82,
+  0.6
+ ],
+ "name": "tokyo_full",
+ "style": "tokyo",
+ "data": "data/tokyo",
+ "seed": 13,
+ "duration_seconds": 660,
+ "resolution": [
+  1280,
+  720
+ ],
+ "chunk_frames": 300,
+ "label_max_distance": 2200,
+ "intro_end": 9,
+ "music_build_at": 9.5,
+ "forest_trees": 240000,
+ "garden_trees": 120000,
+ "fineprint": "Illustrative reconstruction · today's buildings: Overture Maps / OpenStreetMap · dates estimated",
+ "dusk": {
+  "from": 630,
+  "to": 650
+ },
+ "village_sites": [
+  [
+   139.76,
+   35.685
+  ],
+  [
+   139.7967,
+   35.7148
+  ],
+  [
+   139.748,
+   35.692
+  ],
+  [
+   139.765,
+   35.688
+  ],
+  [
+   139.7016,
+   35.658
+  ],
+  [
+   139.71,
+   35.688
+  ],
+  [
+   139.74,
+   35.638
+  ],
+  [
+   139.81,
+   35.71
+  ],
+  [
+   139.769,
+   35.726
+  ],
+  [
+   139.73,
+   35.674
+  ]
+ ],
+ "year_keys": [
+  [
+   0,
+   2026
+  ],
+  [
+   3,
+   2026
+  ],
+  [
+   9,
+   600
+  ],
+  [
+   14,
+   600
+  ],
+  [
+   24,
+   628
+  ],
+  [
+   34,
+   645
+  ],
+  [
+   44,
+   900
+  ],
+  [
+   54,
+   1180
+  ],
+  [
+   64,
+   1300
+  ],
+  [
+   76,
+   1457.2
+  ],
+  [
+   86,
+   1486.6
+  ],
+  [
+   96,
+   1524
+  ],
+  [
+   108,
+   1590.6
+  ],
+  [
+   118,
+   1592
+  ],
+  [
+   128,
+   1603.2
+  ],
+  [
+   138,
+   1607
+  ],
+  [
+   148,
+   1635.5
+  ],
+  [
+   160,
+   1657.16
+  ],
+  [
+   170,
+   1657.25
+  ],
+  [
+   180,
+   1659
+  ],
+  [
+   190,
+   1700
+  ],
+  [
+   200,
+   1733.5
+  ],
+  [
+   210,
+   1772.2
+  ],
+  [
+   215,
+   1772.3
+  ],
+  [
+   222,
+   1800
+  ],
+  [
+   232,
+   1853.5
+  ],
+  [
+   244,
+   1855.85
+  ],
+  [
+   249,
+   1855.9
+  ],
+  [
+   252,
+   1860.2
+  ],
+  [
+   262,
+   1868.3
+  ],
+  [
+   272,
+   1868.51
+  ],
+  [
+   282,
+   1868.9
+  ],
+  [
+   292,
+   1872.8
+  ],
+  [
+   302,
+   1889
+  ],
+  [
+   312,
+   1914.95
+  ],
+  [
+   322,
+   1920.9
+  ],
+  [
+   334,
+   1923.67
+  ],
+  [
+   346,
+   1923.8
+  ],
+  [
+   356,
+   1930
+  ],
+  [
+   366,
+   1936.15
+  ],
+  [
+   376,
+   1940
+  ],
+  [
+   386,
+   1945.19
+  ],
+  [
+   398,
+   1945.4
+  ],
+  [
+   408,
+   1945.67
+  ],
+  [
+   420,
+   1952
+  ],
+  [
+   430,
+   1958.95
+  ],
+  [
+   442,
+   1964.8
+  ],
+  [
+   454,
+   1968
+  ],
+  [
+   466,
+   1978.3
+  ],
+  [
+   478,
+   1989
+  ],
+  [
+   490,
+   1991.3
+  ],
+  [
+   500,
+   1993.65
+  ],
+  [
+   512,
+   2003
+  ],
+  [
+   522,
+   2011.2
+  ],
+  [
+   534,
+   2012.4
+  ],
+  [
+   546,
+   2021.55
+  ],
+  [
+   560,
+   2026
+  ],
+  [
+   660,
+   2026
+  ]
+ ],
+ "camera_keys": [
+  {
+   "t": 0,
+   "target": [
+    139.765,
+    35.685
+   ],
+   "dist": 1100,
+   "height": 560,
+   "bearing": 15,
+   "look_z": 30
+  },
+  {
+   "t": 3,
+   "target": [
+    139.765,
+    35.685
+   ],
+   "dist": 1080,
+   "height": 550,
+   "bearing": 18,
+   "look_z": 30
+  },
+  {
+   "t": 9,
+   "target": [
+    139.765,
+    35.685
+   ],
+   "dist": 1000,
+   "height": 520,
+   "bearing": 25,
+   "look_z": 10
+  },
+  {
+   "t": 15,
+   "target": [
+    139.79,
+    35.699
+   ],
+   "dist": 700,
+   "height": 380,
+   "bearing": 40,
+   "look_z": 0
+  },
+  {
+   "t": 22,
+   "target": [
+    139.7967,
+    35.7148
+   ],
+   "dist": 260,
+   "height": 151,
+   "bearing": 60,
+   "look_z": 0
+  },
+  {
+   "t": 32,
+   "target": [
+    139.7967,
+    35.7148
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 100,
+   "look_z": 0
+  },
+  {
+   "t": 42,
+   "target": [
+    139.753,
+    35.688
+   ],
+   "dist": 300,
+   "height": 174,
+   "bearing": 140,
+   "look_z": 0
+  },
+  {
+   "t": 52,
+   "target": [
+    139.753,
+    35.688
+   ],
+   "dist": 260,
+   "height": 151,
+   "bearing": 180,
+   "look_z": 0
+  },
+  {
+   "t": 62,
+   "target": [
+    139.77,
+    35.695
+   ],
+   "dist": 240,
+   "height": 139,
+   "bearing": 220,
+   "look_z": 0
+  },
+  {
+   "t": 72,
+   "target": [
+    139.753,
+    35.688
+   ],
+   "dist": 280,
+   "height": 162,
+   "bearing": 250,
+   "look_z": 10
+  },
+  {
+   "t": 82,
+   "target": [
+    139.753,
+    35.688
+   ],
+   "dist": 230,
+   "height": 133,
+   "bearing": 290,
+   "look_z": 10
+  },
+  {
+   "t": 92,
+   "target": [
+    139.748,
+    35.687
+   ],
+   "dist": 300,
+   "height": 170,
+   "bearing": 110,
+   "look_z": 0
+  },
+  {
+   "t": 102,
+   "target": [
+    139.748,
+    35.687
+   ],
+   "dist": 300,
+   "height": 170,
+   "bearing": 70,
+   "look_z": 0
+  },
+  {
+   "t": 112,
+   "target": [
+    139.753,
+    35.688
+   ],
+   "dist": 320,
+   "height": 186,
+   "bearing": 20,
+   "look_z": 20
+  },
+  {
+   "t": 122,
+   "target": [
+    139.759,
+    35.674
+   ],
+   "dist": 240,
+   "height": 139,
+   "bearing": 60,
+   "look_z": 0
+  },
+  {
+   "t": 132,
+   "target": [
+    139.7745,
+    35.6838
+   ],
+   "dist": 200,
+   "height": 116,
+   "bearing": 90,
+   "look_z": 5
+  },
+  {
+   "t": 142,
+   "target": [
+    139.753,
+    35.688
+   ],
+   "dist": 430,
+   "height": 220,
+   "bearing": 120,
+   "look_z": 45
+  },
+  {
+   "t": 152,
+   "target": [
+    139.77,
+    35.68
+   ],
+   "dist": 260,
+   "height": 150,
+   "bearing": 150,
+   "look_z": 5
+  },
+  {
+   "t": 162,
+   "target": [
+    139.77,
+    35.695
+   ],
+   "dist": 420,
+   "height": 260,
+   "bearing": 180,
+   "look_z": 0
+  },
+  {
+   "t": 172,
+   "target": [
+    139.753,
+    35.688
+   ],
+   "dist": 260,
+   "height": 151,
+   "bearing": 210,
+   "look_z": 0
+  },
+  {
+   "t": 182,
+   "target": [
+    139.793,
+    35.696
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 240,
+   "look_z": 5
+  },
+  {
+   "t": 192,
+   "target": [
+    139.7745,
+    35.6838
+   ],
+   "dist": 200,
+   "height": 116,
+   "bearing": 270,
+   "look_z": 0
+  },
+  {
+   "t": 202,
+   "target": [
+    139.793,
+    35.696
+   ],
+   "dist": 230,
+   "height": 133,
+   "bearing": 300,
+   "look_z": 10
+  },
+  {
+   "t": 212,
+   "target": [
+    139.765,
+    35.6717
+   ],
+   "dist": 230,
+   "height": 133,
+   "bearing": 330,
+   "look_z": 0
+  },
+  {
+   "t": 224,
+   "target": [
+    139.795,
+    35.711
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 0,
+   "look_z": 0
+  },
+  {
+   "t": 234,
+   "target": [
+    139.777,
+    35.63
+   ],
+   "dist": 900,
+   "height": 330,
+   "bearing": 350,
+   "look_z": 20
+  },
+  {
+   "t": 246,
+   "target": [
+    139.799,
+    35.68
+   ],
+   "dist": 240,
+   "height": 139,
+   "bearing": 30,
+   "look_z": 0
+  },
+  {
+   "t": 254,
+   "target": [
+    139.753,
+    35.688
+   ],
+   "dist": 250,
+   "height": 145,
+   "bearing": 60,
+   "look_z": 10
+  },
+  {
+   "t": 264,
+   "target": [
+    139.756,
+    35.685
+   ],
+   "dist": 280,
+   "height": 160,
+   "bearing": 90,
+   "look_z": 0
+  },
+  {
+   "t": 274,
+   "target": [
+    139.7745,
+    35.718
+   ],
+   "dist": 260,
+   "height": 151,
+   "bearing": 120,
+   "look_z": 10
+  },
+  {
+   "t": 284,
+   "target": [
+    139.753,
+    35.688
+   ],
+   "dist": 240,
+   "height": 139,
+   "bearing": 150,
+   "look_z": 10
+  },
+  {
+   "t": 294,
+   "target": [
+    139.758,
+    35.666
+   ],
+   "dist": 230,
+   "height": 133,
+   "bearing": 180,
+   "look_z": 5
+  },
+  {
+   "t": 304,
+   "target": [
+    139.765,
+    35.6717
+   ],
+   "dist": 210,
+   "height": 122,
+   "bearing": 210,
+   "look_z": 0
+  },
+  {
+   "t": 314,
+   "target": [
+    139.7671,
+    35.6812
+   ],
+   "dist": 280,
+   "height": 162,
+   "bearing": 240,
+   "look_z": 20
+  },
+  {
+   "t": 324,
+   "target": [
+    139.6993,
+    35.6764
+   ],
+   "dist": 320,
+   "height": 186,
+   "bearing": 270,
+   "look_z": 10
+  },
+  {
+   "t": 336,
+   "target": [
+    139.765,
+    35.685
+   ],
+   "dist": 1000,
+   "height": 560,
+   "bearing": 300,
+   "look_z": 0
+  },
+  {
+   "t": 348,
+   "target": [
+    139.793,
+    35.696
+   ],
+   "dist": 240,
+   "height": 139,
+   "bearing": 330,
+   "look_z": 0
+  },
+  {
+   "t": 358,
+   "target": [
+    139.765,
+    35.681
+   ],
+   "dist": 240,
+   "height": 139,
+   "bearing": 0,
+   "look_z": 10
+  },
+  {
+   "t": 368,
+   "target": [
+    139.745,
+    35.6758
+   ],
+   "dist": 280,
+   "height": 162,
+   "bearing": 30,
+   "look_z": 20
+  },
+  {
+   "t": 378,
+   "target": [
+    139.765,
+    35.6717
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 60,
+   "look_z": 0
+  },
+  {
+   "t": 388,
+   "target": [
+    139.799,
+    35.68
+   ],
+   "dist": 500,
+   "height": 300,
+   "bearing": 90,
+   "look_z": 0
+  },
+  {
+   "t": 400,
+   "target": [
+    139.7,
+    35.69
+   ],
+   "dist": 420,
+   "height": 240,
+   "bearing": 120,
+   "look_z": 0
+  },
+  {
+   "t": 410,
+   "target": [
+    139.765,
+    35.6717
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 150,
+   "look_z": 0
+  },
+  {
+   "t": 422,
+   "target": [
+    139.758,
+    35.666
+   ],
+   "dist": 230,
+   "height": 133,
+   "bearing": 180,
+   "look_z": 0
+  },
+  {
+   "t": 432,
+   "target": [
+    139.7454,
+    35.6586
+   ],
+   "dist": 900,
+   "height": 330,
+   "bearing": 210,
+   "look_z": 170
+  },
+  {
+   "t": 444,
+   "target": [
+    139.699,
+    35.668
+   ],
+   "dist": 300,
+   "height": 174,
+   "bearing": 240,
+   "look_z": 10
+  },
+  {
+   "t": 456,
+   "target": [
+    139.7671,
+    35.6812
+   ],
+   "dist": 260,
+   "height": 151,
+   "bearing": 270,
+   "look_z": 10
+  },
+  {
+   "t": 468,
+   "target": [
+    139.7,
+    35.69
+   ],
+   "dist": 700,
+   "height": 330,
+   "bearing": 300,
+   "look_z": 120
+  },
+  {
+   "t": 480,
+   "target": [
+    139.731,
+    35.663
+   ],
+   "dist": 260,
+   "height": 151,
+   "bearing": 330,
+   "look_z": 20
+  },
+  {
+   "t": 492,
+   "target": [
+    139.7,
+    35.69
+   ],
+   "dist": 800,
+   "height": 380,
+   "bearing": 0,
+   "look_z": 150
+  },
+  {
+   "t": 502,
+   "target": [
+    139.7645,
+    35.6385
+   ],
+   "dist": 900,
+   "height": 360,
+   "bearing": 30,
+   "look_z": 40
+  },
+  {
+   "t": 514,
+   "target": [
+    139.7016,
+    35.6595
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 60,
+   "look_z": 0
+  },
+  {
+   "t": 524,
+   "target": [
+    139.765,
+    35.6717
+   ],
+   "dist": 220,
+   "height": 128,
+   "bearing": 90,
+   "look_z": 0
+  },
+  {
+   "t": 536,
+   "target": [
+    139.8107,
+    35.7101
+   ],
+   "dist": 1100,
+   "height": 420,
+   "bearing": 120,
+   "look_z": 320
+  },
+  {
+   "t": 548,
+   "target": [
+    139.7016,
+    35.6595
+   ],
+   "dist": 230,
+   "height": 133,
+   "bearing": 150,
+   "look_z": 0
+  },
+  {
+   "t": 560,
+   "target": [
+    139.795,
+    35.711
+   ],
+   "dist": 240,
+   "height": 139,
+   "bearing": 180,
+   "look_z": 10
+  },
+  {
+   "t": 572,
+   "target": [
+    139.7454,
+    35.6586
+   ],
+   "dist": 900,
+   "height": 330,
+   "bearing": 210,
+   "look_z": 170
+  },
+  {
+   "t": 584,
+   "target": [
+    139.7,
+    35.69
+   ],
+   "dist": 260,
+   "height": 151,
+   "bearing": 240,
+   "look_z": 20
+  },
+  {
+   "t": 596,
+   "target": [
+    139.765,
+    35.681
+   ],
+   "dist": 240,
+   "height": 139,
+   "bearing": 270,
+   "look_z": 20
+  },
+  {
+   "t": 608,
+   "target": [
+    139.79,
+    35.699
+   ],
+   "dist": 300,
+   "height": 174,
+   "bearing": 300,
+   "look_z": 0
+  },
+  {
+   "t": 620,
+   "target": [
+    139.765,
+    35.685
+   ],
+   "dist": 900,
+   "height": 480,
+   "bearing": 330,
+   "look_z": 40
+  },
+  {
+   "t": 636,
+   "target": [
+    139.765,
+    35.685
+   ],
+   "dist": 1300,
+   "height": 700,
+   "bearing": 0,
+   "look_z": 40
+  },
+  {
+   "t": 660,
+   "target": [
+    139.765,
+    35.685
+   ],
+   "dist": 1700,
+   "height": 900,
+   "bearing": 20,
+   "look_z": 40
+  }
+ ],
+ "title_card": {
+  "start": 9.5,
+  "end": 16.5,
+  "kicker": "From fishing village to metropolis",
+  "title": "Tokyo",
+  "years": "AD 600 — 2026",
+  "note": "A city rebuilt in 3D through 1,400 years"
+ },
+ "cards": [
+  {
+   "start": 640,
+   "end": 659,
+   "kicker": "Tokyo, 2026",
+   "title": "14 million",
+   "years": "people in the world's largest city region",
+   "note": "Illustrative reconstruction · data: Overture Maps, OpenStreetMap contributors, Copernicus"
+  }
+ ],
+ "events": [
+  {
+   "year": 600,
+   "tag": "c. AD 600",
+   "title": "The Musashi plain",
+   "body": "Forest, marsh and a wide bay. A few fishing and farming villages line the shore",
+   "min_time": 16.5
+  },
+  {
+   "year": 628,
+   "tag": "AD 628",
+   "title": "A statue in the net",
+   "body": "Two fishermen pull a small statue of Kannon from the Sumida River, the legend says"
+  },
+  {
+   "year": 645,
+   "tag": "AD 645",
+   "title": "Sensō-ji",
+   "body": "A temple is built for the statue at Asakusa. It is Tokyo's oldest temple"
+  },
+  {
+   "year": 1180,
+   "tag": "12TH CENTURY",
+   "title": "The Edo clan",
+   "body": "A warrior family named Edo builds a fortified house on the hill above the bay"
+  },
+  {
+   "year": 1457.2,
+   "tag": "1457",
+   "title": "Edo Castle",
+   "body": "The general Ōta Dōkan builds a castle on the hill. A small town grows below it"
+  },
+  {
+   "year": 1486.6,
+   "tag": "1486",
+   "title": "Dōkan is killed",
+   "body": "Ōta Dōkan is murdered by his own lord. The castle passes from hand to hand"
+  },
+  {
+   "year": 1524,
+   "tag": "1524",
+   "title": "The Hōjō take Edo",
+   "body": "The Hōjō clan's army captures the castle and holds it for 66 years"
+  },
+  {
+   "year": 1590.6,
+   "tag": "AUG 1590",
+   "title": "Tokugawa Ieyasu arrives",
+   "body": "Given the eastern provinces, Ieyasu marches in with his army and makes Edo his base"
+  },
+  {
+   "year": 1592,
+   "tag": "1592",
+   "title": "Making land from the sea",
+   "body": "The Hibiya inlet is filled in with earth from the Kanda hill. Edo grows into the bay"
+  },
+  {
+   "year": 1603.2,
+   "tag": "1603",
+   "title": "The shogun's capital",
+   "body": "Ieyasu becomes shogun. Nihonbashi bridge is built; Japan's main roads start here"
+  },
+  {
+   "year": 1607,
+   "tag": "1607",
+   "title": "A five-storey keep",
+   "body": "The tallest castle keep in Japan rises over Edo"
+  },
+  {
+   "year": 1635.5,
+   "tag": "1635",
+   "title": "Daimyo processions",
+   "body": "Every lord must spend alternate years in Edo. Their armies march in long processions"
+  },
+  {
+   "year": 1657.16,
+   "tag": "2 MAR 1657",
+   "title": "The Great Meireki Fire",
+   "body": "Fire burns for three days. Most of Edo and the castle keep are lost. Over 100,000 die"
+  },
+  {
+   "year": 1657.25,
+   "tag": "1657",
+   "title": "Rebuilt wider",
+   "body": "Firebreaks and wider streets are laid out. The keep is never rebuilt"
+  },
+  {
+   "year": 1659,
+   "tag": "1659",
+   "title": "Ryōgoku bridge",
+   "body": "A bridge across the Sumida opens new land to the east"
+  },
+  {
+   "year": 1700,
+   "tag": "c. 1700",
+   "title": "A city of a million",
+   "body": "Edo is now one of the largest cities in the world"
+  },
+  {
+   "year": 1733.5,
+   "tag": "1733",
+   "title": "Fireworks on the Sumida",
+   "body": "The Ryōgoku fireworks begin, a summer tradition that still continues"
+  },
+  {
+   "year": 1772.2,
+   "tag": "1772",
+   "title": "The Great Meiwa Fire",
+   "body": "Another great fire sweeps across the city"
+  },
+  {
+   "year": 1853.5,
+   "tag": "JUL 1853",
+   "title": "The Black Ships",
+   "body": "US Commodore Perry's warships sail into Edo Bay and demand that Japan open its ports"
+  },
+  {
+   "year": 1855.85,
+   "tag": "NOV 1855",
+   "title": "The Ansei earthquake",
+   "body": "A powerful earthquake strikes Edo. Fires break out across the lowlands"
+  },
+  {
+   "year": 1860.2,
+   "tag": "24 MAR 1860",
+   "title": "The Sakuradamon Incident",
+   "body": "In the snow, samurai kill the shogun's chief minister outside the castle gate"
+  },
+  {
+   "year": 1868.3,
+   "tag": "APR 1868",
+   "title": "A city surrendered",
+   "body": "The shogun's men hand over Edo Castle to the imperial army without a fight"
+  },
+  {
+   "year": 1868.51,
+   "tag": "4 JUL 1868",
+   "title": "The Battle of Ueno",
+   "body": "Imperial troops storm the hill where the last Shōgitai samurai hold out. The temple burns"
+  },
+  {
+   "year": 1868.9,
+   "tag": "1868",
+   "title": "Tokyo is born",
+   "body": "Edo is renamed Tokyo, 'Eastern Capital'. The young Emperor Meiji arrives in a grand procession"
+  },
+  {
+   "year": 1872.8,
+   "tag": "OCT 1872",
+   "title": "The first railway",
+   "body": "Japan's first railway opens from Shimbashi. Ginza is rebuilt in brick"
+  },
+  {
+   "year": 1889,
+   "tag": "1889",
+   "title": "A modern capital",
+   "body": "Brick offices, gas lamps, rickshaws and trams fill the streets"
+  },
+  {
+   "year": 1914.95,
+   "tag": "DEC 1914",
+   "title": "Tokyo Station",
+   "body": "A grand red-brick station opens in front of the Imperial Palace"
+  },
+  {
+   "year": 1920.9,
+   "tag": "1920",
+   "title": "Meiji Shrine",
+   "body": "A shrine is built in a new forest planted with 100,000 trees donated from across Japan"
+  },
+  {
+   "year": 1923.67,
+   "tag": "1 SEP 1923",
+   "title": "The Great Kantō earthquake",
+   "body": "At noon the earth shakes. Fires burn for two days. More than 100,000 people die"
+  },
+  {
+   "year": 1923.8,
+   "tag": "1923",
+   "title": "Ruins",
+   "body": "Nearly half of Tokyo is destroyed"
+  },
+  {
+   "year": 1930,
+   "tag": "1930",
+   "title": "Rebuilding",
+   "body": "New avenues, steel bridges and concrete schools rise from the ruins"
+  },
+  {
+   "year": 1936.15,
+   "tag": "26 FEB 1936",
+   "title": "The February 26 Incident",
+   "body": "Young army officers lead 1,400 soldiers to seize the centre of Tokyo. The revolt fails"
+  },
+  {
+   "year": 1945.19,
+   "tag": "10 MAR 1945",
+   "title": "The firebombing of Tokyo",
+   "body": "At night US bombers drop firebombs on the eastern districts. About 100,000 die"
+  },
+  {
+   "year": 1945.4,
+   "tag": "MAY 1945",
+   "title": "The city burns again",
+   "body": "More raids leave half of Tokyo in ruins"
+  },
+  {
+   "year": 1945.67,
+   "tag": "AUG 1945",
+   "title": "Surrender",
+   "body": "The war ends. Allied forces occupy Japan until 1952"
+  },
+  {
+   "year": 1958.95,
+   "tag": "DEC 1958",
+   "title": "Tokyo Tower",
+   "body": "At 333 m, a red and white tower rises over the rebuilt city"
+  },
+  {
+   "year": 1964.8,
+   "tag": "OCT 1964",
+   "title": "The Olympic Games",
+   "body": "Asia's first Olympics. The bullet train opens days before"
+  },
+  {
+   "year": 1978.3,
+   "tag": "1978",
+   "title": "Sunshine 60",
+   "body": "Skyscrapers begin to rise in Ikebukuro, Shinjuku and beyond"
+  },
+  {
+   "year": 1989,
+   "tag": "1989",
+   "title": "The bubble years",
+   "body": "Tokyo's land is said to be worth more than all of California"
+  },
+  {
+   "year": 1991.3,
+   "tag": "1991",
+   "title": "A new city hall",
+   "body": "The twin-towered Metropolitan Government Building opens in Shinjuku"
+  },
+  {
+   "year": 1993.65,
+   "tag": "1993",
+   "title": "Rainbow Bridge",
+   "body": "A suspension bridge links the city to the new waterfront at Odaiba"
+  },
+  {
+   "year": 2011.2,
+   "tag": "11 MAR 2011",
+   "title": "The Great East Japan Earthquake",
+   "body": "Buildings sway across Tokyo. The city's earthquake-proof towers stand"
+  },
+  {
+   "year": 2012.4,
+   "tag": "MAY 2012",
+   "title": "Tokyo Skytree",
+   "body": "At 634 m, the tallest tower in the world opens beside the Sumida"
+  },
+  {
+   "year": 2021.55,
+   "tag": "JUL 2021",
+   "title": "The Olympics return",
+   "body": "Delayed a year by the pandemic, the Games are held without spectators"
+  },
+  {
+   "year": 2026,
+   "tag": "2026",
+   "title": "Tokyo today",
+   "body": "About 14 million people live in Tokyo, and 37 million in the region"
+  }
+ ],
+ "eras": [
+  {
+   "from": 0,
+   "text": "Ancient Musashi"
+  },
+  {
+   "from": 1180,
+   "text": "The age of the samurai"
+  },
+  {
+   "from": 1457,
+   "text": "Edo Castle"
+  },
+  {
+   "from": 1590,
+   "text": "The Tokugawa arrive"
+  },
+  {
+   "from": 1603,
+   "text": "The Edo period"
+  },
+  {
+   "from": 1853,
+   "text": "The end of isolation"
+  },
+  {
+   "from": 1868,
+   "text": "Meiji: Tokyo is born"
+  },
+  {
+   "from": 1912,
+   "text": "The Taishō era"
+  },
+  {
+   "from": 1926,
+   "text": "The Shōwa era"
+  },
+  {
+   "from": 1941,
+   "text": "The Pacific War"
+  },
+  {
+   "from": 1945.6,
+   "text": "Occupation and recovery"
+  },
+  {
+   "from": 1955,
+   "text": "The economic miracle"
+  },
+  {
+   "from": 1989,
+   "text": "The Heisei era"
+  },
+  {
+   "from": 2019.3,
+   "text": "The Reiwa era"
+  }
+ ],
+ "rulers": [
+  {
+   "from": 0,
+   "realm": "Musashi Province",
+   "name": "The imperial court in Yamato",
+   "badge": "clan"
+  },
+  {
+   "from": 1180,
+   "realm": "Musashi Province",
+   "name": "Edo Shigenaga, of the Edo clan",
+   "badge": "clan"
+  },
+  {
+   "from": 1192,
+   "realm": "Kamakura shogunate",
+   "name": "Shogun Minamoto no Yoritomo",
+   "badge": "clan"
+  },
+  {
+   "from": 1338,
+   "realm": "Ashikaga shogunate",
+   "name": "The Ashikaga shoguns",
+   "badge": "clan"
+  },
+  {
+   "from": 1457,
+   "realm": "Uesugi domain",
+   "name": "Ōta Dōkan, lord of Edo Castle",
+   "badge": "clan"
+  },
+  {
+   "from": 1486.6,
+   "realm": "Uesugi domain",
+   "name": "The Ōgigayatsu Uesugi",
+   "badge": "clan"
+  },
+  {
+   "from": 1524,
+   "realm": "Later Hōjō clan",
+   "name": "Hōjō Ujitsuna",
+   "badge": "clan"
+  },
+  {
+   "from": 1541,
+   "realm": "Later Hōjō clan",
+   "name": "Hōjō Ujiyasu",
+   "badge": "clan"
+  },
+  {
+   "from": 1571,
+   "realm": "Later Hōjō clan",
+   "name": "Hōjō Ujimasa",
+   "badge": "clan"
+  },
+  {
+   "from": 1590.6,
+   "realm": "Kantō domain",
+   "name": "Tokugawa Ieyasu",
+   "badge": "shogun"
+  },
+  {
+   "from": 1603.2,
+   "realm": "Tokugawa shogunate",
+   "name": "Shogun Tokugawa Ieyasu",
+   "badge": "shogun"
+  },
+  {
+   "from": 1605,
+   "realm": "Tokugawa shogunate",
+   "name": "Shogun Tokugawa Hidetada",
+   "badge": "shogun"
+  },
+  {
+   "from": 1623,
+   "realm": "Tokugawa shogunate",
+   "name": "Shogun Tokugawa Iemitsu",
+   "badge": "shogun"
+  },
+  {
+   "from": 1651,
+   "realm": "Tokugawa shogunate",
+   "name": "Shogun Tokugawa Ietsuna",
+   "badge": "shogun"
+  },
+  {
+   "from": 1680,
+   "realm": "Tokugawa shogunate",
+   "name": "Shogun Tokugawa Tsunayoshi",
+   "badge": "shogun"
+  },
+  {
+   "from": 1709,
+   "realm": "Tokugawa shogunate",
+   "name": "Shogun Tokugawa Ienobu",
+   "badge": "shogun"
+  },
+  {
+   "from": 1713,
+   "realm": "Tokugawa shogunate",
+   "name": "Shogun Tokugawa Ietsugu",
+   "badge": "shogun"
+  },
+  {
+   "from": 1716,
+   "realm": "Tokugawa shogunate",
+   "name": "Shogun Tokugawa Yoshimune",
+   "badge": "shogun"
+  },
+  {
+   "from": 1745,
+   "realm": "Tokugawa shogunate",
+   "name": "Shogun Tokugawa Ieshige",
+   "badge": "shogun"
+  },
+  {
+   "from": 1760,
+   "realm": "Tokugawa shogunate",
+   "name": "Shogun Tokugawa Ieharu",
+   "badge": "shogun"
+  },
+  {
+   "from": 1787,
+   "realm": "Tokugawa shogunate",
+   "name": "Shogun Tokugawa Ienari",
+   "badge": "shogun"
+  },
+  {
+   "from": 1837,
+   "realm": "Tokugawa shogunate",
+   "name": "Shogun Tokugawa Ieyoshi",
+   "badge": "shogun"
+  },
+  {
+   "from": 1853.6,
+   "realm": "Tokugawa shogunate",
+   "name": "Shogun Tokugawa Iesada",
+   "badge": "shogun"
+  },
+  {
+   "from": 1858.6,
+   "realm": "Tokugawa shogunate",
+   "name": "Shogun Tokugawa Iemochi",
+   "badge": "shogun"
+  },
+  {
+   "from": 1866.9,
+   "realm": "Tokugawa shogunate",
+   "name": "Shogun Tokugawa Yoshinobu",
+   "badge": "shogun"
+  },
+  {
+   "from": 1868.3,
+   "realm": "Empire of Japan",
+   "name": "Emperor Meiji",
+   "badge": "japan"
+  },
+  {
+   "from": 1912.6,
+   "realm": "Empire of Japan",
+   "name": "Emperor Taishō",
+   "badge": "japan"
+  },
+  {
+   "from": 1926.98,
+   "realm": "Empire of Japan",
+   "name": "Emperor Shōwa (Hirohito)",
+   "badge": "japan"
+  },
+  {
+   "from": 1945.67,
+   "realm": "Allied occupation",
+   "name": "General Douglas MacArthur",
+   "badge": "us"
+  },
+  {
+   "from": 1952.3,
+   "realm": "Japan",
+   "name": "Emperor Shōwa (Hirohito)",
+   "badge": "japan"
+  },
+  {
+   "from": 1989.02,
+   "realm": "Japan",
+   "name": "Emperor Akihito",
+   "badge": "japan"
+  },
+  {
+   "from": 2019.33,
+   "realm": "Japan",
+   "name": "Emperor Naruhito",
+   "badge": "japan"
+  }
+ ],
+ "population_label": "Population (estimate)",
+ "population": [
+  [
+   600,
+   300
+  ],
+  [
+   1180,
+   1500
+  ],
+  [
+   1457,
+   5000
+  ],
+  [
+   1590,
+   10000
+  ],
+  [
+   1610,
+   150000
+  ],
+  [
+   1657.1,
+   400000
+  ],
+  [
+   1657.3,
+   300000
+  ],
+  [
+   1700,
+   1000000
+  ],
+  [
+   1800,
+   1100000
+  ],
+  [
+   1867,
+   1000000
+  ],
+  [
+   1872,
+   780000
+  ],
+  [
+   1890,
+   1400000
+  ],
+  [
+   1920,
+   3700000
+  ],
+  [
+   1923.6,
+   4100000
+  ],
+  [
+   1924,
+   3200000
+  ],
+  [
+   1940,
+   7350000
+  ],
+  [
+   1944,
+   6500000
+  ],
+  [
+   1945.6,
+   3500000
+  ],
+  [
+   1955,
+   8000000
+  ],
+  [
+   1965,
+   10870000
+  ],
+  [
+   1990,
+   11850000
+  ],
+  [
+   2026,
+   14100000
+  ]
+ ],
+ "standing_label": "Years since Edo Castle",
+ "labels": [
+  {
+   "text": "Musashi Province",
+   "until": 1868.9,
+   "ll": [
+    139.725,
+    35.705,
+    120
+   ],
+   "kind": "region"
+  },
+  {
+   "text": "Shimōsa Province",
+   "until": 1868.9,
+   "ll": [
+    139.83,
+    35.715,
+    120
+   ],
+   "kind": "region"
+  },
+  {
+   "text": "Tokyo Bay",
+   "ll": [
+    139.8,
+    35.638,
+    2
+   ],
+   "kind": "water"
+  },
+  {
+   "text": "Sumida River",
+   "ll": [
+    139.793,
+    35.702,
+    2
+   ],
+   "kind": "water"
+  },
+  {
+   "text": "Kanda River",
+   "from": 1620,
+   "ll": [
+    139.756,
+    35.702,
+    2
+   ],
+   "kind": "water"
+  },
+  {
+   "text": "Hibiya Inlet",
+   "until": 1592,
+   "ll": [
+    139.762,
+    35.676,
+    2
+   ],
+   "kind": "water"
+  },
+  {
+   "text": "Edo",
+   "from": 900,
+   "until": 1590,
+   "ll": [
+    139.76,
+    35.685,
+    25
+   ],
+   "kind": "village"
+  },
+  {
+   "text": "Asakusa",
+   "from": 600,
+   "until": 1600,
+   "ll": [
+    139.7967,
+    35.713,
+    20
+   ],
+   "kind": "village"
+  },
+  {
+   "text": "Hirakawa",
+   "from": 900,
+   "until": 1600,
+   "ll": [
+    139.748,
+    35.692,
+    20
+   ],
+   "kind": "village"
+  },
+  {
+   "text": "Shibasaki",
+   "from": 900,
+   "until": 1600,
+   "ll": [
+    139.765,
+    35.688,
+    20
+   ],
+   "kind": "village"
+  },
+  {
+   "text": "Shibuya",
+   "from": 1100,
+   "until": 1880,
+   "ll": [
+    139.7016,
+    35.658,
+    30
+   ],
+   "kind": "village"
+  },
+  {
+   "text": "Naitō-Shinjuku",
+   "from": 1699,
+   "until": 1880,
+   "ll": [
+    139.71,
+    35.688,
+    30
+   ],
+   "kind": "village"
+  },
+  {
+   "text": "Shinagawa",
+   "from": 1100,
+   "ll": [
+    139.74,
+    35.63,
+    25
+   ],
+   "kind": "village"
+  },
+  {
+   "text": "Takanawa",
+   "from": 1300,
+   "until": 1900,
+   "ll": [
+    139.74,
+    35.638,
+    25
+   ],
+   "kind": "village"
+  },
+  {
+   "text": "Ushijima",
+   "from": 900,
+   "until": 1650,
+   "ll": [
+    139.81,
+    35.71,
+    15
+   ],
+   "kind": "village"
+  },
+  {
+   "text": "Yanaka",
+   "from": 1300,
+   "until": 1900,
+   "ll": [
+    139.769,
+    35.726,
+    30
+   ],
+   "kind": "village"
+  },
+  {
+   "text": "Akasaka",
+   "from": 1600,
+   "ll": [
+    139.736,
+    35.674,
+    30
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Kanda",
+   "from": 1600,
+   "ll": [
+    139.77,
+    35.695,
+    30
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Nihonbashi",
+   "from": 1603,
+   "ll": [
+    139.776,
+    35.686,
+    30
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Kyōbashi",
+   "from": 1610,
+   "until": 1947,
+   "ll": [
+    139.77,
+    35.677,
+    30
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Ginza",
+   "from": 1612,
+   "ll": [
+    139.765,
+    35.6717,
+    30
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Fukagawa",
+   "from": 1660,
+   "ll": [
+    139.799,
+    35.68,
+    20
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Honjo",
+   "from": 1660,
+   "ll": [
+    139.8,
+    35.7,
+    20
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Ryōgoku",
+   "from": 1659,
+   "ll": [
+    139.793,
+    35.696,
+    20
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Ueno",
+   "from": 1625,
+   "ll": [
+    139.7745,
+    35.712,
+    30
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Asakusa",
+   "from": 1600,
+   "ll": [
+    139.7967,
+    35.711,
+    20
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Tsukiji",
+   "from": 1658,
+   "ll": [
+    139.771,
+    35.6655,
+    15
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Yotsuya",
+   "from": 1630,
+   "ll": [
+    139.73,
+    35.686,
+    40
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Marunouchi",
+   "from": 1890,
+   "ll": [
+    139.765,
+    35.681,
+    40
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Shimbashi",
+   "from": 1872,
+   "ll": [
+    139.758,
+    35.666,
+    30
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Tsukishima",
+   "from": 1892,
+   "ll": [
+    139.784,
+    35.663,
+    15
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Shinjuku",
+   "from": 1880,
+   "ll": [
+    139.7,
+    35.69,
+    40
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Shibuya",
+   "from": 1880,
+   "ll": [
+    139.7016,
+    35.6595,
+    40
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Roppongi",
+   "from": 1950,
+   "ll": [
+    139.731,
+    35.663,
+    40
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Akihabara",
+   "from": 1950,
+   "ll": [
+    139.774,
+    35.6984,
+    25
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Ikebukuro",
+   "from": 1950,
+   "ll": [
+    139.711,
+    35.7295,
+    40
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Harumi",
+   "from": 1931,
+   "ll": [
+    139.782,
+    35.654,
+    15
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Toyosu",
+   "from": 1940,
+   "ll": [
+    139.796,
+    35.655,
+    15
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Odaiba",
+   "from": 1975,
+   "ll": [
+    139.777,
+    35.63,
+    20
+   ],
+   "kind": "area"
+  },
+  {
+   "text": "Sensō-ji",
+   "from": 645,
+   "at": "sensoji"
+  },
+  {
+   "text": "Five-storey pagoda",
+   "from": 1649,
+   "at": "pagoda"
+  },
+  {
+   "text": "Edo Castle",
+   "from": 1457,
+   "until": 1868.9,
+   "at": "castle"
+  },
+  {
+   "text": "Imperial Palace",
+   "from": 1888,
+   "at": "palace"
+  },
+  {
+   "text": "Zōjō-ji",
+   "from": 1598,
+   "at": "zojoji"
+  },
+  {
+   "text": "Kan'ei-ji",
+   "from": 1625,
+   "until": 1868.6,
+   "at": "kaneiji"
+  },
+  {
+   "text": "Nihonbashi bridge",
+   "from": 1603,
+   "at": "nihonbashi"
+  },
+  {
+   "text": "Ryōgoku bridge",
+   "from": 1659,
+   "at": "ryogoku"
+  },
+  {
+   "text": "Tokyo Station",
+   "from": 1914.95,
+   "at": "station"
+  },
+  {
+   "text": "National Diet",
+   "from": 1936,
+   "at": "diet"
+  },
+  {
+   "text": "Meiji Shrine",
+   "from": 1920.9,
+   "at": "meiji"
+  },
+  {
+   "text": "Tokyo Tower",
+   "from": 1958.95,
+   "at": "tokyotower"
+  },
+  {
+   "text": "Tokyo Skytree",
+   "from": 2012.4,
+   "at": "skytree"
+  },
+  {
+   "text": "Rainbow Bridge",
+   "from": 1993.65,
+   "at": "rainbow"
+  },
+  {
+   "text": "Sakurada Gate",
+   "from": 1636,
+   "ll": [
+    139.752,
+    35.6775,
+    15
+   ]
+  },
+  {
+   "text": "Ueno Park",
+   "from": 1873,
+   "ll": [
+    139.7714,
+    35.7148,
+    20
+   ]
+  },
+  {
+   "text": "Yasukuni Shrine",
+   "from": 1869,
+   "ll": [
+    139.744,
+    35.694,
+    25
+   ]
+  },
+  {
+   "text": "Tokyo Dome",
+   "from": 1988,
+   "ll": [
+    139.7519,
+    35.7056,
+    60
+   ]
+  },
+  {
+   "text": "Tokyo Metropolitan Government",
+   "from": 1991.3,
+   "ll": [
+    139.6917,
+    35.6896,
+    250
+   ]
+  },
+  {
+   "text": "Sunshine 60",
+   "from": 1978.3,
+   "ll": [
+    139.719,
+    35.729,
+    245
+   ]
+  },
+  {
+   "text": "Roppongi Hills",
+   "from": 2003,
+   "ll": [
+    139.7292,
+    35.6604,
+    240
+   ]
+  },
+  {
+   "text": "Shibuya Crossing",
+   "from": 1980,
+   "ll": [
+    139.7005,
+    35.6595,
+    10
+   ]
+  },
+  {
+   "text": "Kabuki-za",
+   "from": 1889,
+   "ll": [
+    139.7678,
+    35.6695,
+    30
+   ]
+  },
+  {
+   "text": "Tsukiji Fish Market",
+   "from": 1935,
+   "until": 2018,
+   "ll": [
+    139.771,
+    35.6655,
+    20
+   ]
+  }
+ ],
+ "groups": [
+  {
+   "kind": "edo",
+   "count": 30,
+   "from": 16,
+   "to": 32,
+   "path": [
+    [
+     139.7967,
+     35.714
+    ]
+   ],
+   "formation": "crowd",
+   "width": 25,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "boat",
+   "count": 4,
+   "from": 16,
+   "to": 40,
+   "path": [
+    [
+     139.8,
+     35.725
+    ],
+    [
+     139.798,
+     35.712
+    ],
+    [
+     139.792,
+     35.698
+    ],
+    [
+     139.788,
+     35.68
+    ],
+    [
+     139.78,
+     35.665
+    ]
+   ],
+   "formation": "line",
+   "width": 6,
+   "scale": 1.0,
+   "speed": 5,
+   "loop": true
+  },
+  {
+   "kind": "monk_jp",
+   "count": 20,
+   "from": 30,
+   "to": 44,
+   "path": [
+    [
+     139.7967,
+     35.715
+    ]
+   ],
+   "formation": "crowd",
+   "width": 15,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "samurai",
+   "count": 160,
+   "from": 74,
+   "to": 90,
+   "path": [
+    [
+     139.753,
+     35.687
+    ]
+   ],
+   "formation": "crowd",
+   "width": 35,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "samurai",
+   "count": 500,
+   "from": 92,
+   "to": 104,
+   "path": [
+    [
+     139.74556685386645,
+     35.688
+    ],
+    [
+     139.748,
+     35.688
+    ]
+   ],
+   "formation": "block",
+   "width": 10,
+   "scale": 1.0,
+   "speed": 20.37
+  },
+  {
+   "kind": "ashigaru",
+   "count": 900,
+   "from": 104,
+   "to": 118,
+   "path": [
+    [
+     139.75461515586377,
+     35.6855194404582
+    ],
+    [
+     139.753,
+     35.687
+    ]
+   ],
+   "formation": "block",
+   "width": 9,
+   "scale": 1.0,
+   "speed": 17.46
+  },
+  {
+   "kind": "samurai",
+   "count": 300,
+   "from": 106,
+   "to": 118,
+   "path": [
+    [
+     139.7637774386836,
+     35.674288414157054
+    ],
+    [
+     139.765,
+     35.676
+    ]
+   ],
+   "formation": "block",
+   "width": 8,
+   "scale": 1.0,
+   "speed": 20.37
+  },
+  {
+   "kind": "palanquin",
+   "count": 2,
+   "from": 108,
+   "to": 118,
+   "path": [
+    [
+     139.77269652967362,
+     35.681671127127935
+    ],
+    [
+     139.7745,
+     35.683
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 24.44
+  },
+  {
+   "kind": "edo",
+   "count": 160,
+   "from": 120,
+   "to": 136,
+   "path": [
+    [
+     139.7745,
+     35.6835
+    ]
+   ],
+   "formation": "crowd",
+   "width": 40,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "boat",
+   "count": 10,
+   "from": 120,
+   "to": 180,
+   "path": [
+    [
+     139.8,
+     35.725
+    ],
+    [
+     139.798,
+     35.712
+    ],
+    [
+     139.792,
+     35.698
+    ],
+    [
+     139.788,
+     35.68
+    ],
+    [
+     139.78,
+     35.665
+    ]
+   ],
+   "formation": "line",
+   "width": 8,
+   "scale": 1.0,
+   "speed": 7,
+   "loop": true
+  },
+  {
+   "kind": "ashigaru",
+   "count": 500,
+   "from": 144,
+   "to": 156,
+   "path": [
+    [
+     139.77269652967362,
+     35.681671127127935
+    ],
+    [
+     139.7745,
+     35.683
+    ]
+   ],
+   "formation": "block",
+   "width": 7,
+   "scale": 1.0,
+   "speed": 20.37
+  },
+  {
+   "kind": "palanquin",
+   "count": 4,
+   "from": 146,
+   "to": 156,
+   "path": [
+    [
+     139.77269652967362,
+     35.681671127127935
+    ],
+    [
+     139.7745,
+     35.683
+    ]
+   ],
+   "formation": "line",
+   "width": 3,
+   "scale": 1.0,
+   "speed": 24.44
+  },
+  {
+   "kind": "edo",
+   "count": 200,
+   "from": 146,
+   "to": 156,
+   "path": [
+    [
+     139.765,
+     35.676
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "edo",
+   "count": 400,
+   "from": 160,
+   "to": 172,
+   "path": [
+    [
+     139.77,
+     35.69
+    ]
+   ],
+   "formation": "crowd",
+   "width": 80,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "edo",
+   "count": 300,
+   "from": 180,
+   "to": 192,
+   "path": [
+    [
+     139.793,
+     35.695
+    ]
+   ],
+   "formation": "crowd",
+   "width": 50,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "edo",
+   "count": 500,
+   "from": 198,
+   "to": 208,
+   "path": [
+    [
+     139.79,
+     35.696
+    ]
+   ],
+   "formation": "crowd",
+   "width": 70,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "edo",
+   "count": 300,
+   "from": 208,
+   "to": 224,
+   "path": [
+    [
+     139.765,
+     35.68
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "edo",
+   "count": 200,
+   "from": 222,
+   "to": 234,
+   "path": [
+    [
+     139.7967,
+     35.712
+    ]
+   ],
+   "formation": "crowd",
+   "width": 40,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "blackship",
+   "count": 4,
+   "from": 230,
+   "to": 244,
+   "path": [
+    [
+     139.82,
+     35.62
+    ],
+    [
+     139.79,
+     35.635
+    ]
+   ],
+   "formation": "line",
+   "width": 30,
+   "scale": 1.0,
+   "speed": 4
+  },
+  {
+   "kind": "edo",
+   "count": 200,
+   "from": 244,
+   "to": 252,
+   "path": [
+    [
+     139.795,
+     35.695
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "samurai",
+   "count": 60,
+   "from": 250,
+   "to": 256,
+   "path": [
+    [
+     139.752,
+     35.6785
+    ]
+   ],
+   "formation": "crowd",
+   "width": 15,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "palanquin",
+   "count": 1,
+   "from": 250,
+   "to": 256,
+   "path": [
+    [
+     139.7538820315676,
+     35.676745312288276
+    ],
+    [
+     139.752,
+     35.678
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 40.74
+  },
+  {
+   "kind": "meiji_army",
+   "count": 900,
+   "from": 258,
+   "to": 268,
+   "path": [
+    [
+     139.75653558362654,
+     35.684464416373466
+    ],
+    [
+     139.755,
+     35.686
+    ]
+   ],
+   "formation": "block",
+   "width": 10,
+   "scale": 1.0,
+   "speed": 24.44
+  },
+  {
+   "kind": "meiji_army",
+   "count": 700,
+   "from": 268,
+   "to": 280,
+   "path": [
+    [
+     139.77236312974105,
+     35.71208938922315
+    ],
+    [
+     139.773,
+     35.714
+    ]
+   ],
+   "formation": "block",
+   "width": 22,
+   "scale": 1.0,
+   "speed": 20.37
+  },
+  {
+   "kind": "shogitai",
+   "count": 350,
+   "from": 268,
+   "to": 280,
+   "path": [
+    [
+     139.7745,
+     35.718
+    ]
+   ],
+   "formation": "block",
+   "width": 14,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "samurai",
+   "count": 200,
+   "from": 280,
+   "to": 290,
+   "path": [
+    [
+     139.7573907797795,
+     35.68563218772623
+    ],
+    [
+     139.755,
+     35.686
+    ]
+   ],
+   "formation": "block",
+   "width": 8,
+   "scale": 1.0,
+   "speed": 24.44
+  },
+  {
+   "kind": "palanquin",
+   "count": 1,
+   "from": 280,
+   "to": 290,
+   "path": [
+    [
+     139.7573907797795,
+     35.68563218772623
+    ],
+    [
+     139.755,
+     35.686
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 24.44
+  },
+  {
+   "kind": "edo",
+   "count": 400,
+   "from": 280,
+   "to": 290,
+   "path": [
+    [
+     139.765,
+     35.676
+    ]
+   ],
+   "formation": "crowd",
+   "width": 70,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "train",
+   "count": 1,
+   "from": 290,
+   "to": 300,
+   "path": [
+    [
+     139.758,
+     35.666
+    ],
+    [
+     139.745,
+     35.645
+    ],
+    [
+     139.738,
+     35.628
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 20,
+   "loop": true
+  },
+  {
+   "kind": "edo",
+   "count": 160,
+   "from": 292,
+   "to": 312,
+   "path": [
+    [
+     139.765,
+     35.6717
+    ]
+   ],
+   "formation": "crowd",
+   "width": 50,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "rickshaw",
+   "count": 20,
+   "from": 292,
+   "to": 330,
+   "path": [
+    [
+     139.762,
+     35.669
+    ],
+    [
+     139.768,
+     35.675
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 4,
+   "loop": true
+  },
+  {
+   "kind": "tram",
+   "count": 3,
+   "from": 300,
+   "to": 332,
+   "path": [
+    [
+     139.762,
+     35.669
+    ],
+    [
+     139.77,
+     35.68
+    ],
+    [
+     139.7745,
+     35.6835
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 7,
+   "loop": true
+  },
+  {
+   "kind": "showa",
+   "count": 300,
+   "from": 310,
+   "to": 322,
+   "path": [
+    [
+     139.7671,
+     35.68
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "showa",
+   "count": 150,
+   "from": 320,
+   "to": 330,
+   "path": [
+    [
+     139.6993,
+     35.674
+    ]
+   ],
+   "formation": "crowd",
+   "width": 40,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "showa",
+   "count": 500,
+   "from": 338,
+   "to": 352,
+   "path": [
+    [
+     139.77,
+     35.69
+    ]
+   ],
+   "formation": "crowd",
+   "width": 90,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "showa",
+   "count": 200,
+   "from": 352,
+   "to": 364,
+   "path": [
+    [
+     139.765,
+     35.681
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "car",
+   "count": 12,
+   "from": 352,
+   "to": 380,
+   "path": [
+    [
+     139.762,
+     35.669
+    ],
+    [
+     139.77,
+     35.68
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 8,
+   "loop": true
+  },
+  {
+   "kind": "ija1936",
+   "count": 1400,
+   "from": 362,
+   "to": 374,
+   "path": [
+    [
+     139.7430417554065,
+     35.6781749467561
+    ],
+    [
+     139.745,
+     35.677
+    ]
+   ],
+   "formation": "block",
+   "width": 30,
+   "scale": 1.0,
+   "speed": 20.37
+  },
+  {
+   "kind": "showa",
+   "count": 300,
+   "from": 404,
+   "to": 420,
+   "path": [
+    [
+     139.765,
+     35.6717
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "car",
+   "count": 16,
+   "from": 404,
+   "to": 440,
+   "path": [
+    [
+     139.758,
+     35.666
+    ],
+    [
+     139.77,
+     35.68
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 9,
+   "loop": true
+  },
+  {
+   "kind": "modern",
+   "count": 600,
+   "from": 436,
+   "to": 452,
+   "path": [
+    [
+     139.699,
+     35.668
+    ]
+   ],
+   "formation": "crowd",
+   "width": 90,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "shinkansen",
+   "count": 1,
+   "from": 438,
+   "to": 454,
+   "path": [
+    [
+     139.7671,
+     35.6812
+    ],
+    [
+     139.755,
+     35.662
+    ],
+    [
+     139.74,
+     35.63
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 40,
+   "loop": true
+  },
+  {
+   "kind": "modern",
+   "count": 400,
+   "from": 452,
+   "to": 660,
+   "path": [
+    [
+     139.7005,
+     35.6595
+    ]
+   ],
+   "formation": "crowd",
+   "width": 50,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "car",
+   "count": 40,
+   "from": 452,
+   "to": 660,
+   "path": [
+    [
+     139.695,
+     35.658
+    ],
+    [
+     139.7005,
+     35.6595
+    ],
+    [
+     139.706,
+     35.662
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 10,
+   "loop": true
+  },
+  {
+   "kind": "modern",
+   "count": 400,
+   "from": 452,
+   "to": 660,
+   "path": [
+    [
+     139.765,
+     35.6717
+    ]
+   ],
+   "formation": "crowd",
+   "width": 60,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "car",
+   "count": 30,
+   "from": 452,
+   "to": 660,
+   "path": [
+    [
+     139.758,
+     35.666
+    ],
+    [
+     139.77,
+     35.678
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 10,
+   "loop": true
+  },
+  {
+   "kind": "bus",
+   "count": 10,
+   "from": 452,
+   "to": 660,
+   "path": [
+    [
+     139.77,
+     35.678
+    ],
+    [
+     139.758,
+     35.666
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 8,
+   "loop": true
+  },
+  {
+   "kind": "modern",
+   "count": 300,
+   "from": 452,
+   "to": 660,
+   "path": [
+    [
+     139.699,
+     35.69
+    ]
+   ],
+   "formation": "crowd",
+   "width": 70,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "modern",
+   "count": 300,
+   "from": 452,
+   "to": 660,
+   "path": [
+    [
+     139.7967,
+     35.712
+    ]
+   ],
+   "formation": "crowd",
+   "width": 50,
+   "scale": 1.0,
+   "speed": 0
+  },
+  {
+   "kind": "shinkansen",
+   "count": 1,
+   "from": 470,
+   "to": 660,
+   "path": [
+    [
+     139.7671,
+     35.6812
+    ],
+    [
+     139.755,
+     35.662
+    ],
+    [
+     139.74,
+     35.63
+    ]
+   ],
+   "formation": "line",
+   "width": 2,
+   "scale": 1.0,
+   "speed": 40,
+   "loop": true
+  },
+  {
+   "kind": "riverboat",
+   "count": 6,
+   "from": 452,
+   "to": 660,
+   "path": [
+    [
+     139.8,
+     35.725
+    ],
+    [
+     139.798,
+     35.712
+    ],
+    [
+     139.792,
+     35.698
+    ],
+    [
+     139.788,
+     35.68
+    ],
+    [
+     139.78,
+     35.665
+    ]
+   ],
+   "formation": "line",
+   "width": 50,
+   "scale": 1.0,
+   "speed": 6,
+   "loop": true
+  }
+ ],
+ "fx": [
+  {
+   "kind": "fire",
+   "ll": [
+    139.76,
+    35.705
+   ],
+   "radius": 700,
+   "from": 1657.16,
+   "to": 1657.223,
+   "destroy": 0.75,
+   "ruin": 0.25,
+   "rebuild": 4,
+   "size": 0.45,
+   "blobs": 45
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    139.77,
+    35.685
+   ],
+   "radius": 900,
+   "from": 1657.17,
+   "to": 1657.2333,
+   "destroy": 0.75,
+   "ruin": 0.25,
+   "rebuild": 4,
+   "blobs": 70,
+   "size": 0.6
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    139.753,
+    35.688
+   ],
+   "radius": 300,
+   "from": 1657.18,
+   "to": 1657.2432,
+   "destroy": 0.6,
+   "ruin": 0.3,
+   "rebuild": 4,
+   "size": 0.45,
+   "blobs": 45
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    139.765,
+    35.68
+   ],
+   "radius": 600,
+   "from": 1772.2,
+   "to": 1780.2143,
+   "destroy": 0.5,
+   "ruin": 0.25,
+   "rebuild": 3,
+   "size": 0.45,
+   "blobs": 45
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    139.79,
+    35.69
+   ],
+   "radius": 500,
+   "from": 1855.85,
+   "to": 1858.7667,
+   "destroy": 0.4,
+   "ruin": 0.25,
+   "rebuild": 3,
+   "size": 0.45,
+   "blobs": 45
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    139.7745,
+    35.718
+   ],
+   "radius": 220,
+   "from": 1868.51,
+   "to": 1868.783,
+   "destroy": 0.6,
+   "ruin": 0.3,
+   "rebuild": 5,
+   "size": 0.45,
+   "blobs": 45
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    139.785,
+    35.695
+   ],
+   "radius": 1500,
+   "from": 1923.67,
+   "to": 1923.7458,
+   "destroy": 0.65,
+   "ruin": 0.3,
+   "rebuild": 7,
+   "blobs": 90,
+   "size": 0.6
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    139.765,
+    35.68
+   ],
+   "radius": 900,
+   "from": 1923.675,
+   "to": 1923.7513,
+   "destroy": 0.55,
+   "ruin": 0.3,
+   "rebuild": 7,
+   "size": 0.6,
+   "blobs": 60
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    139.8,
+    35.69
+   ],
+   "radius": 1800,
+   "from": 1945.19,
+   "to": 1945.3125,
+   "destroy": 0.85,
+   "ruin": 0.2,
+   "rebuild": 10,
+   "blobs": 100,
+   "size": 0.6
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    139.78,
+    35.71
+   ],
+   "radius": 1000,
+   "from": 1945.19,
+   "to": 1945.3125,
+   "destroy": 0.7,
+   "ruin": 0.2,
+   "rebuild": 10,
+   "size": 0.6,
+   "blobs": 60
+  },
+  {
+   "kind": "fire",
+   "ll": [
+    139.73,
+    35.67
+   ],
+   "radius": 1200,
+   "from": 1945.4,
+   "to": 1945.589,
+   "destroy": 0.5,
+   "ruin": 0.25,
+   "rebuild": 10,
+   "blobs": 80,
+   "size": 0.6
+  },
+  {
+   "kind": "dust",
+   "ll": [
+    139.77,
+    35.69
+   ],
+   "radius": 700,
+   "from": 1923.665,
+   "to": 1923.7133,
+   "blobs": 45,
+   "size": 0.45
+  }
+ ],
+ "fireworks": [
+  {
+   "ll": [
+    139.793,
+    35.695,
+    120
+   ],
+   "from": 200,
+   "to": 208,
+   "count": 7,
+   "spread": 300
+  },
+  {
+   "ll": [
+    139.699,
+    35.668,
+    150
+   ],
+   "from": 442,
+   "to": 450,
+   "count": 7,
+   "spread": 400
+  },
+  {
+   "ll": [
+    139.793,
+    35.695,
+    120
+   ],
+   "from": 608,
+   "to": 616,
+   "count": 8,
+   "spread": 350
+  },
+  {
+   "ll": [
+    139.765,
+    35.675,
+    200
+   ],
+   "from": 640,
+   "to": 658,
+   "count": 10,
+   "spread": 800
+  }
+ ],
+ "moods": [
+  {
+   "from": 30,
+   "to": 44,
+   "autumn": 0.55
+  },
+  {
+   "from": 160,
+   "to": 172,
+   "night": 0.7,
+   "ramp": 1.5
+  },
+  {
+   "from": 198,
+   "to": 210,
+   "night": 1.0,
+   "ramp": 1.5
+  },
+  {
+   "from": 248,
+   "to": 257,
+   "snow": 1.0,
+   "ramp": 1.5
+  },
+  {
+   "from": 334,
+   "to": 346,
+   "smoke": 0.6,
+   "ramp": 1.5
+  },
+  {
+   "from": 364,
+   "to": 374,
+   "snow": 0.8,
+   "ramp": 1.5
+  },
+  {
+   "from": 384,
+   "to": 398,
+   "night": 1.0,
+   "ramp": 1.5
+  },
+  {
+   "from": 420,
+   "to": 430,
+   "rain": 0.5,
+   "ramp": 2
+  },
+  {
+   "from": 604,
+   "to": 618,
+   "night": 1.0,
+   "ramp": 2
+  }
+ ],
+ "sfx": [
+  {
+   "kind": "traffic",
+   "at": 0,
+   "dur": 5,
+   "gain": 0.8
+  },
+  {
+   "kind": "chatter",
+   "at": 0,
+   "dur": 4,
+   "gain": 0.6
+  },
+  {
+   "kind": "wind",
+   "at": 3,
+   "dur": 4,
+   "gain": 0.8
+  },
+  {
+   "kind": "birds",
+   "at": 8,
+   "dur": 132,
+   "gain": 0.9
+  },
+  {
+   "kind": "water",
+   "at": 8,
+   "dur": 52,
+   "gain": 0.6
+  },
+  {
+   "kind": "bells",
+   "at": 30,
+   "dur": 90,
+   "gain": 0.35
+  },
+  {
+   "kind": "hammer",
+   "at": 72,
+   "dur": 18,
+   "gain": 0.6
+  },
+  {
+   "kind": "hammer",
+   "at": 118,
+   "dur": 32,
+   "gain": 0.7
+  },
+  {
+   "kind": "chisel",
+   "at": 120,
+   "dur": 30,
+   "gain": 0.4
+  },
+  {
+   "kind": "chatter",
+   "at": 120,
+   "dur": 180,
+   "gain": 0.7
+  },
+  {
+   "kind": "hooves",
+   "at": 104,
+   "dur": 186,
+   "gain": 0.4
+  },
+  {
+   "kind": "cart",
+   "at": 130,
+   "dur": 160,
+   "gain": 0.4
+  },
+  {
+   "kind": "bells",
+   "at": 150,
+   "dur": 150,
+   "gain": 0.35
+  },
+  {
+   "kind": "water",
+   "at": 180,
+   "dur": 50,
+   "gain": 0.5
+  },
+  {
+   "kind": "hammer",
+   "at": 172,
+   "dur": 18,
+   "gain": 0.6
+  },
+  {
+   "kind": "chatter",
+   "at": 300,
+   "dur": 120,
+   "gain": 0.8
+  },
+  {
+   "kind": "tram",
+   "at": 300,
+   "dur": 32,
+   "gain": 0.6
+  },
+  {
+   "kind": "hammer",
+   "at": 346,
+   "dur": 16,
+   "gain": 0.6
+  },
+  {
+   "kind": "traffic",
+   "at": 350,
+   "dur": 30,
+   "gain": 0.5
+  },
+  {
+   "kind": "traffic",
+   "at": 404,
+   "dur": 256,
+   "gain": 0.85
+  },
+  {
+   "kind": "chatter",
+   "at": 404,
+   "dur": 256,
+   "gain": 0.8
+  },
+  {
+   "kind": "carhorn",
+   "at": 440,
+   "dur": 220,
+   "gain": 0.4
+  },
+  {
+   "kind": "scooter",
+   "at": 452,
+   "dur": 208,
+   "gain": 0.4
+  },
+  {
+   "kind": "tram",
+   "at": 438,
+   "dur": 16,
+   "gain": 0.6
+  },
+  {
+   "kind": "bells",
+   "at": 30,
+   "dur": 8,
+   "gain": 0.7
+  },
+  {
+   "kind": "chant",
+   "at": 74,
+   "dur": 6,
+   "gain": 1.0
+  },
+  {
+   "kind": "drums",
+   "at": 72,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "shouts",
+   "at": 84,
+   "dur": 6,
+   "gain": 0.6
+  },
+  {
+   "kind": "sword",
+   "at": 85,
+   "dur": 4,
+   "gain": 0.6
+  },
+  {
+   "kind": "march",
+   "at": 92,
+   "dur": 12,
+   "gain": 1.0
+  },
+  {
+   "kind": "drums",
+   "at": 92,
+   "dur": 12,
+   "gain": 1.0
+  },
+  {
+   "kind": "chant",
+   "at": 94,
+   "dur": 5,
+   "gain": 1.0
+  },
+  {
+   "kind": "sword",
+   "at": 100,
+   "dur": 5,
+   "gain": 1.0
+  },
+  {
+   "kind": "shouts",
+   "at": 100,
+   "dur": 5,
+   "gain": 1.0
+  },
+  {
+   "kind": "march",
+   "at": 104,
+   "dur": 14,
+   "gain": 1.0
+  },
+  {
+   "kind": "drums",
+   "at": 104,
+   "dur": 14,
+   "gain": 1.0
+  },
+  {
+   "kind": "chant",
+   "at": 106,
+   "dur": 6,
+   "gain": 1.0
+  },
+  {
+   "kind": "horn",
+   "at": 108,
+   "dur": 4,
+   "gain": 0.5
+  },
+  {
+   "kind": "cheer",
+   "at": 112,
+   "dur": 6,
+   "gain": 0.5
+  },
+  {
+   "kind": "march",
+   "at": 144,
+   "dur": 12,
+   "gain": 1.0
+  },
+  {
+   "kind": "drums",
+   "at": 144,
+   "dur": 12,
+   "gain": 0.7
+  },
+  {
+   "kind": "fire",
+   "at": 160,
+   "dur": 14,
+   "gain": 1.0
+  },
+  {
+   "kind": "shouts",
+   "at": 162,
+   "dur": 8,
+   "gain": 0.6
+  },
+  {
+   "kind": "rumble",
+   "at": 166,
+   "dur": 4,
+   "gain": 1.0
+  },
+  {
+   "kind": "fireworks",
+   "at": 200,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "cheer",
+   "at": 200,
+   "dur": 8,
+   "gain": 0.6
+  },
+  {
+   "kind": "fire",
+   "at": 210,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "horn",
+   "at": 230,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "cannon",
+   "at": 236,
+   "dur": 6,
+   "gain": 0.6
+  },
+  {
+   "kind": "rumble",
+   "at": 244,
+   "dur": 5,
+   "gain": 1.0
+  },
+  {
+   "kind": "fire",
+   "at": 246,
+   "dur": 6,
+   "gain": 1.0
+  },
+  {
+   "kind": "wind",
+   "at": 248,
+   "dur": 9,
+   "gain": 1.0
+  },
+  {
+   "kind": "sword",
+   "at": 252,
+   "dur": 4,
+   "gain": 1.0
+  },
+  {
+   "kind": "shouts",
+   "at": 252,
+   "dur": 4,
+   "gain": 1.0
+  },
+  {
+   "kind": "march",
+   "at": 258,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "drums",
+   "at": 258,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "chant",
+   "at": 260,
+   "dur": 5,
+   "gain": 1.0
+  },
+  {
+   "kind": "cannon",
+   "at": 268,
+   "dur": 12,
+   "gain": 1.0
+  },
+  {
+   "kind": "gunfire",
+   "at": 268,
+   "dur": 12,
+   "gain": 1.0
+  },
+  {
+   "kind": "chant",
+   "at": 268,
+   "dur": 6,
+   "gain": 1.0
+  },
+  {
+   "kind": "shouts",
+   "at": 270,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "fire",
+   "at": 272,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "march",
+   "at": 280,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "drums",
+   "at": 280,
+   "dur": 10,
+   "gain": 0.6
+  },
+  {
+   "kind": "cheer",
+   "at": 282,
+   "dur": 6,
+   "gain": 0.6
+  },
+  {
+   "kind": "horn",
+   "at": 290,
+   "dur": 8,
+   "gain": 0.6
+  },
+  {
+   "kind": "bells",
+   "at": 312,
+   "dur": 6,
+   "gain": 0.5
+  },
+  {
+   "kind": "rumble",
+   "at": 334,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "fire",
+   "at": 336,
+   "dur": 12,
+   "gain": 1.0
+  },
+  {
+   "kind": "shouts",
+   "at": 338,
+   "dur": 6,
+   "gain": 0.5
+  },
+  {
+   "kind": "march",
+   "at": 362,
+   "dur": 12,
+   "gain": 1.0
+  },
+  {
+   "kind": "drums",
+   "at": 362,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "chant",
+   "at": 364,
+   "dur": 4,
+   "gain": 1.0
+  },
+  {
+   "kind": "siren",
+   "at": 382,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "bomb",
+   "at": 386,
+   "dur": 12,
+   "gain": 1.0
+  },
+  {
+   "kind": "fire",
+   "at": 386,
+   "dur": 14,
+   "gain": 1.0
+  },
+  {
+   "kind": "siren",
+   "at": 396,
+   "dur": 6,
+   "gain": 1.0
+  },
+  {
+   "kind": "bomb",
+   "at": 398,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "fire",
+   "at": 398,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "cheer",
+   "at": 436,
+   "dur": 10,
+   "gain": 1.0
+  },
+  {
+   "kind": "fireworks",
+   "at": 442,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "rumble",
+   "at": 518,
+   "dur": 6,
+   "gain": 1.0
+  },
+  {
+   "kind": "cheer",
+   "at": 534,
+   "dur": 8,
+   "gain": 0.5
+  },
+  {
+   "kind": "cheer",
+   "at": 546,
+   "dur": 8,
+   "gain": 0.5
+  },
+  {
+   "kind": "fireworks",
+   "at": 608,
+   "dur": 8,
+   "gain": 1.0
+  },
+  {
+   "kind": "fireworks",
+   "at": 640,
+   "dur": 16,
+   "gain": 0.7
+  }
+ ],
+ "music_accents": [
+  24,
+  76,
+  104,
+  160,
+  232,
+  266,
+  334,
+  386,
+  430,
+  442,
+  534
+ ],
+ "sample_segments": [
+  [
+   24,
+   1
+  ],
+  [
+   92,
+   1
+  ],
+  [
+   108,
+   1
+  ],
+  [
+   150,
+   1
+  ],
+  [
+   162,
+   1
+  ],
+  [
+   232,
+   1
+  ],
+  [
+   270,
+   1
+  ],
+  [
+   296,
+   1
+  ],
+  [
+   336,
+   1
+  ],
+  [
+   388,
+   1
+  ],
+  [
+   432,
+   1
+  ],
+  [
+   536,
+   1
+  ]
+ ]
+}

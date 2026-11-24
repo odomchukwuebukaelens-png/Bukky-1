@@ -468,7 +468,7 @@ def eevee_id():
 
 def configure_render(brief, scene, engine):
     r = scene.render
-    realistic = brief.get("style") in ("historic", "nyc", "rome", "london", "paris")
+    realistic = brief.get("style") in ("historic", "nyc", "rome", "london", "paris", "tokyo")
     r.resolution_x, r.resolution_y = brief["resolution"]
     r.resolution_percentage = 100
     r.fps = brief["fps"]
@@ -749,9 +749,11 @@ def main():
 
     random.seed(brief["seed"])
     built = time.time()
-    if brief.get("style") in ("historic", "nyc", "rome", "london", "paris"):
+    if brief.get("style") in ("historic", "nyc", "rome", "london", "paris", "tokyo"):
         sys.path.insert(0, HERE)
-        if brief["style"] == "paris":
+        if brief["style"] == "tokyo":
+            import style_tokyo as style
+        elif brief["style"] == "paris":
             import style_paris as style
         elif brief["style"] == "london":
             import style_london as style

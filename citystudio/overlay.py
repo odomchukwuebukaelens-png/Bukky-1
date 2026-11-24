@@ -25,7 +25,7 @@ FALLBACK = {"BebasNeue-Regular.otf": "DejaVuSansCondensed-Bold.ttf",
             "LeagueSpartan-Bold.otf": "DejaVuSans-Bold.ttf", "LeagueSpartan-Medium.otf": "DejaVuSans-Bold.ttf",
             "LeagueSpartan-Black.otf": "DejaVuSans-Bold.ttf", "Lato-Bold.ttf": "DejaVuSans-Bold.ttf",
             "Lato-Regular.ttf": "DejaVuSans.ttf", "Lato-Semibold.ttf": "DejaVuSans-Bold.ttf",
-            "Lato-Black.ttf": "DejaVuSans-Bold.ttf"}
+            "Lato-Black.ttf": "DejaVuSans-Bold.ttf", "Lato-Heavy.ttf": "DejaVuSans-Bold.ttf"}
 _cache = {}
 WARNED = set()
 
@@ -196,6 +196,18 @@ def badge(layer, draw, cx, cy, r, kind, alpha):
             fd.rectangle([S * 0.48, S * 0.38, S * 0.52, S * 0.6], fill=(245, 245, 240, 255))
     elif kind == "occupied":
         fd.rectangle([0, 0, S, S], fill=(110, 110, 110, 255))
+    elif kind == "japan":
+        fd.rectangle([0, 0, S, S], fill=(250, 250, 248, 255))
+        fd.ellipse([S * 0.25, S * 0.25, S * 0.75, S * 0.75], fill=(188, 0, 45, 255))
+    elif kind == "shogun":
+        fd.rectangle([0, 0, S, S], fill=(25, 25, 30, 255))
+        for k in range(3):
+            ang = math.radians(90 + 120 * k)
+            cx_, cy_ = S / 2 + math.cos(ang) * S * 0.18, S / 2 - math.sin(ang) * S * 0.18
+            fd.ellipse([cx_ - S * 0.16, cy_ - S * 0.16, cx_ + S * 0.16, cy_ + S * 0.16], fill=(60, 140, 70, 255))
+    elif kind == "clan":
+        fd.rectangle([0, 0, S, S], fill=(120, 25, 30, 255))
+        fd.ellipse([S * 0.28, S * 0.28, S * 0.72, S * 0.72], outline=(240, 220, 160, 255), width=max(1, S // 9))
     elif kind == "gaul":
         fd.rectangle([0, 0, S, S], fill=(40, 90, 60, 255))
         fd.ellipse([S * 0.28, S * 0.28, S * 0.72, S * 0.72], outline=(230, 200, 110, 255), width=max(1, S // 10))
@@ -331,6 +343,7 @@ def fireworks(img, data):
 
 
 def compose_atlas(img, data):
+    """All on-screen text is bold white with a dark outline so it reads on any background."""
     W, H = img.size
     s = H / 720.0
     X = lambda v: v * s  # noqa: E731
@@ -339,93 +352,111 @@ def compose_atlas(img, data):
     fireworks(img, data)
     img.alpha_composite(atlas_gradients(W, H))
     L = Layers(img.size, s)
-    amber, white, soft = (240, 178, 74), (255, 255, 255), (222, 226, 230)
+    amber, white = (236, 170, 40), (255, 255, 255)
     left, right = X(56), W - X(56)
+    HEAVY, BOLD = "LeagueSpartan-Bold.otf", "Lato-Black.ttf"
+
+    def bold(xy, text, size, anchor="la", alpha=1.0, face=BOLD, spacing=0.0, outline=2.2):
+        if alpha <= 0.003 or not text:
+            return
+        f = font(face, int(X(size)))
+        a = int(255 * alpha)
+        sw = max(1, int(X(outline)))
+        x, y = xy
+        if spacing > 0:                                   # letter-spaced: draw char by char
+            widths = [L.dt.textlength(ch, font=f) for ch in text]
+            total = sum(widths) + spacing * (len(text) - 1)
+            x -= total / 2 if anchor[0] == "m" else (total if anchor[0] == "r" else 0)
+            for ch, w in zip(text, widths):
+                L.ds.text((x + X(1.5), y + X(2)), ch, font=f, fill=(0, 0, 0, int(a * 0.8)), anchor="l" + anchor[1],
+                          stroke_width=sw + 1, stroke_fill=(0, 0, 0, int(a * 0.8)))
+                L.dt.text((x, y), ch, font=f, fill=(*white, a), anchor="l" + anchor[1], stroke_width=sw,
+                          stroke_fill=(12, 12, 14, int(a * 0.95)))
+                x += w + spacing
+            return
+        L.ds.text((x + X(1.5), y + X(2)), text, font=f, fill=(0, 0, 0, int(a * 0.8)), anchor=anchor,
+                  stroke_width=sw + 1, stroke_fill=(0, 0, 0, int(a * 0.8)))
+        L.dt.text((x, y), text, font=f, fill=(*white, a), anchor=anchor, stroke_width=sw,
+                  stroke_fill=(12, 12, 14, int(a * 0.95)))
 
     tc = data.get("title_card")
     if tc:
         a = tc["alpha"]
-        L.text((W / 2, X(262)), tc.get("kicker", "").upper(), font("Lato-Bold.ttf", int(X(17))), amber, a, "mm",
-               spacing=X(6))
-        L.text((W / 2, X(342)), tc.get("title", "").upper(), font("LeagueSpartan-Bold.otf", int(X(118))), white,
-               a, "mm", spacing=X(4), shadow=0.7)
-        L.dt.rectangle([W / 2 - X(60), X(404), W / 2 + X(60), X(408)], fill=(*amber, int(255 * a)))
-        L.text((W / 2, X(438)), tc.get("years", ""), font("Lato-Semibold.ttf", int(X(22))), soft, a, "mm",
-               spacing=X(3))
+        bold((W / 2, X(258)), tc.get("kicker", "").upper(), 19, "mm", a, spacing=X(5))
+        bold((W / 2, X(342)), tc.get("title", "").upper(), 118, "mm", a, face=HEAVY, spacing=X(4), outline=3.5)
+        L.dt.rectangle([W / 2 - X(60), X(404), W / 2 + X(60), X(409)], fill=(*amber, int(255 * a)))
+        bold((W / 2, X(440)), tc.get("years", ""), 26, "mm", a, spacing=X(3))
         if tc.get("note"):
-            L.text((W / 2, X(470)), tc["note"], font("Lato-Regular.ttf", int(X(15))), soft, a, "mm")
+            bold((W / 2, X(476)), tc["note"], 18, "mm", a)
 
-    # top left: era, year, ruler badge
-    L.text((left + X(2), X(42)), data.get("era", "").upper(), font("Lato-Bold.ttf", int(X(14))), amber, spacing=X(3.5))
+    # top left: era, year, ruler
+    bold((left + X(2), X(42)), data.get("era", "").upper(), 17, spacing=X(3))
     yt = data.get("year_text") or str(data.get("year", ""))
-    L.text((left - X(2), X(128)), yt, font("LeagueSpartan-Bold.otf", int(X(92 if len(yt) <= 6 else 74))), white,
-           anchor="ls", shadow=0.85)
-    by = X(156)
+    bold((left - X(2), X(132)), yt, 92 if len(yt) <= 6 else 74, "ls", face=HEAVY, outline=3.2)
+    by = X(160)
     tx = left
     if data.get("badge"):
-        badge(L.txt, L.dt, left + X(11), by, X(11), data["badge"], 1.0)
-        tx = left + X(30)
-    rf = font("Lato-Bold.ttf", int(X(15)))
+        badge(L.txt, L.dt, left + X(12), by, X(12), data["badge"], 1.0)
+        tx = left + X(32)
     realm = data.get("realm", "")
-    L.text((tx, by), realm, rf, white, anchor="lm")
+    rf = font(BOLD, int(X(18)))
+    bold((tx, by), realm, 18, "lm")
     if data.get("ruler"):
-        rx = tx + L.dt.textlength(realm, font=rf) + X(8)
-        L.text((rx, by), "·  " + data["ruler"], font("Lato-Regular.ttf", int(X(15))), soft, anchor="lm")
+        bold((tx + L.dt.textlength(realm, font=rf) + X(10), by), "·  " + data["ruler"], 18, "lm")
 
-    # top right: two counters
-    lab = font("Lato-Bold.ttf", int(X(11)))
-    val = font("LeagueSpartan-Bold.otf", int(X(30)))
-    L.text((right, X(40)), data.get("population_label", "").upper(), lab, amber, anchor="ra", spacing=X(2.5))
-    L.text((right, X(84)), data.get("population", "") or "—", val, white, anchor="rs")
-    L.text((right, X(110)), data.get("standing_label", "").upper(), lab, amber, anchor="ra", spacing=X(2.5))
-    L.text((right, X(154)), data.get("standing", ""), val, white, anchor="rs")
+    # top right: counters
+    bold((right, X(40)), data.get("population_label", "").upper(), 14, "ra", spacing=X(2))
+    bold((right, X(86)), data.get("population", "") or "—", 32, "rs", face=HEAVY, outline=2.6)
+    bold((right, X(114)), data.get("standing_label", "").upper(), 14, "ra", spacing=X(2))
+    bold((right, X(160)), data.get("standing", ""), 32, "rs", face=HEAVY, outline=2.6)
 
-    # bottom left: caption with a date tag
+    # bottom left: caption with a yellow date box (bold white text inside)
     cap = data.get("caption")
     if cap:
         a = cap["alpha"]
-        tf = font("LeagueSpartan-Bold.otf", int(X(17)))
+        tf = font(HEAVY, int(X(21)))
         tag = cap.get("tag", "")
         tw = L.dt.textlength(tag, font=tf)
-        y0 = X(592)
-        L.dt.rounded_rectangle([left, y0 - X(13), left + tw + X(20), y0 + X(13)], radius=X(4),
-                               fill=(*amber, int(235 * a)))
-        L.dt.text((left + X(10), y0 + X(1)), tag, font=tf, fill=(24, 20, 14, int(255 * a)), anchor="lm")
-        L.text((left + tw + X(32), y0 + X(2)), cap["title"], font("LeagueSpartan-Bold.otf", int(X(28))), white, a,
-               "lm")
-        bf = font("Lato-Regular.ttf", int(X(17)))
-        for i, line in enumerate(wrap(L.dt, cap["body"], bf, X(760))[:2]):
-            L.text((left, X(634) + i * X(24)), line, bf, soft, a, "ls")
+        y0 = X(584)
+        L.ds.rounded_rectangle([left + X(2), y0 - X(15) + X(3), left + tw + X(26), y0 + X(17) + X(3)], radius=X(5),
+                               fill=(0, 0, 0, int(140 * a)))
+        L.dt.rounded_rectangle([left, y0 - X(17), left + tw + X(24), y0 + X(17)], radius=X(5),
+                               fill=(*amber, int(245 * a)))
+        L.dt.text((left + X(12), y0 + X(1)), tag, font=tf, fill=(255, 255, 255, int(255 * a)), anchor="lm",
+                  stroke_width=max(1, int(X(2.2))), stroke_fill=(60, 35, 0, int(255 * a)))
+        bold((left + tw + X(38), y0 + X(2)), cap["title"], 32, "lm", a, face=HEAVY, outline=2.8)
+        bf = font(BOLD, int(X(21)))
+        for i, line in enumerate(wrap(L.dt, cap["body"], bf, X(820))[:2]):
+            bold((left, X(632) + i * X(28)), line, 21, "ls", a)
 
-    # place labels: amber ring and text to the right
-    lf = font("LeagueSpartan-Bold.otf", int(X(17)))
-    label_col = tuple(data.get("label_color") or (255, 255, 255))   # bold white with a dark outline
+    # place labels: districts, villages and regions larger; buildings with a marker ring
     for lb in data.get("labels", []):
         a = lb["alpha"]
         if a <= 0.003:
             continue
         px, py = lb["x"] * W, lb["y"] * H
-        r = X(4.2)
-        L.ds.ellipse([px - r + 1, py - r + 1, px + r + 1, py + r + 1], outline=(0, 0, 0, int(160 * a)),
-                     width=max(1, int(X(2))))
-        L.dt.ellipse([px - r, py - r, px + r, py + r], outline=(*amber, int(255 * a)), width=max(1, int(X(2))))
-        L.dt.ellipse([px - X(1.6), py - X(1.6), px + X(1.6), py + X(1.6)], fill=(255, 255, 255, int(255 * a)))
-        L.ds.text((px + X(10.5), py + X(1.5)), lb["text"].upper(), font=lf, fill=(0, 0, 0, int(200 * a)), anchor="lm",
-                  stroke_width=max(1, int(X(2.5))), stroke_fill=(0, 0, 0, int(200 * a)))
-        L.dt.text((px + X(9), py), lb["text"].upper(), font=lf, fill=(*label_col, int(255 * a)), anchor="lm",
-                  stroke_width=max(1, int(X(1.6))), stroke_fill=(10, 10, 12, int(235 * a)))
+        if lb.get("kind") in ("area", "village", "region", "water"):
+            bold((px, py), lb["text"].upper(), 22 if lb.get("kind") != "village" else 19, "mm", a,
+                 face=HEAVY, spacing=X(3), outline=2.6)
+            continue
+        r = X(5)
+        L.ds.ellipse([px - r + 1, py - r + 1, px + r + 1, py + r + 1], outline=(0, 0, 0, int(170 * a)),
+                     width=max(1, int(X(2.5))))
+        L.dt.ellipse([px - r, py - r, px + r, py + r], outline=(*amber, int(255 * a)), width=max(1, int(X(2.5))))
+        L.dt.ellipse([px - X(2), py - X(2), px + X(2), py + X(2)], fill=(255, 255, 255, int(255 * a)))
+        bold((px + X(11), py), lb["text"].upper(), 19, "lm", a, face=HEAVY, outline=2.4)
 
-    # bottom right: compass arrow and fine print
-    cx, cy = right - X(10), H - X(62)
+    # bottom right: compass and fine print
+    cx, cy = right - X(10), H - X(64)
     ang = math.radians(-data.get("heading", 0.0))
-    tip = (cx + math.sin(ang) * X(13), cy - math.cos(ang) * X(13))
-    tail = (cx - math.sin(ang) * X(9), cy + math.cos(ang) * X(9))
-    side = [(cx + math.sin(ang + sg * 1.9) * X(6), cy - math.cos(ang + sg * 1.9) * X(6)) for sg in (-1, 1)]
-    L.dt.polygon([tip, side[0], tail, side[1]], fill=(255, 255, 255, 230))
+    tip = (cx + math.sin(ang) * X(14), cy - math.cos(ang) * X(14))
+    tail = (cx - math.sin(ang) * X(10), cy + math.cos(ang) * X(10))
+    side = [(cx + math.sin(ang + sg * 1.9) * X(7), cy - math.cos(ang + sg * 1.9) * X(7)) for sg in (-1, 1)]
+    L.dt.polygon([tip, side[0], tail, side[1]], fill=(255, 255, 255, 235))
     L.dt.polygon([tip, side[0], (cx, cy), side[1]], fill=(*amber, 255))
-    L.text((cx, cy - X(24)), "N", font("Lato-Bold.ttf", int(X(11))), white, anchor="mm")
+    bold((cx, cy - X(26)), "N", 14, "mm")
     if data.get("fineprint"):
-        L.text((right, H - X(18)), data["fineprint"], font("Lato-Regular.ttf", int(X(11))), soft, 0.75, "rs")
+        bold((right, H - X(16)), data["fineprint"], 12, "rs", 0.9, outline=1.6)
     return L.finish(img)
 
 

@@ -76,7 +76,7 @@ case "${1:-}" in
     ENGINE_USED="$(pick_engine)"
     if [ -z "${WORKERS:-}" ]; then
       WORKERS=$(( $(nproc) / 3 ))                                          # about one Blender per 3 CPU cores
-      MEMW=$(( $(awk '/MemAvailable/ {print int($2/1048576)}' /proc/meminfo) / 5 ))  # and about 5 GB of memory each
+      MEMW=$(( $(awk '/MemAvailable/ {print int($2/1048576)}' /proc/meminfo) / 7 ))  # and about 7 GB of memory each
       [ "$MEMW" -lt "$WORKERS" ] && WORKERS=$MEMW
       [ "$WORKERS" -gt 12 ] && WORKERS=12
       [ "$WORKERS" -lt 1 ] && WORKERS=1
@@ -128,7 +128,7 @@ case "${1:-}" in
     ENGINE_USED="$(pick_engine)"
     if [ -z "${WORKERS:-}" ]; then
       WORKERS=$(( $(nproc) / 3 ))                                          # about one Blender per 3 CPU cores
-      MEMW=$(( $(awk '/MemAvailable/ {print int($2/1048576)}' /proc/meminfo) / 5 ))  # and about 5 GB of memory each
+      MEMW=$(( $(awk '/MemAvailable/ {print int($2/1048576)}' /proc/meminfo) / 7 ))  # and about 7 GB of memory each
       [ "$MEMW" -lt "$WORKERS" ] && WORKERS=$MEMW
       [ "$WORKERS" -gt 12 ] && WORKERS=12
       [ "$WORKERS" -lt 1 ] && WORKERS=1

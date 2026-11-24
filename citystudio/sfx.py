@@ -341,16 +341,35 @@ def water(n, rng):
     return lowpass_fast(rng.standard_normal(n), 25) * 2 + (rng.standard_normal(n) - lowpass_fast(rng.standard_normal(n), 3)) * 0.08
 
 
+def chant(n, rng):
+    """Many voices shouting together on a beat (an army's war cry, e.g. "Ei! Ei! O!")."""
+    out = np.zeros(n)
+    t = int(SR * 0.2)
+    k = 0
+    while t < n:
+        ln = min(int(SR * (0.35 if k % 3 < 2 else 0.8)), n - t)
+        kk = np.arange(ln) / SR
+        voice = np.zeros(ln)
+        for v in range(14):
+            f = rng.uniform(110, 190) * (1.0 if k % 3 < 2 else 1.25)
+            voice += lowpass_fast(np.sign(np.sin(2 * np.pi * f * (1 + 0.04 * kk) * kk + rng.uniform(0, 6))), 7)
+        env = np.minimum(1, kk / 0.03) * np.exp(-kk / (0.25 if k % 3 < 2 else 0.6))
+        out[t:t + ln] += voice * env / 14 + rng.standard_normal(ln) * env * 0.15
+        t += int(SR * (0.55 if k % 3 < 2 else 1.6))
+        k += 1
+    return out
+
+
 KINDS = {"fire": fire, "wind": wind, "rain": rain, "fireworks": fireworks, "cheer": cheer, "rumble": rumble,
          "horn": horn, "bells": bells, "birds": birds, "hammer": hammer_wood, "chisel": chisel_stone, "saw": saw,
          "chatter": chatter, "hooves": hooves, "cart": cart, "traffic": traffic, "carhorn": carhorn, "scooter": scooter,
          "siren": siren, "sword": sword, "shouts": shouts, "march": march, "drums": drums, "bomb": bomb,
-         "cannon": cannon, "gunfire": gunfire, "tram": tram, "water": water}
+         "cannon": cannon, "gunfire": gunfire, "tram": tram, "water": water, "chant": chant}
 LEVEL = {"fire": 0.35, "wind": 0.30, "rain": 0.30, "fireworks": 0.45, "cheer": 0.25, "rumble": 0.55,
          "horn": 0.25, "bells": 0.20, "birds": 0.18, "hammer": 0.22, "chisel": 0.15, "saw": 0.10, "chatter": 0.22,
          "hooves": 0.18, "cart": 0.20, "traffic": 0.28, "carhorn": 0.16, "scooter": 0.14, "siren": 0.10,
          "sword": 0.30, "shouts": 0.30, "march": 0.30, "drums": 0.35, "bomb": 0.55, "cannon": 0.50,
-         "gunfire": 0.30, "tram": 0.18, "water": 0.12}
+         "gunfire": 0.30, "tram": 0.18, "water": 0.12, "chant": 0.40}
 
 
 REAL_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets", "sfx")

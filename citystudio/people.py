@@ -59,6 +59,22 @@ COSTUMES = {
                     "dress": [(0.55, 0.25, 0.20), (0.85, 0.82, 0.75)]},
     "poilu": {"body": [(0.45, 0.55, 0.68)], "legs": (0.45, 0.55, 0.68), "helmet": (0.42, 0.50, 0.58), "weapon": "rifle"},
     "wehrmacht": {"body": [(0.36, 0.38, 0.34)], "legs": (0.32, 0.34, 0.30), "helmet": (0.32, 0.34, 0.30), "weapon": "rifle"},
+    "samurai": {"body": [(0.45, 0.08, 0.08), (0.12, 0.12, 0.14), (0.20, 0.22, 0.38)], "legs": (0.14, 0.14, 0.16),
+                "helmet": (0.12, 0.12, 0.14), "weapon": "spear", "banner": [(0.95, 0.95, 0.92), (0.80, 0.12, 0.10),
+                                                                              (0.10, 0.10, 0.12)]},
+    "ashigaru": {"body": [(0.22, 0.22, 0.26), (0.30, 0.24, 0.18)], "legs": (0.20, 0.20, 0.22),
+                 "hat": (0.25, 0.22, 0.18), "jingasa": True, "weapon": "pike",
+                 "banner": [(0.95, 0.95, 0.92), (0.15, 0.25, 0.55), (0.80, 0.12, 0.10)]},
+    "edo": {"body": [(0.20, 0.28, 0.48), (0.55, 0.20, 0.25), (0.35, 0.30, 0.22), (0.15, 0.15, 0.18), (0.55, 0.50, 0.40),
+                     (0.30, 0.45, 0.35)], "robe": True},
+    "monk_jp": {"body": [(0.12, 0.12, 0.14), (0.40, 0.30, 0.15)], "robe": True},
+    "meiji_army": {"body": [(0.10, 0.12, 0.20)], "legs": (0.10, 0.12, 0.20), "hat": (0.10, 0.12, 0.20), "weapon": "rifle",
+                   "banner": [(0.95, 0.95, 0.92)]},
+    "shogitai": {"body": [(0.20, 0.20, 0.24), (0.35, 0.10, 0.10)], "legs": (0.20, 0.20, 0.22), "helmet": (0.15, 0.15, 0.16),
+                 "weapon": "spear"},
+    "ija1936": {"body": [(0.42, 0.40, 0.26)], "legs": (0.42, 0.40, 0.26), "hat": (0.40, 0.38, 0.24), "weapon": "rifle"},
+    "showa": {"body": [(0.20, 0.20, 0.22), (0.35, 0.30, 0.25), (0.55, 0.50, 0.42), (0.25, 0.30, 0.45)],
+              "legs": (0.20, 0.20, 0.22), "dress": [(0.55, 0.25, 0.30), (0.30, 0.40, 0.50), (0.85, 0.80, 0.70)]},
     "french1849": {"body": [(0.15, 0.20, 0.45)], "legs": (0.65, 0.10, 0.10), "hat": (0.60, 0.10, 0.10),
                    "weapon": "rifle"},
     "garibaldini": {"body": [(0.80, 0.10, 0.08)], "legs": (0.45, 0.45, 0.48), "hat": (0.10, 0.10, 0.10),
@@ -135,6 +151,14 @@ def add_person(m, x, y, z, yaw, kind, rng, scale=1.0):
             m.box(x - 0.32 * s, y + 0.05, z + 0.50 * s, 0.04 * s, 0.32 * s, 1.0 * s, c["shield"], yaw=yaw, ox=x, oy=y)
             m.box(x - 0.36 * s, y + 0.05, z + 0.95 * s, 0.01 * s, 0.09 * s, 0.10 * s, c.get("shield_rim", c["shield"]),
                   yaw=yaw, ox=x, oy=y)
+    if c.get("jingasa"):                         # conical foot-soldier hat
+        m.box(x, y, z + 1.63 * s, 0.22 * s, 0.22 * s, 0.04 * s, c["hat"], yaw=yaw, ox=x, oy=y)
+    if c.get("banner") and rng.random() < 0.55:  # sashimono banner on the back; some carry tall nobori
+        tall = rng.random() < 0.15
+        col_ = rng.choice(c["banner"])
+        hh = 3.6 if tall else 2.4
+        m.box(x - 0.16 * s, y, z + 1.0 * s, 0.02 * s, 0.02 * s, hh * s, (0.25, 0.20, 0.15), yaw=yaw, ox=x, oy=y)
+        m.box(x - 0.16 * s, y + 0.22 * s, z + (hh - 1.0) * s, 0.015 * s, 0.22 * s, 0.9 * s, col_, yaw=yaw, ox=x, oy=y)
     w = c.get("weapon")
     if w in ("spear", "pilum", "pike"):
         length = {"spear": 2.2, "pilum": 2.0, "pike": 4.5}[w]
@@ -181,6 +205,33 @@ def add_vehicle(m, x, y, z, yaw, kind, rng):
     elif kind == "boat":
         m.box(x, y, z, 4.5, 1.3, 1.0, (0.35, 0.22, 0.12), yaw=yaw, ox=x, oy=y)
         add_person(m, x - 1.0, y, z + 0.5, yaw, "tudor", rng, 0.9)
+    elif kind == "blackship":                       # Perry's steam frigates, 1853
+        m.box(x, y, z, 32.0, 6.0, 4.0, (0.06, 0.06, 0.07), yaw=yaw, ox=x, oy=y)
+        m.box(x + 2, y, z + 4.0, 4.0, 4.5, 3.0, (0.30, 0.25, 0.20), yaw=yaw, ox=x, oy=y)
+        m.box(x, y, z + 4.0, 1.2, 1.2, 12.0, (0.08, 0.08, 0.08), yaw=yaw, ox=x, oy=y)
+        for mx in (-18.0, 14.0):
+            m.box(x + mx, y, z + 4.0, 0.4, 0.4, 26.0, (0.20, 0.15, 0.10), yaw=yaw, ox=x, oy=y)
+            m.box(x + mx, y, z + 14.0, 0.3, 5.0, 8.0, (0.92, 0.90, 0.84), yaw=yaw, ox=x, oy=y)
+    elif kind == "rickshaw":
+        m.box(x, y, z + 0.5, 0.6, 0.5, 0.6, (0.12, 0.12, 0.14), yaw=yaw, ox=x, oy=y)
+        m.box(x - 0.1, y, z + 1.1, 0.4, 0.5, 0.7, (0.12, 0.12, 0.14), yaw=yaw, ox=x, oy=y)
+        for sd in (-1, 1):
+            m.box(x, y + sd * 0.6, z, 0.45, 0.04, 0.9, (0.25, 0.20, 0.15), yaw=yaw, ox=x, oy=y)
+        add_person(m, x, y, z + 0.4, yaw, "edo", rng, 0.9)
+        add_person(m, x + 1.6, y, z, yaw, "edo", rng, 1.0)
+    elif kind == "palanquin":
+        m.box(x, y, z + 0.9, 0.9, 0.5, 0.9, (0.12, 0.10, 0.08), yaw=yaw, ox=x, oy=y)
+        m.box(x, y, z + 1.9, 2.2, 0.05, 0.08, (0.40, 0.30, 0.18), yaw=yaw, ox=x, oy=y)
+        for dx in (-1.6, 1.6):
+            add_person(m, x + dx, y, z, yaw, "edo", rng, 1.0)
+    elif kind == "train":
+        for k in range(5):
+            m.box(x - k * 16, y, z + 0.5, 7.5, 1.4, 3.2, (0.20, 0.20, 0.22) if k == 0 else (0.45, 0.20, 0.16),
+                  yaw=yaw, ox=x, oy=y)
+    elif kind == "shinkansen":
+        for k in range(8):
+            m.box(x - k * 25, y, z + 0.5, 12.3, 1.7, 3.6, (0.94, 0.94, 0.92), yaw=yaw, ox=x, oy=y)
+            m.box(x - k * 25, y + 1.72, z + 1.4, 12.0, 0.02, 0.5, (0.15, 0.25, 0.60), yaw=yaw, ox=x, oy=y)
     elif kind == "riverboat":
         m.box(x, y, z, 14.0, 3.0, 1.4, (0.92, 0.92, 0.90), yaw=yaw, ox=x, oy=y)
         m.box(x - 1, y, z + 1.4, 10.0, 2.6, 1.8, (0.40, 0.55, 0.65), yaw=yaw, ox=x, oy=y)
@@ -237,15 +288,16 @@ def make_group(spec, ground, mat, collection, seed):
     width = spec.get("width", 20.0)
     yaw = 0.0
     vehicles = spec["kind"] in ("chariot", "cart", "carriage", "tram", "car", "vespa", "bus", "cab", "boat", "barge",
-                                "longship", "riverboat")
+                                "longship", "riverboat", "rickshaw", "palanquin", "train", "shinkansen", "blackship")
     for k in range(n):
         if form == "block":
             cols = max(1, int(width / 1.2))
             dx, dy = -(k // cols) * 1.3, (k % cols) * 1.2 - width / 2
         elif form == "line":
-            gap = {"bus": 16.0, "barge": 30.0, "longship": 32.0, "boat": 14.0, "riverboat": 40.0}.get(spec["kind"], 8.0)
+            gap = {"bus": 16.0, "barge": 30.0, "longship": 32.0, "boat": 14.0, "riverboat": 40.0, "palanquin": 6.0,
+                   "rickshaw": 5.0, "train": 400.0, "shinkansen": 600.0, "blackship": 90.0}.get(spec["kind"], 8.0)
             dx = -k * (gap if vehicles else 1.5)
-            dy = rng.uniform(-width / 2, width / 2) if (not vehicles or spec["kind"] in ("longship", "boat", "barge", "riverboat")) else 0
+            dy = rng.uniform(-width / 2, width / 2) if (not vehicles or spec["kind"] in ("longship", "boat", "barge", "riverboat", "blackship")) else 0
         else:
             dx, dy = rng.uniform(-width, width), rng.uniform(-width, width)
         f_yaw = yaw if form != "crowd" else rng.uniform(0, 2 * math.pi)
