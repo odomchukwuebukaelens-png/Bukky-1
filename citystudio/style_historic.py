@@ -274,6 +274,9 @@ def plan(brief):
 # ----------------------------------------------------------------------------
 # Small mesh helpers
 # ----------------------------------------------------------------------------
+HOUSE_DETAIL = False          # styles switch on the detailed houses (windows, door, eaves)
+
+
 class Parts:
     """Collects many small shapes into one mesh with a colour per face."""
     def __init__(self):
@@ -298,6 +301,8 @@ class Parts:
         self.add([(x, y, z) for x, y in pts], [(0, 1, 2, 3)], [col])
 
     def house(self, hs, z0):
+        if hs.get("detail", HOUSE_DETAIL):
+            return self.house_detailed(hs, z0)
         ux, uy = hs["ux"], hs["uy"]
         hx, hy, h = hs["d"] / 2, hs["w"] / 2, hs["h"]
         wz = z0 + h * 0.6
@@ -317,6 +322,79 @@ class Parts:
         k = 1.35
         self.quad([P(-hx * k, -hy * 1.1, 0)[:2], P(hx * k, -hy * 1.1, 0)[:2],
                    P(hx * k, hy * 1.1, 0)[:2], P(-hx * k, hy * 1.1, 0)[:2]], z0 + 0.12, EARTH)
+
+    def house_detailed(self, hs, z0):
+        """A more realistic house: walls with rows of windows (one row per
+        storey), a front door, roof eaves that overhang the walls, a hipped or
+        gabled tiled roof and, for northern styles, a chimney."""
+        ux, uy = hs["ux"], hs["uy"]
+        hx, hy, h = hs["d"] / 2, hs["w"] / 2, hs["h"]
+        roof_h = hs.get("roof_h", min(h * 0.4, hy * 0.9))
+        wz = z0 + h - roof_h
+        x, y = hs["x"], hs["y"]
+        w, r = hs["wall"], hs["roof"]
+        w = w[:3]
+        r = r[:3]
+        hip = hs.get("hip", False)
+
+        def P(a, b, zz):
+            return (x + ux[0] * a + uy[0] * b, y + ux[1] * a + uy[1] * b, zz)
+        v = [P(-hx, -hy, z0 - 0.4), P(hx, -hy, z0 - 0.4), P(hx, hy, z0 - 0.4), P(-hx, hy, z0 - 0.4),
+             P(-hx, -hy, wz), P(hx, -hy, wz), P(hx, hy, wz), P(-hx, hy, wz)]
+        self.add(v, [(0, 1, 5, 4), (2, 3, 7, 6), (1, 2, 6, 5), (3, 0, 4, 7)], [w] * 4)
+        # plinth line in a darker tone
+        dk = tuple(c * 0.72 for c in w)
+        self.add([P(-hx - 0.12, -hy - 0.12, z0 - 0.4), P(hx + 0.12, -hy - 0.12, z0 - 0.4), P(hx + 0.12, -hy - 0.12, z0 + 0.6),
+                  P(-hx - 0.12, -hy - 0.12, z0 + 0.6)], [(0, 1, 2, 3)], [dk])
+        # roof with overhanging eaves
+        o = hs.get("eave", 0.55)
+        ex, ey = hx + o, hy + o
+        ez = wz - 0.25
+        ridge_x = max(0.0, ex - ey) if hip else ex
+        rv = [P(-ex, -ey, ez), P(ex, -ey, ez), P(ex, ey, ez), P(-ex, ey, ez),
+              P(-ridge_x, 0, wz + roof_h), P(ridge_x, 0, wz + roof_h)]
+        rd = tuple(c * 0.82 for c in r)
+        if hip:
+            self.add(rv, [(0, 1, 5, 4), (2, 3, 4, 5), (1, 2, 5), (3, 0, 4)], [r, rd, r, rd])
+        else:
+            self.add(rv, [(0, 1, 5, 4), (2, 3, 4, 5)], [r, rd])
+            gv = [P(-hx, -hy, wz), P(-hx, hy, wz), P(-hx, 0, wz + roof_h * (hx / ex)),
+                  P(hx, -hy, wz), P(hx, hy, wz), P(hx, 0, wz + roof_h * (hx / ex))]
+            self.add(gv, [(0, 1, 2), (4, 3, 5)], [w, w])
+        # windows: dark panes with lighter frames, one row per storey
+        win = hs.get("win_col", (0.10, 0.10, 0.11))
+        frame = hs.get("frame_col", tuple(min(1.0, c * 1.25 + 0.08) for c in w))
+        storeys = max(1, int((wz - z0 - 0.6) / 3.1))
+        for side in (-1, 1):
+            n = max(1, int(hs["d"] / 3.0))
+            for st in range(storeys):
+                zc = z0 + 1.0 + st * 3.1 + 0.9
+                for k in range(n):
+                    a = -hx + (k + 0.5) * hs["d"] / n
+                    if side == -1 and st == 0 and k == n // 2:
+                        # front door
+                        dv = [P(a - 0.55, -hy - 0.05, z0), P(a + 0.55, -hy - 0.05, z0), P(a + 0.55, -hy - 0.05, z0 + 2.2),
+                              P(a - 0.55, -hy - 0.05, z0 + 2.2)]
+                        self.add(dv, [(0, 1, 2, 3)], [(0.24, 0.14, 0.08)])
+                        continue
+                    yy = side * (hy + 0.05)
+                    fv = [P(a - 0.62, yy, zc - 0.85), P(a + 0.62, yy, zc - 0.85), P(a + 0.62, yy, zc + 0.85), P(a - 0.62, yy, zc + 0.85)]
+                    pv = [P(a - 0.45, yy * 1.004, zc - 0.68), P(a + 0.45, yy * 1.004, zc - 0.68),
+                          P(a + 0.45, yy * 1.004, zc + 0.68), P(a - 0.45, yy * 1.004, zc + 0.68)]
+                    if side == 1:
+                        fv, pv = fv[::-1], pv[::-1]
+                    self.add(fv, [(0, 1, 2, 3)], [frame])
+                    self.add(pv, [(0, 1, 2, 3)], [win])
+        for side in (-1, 1):                     # one window in each end wall per storey
+            for st in range(storeys):
+                zc = z0 + 1.0 + st * 3.1 + 0.9
+                xx = side * (hx + 0.05)
+                pv = [P(xx, -0.45, zc - 0.68), P(xx, 0.45, zc - 0.68), P(xx, 0.45, zc + 0.68), P(xx, -0.45, zc + 0.68)]
+                self.add(pv if side == 1 else pv[::-1], [(0, 1, 2, 3)], [win])
+        if hs.get("chimney"):
+            c0 = P(hx * 0.5, hy * 0.25, 0)
+            cz = wz + roof_h * 0.6
+            self.box(c0[0], c0[1], cz, ux, uy, 0.45, 0.45, roof_h * 0.6 + 0.8, dk)
 
     def to_object(self, name, mat, collection):
         me = bpy.data.meshes.new(name)

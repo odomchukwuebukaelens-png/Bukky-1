@@ -442,11 +442,30 @@ def compose_atlas(img, data):
             bold((left, X(632) + i * X(28)), line, 21, "ls", a)
 
     # place labels: districts, villages and regions larger; buildings with a marker ring
-    for lb in data.get("labels", []):
+    # keep labels off the year, ruler, counters and caption, and off each other
+    hud = [(0, 0, X(470), X(178)), (W - X(330), 0, W, X(172)), (W - X(90), H - X(110), W, H)]
+    if cap:
+        hud.append((0, X(556), X(940), H))
+    taken = []
+
+    def free(box):
+        if box[0] < X(6) or box[2] > W - X(6) or box[1] < X(6) or box[3] > H - X(6):
+            return False                                  # whole label on screen
+        return not any(box[0] < r[2] and box[2] > r[0] and box[1] < r[3] and box[3] > r[1] for r in hud + taken)
+    order = sorted(data.get("labels", []), key=lambda l: (l.get("kind") in ("region", "water"), l.get("kind") == "area"))
+    for lb in order:
         a = lb["alpha"]
         if a <= 0.003:
             continue
         px, py = lb["x"] * W, lb["y"] * H
+        big = lb.get("kind") in ("area", "village", "region", "water")
+        fsz = X(22 if lb.get("kind") != "village" else 19) if big else X(19)
+        tw_ = len(lb["text"]) * fsz * (0.82 if big else 0.62)
+        box = (px - tw_ / 2 - X(8), py - fsz * 0.7, px + tw_ / 2 + X(8), py + fsz * 0.7) if big else \
+              (px - X(8), py - fsz * 0.7, px + X(20) + tw_, py + fsz * 0.7)
+        if not free(box):
+            continue
+        taken.append(box)
         if lb.get("kind") in ("area", "village", "region", "water"):
             bold((px, py), lb["text"].upper(), 22 if lb.get("kind") != "village" else 19, "mm", a,
                  face=HEAVY, spacing=X(3), outline=2.6)

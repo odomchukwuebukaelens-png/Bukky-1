@@ -91,12 +91,14 @@ class Mesh:
     def __init__(self):
         self.v, self.f, self.c, self.swing = [], [], [], []
 
-    def box(self, cx, cy, z0, hx, hy, h, col, swing=0.0, yaw=0.0, ox=0.0, oy=0.0):
-        """Box centred on (cx, cy), rotated by yaw around the figure centre (ox, oy)."""
+    def box(self, cx, cy, z0, hx, hy, h, col, swing=0.0, yaw=0.0, ox=0.0, oy=0.0, taper=1.0):
+        """Box centred on (cx, cy), rotated by yaw around the figure centre (ox, oy).
+        taper scales the top face (above 1: wider at the top, like shoulders)."""
         ca, sa = math.cos(yaw), math.sin(yaw)
         base = len(self.v)
         for zz in (z0, z0 + h):
-            for a, b in ((-hx, -hy), (hx, -hy), (hx, hy), (-hx, hy)):
+            k = taper if zz != z0 else 1.0
+            for a, b in ((-hx * k, -hy * k), (hx * k, -hy * k), (hx * k, hy * k), (-hx * k, hy * k)):
                 lx, ly = cx - ox + a, cy - oy + b
                 self.v.append((ox + lx * ca - ly * sa, oy + lx * sa + ly * ca, zz))
                 # legs swing more at the feet than at the hips
@@ -105,11 +107,49 @@ class Mesh:
             self.f.append(tuple(base + i for i in f))
             self.c.append(col)
 
+    def head(self, cx, cy, z0, r, skin, hair=None, yaw=0.0, ox=0.0, oy=0.0, long_hair=False, beard=None):
+        """A rounded head (a stretched octagonal gem) with a cap of hair."""
+        ca, sa = math.cos(yaw), math.sin(yaw)
+
+        def rot(lx, ly, zz):
+            lx, ly = cx - ox + lx, cy - oy + ly
+            return (ox + lx * ca - ly * sa, oy + lx * sa + ly * ca, zz)
+        base = len(self.v)
+        ring = [(math.cos(k * math.pi / 4) * r, math.sin(k * math.pi / 4) * r * 0.92) for k in range(8)]
+        zc = z0 + r * 1.15
+        for a, b in ring:
+            self.v.append(rot(a, b, zc))
+            self.swing.append(0.0)
+        self.v.append(rot(0, 0, z0))
+        self.swing.append(0.0)
+        self.v.append(rot(0, 0, z0 + r * 2.3))
+        self.swing.append(0.0)
+        bot, top = base + 8, base + 9
+        for k in range(8):
+            a, b = base + k, base + (k + 1) % 8
+            self.f.append((a, b, top))
+            # the top half is hair, except the face (front, +x) when hair is short
+            front = k in (7, 0)
+            self.c.append(hair if hair and not front else skin)
+            self.f.append((b, a, bot))
+            self.c.append(beard if beard and k in (7, 0, 1, 6) else skin)
+        if hair and long_hair:
+            self.box(cx - r * 0.5, cy, z0 - r * 0.6, r * 0.55, r * 0.85, r * 1.6, hair, yaw=yaw, ox=ox, oy=oy)
+
+
+HAIR = [(0.10, 0.07, 0.05), (0.20, 0.12, 0.06), (0.32, 0.20, 0.10), (0.05, 0.05, 0.05), (0.55, 0.40, 0.20)]
+BOOTS = (0.18, 0.12, 0.08)
+LONG_HAIR = ("gaul", "goth", "briton", "viking", "hun", "frank")
+
 
 def add_person(m, x, y, z, yaw, kind, rng, scale=1.0):
     c = COSTUMES[kind]
     s = scale
     skin = rng.choice(SKIN)
+    hair = rng.choice(HAIR)
+    if kind in ("gaul", "briton", "viking") and rng.random() < 0.5:
+        hair = (0.62, 0.40, 0.16)                   # red and fair hair
+    s *= rng.uniform(0.93, 1.07)                    # people differ in height
     body = rng.choice(c["body"])
     dressed = c.get("dress") and rng.random() < 0.45
     if dressed:
@@ -117,25 +157,43 @@ def add_person(m, x, y, z, yaw, kind, rng, scale=1.0):
     legs = c.get("legs", body)
     robe = c.get("robe") or dressed
     if robe:
-        m.box(x, y, z, 0.20 * s, 0.14 * s, 1.0 * s, body, yaw=yaw, ox=x, oy=y)
+        m.box(x, y, z, 0.14 * s, 0.20 * s, 1.0 * s, body, yaw=yaw, ox=x, oy=y, taper=0.85)
         m.box(x, y + 0.02, z + 0.02, 0.06 * s, 0.05 * s, 0.30 * s, legs if not robe else body, swing=0.18 * s,
               yaw=yaw, ox=x, oy=y)
     else:
         for side, sw in ((-1, 1.0), (1, -1.0)):
-            m.box(x + side * 0.08 * s, y, z, 0.06 * s, 0.07 * s, 0.82 * s, legs, swing=sw * 0.28 * s,
+            m.box(x, y + side * 0.08 * s, z, 0.075 * s, 0.07 * s, 0.82 * s, legs, swing=sw * 0.28 * s,
+                  yaw=yaw, ox=x, oy=y, taper=1.15)
+            m.box(x + 0.03 * s, y + side * 0.08 * s, z, 0.11 * s, 0.065 * s, 0.09 * s, BOOTS, swing=sw * 0.28 * s,
+                  yaw=yaw, ox=x, oy=y)                                          # feet
+        if kind == "legionary":                                                 # red tunic skirt below the armour
+            m.box(x, y, z + 0.62 * s, 0.11 * s, 0.17 * s, 0.22 * s, (0.62, 0.08, 0.06), yaw=yaw, ox=x, oy=y, taper=0.9)
+    torso = c.get("armour", body) if c.get("armour") else body
+    m.box(x, y, z + 0.80 * s, 0.10 * s, 0.155 * s, 0.60 * s, torso, yaw=yaw, ox=x, oy=y, taper=1.3)   # chest and shoulders
+    m.box(x, y, z + 0.84 * s, 0.11 * s, 0.165 * s, 0.06 * s, (0.30, 0.20, 0.12), yaw=yaw, ox=x, oy=y)  # belt
+    if kind == "legionary":                                                     # bands of the lorica segmentata
+        for k in range(3):
+            m.box(x, y, z + (0.98 + k * 0.13) * s, 0.112 * s, 0.175 * s + k * 0.012 * s, 0.035 * s, (0.40, 0.40, 0.43),
                   yaw=yaw, ox=x, oy=y)
-    m.box(x, y, z + 0.80 * s, 0.19 * s, 0.11 * s, 0.62 * s, c.get("armour", body) if c.get("armour") else body,
-          yaw=yaw, ox=x, oy=y)
+    if c.get("cape") or kind in ("legionary", "samurai") or (c.get("helmet") and rng.random() < 0.25):
+        capec = (0.55, 0.06, 0.05) if kind == "legionary" else body
+        m.box(x - 0.14 * s, y, z + 0.55 * s, 0.03 * s, 0.17 * s, 0.85 * s, capec, yaw=yaw, ox=x, oy=y, taper=1.2)
     if c.get("stripe"):
-        m.box(x + 0.12 * s, y, z + 0.80 * s, 0.03 * s, 0.115 * s, 0.62 * s, c["stripe"], yaw=yaw, ox=x, oy=y)
+        m.box(x + 0.10 * s, y + 0.06 * s, z + 0.80 * s, 0.02 * s, 0.04 * s, 0.62 * s, c["stripe"], yaw=yaw, ox=x, oy=y)
     for side, sw in ((-1, -1.0), (1, 1.0)):
-        m.box(x + side * 0.25 * s, y, z + 0.82 * s, 0.05 * s, 0.06 * s, 0.58 * s, body, swing=sw * 0.12 * s,
+        m.box(x, y + side * 0.25 * s, z + 0.86 * s, 0.05 * s, 0.055 * s, 0.54 * s, body, swing=sw * 0.12 * s,
               yaw=yaw, ox=x, oy=y)
-    m.box(x, y, z + 1.43 * s, 0.10 * s, 0.10 * s, 0.22 * s, skin, yaw=yaw, ox=x, oy=y)
+        m.box(x, y + side * 0.25 * s, z + 0.76 * s, 0.045 * s, 0.045 * s, 0.10 * s, skin, swing=sw * 0.14 * s,
+              yaw=yaw, ox=x, oy=y)                                              # hands
+    m.box(x, y, z + 1.40 * s, 0.05 * s, 0.05 * s, 0.06 * s, skin, yaw=yaw, ox=x, oy=y)  # neck
+    bearded = kind in LONG_HAIR and rng.random() < 0.7
+    m.head(x, y, z + 1.45 * s, 0.105 * s, skin, None if c.get("helmet") or c.get("hood") else hair, yaw=yaw, ox=x, oy=y,
+           long_hair=kind in LONG_HAIR, beard=hair if bearded else None)
     if c.get("helmet"):
-        m.box(x, y, z + 1.60 * s, 0.12 * s, 0.12 * s, 0.10 * s, c["helmet"], yaw=yaw, ox=x, oy=y)
+        m.box(x, y, z + 1.62 * s, 0.125 * s, 0.12 * s, 0.10 * s, c["helmet"], yaw=yaw, ox=x, oy=y, taper=0.8)
+        m.box(x - 0.08 * s, y, z + 1.50 * s, 0.05 * s, 0.12 * s, 0.13 * s, c["helmet"], yaw=yaw, ox=x, oy=y)  # neck guard
         if kind == "legionary":
-            m.box(x, y, z + 1.70 * s, 0.02 * s, 0.10 * s, 0.08 * s, (0.65, 0.05, 0.05), yaw=yaw, ox=x, oy=y)
+            m.box(x, y, z + 1.72 * s, 0.13 * s, 0.018 * s, 0.10 * s, (0.70, 0.06, 0.05), yaw=yaw, ox=x, oy=y)  # crest
     elif c.get("hood"):
         m.box(x, y, z + 1.52 * s, 0.13 * s, 0.13 * s, 0.18 * s, body, yaw=yaw, ox=x, oy=y)
     elif c.get("hat") and not dressed:
@@ -146,11 +204,14 @@ def add_person(m, x, y, z, yaw, kind, rng, scale=1.0):
             m.box(x - 0.12 * s, y, z + 1.62 * s, 0.10 * s, 0.03 * s, 0.10 * s, (0.02, 0.06, 0.02), yaw=yaw, ox=x, oy=y)
     if c.get("shield"):
         if c.get("round"):
-            m.box(x - 0.32 * s, y + 0.05, z + 0.75 * s, 0.03 * s, 0.30 * s, 0.60 * s, c["shield"], yaw=yaw, ox=x, oy=y)
-        else:
-            m.box(x - 0.32 * s, y + 0.05, z + 0.50 * s, 0.04 * s, 0.32 * s, 1.0 * s, c["shield"], yaw=yaw, ox=x, oy=y)
-            m.box(x - 0.36 * s, y + 0.05, z + 0.95 * s, 0.01 * s, 0.09 * s, 0.10 * s, c.get("shield_rim", c["shield"]),
-                  yaw=yaw, ox=x, oy=y)
+            m.box(x + 0.22 * s, y - 0.20 * s, z + 0.70 * s, 0.03 * s, 0.30 * s, 0.62 * s, c["shield"], yaw=yaw, ox=x, oy=y)
+            m.box(x + 0.25 * s, y - 0.20 * s, z + 0.96 * s, 0.02 * s, 0.06 * s, 0.10 * s, (0.62, 0.60, 0.55), yaw=yaw, ox=x, oy=y)
+        else:                                   # curved rectangular scutum held in front at the left
+            for k, (dy_, dx_) in enumerate(((-0.24, -0.04), (0.0, 0.0), (0.24, -0.04))):
+                m.box(x + 0.26 * s + dx_ * s, y - 0.18 * s + dy_ * s, z + 0.42 * s, 0.03 * s, 0.12 * s, 1.0 * s,
+                      c["shield"], yaw=yaw, ox=x, oy=y)
+            m.box(x + 0.30 * s, y - 0.18 * s, z + 0.86 * s, 0.01 * s, 0.07 * s, 0.10 * s, c.get("shield_rim", c["shield"]),
+                  yaw=yaw, ox=x, oy=y)              # the brass boss
     if c.get("jingasa"):                         # conical foot-soldier hat
         m.box(x, y, z + 1.63 * s, 0.22 * s, 0.22 * s, 0.04 * s, c["hat"], yaw=yaw, ox=x, oy=y)
     if c.get("banner") and rng.random() < 0.55:  # sashimono banner on the back; some carry tall nobori
@@ -162,11 +223,11 @@ def add_person(m, x, y, z, yaw, kind, rng, scale=1.0):
     w = c.get("weapon")
     if w in ("spear", "pilum", "pike"):
         length = {"spear": 2.2, "pilum": 2.0, "pike": 4.5}[w]
-        m.box(x + 0.30 * s, y, z + 0.4 * s, 0.025 * s, 0.025 * s, length * s, (0.40, 0.30, 0.18), yaw=yaw, ox=x, oy=y)
-        m.box(x + 0.30 * s, y, z + (0.4 + length) * s, 0.04 * s, 0.04 * s, 0.25 * s, (0.75, 0.75, 0.78),
-              yaw=yaw, ox=x, oy=y)
+        m.box(x + 0.06 * s, y + 0.30 * s, z + 0.4 * s, 0.025 * s, 0.025 * s, length * s, (0.40, 0.30, 0.18), yaw=yaw, ox=x, oy=y)
+        m.box(x + 0.06 * s, y + 0.30 * s, z + (0.4 + length) * s, 0.04 * s, 0.04 * s, 0.25 * s, (0.75, 0.75, 0.78),
+              yaw=yaw, ox=x, oy=y, taper=0.2)
     elif w == "rifle":
-        m.box(x + 0.28 * s, y, z + 0.9 * s, 0.025 * s, 0.025 * s, 1.1 * s, (0.15, 0.12, 0.10), yaw=yaw, ox=x, oy=y)
+        m.box(x + 0.04 * s, y + 0.28 * s, z + 0.9 * s, 0.025 * s, 0.025 * s, 1.1 * s, (0.15, 0.12, 0.10), yaw=yaw, ox=x, oy=y)
 
 
 def add_horse(m, x, y, z, yaw, col=(0.36, 0.22, 0.12)):
@@ -289,8 +350,17 @@ def make_group(spec, ground, mat, collection, seed):
     yaw = 0.0
     vehicles = spec["kind"] in ("chariot", "cart", "carriage", "tram", "car", "vespa", "bus", "cab", "boat", "barge",
                                 "longship", "riverboat", "rickshaw", "palanquin", "train", "shinkansen", "blackship")
+    std = {"legionary": ((0.85, 0.70, 0.25), (0.62, 0.08, 0.06)), "gaul": ((0.70, 0.60, 0.40), (0.30, 0.45, 0.25)),
+           "goth": ((0.45, 0.30, 0.20), (0.55, 0.15, 0.10)), "landsknecht": ((0.90, 0.85, 0.80), (0.85, 0.75, 0.20)),
+           "french1849": ((0.15, 0.20, 0.55), (0.85, 0.10, 0.10)), "bersaglieri": ((0.10, 0.45, 0.20), (0.85, 0.10, 0.10)),
+           "garibaldini": ((0.10, 0.45, 0.20), (0.85, 0.10, 0.10))}.get(spec["kind"])
     for k in range(n):
-        if form == "block":
+        if form == "block" and std and k % 40 == 7:              # a standard-bearer for every few ranks
+            cols = max(1, int(width / 1.2))
+            sx_, sy_ = -(k // cols) * 1.3, (k % cols) * 1.2 - width / 2
+            m.box(sx_ + 0.2, sy_, 0.0, 0.03, 0.03, 3.6, (0.35, 0.25, 0.15))
+            m.box(sx_ + 0.2, sy_ + 0.45, 2.6, 0.02, 0.45, 0.85, std[1])
+            m.box(sx_ + 0.2, sy_, 3.6, 0.10, 0.10, 0.22, std[0])
             cols = max(1, int(width / 1.2))
             dx, dy = -(k // cols) * 1.3, (k % cols) * 1.2 - width / 2
         elif form == "line":
