@@ -7,7 +7,7 @@ Music: the crocodile tracks again (owner, 25 Nov 2026).
 New rules applied: visuals rotate between VFX shots, real footage, real photos and our animation; real people, places and ships named in the narration get a circular or square photo insert (public-domain or CC BY), or a drawn portrait where no free photo exists; no corner instruments.
 
 Structure from our retention data: a cold open on a true story, a true human story every 2–3 minutes, no statistics section, each scene ending on a turn.
-On-screen promises (scene 1), answered in scenes 4, 13 and 15:
+On-screen promises (scene 1), answered in scenes 4, 12 and 9:
 1. Why does it look like it's smiling?
 2. Has it ever killed a person?
 3. Why would a killer feed a human?
@@ -23,6 +23,8 @@ On-screen promises (scene 1), answered in scenes 4, 13 and 15:
 Antarctica. 2006.
 
 A photographer slips into the freezing water under the ice, alone, with his camera.
+
+The water is just below freezing. The light fades fast. All he can hear is his own breathing.
 
 Out of the dark comes a female leopard seal. Three and a half metres long. Heavier than a horse.
 
@@ -40,7 +42,9 @@ It lives on the pack ice around Antarctica, and it is the only seal known to hun
 
 Its head looks less like a seal's and more like a reptile's. Long. Flat. Built around its jaws.
 
-The females are bigger than the males. A large female can be more than three and a half metres long and weigh more than five hundred kilograms.
+Its name comes from its coat. Dark grey on the back, and pale on the throat and sides, covered in dark spots, like a leopard.
+
+The females are bigger than the males, which is rare for a mammal. A large female can be more than three and a half metres long and weigh more than five hundred kilograms.
 
 It hunts alone. It does not need anyone.
 
@@ -88,6 +92,8 @@ Its favourite place is the edge of the ice.
 
 Penguins have to cross it twice a day. Out to sea to feed, and back again.
 
+The penguins seem to know the danger. They crowd at the edge, hesitating, waiting for someone else to go first.
+
 The leopard seal waits just under the edge, almost completely hidden.
 
 When a penguin jumps in, it strikes from below.
@@ -126,6 +132,8 @@ Then people started to dive in Antarctica. Scientists, photographers, film crews
 
 Under the water, the leopard seal is in its own world. It is faster than you. It sees better than you. And it can stay down longer than you.
 
+To a seal, a diver is slow, clumsy and loud. Every breath sends a stream of bubbles to the surface. Every kick stirs the water.
+
 Many divers say the same thing. They did not see it arrive. It was just there, beside them, watching.
 
 Some seals swim away. Some follow. And some come closer, and closer, to find out what you are.
@@ -151,6 +159,10 @@ When he did nothing, she brought another one.
 For four days, every time he got into the water, she brought him penguins. Live ones that swam away. Then dead ones, pushed right up against his camera.
 
 She seemed frustrated that he could not catch anything.
+
+At one point, she blew bubbles in his face, and swam off with a penguin, as if to show him how it was done. [CHECK: Nicklen's own account, National Geographic]
+
+He came out of the water with some of the most famous wildlife photographs ever taken. And a story no one had heard before.
 
 ## 9. Why feed a human?
 
@@ -238,6 +250,10 @@ Scientists there have identified more than two hundred different leopard seals v
 
 They haul out on boat ramps and pontoons, a few metres from where people walk their dogs.
 
+Some have even given birth there. Researchers have recorded leopard seal pups born on New Zealand's coast.
+
+The country has a phone line just for leopard seal sightings, so scientists can track every visitor.
+
 So in some places, the leopard seal is not at the end of the world. It is at the end of the jetty.
 
 ## 14. What it eats
@@ -249,6 +265,8 @@ Look at what it hunts, and you understand why people take it seriously.
 Krill. Fish. Squid. Penguins.
 
 And other seals. Young crabeater seals and fur seals, much bigger than a penguin.
+
+Many adult crabeater seals carry long parallel scars down their sides. Scientists think most of them come from leopard seals, from attacks the crabeaters survived when they were young. [CHECK]
 
 The biggest females take the biggest, richest prey.
 
@@ -268,6 +286,8 @@ Sometimes, it decides you are something to investigate. It follows. It tests you
 
 And very, very rarely, it decides you are prey.
 
+Photographers, scientists and divers who have spent years with them all say the same thing. You cannot always tell which seal is which. The curious one and the dangerous one can look exactly alike.
+
 The problem is that from the outside, those three look exactly the same at first. The same face. The same smile.
 
 ## 16. If you meet one
@@ -282,6 +302,8 @@ On land, keep at least twenty metres away. That is the rule in New Zealand.
 
 Never stand between a seal and the sea. That is its way out, and you are in the way.
 
+Never feed one, and never let a dog near one. A seal that learns to come close to people is a seal that will one day get too close.
+
 Be careful at the ice edge. That is its hunting ground.
 
 And if one comes toward you in the water, do not panic and do not splash. Get out, calmly and quickly.
@@ -292,7 +314,9 @@ It is not a monster. But it is the top predator of its world, and you are a visi
 
 **Visual:** VFX: the opening shot again, under the ice, the huge spotted shape. This time the diver backs away and climbs out onto the ice. The seal surfaces, looks, and sinks. End card.
 
-So you climb out onto the ice.
+So you stop swimming toward it. You turn, slowly, and kick for the hole in the ice.
+
+One metre. Two. Your hands find the edge, and you pull yourself out onto the ice.
 
 Behind you, the water is still.
 
