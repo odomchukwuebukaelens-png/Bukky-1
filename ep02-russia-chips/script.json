@@ -1,0 +1,71 @@
+{
+ "title": "How Russia Still Gets America's Banned Chips",
+ "voice": "elevenlabs_nPczCjzI2devNBz1zQrb",
+ "speed": 0.96,
+ "segments": [
+  {
+   "id": "s01",
+   "text": "In 2022, America's Commerce Secretary told Congress something strange. Ukrainian soldiers were finding computer chips from dishwashers and refrigerators inside Russian military equipment. Russia had been cut off from the West's technology, so it was raiding kitchen appliances. That was supposed to be the end of the story. It wasn't. Today, investigators are still pulling Western chips, some made just months earlier, out of the wreckage of Russian drones and missiles. And right now, as Washington fights over who gets Nvidia's most powerful AI chips, the same question keeps coming back. How does the most sanctioned country on Earth still get the chips it's banned from buying? The answer runs through a maze of shell companies, airports and back roads, stretching from Texas, to Hong Kong, to the Russian border."
+  },
+  {
+   "id": "s02",
+   "text": "Every modern weapon has a brain. A cruise missile has to know where it is, where it's going, and how to get there, hundreds of miles away, flying low to dodge radar. That brain is made of chips. In 2022, researchers at the British think tank RUSI took apart Russian weapons recovered in Ukraine, from cruise missiles to radios to drones. They found more than 450 foreign-made components. 318 of them came from American companies. A single Kh-101 cruise missile contained 31 foreign parts."
+  },
+  {
+   "id": "s03",
+   "text": "So why doesn't Russia just make its own? Because it can't. Russia's most advanced chip factory, Mikron, just outside Moscow, works with technology roughly two decades behind the cutting edge. The world's best chips are designed in America, manufactured in Taiwan and South Korea, and built with machines from the Netherlands and Japan. Russia sits outside that entire chain. It can build the missile. It can't build the brain."
+  },
+  {
+   "id": "s04",
+   "text": "So when Russia invaded Ukraine in February 2022, America, Europe, Japan and their allies did the obvious thing. They banned exports of advanced electronics to Russia. Later, they published a list of the exact items Russia's weapons depended on most, the so-called Common High Priority List. On paper, the pipeline was cut."
+  },
+  {
+   "id": "s04b",
+   "text": "And the West had done this before. During the Cold War, America and its allies ran a committee called CoCom, which blocked sales of advanced technology to the Soviet Union. The Soviets answered with an entire spy operation, known as Line X, dedicated to stealing or smuggling Western technology. Its most famous win came to light in 1987. A subsidiary of Japan's Toshiba and Norway's Kongsberg had sold the Soviets precision milling machines that helped make their submarines much harder to hear. Americans were furious. Members of Congress smashed a Toshiba radio with sledgehammers on the Capitol lawn. Forty years later, the same game is back. Only now, the prize fits on your fingertip."
+  },
+  {
+   "id": "s05",
+   "text": "But chips are not tanks. They're smaller than a fingernail, many cost just a few dollars, and billions of them are sold every year through thousands of distributors around the world. The chip that guides a missile can be the very same chip that runs a car, a drone or a washing machine. Once it leaves the factory, it can be sold again, and again, and again. And every time it changes hands, it gets harder to know where it ends up."
+  },
+  {
+   "id": "s05b",
+   "text": "So let's follow one chip. It starts life in a factory, say in Texas, or Malaysia, or the Philippines. It's sold to a large, legitimate distributor in Europe or Asia. A small trading company in Hong Kong orders five thousand of them, and says they're for consumer electronics. Some sit in a warehouse for a few weeks. Then they're repacked, relabeled as phone parts, and loaded onto a cargo flight or a truck. They cross into Kazakhstan, or straight into Russia, where a Russian importer signs for them. A few weeks after that, one of those chips is soldered onto a circuit board, inside a drone, rolling off a Russian assembly line. Nobody along the way had to break into anything. Each step looked like an ordinary business deal."
+  },
+  {
+   "id": "s06",
+   "text": "Investigators who traced Russia's imports kept finding the same first stop: Hong Kong and mainland China. Hong Kong is one of the biggest electronics trading hubs on Earth. Shipments arrive from American and European distributors, get resold to small trading companies, some registered only months earlier, and then leave again, by plane or by truck, heading north toward Russia. Some of these firms share the same tiny office, the same phone number, even the same registered address with dozens of others. Many of them exist only on paper. When one gets blacklisted, another one simply appears."
+  },
+  {
+   "id": "s07",
+   "text": "The second route runs through Russia's own neighbors. Kazakhstan, Kyrgyzstan and Armenia share a customs union with Russia, so goods can cross their borders with few checks. One analysis found that Kazakhstan sold about eleven thousand euros' worth of semiconductor parts to Russia in 2021. The next year, it was three point three million. Turkey and the United Arab Emirates became hubs too, for banking, for re-shipping, and for traders who knew how to make paperwork look clean."
+  },
+  {
+   "id": "s08",
+   "text": "The tricks are simple, and they work. Big orders are split into small batches to stay under reporting limits. Chips are declared as spare parts or household electronics. Ownership hides behind layer after layer of companies, so a bank checking the paperwork only ever sees the first name in the chain. And Russia pays for the privilege. A chip that costs a few dollars in Texas can sell for many times that by the time it reaches Moscow."
+  },
+  {
+   "id": "s08b",
+   "text": "Sometimes the people behind it get caught. In August 2023, police in Cyprus arrested a man named Arthur Petrov at America's request. Prosecutors said he used a shell company to buy American microelectronics, claimed they were headed somewhere else, and shipped them to suppliers of the Russian military. A month later, another man, Maxim Marchenko, was arrested and charged with using shell companies in Hong Kong to send American-made military-grade displays to Russia, the kind used in rifle scopes and night-vision gear. For every case that reaches a courtroom, investigators believe many more never do."
+  },
+  {
+   "id": "s09",
+   "text": "And it shows up on the battlefield. Ukrainian officials say they keep finding foreign components inside Russian drones and missiles, some stamped with manufacturing dates from 2025, and even 2026. These aren't old stockpiles from before the war. They were made, sold and smuggled long after the sanctions began. Many of those drones are Russia's own version of Iran's Shahed, built at a giant factory complex called Alabuga, hundreds of miles east of Moscow, turning out thousands of drones a year. And inside them, again and again, investigators find the same thing: Western chips."
+  },
+  {
+   "id": "s10",
+   "text": "Now the fight has moved to an even more valuable chip. Nvidia's AI processors are the most wanted technology on the planet. They train artificial intelligence, run giant data centers, and could power the next generation of weapons. Washington restricts which ones can go to China and Russia. Just this month, records released by a congressional committee showed U.S. officials had approved sales of nearly 900,000 advanced AI chips to China in only six months, and Congress is now fighting over whether that was a mistake. But the same playbook keeps showing up. In Singapore, prosecutors charged men over server deals worth hundreds of millions of dollars, accused of lying about where the machines would end up. American prosecutors charged a California businessman over roughly 300 million dollars in Nvidia-powered servers, allegedly routed through Malaysia and Singapore to China. And one research firm found a Chinese reseller advertising 80 of Nvidia's newest servers, stored in Malaysia, for shipment through Hong Kong to Russia. Nobody has shown that sale ever happened. But the offer alone tells you the market is there."
+  },
+  {
+   "id": "s11",
+   "text": "And here's the uncomfortable part. Most of these chips were never stolen. They were sold, legally, by real companies, to real distributors. The crime usually happens three or four sales later, on the other side of the world. That's why sanctions on chips leak. You're not trying to stop one shipment. You're trying to control every future resale of a product that fits in your pocket, across dozens of countries, forever."
+  },
+  {
+   "id": "s12",
+   "text": "Governments are fighting back. America and Europe have blacklisted hundreds of companies in China, Hong Kong, Turkey, the Emirates and Central Asia. Banks in China and Turkey have grown more nervous about handling Russian payments. Every chip carries tiny printed codes showing who made it and when. Investigators collect them from wreckage, and Ukraine publishes a database of foreign parts found in Russian weapons, so chipmakers can trace where their products ended up. And for Russia, the costs are real. Every chip arrives later, costs more, and might be a fake. But the flow hasn't stopped. It has only become more expensive."
+  },
+  {
+   "id": "s13",
+   "text": "And this story is bigger than Russia. The same routes, the same shell companies and the same tricks can move AI chips to anyone who has been cut off. Which is why the real battle over technology isn't only fought in factories and laboratories. It's fought in shipping records, customs offices and small warehouses, in places most people have never heard of. In the next video, we look at the one island every chip in the world depends on, and why it might be the most dangerous place on the map. Taiwan."
+  }
+ ]
+}

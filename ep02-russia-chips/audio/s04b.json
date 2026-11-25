@@ -1,0 +1,1397 @@
+[
+  {
+    "language_code": "",
+    "language_probability": 1,
+    "text": "And the West had done this before. During the Cold War, America and its allies ran a committee called CoCom, which blocked sales of advanced technology to the Soviet Union. The Soviets answered with an entire spy operation, known as Line X, dedicated to stealing or smuggling Western technology. Its most famous win came to light in nineteen eighty seven. A subsidiary of Japan's Toshiba and Norway's Kongsberg had sold the Soviets precision milling machines that helped make their submarines much harder to hear. Americans were furious. Members of Congress smashed a Toshiba radio with sledgehammers on the Capitol lawn. Forty years later, the same game is back. Only now, the prize fits on your fingertip.",
+    "words": [
+      {
+        "text": "And",
+        "start": 0.19,
+        "end": 0.357,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.357,
+        "end": 0.37,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 0.37,
+        "end": 0.473,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.473,
+        "end": 0.473,
+        "type": "spacing"
+      },
+      {
+        "text": "West",
+        "start": 0.473,
+        "end": 0.805,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.805,
+        "end": 0.85,
+        "type": "spacing"
+      },
+      {
+        "text": "had",
+        "start": 0.85,
+        "end": 0.99,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.99,
+        "end": 1,
+        "type": "spacing"
+      },
+      {
+        "text": "done",
+        "start": 1,
+        "end": 1.182,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.182,
+        "end": 1.19,
+        "type": "spacing"
+      },
+      {
+        "text": "this",
+        "start": 1.19,
+        "end": 1.379,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.379,
+        "end": 1.4,
+        "type": "spacing"
+      },
+      {
+        "text": "before.",
+        "start": 1.4,
+        "end": 1.988,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.988,
+        "end": 2.43,
+        "type": "spacing"
+      },
+      {
+        "text": "During",
+        "start": 2.43,
+        "end": 2.717,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.717,
+        "end": 2.73,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 2.73,
+        "end": 2.8,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.8,
+        "end": 2.8,
+        "type": "spacing"
+      },
+      {
+        "text": "Cold",
+        "start": 2.8,
+        "end": 3.118,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.118,
+        "end": 3.16,
+        "type": "spacing"
+      },
+      {
+        "text": "War,",
+        "start": 3.16,
+        "end": 3.581,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.581,
+        "end": 3.84,
+        "type": "spacing"
+      },
+      {
+        "text": "America",
+        "start": 3.84,
+        "end": 4.395,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.395,
+        "end": 4.45,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 4.45,
+        "end": 4.59,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.59,
+        "end": 4.6,
+        "type": "spacing"
+      },
+      {
+        "text": "its",
+        "start": 4.6,
+        "end": 4.809,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.809,
+        "end": 4.84,
+        "type": "spacing"
+      },
+      {
+        "text": "allies",
+        "start": 4.84,
+        "end": 5.327,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.327,
+        "end": 5.401,
+        "type": "spacing"
+      },
+      {
+        "text": "ran",
+        "start": 5.401,
+        "end": 5.545,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.545,
+        "end": 5.545,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 5.545,
+        "end": 5.63,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.63,
+        "end": 5.641,
+        "type": "spacing"
+      },
+      {
+        "text": "committee",
+        "start": 5.641,
+        "end": 6.089,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.089,
+        "end": 6.121,
+        "type": "spacing"
+      },
+      {
+        "text": "called",
+        "start": 6.121,
+        "end": 6.399,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.399,
+        "end": 6.441,
+        "type": "spacing"
+      },
+      {
+        "text": "CoCom,",
+        "start": 6.441,
+        "end": 7.064,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.064,
+        "end": 7.36,
+        "type": "spacing"
+      },
+      {
+        "text": "which",
+        "start": 7.36,
+        "end": 7.59,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.59,
+        "end": 7.6,
+        "type": "spacing"
+      },
+      {
+        "text": "blocked",
+        "start": 7.6,
+        "end": 8.009,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.009,
+        "end": 8.041,
+        "type": "spacing"
+      },
+      {
+        "text": "sales",
+        "start": 8.041,
+        "end": 8.266,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.266,
+        "end": 8.29,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 8.29,
+        "end": 8.444,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.444,
+        "end": 8.46,
+        "type": "spacing"
+      },
+      {
+        "text": "advanced",
+        "start": 8.46,
+        "end": 8.91,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.91,
+        "end": 8.921,
+        "type": "spacing"
+      },
+      {
+        "text": "technology",
+        "start": 8.921,
+        "end": 9.508,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.508,
+        "end": 9.561,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 9.561,
+        "end": 9.717,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.717,
+        "end": 9.73,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 9.73,
+        "end": 9.833,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.833,
+        "end": 9.833,
+        "type": "spacing"
+      },
+      {
+        "text": "Soviet",
+        "start": 9.833,
+        "end": 10.228,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.228,
+        "end": 10.281,
+        "type": "spacing"
+      },
+      {
+        "text": "Union.",
+        "start": 10.281,
+        "end": 10.722,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.722,
+        "end": 11.001,
+        "type": "spacing"
+      },
+      {
+        "text": "The",
+        "start": 11.001,
+        "end": 11.209,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.209,
+        "end": 11.241,
+        "type": "spacing"
+      },
+      {
+        "text": "Soviets",
+        "start": 11.241,
+        "end": 11.728,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.728,
+        "end": 11.801,
+        "type": "spacing"
+      },
+      {
+        "text": "answered",
+        "start": 11.801,
+        "end": 12.159,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.159,
+        "end": 12.201,
+        "type": "spacing"
+      },
+      {
+        "text": "with",
+        "start": 12.201,
+        "end": 12.36,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.36,
+        "end": 12.36,
+        "type": "spacing"
+      },
+      {
+        "text": "an",
+        "start": 12.36,
+        "end": 12.444,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.444,
+        "end": 12.46,
+        "type": "spacing"
+      },
+      {
+        "text": "entire",
+        "start": 12.46,
+        "end": 12.869,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.869,
+        "end": 12.921,
+        "type": "spacing"
+      },
+      {
+        "text": "spy",
+        "start": 12.921,
+        "end": 13.289,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.289,
+        "end": 13.321,
+        "type": "spacing"
+      },
+      {
+        "text": "operation,",
+        "start": 13.321,
+        "end": 14.046,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.046,
+        "end": 14.3,
+        "type": "spacing"
+      },
+      {
+        "text": "known",
+        "start": 14.3,
+        "end": 14.557,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.557,
+        "end": 14.57,
+        "type": "spacing"
+      },
+      {
+        "text": "as",
+        "start": 14.57,
+        "end": 14.789,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.789,
+        "end": 14.841,
+        "type": "spacing"
+      },
+      {
+        "text": "Line",
+        "start": 14.841,
+        "end": 15.119,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.119,
+        "end": 15.161,
+        "type": "spacing"
+      },
+      {
+        "text": "X,",
+        "start": 15.161,
+        "end": 15.654,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.654,
+        "end": 16.121,
+        "type": "spacing"
+      },
+      {
+        "text": "dedicated",
+        "start": 16.121,
+        "end": 16.65,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.65,
+        "end": 16.682,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 16.682,
+        "end": 16.831,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.831,
+        "end": 16.842,
+        "type": "spacing"
+      },
+      {
+        "text": "stealing",
+        "start": 16.842,
+        "end": 17.349,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.349,
+        "end": 17.402,
+        "type": "spacing"
+      },
+      {
+        "text": "or",
+        "start": 17.402,
+        "end": 17.572,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.572,
+        "end": 17.59,
+        "type": "spacing"
+      },
+      {
+        "text": "smuggling",
+        "start": 17.59,
+        "end": 18.149,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.149,
+        "end": 18.202,
+        "type": "spacing"
+      },
+      {
+        "text": "Western",
+        "start": 18.202,
+        "end": 18.49,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.49,
+        "end": 18.522,
+        "type": "spacing"
+      },
+      {
+        "text": "technology.",
+        "start": 18.522,
+        "end": 19.334,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.334,
+        "end": 19.642,
+        "type": "spacing"
+      },
+      {
+        "text": "Its",
+        "start": 19.642,
+        "end": 19.881,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.881,
+        "end": 19.882,
+        "type": "spacing"
+      },
+      {
+        "text": "most",
+        "start": 19.882,
+        "end": 20.18,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.18,
+        "end": 20.202,
+        "type": "spacing"
+      },
+      {
+        "text": "famous",
+        "start": 20.202,
+        "end": 20.57,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.57,
+        "end": 20.602,
+        "type": "spacing"
+      },
+      {
+        "text": "win",
+        "start": 20.602,
+        "end": 20.939,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.939,
+        "end": 21.002,
+        "type": "spacing"
+      },
+      {
+        "text": "came",
+        "start": 21.002,
+        "end": 21.182,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.182,
+        "end": 21.19,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 21.19,
+        "end": 21.311,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.311,
+        "end": 21.322,
+        "type": "spacing"
+      },
+      {
+        "text": "light",
+        "start": 21.322,
+        "end": 21.546,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.546,
+        "end": 21.57,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 21.57,
+        "end": 21.724,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.724,
+        "end": 21.74,
+        "type": "spacing"
+      },
+      {
+        "text": "nineteen",
+        "start": 21.74,
+        "end": 22.096,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.096,
+        "end": 22.13,
+        "type": "spacing"
+      },
+      {
+        "text": "eighty",
+        "start": 22.13,
+        "end": 22.372,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.372,
+        "end": 22.39,
+        "type": "spacing"
+      },
+      {
+        "text": "seven.",
+        "start": 22.39,
+        "end": 22.839,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.839,
+        "end": 23.402,
+        "type": "spacing"
+      },
+      {
+        "text": "A",
+        "start": 23.402,
+        "end": 23.557,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.557,
+        "end": 23.57,
+        "type": "spacing"
+      },
+      {
+        "text": "subsidiary",
+        "start": 23.57,
+        "end": 24.229,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.229,
+        "end": 24.282,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 24.282,
+        "end": 24.431,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.431,
+        "end": 24.442,
+        "type": "spacing"
+      },
+      {
+        "text": "Japan's",
+        "start": 24.442,
+        "end": 25.002,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.002,
+        "end": 25.002,
+        "type": "spacing"
+      },
+      {
+        "text": "Toshiba",
+        "start": 25.002,
+        "end": 25.767,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.767,
+        "end": 25.882,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 25.882,
+        "end": 26.09,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.09,
+        "end": 26.122,
+        "type": "spacing"
+      },
+      {
+        "text": "Norway's",
+        "start": 26.122,
+        "end": 26.661,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.661,
+        "end": 26.682,
+        "type": "spacing"
+      },
+      {
+        "text": "Kongsberg",
+        "start": 26.682,
+        "end": 27.3,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.3,
+        "end": 27.6,
+        "type": "spacing"
+      },
+      {
+        "text": "had",
+        "start": 27.6,
+        "end": 27.85,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.85,
+        "end": 27.883,
+        "type": "spacing"
+      },
+      {
+        "text": "sold",
+        "start": 27.883,
+        "end": 28.101,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.101,
+        "end": 28.123,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 28.123,
+        "end": 28.284,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.284,
+        "end": 28.3,
+        "type": "spacing"
+      },
+      {
+        "text": "Soviets",
+        "start": 28.3,
+        "end": 28.769,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.769,
+        "end": 28.843,
+        "type": "spacing"
+      },
+      {
+        "text": "precision",
+        "start": 28.843,
+        "end": 29.291,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.291,
+        "end": 29.323,
+        "type": "spacing"
+      },
+      {
+        "text": "milling",
+        "start": 29.323,
+        "end": 29.552,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.552,
+        "end": 29.563,
+        "type": "spacing"
+      },
+      {
+        "text": "machines",
+        "start": 29.563,
+        "end": 30.094,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.094,
+        "end": 30.443,
+        "type": "spacing"
+      },
+      {
+        "text": "that",
+        "start": 30.443,
+        "end": 30.661,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.661,
+        "end": 30.683,
+        "type": "spacing"
+      },
+      {
+        "text": "helped",
+        "start": 30.683,
+        "end": 30.981,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.981,
+        "end": 31.003,
+        "type": "spacing"
+      },
+      {
+        "text": "make",
+        "start": 31.003,
+        "end": 31.221,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.221,
+        "end": 31.243,
+        "type": "spacing"
+      },
+      {
+        "text": "their",
+        "start": 31.243,
+        "end": 31.415,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.415,
+        "end": 31.42,
+        "type": "spacing"
+      },
+      {
+        "text": "submarines",
+        "start": 31.42,
+        "end": 31.979,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.979,
+        "end": 32.043,
+        "type": "spacing"
+      },
+      {
+        "text": "much",
+        "start": 32.043,
+        "end": 32.261,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.261,
+        "end": 32.283,
+        "type": "spacing"
+      },
+      {
+        "text": "harder",
+        "start": 32.283,
+        "end": 32.612,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.612,
+        "end": 32.63,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 32.63,
+        "end": 32.752,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.752,
+        "end": 32.763,
+        "type": "spacing"
+      },
+      {
+        "text": "hear.",
+        "start": 32.763,
+        "end": 33.188,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.188,
+        "end": 33.63,
+        "type": "spacing"
+      },
+      {
+        "text": "Americans",
+        "start": 33.63,
+        "end": 34.171,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.171,
+        "end": 34.203,
+        "type": "spacing"
+      },
+      {
+        "text": "were",
+        "start": 34.203,
+        "end": 34.39,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.39,
+        "end": 34.4,
+        "type": "spacing"
+      },
+      {
+        "text": "furious.",
+        "start": 34.4,
+        "end": 35.043,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 35.043,
+        "end": 35.44,
+        "type": "spacing"
+      },
+      {
+        "text": "Members",
+        "start": 35.44,
+        "end": 35.819,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 35.819,
+        "end": 35.84,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 35.84,
+        "end": 36.011,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.011,
+        "end": 36.043,
+        "type": "spacing"
+      },
+      {
+        "text": "Congress",
+        "start": 36.043,
+        "end": 36.411,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.411,
+        "end": 36.443,
+        "type": "spacing"
+      },
+      {
+        "text": "smashed",
+        "start": 36.443,
+        "end": 36.844,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.844,
+        "end": 36.86,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 36.86,
+        "end": 36.997,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.997,
+        "end": 37.01,
+        "type": "spacing"
+      },
+      {
+        "text": "Toshiba",
+        "start": 37.01,
+        "end": 37.531,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 37.531,
+        "end": 37.563,
+        "type": "spacing"
+      },
+      {
+        "text": "radio",
+        "start": 37.563,
+        "end": 37.91,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 37.91,
+        "end": 37.964,
+        "type": "spacing"
+      },
+      {
+        "text": "with",
+        "start": 37.964,
+        "end": 38.142,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 38.142,
+        "end": 38.15,
+        "type": "spacing"
+      },
+      {
+        "text": "sledgehammers",
+        "start": 38.15,
+        "end": 38.811,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 38.811,
+        "end": 38.844,
+        "type": "spacing"
+      },
+      {
+        "text": "on",
+        "start": 38.844,
+        "end": 38.975,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 38.975,
+        "end": 38.98,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 38.98,
+        "end": 39.084,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 39.084,
+        "end": 39.1,
+        "type": "spacing"
+      },
+      {
+        "text": "Capitol",
+        "start": 39.1,
+        "end": 39.531,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 39.531,
+        "end": 39.564,
+        "type": "spacing"
+      },
+      {
+        "text": "lawn.",
+        "start": 39.564,
+        "end": 39.944,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 39.944,
+        "end": 40.39,
+        "type": "spacing"
+      },
+      {
+        "text": "Forty",
+        "start": 40.39,
+        "end": 40.772,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 40.772,
+        "end": 40.79,
+        "type": "spacing"
+      },
+      {
+        "text": "years",
+        "start": 40.79,
+        "end": 41.062,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 41.062,
+        "end": 41.084,
+        "type": "spacing"
+      },
+      {
+        "text": "later,",
+        "start": 41.084,
+        "end": 41.523,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 41.523,
+        "end": 41.8,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 41.8,
+        "end": 42.011,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 42.011,
+        "end": 42.044,
+        "type": "spacing"
+      },
+      {
+        "text": "same",
+        "start": 42.044,
+        "end": 42.321,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 42.321,
+        "end": 42.364,
+        "type": "spacing"
+      },
+      {
+        "text": "game",
+        "start": 42.364,
+        "end": 42.594,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 42.594,
+        "end": 42.62,
+        "type": "spacing"
+      },
+      {
+        "text": "is",
+        "start": 42.62,
+        "end": 42.757,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 42.757,
+        "end": 42.77,
+        "type": "spacing"
+      },
+      {
+        "text": "back.",
+        "start": 42.77,
+        "end": 43.21,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 43.21,
+        "end": 43.52,
+        "type": "spacing"
+      },
+      {
+        "text": "Only",
+        "start": 43.52,
+        "end": 43.852,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 43.852,
+        "end": 43.884,
+        "type": "spacing"
+      },
+      {
+        "text": "now,",
+        "start": 43.884,
+        "end": 44.485,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 44.485,
+        "end": 44.53,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 44.53,
+        "end": 44.677,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 44.677,
+        "end": 44.69,
+        "type": "spacing"
+      },
+      {
+        "text": "prize",
+        "start": 44.69,
+        "end": 45.041,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 45.041,
+        "end": 45.084,
+        "type": "spacing"
+      },
+      {
+        "text": "fits",
+        "start": 45.084,
+        "end": 45.306,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 45.306,
+        "end": 45.33,
+        "type": "spacing"
+      },
+      {
+        "text": "on",
+        "start": 45.33,
+        "end": 45.477,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 45.477,
+        "end": 45.49,
+        "type": "spacing"
+      },
+      {
+        "text": "your",
+        "start": 45.49,
+        "end": 45.642,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 45.642,
+        "end": 45.65,
+        "type": "spacing"
+      },
+      {
+        "text": "fingertip.",
+        "start": 45.65,
+        "end": 46.359,
+        "type": "word"
+      }
+    ],
+    "transcription_id": "226b75d9d4f240c9a559",
+    "audio_duration_secs": 46.5643125
+  }
+]

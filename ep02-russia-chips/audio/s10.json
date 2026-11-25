@@ -1,0 +1,2201 @@
+[
+  {
+    "language_code": "",
+    "language_probability": 1,
+    "text": "Now the fight has moved to an even more valuable chip. Nvidias AI processors are the most wanted technology on the planet. They train artificial intelligence, run giant data centers, and could power the next generation of weapons. Washington restricts which ones can go to China and Russia. Just this month, records released by a congressional committee showed US officials had approved sales of nearly nine hundred thousand advanced AI chips to China in only six months, and Congress is now fighting over whether that was a mistake. But the same playbook keeps showing up. In Singapore, prosecutors charged men over server deals worth hundreds of millions of dollars, accused of lying about where the machines would end up. American prosecutors charged a California businessman over roughly three hundred million dollars in Nvidia-powered servers, allegedly routed through Malaysia and Singapore to China. And one research firm found a Chinese reseller advertising eighty of Nvidias newest servers, stored in Malaysia, for shipment through Hong, Kong to Russia. Nobody has shown that sale ever happened. But the offer alone tells you the market is there.",
+    "words": [
+      {
+        "text": "Now",
+        "start": 0.18,
+        "end": 0.409,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.409,
+        "end": 0.44,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 0.44,
+        "end": 0.589,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.589,
+        "end": 0.6,
+        "type": "spacing"
+      },
+      {
+        "text": "fight",
+        "start": 0.6,
+        "end": 0.958,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.958,
+        "end": 1,
+        "type": "spacing"
+      },
+      {
+        "text": "has",
+        "start": 1,
+        "end": 1.208,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.208,
+        "end": 1.24,
+        "type": "spacing"
+      },
+      {
+        "text": "moved",
+        "start": 1.24,
+        "end": 1.459,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.459,
+        "end": 1.48,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 1.48,
+        "end": 1.637,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.637,
+        "end": 1.65,
+        "type": "spacing"
+      },
+      {
+        "text": "an",
+        "start": 1.65,
+        "end": 1.797,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.797,
+        "end": 1.81,
+        "type": "spacing"
+      },
+      {
+        "text": "even",
+        "start": 1.81,
+        "end": 2.088,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.088,
+        "end": 2.12,
+        "type": "spacing"
+      },
+      {
+        "text": "more",
+        "start": 2.12,
+        "end": 2.398,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.398,
+        "end": 2.44,
+        "type": "spacing"
+      },
+      {
+        "text": "valuable",
+        "start": 2.44,
+        "end": 2.851,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.851,
+        "end": 2.87,
+        "type": "spacing"
+      },
+      {
+        "text": "chip.",
+        "start": 2.87,
+        "end": 3.275,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.275,
+        "end": 3.72,
+        "type": "spacing"
+      },
+      {
+        "text": "Nvidias",
+        "start": 3.72,
+        "end": 4.307,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.307,
+        "end": 4.36,
+        "type": "spacing"
+      },
+      {
+        "text": "AI",
+        "start": 4.36,
+        "end": 4.766,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.766,
+        "end": 4.84,
+        "type": "spacing"
+      },
+      {
+        "text": "processors",
+        "start": 4.84,
+        "end": 5.406,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.406,
+        "end": 5.48,
+        "type": "spacing"
+      },
+      {
+        "text": "are",
+        "start": 5.48,
+        "end": 5.651,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.651,
+        "end": 5.67,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 5.67,
+        "end": 5.787,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.787,
+        "end": 5.8,
+        "type": "spacing"
+      },
+      {
+        "text": "most",
+        "start": 5.8,
+        "end": 6.077,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.077,
+        "end": 6.12,
+        "type": "spacing"
+      },
+      {
+        "text": "wanted",
+        "start": 6.12,
+        "end": 6.404,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.404,
+        "end": 6.435,
+        "type": "spacing"
+      },
+      {
+        "text": "technology",
+        "start": 6.435,
+        "end": 7.021,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.021,
+        "end": 7.074,
+        "type": "spacing"
+      },
+      {
+        "text": "on",
+        "start": 7.074,
+        "end": 7.197,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.197,
+        "end": 7.2,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 7.2,
+        "end": 7.307,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.307,
+        "end": 7.32,
+        "type": "spacing"
+      },
+      {
+        "text": "planet.",
+        "start": 7.32,
+        "end": 7.848,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.848,
+        "end": 8.114,
+        "type": "spacing"
+      },
+      {
+        "text": "They",
+        "start": 8.114,
+        "end": 8.332,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.332,
+        "end": 8.353,
+        "type": "spacing"
+      },
+      {
+        "text": "train",
+        "start": 8.353,
+        "end": 8.63,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.63,
+        "end": 8.673,
+        "type": "spacing"
+      },
+      {
+        "text": "artificial",
+        "start": 8.673,
+        "end": 9.201,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.201,
+        "end": 9.233,
+        "type": "spacing"
+      },
+      {
+        "text": "intelligence,",
+        "start": 9.233,
+        "end": 10.209,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.209,
+        "end": 10.272,
+        "type": "spacing"
+      },
+      {
+        "text": "run",
+        "start": 10.272,
+        "end": 10.539,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.539,
+        "end": 10.592,
+        "type": "spacing"
+      },
+      {
+        "text": "giant",
+        "start": 10.592,
+        "end": 10.96,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.96,
+        "end": 10.991,
+        "type": "spacing"
+      },
+      {
+        "text": "data",
+        "start": 10.991,
+        "end": 11.22,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.22,
+        "end": 11.231,
+        "type": "spacing"
+      },
+      {
+        "text": "centers,",
+        "start": 11.231,
+        "end": 11.995,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.995,
+        "end": 12.04,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 12.04,
+        "end": 12.18,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.18,
+        "end": 12.19,
+        "type": "spacing"
+      },
+      {
+        "text": "could",
+        "start": 12.19,
+        "end": 12.409,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.409,
+        "end": 12.43,
+        "type": "spacing"
+      },
+      {
+        "text": "power",
+        "start": 12.43,
+        "end": 12.689,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.689,
+        "end": 12.71,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 12.71,
+        "end": 12.82,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.82,
+        "end": 12.83,
+        "type": "spacing"
+      },
+      {
+        "text": "next",
+        "start": 12.83,
+        "end": 13.049,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.049,
+        "end": 13.07,
+        "type": "spacing"
+      },
+      {
+        "text": "generation",
+        "start": 13.07,
+        "end": 13.641,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.641,
+        "end": 13.66,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 13.66,
+        "end": 13.794,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.794,
+        "end": 13.81,
+        "type": "spacing"
+      },
+      {
+        "text": "weapons.",
+        "start": 13.81,
+        "end": 14.385,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.385,
+        "end": 14.91,
+        "type": "spacing"
+      },
+      {
+        "text": "Washington",
+        "start": 14.91,
+        "end": 15.365,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.365,
+        "end": 15.4,
+        "type": "spacing"
+      },
+      {
+        "text": "restricts",
+        "start": 15.4,
+        "end": 15.977,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.977,
+        "end": 16.03,
+        "type": "spacing"
+      },
+      {
+        "text": "which",
+        "start": 16.03,
+        "end": 16.219,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.219,
+        "end": 16.23,
+        "type": "spacing"
+      },
+      {
+        "text": "ones",
+        "start": 16.23,
+        "end": 16.488,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.488,
+        "end": 16.51,
+        "type": "spacing"
+      },
+      {
+        "text": "can",
+        "start": 16.51,
+        "end": 16.666,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.666,
+        "end": 16.68,
+        "type": "spacing"
+      },
+      {
+        "text": "go",
+        "start": 16.68,
+        "end": 16.797,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.797,
+        "end": 16.8,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 16.8,
+        "end": 16.958,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.958,
+        "end": 16.99,
+        "type": "spacing"
+      },
+      {
+        "text": "China",
+        "start": 16.99,
+        "end": 17.38,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.38,
+        "end": 17.42,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 17.42,
+        "end": 17.608,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.608,
+        "end": 17.63,
+        "type": "spacing"
+      },
+      {
+        "text": "Russia.",
+        "start": 17.63,
+        "end": 18.108,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.108,
+        "end": 18.59,
+        "type": "spacing"
+      },
+      {
+        "text": "Just",
+        "start": 18.59,
+        "end": 18.808,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.808,
+        "end": 18.83,
+        "type": "spacing"
+      },
+      {
+        "text": "this",
+        "start": 18.83,
+        "end": 19.044,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.044,
+        "end": 19.065,
+        "type": "spacing"
+      },
+      {
+        "text": "month,",
+        "start": 19.065,
+        "end": 19.51,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.51,
+        "end": 19.864,
+        "type": "spacing"
+      },
+      {
+        "text": "records",
+        "start": 19.864,
+        "end": 20.225,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.225,
+        "end": 20.27,
+        "type": "spacing"
+      },
+      {
+        "text": "released",
+        "start": 20.27,
+        "end": 20.652,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.652,
+        "end": 20.664,
+        "type": "spacing"
+      },
+      {
+        "text": "by",
+        "start": 20.664,
+        "end": 20.795,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.795,
+        "end": 20.8,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 20.8,
+        "end": 20.892,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.892,
+        "end": 20.904,
+        "type": "spacing"
+      },
+      {
+        "text": "congressional",
+        "start": 20.904,
+        "end": 21.537,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.537,
+        "end": 21.55,
+        "type": "spacing"
+      },
+      {
+        "text": "committee",
+        "start": 21.55,
+        "end": 22.018,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.018,
+        "end": 22.422,
+        "type": "spacing"
+      },
+      {
+        "text": "showed",
+        "start": 22.422,
+        "end": 22.79,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.79,
+        "end": 22.822,
+        "type": "spacing"
+      },
+      {
+        "text": "US",
+        "start": 22.822,
+        "end": 23.11,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.11,
+        "end": 23.142,
+        "type": "spacing"
+      },
+      {
+        "text": "officials",
+        "start": 23.142,
+        "end": 23.649,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.649,
+        "end": 23.701,
+        "type": "spacing"
+      },
+      {
+        "text": "had",
+        "start": 23.701,
+        "end": 23.835,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.835,
+        "end": 23.84,
+        "type": "spacing"
+      },
+      {
+        "text": "approved",
+        "start": 23.84,
+        "end": 24.309,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.309,
+        "end": 24.341,
+        "type": "spacing"
+      },
+      {
+        "text": "sales",
+        "start": 24.341,
+        "end": 24.619,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.619,
+        "end": 24.661,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 24.661,
+        "end": 24.81,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.81,
+        "end": 24.82,
+        "type": "spacing"
+      },
+      {
+        "text": "nearly",
+        "start": 24.82,
+        "end": 25.196,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.196,
+        "end": 25.23,
+        "type": "spacing"
+      },
+      {
+        "text": "nine",
+        "start": 25.23,
+        "end": 25.519,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.519,
+        "end": 25.54,
+        "type": "spacing"
+      },
+      {
+        "text": "hundred",
+        "start": 25.54,
+        "end": 25.888,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.888,
+        "end": 25.94,
+        "type": "spacing"
+      },
+      {
+        "text": "thousand",
+        "start": 25.94,
+        "end": 26.308,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.308,
+        "end": 26.34,
+        "type": "spacing"
+      },
+      {
+        "text": "advanced",
+        "start": 26.34,
+        "end": 26.868,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.868,
+        "end": 26.9,
+        "type": "spacing"
+      },
+      {
+        "text": "AI",
+        "start": 26.9,
+        "end": 27.188,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.188,
+        "end": 27.22,
+        "type": "spacing"
+      },
+      {
+        "text": "chips",
+        "start": 27.22,
+        "end": 27.588,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.588,
+        "end": 27.62,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 27.62,
+        "end": 27.769,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.769,
+        "end": 27.78,
+        "type": "spacing"
+      },
+      {
+        "text": "China",
+        "start": 27.78,
+        "end": 28.325,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.325,
+        "end": 28.42,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 28.42,
+        "end": 28.569,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.569,
+        "end": 28.58,
+        "type": "spacing"
+      },
+      {
+        "text": "only",
+        "start": 28.58,
+        "end": 28.868,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.868,
+        "end": 28.9,
+        "type": "spacing"
+      },
+      {
+        "text": "six",
+        "start": 28.9,
+        "end": 29.115,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.115,
+        "end": 29.15,
+        "type": "spacing"
+      },
+      {
+        "text": "months,",
+        "start": 29.15,
+        "end": 29.683,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.683,
+        "end": 30.02,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 30.02,
+        "end": 30.228,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.228,
+        "end": 30.26,
+        "type": "spacing"
+      },
+      {
+        "text": "Congress",
+        "start": 30.26,
+        "end": 30.635,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.635,
+        "end": 30.67,
+        "type": "spacing"
+      },
+      {
+        "text": "is",
+        "start": 30.67,
+        "end": 30.808,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.808,
+        "end": 30.82,
+        "type": "spacing"
+      },
+      {
+        "text": "now",
+        "start": 30.82,
+        "end": 31.027,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.027,
+        "end": 31.06,
+        "type": "spacing"
+      },
+      {
+        "text": "fighting",
+        "start": 31.06,
+        "end": 31.398,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.398,
+        "end": 31.42,
+        "type": "spacing"
+      },
+      {
+        "text": "over",
+        "start": 31.42,
+        "end": 31.667,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.667,
+        "end": 31.7,
+        "type": "spacing"
+      },
+      {
+        "text": "whether",
+        "start": 31.7,
+        "end": 31.934,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.934,
+        "end": 31.95,
+        "type": "spacing"
+      },
+      {
+        "text": "that",
+        "start": 31.95,
+        "end": 32.12,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.12,
+        "end": 32.13,
+        "type": "spacing"
+      },
+      {
+        "text": "was",
+        "start": 32.13,
+        "end": 32.24,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.24,
+        "end": 32.25,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 32.25,
+        "end": 32.323,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.323,
+        "end": 32.335,
+        "type": "spacing"
+      },
+      {
+        "text": "mistake.",
+        "start": 32.335,
+        "end": 32.891,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.891,
+        "end": 33.294,
+        "type": "spacing"
+      },
+      {
+        "text": "But",
+        "start": 33.294,
+        "end": 33.454,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.454,
+        "end": 33.47,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 33.47,
+        "end": 33.602,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.602,
+        "end": 33.614,
+        "type": "spacing"
+      },
+      {
+        "text": "same",
+        "start": 33.614,
+        "end": 33.832,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.832,
+        "end": 33.853,
+        "type": "spacing"
+      },
+      {
+        "text": "playbook",
+        "start": 33.853,
+        "end": 34.37,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.37,
+        "end": 34.413,
+        "type": "spacing"
+      },
+      {
+        "text": "keeps",
+        "start": 34.413,
+        "end": 34.642,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.642,
+        "end": 34.653,
+        "type": "spacing"
+      },
+      {
+        "text": "showing",
+        "start": 34.653,
+        "end": 34.974,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.974,
+        "end": 34.99,
+        "type": "spacing"
+      },
+      {
+        "text": "up.",
+        "start": 34.99,
+        "end": 35.326,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 35.326,
+        "end": 35.76,
+        "type": "spacing"
+      },
+      {
+        "text": "In",
+        "start": 35.76,
+        "end": 35.98,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 35.98,
+        "end": 36.012,
+        "type": "spacing"
+      },
+      {
+        "text": "Singapore,",
+        "start": 36.012,
+        "end": 36.672,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.672,
+        "end": 37.051,
+        "type": "spacing"
+      },
+      {
+        "text": "prosecutors",
+        "start": 37.051,
+        "end": 37.718,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 37.718,
+        "end": 37.77,
+        "type": "spacing"
+      },
+      {
+        "text": "charged",
+        "start": 37.77,
+        "end": 38.139,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 38.139,
+        "end": 38.17,
+        "type": "spacing"
+      },
+      {
+        "text": "men",
+        "start": 38.17,
+        "end": 38.445,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 38.445,
+        "end": 38.5,
+        "type": "spacing"
+      },
+      {
+        "text": "over",
+        "start": 38.5,
+        "end": 38.727,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 38.727,
+        "end": 38.74,
+        "type": "spacing"
+      },
+      {
+        "text": "server",
+        "start": 38.74,
+        "end": 39.098,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 39.098,
+        "end": 39.13,
+        "type": "spacing"
+      },
+      {
+        "text": "deals",
+        "start": 39.13,
+        "end": 39.467,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 39.467,
+        "end": 39.53,
+        "type": "spacing"
+      },
+      {
+        "text": "worth",
+        "start": 39.53,
+        "end": 39.829,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 39.829,
+        "end": 39.85,
+        "type": "spacing"
+      },
+      {
+        "text": "hundreds",
+        "start": 39.85,
+        "end": 40.229,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 40.229,
+        "end": 40.25,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 40.25,
+        "end": 40.399,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 40.399,
+        "end": 40.41,
+        "type": "spacing"
+      },
+      {
+        "text": "millions",
+        "start": 40.41,
+        "end": 40.713,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 40.713,
+        "end": 40.75,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 40.75,
+        "end": 40.948,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 40.948,
+        "end": 40.97,
+        "type": "spacing"
+      },
+      {
+        "text": "dollars,",
+        "start": 40.97,
+        "end": 41.529,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 41.529,
+        "end": 41.85,
+        "type": "spacing"
+      },
+      {
+        "text": "accused",
+        "start": 41.85,
+        "end": 42.298,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 42.298,
+        "end": 42.33,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 42.33,
+        "end": 42.538,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 42.538,
+        "end": 42.57,
+        "type": "spacing"
+      },
+      {
+        "text": "lying",
+        "start": 42.57,
+        "end": 42.938,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 42.938,
+        "end": 42.97,
+        "type": "spacing"
+      },
+      {
+        "text": "about",
+        "start": 42.97,
+        "end": 43.188,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 43.188,
+        "end": 43.21,
+        "type": "spacing"
+      },
+      {
+        "text": "where",
+        "start": 43.21,
+        "end": 43.398,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 43.398,
+        "end": 43.41,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 43.41,
+        "end": 43.518,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 43.518,
+        "end": 43.53,
+        "type": "spacing"
+      },
+      {
+        "text": "machines",
+        "start": 43.53,
+        "end": 43.967,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 43.967,
+        "end": 44.01,
+        "type": "spacing"
+      },
+      {
+        "text": "would",
+        "start": 44.01,
+        "end": 44.176,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 44.176,
+        "end": 44.18,
+        "type": "spacing"
+      },
+      {
+        "text": "end",
+        "start": 44.18,
+        "end": 44.333,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 44.333,
+        "end": 44.35,
+        "type": "spacing"
+      },
+      {
+        "text": "up.",
+        "start": 44.35,
+        "end": 44.734,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 44.734,
+        "end": 45.124,
+        "type": "spacing"
+      },
+      {
+        "text": "American",
+        "start": 45.124,
+        "end": 45.711,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 45.711,
+        "end": 45.764,
+        "type": "spacing"
+      },
+      {
+        "text": "prosecutors",
+        "start": 45.764,
+        "end": 46.489,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 46.489,
+        "end": 46.563,
+        "type": "spacing"
+      },
+      {
+        "text": "charged",
+        "start": 46.563,
+        "end": 46.858,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 46.858,
+        "end": 46.858,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 46.858,
+        "end": 47.011,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 47.011,
+        "end": 47.043,
+        "type": "spacing"
+      },
+      {
+        "text": "California",
+        "start": 47.043,
+        "end": 47.597,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 47.597,
+        "end": 47.61,
+        "type": "spacing"
+      },
+      {
+        "text": "businessman",
+        "start": 47.61,
+        "end": 48.505,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 48.505,
+        "end": 48.642,
+        "type": "spacing"
+      },
+      {
+        "text": "over",
+        "start": 48.642,
+        "end": 48.93,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 48.93,
+        "end": 48.961,
+        "type": "spacing"
+      },
+      {
+        "text": "roughly",
+        "start": 48.961,
+        "end": 49.329,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 49.329,
+        "end": 49.361,
+        "type": "spacing"
+      },
+      {
+        "text": "three",
+        "start": 49.361,
+        "end": 49.66,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 49.66,
+        "end": 49.681,
+        "type": "spacing"
+      },
+      {
+        "text": "hundred",
+        "start": 49.681,
+        "end": 49.969,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 49.969,
+        "end": 50.001,
+        "type": "spacing"
+      },
+      {
+        "text": "million",
+        "start": 50.001,
+        "end": 50.348,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 50.348,
+        "end": 50.4,
+        "type": "spacing"
+      },
+      {
+        "text": "dollars",
+        "start": 50.4,
+        "end": 50.755,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 50.755,
+        "end": 50.81,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 50.81,
+        "end": 50.964,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 50.964,
+        "end": 50.98,
+        "type": "spacing"
+      },
+      {
+        "text": "Nvidia-powered",
+        "start": 50.98,
+        "end": 51.808,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 51.808,
+        "end": 51.84,
+        "type": "spacing"
+      },
+      {
+        "text": "servers,",
+        "start": 51.84,
+        "end": 52.465,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 52.465,
+        "end": 52.72,
+        "type": "spacing"
+      },
+      {
+        "text": "allegedly",
+        "start": 52.72,
+        "end": 53.328,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 53.328,
+        "end": 53.36,
+        "type": "spacing"
+      },
+      {
+        "text": "routed",
+        "start": 53.36,
+        "end": 53.728,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 53.728,
+        "end": 53.76,
+        "type": "spacing"
+      },
+      {
+        "text": "through",
+        "start": 53.76,
+        "end": 53.945,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 53.945,
+        "end": 53.945,
+        "type": "spacing"
+      },
+      {
+        "text": "Malaysia",
+        "start": 53.945,
+        "end": 54.544,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 54.544,
+        "end": 54.61,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 54.61,
+        "end": 54.778,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 54.778,
+        "end": 54.8,
+        "type": "spacing"
+      },
+      {
+        "text": "Singapore",
+        "start": 54.8,
+        "end": 55.317,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 55.317,
+        "end": 55.36,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 55.36,
+        "end": 55.568,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 55.568,
+        "end": 55.6,
+        "type": "spacing"
+      },
+      {
+        "text": "China.",
+        "start": 55.6,
+        "end": 56.056,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 56.056,
+        "end": 56.4,
+        "type": "spacing"
+      },
+      {
+        "text": "And",
+        "start": 56.4,
+        "end": 56.607,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 56.607,
+        "end": 56.64,
+        "type": "spacing"
+      },
+      {
+        "text": "one",
+        "start": 56.64,
+        "end": 56.847,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 56.847,
+        "end": 56.88,
+        "type": "spacing"
+      },
+      {
+        "text": "research",
+        "start": 56.88,
+        "end": 57.233,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 57.233,
+        "end": 57.275,
+        "type": "spacing"
+      },
+      {
+        "text": "firm",
+        "start": 57.275,
+        "end": 57.611,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 57.611,
+        "end": 57.675,
+        "type": "spacing"
+      },
+      {
+        "text": "found",
+        "start": 57.675,
+        "end": 57.892,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 57.892,
+        "end": 57.914,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 57.914,
+        "end": 58.063,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 58.063,
+        "end": 58.074,
+        "type": "spacing"
+      },
+      {
+        "text": "Chinese",
+        "start": 58.074,
+        "end": 58.582,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 58.582,
+        "end": 58.65,
+        "type": "spacing"
+      },
+      {
+        "text": "reseller",
+        "start": 58.65,
+        "end": 59.166,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 59.166,
+        "end": 59.2,
+        "type": "spacing"
+      },
+      {
+        "text": "advertising",
+        "start": 59.2,
+        "end": 59.999,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 59.999,
+        "end": 60.073,
+        "type": "spacing"
+      },
+      {
+        "text": "eighty",
+        "start": 60.073,
+        "end": 60.307,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 60.307,
+        "end": 60.32,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 60.32,
+        "end": 60.482,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 60.482,
+        "end": 60.5,
+        "type": "spacing"
+      },
+      {
+        "text": "Nvidias",
+        "start": 60.5,
+        "end": 60.969,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 60.969,
+        "end": 61.032,
+        "type": "spacing"
+      },
+      {
+        "text": "newest",
+        "start": 61.032,
+        "end": 61.32,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 61.32,
+        "end": 61.352,
+        "type": "spacing"
+      },
+      {
+        "text": "servers,",
+        "start": 61.352,
+        "end": 61.96,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 61.96,
+        "end": 62.26,
+        "type": "spacing"
+      },
+      {
+        "text": "stored",
+        "start": 62.26,
+        "end": 62.627,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 62.627,
+        "end": 62.64,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 62.64,
+        "end": 62.743,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 62.743,
+        "end": 62.743,
+        "type": "spacing"
+      },
+      {
+        "text": "Malaysia,",
+        "start": 62.743,
+        "end": 63.436,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 63.436,
+        "end": 63.67,
+        "type": "spacing"
+      },
+      {
+        "text": "for",
+        "start": 63.67,
+        "end": 63.879,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 63.879,
+        "end": 63.91,
+        "type": "spacing"
+      },
+      {
+        "text": "shipment",
+        "start": 63.91,
+        "end": 64.278,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 64.278,
+        "end": 64.31,
+        "type": "spacing"
+      },
+      {
+        "text": "through",
+        "start": 64.31,
+        "end": 64.609,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 64.609,
+        "end": 64.63,
+        "type": "spacing"
+      },
+      {
+        "text": "Hong,",
+        "start": 64.63,
+        "end": 64.833,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 64.833,
+        "end": 64.833,
+        "type": "spacing"
+      },
+      {
+        "text": "Kong",
+        "start": 64.833,
+        "end": 65.068,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 65.068,
+        "end": 65.11,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 65.11,
+        "end": 65.267,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 65.267,
+        "end": 65.28,
+        "type": "spacing"
+      },
+      {
+        "text": "Russia.",
+        "start": 65.28,
+        "end": 65.948,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 65.948,
+        "end": 65.99,
+        "type": "spacing"
+      },
+      {
+        "text": "Nobody",
+        "start": 65.99,
+        "end": 66.358,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 66.358,
+        "end": 66.39,
+        "type": "spacing"
+      },
+      {
+        "text": "has",
+        "start": 66.39,
+        "end": 66.598,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 66.598,
+        "end": 66.63,
+        "type": "spacing"
+      },
+      {
+        "text": "shown",
+        "start": 66.63,
+        "end": 66.907,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 66.907,
+        "end": 66.95,
+        "type": "spacing"
+      },
+      {
+        "text": "that",
+        "start": 66.95,
+        "end": 67.168,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 67.168,
+        "end": 67.19,
+        "type": "spacing"
+      },
+      {
+        "text": "sale",
+        "start": 67.19,
+        "end": 67.475,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 67.475,
+        "end": 67.52,
+        "type": "spacing"
+      },
+      {
+        "text": "ever",
+        "start": 67.52,
+        "end": 67.798,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 67.798,
+        "end": 67.83,
+        "type": "spacing"
+      },
+      {
+        "text": "happened.",
+        "start": 67.83,
+        "end": 68.323,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 68.323,
+        "end": 68.55,
+        "type": "spacing"
+      },
+      {
+        "text": "But",
+        "start": 68.55,
+        "end": 68.706,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 68.706,
+        "end": 68.72,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 68.72,
+        "end": 68.858,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 68.858,
+        "end": 68.87,
+        "type": "spacing"
+      },
+      {
+        "text": "offer",
+        "start": 68.87,
+        "end": 69.135,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 69.135,
+        "end": 69.16,
+        "type": "spacing"
+      },
+      {
+        "text": "alone",
+        "start": 69.16,
+        "end": 69.536,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 69.536,
+        "end": 69.59,
+        "type": "spacing"
+      },
+      {
+        "text": "tells",
+        "start": 69.59,
+        "end": 69.843,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 69.843,
+        "end": 69.85,
+        "type": "spacing"
+      },
+      {
+        "text": "you",
+        "start": 69.85,
+        "end": 69.94,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 69.94,
+        "end": 69.94,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 69.94,
+        "end": 70.057,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 70.057,
+        "end": 70.07,
+        "type": "spacing"
+      },
+      {
+        "text": "market",
+        "start": 70.07,
+        "end": 70.436,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 70.436,
+        "end": 70.47,
+        "type": "spacing"
+      },
+      {
+        "text": "is",
+        "start": 70.47,
+        "end": 70.613,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 70.613,
+        "end": 70.624,
+        "type": "spacing"
+      },
+      {
+        "text": "there.",
+        "start": 70.624,
+        "end": 71.096,
+        "type": "word"
+      }
+    ],
+    "transcription_id": "f5f69f645b69c62a3326",
+    "audio_duration_secs": 71.2239375
+  }
+]

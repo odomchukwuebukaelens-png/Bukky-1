@@ -1,0 +1,9 @@
+node_modules
+tiles
+build/
+previous/
+previews/
+narration.wav
+*.mp4
+gen.log
+build_cmds.txt

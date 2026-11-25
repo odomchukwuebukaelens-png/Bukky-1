@@ -1,0 +1,833 @@
+[
+  {
+    "language_code": "",
+    "language_probability": 1,
+    "text": "So why doesn't Russia just make its own? Because it can't. Russia's most advanced chip factory, Mikron, just outside Moscow, works with technology roughly two decades behind the cutting edge. The world's best chips are designed in America, manufactured in Taiwan and South Korea, and built with machines from the Netherlands and Japan. Russia sits outside that entire chain. It can build the missile, it can't build the brain.",
+    "words": [
+      {
+        "text": "So",
+        "start": 0.19,
+        "end": 0.409,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.409,
+        "end": 0.44,
+        "type": "spacing"
+      },
+      {
+        "text": "why",
+        "start": 0.44,
+        "end": 0.649,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.649,
+        "end": 0.68,
+        "type": "spacing"
+      },
+      {
+        "text": "doesn't",
+        "start": 0.68,
+        "end": 1.022,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.022,
+        "end": 1.03,
+        "type": "spacing"
+      },
+      {
+        "text": "Russia",
+        "start": 1.03,
+        "end": 1.369,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.369,
+        "end": 1.4,
+        "type": "spacing"
+      },
+      {
+        "text": "just",
+        "start": 1.4,
+        "end": 1.619,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.619,
+        "end": 1.641,
+        "type": "spacing"
+      },
+      {
+        "text": "make",
+        "start": 1.641,
+        "end": 1.822,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.822,
+        "end": 1.83,
+        "type": "spacing"
+      },
+      {
+        "text": "its",
+        "start": 1.83,
+        "end": 2.009,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.009,
+        "end": 2.041,
+        "type": "spacing"
+      },
+      {
+        "text": "own?",
+        "start": 2.041,
+        "end": 2.494,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.494,
+        "end": 2.82,
+        "type": "spacing"
+      },
+      {
+        "text": "Because",
+        "start": 2.82,
+        "end": 3.129,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.129,
+        "end": 3.161,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 3.161,
+        "end": 3.339,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.339,
+        "end": 3.36,
+        "type": "spacing"
+      },
+      {
+        "text": "can't.",
+        "start": 3.36,
+        "end": 3.785,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.785,
+        "end": 4.08,
+        "type": "spacing"
+      },
+      {
+        "text": "Russia's",
+        "start": 4.08,
+        "end": 4.588,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.588,
+        "end": 4.602,
+        "type": "spacing"
+      },
+      {
+        "text": "most",
+        "start": 4.602,
+        "end": 4.826,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.826,
+        "end": 4.85,
+        "type": "spacing"
+      },
+      {
+        "text": "advanced",
+        "start": 4.85,
+        "end": 5.317,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.317,
+        "end": 5.33,
+        "type": "spacing"
+      },
+      {
+        "text": "chip",
+        "start": 5.33,
+        "end": 5.62,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.62,
+        "end": 5.642,
+        "type": "spacing"
+      },
+      {
+        "text": "factory,",
+        "start": 5.642,
+        "end": 6.266,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.266,
+        "end": 6.29,
+        "type": "spacing"
+      },
+      {
+        "text": "Mikron,",
+        "start": 6.29,
+        "end": 7.061,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.061,
+        "end": 7.082,
+        "type": "spacing"
+      },
+      {
+        "text": "just",
+        "start": 7.082,
+        "end": 7.36,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.36,
+        "end": 7.403,
+        "type": "spacing"
+      },
+      {
+        "text": "outside",
+        "start": 7.403,
+        "end": 7.83,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.83,
+        "end": 7.883,
+        "type": "spacing"
+      },
+      {
+        "text": "Moscow,",
+        "start": 7.883,
+        "end": 8.439,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.439,
+        "end": 8.74,
+        "type": "spacing"
+      },
+      {
+        "text": "works",
+        "start": 8.74,
+        "end": 9.061,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.061,
+        "end": 9.083,
+        "type": "spacing"
+      },
+      {
+        "text": "with",
+        "start": 9.083,
+        "end": 9.255,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.255,
+        "end": 9.26,
+        "type": "spacing"
+      },
+      {
+        "text": "technology",
+        "start": 9.26,
+        "end": 9.969,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.969,
+        "end": 10.043,
+        "type": "spacing"
+      },
+      {
+        "text": "roughly",
+        "start": 10.043,
+        "end": 10.364,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.364,
+        "end": 10.38,
+        "type": "spacing"
+      },
+      {
+        "text": "two",
+        "start": 10.38,
+        "end": 10.571,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.571,
+        "end": 10.604,
+        "type": "spacing"
+      },
+      {
+        "text": "decades",
+        "start": 10.604,
+        "end": 11.041,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.041,
+        "end": 11.084,
+        "type": "spacing"
+      },
+      {
+        "text": "behind",
+        "start": 11.084,
+        "end": 11.392,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.392,
+        "end": 11.404,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 11.404,
+        "end": 11.503,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.503,
+        "end": 11.503,
+        "type": "spacing"
+      },
+      {
+        "text": "cutting",
+        "start": 11.503,
+        "end": 11.819,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.819,
+        "end": 11.84,
+        "type": "spacing"
+      },
+      {
+        "text": "edge.",
+        "start": 11.84,
+        "end": 12.286,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.286,
+        "end": 12.57,
+        "type": "spacing"
+      },
+      {
+        "text": "The",
+        "start": 12.57,
+        "end": 12.735,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.735,
+        "end": 12.74,
+        "type": "spacing"
+      },
+      {
+        "text": "world's",
+        "start": 12.74,
+        "end": 13.1,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.1,
+        "end": 13.1,
+        "type": "spacing"
+      },
+      {
+        "text": "best",
+        "start": 13.1,
+        "end": 13.382,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.382,
+        "end": 13.405,
+        "type": "spacing"
+      },
+      {
+        "text": "chips",
+        "start": 13.405,
+        "end": 13.713,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.713,
+        "end": 13.725,
+        "type": "spacing"
+      },
+      {
+        "text": "are",
+        "start": 13.725,
+        "end": 13.825,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.825,
+        "end": 13.825,
+        "type": "spacing"
+      },
+      {
+        "text": "designed",
+        "start": 13.825,
+        "end": 14.204,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.204,
+        "end": 14.22,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 14.22,
+        "end": 14.357,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.357,
+        "end": 14.37,
+        "type": "spacing"
+      },
+      {
+        "text": "America,",
+        "start": 14.37,
+        "end": 15,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15,
+        "end": 15.49,
+        "type": "spacing"
+      },
+      {
+        "text": "manufactured",
+        "start": 15.49,
+        "end": 16.118,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.118,
+        "end": 16.13,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 16.13,
+        "end": 16.278,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.278,
+        "end": 16.29,
+        "type": "spacing"
+      },
+      {
+        "text": "Taiwan",
+        "start": 16.29,
+        "end": 16.797,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.797,
+        "end": 16.85,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 16.85,
+        "end": 16.998,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.998,
+        "end": 17.01,
+        "type": "spacing"
+      },
+      {
+        "text": "South",
+        "start": 17.01,
+        "end": 17.282,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.282,
+        "end": 17.282,
+        "type": "spacing"
+      },
+      {
+        "text": "Korea,",
+        "start": 17.282,
+        "end": 17.851,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.851,
+        "end": 18.21,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 18.21,
+        "end": 18.418,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.418,
+        "end": 18.45,
+        "type": "spacing"
+      },
+      {
+        "text": "built",
+        "start": 18.45,
+        "end": 18.682,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.682,
+        "end": 18.69,
+        "type": "spacing"
+      },
+      {
+        "text": "with",
+        "start": 18.69,
+        "end": 18.908,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.908,
+        "end": 18.93,
+        "type": "spacing"
+      },
+      {
+        "text": "machines",
+        "start": 18.93,
+        "end": 19.367,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.367,
+        "end": 19.41,
+        "type": "spacing"
+      },
+      {
+        "text": "from",
+        "start": 19.41,
+        "end": 19.567,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.567,
+        "end": 19.567,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 19.567,
+        "end": 19.639,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.639,
+        "end": 19.65,
+        "type": "spacing"
+      },
+      {
+        "text": "Netherlands",
+        "start": 19.65,
+        "end": 20.167,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.167,
+        "end": 20.21,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 20.21,
+        "end": 20.359,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.359,
+        "end": 20.37,
+        "type": "spacing"
+      },
+      {
+        "text": "Japan.",
+        "start": 20.37,
+        "end": 20.964,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.964,
+        "end": 21.29,
+        "type": "spacing"
+      },
+      {
+        "text": "Russia",
+        "start": 21.29,
+        "end": 21.698,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.698,
+        "end": 21.73,
+        "type": "spacing"
+      },
+      {
+        "text": "sits",
+        "start": 21.73,
+        "end": 22.007,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.007,
+        "end": 22.05,
+        "type": "spacing"
+      },
+      {
+        "text": "outside",
+        "start": 22.05,
+        "end": 22.477,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.477,
+        "end": 22.53,
+        "type": "spacing"
+      },
+      {
+        "text": "that",
+        "start": 22.53,
+        "end": 22.712,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.712,
+        "end": 22.72,
+        "type": "spacing"
+      },
+      {
+        "text": "entire",
+        "start": 22.72,
+        "end": 23.117,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.117,
+        "end": 23.17,
+        "type": "spacing"
+      },
+      {
+        "text": "chain.",
+        "start": 23.17,
+        "end": 23.641,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.641,
+        "end": 24.01,
+        "type": "spacing"
+      },
+      {
+        "text": "It",
+        "start": 24.01,
+        "end": 24.162,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.162,
+        "end": 24.162,
+        "type": "spacing"
+      },
+      {
+        "text": "can",
+        "start": 24.162,
+        "end": 24.338,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.338,
+        "end": 24.37,
+        "type": "spacing"
+      },
+      {
+        "text": "build",
+        "start": 24.37,
+        "end": 24.596,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.596,
+        "end": 24.62,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 24.62,
+        "end": 24.766,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.766,
+        "end": 24.78,
+        "type": "spacing"
+      },
+      {
+        "text": "missile,",
+        "start": 24.78,
+        "end": 25.205,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.205,
+        "end": 25.49,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 25.49,
+        "end": 25.698,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.698,
+        "end": 25.73,
+        "type": "spacing"
+      },
+      {
+        "text": "can't",
+        "start": 25.73,
+        "end": 25.97,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.97,
+        "end": 25.97,
+        "type": "spacing"
+      },
+      {
+        "text": "build",
+        "start": 25.97,
+        "end": 26.232,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.232,
+        "end": 26.24,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 26.24,
+        "end": 26.367,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.367,
+        "end": 26.38,
+        "type": "spacing"
+      },
+      {
+        "text": "brain.",
+        "start": 26.38,
+        "end": 26.93,
+        "type": "word"
+      }
+    ],
+    "transcription_id": "46b94515a7c4ea9f1206",
+    "audio_duration_secs": 27.12925
+  }
+]

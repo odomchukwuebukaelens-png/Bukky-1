@@ -1,0 +1,1181 @@
+[
+  {
+    "language_code": "",
+    "language_probability": 1,
+    "text": "Sometimes the people behind it get caught. In August twenty twenty three, police in Cyprus arrested a man named Arthur Petrov at America's request. Prosecutors said he used a shell company to buy American microelectronics, claimed they were headed somewhere else, and shipped them to suppliers of the Russian military. A month later, another man, Maxim Marchenko, was arrested and charged with using shell companies in Hong Kong to send American-made military-grade displays to Russia, the kind used in rifle scopes and night vision gear. For every case that reaches a courtroom, investigators believe many more never do.",
+    "words": [
+      {
+        "text": "Sometimes",
+        "start": 0.28,
+        "end": 0.746,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.746,
+        "end": 0.77,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 0.77,
+        "end": 0.909,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.909,
+        "end": 0.92,
+        "type": "spacing"
+      },
+      {
+        "text": "people",
+        "start": 0.92,
+        "end": 1.149,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.149,
+        "end": 1.16,
+        "type": "spacing"
+      },
+      {
+        "text": "behind",
+        "start": 1.16,
+        "end": 1.477,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.477,
+        "end": 1.49,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 1.49,
+        "end": 1.688,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.688,
+        "end": 1.72,
+        "type": "spacing"
+      },
+      {
+        "text": "get",
+        "start": 1.72,
+        "end": 1.928,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.928,
+        "end": 1.96,
+        "type": "spacing"
+      },
+      {
+        "text": "caught.",
+        "start": 1.96,
+        "end": 2.366,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.366,
+        "end": 2.76,
+        "type": "spacing"
+      },
+      {
+        "text": "In",
+        "start": 2.76,
+        "end": 2.968,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.968,
+        "end": 3,
+        "type": "spacing"
+      },
+      {
+        "text": "August",
+        "start": 3,
+        "end": 3.347,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.347,
+        "end": 3.4,
+        "type": "spacing"
+      },
+      {
+        "text": "twenty",
+        "start": 3.4,
+        "end": 3.618,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.618,
+        "end": 3.64,
+        "type": "spacing"
+      },
+      {
+        "text": "twenty",
+        "start": 3.64,
+        "end": 3.858,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.858,
+        "end": 3.88,
+        "type": "spacing"
+      },
+      {
+        "text": "three,",
+        "start": 3.88,
+        "end": 4.395,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.395,
+        "end": 4.73,
+        "type": "spacing"
+      },
+      {
+        "text": "police",
+        "start": 4.73,
+        "end": 5.107,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.107,
+        "end": 5.16,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 5.16,
+        "end": 5.309,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.309,
+        "end": 5.32,
+        "type": "spacing"
+      },
+      {
+        "text": "Cyprus",
+        "start": 5.32,
+        "end": 5.778,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.778,
+        "end": 5.8,
+        "type": "spacing"
+      },
+      {
+        "text": "arrested",
+        "start": 5.8,
+        "end": 6.246,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.246,
+        "end": 6.25,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 6.25,
+        "end": 6.359,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.359,
+        "end": 6.36,
+        "type": "spacing"
+      },
+      {
+        "text": "man",
+        "start": 6.36,
+        "end": 6.627,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.627,
+        "end": 6.68,
+        "type": "spacing"
+      },
+      {
+        "text": "named",
+        "start": 6.68,
+        "end": 6.957,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.957,
+        "end": 7,
+        "type": "spacing"
+      },
+      {
+        "text": "Arthur",
+        "start": 7,
+        "end": 7.287,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.287,
+        "end": 7.32,
+        "type": "spacing"
+      },
+      {
+        "text": "Petrov",
+        "start": 7.32,
+        "end": 7.88,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.88,
+        "end": 7.955,
+        "type": "spacing"
+      },
+      {
+        "text": "at",
+        "start": 7.955,
+        "end": 8.114,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.114,
+        "end": 8.13,
+        "type": "spacing"
+      },
+      {
+        "text": "America's",
+        "start": 8.13,
+        "end": 8.633,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.633,
+        "end": 8.633,
+        "type": "spacing"
+      },
+      {
+        "text": "request.",
+        "start": 8.633,
+        "end": 9.266,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.266,
+        "end": 9.714,
+        "type": "spacing"
+      },
+      {
+        "text": "Prosecutors",
+        "start": 9.714,
+        "end": 10.241,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.241,
+        "end": 10.273,
+        "type": "spacing"
+      },
+      {
+        "text": "said",
+        "start": 10.273,
+        "end": 10.491,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.491,
+        "end": 10.513,
+        "type": "spacing"
+      },
+      {
+        "text": "he",
+        "start": 10.513,
+        "end": 10.662,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.662,
+        "end": 10.673,
+        "type": "spacing"
+      },
+      {
+        "text": "used",
+        "start": 10.673,
+        "end": 10.902,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.902,
+        "end": 10.913,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 10.913,
+        "end": 11.027,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.027,
+        "end": 11.03,
+        "type": "spacing"
+      },
+      {
+        "text": "shell",
+        "start": 11.03,
+        "end": 11.35,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.35,
+        "end": 11.392,
+        "type": "spacing"
+      },
+      {
+        "text": "company",
+        "start": 11.392,
+        "end": 11.76,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.76,
+        "end": 11.792,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 11.792,
+        "end": 11.893,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.893,
+        "end": 11.893,
+        "type": "spacing"
+      },
+      {
+        "text": "buy",
+        "start": 11.893,
+        "end": 12.17,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.17,
+        "end": 12.192,
+        "type": "spacing"
+      },
+      {
+        "text": "American",
+        "start": 12.192,
+        "end": 12.699,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.699,
+        "end": 12.752,
+        "type": "spacing"
+      },
+      {
+        "text": "microelectronics,",
+        "start": 12.752,
+        "end": 13.899,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.899,
+        "end": 14.31,
+        "type": "spacing"
+      },
+      {
+        "text": "claimed",
+        "start": 14.31,
+        "end": 14.66,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.66,
+        "end": 14.67,
+        "type": "spacing"
+      },
+      {
+        "text": "they",
+        "start": 14.67,
+        "end": 14.797,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.797,
+        "end": 14.8,
+        "type": "spacing"
+      },
+      {
+        "text": "were",
+        "start": 14.8,
+        "end": 14.915,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.915,
+        "end": 14.92,
+        "type": "spacing"
+      },
+      {
+        "text": "headed",
+        "start": 14.92,
+        "end": 15.258,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.258,
+        "end": 15.31,
+        "type": "spacing"
+      },
+      {
+        "text": "somewhere",
+        "start": 15.31,
+        "end": 15.609,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.609,
+        "end": 15.63,
+        "type": "spacing"
+      },
+      {
+        "text": "else,",
+        "start": 15.63,
+        "end": 16.094,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.094,
+        "end": 16.36,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 16.36,
+        "end": 16.558,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.558,
+        "end": 16.59,
+        "type": "spacing"
+      },
+      {
+        "text": "shipped",
+        "start": 16.59,
+        "end": 16.853,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.853,
+        "end": 16.853,
+        "type": "spacing"
+      },
+      {
+        "text": "them",
+        "start": 16.853,
+        "end": 17.049,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.049,
+        "end": 17.07,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 17.07,
+        "end": 17.217,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.217,
+        "end": 17.23,
+        "type": "spacing"
+      },
+      {
+        "text": "suppliers",
+        "start": 17.23,
+        "end": 17.766,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.766,
+        "end": 17.8,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 17.8,
+        "end": 17.902,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.902,
+        "end": 17.902,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 17.902,
+        "end": 18.019,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.019,
+        "end": 18.03,
+        "type": "spacing"
+      },
+      {
+        "text": "Russian",
+        "start": 18.03,
+        "end": 18.318,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.318,
+        "end": 18.35,
+        "type": "spacing"
+      },
+      {
+        "text": "military.",
+        "start": 18.35,
+        "end": 19.143,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.143,
+        "end": 19.47,
+        "type": "spacing"
+      },
+      {
+        "text": "A",
+        "start": 19.47,
+        "end": 19.626,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.626,
+        "end": 19.64,
+        "type": "spacing"
+      },
+      {
+        "text": "month",
+        "start": 19.64,
+        "end": 19.909,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.909,
+        "end": 19.91,
+        "type": "spacing"
+      },
+      {
+        "text": "later,",
+        "start": 19.91,
+        "end": 20.526,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.526,
+        "end": 20.59,
+        "type": "spacing"
+      },
+      {
+        "text": "another",
+        "start": 20.59,
+        "end": 20.899,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.899,
+        "end": 20.91,
+        "type": "spacing"
+      },
+      {
+        "text": "man,",
+        "start": 20.91,
+        "end": 21.368,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.368,
+        "end": 21.39,
+        "type": "spacing"
+      },
+      {
+        "text": "Maxim",
+        "start": 21.39,
+        "end": 21.778,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.778,
+        "end": 21.79,
+        "type": "spacing"
+      },
+      {
+        "text": "Marchenko,",
+        "start": 21.79,
+        "end": 22.601,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.601,
+        "end": 22.72,
+        "type": "spacing"
+      },
+      {
+        "text": "was",
+        "start": 22.72,
+        "end": 22.904,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.904,
+        "end": 22.92,
+        "type": "spacing"
+      },
+      {
+        "text": "arrested",
+        "start": 22.92,
+        "end": 23.443,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.443,
+        "end": 23.48,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 23.48,
+        "end": 23.613,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.613,
+        "end": 23.624,
+        "type": "spacing"
+      },
+      {
+        "text": "charged",
+        "start": 23.624,
+        "end": 23.955,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.955,
+        "end": 23.955,
+        "type": "spacing"
+      },
+      {
+        "text": "with",
+        "start": 23.955,
+        "end": 24.162,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.162,
+        "end": 24.184,
+        "type": "spacing"
+      },
+      {
+        "text": "using",
+        "start": 24.184,
+        "end": 24.476,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.476,
+        "end": 24.51,
+        "type": "spacing"
+      },
+      {
+        "text": "shell",
+        "start": 24.51,
+        "end": 24.802,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.802,
+        "end": 24.823,
+        "type": "spacing"
+      },
+      {
+        "text": "companies",
+        "start": 24.823,
+        "end": 25.191,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.191,
+        "end": 25.223,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 25.223,
+        "end": 25.372,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.372,
+        "end": 25.383,
+        "type": "spacing"
+      },
+      {
+        "text": "Hong",
+        "start": 25.383,
+        "end": 25.627,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.627,
+        "end": 25.63,
+        "type": "spacing"
+      },
+      {
+        "text": "Kong",
+        "start": 25.63,
+        "end": 25.935,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.935,
+        "end": 26.263,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 26.263,
+        "end": 26.411,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.411,
+        "end": 26.422,
+        "type": "spacing"
+      },
+      {
+        "text": "send",
+        "start": 26.422,
+        "end": 26.721,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.721,
+        "end": 26.742,
+        "type": "spacing"
+      },
+      {
+        "text": "American-made",
+        "start": 26.742,
+        "end": 27.499,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.499,
+        "end": 27.542,
+        "type": "spacing"
+      },
+      {
+        "text": "military-grade",
+        "start": 27.542,
+        "end": 28.32,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.32,
+        "end": 28.341,
+        "type": "spacing"
+      },
+      {
+        "text": "displays",
+        "start": 28.341,
+        "end": 28.779,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.779,
+        "end": 28.821,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 28.821,
+        "end": 28.977,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.977,
+        "end": 28.99,
+        "type": "spacing"
+      },
+      {
+        "text": "Russia,",
+        "start": 28.99,
+        "end": 29.484,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.484,
+        "end": 29.87,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 29.87,
+        "end": 30.01,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.01,
+        "end": 30.02,
+        "type": "spacing"
+      },
+      {
+        "text": "kind",
+        "start": 30.02,
+        "end": 30.298,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.298,
+        "end": 30.34,
+        "type": "spacing"
+      },
+      {
+        "text": "used",
+        "start": 30.34,
+        "end": 30.569,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.569,
+        "end": 30.58,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 30.58,
+        "end": 30.737,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.737,
+        "end": 30.75,
+        "type": "spacing"
+      },
+      {
+        "text": "rifle",
+        "start": 30.75,
+        "end": 31.064,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.064,
+        "end": 31.08,
+        "type": "spacing"
+      },
+      {
+        "text": "scopes",
+        "start": 31.08,
+        "end": 31.418,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.418,
+        "end": 31.46,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 31.46,
+        "end": 31.609,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.609,
+        "end": 31.62,
+        "type": "spacing"
+      },
+      {
+        "text": "night",
+        "start": 31.62,
+        "end": 31.839,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.839,
+        "end": 31.86,
+        "type": "spacing"
+      },
+      {
+        "text": "vision",
+        "start": 31.86,
+        "end": 32.148,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.148,
+        "end": 32.18,
+        "type": "spacing"
+      },
+      {
+        "text": "gear.",
+        "start": 32.18,
+        "end": 32.578,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.578,
+        "end": 32.88,
+        "type": "spacing"
+      },
+      {
+        "text": "For",
+        "start": 32.88,
+        "end": 33.064,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.064,
+        "end": 33.08,
+        "type": "spacing"
+      },
+      {
+        "text": "every",
+        "start": 33.08,
+        "end": 33.348,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.348,
+        "end": 33.38,
+        "type": "spacing"
+      },
+      {
+        "text": "case",
+        "start": 33.38,
+        "end": 33.598,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.598,
+        "end": 33.62,
+        "type": "spacing"
+      },
+      {
+        "text": "that",
+        "start": 33.62,
+        "end": 33.779,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.779,
+        "end": 33.78,
+        "type": "spacing"
+      },
+      {
+        "text": "reaches",
+        "start": 33.78,
+        "end": 34.068,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.068,
+        "end": 34.1,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 34.1,
+        "end": 34.197,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.197,
+        "end": 34.2,
+        "type": "spacing"
+      },
+      {
+        "text": "courtroom,",
+        "start": 34.2,
+        "end": 34.833,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.833,
+        "end": 35.08,
+        "type": "spacing"
+      },
+      {
+        "text": "investigators",
+        "start": 35.08,
+        "end": 35.863,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 35.863,
+        "end": 35.88,
+        "type": "spacing"
+      },
+      {
+        "text": "believe",
+        "start": 35.88,
+        "end": 36.294,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.294,
+        "end": 36.35,
+        "type": "spacing"
+      },
+      {
+        "text": "many",
+        "start": 36.35,
+        "end": 36.546,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.546,
+        "end": 36.55,
+        "type": "spacing"
+      },
+      {
+        "text": "more",
+        "start": 36.55,
+        "end": 36.798,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.798,
+        "end": 36.82,
+        "type": "spacing"
+      },
+      {
+        "text": "never",
+        "start": 36.82,
+        "end": 37.107,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 37.107,
+        "end": 37.14,
+        "type": "spacing"
+      },
+      {
+        "text": "do.",
+        "start": 37.14,
+        "end": 37.424,
+        "type": "word"
+      }
+    ],
+    "transcription_id": "a54e9eee3eac29d8a3d5",
+    "audio_duration_secs": 37.7349375
+  }
+]

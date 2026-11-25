@@ -1,0 +1,1229 @@
+[
+  {
+    "language_code": "",
+    "language_probability": 1,
+    "text": "Governments are fighting back. America and Europe have blacklisted hundreds of companies in China, Hong, Kong, Turkey, the Emirates and Central Asia. Banks in China and Turkey have grown more nervous about handling Russian payments. Every chip carries tiny printed codes showing who made it and when. Investigators collect them from wreckage, and Ukraine publishes a database of foreign parts found in Russian weapons, so chipmakers can trace where their products ended up. And for Russia, the costs are real. Every chip arrives later, costs more, and might be a fake. But the flow hasn't stopped. It has only become more expensive.",
+    "words": [
+      {
+        "text": "Governments",
+        "start": 0.22,
+        "end": 0.739,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.739,
+        "end": 0.76,
+        "type": "spacing"
+      },
+      {
+        "text": "are",
+        "start": 0.76,
+        "end": 0.895,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.895,
+        "end": 0.9,
+        "type": "spacing"
+      },
+      {
+        "text": "fighting",
+        "start": 0.9,
+        "end": 1.209,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.209,
+        "end": 1.24,
+        "type": "spacing"
+      },
+      {
+        "text": "back.",
+        "start": 1.24,
+        "end": 1.69,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.69,
+        "end": 2,
+        "type": "spacing"
+      },
+      {
+        "text": "America",
+        "start": 2,
+        "end": 2.548,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.548,
+        "end": 2.6,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 2.6,
+        "end": 2.764,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.764,
+        "end": 2.78,
+        "type": "spacing"
+      },
+      {
+        "text": "Europe",
+        "start": 2.78,
+        "end": 3.059,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.059,
+        "end": 3.08,
+        "type": "spacing"
+      },
+      {
+        "text": "have",
+        "start": 3.08,
+        "end": 3.299,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.299,
+        "end": 3.32,
+        "type": "spacing"
+      },
+      {
+        "text": "blacklisted",
+        "start": 3.32,
+        "end": 4.009,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.009,
+        "end": 4.04,
+        "type": "spacing"
+      },
+      {
+        "text": "hundreds",
+        "start": 4.04,
+        "end": 4.339,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.339,
+        "end": 4.36,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 4.36,
+        "end": 4.569,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.569,
+        "end": 4.601,
+        "type": "spacing"
+      },
+      {
+        "text": "companies",
+        "start": 4.601,
+        "end": 4.969,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.969,
+        "end": 5.001,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 5.001,
+        "end": 5.15,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.15,
+        "end": 5.161,
+        "type": "spacing"
+      },
+      {
+        "text": "China,",
+        "start": 5.161,
+        "end": 5.639,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.639,
+        "end": 5.89,
+        "type": "spacing"
+      },
+      {
+        "text": "Hong,",
+        "start": 5.89,
+        "end": 6.236,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.236,
+        "end": 6.236,
+        "type": "spacing"
+      },
+      {
+        "text": "Kong,",
+        "start": 6.236,
+        "end": 6.694,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.694,
+        "end": 7.001,
+        "type": "spacing"
+      },
+      {
+        "text": "Turkey,",
+        "start": 7.001,
+        "end": 7.537,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.537,
+        "end": 7.76,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 7.76,
+        "end": 7.964,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.964,
+        "end": 7.98,
+        "type": "spacing"
+      },
+      {
+        "text": "Emirates",
+        "start": 7.98,
+        "end": 8.354,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.354,
+        "end": 8.38,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 8.38,
+        "end": 8.517,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.517,
+        "end": 8.53,
+        "type": "spacing"
+      },
+      {
+        "text": "Central",
+        "start": 8.53,
+        "end": 8.889,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.889,
+        "end": 8.921,
+        "type": "spacing"
+      },
+      {
+        "text": "Asia.",
+        "start": 8.921,
+        "end": 9.399,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.399,
+        "end": 9.801,
+        "type": "spacing"
+      },
+      {
+        "text": "Banks",
+        "start": 9.801,
+        "end": 10.079,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.079,
+        "end": 10.121,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 10.121,
+        "end": 10.277,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.277,
+        "end": 10.29,
+        "type": "spacing"
+      },
+      {
+        "text": "China",
+        "start": 10.29,
+        "end": 10.626,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.626,
+        "end": 10.65,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 10.65,
+        "end": 10.83,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.83,
+        "end": 10.841,
+        "type": "spacing"
+      },
+      {
+        "text": "Turkey",
+        "start": 10.841,
+        "end": 11.136,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.136,
+        "end": 11.17,
+        "type": "spacing"
+      },
+      {
+        "text": "have",
+        "start": 11.17,
+        "end": 11.327,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.327,
+        "end": 11.33,
+        "type": "spacing"
+      },
+      {
+        "text": "grown",
+        "start": 11.33,
+        "end": 11.62,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.62,
+        "end": 11.641,
+        "type": "spacing"
+      },
+      {
+        "text": "more",
+        "start": 11.641,
+        "end": 11.86,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.86,
+        "end": 11.881,
+        "type": "spacing"
+      },
+      {
+        "text": "nervous",
+        "start": 11.881,
+        "end": 12.256,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.256,
+        "end": 12.29,
+        "type": "spacing"
+      },
+      {
+        "text": "about",
+        "start": 12.29,
+        "end": 12.57,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.57,
+        "end": 12.601,
+        "type": "spacing"
+      },
+      {
+        "text": "handling",
+        "start": 12.601,
+        "end": 12.97,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.97,
+        "end": 13.001,
+        "type": "spacing"
+      },
+      {
+        "text": "Russian",
+        "start": 13.001,
+        "end": 13.349,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.349,
+        "end": 13.401,
+        "type": "spacing"
+      },
+      {
+        "text": "payments.",
+        "start": 13.401,
+        "end": 13.85,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.85,
+        "end": 14.282,
+        "type": "spacing"
+      },
+      {
+        "text": "Every",
+        "start": 14.282,
+        "end": 14.57,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.57,
+        "end": 14.602,
+        "type": "spacing"
+      },
+      {
+        "text": "chip",
+        "start": 14.602,
+        "end": 14.9,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.9,
+        "end": 14.922,
+        "type": "spacing"
+      },
+      {
+        "text": "carries",
+        "start": 14.922,
+        "end": 15.269,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.269,
+        "end": 15.322,
+        "type": "spacing"
+      },
+      {
+        "text": "tiny",
+        "start": 15.322,
+        "end": 15.637,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.637,
+        "end": 15.65,
+        "type": "spacing"
+      },
+      {
+        "text": "printed",
+        "start": 15.65,
+        "end": 16.069,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.069,
+        "end": 16.122,
+        "type": "spacing"
+      },
+      {
+        "text": "codes",
+        "start": 16.122,
+        "end": 16.494,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.494,
+        "end": 16.8,
+        "type": "spacing"
+      },
+      {
+        "text": "showing",
+        "start": 16.8,
+        "end": 17.216,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.216,
+        "end": 17.25,
+        "type": "spacing"
+      },
+      {
+        "text": "who",
+        "start": 17.25,
+        "end": 17.397,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.397,
+        "end": 17.41,
+        "type": "spacing"
+      },
+      {
+        "text": "made",
+        "start": 17.41,
+        "end": 17.618,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.618,
+        "end": 17.618,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 17.618,
+        "end": 17.783,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.783,
+        "end": 17.82,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 17.82,
+        "end": 17.957,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.957,
+        "end": 17.97,
+        "type": "spacing"
+      },
+      {
+        "text": "when.",
+        "start": 17.97,
+        "end": 18.366,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.366,
+        "end": 18.85,
+        "type": "spacing"
+      },
+      {
+        "text": "Investigators",
+        "start": 18.85,
+        "end": 19.557,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.557,
+        "end": 19.57,
+        "type": "spacing"
+      },
+      {
+        "text": "collect",
+        "start": 19.57,
+        "end": 19.882,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.882,
+        "end": 19.882,
+        "type": "spacing"
+      },
+      {
+        "text": "them",
+        "start": 19.882,
+        "end": 20.062,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.062,
+        "end": 20.07,
+        "type": "spacing"
+      },
+      {
+        "text": "from",
+        "start": 20.07,
+        "end": 20.237,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.237,
+        "end": 20.25,
+        "type": "spacing"
+      },
+      {
+        "text": "wreckage,",
+        "start": 20.25,
+        "end": 20.846,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.846,
+        "end": 21.08,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 21.08,
+        "end": 21.231,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.231,
+        "end": 21.242,
+        "type": "spacing"
+      },
+      {
+        "text": "Ukraine",
+        "start": 21.242,
+        "end": 21.68,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.68,
+        "end": 21.722,
+        "type": "spacing"
+      },
+      {
+        "text": "publishes",
+        "start": 21.722,
+        "end": 22.124,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.124,
+        "end": 22.14,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 22.14,
+        "end": 22.33,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.33,
+        "end": 22.362,
+        "type": "spacing"
+      },
+      {
+        "text": "database",
+        "start": 22.362,
+        "end": 22.8,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.8,
+        "end": 22.843,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 22.843,
+        "end": 22.997,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.997,
+        "end": 23.01,
+        "type": "spacing"
+      },
+      {
+        "text": "foreign",
+        "start": 23.01,
+        "end": 23.371,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.371,
+        "end": 23.403,
+        "type": "spacing"
+      },
+      {
+        "text": "parts",
+        "start": 23.403,
+        "end": 23.739,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.739,
+        "end": 23.803,
+        "type": "spacing"
+      },
+      {
+        "text": "found",
+        "start": 23.803,
+        "end": 24.021,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.021,
+        "end": 24.043,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 24.043,
+        "end": 24.192,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.192,
+        "end": 24.203,
+        "type": "spacing"
+      },
+      {
+        "text": "Russian",
+        "start": 24.203,
+        "end": 24.491,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.491,
+        "end": 24.523,
+        "type": "spacing"
+      },
+      {
+        "text": "weapons,",
+        "start": 24.523,
+        "end": 25.177,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.177,
+        "end": 25.403,
+        "type": "spacing"
+      },
+      {
+        "text": "so",
+        "start": 25.403,
+        "end": 25.611,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.611,
+        "end": 25.643,
+        "type": "spacing"
+      },
+      {
+        "text": "chipmakers",
+        "start": 25.643,
+        "end": 26.171,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.171,
+        "end": 26.203,
+        "type": "spacing"
+      },
+      {
+        "text": "can",
+        "start": 26.203,
+        "end": 26.411,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.411,
+        "end": 26.443,
+        "type": "spacing"
+      },
+      {
+        "text": "trace",
+        "start": 26.443,
+        "end": 26.695,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.695,
+        "end": 26.7,
+        "type": "spacing"
+      },
+      {
+        "text": "where",
+        "start": 26.7,
+        "end": 26.935,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.935,
+        "end": 26.94,
+        "type": "spacing"
+      },
+      {
+        "text": "their",
+        "start": 26.94,
+        "end": 27.141,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.141,
+        "end": 27.163,
+        "type": "spacing"
+      },
+      {
+        "text": "products",
+        "start": 27.163,
+        "end": 27.461,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.461,
+        "end": 27.483,
+        "type": "spacing"
+      },
+      {
+        "text": "ended",
+        "start": 27.483,
+        "end": 27.732,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.732,
+        "end": 27.75,
+        "type": "spacing"
+      },
+      {
+        "text": "up.",
+        "start": 27.75,
+        "end": 28.188,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.188,
+        "end": 28.45,
+        "type": "spacing"
+      },
+      {
+        "text": "And",
+        "start": 28.45,
+        "end": 28.597,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.597,
+        "end": 28.61,
+        "type": "spacing"
+      },
+      {
+        "text": "for",
+        "start": 28.61,
+        "end": 28.811,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.811,
+        "end": 28.843,
+        "type": "spacing"
+      },
+      {
+        "text": "Russia,",
+        "start": 28.843,
+        "end": 29.466,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.466,
+        "end": 29.49,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 29.49,
+        "end": 29.632,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.632,
+        "end": 29.643,
+        "type": "spacing"
+      },
+      {
+        "text": "costs",
+        "start": 29.643,
+        "end": 30.001,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.001,
+        "end": 30.043,
+        "type": "spacing"
+      },
+      {
+        "text": "are",
+        "start": 30.043,
+        "end": 30.192,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.192,
+        "end": 30.203,
+        "type": "spacing"
+      },
+      {
+        "text": "real.",
+        "start": 30.203,
+        "end": 30.732,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.732,
+        "end": 31.08,
+        "type": "spacing"
+      },
+      {
+        "text": "Every",
+        "start": 31.08,
+        "end": 31.324,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.324,
+        "end": 31.34,
+        "type": "spacing"
+      },
+      {
+        "text": "chip",
+        "start": 31.34,
+        "end": 31.563,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.563,
+        "end": 31.564,
+        "type": "spacing"
+      },
+      {
+        "text": "arrives",
+        "start": 31.564,
+        "end": 32.011,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.011,
+        "end": 32.044,
+        "type": "spacing"
+      },
+      {
+        "text": "later,",
+        "start": 32.044,
+        "end": 32.641,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.641,
+        "end": 32.684,
+        "type": "spacing"
+      },
+      {
+        "text": "costs",
+        "start": 32.684,
+        "end": 33.1,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.1,
+        "end": 33.164,
+        "type": "spacing"
+      },
+      {
+        "text": "more,",
+        "start": 33.164,
+        "end": 33.702,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.702,
+        "end": 33.724,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 33.724,
+        "end": 33.877,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.877,
+        "end": 33.89,
+        "type": "spacing"
+      },
+      {
+        "text": "might",
+        "start": 33.89,
+        "end": 34.099,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.099,
+        "end": 34.12,
+        "type": "spacing"
+      },
+      {
+        "text": "be",
+        "start": 34.12,
+        "end": 34.212,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.212,
+        "end": 34.23,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 34.23,
+        "end": 34.352,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.352,
+        "end": 34.364,
+        "type": "spacing"
+      },
+      {
+        "text": "fake.",
+        "start": 34.364,
+        "end": 34.743,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.743,
+        "end": 35.084,
+        "type": "spacing"
+      },
+      {
+        "text": "But",
+        "start": 35.084,
+        "end": 35.29,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 35.29,
+        "end": 35.324,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 35.324,
+        "end": 35.407,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 35.407,
+        "end": 35.41,
+        "type": "spacing"
+      },
+      {
+        "text": "flow",
+        "start": 35.41,
+        "end": 35.762,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 35.762,
+        "end": 35.82,
+        "type": "spacing"
+      },
+      {
+        "text": "hasn't",
+        "start": 35.82,
+        "end": 36.135,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.135,
+        "end": 36.14,
+        "type": "spacing"
+      },
+      {
+        "text": "stopped.",
+        "start": 36.14,
+        "end": 36.621,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.621,
+        "end": 36.844,
+        "type": "spacing"
+      },
+      {
+        "text": "It",
+        "start": 36.844,
+        "end": 37.004,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 37.004,
+        "end": 37.02,
+        "type": "spacing"
+      },
+      {
+        "text": "has",
+        "start": 37.02,
+        "end": 37.157,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 37.157,
+        "end": 37.17,
+        "type": "spacing"
+      },
+      {
+        "text": "only",
+        "start": 37.17,
+        "end": 37.404,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 37.404,
+        "end": 37.42,
+        "type": "spacing"
+      },
+      {
+        "text": "become",
+        "start": 37.42,
+        "end": 37.692,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 37.692,
+        "end": 37.724,
+        "type": "spacing"
+      },
+      {
+        "text": "more",
+        "start": 37.724,
+        "end": 37.942,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 37.942,
+        "end": 37.964,
+        "type": "spacing"
+      },
+      {
+        "text": "expensive.",
+        "start": 37.964,
+        "end": 38.733,
+        "type": "word"
+      }
+    ],
+    "transcription_id": "fce1d72c7406c26b4a01",
+    "audio_duration_secs": 38.8843125
+  }
+]

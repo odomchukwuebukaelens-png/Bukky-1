@@ -1,0 +1,965 @@
+[
+  {
+    "language_code": "",
+    "language_probability": 1,
+    "text": "The second route runs through Russia's own neighbors. Kazakhstan, Kyrgyzstan and Armenia share a customs union with Russia, so goods can cross their borders with few checks. One analysis found that Kazakhstan sold about eleven thousand euros worth of semiconductor parts to Russia in twenty twenty one. The next year, it was three point three million. Turkey and the United Arab Emirates became hubs too, for banking, for reshipping, and for traders who knew how to make paperwork look clean.",
+    "words": [
+      {
+        "text": "The",
+        "start": 0.19,
+        "end": 0.313,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.313,
+        "end": 0.313,
+        "type": "spacing"
+      },
+      {
+        "text": "second",
+        "start": 0.313,
+        "end": 0.648,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.648,
+        "end": 0.68,
+        "type": "spacing"
+      },
+      {
+        "text": "route",
+        "start": 0.68,
+        "end": 1.017,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.017,
+        "end": 1.08,
+        "type": "spacing"
+      },
+      {
+        "text": "runs",
+        "start": 1.08,
+        "end": 1.389,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.389,
+        "end": 1.4,
+        "type": "spacing"
+      },
+      {
+        "text": "through",
+        "start": 1.4,
+        "end": 1.654,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.654,
+        "end": 1.66,
+        "type": "spacing"
+      },
+      {
+        "text": "Russia's",
+        "start": 1.66,
+        "end": 2.075,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.075,
+        "end": 2.075,
+        "type": "spacing"
+      },
+      {
+        "text": "own",
+        "start": 2.075,
+        "end": 2.255,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.255,
+        "end": 2.29,
+        "type": "spacing"
+      },
+      {
+        "text": "neighbors.",
+        "start": 2.29,
+        "end": 2.86,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.86,
+        "end": 3.26,
+        "type": "spacing"
+      },
+      {
+        "text": "Kazakhstan,",
+        "start": 3.26,
+        "end": 4.118,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.118,
+        "end": 4.36,
+        "type": "spacing"
+      },
+      {
+        "text": "Kyrgyzstan",
+        "start": 4.36,
+        "end": 5.027,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.027,
+        "end": 5.08,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 5.08,
+        "end": 5.228,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.228,
+        "end": 5.24,
+        "type": "spacing"
+      },
+      {
+        "text": "Armenia",
+        "start": 5.24,
+        "end": 5.979,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.979,
+        "end": 6.115,
+        "type": "spacing"
+      },
+      {
+        "text": "share",
+        "start": 6.115,
+        "end": 6.332,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.332,
+        "end": 6.355,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 6.355,
+        "end": 6.503,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.503,
+        "end": 6.514,
+        "type": "spacing"
+      },
+      {
+        "text": "customs",
+        "start": 6.514,
+        "end": 6.861,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.861,
+        "end": 6.914,
+        "type": "spacing"
+      },
+      {
+        "text": "union",
+        "start": 6.914,
+        "end": 7.201,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.201,
+        "end": 7.234,
+        "type": "spacing"
+      },
+      {
+        "text": "with",
+        "start": 7.234,
+        "end": 7.452,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.452,
+        "end": 7.474,
+        "type": "spacing"
+      },
+      {
+        "text": "Russia,",
+        "start": 7.474,
+        "end": 7.974,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.974,
+        "end": 8.26,
+        "type": "spacing"
+      },
+      {
+        "text": "so",
+        "start": 8.26,
+        "end": 8.481,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.481,
+        "end": 8.513,
+        "type": "spacing"
+      },
+      {
+        "text": "goods",
+        "start": 8.513,
+        "end": 8.837,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.837,
+        "end": 8.84,
+        "type": "spacing"
+      },
+      {
+        "text": "can",
+        "start": 8.84,
+        "end": 9.04,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.04,
+        "end": 9.072,
+        "type": "spacing"
+      },
+      {
+        "text": "cross",
+        "start": 9.072,
+        "end": 9.36,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.36,
+        "end": 9.392,
+        "type": "spacing"
+      },
+      {
+        "text": "their",
+        "start": 9.392,
+        "end": 9.551,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.551,
+        "end": 9.552,
+        "type": "spacing"
+      },
+      {
+        "text": "borders",
+        "start": 9.552,
+        "end": 9.92,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.92,
+        "end": 9.952,
+        "type": "spacing"
+      },
+      {
+        "text": "with",
+        "start": 9.952,
+        "end": 10.132,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.132,
+        "end": 10.14,
+        "type": "spacing"
+      },
+      {
+        "text": "few",
+        "start": 10.14,
+        "end": 10.378,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.378,
+        "end": 10.431,
+        "type": "spacing"
+      },
+      {
+        "text": "checks.",
+        "start": 10.431,
+        "end": 10.89,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.89,
+        "end": 11.47,
+        "type": "spacing"
+      },
+      {
+        "text": "One",
+        "start": 11.47,
+        "end": 11.656,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.656,
+        "end": 11.68,
+        "type": "spacing"
+      },
+      {
+        "text": "analysis",
+        "start": 11.68,
+        "end": 12.298,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.298,
+        "end": 12.35,
+        "type": "spacing"
+      },
+      {
+        "text": "found",
+        "start": 12.35,
+        "end": 12.569,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.569,
+        "end": 12.59,
+        "type": "spacing"
+      },
+      {
+        "text": "that",
+        "start": 12.59,
+        "end": 12.809,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.809,
+        "end": 12.83,
+        "type": "spacing"
+      },
+      {
+        "text": "Kazakhstan",
+        "start": 12.83,
+        "end": 13.476,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.476,
+        "end": 13.55,
+        "type": "spacing"
+      },
+      {
+        "text": "sold",
+        "start": 13.55,
+        "end": 13.776,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.776,
+        "end": 13.8,
+        "type": "spacing"
+      },
+      {
+        "text": "about",
+        "start": 13.8,
+        "end": 14.089,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.089,
+        "end": 14.11,
+        "type": "spacing"
+      },
+      {
+        "text": "eleven",
+        "start": 14.11,
+        "end": 14.478,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.478,
+        "end": 14.51,
+        "type": "spacing"
+      },
+      {
+        "text": "thousand",
+        "start": 14.51,
+        "end": 14.878,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.878,
+        "end": 14.91,
+        "type": "spacing"
+      },
+      {
+        "text": "euros",
+        "start": 14.91,
+        "end": 15.257,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.257,
+        "end": 15.31,
+        "type": "spacing"
+      },
+      {
+        "text": "worth",
+        "start": 15.31,
+        "end": 15.528,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.528,
+        "end": 15.55,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 15.55,
+        "end": 15.699,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.699,
+        "end": 15.71,
+        "type": "spacing"
+      },
+      {
+        "text": "semiconductor",
+        "start": 15.71,
+        "end": 16.478,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.478,
+        "end": 16.51,
+        "type": "spacing"
+      },
+      {
+        "text": "parts",
+        "start": 16.51,
+        "end": 16.787,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.787,
+        "end": 16.83,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 16.83,
+        "end": 16.978,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.978,
+        "end": 16.99,
+        "type": "spacing"
+      },
+      {
+        "text": "Russia",
+        "start": 16.99,
+        "end": 17.336,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.336,
+        "end": 17.39,
+        "type": "spacing"
+      },
+      {
+        "text": "in",
+        "start": 17.39,
+        "end": 17.546,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.546,
+        "end": 17.56,
+        "type": "spacing"
+      },
+      {
+        "text": "twenty",
+        "start": 17.56,
+        "end": 17.774,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.774,
+        "end": 17.8,
+        "type": "spacing"
+      },
+      {
+        "text": "twenty",
+        "start": 17.8,
+        "end": 18.082,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.082,
+        "end": 18.105,
+        "type": "spacing"
+      },
+      {
+        "text": "one.",
+        "start": 18.105,
+        "end": 18.596,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.596,
+        "end": 18.88,
+        "type": "spacing"
+      },
+      {
+        "text": "The",
+        "start": 18.88,
+        "end": 19.005,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.005,
+        "end": 19.005,
+        "type": "spacing"
+      },
+      {
+        "text": "next",
+        "start": 19.005,
+        "end": 19.282,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.282,
+        "end": 19.304,
+        "type": "spacing"
+      },
+      {
+        "text": "year,",
+        "start": 19.304,
+        "end": 19.707,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.707,
+        "end": 19.9,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 19.9,
+        "end": 20.053,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.053,
+        "end": 20.053,
+        "type": "spacing"
+      },
+      {
+        "text": "was",
+        "start": 20.053,
+        "end": 20.231,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.231,
+        "end": 20.263,
+        "type": "spacing"
+      },
+      {
+        "text": "three",
+        "start": 20.263,
+        "end": 20.481,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.481,
+        "end": 20.503,
+        "type": "spacing"
+      },
+      {
+        "text": "point",
+        "start": 20.503,
+        "end": 20.801,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.801,
+        "end": 20.822,
+        "type": "spacing"
+      },
+      {
+        "text": "three",
+        "start": 20.822,
+        "end": 21.1,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.1,
+        "end": 21.142,
+        "type": "spacing"
+      },
+      {
+        "text": "million.",
+        "start": 21.142,
+        "end": 21.626,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.626,
+        "end": 22.03,
+        "type": "spacing"
+      },
+      {
+        "text": "Turkey",
+        "start": 22.03,
+        "end": 22.528,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.528,
+        "end": 22.581,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 22.581,
+        "end": 22.672,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.672,
+        "end": 22.69,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 22.69,
+        "end": 22.78,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.78,
+        "end": 22.78,
+        "type": "spacing"
+      },
+      {
+        "text": "United",
+        "start": 22.78,
+        "end": 23.203,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.203,
+        "end": 23.24,
+        "type": "spacing"
+      },
+      {
+        "text": "Arab",
+        "start": 23.24,
+        "end": 23.57,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.57,
+        "end": 23.58,
+        "type": "spacing"
+      },
+      {
+        "text": "Emirates",
+        "start": 23.58,
+        "end": 24.006,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.006,
+        "end": 24.03,
+        "type": "spacing"
+      },
+      {
+        "text": "became",
+        "start": 24.03,
+        "end": 24.458,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.458,
+        "end": 24.5,
+        "type": "spacing"
+      },
+      {
+        "text": "hubs",
+        "start": 24.5,
+        "end": 24.837,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.837,
+        "end": 24.9,
+        "type": "spacing"
+      },
+      {
+        "text": "too,",
+        "start": 24.9,
+        "end": 25.277,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.277,
+        "end": 25.62,
+        "type": "spacing"
+      },
+      {
+        "text": "for",
+        "start": 25.62,
+        "end": 25.887,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.887,
+        "end": 25.94,
+        "type": "spacing"
+      },
+      {
+        "text": "banking,",
+        "start": 25.94,
+        "end": 26.697,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.697,
+        "end": 26.74,
+        "type": "spacing"
+      },
+      {
+        "text": "for",
+        "start": 26.74,
+        "end": 26.955,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.955,
+        "end": 26.99,
+        "type": "spacing"
+      },
+      {
+        "text": "reshipping,",
+        "start": 26.99,
+        "end": 27.815,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.815,
+        "end": 27.99,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 27.99,
+        "end": 28.124,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.124,
+        "end": 28.124,
+        "type": "spacing"
+      },
+      {
+        "text": "for",
+        "start": 28.124,
+        "end": 28.367,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.367,
+        "end": 28.42,
+        "type": "spacing"
+      },
+      {
+        "text": "traders",
+        "start": 28.42,
+        "end": 28.847,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.847,
+        "end": 28.9,
+        "type": "spacing"
+      },
+      {
+        "text": "who",
+        "start": 28.9,
+        "end": 29.048,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.048,
+        "end": 29.06,
+        "type": "spacing"
+      },
+      {
+        "text": "knew",
+        "start": 29.06,
+        "end": 29.288,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.288,
+        "end": 29.3,
+        "type": "spacing"
+      },
+      {
+        "text": "how",
+        "start": 29.3,
+        "end": 29.426,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.426,
+        "end": 29.43,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 29.43,
+        "end": 29.523,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.523,
+        "end": 29.535,
+        "type": "spacing"
+      },
+      {
+        "text": "make",
+        "start": 29.535,
+        "end": 29.753,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.753,
+        "end": 29.775,
+        "type": "spacing"
+      },
+      {
+        "text": "paperwork",
+        "start": 29.775,
+        "end": 30.361,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.361,
+        "end": 30.414,
+        "type": "spacing"
+      },
+      {
+        "text": "look",
+        "start": 30.414,
+        "end": 30.632,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.632,
+        "end": 30.654,
+        "type": "spacing"
+      },
+      {
+        "text": "clean.",
+        "start": 30.654,
+        "end": 31.238,
+        "type": "word"
+      }
+    ],
+    "transcription_id": "042d242df6f62699bcae",
+    "audio_duration_secs": 31.4133125
+  }
+]

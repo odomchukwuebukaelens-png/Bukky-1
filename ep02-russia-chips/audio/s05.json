@@ -1,0 +1,989 @@
+[
+  {
+    "language_code": "",
+    "language_probability": 1,
+    "text": "But chips are not tanks. They're smaller than a fingernail. Many cost just a few dollars. And billions of them are sold every year through thousands of distributors around the world. The chip that guides a missile can be the very same chip that runs a car, a drone or a washing machine. Once it leaves the factory, it can be sold again and again and again. And every time it changes hands, it gets harder to know where it ends up.",
+    "words": [
+      {
+        "text": "But",
+        "start": 0.12,
+        "end": 0.329,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.329,
+        "end": 0.36,
+        "type": "spacing"
+      },
+      {
+        "text": "chips",
+        "start": 0.36,
+        "end": 0.647,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.647,
+        "end": 0.65,
+        "type": "spacing"
+      },
+      {
+        "text": "are",
+        "start": 0.65,
+        "end": 0.749,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.749,
+        "end": 0.76,
+        "type": "spacing"
+      },
+      {
+        "text": "not",
+        "start": 0.76,
+        "end": 0.969,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.969,
+        "end": 1,
+        "type": "spacing"
+      },
+      {
+        "text": "tanks.",
+        "start": 1,
+        "end": 1.53,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.53,
+        "end": 1.8,
+        "type": "spacing"
+      },
+      {
+        "text": "They're",
+        "start": 1.8,
+        "end": 2.037,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.037,
+        "end": 2.04,
+        "type": "spacing"
+      },
+      {
+        "text": "smaller",
+        "start": 2.04,
+        "end": 2.429,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.429,
+        "end": 2.44,
+        "type": "spacing"
+      },
+      {
+        "text": "than",
+        "start": 2.44,
+        "end": 2.615,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.615,
+        "end": 2.62,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 2.62,
+        "end": 2.705,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.705,
+        "end": 2.705,
+        "type": "spacing"
+      },
+      {
+        "text": "fingernail.",
+        "start": 2.705,
+        "end": 3.577,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.577,
+        "end": 3.64,
+        "type": "spacing"
+      },
+      {
+        "text": "Many",
+        "start": 3.64,
+        "end": 3.928,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.928,
+        "end": 3.96,
+        "type": "spacing"
+      },
+      {
+        "text": "cost",
+        "start": 3.96,
+        "end": 4.318,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.318,
+        "end": 4.36,
+        "type": "spacing"
+      },
+      {
+        "text": "just",
+        "start": 4.36,
+        "end": 4.519,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.519,
+        "end": 4.519,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 4.519,
+        "end": 4.589,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.589,
+        "end": 4.6,
+        "type": "spacing"
+      },
+      {
+        "text": "few",
+        "start": 4.6,
+        "end": 4.808,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.808,
+        "end": 4.84,
+        "type": "spacing"
+      },
+      {
+        "text": "dollars.",
+        "start": 4.84,
+        "end": 5.42,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.42,
+        "end": 5.72,
+        "type": "spacing"
+      },
+      {
+        "text": "And",
+        "start": 5.72,
+        "end": 5.928,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.928,
+        "end": 5.96,
+        "type": "spacing"
+      },
+      {
+        "text": "billions",
+        "start": 5.96,
+        "end": 6.329,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.329,
+        "end": 6.39,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 6.39,
+        "end": 6.504,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.504,
+        "end": 6.52,
+        "type": "spacing"
+      },
+      {
+        "text": "them",
+        "start": 6.52,
+        "end": 6.702,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.702,
+        "end": 6.71,
+        "type": "spacing"
+      },
+      {
+        "text": "are",
+        "start": 6.71,
+        "end": 6.829,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.829,
+        "end": 6.84,
+        "type": "spacing"
+      },
+      {
+        "text": "sold",
+        "start": 6.84,
+        "end": 7.146,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.146,
+        "end": 7.17,
+        "type": "spacing"
+      },
+      {
+        "text": "every",
+        "start": 7.17,
+        "end": 7.469,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.469,
+        "end": 7.48,
+        "type": "spacing"
+      },
+      {
+        "text": "year",
+        "start": 7.48,
+        "end": 7.935,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.935,
+        "end": 8.04,
+        "type": "spacing"
+      },
+      {
+        "text": "through",
+        "start": 8.04,
+        "end": 8.356,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.356,
+        "end": 8.37,
+        "type": "spacing"
+      },
+      {
+        "text": "thousands",
+        "start": 8.37,
+        "end": 8.749,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.749,
+        "end": 8.76,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 8.76,
+        "end": 8.916,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.916,
+        "end": 8.93,
+        "type": "spacing"
+      },
+      {
+        "text": "distributors",
+        "start": 8.93,
+        "end": 9.528,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.528,
+        "end": 9.56,
+        "type": "spacing"
+      },
+      {
+        "text": "around",
+        "start": 9.56,
+        "end": 9.854,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.854,
+        "end": 9.86,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 9.86,
+        "end": 9.963,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.963,
+        "end": 9.98,
+        "type": "spacing"
+      },
+      {
+        "text": "world.",
+        "start": 9.98,
+        "end": 10.445,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.445,
+        "end": 10.76,
+        "type": "spacing"
+      },
+      {
+        "text": "The",
+        "start": 10.76,
+        "end": 10.916,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.916,
+        "end": 10.93,
+        "type": "spacing"
+      },
+      {
+        "text": "chip",
+        "start": 10.93,
+        "end": 11.218,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.218,
+        "end": 11.24,
+        "type": "spacing"
+      },
+      {
+        "text": "that",
+        "start": 11.24,
+        "end": 11.412,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.412,
+        "end": 11.42,
+        "type": "spacing"
+      },
+      {
+        "text": "guides",
+        "start": 11.42,
+        "end": 11.698,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.698,
+        "end": 11.72,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 11.72,
+        "end": 11.869,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.869,
+        "end": 11.88,
+        "type": "spacing"
+      },
+      {
+        "text": "missile",
+        "start": 11.88,
+        "end": 12.227,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.227,
+        "end": 12.28,
+        "type": "spacing"
+      },
+      {
+        "text": "can",
+        "start": 12.28,
+        "end": 12.406,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.406,
+        "end": 12.41,
+        "type": "spacing"
+      },
+      {
+        "text": "be",
+        "start": 12.41,
+        "end": 12.531,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.531,
+        "end": 12.55,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 12.55,
+        "end": 12.676,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.676,
+        "end": 12.69,
+        "type": "spacing"
+      },
+      {
+        "text": "very",
+        "start": 12.69,
+        "end": 13.047,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.047,
+        "end": 13.08,
+        "type": "spacing"
+      },
+      {
+        "text": "same",
+        "start": 13.08,
+        "end": 13.298,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.298,
+        "end": 13.32,
+        "type": "spacing"
+      },
+      {
+        "text": "chip",
+        "start": 13.32,
+        "end": 13.618,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.618,
+        "end": 13.64,
+        "type": "spacing"
+      },
+      {
+        "text": "that",
+        "start": 13.64,
+        "end": 13.792,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.792,
+        "end": 13.8,
+        "type": "spacing"
+      },
+      {
+        "text": "runs",
+        "start": 13.8,
+        "end": 14.014,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.014,
+        "end": 14.02,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 14.02,
+        "end": 14.115,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.115,
+        "end": 14.12,
+        "type": "spacing"
+      },
+      {
+        "text": "car,",
+        "start": 14.12,
+        "end": 14.627,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.627,
+        "end": 15,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 15,
+        "end": 15.156,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.156,
+        "end": 15.17,
+        "type": "spacing"
+      },
+      {
+        "text": "drone",
+        "start": 15.17,
+        "end": 15.581,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.581,
+        "end": 15.635,
+        "type": "spacing"
+      },
+      {
+        "text": "or",
+        "start": 15.635,
+        "end": 15.802,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.802,
+        "end": 15.82,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 15.82,
+        "end": 15.943,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.943,
+        "end": 15.955,
+        "type": "spacing"
+      },
+      {
+        "text": "washing",
+        "start": 15.955,
+        "end": 16.274,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.274,
+        "end": 16.29,
+        "type": "spacing"
+      },
+      {
+        "text": "machine.",
+        "start": 16.29,
+        "end": 16.894,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.894,
+        "end": 17.32,
+        "type": "spacing"
+      },
+      {
+        "text": "Once",
+        "start": 17.32,
+        "end": 17.565,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.565,
+        "end": 17.57,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 17.57,
+        "end": 17.762,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.762,
+        "end": 17.794,
+        "type": "spacing"
+      },
+      {
+        "text": "leaves",
+        "start": 17.794,
+        "end": 18.034,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.034,
+        "end": 18.05,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 18.05,
+        "end": 18.183,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.183,
+        "end": 18.194,
+        "type": "spacing"
+      },
+      {
+        "text": "factory,",
+        "start": 18.194,
+        "end": 18.913,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.913,
+        "end": 18.914,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 18.914,
+        "end": 19.074,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.074,
+        "end": 19.09,
+        "type": "spacing"
+      },
+      {
+        "text": "can",
+        "start": 19.09,
+        "end": 19.212,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.212,
+        "end": 19.22,
+        "type": "spacing"
+      },
+      {
+        "text": "be",
+        "start": 19.22,
+        "end": 19.361,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.361,
+        "end": 19.394,
+        "type": "spacing"
+      },
+      {
+        "text": "sold",
+        "start": 19.394,
+        "end": 19.646,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.646,
+        "end": 19.68,
+        "type": "spacing"
+      },
+      {
+        "text": "again",
+        "start": 19.68,
+        "end": 20.242,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.242,
+        "end": 20.36,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 20.36,
+        "end": 20.514,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.514,
+        "end": 20.53,
+        "type": "spacing"
+      },
+      {
+        "text": "again",
+        "start": 20.53,
+        "end": 21.176,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.176,
+        "end": 21.313,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 21.313,
+        "end": 21.43,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.43,
+        "end": 21.43,
+        "type": "spacing"
+      },
+      {
+        "text": "again.",
+        "start": 21.43,
+        "end": 21.895,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.895,
+        "end": 22.41,
+        "type": "spacing"
+      },
+      {
+        "text": "And",
+        "start": 22.41,
+        "end": 22.594,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.594,
+        "end": 22.61,
+        "type": "spacing"
+      },
+      {
+        "text": "every",
+        "start": 22.61,
+        "end": 22.827,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.827,
+        "end": 22.84,
+        "type": "spacing"
+      },
+      {
+        "text": "time",
+        "start": 22.84,
+        "end": 23.131,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.131,
+        "end": 23.152,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 23.152,
+        "end": 23.301,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.301,
+        "end": 23.312,
+        "type": "spacing"
+      },
+      {
+        "text": "changes",
+        "start": 23.312,
+        "end": 23.739,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.739,
+        "end": 23.792,
+        "type": "spacing"
+      },
+      {
+        "text": "hands,",
+        "start": 23.792,
+        "end": 24.411,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.411,
+        "end": 24.432,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 24.432,
+        "end": 24.581,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.581,
+        "end": 24.592,
+        "type": "spacing"
+      },
+      {
+        "text": "gets",
+        "start": 24.592,
+        "end": 24.81,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.81,
+        "end": 24.832,
+        "type": "spacing"
+      },
+      {
+        "text": "harder",
+        "start": 24.832,
+        "end": 25.154,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.154,
+        "end": 25.17,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 25.17,
+        "end": 25.307,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.307,
+        "end": 25.32,
+        "type": "spacing"
+      },
+      {
+        "text": "know",
+        "start": 25.32,
+        "end": 25.557,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.557,
+        "end": 25.56,
+        "type": "spacing"
+      },
+      {
+        "text": "where",
+        "start": 25.56,
+        "end": 25.76,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.76,
+        "end": 25.76,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 25.76,
+        "end": 25.867,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.867,
+        "end": 25.88,
+        "type": "spacing"
+      },
+      {
+        "text": "ends",
+        "start": 25.88,
+        "end": 26.09,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.09,
+        "end": 26.111,
+        "type": "spacing"
+      },
+      {
+        "text": "up.",
+        "start": 26.111,
+        "end": 26.54,
+        "type": "word"
+      }
+    ],
+    "transcription_id": "554b21583ed644194e52",
+    "audio_duration_secs": 26.71125
+  }
+]

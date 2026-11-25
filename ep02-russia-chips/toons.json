@@ -1,0 +1,596 @@
+[
+ [
+  "s01",
+  "Commerce",
+  2.6,
+  "breathe",
+  "t01",
+  "a woman government official in a navy suit speaking into a microphone at a long wooden congressional hearing table, flags behind her, lawmakers listening from a raised bench",
+  ""
+ ],
+ [
+  "s01",
+  "dishwashers",
+  2.6,
+  "shake",
+  "t02",
+  "a soldier in a muddy green uniform pulling a small green circuit board out of a smashed military machine, looking shocked, an opened dishwasher and refrigerator lying in a ruined warehouse",
+  ""
+ ],
+ [
+  "s01",
+  "raiding",
+  2.6,
+  "walk",
+  "t03",
+  "a sneaky soldier in a fur ushanka hat tiptoeing out of a family kitchen at night carrying a dishwasher on his back, wires dangling, comic",
+  ""
+ ],
+ [
+  "s01",
+  "wreckage",
+  2.6,
+  "push",
+  "t04",
+  "investigators in work jackets kneeling around the wreckage of a crashed military drone in a snowy field, one holding up a tiny computer chip with tweezers under a flashlight",
+  ""
+ ],
+ [
+  "s01",
+  "Nvidia's",
+  2.6,
+  "breathe",
+  "t05",
+  "a glowing green futuristic AI computer chip on a pedestal in the middle of a Washington meeting room while men in suits argue around it pointing fingers",
+  ""
+ ],
+ [
+  "s01",
+  "sanctioned",
+  2.6,
+  "shake",
+  "t06",
+  "a furious Russian general with a huge chest of medals and a fur hat banging his fist on a desk covered in maps, a red telephone bouncing",
+  ""
+ ],
+ [
+  "s01",
+  "maze",
+  2.6,
+  "pan",
+  "t07",
+  "a giant maze built from cardboard boxes and stacks of paperwork seen from above at a high angle, tiny trucks and cargo planes moving through the corridors",
+  ""
+ ],
+ [
+  "s02",
+  "brain",
+  2.6,
+  "push",
+  "t08",
+  "a cruise missile flying low over green hills at sunset, its nose cone transparent showing a glowing brain made of circuit boards inside",
+  ""
+ ],
+ [
+  "s02",
+  "RUSI",
+  2.6,
+  "breathe",
+  "t09",
+  "British researchers in a workshop using magnifying glasses to take apart a damaged missile on a workbench, small electronic parts laid out neatly in labeled trays",
+  ""
+ ],
+ [
+  "s02",
+  "318",
+  2.4,
+  "jump",
+  "t10",
+  "a researcher in glasses holding up a tiny computer chip with tweezers, his eyes wide in surprise, a small American flag on the workbench",
+  ""
+ ],
+ [
+  "s03",
+  "Mikron,",
+  2.6,
+  "breathe",
+  "t11",
+  "an old grey Soviet-style factory building near Moscow in winter, an old engineer in a lab coat frowning at dusty outdated machines",
+  ""
+ ],
+ [
+  "s03",
+  "designed",
+  2.6,
+  "pan",
+  "t12",
+  "a futuristic high-tech chip clean room with engineers in white full-body suits holding up a shining silicon wafer, blue light",
+  ""
+ ],
+ [
+  "s03",
+  "missile.",
+  2.6,
+  "shake",
+  "t13",
+  "a proud Russian engineer standing next to a huge finished missile, then scratching his head while holding an empty slot where the electronics should go, confused",
+  ""
+ ],
+ [
+  "s04",
+  "banned",
+  2.6,
+  "shake",
+  "t14",
+  "a stern customs official slamming a big red rubber stamp onto a document next to a wooden crate of electronics",
+  ""
+ ],
+ [
+  "s04",
+  "list",
+  2.4,
+  "breathe",
+  "t15",
+  "a very long paper scroll list unrolling down the grand staircase of a European government hall, officials in suits reading it",
+  ""
+ ],
+ [
+  "s04b",
+  "CoCom,",
+  2.6,
+  "breathe",
+  "t16",
+  "1950s Cold War era office, men in fedoras and grey suits guarding a big bank vault full of glowing machines and radios",
+  ""
+ ],
+ [
+  "s04b",
+  "spy",
+  2.6,
+  "walk",
+  "t17",
+  "a Soviet spy in a trench coat and hat sneaking through a western electronics factory at night with a flashlight, photographing blueprints with a tiny camera",
+  ""
+ ],
+ [
+  "s04b",
+  "Toshiba",
+  2.6,
+  "breathe",
+  "t18",
+  "workers in coveralls secretly loading a giant precision milling machine onto a cargo ship at night in the 1980s, harbor lights",
+  ""
+ ],
+ [
+  "s04b",
+  "submarines",
+  2.6,
+  "pan",
+  "t19",
+  "a dark Soviet submarine gliding silently underwater, while on an American ship a sonar operator with big headphones frowns at a silent screen",
+  ""
+ ],
+ [
+  "s04b",
+  "sledgehammers",
+  2.6,
+  "shake",
+  "t20",
+  "1980s politicians in suits gleefully smashing a portable radio with sledgehammers on a lawn in front of a white domed capitol building, a crowd cheering",
+  ""
+ ],
+ [
+  "s04b",
+  "fingertip.",
+  2.2,
+  "push",
+  "t21",
+  "a tiny computer chip balanced on a single fingertip, dramatic spotlight, dark background",
+  ""
+ ],
+ [
+  "s05",
+  "tanks.",
+  2.4,
+  "jump",
+  "t22",
+  "a huge military tank next to a tiny computer chip on the ground, a confused soldier comparing them through a magnifying glass",
+  ""
+ ],
+ [
+  "s05",
+  "distributors",
+  2.6,
+  "pan",
+  "t23",
+  "an enormous warehouse full of tall shelves of electronic component reels and boxes, a forklift and workers",
+  ""
+ ],
+ [
+  "s05",
+  "washing",
+  2.6,
+  "breathe",
+  "t24",
+  "a family kitchen where a washing machine has been opened up revealing a small glowing circuit board, a curious child peeking at it",
+  ""
+ ],
+ [
+  "s05",
+  "again,",
+  2.6,
+  "walk",
+  "t25",
+  "a tiny computer chip being passed from hand to hand along a long line of traders in suits from different countries",
+  ""
+ ],
+ [
+  "s05b",
+  "factory",
+  2.6,
+  "breathe",
+  "t26",
+  "a cheerful factory worker in a white cleanroom suit packing tiny chips onto reels beside a conveyor belt",
+  ""
+ ],
+ [
+  "s05b",
+  "distributor",
+  2.6,
+  "push",
+  "t27",
+  "a big modern European distribution warehouse, a manager in a hi-vis vest checking a clipboard beside pallets of boxes",
+  ""
+ ],
+ [
+  "s05b",
+  "Hong",
+  2.6,
+  "breathe",
+  "t28",
+  "the same chubby man with a thick black mustache and flat cap, now in a cheap suit, sitting in a tiny cramped office with stacks of boxes, signing an order form with a sly grin",
+  "ref"
+ ],
+ [
+  "s05b",
+  "repacked,",
+  2.6,
+  "shake",
+  "t29",
+  "the same chubby man with a thick black mustache and flat cap peeling labels off cardboard boxes and slapping on new labels in a dim warehouse, sweating",
+  "ref"
+ ],
+ [
+  "s05b",
+  "cargo",
+  2.6,
+  "walk",
+  "t30",
+  "the same chubby man with a thick black mustache and flat cap waving goodbye as a cargo plane full of boxes is loaded at an airport at night",
+  "ref"
+ ],
+ [
+  "s05b",
+  "Kazakhstan,",
+  2.6,
+  "pan",
+  "t31",
+  "an old truck driving through a border crossing on a vast empty steppe, a sleepy border guard lazily waving it through",
+  ""
+ ],
+ [
+  "s05b",
+  "soldered",
+  2.6,
+  "breathe",
+  "t32",
+  "a factory worker soldering a small chip onto a circuit board at an assembly line building military drones, sparks flying",
+  ""
+ ],
+ [
+  "s05b",
+  "ordinary",
+  2.2,
+  "breathe",
+  "t33",
+  "businessmen in suits shaking hands across a table, smiling, contracts signed",
+  ""
+ ],
+ [
+  "s06",
+  "Hong",
+  2.6,
+  "pan",
+  "t34",
+  "a dense neon-lit Hong Kong street at night with tiny electronics shops overflowing with boxes",
+  ""
+ ],
+ [
+  "s06",
+  "office,",
+  2.6,
+  "push",
+  "t35",
+  "a tiny shabby office with dozens of blank company name plaques covering the door, one desk, one old phone, a cat sleeping on a pile of papers",
+  ""
+ ],
+ [
+  "s06",
+  "blacklisted,",
+  2.4,
+  "jump",
+  "t36",
+  "the same chubby man with a thick black mustache and flat cap swapping one blank company sign on a door for another, winking",
+  "ref"
+ ],
+ [
+  "s07",
+  "customs",
+  2.6,
+  "breathe",
+  "t37",
+  "a sleepy border guard in a booth on a windswept steppe waving a line of trucks through an open gate",
+  ""
+ ],
+ [
+  "s07",
+  "Turkey",
+  2.6,
+  "walk",
+  "t38",
+  "a busy Istanbul harbor with cargo ships and traders carrying boxes, mosques with minarets in the background",
+  ""
+ ],
+ [
+  "s07",
+  "paperwork",
+  2.6,
+  "shake",
+  "t39",
+  "a sly trader in a white shirt polishing a stack of documents with a cloth until they sparkle, in an office with desert skyscrapers outside the window",
+  ""
+ ],
+ [
+  "s08",
+  "split",
+  2.6,
+  "shake",
+  "t40",
+  "a man chopping one huge cardboard box into many tiny boxes with a giant cleaver, comic",
+  ""
+ ],
+ [
+  "s08",
+  "declared",
+  2.6,
+  "breathe",
+  "t41",
+  "a customs officer reading the label on a cardboard box with a washing machine drawing on it, while tiny chips spill out of a hole in the bottom unnoticed",
+  ""
+ ],
+ [
+  "s08",
+  "layer",
+  2.6,
+  "push",
+  "t42",
+  "a row of Russian nesting dolls opening one inside another, each doll painted wearing a business suit and tie",
+  ""
+ ],
+ [
+  "s08",
+  "privilege.",
+  2.6,
+  "breathe",
+  "t43",
+  "a buyer in a fur coat handing a huge bag of money to a grinning seller for a single tiny chip",
+  ""
+ ],
+ [
+  "s08b",
+  "Cyprus",
+  2.6,
+  "shake",
+  "t44",
+  "police officers arresting a man in a suit outside a sunny Mediterranean villa with palm trees, handcuffs",
+  ""
+ ],
+ [
+  "s08b",
+  "Marchenko,",
+  2.6,
+  "breathe",
+  "t45",
+  "a man in a suit being escorted by federal agents in dark jackets through an airport terminal, cameras flashing",
+  ""
+ ],
+ [
+  "s08b",
+  "night-vision",
+  2.6,
+  "push",
+  "t46",
+  "a soldier looking through a rifle scope at night, the scene glowing green",
+  ""
+ ],
+ [
+  "s09",
+  "battlefield.",
+  2.6,
+  "push",
+  "t47",
+  "investigators in a muddy field at dusk examining the debris of a downed drone with flashlights",
+  ""
+ ],
+ [
+  "s09",
+  "2026.",
+  2.4,
+  "jump",
+  "t48",
+  "close-up of a gloved hand holding a tiny chip under a magnifying glass, an investigator's eyes go wide in shock",
+  ""
+ ],
+ [
+  "s09",
+  "Alabuga,",
+  2.6,
+  "pan",
+  "t49",
+  "an enormous industrial factory hall with rows of triangular delta-wing drones on an assembly line, workers in overalls",
+  ""
+ ],
+ [
+  "s10",
+  "Nvidia's",
+  2.6,
+  "breathe",
+  "t50",
+  "a glowing golden futuristic AI chip on a velvet pillow inside a museum display case, a crowd of businessmen staring at it in awe",
+  ""
+ ],
+ [
+  "s10",
+  "centers,",
+  2.6,
+  "pan",
+  "t51",
+  "a gigantic data center with endless rows of glowing blue server racks and a tiny technician walking between them",
+  ""
+ ],
+ [
+  "s10",
+  "Congress",
+  2.6,
+  "shake",
+  "t52",
+  "politicians arguing loudly in a congressional hearing room, papers flying in the air",
+  ""
+ ],
+ [
+  "s10",
+  "Singapore,",
+  2.6,
+  "breathe",
+  "t53",
+  "a modern courtroom with three men in suits standing nervously before a judge",
+  ""
+ ],
+ [
+  "s10",
+  "California",
+  2.6,
+  "shake",
+  "t54",
+  "a businessman in a polo shirt being led out of an office building in handcuffs by agents, palm trees and sunshine",
+  ""
+ ],
+ [
+  "s10",
+  "advertising",
+  2.6,
+  "push",
+  "t55",
+  "the same chubby man with a thick black mustache and flat cap typing on a laptop showing pictures of big computer servers, grinning",
+  "ref"
+ ],
+ [
+  "s10",
+  "market",
+  2.2,
+  "breathe",
+  "t56",
+  "a shadowy night bazaar lit by lanterns where people trade glowing computer chips from baskets like spices",
+  ""
+ ],
+ [
+  "s11",
+  "stolen.",
+  2.6,
+  "breathe",
+  "t57",
+  "a cheerful salesman in a bright modern office happily handing a box of chips to a distributor, both smiling",
+  ""
+ ],
+ [
+  "s11",
+  "later,",
+  2.6,
+  "pan",
+  "t58",
+  "a long chain of hands passing a box from a bright office into darker and darker back alleys",
+  ""
+ ],
+ [
+  "s11",
+  "pocket,",
+  2.6,
+  "push",
+  "t59",
+  "an exhausted official in a suit trying to catch thousands of tiny chips flying through the air with a butterfly net",
+  ""
+ ],
+ [
+  "s12",
+  "blacklisted",
+  2.6,
+  "shake",
+  "t60",
+  "officials pinning photos of companies onto a giant corkboard connected with red string",
+  ""
+ ],
+ [
+  "s12",
+  "Banks",
+  2.6,
+  "breathe",
+  "t61",
+  "a nervous bank clerk pushing back a suitcase of money across the counter, shaking his head",
+  ""
+ ],
+ [
+  "s12",
+  "codes",
+  2.6,
+  "push",
+  "t62",
+  "an investigator reading tiny printed codes on a chip through a microscope, notes pinned on the wall",
+  ""
+ ],
+ [
+  "s12",
+  "fake.",
+  2.4,
+  "jump",
+  "t63",
+  "a furious Russian general with medals holding a tiny chip that crumbles to dust in his hand",
+  ""
+ ],
+ [
+  "s13",
+  "anyone",
+  2.6,
+  "pan",
+  "t64",
+  "a cartoon globe turned to show only the Pacific Ocean side, with North America on the right and East Asia on the left, crisscrossed by dotted shipping routes with tiny boats and planes carrying glowing chips",
+  ""
+ ],
+ [
+  "s13",
+  "warehouses,",
+  2.6,
+  "push",
+  "t65",
+  "a small dusty warehouse in a remote town lit by a single bulb, boxes of chips stacked inside",
+  ""
+ ],
+ [
+  "s13",
+  "Taiwan.",
+  2.8,
+  "push",
+  "t66",
+  "a beautiful green island at dusk with a massive glowing chip factory on it, grey warships faintly on the horizon",
+  ""
+ ]
+]

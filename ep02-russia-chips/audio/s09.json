@@ -1,0 +1,1181 @@
+[
+  {
+    "language_code": "",
+    "language_probability": 1,
+    "text": "And it shows up on the battlefield. Ukrainian officials say they keep finding foreign components inside Russian drones and missiles, some stamped with manufacturing dates from twenty twenty five and even twenty twenty six. These aren't old stockpiles from before the war. They were made, sold and smuggled long after the sanctions began. Many of those drones are Russia's own version of Iran's Shahed, built at a giant factory complex called Alabuga, hundreds of miles east of Moscow, turning out thousands of drones a year. And inside them, again and again, investigators find the same thing, Western chips.",
+    "words": [
+      {
+        "text": "And",
+        "start": 0.41,
+        "end": 0.552,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.552,
+        "end": 0.552,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 0.552,
+        "end": 0.728,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.728,
+        "end": 0.76,
+        "type": "spacing"
+      },
+      {
+        "text": "shows",
+        "start": 0.76,
+        "end": 1.059,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.059,
+        "end": 1.08,
+        "type": "spacing"
+      },
+      {
+        "text": "up",
+        "start": 1.08,
+        "end": 1.288,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.288,
+        "end": 1.32,
+        "type": "spacing"
+      },
+      {
+        "text": "on",
+        "start": 1.32,
+        "end": 1.447,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.447,
+        "end": 1.45,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 1.45,
+        "end": 1.549,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.549,
+        "end": 1.56,
+        "type": "spacing"
+      },
+      {
+        "text": "battlefield.",
+        "start": 1.56,
+        "end": 2.255,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.255,
+        "end": 2.87,
+        "type": "spacing"
+      },
+      {
+        "text": "Ukrainian",
+        "start": 2.87,
+        "end": 3.468,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.468,
+        "end": 3.48,
+        "type": "spacing"
+      },
+      {
+        "text": "officials",
+        "start": 3.48,
+        "end": 3.901,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.901,
+        "end": 3.954,
+        "type": "spacing"
+      },
+      {
+        "text": "say",
+        "start": 3.954,
+        "end": 4.161,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.161,
+        "end": 4.194,
+        "type": "spacing"
+      },
+      {
+        "text": "they",
+        "start": 4.194,
+        "end": 4.412,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.412,
+        "end": 4.433,
+        "type": "spacing"
+      },
+      {
+        "text": "keep",
+        "start": 4.433,
+        "end": 4.651,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.651,
+        "end": 4.673,
+        "type": "spacing"
+      },
+      {
+        "text": "finding",
+        "start": 4.673,
+        "end": 5.099,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.099,
+        "end": 5.152,
+        "type": "spacing"
+      },
+      {
+        "text": "foreign",
+        "start": 5.152,
+        "end": 5.44,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.44,
+        "end": 5.472,
+        "type": "spacing"
+      },
+      {
+        "text": "components",
+        "start": 5.472,
+        "end": 6.117,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.117,
+        "end": 6.191,
+        "type": "spacing"
+      },
+      {
+        "text": "inside",
+        "start": 6.191,
+        "end": 6.618,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.618,
+        "end": 6.67,
+        "type": "spacing"
+      },
+      {
+        "text": "Russian",
+        "start": 6.67,
+        "end": 7.039,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.039,
+        "end": 7.07,
+        "type": "spacing"
+      },
+      {
+        "text": "drones",
+        "start": 7.07,
+        "end": 7.425,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.425,
+        "end": 7.48,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 7.48,
+        "end": 7.678,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.678,
+        "end": 7.71,
+        "type": "spacing"
+      },
+      {
+        "text": "missiles,",
+        "start": 7.71,
+        "end": 8.21,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.21,
+        "end": 8.67,
+        "type": "spacing"
+      },
+      {
+        "text": "some",
+        "start": 8.67,
+        "end": 8.947,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.947,
+        "end": 8.99,
+        "type": "spacing"
+      },
+      {
+        "text": "stamped",
+        "start": 8.99,
+        "end": 9.299,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.299,
+        "end": 9.31,
+        "type": "spacing"
+      },
+      {
+        "text": "with",
+        "start": 9.31,
+        "end": 9.528,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.528,
+        "end": 9.55,
+        "type": "spacing"
+      },
+      {
+        "text": "manufacturing",
+        "start": 9.55,
+        "end": 10.334,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.334,
+        "end": 10.345,
+        "type": "spacing"
+      },
+      {
+        "text": "dates",
+        "start": 10.345,
+        "end": 10.701,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.701,
+        "end": 10.744,
+        "type": "spacing"
+      },
+      {
+        "text": "from",
+        "start": 10.744,
+        "end": 10.962,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.962,
+        "end": 10.984,
+        "type": "spacing"
+      },
+      {
+        "text": "twenty",
+        "start": 10.984,
+        "end": 11.214,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.214,
+        "end": 11.24,
+        "type": "spacing"
+      },
+      {
+        "text": "twenty",
+        "start": 11.24,
+        "end": 11.521,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.521,
+        "end": 11.543,
+        "type": "spacing"
+      },
+      {
+        "text": "five",
+        "start": 11.543,
+        "end": 11.944,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.944,
+        "end": 12.32,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 12.32,
+        "end": 12.497,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.497,
+        "end": 12.51,
+        "type": "spacing"
+      },
+      {
+        "text": "even",
+        "start": 12.51,
+        "end": 12.789,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.789,
+        "end": 12.821,
+        "type": "spacing"
+      },
+      {
+        "text": "twenty",
+        "start": 12.821,
+        "end": 13.054,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.054,
+        "end": 13.08,
+        "type": "spacing"
+      },
+      {
+        "text": "twenty",
+        "start": 13.08,
+        "end": 13.366,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.366,
+        "end": 13.39,
+        "type": "spacing"
+      },
+      {
+        "text": "six.",
+        "start": 13.39,
+        "end": 13.961,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.961,
+        "end": 14.34,
+        "type": "spacing"
+      },
+      {
+        "text": "These",
+        "start": 14.34,
+        "end": 14.569,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.569,
+        "end": 14.58,
+        "type": "spacing"
+      },
+      {
+        "text": "aren't",
+        "start": 14.58,
+        "end": 14.889,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.889,
+        "end": 14.9,
+        "type": "spacing"
+      },
+      {
+        "text": "old",
+        "start": 14.9,
+        "end": 15.108,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.108,
+        "end": 15.14,
+        "type": "spacing"
+      },
+      {
+        "text": "stockpiles",
+        "start": 15.14,
+        "end": 15.887,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.887,
+        "end": 15.94,
+        "type": "spacing"
+      },
+      {
+        "text": "from",
+        "start": 15.94,
+        "end": 16.106,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.106,
+        "end": 16.11,
+        "type": "spacing"
+      },
+      {
+        "text": "before",
+        "start": 16.11,
+        "end": 16.388,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.388,
+        "end": 16.42,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 16.42,
+        "end": 16.517,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.517,
+        "end": 16.517,
+        "type": "spacing"
+      },
+      {
+        "text": "war.",
+        "start": 16.517,
+        "end": 16.992,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.992,
+        "end": 17.295,
+        "type": "spacing"
+      },
+      {
+        "text": "They",
+        "start": 17.295,
+        "end": 17.475,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.475,
+        "end": 17.475,
+        "type": "spacing"
+      },
+      {
+        "text": "were",
+        "start": 17.475,
+        "end": 17.672,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.672,
+        "end": 17.694,
+        "type": "spacing"
+      },
+      {
+        "text": "made,",
+        "start": 17.694,
+        "end": 18.29,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.29,
+        "end": 18.333,
+        "type": "spacing"
+      },
+      {
+        "text": "sold",
+        "start": 18.333,
+        "end": 18.69,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.69,
+        "end": 18.733,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 18.733,
+        "end": 18.85,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 18.85,
+        "end": 18.85,
+        "type": "spacing"
+      },
+      {
+        "text": "smuggled",
+        "start": 18.85,
+        "end": 19.378,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.378,
+        "end": 19.452,
+        "type": "spacing"
+      },
+      {
+        "text": "long",
+        "start": 19.452,
+        "end": 19.735,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 19.735,
+        "end": 19.78,
+        "type": "spacing"
+      },
+      {
+        "text": "after",
+        "start": 19.78,
+        "end": 20.05,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.05,
+        "end": 20.05,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 20.05,
+        "end": 20.219,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.219,
+        "end": 20.25,
+        "type": "spacing"
+      },
+      {
+        "text": "sanctions",
+        "start": 20.25,
+        "end": 20.688,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 20.688,
+        "end": 20.73,
+        "type": "spacing"
+      },
+      {
+        "text": "began.",
+        "start": 20.73,
+        "end": 21.248,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 21.248,
+        "end": 21.74,
+        "type": "spacing"
+      },
+      {
+        "text": "Many",
+        "start": 21.74,
+        "end": 22.014,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.014,
+        "end": 22.03,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 22.03,
+        "end": 22.159,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.159,
+        "end": 22.17,
+        "type": "spacing"
+      },
+      {
+        "text": "those",
+        "start": 22.17,
+        "end": 22.388,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.388,
+        "end": 22.41,
+        "type": "spacing"
+      },
+      {
+        "text": "drones",
+        "start": 22.41,
+        "end": 22.757,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 22.757,
+        "end": 22.81,
+        "type": "spacing"
+      },
+      {
+        "text": "are",
+        "start": 22.81,
+        "end": 23.018,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.018,
+        "end": 23.05,
+        "type": "spacing"
+      },
+      {
+        "text": "Russia's",
+        "start": 23.05,
+        "end": 23.518,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.518,
+        "end": 23.53,
+        "type": "spacing"
+      },
+      {
+        "text": "own",
+        "start": 23.53,
+        "end": 23.796,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 23.796,
+        "end": 23.85,
+        "type": "spacing"
+      },
+      {
+        "text": "version",
+        "start": 23.85,
+        "end": 24.164,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.164,
+        "end": 24.18,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 24.18,
+        "end": 24.313,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.313,
+        "end": 24.324,
+        "type": "spacing"
+      },
+      {
+        "text": "Iran's",
+        "start": 24.324,
+        "end": 24.807,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 24.807,
+        "end": 24.81,
+        "type": "spacing"
+      },
+      {
+        "text": "Shahed,",
+        "start": 24.81,
+        "end": 25.403,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 25.403,
+        "end": 25.77,
+        "type": "spacing"
+      },
+      {
+        "text": "built",
+        "start": 25.77,
+        "end": 26.062,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.062,
+        "end": 26.07,
+        "type": "spacing"
+      },
+      {
+        "text": "at",
+        "start": 26.07,
+        "end": 26.164,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.164,
+        "end": 26.18,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 26.18,
+        "end": 26.311,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.311,
+        "end": 26.322,
+        "type": "spacing"
+      },
+      {
+        "text": "giant",
+        "start": 26.322,
+        "end": 26.689,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 26.689,
+        "end": 26.721,
+        "type": "spacing"
+      },
+      {
+        "text": "factory",
+        "start": 26.721,
+        "end": 27.249,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.249,
+        "end": 27.28,
+        "type": "spacing"
+      },
+      {
+        "text": "complex",
+        "start": 27.28,
+        "end": 27.718,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 27.718,
+        "end": 27.76,
+        "type": "spacing"
+      },
+      {
+        "text": "called",
+        "start": 27.76,
+        "end": 28.081,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.081,
+        "end": 28.11,
+        "type": "spacing"
+      },
+      {
+        "text": "Alabuga,",
+        "start": 28.11,
+        "end": 28.857,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 28.857,
+        "end": 29.24,
+        "type": "spacing"
+      },
+      {
+        "text": "hundreds",
+        "start": 29.24,
+        "end": 29.578,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.578,
+        "end": 29.6,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 29.6,
+        "end": 29.749,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 29.749,
+        "end": 29.76,
+        "type": "spacing"
+      },
+      {
+        "text": "miles",
+        "start": 29.76,
+        "end": 30.176,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.176,
+        "end": 30.24,
+        "type": "spacing"
+      },
+      {
+        "text": "east",
+        "start": 30.24,
+        "end": 30.465,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.465,
+        "end": 30.49,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 30.49,
+        "end": 30.628,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 30.628,
+        "end": 30.64,
+        "type": "spacing"
+      },
+      {
+        "text": "Moscow,",
+        "start": 30.64,
+        "end": 31.291,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.291,
+        "end": 31.594,
+        "type": "spacing"
+      },
+      {
+        "text": "turning",
+        "start": 31.594,
+        "end": 31.936,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 31.936,
+        "end": 31.96,
+        "type": "spacing"
+      },
+      {
+        "text": "out",
+        "start": 31.96,
+        "end": 32.239,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.239,
+        "end": 32.313,
+        "type": "spacing"
+      },
+      {
+        "text": "thousands",
+        "start": 32.313,
+        "end": 32.696,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.696,
+        "end": 32.72,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 32.72,
+        "end": 32.861,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 32.861,
+        "end": 32.872,
+        "type": "spacing"
+      },
+      {
+        "text": "drones",
+        "start": 32.872,
+        "end": 33.219,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.219,
+        "end": 33.271,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 33.271,
+        "end": 33.383,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.383,
+        "end": 33.383,
+        "type": "spacing"
+      },
+      {
+        "text": "year.",
+        "start": 33.383,
+        "end": 33.818,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 33.818,
+        "end": 34.23,
+        "type": "spacing"
+      },
+      {
+        "text": "And",
+        "start": 34.23,
+        "end": 34.38,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.38,
+        "end": 34.39,
+        "type": "spacing"
+      },
+      {
+        "text": "inside",
+        "start": 34.39,
+        "end": 34.818,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 34.818,
+        "end": 34.87,
+        "type": "spacing"
+      },
+      {
+        "text": "them,",
+        "start": 34.87,
+        "end": 35.197,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 35.197,
+        "end": 35.44,
+        "type": "spacing"
+      },
+      {
+        "text": "again",
+        "start": 35.44,
+        "end": 35.798,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 35.798,
+        "end": 35.83,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 35.83,
+        "end": 35.949,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 35.949,
+        "end": 35.95,
+        "type": "spacing"
+      },
+      {
+        "text": "again,",
+        "start": 35.95,
+        "end": 36.499,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 36.499,
+        "end": 36.72,
+        "type": "spacing"
+      },
+      {
+        "text": "investigators",
+        "start": 36.72,
+        "end": 37.536,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 37.536,
+        "end": 37.59,
+        "type": "spacing"
+      },
+      {
+        "text": "find",
+        "start": 37.59,
+        "end": 37.806,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 37.806,
+        "end": 37.83,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 37.83,
+        "end": 37.977,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 37.977,
+        "end": 37.99,
+        "type": "spacing"
+      },
+      {
+        "text": "same",
+        "start": 37.99,
+        "end": 38.282,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 38.282,
+        "end": 38.304,
+        "type": "spacing"
+      },
+      {
+        "text": "thing,",
+        "start": 38.304,
+        "end": 38.912,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 38.912,
+        "end": 39.24,
+        "type": "spacing"
+      },
+      {
+        "text": "Western",
+        "start": 39.24,
+        "end": 39.689,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 39.689,
+        "end": 39.742,
+        "type": "spacing"
+      },
+      {
+        "text": "chips.",
+        "start": 39.742,
+        "end": 40.258,
+        "type": "word"
+      }
+    ],
+    "transcription_id": "0005faad39aea30ca867",
+    "audio_duration_secs": 40.672653
+  }
+]
