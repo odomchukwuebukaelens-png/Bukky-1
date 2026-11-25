@@ -8,6 +8,7 @@ import { ramp } from "../kit/ui";
 import captions from "./captions.json";
 import { cues, EDIT } from "./common";
 import { ShotScene } from "./ShotScene";
+import { LangContext } from "../humpback/lang";
 
 const EVENTS = captions as unknown as Record<string, SceneEvents>;
 const TEASERS = EDIT.teasers as Record<string, string>;
@@ -71,6 +72,7 @@ export const LeopardVideo: React.FC<{ only?: string[] }> = ({ only }) => {
   let m = 0;
   const lead = cues.lead;
   return (
+    <LangContext.Provider value="en">
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
       {MUSIC.map((name, i) => {
         const from = m;
@@ -116,6 +118,7 @@ export const LeopardVideo: React.FC<{ only?: string[] }> = ({ only }) => {
         <EndCard />
       </Sequence>}
     </AbsoluteFill>
+    </LangContext.Provider>
   );
 };
 

@@ -74,13 +74,15 @@ const Penguin: React.FC<{ x: number; y: number; s?: number; f?: number; swim?: b
 export const UnderIce: React.FC<{
   seal?: { x0: number; x1?: number; y0: number; y1?: number; s0?: number; s1?: number; jaw0?: number; jaw1?: number; flip?: boolean; rot?: number; o0?: number; o1?: number };
   diver?: { x0: number; x1?: number; y0: number; y1?: number; s?: number; rot?: number; camera?: boolean };
-  penguin?: { x0: number; x1?: number; y: number };
+  penguin?: { x0: number; x1?: number; y: number; dead?: boolean };
+  prey?: { x0: number; x1?: number; y: number; s?: number };
+  sealBubbles?: boolean;
   dark0?: number;
   dark1?: number;
   hole?: number;
   shake?: boolean;
   children?: React.ReactNode;
-}> = ({ seal, diver, penguin, dark0 = 0.2, dark1, hole = 960, shake = false, children }) => {
+}> = ({ seal, diver, penguin, prey, sealBubbles = false, dark0 = 0.2, dark1, hole = 960, shake = false, children }) => {
   const { f, k } = useShot();
   const e = ease(k);
   const dark = lerp(dark0, dark1 ?? dark0, e);
@@ -94,7 +96,8 @@ export const UnderIce: React.FC<{
             <path d={`M -50 -10 L 1970 -10 L 1970 ${120 + Math.sin(1) * 20} ${Array.from({ length: 30 }, (_, i) => `L ${1970 - i * 70} ${110 + random(`ic${i}`) * 90}`).join(" ")} L -50 150 Z`} fill="#b9dbe6" opacity={0.92} />
             <path d={`M ${hole - 150} -10 C ${hole - 120} 90 ${hole + 120} 90 ${hole + 150} -10 Z`} fill="#eaf9ff" />
             {Array.from({ length: 30 }, (_, i) => <path key={i} d={`M ${1970 - i * 70} ${110 + random(`ic${i}`) * 90} l -20 ${30 + random(`id${i}`) * 50} l -30 -40 Z`} fill="#9cc8d6" opacity={0.8} />)}
-            {penguin ? <Penguin x={lerp(penguin.x0, penguin.x1 ?? penguin.x0, e)} y={penguin.y} s={1.4} swim /> : null}
+            {penguin ? <g transform={penguin.dead ? `rotate(25 ${lerp(penguin.x0, penguin.x1 ?? penguin.x0, e)} ${penguin.y})` : undefined}><Penguin x={lerp(penguin.x0, penguin.x1 ?? penguin.x0, e)} y={penguin.y} s={1.4} swim={!penguin.dead} f={f} /></g> : null}
+            {prey ? <g opacity={0.95}><Seal x={lerp(prey.x0, prey.x1 ?? prey.x0, e)} y={prey.y + Math.sin(f * 0.1) * 6} s={prey.s ?? 0.45} f={f + 7} teeth={false} /></g> : null}
             {diver ? (
               <g>
                 <Diver x={lerp(diver.x0, diver.x1 ?? diver.x0, e)} y={lerp(diver.y0, diver.y1 ?? diver.y0, e)} s={diver.s ?? 0.8} rot={diver.rot ?? 0} f={f} />
@@ -117,6 +120,7 @@ export const UnderIce: React.FC<{
           {children}
         </AbsoluteFill>
       </Drift>
+      {sealBubbles && seal ? <Bubbles streams={[lerp(seal.x0, seal.x1 ?? seal.x0, e) + (seal.flip ? -1 : 1) * 420 * lerp(seal.s0 ?? 1, seal.s1 ?? seal.s0 ?? 1, e)]} n={18} y0={lerp(seal.y0, seal.y1 ?? seal.y0, e)} /> : null}
       <Caustics opacity={0.1 * (1 - dark)} />
       <Rays strength={0.9 * (1 - dark)} from={hole} />
       <Snow n={80} />
@@ -126,11 +130,15 @@ export const UnderIce: React.FC<{
 };
 
 // Above the water at the ice edge: the floe, penguins, and the seal's head breaking the surface.
-export const IceEdge: React.FC<{ penguins?: number; head?: boolean; strike?: boolean; man?: boolean; z0?: number; z1?: number; zx?: number; zy?: number; children?: React.ReactNode }> = ({
+export const IceEdge: React.FC<{ penguins?: number; head?: boolean; strike?: boolean; man?: boolean; manX?: [number, number]; chase?: boolean; sink?: boolean; flash?: boolean; z0?: number; z1?: number; zx?: number; zy?: number; children?: React.ReactNode }> = ({
   penguins = 4,
   head = false,
   strike = false,
   man = false,
+  manX = [300, 700],
+  chase = false,
+  sink = false,
+  flash = false,
   z0 = 1,
   z1 = 1.06,
   zx = 960,
@@ -141,7 +149,7 @@ export const IceEdge: React.FC<{ penguins?: number; head?: boolean; strike?: boo
   const e = ease(k);
   const z = lerp(z0, z1, e);
   const WL = 600;
-  const up = strike ? Math.sin(Math.min(1, k * 1.4) * Math.PI) : head ? Math.min(1, k * 2) : 0;
+  const up = strike ? Math.sin(Math.min(1, k * 1.4) * Math.PI) : sink ? 1 - Math.min(1, k * 1.5) : head ? Math.min(1, k * 2) : 0;
   return (
     <AbsoluteFill style={{ background: "#000", overflow: "hidden" }}>
       <Drift amount={0.4} focus={false}>
@@ -153,13 +161,14 @@ export const IceEdge: React.FC<{ penguins?: number; head?: boolean; strike?: boo
             <path d={`M -300 ${WL + 6} L 900 ${WL + 6} L 980 ${WL - 10} L 1000 ${WL + 40} L -300 ${WL + 40} Z`} fill="#f4fafc" />
             <path d={`M -300 ${WL - 70} L 860 ${WL - 74} L 960 ${WL - 12} L 900 ${WL + 8} L -300 ${WL + 8} Z`} fill="#e4f1f6" />
             {Array.from({ length: penguins }, (_, i) => <Penguin key={i} x={560 + i * 90} y={WL - 120 + (i % 2) * 6} f={f + i * 5} />)}
-            {head || strike ? (
+            {chase ? <g transform={`translate(${lerp(manX[0] - 420, manX[1] - 260, e)} ${WL - 40})`}><Seal x={0} y={0} s={0.42} f={f * 2} /></g> : null}
+            {head || strike || sink ? (
               <g transform={`translate(1180 ${WL + 40 - up * 170}) rotate(-62)`}>
                 <Seal x={0} y={0} s={0.55} jaw={strike ? up * 0.9 : 0.05} f={f} />
               </g>
             ) : null}
             {man ? (
-              <g transform={`translate(${lerp(300, 700, e)} ${WL - 70})`}>
+              <g transform={`translate(${lerp(manX[0], manX[1], e)} ${WL - 70})`}>
                 <circle cx={0} cy={-150} r={22} fill="#2b2b2b" />
                 <rect x={-24} y={-128} width={48} height={90} rx={14} fill="#5a4630" />
                 <rect x={-20} y={-40} width={16} height={60} fill="#3a2e20" />
@@ -175,6 +184,7 @@ export const IceEdge: React.FC<{ penguins?: number; head?: boolean; strike?: boo
         </AbsoluteFill>
       </Drift>
       <Snow n={40} opacity={0.6} seed="ie" />
+      {flash ? <AbsoluteFill style={{ background: "#fff", opacity: Math.max(0, 1 - Math.abs(f - 12) / 5) }} /> : null}
     </AbsoluteFill>
   );
 };

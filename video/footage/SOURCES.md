@@ -97,3 +97,11 @@ Photos, found through Openverse, credited on screen:
 - `endurance.jpg`: Frank Hurley, 1915, public domain (from Shackleton's "South", ibiblio mirror)
 People with no free-licence photo (Paul Nicklen, Gareth Wood, Kirsty Brown) are shown as drawn portraits labelled "ILLUSTRATION".
 Narration: "Deep sea" clone. Music: crocodile tracks, reused at the owner's request.
+Real-photo inserts (owner, 25 Nov 2026: inserts must be real photos):
+- `nicklen.jpg`: Paul Nicklen on stage, "Paul Nicklen's Polar Wonderland", Steve Jurvetson, Flickr, CC BY 2.0 (cropped)
+- `ordelees.jpg`: Thomas Orde-Lees, Wikimedia Commons "Thomas Orde-Lees,.jpg", public domain (cropped)
+- `elephantisland.jpg`: the Elephant Island party, Frank Hurley 1916, Wikimedia Commons, public domain
+- `endurance2.jpg`: the Endurance trapped in the ice, Frank Hurley, Flickr (public domain mark)
+- `rothera.jpg`: Rothera Research Station, Wikimedia Commons "Rothera_Research_Station1.jpg", CC BY-SA 3.0
+- `capeevans.jpg`: Memorial Cross at Cape Evans, Alan Light, Wikimedia Commons, CC BY
+No free-licence photo of Kirsty Brown or Gareth Wood exists; their scenes show real photos of the places (Rothera station, Cape Evans) instead of portraits.
