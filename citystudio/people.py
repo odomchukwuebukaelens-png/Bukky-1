@@ -339,7 +339,7 @@ def finish(m, name, mat, collection):
     return ob
 
 
-def make_group(spec, ground, mat, collection, seed):
+def make_group(spec, ground, mat, collection, seed, free=None):
     """spec: {"kind": costume or vehicle, "count", "formation": "block"|"crowd"|"line",
     "path": [[x, y], ...] (metres), "from"/"to" (film seconds), "speed" (m/s), "width"}"""
     rng = random.Random(seed)
@@ -354,7 +354,22 @@ def make_group(spec, ground, mat, collection, seed):
            "goth": ((0.45, 0.30, 0.20), (0.55, 0.15, 0.10)), "landsknecht": ((0.90, 0.85, 0.80), (0.85, 0.75, 0.20)),
            "french1849": ((0.15, 0.20, 0.55), (0.85, 0.10, 0.10)), "bersaglieri": ((0.10, 0.45, 0.20), (0.85, 0.10, 0.10)),
            "garibaldini": ((0.10, 0.45, 0.20), (0.85, 0.10, 0.10))}.get(spec["kind"])
+    origin = spec["path"][0]
+    chunk_rows = 6                                   # a marching column is cut into short sections that
+    chunks = {}                                      # each follow the street, so it bends round corners
     for k in range(n):
+        if form == "block":
+            cols_ = max(1, int(width / 1.2))
+            row = k // cols_
+            cm = chunks.setdefault(row // chunk_rows, Mesh())
+            dx = -(row % chunk_rows) * 1.3
+            dy = (k % cols_) * 1.2 - width / 2 + 0.6
+            add_person(cm, dx, dy, 0.0, 0.0, spec["kind"], rng, spec.get("scale", 1.0))
+            if std and k % 40 == 7:
+                cm.box(dx + 0.2, dy, 0.0, 0.03, 0.03, 3.6, (0.35, 0.25, 0.15))
+                cm.box(dx + 0.2, dy + 0.45, 2.6, 0.02, 0.45, 0.85, std[1])
+                cm.box(dx + 0.2, dy, 3.6, 0.10, 0.10, 0.22, std[0])
+            continue
         if form == "block" and std and k % 40 == 7:              # a standard-bearer for every few ranks
             cols = max(1, int(width / 1.2))
             sx_, sy_ = -(k // cols) * 1.3, (k % cols) * 1.2 - width / 2
@@ -369,20 +384,63 @@ def make_group(spec, ground, mat, collection, seed):
             dx = -k * (gap if vehicles else 1.5)
             dy = rng.uniform(-width / 2, width / 2) if (not vehicles or spec["kind"] in ("longship", "boat", "barge", "riverboat", "blackship")) else 0
         else:
-            dx, dy = rng.uniform(-width, width), rng.uniform(-width, width)
+            for _try in range(12):                   # people stand only on open ground, never inside buildings
+                dx, dy = rng.uniform(-width, width), rng.uniform(-width, width)
+                if free is None or free(origin[0] + dx, origin[1] + dy):
+                    break
+            else:
+                continue
         f_yaw = yaw if form != "crowd" else rng.uniform(0, 2 * math.pi)
         if vehicles:
             add_vehicle(m, dx, dy, 0.0, f_yaw, spec["kind"], rng)
         else:
             add_person(m, dx, dy, 0.0, f_yaw, spec["kind"], rng, spec.get("scale", 1.0))
+    if chunks:
+        parts = []
+        for ci in sorted(chunks):
+            ob = finish(chunks[ci], "group_%s_%d" % (spec["kind"], ci), mat, collection)
+            ob.hide_render = True
+            parts.append((ob, ci * chunk_rows * 1.3))
+        return {"ob": parts[0][0], "parts": parts, "spec": spec, "ground": ground}
     ob = finish(m, "group_" + spec["kind"], mat, collection)
     ob.hide_render = True
     return {"ob": ob, "spec": spec, "ground": ground}
 
 
+def _along(path, dist):
+    """Point and heading at a distance along a path (before its start: back along the first leg)."""
+    if len(path) < 2:
+        return path[0], Vector((1, 0))
+    if dist < 0:
+        h = (path[1] - path[0]).normalized()
+        return path[0] + h * dist, h
+    for a, b in zip(path, path[1:]):
+        seg = (b - a).length
+        if seg <= 0:
+            continue
+        if dist <= seg:
+            return a + (b - a) * (dist / seg), (b - a).normalized()
+        dist -= seg
+    return path[-1], (path[-1] - path[-2]).normalized()
+
+
 def place_group(g, t):
     """Move a group along its path for film time t."""
     sp = g["spec"]
+    if g.get("parts"):
+        on = sp["from"] <= t <= sp["to"]
+        path = [Vector(p) for p in sp["path"]]
+        dist = (t - sp["from"]) * sp.get("speed", 1.4)
+        for ob, off in g["parts"]:
+            ob.hide_render = not on
+            if not on:
+                continue
+            pos, h = _along(path, dist - off)
+            ob.location = (pos.x, pos.y, g["ground"](pos.x, pos.y))
+            ob.rotation_euler.z = math.atan2(h.y, h.x)
+            if ob.data.shape_keys:
+                ob.data.shape_keys.key_blocks["stride"].value = math.sin(t * 2 * math.pi * 1.6 + off * 0.3)
+        return
     ob = g["ob"]
     if not (sp["from"] <= t <= sp["to"]):
         ob.hide_render = True

@@ -344,7 +344,7 @@ def build(brief, plan_unused=None):
     tmat, now = terrain_material()
     arch_mat = arcade_material()
     N.WATER_MAT.clear()
-    N.WATER_MAT.append(N.shore_water_material())
+    N.WATER_MAT.append(N.shore_water_material(((0.20, 0.22, 0.12), (0.07, 0.10, 0.05), (0.035, 0.055, 0.03)), realistic=True))  # the olive-green Tiber
     animated = []
     z = city.z
 
@@ -412,6 +412,67 @@ def build(brief, plan_unused=None):
                 if year < occupied.get(k, 1e9):
                     occupied[k] = year
 
+    # --- footprints: nothing else may stand inside a monument, a bridge approach
+    # or another building while it exists, and no tree grows inside them
+    FC = 5.0
+    FOOT = {}                      # 5 m cell -> [(from, to)] of monuments and approach roads
+    BOCC = {}                      # 5 m cell -> [(from, to)] of buildings (people keep out of them)
+
+    def hull(pts):
+        pts = sorted(set((round(x_, 0), round(y_, 0)) for x_, y_ in pts))
+        if len(pts) < 3:
+            return pts
+
+        def cross(o, a, b):
+            return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+        lo, hi = [], []
+        for q in pts:
+            while len(lo) >= 2 and cross(lo[-2], lo[-1], q) <= 0:
+                lo.pop()
+            lo.append(q)
+        for q in reversed(pts):
+            while len(hi) >= 2 and cross(hi[-2], hi[-1], q) <= 0:
+                hi.pop()
+            hi.append(q)
+        return lo[:-1] + hi[:-1]
+
+    def register(xy, t0, t1, pad=3.0, clear_trees=True):
+        hp = hull(xy)
+        if len(hp) < 3:
+            return
+        xs_, ys_ = [q[0] for q in hp], [q[1] for q in hp]
+        for i in range(int((min(xs_) - pad) // FC), int((max(xs_) + pad) // FC) + 1):
+            for j in range(int((min(ys_) - pad) // FC), int((max(ys_) + pad) // FC) + 1):
+                cx_, cy_ = (i + 0.5) * FC, (j + 0.5) * FC
+                if inside((cx_, cy_), hp) or any(math.hypot(cx_ - q[0], cy_ - q[1]) < pad for q in hp):
+                    FOOT.setdefault((i, j), []).append((t0, t1))
+                    if clear_trees:
+                        occupy(cx_, cy_, t0, 1.0, house=False)
+
+    def blocked(x, y, start, end, half):
+        k = int(half // FC)
+        ci, cj = int(x // FC), int(y // FC)
+        for di in range(-k, k + 1):
+            for dj in range(-k, k + 1):
+                for a_, b_ in FOOT.get((ci + di, cj + dj), ()):
+                    if a_ < end and b_ > start:
+                        return True
+        return False
+
+    def mark_building(x, y, half, start, end):
+        k = int(half // FC)
+        ci, cj = int(x // FC), int(y // FC)
+        for di in range(-k, k + 1):
+            for dj in range(-k, k + 1):
+                BOCC.setdefault((ci + di, cj + dj), []).append((start, end))
+
+    def free_ground(x, y, year):
+        """True where a person may stand: on land, not inside a building or monument."""
+        if not city.is_land(x, y):
+            return False
+        c_ = (int(x // FC), int(y // FC))
+        return not any(a_ <= year < b_ for a_, b_ in BOCC.get(c_, ()) + FOOT.get(c_, []))
+
     # --- fire and bomb damage: buildings standing in a burnt or bombed area are
     # blackened and reduced to ruins, then (for some events) rebuilt later
     CHAR = (0.07, 0.06, 0.05, 0.0)
@@ -440,7 +501,10 @@ def build(brief, plan_unused=None):
 
     def place(kind, start, end, x, y, zz, ux, uy, d, w, h, wall, roof, shape="house", bucket=25, extra=None):
         """A generated building that may burn or be bombed during its life."""
+        if blocked(x, y, start, end, max(d, w) / 2):
+            return                                     # never inside a monument or across a bridge approach
         placed[kind] = placed.get(kind, 0) + 1
+        mark_building(x, y, max(d, w) / 2, start, end)
         def draw(part, hh, col_, rf, sh):
             if sh == "house":
                 part.house(dict({"x": x, "y": y, "ux": ux, "uy": uy, "d": d, "w": w, "h": hh, "wall": col_, "roof": rf},
@@ -455,164 +519,13 @@ def build(brief, plan_unused=None):
         put(("shell", round(bn["t"], 3), int(bn["t"] + bn["rebuild"])),
             lambda part: part.box(x, y, zz, ux, uy, d / 2, w / 2, h * bn["ruin"] * dr.uniform(0.6, 1.4), CHAR))
 
-    # --- today's buildings (estimated dates) and their medieval predecessors --------
-    for b in city.data["buildings"]:
-        cx, cy, year, est, h, flat, name = b
-        pts = [(flat[i], flat[i + 1]) for i in range(0, len(flat), 2)]
-        if not city.is_land(cx, cy):
-            continue
-        low = name.lower()
-        if any((Vector((cx, cy)) - P2((lo, la))).length < r_ * 0.8 for lo, la, r_ in CLEAR) and not name:
-            continue                                    # open ground of the Forum, Palatine, Circus and Colosseum
-        if "basilica di san pietro" in low or "pantheon" in low:
-            continue                                    # modelled separately with their domes
-        if (Vector((cx, cy)) - P2(VITTORIANO)).length < 75:
-            continue                                    # the Vittoriano is modelled separately
-        zz = z(cx, cy) - 0.5
-        grow, start = 3.0, year
-        if "giustizia" in low:
-            start, grow = 1889, 22.0
-        wall = rng.choice(WALL_COLS) if year < 1870 else rng.choice(WALL_COLS + [(0.86, 0.84, 0.78), (0.70, 0.66, 0.60)])
-        if name:
-            wall = MARBLE
-        xs_, ys_ = [q[0] for q in pts], [q[1] for q in pts]
-        occupy(cx, cy, start, max(6.0, 0.5 * max(max(xs_) - min(xs_), max(ys_) - min(ys_))))
-        roof = (0.55, 0.22, 0.12)
-        bn = damage(cx, cy, start, 99999)
-        if bn is None:
-            put(("bld", int(start // 2) * 2, int(grow), 99999),
-                lambda part, pts=pts, zz=zz, h=h, wall=wall: N.extrude(part, pts, zz, h, wall, 0.55, roof))
-        else:
-            t_, back = bn["t"], int(bn["t"] + bn["rebuild"] * dr.uniform(0.8, 1.6))
-            put(("bld", int(start // 2) * 2, int(grow), round(t_, 3)),
-                lambda part, pts=pts, zz=zz, h=h, wall=wall: N.extrude(part, pts, zz, h, wall, 0.55, roof))
-            put(("shell", round(t_, 3), back),
-                lambda part, pts=pts, zz=zz, h=h: N.extrude(part, pts, zz, max(3.0, h * bn["ruin"] * dr.uniform(0.5, 1.3)),
-                                                            CHAR[:3], 0.0, roof=CHAR[:3]))
-            put(("bld", back, 3, 99999),
-                lambda part, pts=pts, zz=zz, h=h, wall=wall: N.extrude(part, pts, zz, h, wall, 0.55, roof))
-        zn = city.zone(cx, cy)
-        if zn in ("abitato", "trastevere", "borgo") and year > 1350 and rng.random() < 0.7:
-            m0 = rng.uniform(950, 1350)
-            occupy(cx, cy, m0, 6.0)
-            yaw = rng.uniform(-0.3, 0.3)
-            place("med", m0, year, cx, cy, zz + 0.5, (math.cos(yaw), math.sin(yaw)), (-math.sin(yaw), math.cos(yaw)),
-                  rng.uniform(8, 12), rng.uniform(6, 9), rng.uniform(9, 13), rng.choice(WALL_COLS), TILE,
-                  extra={"roof_h": 2.6})
-
-    # road mask: generated houses are never put on a street or walkway
-    RC = 5.0
-    roadcells = set()
-    for _n, w_, flat_ in city.data.get("roads", []):
-        rp = [(flat_[i], flat_[i + 1]) for i in range(0, len(flat_), 2)]
-        rr_ = int((w_ / 2) // RC) + 1
-        for (ax, ay), (bx, by) in zip(rp, rp[1:]):
-            n_ = max(1, int(math.hypot(bx - ax, by - ay) / 2.5))
-            for k in range(n_ + 1):
-                qx, qy = ax + (bx - ax) * k / n_, ay + (by - ay) * k / n_
-                ci, cj = int(qx // RC), int(qy // RC)
-                for di in range(-rr_ + 1, rr_):
-                    for dj in range(-rr_ + 1, rr_):
-                        roadcells.add((ci + di, cj + dj))
-
-    def off_road(x, y, half):
-        k = int(half // RC)
-        ci, cj = int(x // RC), int(y // RC)
-        return not any((ci + di, cj + dj) in roadcells for di in range(-k, k + 1) for dj in range(-k, k + 1))
-
-    def free_spot(x, y, half):
-        for ox, oy in ((0, 0), (7, 0), (-7, 0), (0, 7), (0, -7), (7, 7), (-7, -7), (7, -7), (-7, 7)):
-            if off_road(x + ox, y + oy, half):
-                return x + ox, y + oy
-        return None
-
-    # the open ground of the Forum, Palatine, Circus, Colosseum valley etc. is paved, not wooded
-    for lo, la, r_ in CLEAR:
-        q = P2((lo, la))
-        u0 = city.eras(q.x, q.y)[0]
-        k = int(r_ // OCC)
-        for di in range(-k, k + 1):
-            for dj in range(-k, k + 1):
-                if di * di + dj * dj <= k * k:
-                    occupy(q.x + di * OCC, q.y + dj * OCC, max(u0, -600), 1.0, house=False)
-
-    # --- generated fabric: Iron Age huts, Republic houses, Imperial insulae, farm villas ----
-    fr = random.Random(brief["seed"] + 3)
-    skipped = [0]
-    VILLAGES = [P2(v) for v in brief.get("village_sites", [])]
-    step_ = 34.0
-    yy = city.y0
-    while yy < city.y0 + ny * res:
-        xx = city.x0
-        while xx < city.x0 + nx * res:
-            px_, py_ = xx + fr.uniform(-8, 8), yy + fr.uniform(-8, 8)
-            xx += step_
-            if not all(city.is_land(px_ + ox, py_ + oy) for ox, oy in ((0, 0), (16, 0), (-16, 0), (0, 16), (0, -16))):
-                continue                                          # never in or at the edge of the river
-            if any((Vector((px_, py_)) - P2((lo, la))).length < r_ for lo, la, r_ in CLEAR):
-                continue
-            spot = free_spot(px_, py_, 6.0)
-            if spot is None:
-                skipped[0] += 1
-                continue
-            px_, py_ = spot
-            zn = city.zone(px_, py_)
-            u, ab, re_, _f = city.eras(px_, py_)
-            zz = z(px_, py_)
-            yaw = fr.uniform(-0.3, 0.3)
-            ux, uy = (math.cos(yaw), math.sin(yaw)), (-math.sin(yaw), math.cos(yaw))
-            near_v = min([(Vector((px_, py_)) - v).length for v in VILLAGES] + [1e9])
-            if near_v < 260 and fr.random() < 0.5:                 # Iron Age hut villages on the hills
-                v0 = fr.uniform(-1000, -800) if near_v < 150 else fr.uniform(-800, -650)
-                v1 = max(u, v0 + 80) + fr.uniform(0, 60)
-                occupy(px_, py_, v0, 5.0)
-                place("vil", v0, v1, px_, py_, zz, ux, uy, fr.uniform(6, 8), fr.uniform(4.5, 6), fr.uniform(4, 5),
-                      (0.45, 0.33, 0.20), THATCH, extra={"detail": False, "hip": True})
-            if zn in ("outside", "prati", "vatican"):
-                if fr.random() < 0.035 and Vector((px_, py_)).length > 1800:     # villas and farmhouses in the countryside
-                    f0 = fr.uniform(-250, 150)
-                    f1 = fr.uniform(450, 700)
-                    occupy(px_, py_, f0, 10.0)
-                    place("rom", f0, f1, px_, py_, zz, ux, uy, fr.uniform(18, 26), fr.uniform(14, 20), fr.uniform(6.5, 8.5),
-                          rng.choice(WALL_COLS), TILE, extra={"hip": True, "roof_h": 2.6, "eave": 0.7})
-                    if fr.random() < 0.5:                                         # a medieval casale on the same spot
-                        c0 = fr.uniform(1100, 1500)
-                        place("med", c0, max(c0 + 40, u), px_, py_, zz, ux, uy, fr.uniform(12, 16), fr.uniform(9, 12),
-                              fr.uniform(8, 12), rng.choice(WALL_COLS), TILE, extra={"roof_h": 2.6})
-                continue
-            if u < 50 and fr.random() < 0.75:                                    # Republic houses (domus)
-                a0 = u + fr.uniform(5, 80)
-                a1 = fr.uniform(-60, 64.2) if fr.random() < 0.4 else fr.uniform(64.2, 200)
-                if a1 > a0 + 10:
-                    occupy(px_, py_, a0, 8.0)
-                    place("rep", a0, a1, px_, py_, zz, ux, uy, fr.uniform(12, 18), fr.uniform(10, 15), fr.uniform(6.5, 9),
-                          rng.choice(WALL_COLS), TILE, extra={"hip": True, "roof_h": 2.4, "eave": 0.7})
-            i0 = max(-50, u) + fr.uniform(2, 120)                                 # Imperial insulae
-            i1 = (ab if ab < 9000 else fr.uniform(500, 900)) + fr.uniform(0, 250)
-            if i1 > i0 + 20 and fr.random() < 0.8:
-                occupy(px_, py_, i0, 8.0)
-                place("imp", i0, i1, px_, py_, zz, ux, uy, fr.uniform(18, 26), fr.uniform(14, 20), fr.uniform(11, 20),
-                      rng.choice(WALL_COLS), TILE, extra={"hip": True, "roof_h": 3.0, "eave": 0.6})
-        yy += step_
-
-    print("[city-studio] generated buildings:", placed, "skipped near streets:", skipped[0], flush=True)
-
-    # medieval towers in the old town (c. 1150-1300), most later demolished
-    for k in range(70):
-        for _ in range(30):
-            px_, py_ = rng.uniform(-1500, 300), rng.uniform(-800, 1500)
-            if city.zone(px_, py_) in ("abitato", "trastevere") and city.is_land(px_, py_) and off_road(px_, py_, 4.0):
-                break
-        t0 = rng.uniform(1150, 1300)
-        t1 = rng.uniform(1400, 1900) if rng.random() < 0.85 else 99999
-        occupy(px_, py_, t0, 4.0)
-        place("tow", t0, t1, px_, py_, z(px_, py_), (1, 0), (0, 1), 7, 7, rng.uniform(28, 45), (0.62, 0.42, 0.28),
-              (0.5, 0.3, 0.2), shape="box")
-
     # --- monuments ------------------------------------------------------------
-    def mon(name, t0, t1, fn, grow=4.0, label=None, ruin=None, mat=None):
+    def mon(name, t0, t1, fn, grow=4.0, label=None, ruin=None, mat=None, foot=True):
         part = N.Partsc()
         fn(part)
+        if foot:
+            end_ = ruin.get("to", 99999) if ruin else t1
+            register([(v[0], v[1]) for v in part.verts], t0 - grow, end_)
         ob = part.to_object(name, mat or painted, col)
         animated.append({"ob": ob, "year": t0, "grow": grow, "gone": t1, "fade": 3.0})
         if ruin:
@@ -810,29 +723,43 @@ def build(brief, plan_unused=None):
                 p.box(q.x, q.y, z_deck + 2.5, tuple(u), tuple(v), 5, w / 2 + 1, 16, (*STONE, 0.0), top=((0.30, 0.30, 0.33, 0.0)))
 
 
-    # --- the Tiber bridges: each crosses the river where it is nearest to its
-    # historic site, square to the current, and reaches from bank to bank
+    # --- the Tiber bridges. A bridge that still stands follows the street that
+    # crosses the river there today; each end continues straight into the city
+    # as a road, and nothing is built across those approach roads.
     river = [[Vector(q) for q in line] for line in city.data.get("tiber", [])]
+    crossings = []
+    for _n, w_, flat_ in city.data.get("roads", []):
+        rp = [Vector((flat_[i], flat_[i + 1])) for i in range(0, len(flat_), 2)]
+        for a_, b_ in zip(rp, rp[1:]):
+            m_ = (a_ + b_) / 2
+            if (b_ - a_).length > 4 and not city.is_land(m_.x, m_.y):
+                crossings.append((m_, (b_ - a_).normalized(), w_))
 
-    def across(ll, half=40.0):
+    def across(ll, modern):
         q = P2(ll)
+        if modern and crossings:
+            m_, u_, w_ = min(crossings, key=lambda c_: (c_[0] - q).length)
+            if (m_ - q).length < 160:
+                return m_ - u_ * 40, m_ + u_ * 40
         best = None
         for line in river:
-            for a, b in zip(line, line[1:]):
-                d = b - a
+            for a_, b_ in zip(line, line[1:]):
+                d = b_ - a_
                 if d.length < 1:
                     continue
-                t = max(0.0, min(1.0, (q - a).dot(d) / d.length_squared))
-                c = a + d * t
+                t = max(0.0, min(1.0, (q - a_).dot(d) / d.length_squared))
+                c = a_ + d * t
                 if best is None or (c - q).length < best[0]:
                     best = ((c - q).length, c, d.normalized())
         if best is None:
-            return ll, ll
+            return q - Vector((40, 0)), q + Vector((40, 0))
         c, u = best[1], best[2]
         v = Vector((-u.y, u.x))
-        a, b = c - v * half, c + v * half
-        inv = lambda p: (LON0 + p.x / KX, LAT0 + p.y / KY)  # noqa: E731
-        return inv(a), inv(b)
+        return c - v * 40, c + v * 40
+
+    inv = lambda p: (LON0 + p.x / KX, LAT0 + p.y / KY)  # noqa: E731
+    APPROACH = []                                       # (start, end, width, from, to)
+    approach_parts = {}
 
     BRIDGES = [  # name, (lon, lat), built, gone, deck height, width, colour
         ("PonsSublicius", (12.4778, 41.8878), -620, 450, 6.0, 7, WOOD),
@@ -851,15 +778,39 @@ def build(brief, plan_unused=None):
         ("PonteSublicio", (12.4752, 41.8803), 1918, 99999, 10.0, 18, (0.80, 0.76, 0.68)),
     ]
     for nm_, ll_, b0_, b1_, deck, wd, colr in BRIDGES:
-        a_, b_ = across(ll_)
+        e0, e1 = fit_span(*across(ll_, b1_ >= 99999))
+        u_ = (e1 - e0).normalized()
+        for s0, s1 in ((e0 - u_ * 150, e0 + u_ * 6), (e1 - u_ * 6, e1 + u_ * 150)):
+            seg = []                                     # the approach road runs on until it meets water or ends
+            n_ = 30
+            for k in range(n_ + 1):
+                q = s0 + (s1 - s0) * (k / n_)
+                if city.is_land(q.x, q.y) or (q - e0).length < 8 or (q - e1).length < 8:
+                    seg.append(q)
+            if len(seg) < 2:
+                continue
+            APPROACH.append((seg[0], seg[-1], wd, b0_, b1_))
+            nrm = Vector((-u_.y, u_.x)) * (wd / 2 + 1.0)
+            part = approach_parts.setdefault((b0_, b1_), N.Partsc())
+            for qa, qb in zip(seg, seg[1:]):
+                part.add([(*(qa - nrm), z(qa.x, qa.y) + 0.45), (*(qb - nrm), z(qb.x, qb.y) + 0.45),
+                          (*(qb + nrm), z(qb.x, qb.y) + 0.45), (*(qa + nrm), z(qa.x, qa.y) + 0.45)], [(0, 1, 2, 3)],
+                         [(0.56, 0.52, 0.46, 0.0) if b0_ < 1850 else (0.40, 0.40, 0.42, 0.0)])
+            register([tuple(seg[0] - nrm), tuple(seg[0] + nrm), tuple(seg[-1] - nrm), tuple(seg[-1] + nrm)], b0_ - 1, b1_)
+        a_, b_ = inv(e0), inv(e1)
         if nm_ == "PonsAemilius":                       # the Ponte Rotto: one broken arch left after 1598
             mon(nm_, b0_, b1_, lambda p, a_=a_, b_=b_, deck=deck, wd=wd, colr=colr: bridge(p, a_, b_, deck, wd, (*colr, 0.0)), 3,
+                foot=False,
                 ruin={"from": b1_, "fn": lambda p, a_=a_, b_=b_: p.box(*tuple((P2(a_) + P2(b_)) / 2), -3, (1, 0), (0, 1),
                                                                       6, 5, 12, (*TRAVERTINE, 0.0))})
             continue
         mon(nm_, b0_, b1_, lambda p, a_=a_, b_=b_, deck=deck, wd=wd, colr=colr: bridge(p, a_, b_, deck, wd, (*colr, 0.0),
-                                                                                      arches=colr != WOOD), 3)
+                                                                                      arches=colr != WOOD), 3, foot=False)
         marks[nm_] = (*tuple((P2(a_) + P2(b_)) / 2), deck + 12)
+
+    for (b0_, b1_), part in approach_parts.items():
+        animated.append({"ob": part.to_object("bridge_roads_%d" % b0_, painted, col), "year": b0_, "grow": 0.0,
+                         "gone": None if b1_ >= 99999 else b1_, "fade": 3.0})
 
     # the Pantheon (126): portico, drum and its great dome
     pnx, pny, pnz = at((12.4768, 41.8986))
@@ -939,6 +890,176 @@ def build(brief, plan_unused=None):
     aq.box((a0.x + a1.x) / 2, (a0.y + a1.y) / 2, z(a0.x, a0.y) + 26, tuple(d.normalized()),
            (-d.normalized().y, d.normalized().x), d.length / 2, 2.4, 3, (*TRAVERTINE, 0.0))
     animated.append({"ob": aq.to_object("AquaClaudia", painted, col), "year": 38, "grow": 14, "gone": None})
+
+    # road mask: generated houses are never put on a street or walkway
+    RC = 5.0
+    roadcells = set()
+    for _n, w_, flat_ in city.data.get("roads", []):
+        rp = [(flat_[i], flat_[i + 1]) for i in range(0, len(flat_), 2)]
+        rr_ = int((w_ / 2) // RC) + 1
+        for (ax, ay), (bx, by) in zip(rp, rp[1:]):
+            n_ = max(1, int(math.hypot(bx - ax, by - ay) / 2.5))
+            for k in range(n_ + 1):
+                qx, qy = ax + (bx - ax) * k / n_, ay + (by - ay) * k / n_
+                ci, cj = int(qx // RC), int(qy // RC)
+                for di in range(-rr_ + 1, rr_):
+                    for dj in range(-rr_ + 1, rr_):
+                        roadcells.add((ci + di, cj + dj))
+
+    for s0, s1, wd_, _a, _b in APPROACH:
+        n_ = max(1, int((s1 - s0).length / 2.5))
+        for k in range(n_ + 1):
+            q = s0 + (s1 - s0) * (k / n_)
+            rr_ = int((wd_ / 2) // RC) + 1
+            for di in range(-rr_ + 1, rr_):
+                for dj in range(-rr_ + 1, rr_):
+                    roadcells.add((int(q.x // RC) + di, int(q.y // RC) + dj))
+
+    def off_road(x, y, half):
+        k = int(half // RC)
+        ci, cj = int(x // RC), int(y // RC)
+        return not any((ci + di, cj + dj) in roadcells for di in range(-k, k + 1) for dj in range(-k, k + 1))
+
+    def free_spot(x, y, half):
+        for ox, oy in ((0, 0), (7, 0), (-7, 0), (0, 7), (0, -7), (7, 7), (-7, -7), (7, -7), (-7, 7)):
+            if off_road(x + ox, y + oy, half):
+                return x + ox, y + oy
+        return None
+
+    # --- today's buildings (estimated dates) and their medieval predecessors --------
+    for b in city.data["buildings"]:
+        cx, cy, year, est, h, flat, name = b
+        pts = [(flat[i], flat[i + 1]) for i in range(0, len(flat), 2)]
+        if not city.is_land(cx, cy):
+            continue
+        low = name.lower()
+        if any((Vector((cx, cy)) - P2((lo, la))).length < r_ * 0.8 for lo, la, r_ in CLEAR) and not name:
+            continue                                    # open ground of the Forum, Palatine, Circus and Colosseum
+        if "basilica di san pietro" in low or "pantheon" in low:
+            continue                                    # modelled separately with their domes
+        if (Vector((cx, cy)) - P2(VITTORIANO)).length < 75:
+            continue                                    # the Vittoriano is modelled separately
+        if sum(0 if city.is_land(px, py) else 1 for px, py in pts) > 0.3 * len(pts):
+            continue                                    # nothing stands in the river
+        if not name and blocked(cx, cy, year, 99999, 2.0):
+            continue                                    # nor inside a monument or across a bridge approach
+        zz = z(cx, cy) - 0.5
+        grow, start = 3.0, year
+        if "giustizia" in low:
+            start, grow = 1889, 22.0
+        wall = rng.choice(WALL_COLS) if year < 1870 else rng.choice(WALL_COLS + [(0.86, 0.84, 0.78), (0.70, 0.66, 0.60)])
+        if name:
+            wall = MARBLE
+        xs_, ys_ = [q[0] for q in pts], [q[1] for q in pts]
+        half_ = max(6.0, 0.5 * max(max(xs_) - min(xs_), max(ys_) - min(ys_)))
+        occupy(cx, cy, start, half_)
+        mark_building(cx, cy, half_ * 0.8, start, 99999)
+        roof = (0.55, 0.22, 0.12)
+        bn = damage(cx, cy, start, 99999)
+        if bn is None:
+            put(("bld", int(start // 2) * 2, int(grow), 99999),
+                lambda part, pts=pts, zz=zz, h=h, wall=wall: N.extrude(part, pts, zz, h, wall, 0.55, roof))
+        else:
+            t_, back = bn["t"], int(bn["t"] + bn["rebuild"] * dr.uniform(0.8, 1.6))
+            put(("bld", int(start // 2) * 2, int(grow), round(t_, 3)),
+                lambda part, pts=pts, zz=zz, h=h, wall=wall: N.extrude(part, pts, zz, h, wall, 0.55, roof))
+            put(("shell", round(t_, 3), back),
+                lambda part, pts=pts, zz=zz, h=h: N.extrude(part, pts, zz, max(3.0, h * bn["ruin"] * dr.uniform(0.5, 1.3)),
+                                                            CHAR[:3], 0.0, roof=CHAR[:3]))
+            put(("bld", back, 3, 99999),
+                lambda part, pts=pts, zz=zz, h=h, wall=wall: N.extrude(part, pts, zz, h, wall, 0.55, roof))
+        zn = city.zone(cx, cy)
+        if zn in ("abitato", "trastevere", "borgo") and year > 1350 and rng.random() < 0.7:
+            m0 = rng.uniform(950, 1350)
+            occupy(cx, cy, m0, 6.0)
+            yaw = rng.uniform(-0.3, 0.3)
+            place("med", m0, year, cx, cy, zz + 0.5, (math.cos(yaw), math.sin(yaw)), (-math.sin(yaw), math.cos(yaw)),
+                  rng.uniform(8, 12), rng.uniform(6, 9), rng.uniform(9, 13), rng.choice(WALL_COLS), TILE,
+                  extra={"roof_h": 2.6})
+
+    # the open ground of the Forum, Palatine, Circus, Colosseum valley etc. is paved, not wooded
+    for lo, la, r_ in CLEAR:
+        q = P2((lo, la))
+        u0 = city.eras(q.x, q.y)[0]
+        k = int(r_ // OCC)
+        for di in range(-k, k + 1):
+            for dj in range(-k, k + 1):
+                if di * di + dj * dj <= k * k:
+                    occupy(q.x + di * OCC, q.y + dj * OCC, max(u0, -600), 1.0, house=False)
+
+    # --- generated fabric: Iron Age huts, Republic houses, Imperial insulae, farm villas ----
+    fr = random.Random(brief["seed"] + 3)
+    skipped = [0]
+    VILLAGES = [P2(v) for v in brief.get("village_sites", [])]
+    step_ = 34.0
+    yy = city.y0
+    while yy < city.y0 + ny * res:
+        xx = city.x0
+        while xx < city.x0 + nx * res:
+            px_, py_ = xx + fr.uniform(-8, 8), yy + fr.uniform(-8, 8)
+            xx += step_
+            if not all(city.is_land(px_ + ox, py_ + oy) for ox, oy in ((0, 0), (16, 0), (-16, 0), (0, 16), (0, -16))):
+                continue                                          # never in or at the edge of the river
+            if any((Vector((px_, py_)) - P2((lo, la))).length < r_ for lo, la, r_ in CLEAR):
+                continue
+            spot = free_spot(px_, py_, 6.0)
+            if spot is None:
+                skipped[0] += 1
+                continue
+            px_, py_ = spot
+            zn = city.zone(px_, py_)
+            u, ab, re_, _f = city.eras(px_, py_)
+            zz = z(px_, py_)
+            yaw = fr.uniform(-0.3, 0.3)
+            ux, uy = (math.cos(yaw), math.sin(yaw)), (-math.sin(yaw), math.cos(yaw))
+            near_v = min([(Vector((px_, py_)) - v).length for v in VILLAGES] + [1e9])
+            if near_v < 260 and fr.random() < 0.5:                 # Iron Age hut villages on the hills
+                v0 = fr.uniform(-1000, -800) if near_v < 150 else fr.uniform(-800, -650)
+                v1 = max(u, v0 + 80) + fr.uniform(0, 60)
+                occupy(px_, py_, v0, 5.0)
+                place("vil", v0, v1, px_, py_, zz, ux, uy, fr.uniform(6, 8), fr.uniform(4.5, 6), fr.uniform(4, 5),
+                      (0.45, 0.33, 0.20), THATCH, extra={"detail": False, "hip": True})
+            if zn in ("outside", "prati", "vatican"):
+                if fr.random() < 0.035 and Vector((px_, py_)).length > 1800:     # villas and farmhouses in the countryside
+                    f0 = fr.uniform(-250, 150)
+                    f1 = fr.uniform(450, 700)
+                    occupy(px_, py_, f0, 10.0)
+                    place("rom", f0, f1, px_, py_, zz, ux, uy, fr.uniform(18, 26), fr.uniform(14, 20), fr.uniform(6.5, 8.5),
+                          rng.choice(WALL_COLS), TILE, extra={"hip": True, "roof_h": 2.6, "eave": 0.7})
+                    if fr.random() < 0.5:                                         # a medieval casale on the same spot
+                        c0 = fr.uniform(1100, 1500)
+                        place("med", c0, max(c0 + 40, u), px_, py_, zz, ux, uy, fr.uniform(12, 16), fr.uniform(9, 12),
+                              fr.uniform(8, 12), rng.choice(WALL_COLS), TILE, extra={"roof_h": 2.6})
+                continue
+            if u < 50 and fr.random() < 0.75:                                    # Republic houses (domus)
+                a0 = u + fr.uniform(5, 80)
+                a1 = fr.uniform(-60, 64.2) if fr.random() < 0.4 else fr.uniform(64.2, 200)
+                if a1 > a0 + 10:
+                    occupy(px_, py_, a0, 8.0)
+                    place("rep", a0, a1, px_, py_, zz, ux, uy, fr.uniform(12, 18), fr.uniform(10, 15), fr.uniform(6.5, 9),
+                          rng.choice(WALL_COLS), TILE, extra={"hip": True, "roof_h": 2.4, "eave": 0.7})
+            i0 = max(-50, u) + fr.uniform(2, 120)                                 # Imperial insulae
+            i1 = (ab if ab < 9000 else fr.uniform(500, 900)) + fr.uniform(0, 250)
+            if i1 > i0 + 20 and fr.random() < 0.8:
+                occupy(px_, py_, i0, 8.0)
+                place("imp", i0, i1, px_, py_, zz, ux, uy, fr.uniform(18, 26), fr.uniform(14, 20), fr.uniform(11, 20),
+                      rng.choice(WALL_COLS), TILE, extra={"hip": True, "roof_h": 3.0, "eave": 0.6})
+        yy += step_
+
+    print("[city-studio] generated buildings:", placed, "skipped near streets:", skipped[0], flush=True)
+
+    # medieval towers in the old town (c. 1150-1300), most later demolished
+    for k in range(70):
+        for _ in range(30):
+            px_, py_ = rng.uniform(-1500, 300), rng.uniform(-800, 1500)
+            if city.zone(px_, py_) in ("abitato", "trastevere") and off_road(px_, py_, 4.0) and \
+                    all(city.is_land(px_ + ox, py_ + oy) for ox, oy in ((0, 0), (12, 0), (-12, 0), (0, 12), (0, -12))):
+                break
+        t0 = rng.uniform(1150, 1300)
+        t1 = rng.uniform(1400, 1900) if rng.random() < 0.85 else 99999
+        occupy(px_, py_, t0, 4.0)
+        place("tow", t0, t1, px_, py_, z(px_, py_), (1, 0), (0, 1), 7, 7, rng.uniform(28, 45), (0.62, 0.42, 0.28),
+              (0.5, 0.3, 0.2), shape="box")
 
     # objects from bins
     for key, part in bins.items():
@@ -1047,11 +1168,89 @@ def build(brief, plan_unused=None):
         animated.append({"ob": ob, "year": key[1], "grow": 0.0, "gone": key[2], "fade": 20.0})
 
     # people, armies and vehicles from the brief
+    # the street network from the map: marchers and traffic follow real streets
+    import heapq
+    nodes, adj = {}, {}
+
+    def nid(x_, y_):
+        key = (round(x_ * 0.5), round(y_ * 0.5))           # ends within 2 m are the same junction
+        if key not in nodes:
+            nodes[key] = (x_, y_)
+        return key
+    for _n, w_, flat_ in city.data.get("roads", []) + [("", a_[2], [a_[0].x, a_[0].y, a_[1].x, a_[1].y]) for a_ in APPROACH]:
+        rp = [(flat_[i], flat_[i + 1]) for i in range(0, len(flat_), 2)]
+        for (ax, ay), (bx, by) in zip(rp, rp[1:]):
+            ka, kb = nid(ax, ay), nid(bx, by)
+            d_ = math.hypot(bx - ax, by - ay)
+            adj.setdefault(ka, []).append((kb, d_))
+            adj.setdefault(kb, []).append((ka, d_))
+    keys_ = list(adj)
+    karr = np.array([nodes[k_] for k_ in keys_]) if keys_ else np.zeros((0, 2))
+
+    def nearest(q):
+        i_ = int(np.argmin(((karr - np.array(q)) ** 2).sum(1)))
+        return keys_[i_]
+
+    def route(a_, b_):
+        if not keys_:
+            return [a_, b_]
+        s0, s1 = nearest(a_), nearest(b_)
+        dist_, prev = {s0: 0.0}, {}
+        heap = [(0.0, s0)]
+        while heap:
+            d_, k_ = heapq.heappop(heap)
+            if k_ == s1:
+                break
+            if d_ > dist_.get(k_, 1e18) or d_ > 4000:
+                continue
+            for k2, w2 in adj.get(k_, ()):
+                nd = d_ + w2
+                if nd < dist_.get(k2, 1e18):
+                    dist_[k2], prev[k2] = nd, k_
+                    heapq.heappush(heap, (nd, k2))
+        if s1 not in dist_:
+            return [a_, b_]
+        out_, k_ = [], s1
+        while k_ != s0:
+            out_.append(nodes[k_])
+            k_ = prev[k_]
+        out_.append(nodes[s0])
+        out_.reverse()
+        return [a_] + out_ + [b_] if (Vector(a_) - Vector(out_[0])).length > 3 else out_ + [b_]
+
+    def plen(pp):
+        return sum((Vector(b_) - Vector(a_)).length for a_, b_ in zip(pp, pp[1:]))
+
+    WATERBORNE = ("boat", "barge", "longship", "riverboat", "blackship")
     groups = []
     for k, spec in enumerate(brief.get("groups", [])):
         sp = dict(spec)
         sp["path"] = [tuple(P2(p)) for p in spec["path"]]
-        groups.append(P.make_group(sp, z, painted, col, brief["seed"] + 100 + k))
+        if len(sp["path"]) >= 2 and sp.get("speed", 0) > 0 and sp["kind"] not in WATERBORNE:
+            routed = [sp["path"][0]]
+            for a_, b_ in zip(sp["path"], sp["path"][1:]):
+                routed += route(a_, b_)[1:]
+            if not sp.get("loop") and plen(routed) > 320:     # keep the last 320 m before the goal
+                keep, acc = [routed[-1]], 0.0
+                for a_, b_ in zip(routed[::-1], routed[-2::-1]):
+                    seg_ = (Vector(a_) - Vector(b_)).length
+                    if acc + seg_ >= 320:
+                        f_ = (320 - acc) / seg_
+                        keep.append(tuple(Vector(a_) + (Vector(b_) - Vector(a_)) * f_))
+                        break
+                    keep.append(b_)
+                    acc += seg_
+                routed = keep[::-1]
+            if sp.get("formation") == "block":            # a column as wide as the street it marches along
+                sp["width"] = min(sp.get("width", 8), 7.2)
+                L_ = plen(routed)
+                sp["speed"] = round(L_ / max(1.0, (sp["to"] - sp["from"]) * 0.9), 2)
+            elif not sp.get("loop"):
+                sp["speed"] = round(plen(routed) / max(1.0, (sp["to"] - sp["from"]) * 0.95), 2)
+            sp["path"] = routed
+        yr_ = H.year_at(brief, (sp["from"] + sp["to"]) / 2)
+        groups.append(P.make_group(sp, z, painted, col, brief["seed"] + 100 + k,
+                                   free=lambda x_, y_, yr_=yr_: free_ground(x_, y_, yr_)))
 
     # the she-wolf (legend) at the Lupercal on the Palatine slope
     wx, wy, wz = at((12.4835, 41.8893))

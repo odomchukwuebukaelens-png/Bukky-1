@@ -227,15 +227,17 @@ def water_material():
 WATER_MAT = []
 
 
-def shore_water_material():
+def shore_water_material(tint=None, realistic=False):
+    """Water coloured by distance from the shore. tint = (shallow, mid, deep) colours;
+    realistic adds sky reflections that grow at grazing angles, fine ripples and sun glints."""
     mat = bpy.data.materials.new("ShoreWater")
     nt = H.nodes(mat)
     bsdf = H.principled(nt)
     sh = nt.nodes.new("ShaderNodeAttribute")
     sh.attribute_name = "shorec"
-    col = H.mix_rgb(nt, H.smooth(nt, sh.outputs["Fac"], 0.0, 0.09), (0.05, 0.30, 0.38),
-                    H.mix_rgb(nt, H.smooth(nt, sh.outputs["Fac"], 0.0, 0.35), (0.010, 0.055, 0.13),
-                              (0.003, 0.012, 0.042)))
+    shallow, mid, deep = tint or ((0.05, 0.30, 0.38), (0.010, 0.055, 0.13), (0.003, 0.012, 0.042))
+    col = H.mix_rgb(nt, H.smooth(nt, sh.outputs["Fac"], 0.0, 0.09), shallow,
+                    H.mix_rgb(nt, H.smooth(nt, sh.outputs["Fac"], 0.0, 0.35), mid, deep))
     col = H.mix_rgb(nt, mood_value(nt, "ice"), col, (0.72, 0.78, 0.84))    # frozen river
     nt.links.new(col, bsdf.inputs["Base Color"])
     bsdf.inputs["Roughness"].default_value = 0.22
@@ -255,6 +257,30 @@ def shore_water_material():
     bump.inputs["Strength"].default_value = 0.05
     nt.links.new(tex.outputs["Fac"], bump.inputs["Height"])
     nt.links.new(bump.outputs[0], bsdf.inputs["Normal"])
+    if realistic:
+        bsdf.inputs["Roughness"].default_value = 0.06
+        for name in ("Specular IOR Level", "Specular"):
+            if name in bsdf.inputs:
+                bsdf.inputs[name].default_value = 0.6
+                break
+        fine = nt.nodes.new("ShaderNodeTexNoise")                 # small wind ripples on top of the swell
+        fine.inputs["Scale"].default_value = 1.6
+        fine.inputs["Detail"].default_value = 6
+        nt.links.new(geo.outputs["Position"], fine.inputs["Vector"])
+        b2 = nt.nodes.new("ShaderNodeBump")
+        b2.inputs["Strength"].default_value = 0.08
+        nt.links.new(fine.outputs["Fac"], b2.inputs["Height"])
+        nt.links.new(bump.outputs[0], b2.inputs["Normal"])
+        nt.links.new(b2.outputs[0], bsdf.inputs["Normal"])
+        lw = nt.nodes.new("ShaderNodeLayerWeight")                 # the sky mirrored at grazing angles
+        lw.inputs["Blend"].default_value = 0.35
+        nt.links.new(b2.outputs[0], lw.inputs["Normal"])
+        sky = H.mix_rgb(nt, lw.outputs["Fresnel"], (0, 0, 0), (0.62, 0.66, 0.68))
+        for name in ("Emission Color", "Emission"):
+            if name in bsdf.inputs:
+                nt.links.new(sky, bsdf.inputs[name])
+                break
+        bsdf.inputs["Emission Strength"].default_value = 0.55
     return H.add_haze(mat, amount=0.5)
 
 
