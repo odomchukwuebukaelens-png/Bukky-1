@@ -95,7 +95,7 @@ Photos, found through Openverse, credited on screen:
 - `dove.jpg` Oscar Dove, `crow2.jpg` Peter Crowcroft, `pablo.jpg` Pablo, `mckay1-2.jpg` Andy McKay, `early.jpg` Genevieve Early: iNaturalist, CC BY 4.0
 - `timaru1-2.jpg`: kimberley_collins, Flickr, CC BY 2.0 (Caroline Bay, Timaru, NZ)
 - `endurance.jpg`: Frank Hurley, 1915, public domain (from Shackleton's "South", ibiblio mirror)
-People with no free-licence photo (Paul Nicklen, Gareth Wood, Kirsty Brown) are shown as drawn portraits labelled "ILLUSTRATION".
+Paul Nicklen, Thomas Orde-Lees and the Elephant Island party are shown in real photos (below).
 Narration: "Deep sea" clone. Music: crocodile tracks, reused at the owner's request.
 Real-photo inserts (owner, 25 Nov 2026: inserts must be real photos):
 - `nicklen.jpg`: Paul Nicklen on stage, "Paul Nicklen's Polar Wonderland", Steve Jurvetson, Flickr, CC BY 2.0 (cropped)
