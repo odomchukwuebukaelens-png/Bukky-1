@@ -1,0 +1,14 @@
+{
+  "lead": 0.27,
+  "tail": 0.4,
+  "timing": "timing-fast.json",
+  "voiceDir": "audio/leopard-fast",
+  "tempo": 1.1,
+  "voice": "clone_2719063 (Deep sea), speed 0.95, then x1.1",
+  "teasers": {
+    "04": "COMING UP · THE MEN WHO MET ONE ON THE ICE",
+    "08": "COMING UP · HAS IT EVER KILLED A PERSON?",
+    "12": "COMING UP · THE ONE THAT LIVES IN A CITY MARINA",
+    "15": "COMING UP · HOW TO SURVIVE ONE"
+  }
+}

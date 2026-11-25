@@ -12,7 +12,7 @@ On-screen promises (scene 1), answered in scenes 4, 12 and 9:
 2. Has it ever killed a person?
 3. Why would a killer feed a human?
 
-`[CHECK]` marks a claim still to confirm before voiceover.
+Facts checked 25 Nov 2026; sources in the metadata. Approved by the owner.
 
 ---
 
@@ -110,17 +110,17 @@ Which is exactly where people stand, too.
 
 In 1916, the men of Ernest Shackleton's expedition were stranded on the sea ice after their ship, the Endurance, had been crushed.
 
-One of them, Thomas Orde-Lees, was crossing the ice on skis, looking for food.
+One of them, Thomas Orde-Lees, was out on the ice alone, looking for food.
 
 A leopard seal burst out of the water and went after him.
 
-It chased him across the ice. When he reached the edge, it dived under the ice, and came up in front of him.
+It chased him across the ice. He ran. It dived under the ice, and burst up again right in front of him.
 
 He screamed for help.
 
-Frank Wild, the expedition's second-in-command, ran out with a rifle and shot it, only a few metres away from him. [CHECK: Lansing, "Endurance"; Orde-Lees' own diary]
+Frank Wild, the expedition's second-in-command, ran out with a rifle and shot it, about nine metres from him.
 
-Starving men had nearly been eaten. Instead, that night, they ate the seal.
+The men had travelled to the bottom of the world. And one of them had nearly been taken by the thing that lived under it.
 
 ## 7. Under the ice
 
@@ -160,7 +160,7 @@ For four days, every time he got into the water, she brought him penguins. Live 
 
 She seemed frustrated that he could not catch anything.
 
-At one point, she blew bubbles in his face, and swam off with a penguin, as if to show him how it was done. [CHECK: Nicklen's own account, National Geographic]
+When he kept refusing, she blew bubbles in his face, and swam past him with another penguin, as if to show him how it was done.
 
 He came out of the water with some of the most famous wildlife photographs ever taken. And a story no one had heard before.
 
@@ -212,7 +212,7 @@ On the twenty-second of July 2003, she went snorkelling in the bay with a collea
 
 A leopard seal that no one had seen came up and took hold of her.
 
-Her partner saw her under the water, with the seal holding on to her. [CHECK: Muir, Barnes and Reid, Antarctic Science 2006]
+Her partner saw her under the water, with the seal holding on to her.
 
 The seal let her go near the boat, and the team pulled her out and tried everything to save her.
 
@@ -226,11 +226,11 @@ Here is the answer to the second question.
 
 Yes, a leopard seal has killed a person. Once.
 
-Kirsty Brown's death is the only fatal leopard seal attack ever recorded.
+Kirsty Brown's death is the only known fatal leopard seal attack.
 
 Scientists who studied it found something else unusual. The seal attacked at the surface, and nobody had seen it before it struck.
 
-Afterwards, the rules for snorkelling and diving in Antarctica were changed. [CHECK: BAS policy change]
+Afterwards, the British Antarctic Survey brought in new safety rules for diving and snorkelling.
 
 And a small island near Rothera was named after her. Kirsty Island.
 
@@ -266,7 +266,7 @@ Krill. Fish. Squid. Penguins.
 
 And other seals. Young crabeater seals and fur seals, much bigger than a penguin.
 
-Many adult crabeater seals carry long parallel scars down their sides. Scientists think most of them come from leopard seals, from attacks the crabeaters survived when they were young. [CHECK]
+Up to three in every four crabeater seals that survive their first year carry scars from leopard seal attacks. Long, parallel wounds, from the year they were young enough to catch.
 
 The biggest females take the biggest, richest prey.
 
