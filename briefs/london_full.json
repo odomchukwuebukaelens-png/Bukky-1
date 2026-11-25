@@ -35,7 +35,7 @@
  "clip_start": 1.0,
  "clip_end": 30000,
  "max_size_mb": 290,
- "name": "london_full",
+ "name": "london_v2",
  "style": "london",
  "data": "data/london",
  "seed": 5,

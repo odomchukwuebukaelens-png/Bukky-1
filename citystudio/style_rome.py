@@ -438,7 +438,7 @@ def build(brief, plan_unused=None):
 
     PAVE = {}
 
-    def pave(poly, t0, t1, colr=(0.46, 0.42, 0.35)):
+    def pave(poly, t0, t1, colr=(0.37, 0.34, 0.28)):
         """Stone paving under a monument or a square (a flat polygon just above the ground)."""
         if len(poly) < 3:
             return
@@ -809,7 +809,7 @@ def build(brief, plan_unused=None):
             for qa, qb in zip(seg, seg[1:]):
                 part.add([(*(qa - nrm), z(qa.x, qa.y) + 0.45), (*(qb - nrm), z(qb.x, qb.y) + 0.45),
                           (*(qb + nrm), z(qb.x, qb.y) + 0.45), (*(qa + nrm), z(qa.x, qa.y) + 0.45)], [(0, 1, 2, 3)],
-                         [(0.44, 0.41, 0.35, 0.0) if b0_ < 1850 else (0.31, 0.31, 0.33, 0.0)])
+                         [(0.37, 0.34, 0.29, 0.0) if b0_ < 1850 else (0.31, 0.31, 0.33, 0.0)])
             register([tuple(seg[0] - nrm), tuple(seg[0] + nrm), tuple(seg[-1] - nrm), tuple(seg[-1] + nrm)], b0_ - 1, b1_)
         a_, b_ = inv(e0), inv(e1)
         if nm_ == "PonsAemilius":                       # the Ponte Rotto: one broken arch left after 1598
@@ -1118,7 +1118,7 @@ def build(brief, plan_unused=None):
             for s0, s1 in spans:
                 sb.setdefault((int(s0 // 10) * 10, int(s1 // 25) * 25 if s1 < 9000 else 99999), N.Partsc()).add(
                     [(*(a - nrm), zz), (*(b - nrm), zz), (*(b + nrm), zz), (*(a + nrm), zz)], [(0, 1, 2, 3)],
-                    [(0.44, 0.41, 0.35, 0.0) if s0 < 1850 else (0.31, 0.31, 0.33, 0.0)])
+                    [(0.37, 0.34, 0.29, 0.0) if s0 < 1850 else (0.31, 0.31, 0.33, 0.0)])
             steps = max(1, int(d.length / OCC))
             for k in range(steps + 1):
                 q = a + d * (k / steps)
@@ -1423,7 +1423,7 @@ def build(brief, plan_unused=None):
 
     def clearance(x, y, year):
         hs = [h for yr, h in tall.get((int(x // cell), int(y // cell)), ()) if yr <= year + 3]
-        return ground(x, y) + (max(hs) + 30.0 if hs else 24.0)      # always above the tree tops
+        return ground(x, y) + (max(hs) + 30.0 if hs else 32.0)      # always above the tree tops
 
     return {"proj": lambda lon, lat: proj(lon, lat), "year_text": year_text, "counter": auc, "ground": ground, "clearance": clearance,
             "before_frame": before,

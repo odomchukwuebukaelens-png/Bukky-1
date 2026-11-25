@@ -622,7 +622,7 @@ def build(brief, plan_unused=None):
             for qa, qb in zip(seg, seg[1:]):
                 part.add([(*(qa - nrm), z(qa.x, qa.y) + 0.45), (*(qb - nrm), z(qb.x, qb.y) + 0.45),
                           (*(qb + nrm), z(qb.x, qb.y) + 0.45), (*(qa + nrm), z(qa.x, qa.y) + 0.45)], [(0, 1, 2, 3)],
-                         [(0.44, 0.41, 0.35, 0.0) if b0_ < 1850 else (0.31, 0.31, 0.33, 0.0)])
+                         [(0.37, 0.34, 0.29, 0.0) if b0_ < 1850 else (0.31, 0.31, 0.33, 0.0)])
             register([tuple(seg[0] - nrm), tuple(seg[0] + nrm), tuple(seg[-1] - nrm), tuple(seg[-1] + nrm)], b0_ - 1, b1_)
 
     def tiered(p, cx, cy, cz, w0, d0, tiers, tier_h, wall, roof, shrink=0.78, yaw=0.0, base=0.0):
@@ -971,7 +971,7 @@ def build(brief, plan_unused=None):
             zz = z(m.x, m.y) + 0.35
             sb.setdefault(int(yr // 10) * 10, N.Partsc()).add(
                 [(*(a - nrm), zz), (*(b - nrm), zz), (*(b + nrm), zz), (*(a + nrm), zz)], [(0, 1, 2, 3)],
-                [(0.44, 0.41, 0.35, 0.0) if yr < 1850 else (0.31, 0.31, 0.33, 0.0)])
+                [(0.37, 0.34, 0.29, 0.0) if yr < 1850 else (0.31, 0.31, 0.33, 0.0)])
             steps = max(1, int(d.length / OCC))
             for k in range(steps + 1):
                 q = a + d * (k / steps)
@@ -1257,7 +1257,7 @@ def build(brief, plan_unused=None):
 
     def clearance(x, y, year):
         hs = [h for yr, h in tall.get((int(x // cell), int(y // cell)), ()) if yr <= year + 3]
-        return ground(x, y) + (max(hs) + 30.0 if hs else 24.0)      # always above the tree tops
+        return ground(x, y) + (max(hs) + 30.0 if hs else 32.0)      # always above the tree tops
 
     return {"proj": lambda lon, lat: proj(lon, lat), "year_text": year_text, "counter": auc, "ground": ground, "clearance": clearance,
             "before_frame": before,
