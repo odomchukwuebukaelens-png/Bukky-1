@@ -436,10 +436,24 @@ def build(brief, plan_unused=None):
             hi.append(q)
         return lo[:-1] + hi[:-1]
 
-    def register(xy, t0, t1, pad=3.0, clear_trees=True):
+    PAVE = {}
+
+    def pave(poly, t0, t1, colr=(0.74, 0.69, 0.58)):
+        """Stone paving under a monument or a square (a flat polygon just above the ground)."""
+        if len(poly) < 3:
+            return
+        cxp = sum(q[0] for q in poly) / len(poly)
+        cyp = sum(q[1] for q in poly) / len(poly)
+        zp = z(cxp, cyp) + 0.25
+        PAVE.setdefault((int(t0), int(t1)), N.Partsc()).add([(q[0], q[1], zp) for q in poly],
+                                                             [tuple(range(len(poly)))], [(*colr, 0.0)])
+
+    def register(xy, t0, t1, pad=3.0, clear_trees=True, paved=None):
         hp = hull(xy)
         if len(hp) < 3:
             return
+        if paved:
+            pave(hp, t0, paved)
         xs_, ys_ = [q[0] for q in hp], [q[1] for q in hp]
         for i in range(int((min(xs_) - pad) // FC), int((max(xs_) + pad) // FC) + 1):
             for j in range(int((min(ys_) - pad) // FC), int((max(ys_) + pad) // FC) + 1):
@@ -525,7 +539,7 @@ def build(brief, plan_unused=None):
         fn(part)
         if foot:
             end_ = ruin.get("to", 99999) if ruin else t1
-            register([(v[0], v[1]) for v in part.verts], t0 - grow, end_)
+            register([(v[0], v[1]) for v in part.verts], t0 - grow, end_, paved=t1 if t1 < 9000 else 99999)
         ob = part.to_object(name, mat or painted, col)
         animated.append({"ob": ob, "year": t0, "grow": grow, "gone": t1, "fade": 3.0})
         if ruin:
@@ -981,6 +995,8 @@ def build(brief, plan_unused=None):
     for lo, la, r_ in CLEAR:
         q = P2((lo, la))
         u0 = city.eras(q.x, q.y)[0]
+        # the Forum and the other public squares were paved; by 1500 they had become pasture
+        pave([(q.x + math.cos(a_ * 0.2618) * r_, q.y + math.sin(a_ * 0.2618) * r_) for a_ in range(24)], max(u0, -600), 1500)
         k = int(r_ // OCC)
         for di in range(-k, k + 1):
             for dj in range(-k, k + 1):
@@ -1060,6 +1076,10 @@ def build(brief, plan_unused=None):
         occupy(px_, py_, t0, 4.0)
         place("tow", t0, t1, px_, py_, z(px_, py_), (1, 0), (0, 1), 7, 7, rng.uniform(28, 45), (0.62, 0.42, 0.28),
               (0.5, 0.3, 0.2), shape="box")
+
+    for (p0, p1), part in PAVE.items():
+        animated.append({"ob": part.to_object("paving_%d_%d" % (p0, p1), painted, col), "year": p0, "grow": 0.0,
+                         "gone": None if p1 >= 99999 else p1, "fade": 40.0})
 
     # objects from bins
     for key, part in bins.items():
