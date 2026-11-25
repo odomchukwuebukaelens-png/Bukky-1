@@ -1,0 +1,10 @@
+node_modules
+tiles
+raw/
+cand/
+cut/
+build/
+previews/
+footage/
+narration.wav
+*.mp4

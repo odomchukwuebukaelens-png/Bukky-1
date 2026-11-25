@@ -1,0 +1,665 @@
+[
+  {
+    "language_code": "",
+    "language_probability": 1,
+    "text": "Russia is the biggest country on Earth, and its symbol is the bear. In eighteen twelve, In Napoleon marched on Moscow with more than four hundred thousand men. The Russians burned their own city rather than give it to him. Then came the winter. Only a small fraction of his army ever made it home.",
+    "words": [
+      {
+        "text": "Russia",
+        "start": 0.2,
+        "end": 0.576,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.576,
+        "end": 0.61,
+        "type": "spacing"
+      },
+      {
+        "text": "is",
+        "start": 0.61,
+        "end": 0.757,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.757,
+        "end": 0.77,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 0.77,
+        "end": 0.88,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 0.88,
+        "end": 0.88,
+        "type": "spacing"
+      },
+      {
+        "text": "biggest",
+        "start": 0.88,
+        "end": 1.208,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.208,
+        "end": 1.24,
+        "type": "spacing"
+      },
+      {
+        "text": "country",
+        "start": 1.24,
+        "end": 1.528,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.528,
+        "end": 1.56,
+        "type": "spacing"
+      },
+      {
+        "text": "on",
+        "start": 1.56,
+        "end": 1.724,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 1.724,
+        "end": 1.74,
+        "type": "spacing"
+      },
+      {
+        "text": "Earth,",
+        "start": 1.74,
+        "end": 2.097,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.097,
+        "end": 2.44,
+        "type": "spacing"
+      },
+      {
+        "text": "and",
+        "start": 2.44,
+        "end": 2.552,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.552,
+        "end": 2.552,
+        "type": "spacing"
+      },
+      {
+        "text": "its",
+        "start": 2.552,
+        "end": 2.787,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 2.787,
+        "end": 2.84,
+        "type": "spacing"
+      },
+      {
+        "text": "symbol",
+        "start": 2.84,
+        "end": 3.187,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.187,
+        "end": 3.24,
+        "type": "spacing"
+      },
+      {
+        "text": "is",
+        "start": 3.24,
+        "end": 3.404,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.404,
+        "end": 3.42,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 3.42,
+        "end": 3.512,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.512,
+        "end": 3.512,
+        "type": "spacing"
+      },
+      {
+        "text": "bear.",
+        "start": 3.512,
+        "end": 3.988,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 3.988,
+        "end": 4.51,
+        "type": "spacing"
+      },
+      {
+        "text": "In",
+        "start": 4.51,
+        "end": 4.669,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 4.669,
+        "end": 4.68,
+        "type": "spacing"
+      },
+      {
+        "text": "eighteen",
+        "start": 4.68,
+        "end": 5.045,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.045,
+        "end": 5.09,
+        "type": "spacing"
+      },
+      {
+        "text": "twelve,",
+        "start": 5.09,
+        "end": 5.595,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.595,
+        "end": 5.76,
+        "type": "spacing"
+      },
+      {
+        "text": "In",
+        "start": 5.76,
+        "end": 5.975,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 5.975,
+        "end": 5.975,
+        "type": "spacing"
+      },
+      {
+        "text": "Napoleon",
+        "start": 5.975,
+        "end": 6.487,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.487,
+        "end": 6.52,
+        "type": "spacing"
+      },
+      {
+        "text": "marched",
+        "start": 6.52,
+        "end": 6.813,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 6.813,
+        "end": 6.835,
+        "type": "spacing"
+      },
+      {
+        "text": "on",
+        "start": 6.835,
+        "end": 7.042,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.042,
+        "end": 7.075,
+        "type": "spacing"
+      },
+      {
+        "text": "Moscow",
+        "start": 7.075,
+        "end": 7.511,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.511,
+        "end": 7.554,
+        "type": "spacing"
+      },
+      {
+        "text": "with",
+        "start": 7.554,
+        "end": 7.732,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.732,
+        "end": 7.74,
+        "type": "spacing"
+      },
+      {
+        "text": "more",
+        "start": 7.74,
+        "end": 7.91,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 7.91,
+        "end": 7.91,
+        "type": "spacing"
+      },
+      {
+        "text": "than",
+        "start": 7.91,
+        "end": 8.092,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.092,
+        "end": 8.114,
+        "type": "spacing"
+      },
+      {
+        "text": "four",
+        "start": 8.114,
+        "end": 8.412,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.412,
+        "end": 8.434,
+        "type": "spacing"
+      },
+      {
+        "text": "hundred",
+        "start": 8.434,
+        "end": 8.721,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 8.721,
+        "end": 8.753,
+        "type": "spacing"
+      },
+      {
+        "text": "thousand",
+        "start": 8.753,
+        "end": 9.121,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.121,
+        "end": 9.153,
+        "type": "spacing"
+      },
+      {
+        "text": "men.",
+        "start": 9.153,
+        "end": 9.534,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 9.534,
+        "end": 9.95,
+        "type": "spacing"
+      },
+      {
+        "text": "The",
+        "start": 9.95,
+        "end": 10.055,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.055,
+        "end": 10.055,
+        "type": "spacing"
+      },
+      {
+        "text": "Russians",
+        "start": 10.055,
+        "end": 10.47,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.47,
+        "end": 10.512,
+        "type": "spacing"
+      },
+      {
+        "text": "burned",
+        "start": 10.512,
+        "end": 10.821,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 10.821,
+        "end": 10.832,
+        "type": "spacing"
+      },
+      {
+        "text": "their",
+        "start": 10.832,
+        "end": 11.005,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.005,
+        "end": 11.01,
+        "type": "spacing"
+      },
+      {
+        "text": "own",
+        "start": 11.01,
+        "end": 11.259,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.259,
+        "end": 11.311,
+        "type": "spacing"
+      },
+      {
+        "text": "city",
+        "start": 11.311,
+        "end": 11.599,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.599,
+        "end": 11.631,
+        "type": "spacing"
+      },
+      {
+        "text": "rather",
+        "start": 11.631,
+        "end": 11.867,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 11.867,
+        "end": 11.88,
+        "type": "spacing"
+      },
+      {
+        "text": "than",
+        "start": 11.88,
+        "end": 12.09,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.09,
+        "end": 12.111,
+        "type": "spacing"
+      },
+      {
+        "text": "give",
+        "start": 12.111,
+        "end": 12.263,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.263,
+        "end": 12.263,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 12.263,
+        "end": 12.347,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.347,
+        "end": 12.36,
+        "type": "spacing"
+      },
+      {
+        "text": "to",
+        "start": 12.36,
+        "end": 12.47,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.47,
+        "end": 12.47,
+        "type": "spacing"
+      },
+      {
+        "text": "him.",
+        "start": 12.47,
+        "end": 12.734,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 12.734,
+        "end": 13.15,
+        "type": "spacing"
+      },
+      {
+        "text": "Then",
+        "start": 13.15,
+        "end": 13.508,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.508,
+        "end": 13.55,
+        "type": "spacing"
+      },
+      {
+        "text": "came",
+        "start": 13.55,
+        "end": 13.797,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.797,
+        "end": 13.8,
+        "type": "spacing"
+      },
+      {
+        "text": "the",
+        "start": 13.8,
+        "end": 13.895,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 13.895,
+        "end": 13.895,
+        "type": "spacing"
+      },
+      {
+        "text": "winter.",
+        "start": 13.895,
+        "end": 14.436,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 14.436,
+        "end": 14.88,
+        "type": "spacing"
+      },
+      {
+        "text": "Only",
+        "start": 14.88,
+        "end": 15.154,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.154,
+        "end": 15.17,
+        "type": "spacing"
+      },
+      {
+        "text": "a",
+        "start": 15.17,
+        "end": 15.299,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.299,
+        "end": 15.31,
+        "type": "spacing"
+      },
+      {
+        "text": "small",
+        "start": 15.31,
+        "end": 15.657,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 15.657,
+        "end": 15.71,
+        "type": "spacing"
+      },
+      {
+        "text": "fraction",
+        "start": 15.71,
+        "end": 16.034,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.034,
+        "end": 16.05,
+        "type": "spacing"
+      },
+      {
+        "text": "of",
+        "start": 16.05,
+        "end": 16.186,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.186,
+        "end": 16.2,
+        "type": "spacing"
+      },
+      {
+        "text": "his",
+        "start": 16.2,
+        "end": 16.339,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.339,
+        "end": 16.35,
+        "type": "spacing"
+      },
+      {
+        "text": "army",
+        "start": 16.35,
+        "end": 16.674,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.674,
+        "end": 16.69,
+        "type": "spacing"
+      },
+      {
+        "text": "ever",
+        "start": 16.69,
+        "end": 16.958,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 16.958,
+        "end": 16.99,
+        "type": "spacing"
+      },
+      {
+        "text": "made",
+        "start": 16.99,
+        "end": 17.171,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.171,
+        "end": 17.18,
+        "type": "spacing"
+      },
+      {
+        "text": "it",
+        "start": 17.18,
+        "end": 17.299,
+        "type": "word"
+      },
+      {
+        "text": " ",
+        "start": 17.299,
+        "end": 17.31,
+        "type": "spacing"
+      },
+      {
+        "text": "home.",
+        "start": 17.31,
+        "end": 17.638,
+        "type": "word"
+      }
+    ],
+    "transcription_id": "5bdcb46491fc33ac8ebc",
+    "audio_duration_secs": 17.986375
+  }
+]
