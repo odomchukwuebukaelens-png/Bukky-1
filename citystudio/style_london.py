@@ -23,6 +23,7 @@ from mathutils import noise as mnoise
 import style_historic as H
 import style_nyc as N
 import people as P
+from trees import tree_instancer
 
 LAT0, LON0 = 51.5133, -0.0890
 KX = 111320.0 * math.cos(math.radians(LAT0))
@@ -37,6 +38,7 @@ def P2(lonlat):
     return proj(lonlat[0], lonlat[1])
 
 
+LONDON_TREES = [("broad", 0.85), ("broad", 1.0), ("broad", 1.15), ("broad", 0.95), ("con", 0.9)]   # oak, ash, elm, beech, yew
 LONDON_BRIDGE = ((-0.0877, 51.5081), (-0.0868, 51.5049))
 TOWER = (-0.0760, 51.5081)
 STPAULS = (-0.0984, 51.5138)
@@ -75,9 +77,12 @@ class London:
         j, i = self.ij(x, y)
         return float(self.elev[j, i])
 
-    def is_land(self, x, y):
+    def is_land(self, x, y, year=99999):
         j, i = self.ij(x, y)
         return bool(self.land[j, i])
+
+    def fill(self, x, y):
+        return 0
 
     def zone(self, x, y):
         for k in ("city", "southwark", "westminster", "strand", "westend"):
@@ -288,13 +293,14 @@ def build(brief, plan_unused=None):
     H.HAZE_AMOUNT = brief.get("haze_amount", 0.18)
     if brief.get("haze_color"):
         H.HAZE = tuple(brief["haze_color"])
+    H.HOUSE_DETAIL = True                       # windows, doors, chimneys and overhanging roofs
     painted = N.painted_nyc("PaintedLondon")
     tree_mat = N.painted_nyc("TreesLondon", trees=True)
     facade, night = N.facade_material()
     tmat, now = terrain_material()
     arch_mat = arcade_material()
     N.WATER_MAT.clear()
-    N.WATER_MAT.append(N.shore_water_material())
+    N.WATER_MAT.append(N.shore_water_material(((0.17, 0.19, 0.13), (0.06, 0.08, 0.05), (0.03, 0.045, 0.03)), realistic=True))  # the brown-green Thames
     animated = []
     z = city.z
 
@@ -362,6 +368,67 @@ def build(brief, plan_unused=None):
                 if year < occupied.get(k, 1e9):
                     occupied[k] = year
 
+    # --- footprints: nothing else may stand inside a monument, a bridge approach
+    # or another building while it exists, and no tree grows inside them
+    FC = 5.0
+    FOOT = {}                      # 5 m cell -> [(from, to)] of monuments and approach roads
+    BOCC = {}                      # 5 m cell -> [(from, to)] of buildings (people keep out of them)
+
+    def hull(pts):
+        pts = sorted(set((round(x_, 0), round(y_, 0)) for x_, y_ in pts))
+        if len(pts) < 3:
+            return pts
+
+        def cross(o, a, b):
+            return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+        lo, hi = [], []
+        for q in pts:
+            while len(lo) >= 2 and cross(lo[-2], lo[-1], q) <= 0:
+                lo.pop()
+            lo.append(q)
+        for q in reversed(pts):
+            while len(hi) >= 2 and cross(hi[-2], hi[-1], q) <= 0:
+                hi.pop()
+            hi.append(q)
+        return lo[:-1] + hi[:-1]
+
+    def register(xy, t0, t1, pad=3.0, clear_trees=True):
+        hp = hull(xy)
+        if len(hp) < 3:
+            return
+        xs_, ys_ = [q[0] for q in hp], [q[1] for q in hp]
+        for i in range(int((min(xs_) - pad) // FC), int((max(xs_) + pad) // FC) + 1):
+            for j in range(int((min(ys_) - pad) // FC), int((max(ys_) + pad) // FC) + 1):
+                cx_, cy_ = (i + 0.5) * FC, (j + 0.5) * FC
+                if inside((cx_, cy_), hp) or any(math.hypot(cx_ - q[0], cy_ - q[1]) < pad for q in hp):
+                    FOOT.setdefault((i, j), []).append((t0, t1))
+                    if clear_trees:
+                        occupy(cx_, cy_, t0, 1.0, house=False)
+
+    def blocked(x, y, start, end, half):
+        k = int(half // FC)
+        ci, cj = int(x // FC), int(y // FC)
+        for di in range(-k, k + 1):
+            for dj in range(-k, k + 1):
+                for a_, b_ in FOOT.get((ci + di, cj + dj), ()):
+                    if a_ < end and b_ > start:
+                        return True
+        return False
+
+    def mark_building(x, y, half, start, end):
+        k = int(half // FC)
+        ci, cj = int(x // FC), int(y // FC)
+        for di in range(-k, k + 1):
+            for dj in range(-k, k + 1):
+                BOCC.setdefault((ci + di, cj + dj), []).append((start, end))
+
+    def free_ground(x, y, year):
+        """True where a person may stand: on land, not inside a building or monument."""
+        if not city.is_land(x, y):
+            return False
+        c_ = (int(x // FC), int(y // FC))
+        return not any(a_ <= year < b_ for a_, b_ in BOCC.get(c_, []) + FOOT.get(c_, []))
+
     # --- fire and bomb damage: buildings standing in a burnt or bombed area are
     # blackened and reduced to ruins, then (for some events) rebuilt later
     CHAR = (0.07, 0.06, 0.05, 0.0)
@@ -369,7 +436,7 @@ def build(brief, plan_unused=None):
     for e in brief.get("fx", []):
         if e.get("destroy", 0) <= 0:
             continue
-        burns.append({"c": P2(e["ll"]), "r": e["radius"], "t": e["from"] + 0.6 * (e["to"] - e["from"]),
+        burns.append({"e": e, "c": P2(e["ll"]), "r": e["radius"], "t": e["from"] + 0.6 * (e["to"] - e["from"]),
                       "p": e["destroy"], "ruin": e.get("ruin", 0.3), "rebuild": e.get("rebuild", 10.0),
                       "zone": e.get("zone")})
     dr = random.Random(brief["seed"] + 51)
@@ -382,14 +449,20 @@ def build(brief, plan_unused=None):
             if not hit and bn["zone"] == "fire":
                 hit = city.in_fire(x, y)
             if hit and dr.random() < bn["p"]:
+                bn.setdefault("hits", []).append((x, y))
                 return bn
         return None
 
-    def place(kind, start, end, x, y, zz, ux, uy, d, w, h, wall, roof, shape="house", bucket=25):
+    def place(kind, start, end, x, y, zz, ux, uy, d, w, h, wall, roof, shape="house", bucket=25, extra=None):
         """A generated building that may burn or be bombed during its life."""
+        if blocked(x, y, start, end, max(d, w) / 2):
+            return                                     # never inside a monument or across a bridge approach
+        mark_building(x, y, max(d, w) / 2, start, end)
+
         def draw(part, hh, col_, rf, sh):
             if sh == "house":
-                part.house({"x": x, "y": y, "ux": ux, "uy": uy, "d": d, "w": w, "h": hh, "wall": col_, "roof": rf}, zz)
+                part.house(dict({"x": x, "y": y, "ux": ux, "uy": uy, "d": d, "w": w, "h": hh, "wall": col_, "roof": rf},
+                                **(extra or {})), zz)
             else:
                 part.box(x, y, zz, ux, uy, d / 2, w / 2, hh, (*col_, 0.6), top=(*rf, 0.0))
         bn = damage(x, y, start, end)
@@ -400,94 +473,13 @@ def build(brief, plan_unused=None):
         put(("shell", round(bn["t"], 3), int(bn["t"] + bn["rebuild"])),
             lambda part: part.box(x, y, zz, ux, uy, d / 2, w / 2, h * bn["ruin"] * dr.uniform(0.6, 1.4), CHAR))
 
-    # --- today's buildings (estimated dates) and their predecessors --------
-    for b in city.data["buildings"]:
-        cx, cy, year, est, h, flat, name = b
-        pts = [(flat[i], flat[i + 1]) for i in range(0, len(flat), 2)]
-        if not city.is_land(cx, cy):
-            continue
-        zz = z(cx, cy) - 0.5
-        grow = 3.0
-        start = year
-        low = name.lower()
-        if any(k in low for k in ("the shard", "30 st mary axe")):
-            continue                                    # modelled separately with their real shapes
-        if any((Vector((cx, cy)) - P2((lo, la))).length < r_ * 0.8 for lo, la, r_ in CLEAR[:4]):
-            continue                                    # St Paul's, the Tower, the Abbey and Palace are modelled
-        wall = rng.choice(BRICKS) if year < 1900 else rng.choice(BRICKS + MODERN)
-        if name and year < 1950:
-            wall = PORTLAND
-        win = 0.0 if (name and year < 1800) else 0.55       # old stone landmarks: no office-style window grid
-        occupy(cx, cy, start, 10.0)
-        bn = damage(cx, cy, start, 99999)
-        if bn is None:
-            put(("bld", int(start // 2) * 2, int(grow), 99999),
-                lambda part, pts=pts, zz=zz, h=h, wall=wall, win=win: N.extrude(part, pts, zz, h, wall, win, (0.55, 0.22, 0.12)))
-        else:
-            t_, back = bn["t"], int(bn["t"] + bn["rebuild"] * dr.uniform(0.8, 1.6))
-            put(("bld", int(start // 2) * 2, int(grow), round(t_, 3)),
-                lambda part, pts=pts, zz=zz, h=h, wall=wall, win=win: N.extrude(part, pts, zz, h, wall, win, (0.55, 0.22, 0.12)))
-            put(("shell", round(t_, 3), back),
-                lambda part, pts=pts, zz=zz, h=h: N.extrude(part, pts, zz, max(3.0, h * bn["ruin"] * dr.uniform(0.5, 1.3)),
-                                                            CHAR[:3], 0.0, roof=CHAR[:3]))
-            put(("bld", back, 3, 99999),
-                lambda part, pts=pts, zz=zz, h=h, wall=wall, win=win: N.extrude(part, pts, zz, h, wall, win, (0.55, 0.22, 0.12)))
-        zn = city.zone(cx, cy)
-        if False:
-            m0 = 0
-            put(("med", int(m0 // 25) * 25, int(year // 25) * 25),
-                lambda part, cx=cx, cy=cy, zz=zz: part.house({"x": cx, "y": cy, "ux": (1, 0), "uy": (0, 1),
-                                                               "d": rng.uniform(8, 12), "w": rng.uniform(6, 9),
-                                                               "h": rng.uniform(9, 13), "wall": rng.choice(H.WALLS),
-                                                               "roof": TILE}, zz))
-
-    # --- historic fabric: Roman, medieval timber, post-Fire brick, Georgian ----
-    step_ = 40.0
-    fr = random.Random(brief["seed"] + 3)
-    yy = city.y0
-    while yy < city.y0 + ny * res:
-        xx = city.x0
-        while xx < city.x0 + nx * res:
-            px_, py_ = xx + fr.uniform(-8, 8), yy + fr.uniform(-8, 8)
-            xx += step_
-            if not all(city.is_land(px_ + ox, py_ + oy) for ox, oy in ((0, 0), (12, 0), (-12, 0), (0, 12), (0, -12))):
-                continue
-            if any((Vector((px_, py_)) - P2((lo, la))).length < r_ for lo, la, r_ in CLEAR):
-                continue
-            zn = city.zone(px_, py_)
-            beyond = not (DATA_X[0] < px_ < DATA_X[1] and DATA_Y[0] < py_ < DATA_Y[1])
-            if zn == "outside" and fr.random() < (0.35 if beyond else 0.6):
-                continue
-            u, ab, re_, _f = city.eras(px_, py_)
-            zz = z(px_, py_)
-            yaw = fr.uniform(-0.3, 0.3)
-            ux, uy = (math.cos(yaw), math.sin(yaw)), (-math.sin(yaw), math.cos(yaw))
-            if zn in ("city", "southwark"):          # Roman Londinium
-                a0, a1 = u + fr.uniform(0, 120), ab + fr.uniform(-30, 20)
-                occupy(px_, py_, a0, 9.0)
-                place("rom", a0, a1, px_, py_, zz, ux, uy, fr.uniform(10, 16), fr.uniform(7, 11), fr.uniform(5, 8),
-                      (0.86, 0.80, 0.66), TILE)
-            if zn != "outside":                       # medieval / Tudor timber houses
-                m0 = (re_ if re_ < 9000 else u) + fr.uniform(0, 200)
-                if m0 < 1680:
-                    m1 = 1666.8 if city.in_fire(px_, py_) else fr.uniform(1700, 1880)
-                    if m1 > m0 + 5:
-                        occupy(px_, py_, m0, 8.0)
-                        place("med", m0, m1, px_, py_, zz, ux, uy, fr.uniform(8, 12), fr.uniform(5, 8), fr.uniform(9, 14),
-                              fr.choice(TIMBER), fr.choice([(0.32, 0.28, 0.25), (0.50, 0.25, 0.15)]))
-            g0 = 1667.5 + fr.uniform(0, 20) if city.in_fire(px_, py_) else max(u, 1700) + fr.uniform(0, 80)
-            if g0 < 1900:                             # brick and stucco terraces
-                g1 = 99999 if beyond else fr.uniform(max(g0 + 40, 1860), 2010)
-                stucco = zn == "westend" and fr.random() < 0.5
-                occupy(px_, py_, g0, 9.0)
-                place("geo", g0, g1, px_, py_, zz, ux, uy, fr.uniform(18, 28), fr.uniform(12, 18), fr.uniform(12, 18),
-                      (0.92, 0.90, 0.84) if stucco else fr.choice(BRICKS[:3]), SLATE, shape="box", bucket=10)
-        yy += step_
-
     # --- monuments ------------------------------------------------------------
-    def mon(name, t0, t1, fn, grow=4.0, label=None, ruin=None, mat=None):
+    def mon(name, t0, t1, fn, grow=4.0, label=None, ruin=None, mat=None, foot=True):
         part = N.Partsc()
         fn(part)
+        if foot:
+            end_ = ruin.get("to", 99999) if ruin else t1
+            register([(v[0], v[1]) for v in part.verts], t0 - grow, end_)
         ob = part.to_object(name, mat or painted, col)
         animated.append({"ob": ob, "year": t0, "grow": grow, "gone": t1, "fade": 3.0})
         if ruin:
@@ -561,7 +553,7 @@ def build(brief, plan_unused=None):
                 p.box(q.x, q.y, z_deck + 2.5, tuple(u), tuple(v), 5, w / 2 + 1, 16, (*STONE, 0.0), top=((0.30, 0.30, 0.33, 0.0)))
 
     # Roman Londinium: wooden bridge, forum, amphitheatre, the wall
-    mon("RomanBridge", 52, 420, lambda p: bridge(p, LONDON_BRIDGE[0], LONDON_BRIDGE[1], 5, 7, (0.40, 0.30, 0.20, 0.0)), 2)
+    mon("RomanBridge", 52, 420, lambda p: bridge(p, LONDON_BRIDGE[0], LONDON_BRIDGE[1], 5, 7, (0.40, 0.30, 0.20, 0.0)), 2, foot=False)
     fx_, fy_, fz_ = at((-0.0855, 51.5132))
     mon("Forum", 80, 300, lambda p: (p.box(fx_, fy_, fz_, (1, 0), (0, 1), 85, 25, 24, (*STONE, 0.3), top=(*TILE, 0.0)),
                                      p.box(fx_, fy_ - 60, fz_, (1, 0), (0, 1), 85, 4, 9, (*STONE, 0.0)),
@@ -584,8 +576,86 @@ def build(brief, plan_unused=None):
     marks["wall"] = (*tuple(P2((-0.0880, 51.5185))), 14)
 
     # Old London Bridge with houses (1209-1831), then a plain stone bridge
-    mon("OldLondonBridge", 1209, 1831, lambda p: bridge(p, LONDON_BRIDGE[0], LONDON_BRIDGE[1], 6, 16, (*STONE, 0.0), houses=True), 6)
-    mon("LondonBridge1831", 1831, 99999, lambda p: bridge(p, (-0.0880, 51.5082), (-0.0871, 51.5049), 9, 20, (0.72, 0.70, 0.64, 0.0)), 3)
+    mon("OldLondonBridge", 1209, 1831, lambda p: bridge(p, LONDON_BRIDGE[0], LONDON_BRIDGE[1], 6, 16, (*STONE, 0.0), houses=True), 6, foot=False)
+    mon("LondonBridge1831", 1831, 99999, lambda p: bridge(p, (-0.0880, 51.5082), (-0.0871, 51.5049), 9, 20, (0.72, 0.70, 0.64, 0.0)), 3, foot=False)
+    # every bridge end continues straight into the city as a road; nothing is built across it
+    APPROACH = []                                       # (start, end, width, from, to)
+    approach_parts = {}
+
+    def approach(a_ll, b_ll, wd, b0_, b1_):
+        e0, e1 = fit_span(P2(a_ll), P2(b_ll))
+        u_ = (e1 - e0).normalized()
+        for s0, s1 in ((e0 - u_ * 150, e0 + u_ * 6), (e1 - u_ * 6, e1 + u_ * 150)):
+            seg = []
+            for k in range(31):
+                q = s0 + (s1 - s0) * (k / 30)
+                if city.is_land(q.x, q.y) or (q - e0).length < 8 or (q - e1).length < 8:
+                    seg.append(q)
+            if len(seg) < 2:
+                continue
+            APPROACH.append((seg[0], seg[-1], wd, b0_, b1_))
+            nrm = Vector((-u_.y, u_.x)) * (wd / 2 + 1.0)
+            part = approach_parts.setdefault((b0_, b1_), N.Partsc())
+            for qa, qb in zip(seg, seg[1:]):
+                part.add([(*(qa - nrm), z(qa.x, qa.y) + 0.45), (*(qb - nrm), z(qb.x, qb.y) + 0.45),
+                          (*(qb + nrm), z(qb.x, qb.y) + 0.45), (*(qa + nrm), z(qa.x, qa.y) + 0.45)], [(0, 1, 2, 3)],
+                         [(0.56, 0.52, 0.46, 0.0) if b0_ < 1850 else (0.40, 0.40, 0.42, 0.0)])
+            register([tuple(seg[0] - nrm), tuple(seg[0] + nrm), tuple(seg[-1] - nrm), tuple(seg[-1] + nrm)], b0_ - 1, b1_)
+
+    crossings = []                                      # streets that cross the river today
+    for _n, w_, flat_ in city.data.get("roads", []):
+        rp = [Vector((flat_[i], flat_[i + 1])) for i in range(0, len(flat_), 2)]
+        for a_, b_ in zip(rp, rp[1:]):
+            m_ = (a_ + b_) / 2
+            if (b_ - a_).length > 4 and not city.is_land(m_.x, m_.y):
+                crossings.append((m_, (b_ - a_).normalized()))
+    inv = lambda p: (LON0 + p.x / KX, LAT0 + p.y / KY)  # noqa: E731
+
+    def across(ll):
+        """Two points either side of the river: along today's crossing street if there is one,
+        otherwise along the shortest way over the water."""
+        q = P2(ll)
+        if crossings:
+            m_, u_ = min(crossings, key=lambda c_: (c_[0] - q).length)
+            if (m_ - q).length < 160:
+                return inv(m_ - u_ * 40), inv(m_ + u_ * 40)
+        best = None
+        for k in range(18):
+            a = math.pi * k / 18
+            u_ = Vector((math.cos(a), math.sin(a)))
+            span = 0.0
+            for sg in (-1, 1):
+                t = 0.0
+                while t < 500 and not city.is_land(q.x + u_.x * sg * t, q.y + u_.y * sg * t):
+                    t += 4.0
+                span += t
+            if best is None or span < best[0]:
+                best = (span, u_)
+        u_ = best[1]
+        return inv(q - u_ * 40), inv(q + u_ * 40)
+
+    THAMES_BRIDGES = [  # name, (lon, lat), built, gone, deck, width, colour, arches
+        ("WestminsterOld", (-0.1218, 51.5008), 1750, 1862, 9, 13, STONE, True),
+        ("Westminster", (-0.1218, 51.5008), 1862, 99999, 9, 26, (0.30, 0.45, 0.35), True),
+        ("BlackfriarsOld", (-0.1043, 51.5096), 1769, 1869, 9, 13, STONE, True),
+        ("Blackfriars", (-0.1043, 51.5096), 1869, 99999, 9, 32, (0.55, 0.20, 0.18), True),
+        ("WaterlooOld", (-0.1166, 51.5085), 1817, 1937, 9, 13, (0.70, 0.68, 0.62), True),
+        ("Waterloo", (-0.1166, 51.5085), 1945, 99999, 9, 24, (0.80, 0.78, 0.72), True),
+        ("SouthwarkOld", (-0.0943, 51.5082), 1819, 1919, 9, 12, (0.32, 0.30, 0.30), True),
+        ("Southwark", (-0.0943, 51.5082), 1921, 99999, 9, 17, (0.45, 0.55, 0.45), True),
+        ("Lambeth", (-0.1222, 51.4945), 1862, 99999, 9, 18, (0.60, 0.20, 0.18), True),
+        ("Millennium", (-0.0985, 51.5095), 2000, 99999, 8, 4, (0.85, 0.86, 0.88), False),
+    ]
+    for nm_, ll_, b0_, b1_, deck, wd, colr, arch in THAMES_BRIDGES:
+        a_, b_ = across(ll_)
+        mon(nm_, b0_, b1_, lambda p, a_=a_, b_=b_, deck=deck, wd=wd, colr=colr, arch=arch:
+            bridge(p, a_, b_, deck, wd, (*colr, 0.0), arches=arch), 3, foot=False)
+        approach(a_, b_, max(8, wd * 0.6), b0_, b1_)
+    approach(LONDON_BRIDGE[0], LONDON_BRIDGE[1], 10, 52, 99999)
+    for (b0_, b1_), part in approach_parts.items():
+        animated.append({"ob": part.to_object("bridge_roads_%d" % b0_, painted, col), "year": b0_, "grow": 0.0,
+                         "gone": None if b1_ >= 99999 else b1_, "fade": 3.0})
+
     marks["bridge"] = (*tuple(P2((-0.0873, 51.5065))), 25)
 
     # The Tower of London: the White Tower (1078) and its curtain walls
@@ -679,7 +749,7 @@ def build(brief, plan_unused=None):
             m = (q0 + q1) / 2 + v * sd * 4
             p.box(m.x, m.y, 44, tuple(u), tuple(v), (q1 - q0).length / 2, 2.2, 4, (0.25, 0.45, 0.65, 0.0))
         p.box((a.x + b.x) / 2, (a.y + b.y) / 2, 9, tuple(u), tuple(v), d.length / 2, 8, 2.0, (0.30, 0.34, 0.38, 0.0))
-    mon("TowerBridge", 1886, 99999, tower_bridge, 8)
+    mon("TowerBridge", 1886, 99999, tower_bridge, 8, foot=False)
     marks["towerbridge"] = (*tuple(P2((-0.0753, 51.5055))), 80)
 
     # The Shard (2012) and 30 St Mary Axe (2004)
@@ -701,6 +771,137 @@ def build(brief, plan_unused=None):
                       (0.25, 0.38, 0.45), 0.9, roof=(0.25, 0.38, 0.45))
     mon("Gherkin", 2001, 99999, gherkin, 3)
     marks["gherkin"] = (gx2, gy2, gz2 + 195)
+
+    # road mask: generated houses are never put on a street or walkway
+    RC = 5.0
+    roadcells = set()
+    for _n, w_, flat_ in city.data.get("roads", []):
+        rp = [(flat_[i], flat_[i + 1]) for i in range(0, len(flat_), 2)]
+        rr_ = int((w_ / 2 + 1.5) // RC) + 1
+        for (ax, ay), (bx, by) in zip(rp, rp[1:]):
+            n_ = max(1, int(math.hypot(bx - ax, by - ay) / 2.5))
+            for k in range(n_ + 1):
+                qx, qy = ax + (bx - ax) * k / n_, ay + (by - ay) * k / n_
+                ci, cj = int(qx // RC), int(qy // RC)
+                for di in range(-rr_ + 1, rr_):
+                    for dj in range(-rr_ + 1, rr_):
+                        roadcells.add((ci + di, cj + dj))
+
+    for s0, s1, wd_, _a, _b in APPROACH:
+        n_ = max(1, int((s1 - s0).length / 2.5))
+        for k in range(n_ + 1):
+            q = s0 + (s1 - s0) * (k / n_)
+            rr_ = int((wd_ / 2) // RC) + 1
+            for di in range(-rr_ + 1, rr_):
+                for dj in range(-rr_ + 1, rr_):
+                    roadcells.add((int(q.x // RC) + di, int(q.y // RC) + dj))
+
+    def off_road(x, y, half):
+        k = int(half // RC) + 1
+        ci, cj = int(x // RC), int(y // RC)
+        return not any((ci + di, cj + dj) in roadcells for di in range(-k, k + 1) for dj in range(-k, k + 1))
+
+    def free_spot(x, y, half):
+        for ox, oy in ((0, 0), (7, 0), (-7, 0), (0, 7), (0, -7), (7, 7), (-7, -7), (7, -7), (-7, 7)):
+            if off_road(x + ox, y + oy, half):
+                return x + ox, y + oy
+        return None
+
+    # --- today's buildings (estimated dates) and their predecessors --------
+    for b in city.data["buildings"]:
+        cx, cy, year, est, h, flat, name = b
+        pts = [(flat[i], flat[i + 1]) for i in range(0, len(flat), 2)]
+        if not city.is_land(cx, cy):
+            continue
+        if sum(0 if city.is_land(px, py) else 1 for px, py in pts) > 0.3 * len(pts):
+            continue                                    # nothing stands in the Thames
+        if not name and blocked(cx, cy, year, 99999, 2.0):
+            continue                                    # nor inside a monument or across a bridge approach
+        zz = z(cx, cy) - 0.5
+        grow = 3.0
+        start = year
+        low = name.lower()
+        if any(k in low for k in ("the shard", "30 st mary axe")):
+            continue                                    # modelled separately with their real shapes
+        if any((Vector((cx, cy)) - P2((lo, la))).length < r_ * 0.8 for lo, la, r_ in CLEAR[:4]):
+            continue                                    # St Paul's, the Tower, the Abbey and Palace are modelled
+        wall = rng.choice(BRICKS) if year < 1900 else rng.choice(BRICKS + MODERN)
+        if name and year < 1950:
+            wall = PORTLAND
+        win = 0.0 if (name and year < 1800) else 0.55       # old stone landmarks: no office-style window grid
+        xs_, ys_ = [q[0] for q in pts], [q[1] for q in pts]
+        half_ = max(6.0, 0.5 * max(max(xs_) - min(xs_), max(ys_) - min(ys_)))
+        occupy(cx, cy, start, half_)
+        mark_building(cx, cy, half_ * 0.8, start, 99999)
+        bn = damage(cx, cy, start, 99999)
+        if bn is None:
+            put(("bld", int(start // 2) * 2, int(grow), 99999),
+                lambda part, pts=pts, zz=zz, h=h, wall=wall, win=win: N.extrude(part, pts, zz, h, wall, win, (0.55, 0.22, 0.12)))
+        else:
+            t_, back = bn["t"], int(bn["t"] + bn["rebuild"] * dr.uniform(0.8, 1.6))
+            put(("bld", int(start // 2) * 2, int(grow), round(t_, 3)),
+                lambda part, pts=pts, zz=zz, h=h, wall=wall, win=win: N.extrude(part, pts, zz, h, wall, win, (0.55, 0.22, 0.12)))
+            put(("shell", round(t_, 3), back),
+                lambda part, pts=pts, zz=zz, h=h: N.extrude(part, pts, zz, max(3.0, h * bn["ruin"] * dr.uniform(0.5, 1.3)),
+                                                            CHAR[:3], 0.0, roof=CHAR[:3]))
+            put(("bld", back, 3, 99999),
+                lambda part, pts=pts, zz=zz, h=h, wall=wall, win=win: N.extrude(part, pts, zz, h, wall, win, (0.55, 0.22, 0.12)))
+        zn = city.zone(cx, cy)
+        if False:
+            m0 = 0
+            put(("med", int(m0 // 25) * 25, int(year // 25) * 25),
+                lambda part, cx=cx, cy=cy, zz=zz: part.house({"x": cx, "y": cy, "ux": (1, 0), "uy": (0, 1),
+                                                               "d": rng.uniform(8, 12), "w": rng.uniform(6, 9),
+                                                               "h": rng.uniform(9, 13), "wall": rng.choice(H.WALLS),
+                                                               "roof": TILE}, zz))
+
+    # --- historic fabric: Roman, medieval timber, post-Fire brick, Georgian ----
+    step_ = 40.0
+    fr = random.Random(brief["seed"] + 3)
+    yy = city.y0
+    while yy < city.y0 + ny * res:
+        xx = city.x0
+        while xx < city.x0 + nx * res:
+            px_, py_ = xx + fr.uniform(-8, 8), yy + fr.uniform(-8, 8)
+            xx += step_
+            if not all(city.is_land(px_ + ox, py_ + oy) for ox, oy in ((0, 0), (12, 0), (-12, 0), (0, 12), (0, -12))):
+                continue
+            if any((Vector((px_, py_)) - P2((lo, la))).length < r_ for lo, la, r_ in CLEAR):
+                continue
+            spot = free_spot(px_, py_, 6.0)
+            if spot is None:
+                continue                                  # houses never stand on a street
+            px_, py_ = spot
+            zn = city.zone(px_, py_)
+            beyond = not (DATA_X[0] < px_ < DATA_X[1] and DATA_Y[0] < py_ < DATA_Y[1])
+            if zn == "outside" and fr.random() < (0.35 if beyond else 0.6):
+                continue
+            u, ab, re_, _f = city.eras(px_, py_)
+            zz = z(px_, py_)
+            yaw = fr.uniform(-0.3, 0.3)
+            ux, uy = (math.cos(yaw), math.sin(yaw)), (-math.sin(yaw), math.cos(yaw))
+            if zn in ("city", "southwark"):          # Roman Londinium
+                a0, a1 = u + fr.uniform(0, 120), ab + fr.uniform(-30, 20)
+                occupy(px_, py_, a0, 9.0)
+                place("rom", a0, a1, px_, py_, zz, ux, uy, fr.uniform(10, 16), fr.uniform(7, 11), fr.uniform(5, 8),
+                      (0.86, 0.80, 0.66), TILE)
+            if zn != "outside":                       # medieval / Tudor timber houses
+                m0 = (re_ if re_ < 9000 else u) + fr.uniform(0, 200)
+                if m0 < 1680:
+                    m1 = 1666.8 if city.in_fire(px_, py_) else fr.uniform(1700, 1880)
+                    if m1 > m0 + 5:
+                        occupy(px_, py_, m0, 8.0)
+                        place("med", m0, m1, px_, py_, zz, ux, uy, fr.uniform(8, 12), fr.uniform(5, 8), fr.uniform(9, 14),
+                              fr.choice(TIMBER), fr.choice([(0.32, 0.28, 0.25), (0.50, 0.25, 0.15)]),
+                              extra={"chimney": True, "roof_h": 3.4, "frame_col": (0.22, 0.15, 0.10)})
+            g0 = 1667.5 + fr.uniform(0, 20) if city.in_fire(px_, py_) else max(u, 1700) + fr.uniform(0, 80)
+            if g0 < 1900:                             # brick and stucco terraces
+                g1 = 99999 if beyond else fr.uniform(max(g0 + 40, 1860), 2010)
+                stucco = zn == "westend" and fr.random() < 0.5
+                occupy(px_, py_, g0, 9.0)
+                place("geo", g0, g1, px_, py_, zz, ux, uy, fr.uniform(18, 28), fr.uniform(12, 18), fr.uniform(12, 18),
+                      (0.92, 0.90, 0.84) if stucco else fr.choice(BRICKS[:3]), SLATE, shape="box", bucket=10)
+        yy += step_
 
     # objects from bins
     for key, part in bins.items():
@@ -743,55 +944,150 @@ def build(brief, plan_unused=None):
     for yr, part in sb.items():
         animated.append({"ob": part.to_object("streets_%d" % yr, painted, col), "year": yr, "grow": 0.0, "gone": None})
 
-    # trees: they stay until a building or a street is put on their own plot
-    ico_v, ico_f = H.ico_template()
+    # trees: a dense forest on every piece of open land. A tree stays until a
+    # building or street is put under its crown; abandoned land grows back.
     tb = {}
     tr = random.Random(9)
-    for k_ in range(90000):
-        if k_ % 2:      # half the trees within the detailed city area
-            x_, y_ = tr.uniform(DATA_X[0], DATA_X[1]), tr.uniform(DATA_Y[0], DATA_Y[1])
-        else:
-            x_, y_ = tr.uniform(city.x0, city.x0 + nx * res), tr.uniform(city.y0, city.y0 + ny * res)
-        if not city.is_land(x_, y_):
-            continue
-        fo = 0.5 + 0.7 * mnoise.noise(Vector((x_ / 650.0 + 3.1, y_ / 650.0 - 1.7, 0.4)))
-        if fo < 0.35:
-            continue
-        u, ab, re_, farm = city.eras(x_, y_)
-        built = occupied.get((int(x_ // OCC), int(y_ // OCC)), 99999)
-        if fo < 0.55:
-            gone = built                                  # hedgerows and garden trees
-        else:
-            gone = min(built, farm + tr.uniform(0, 900) if tr.random() < 0.4 else 99999)
-        back = ab + tr.uniform(20, 200) if ab < 9000 else 99999      # trees return in the abandoned city
-        back_gone = re_ if back < 9000 else 99999
-        r = tr.uniform(4, 7)
-        g = tr.uniform(0.8, 1.2)
-        vv = [(x_ + vx * r, y_ + vy * r, z(x_, y_) + r * 0.9 + vz * r * 0.8) for vx, vy, vz in ico_v]
-        col_ = (0.055 * g, 0.20 * g, 0.035 * g)
-        tb.setdefault(("t", -3000, int(gone // 50) * 50), H.Parts()).add(vv, ico_f, [col_] * len(ico_f))
-        if back < 9000:
-            tb.setdefault(("t", int(back // 50) * 50, int(back_gone // 50) * 50), H.Parts()).add(vv, ico_f, [col_] * len(ico_f))
+    sp_in, sp_out = brief.get("tree_spacing", 15.0), brief.get("tree_spacing_outer", 21.0)
+
+    def first_built(x_, y_, r):
+        return min(occupied.get((int((x_ + ox) // OCC), int((y_ + oy) // OCC)), 99999)
+                   for ox, oy in ((0, 0), (r * 0.7, 0), (-r * 0.7, 0), (0, r * 0.7), (0, -r * 0.7)))
+
+    n_trees = 0
+    gy_ = city.y0
+    while gy_ < city.y0 + ny * res:
+        inner_row = DATA_Y[0] < gy_ < DATA_Y[1]
+        gx_ = city.x0
+        while gx_ < city.x0 + nx * res:
+            inner = inner_row and DATA_X[0] < gx_ < DATA_X[1]
+            step = sp_in if inner else sp_out
+            x_, y_ = gx_ + tr.uniform(-0.35, 0.35) * step, gy_ + tr.uniform(-0.35, 0.35) * step
+            gx_ += step
+            if not city.is_land(x_, y_):
+                continue
+            r = tr.uniform(6.0, 8.5) if inner else tr.uniform(8.5, 11.5)
+            fy_ = city.fill(x_, y_)
+            since = fy_ + 12 if fy_ else 0
+            u, ab, re_, farm = city.eras(x_, y_)
+            gone = first_built(x_, y_, r)
+            if since >= gone:
+                continue
+            back = ab + tr.uniform(20, 200) if ab < 9000 else 99999      # trees return in the abandoned city
+            back_gone = re_ if back < 9000 else 99999
+            pt = (x_, y_, z(x_, y_), r, tr.uniform(0, 6.283), tr.randrange(5))
+            town = u + 4 if (inner and u < 9000) else 99999         # the wild wood thins once a district is settled
+            if town < gone and town > since:
+                tb.setdefault(("t", int(since // 10) * 10 if since else -3000, int(town // 10) * 10), []).append(pt)
+                if tr.random() < 0.45:
+                    small = (x_, y_, pt[2], r * tr.uniform(0.40, 0.52), pt[4], tr.choice((1, 2, 2, 3, 4)))
+                    tb.setdefault(("t", int(town // 10) * 10, int(gone // 10) * 10), []).append(small)
+            else:
+                tb.setdefault(("t", int(since // 10) * 10 if since else -3000, int(gone // 10) * 10), []).append(pt)
+            n_trees += 1
+            if back < 9000:
+                tb.setdefault(("t", int(back // 50) * 50, int(back_gone // 50) * 50), []).append(pt)
+        gy_ += sp_in if inner_row else sp_out
+    print("[city-studio] forest trees:", n_trees, flush=True)
 
     # garden trees: planted around each house a few years after it is built
     import greenery
     gr = random.Random(brief["seed"] + 77)
     for gx, gy, gr_r, g0, g1 in greenery.garden_trees(plots, occupied, OCC, city.is_land, gr,
                                                       limit=brief.get("garden_trees", 110000)):
-        g = gr.uniform(0.8, 1.25)
-        vv = [(gx + vx * gr_r, gy + vy * gr_r, z(gx, gy) + gr_r * 0.9 + vz * gr_r * 0.85) for vx, vy, vz in ico_v]
-        col_ = (0.06 * g, 0.22 * g, 0.04 * g)
-        tb.setdefault(("t", int(g0 // 10) * 10, int(g1 // 25) * 25), H.Parts()).add(vv, ico_f, [col_] * len(ico_f))
-    for key, part in tb.items():
-        ob = part.to_object("trees_%d_%d" % key[1:], tree_mat, col)
+        if not off_road(gx, gy, 2.0):
+            continue                                   # not on the street
+        tb.setdefault(("t", int(g0 // 10) * 10, int(g1 // 25) * 25), []).append(
+            (gx, gy, z(gx, gy), gr_r * 1.15, gr.uniform(0, 6.283), gr.choice((1, 2, 2, 4))))
+    make_forest = tree_instancer(tree_mat, col, LONDON_TREES)
+    for key, pts_ in tb.items():
+        ob = make_forest("trees_%d_%d" % key[1:], pts_)
         animated.append({"ob": ob, "year": key[1], "grow": 0.0, "gone": key[2], "fade": 20.0})
 
     # people, armies and vehicles from the brief
+    # the street network from the map: marchers and traffic follow real streets
+    import heapq
+    nodes, adj = {}, {}
+
+    def nid(x_, y_):
+        key = (round(x_ * 0.5), round(y_ * 0.5))           # ends within 2 m are the same junction
+        if key not in nodes:
+            nodes[key] = (x_, y_)
+        return key
+    for _n, w_, flat_ in city.data.get("roads", []) + [("", a_[2], [a_[0].x, a_[0].y, a_[1].x, a_[1].y]) for a_ in APPROACH]:
+        rp = [(flat_[i], flat_[i + 1]) for i in range(0, len(flat_), 2)]
+        for (ax, ay), (bx, by) in zip(rp, rp[1:]):
+            ka, kb = nid(ax, ay), nid(bx, by)
+            d_ = math.hypot(bx - ax, by - ay)
+            adj.setdefault(ka, []).append((kb, d_))
+            adj.setdefault(kb, []).append((ka, d_))
+    keys_ = list(adj)
+    karr = np.array([nodes[k_] for k_ in keys_]) if keys_ else np.zeros((0, 2))
+
+    def nearest(q):
+        i_ = int(np.argmin(((karr - np.array(q)) ** 2).sum(1)))
+        return keys_[i_]
+
+    def route(a_, b_):
+        if not keys_:
+            return [a_, b_]
+        s0, s1 = nearest(a_), nearest(b_)
+        dist_, prev = {s0: 0.0}, {}
+        heap = [(0.0, s0)]
+        while heap:
+            d_, k_ = heapq.heappop(heap)
+            if k_ == s1:
+                break
+            if d_ > dist_.get(k_, 1e18) or d_ > 4000:
+                continue
+            for k2, w2 in adj.get(k_, ()):
+                nd = d_ + w2
+                if nd < dist_.get(k2, 1e18):
+                    dist_[k2], prev[k2] = nd, k_
+                    heapq.heappush(heap, (nd, k2))
+        if s1 not in dist_:
+            return [a_, b_]
+        out_, k_ = [], s1
+        while k_ != s0:
+            out_.append(nodes[k_])
+            k_ = prev[k_]
+        out_.append(nodes[s0])
+        out_.reverse()
+        return [a_] + out_ + [b_] if (Vector(a_) - Vector(out_[0])).length > 3 else out_ + [b_]
+
+    def plen(pp):
+        return sum((Vector(b_) - Vector(a_)).length for a_, b_ in zip(pp, pp[1:]))
+
+    WATERBORNE = ("boat", "barge", "longship", "riverboat", "blackship")
     groups = []
     for k, spec in enumerate(brief.get("groups", [])):
         sp = dict(spec)
         sp["path"] = [tuple(P2(p)) for p in spec["path"]]
-        groups.append(P.make_group(sp, z, painted, col, brief["seed"] + 100 + k))
+        if len(sp["path"]) >= 2 and sp.get("speed", 0) > 0 and sp["kind"] not in WATERBORNE:
+            routed = [sp["path"][0]]
+            for a_, b_ in zip(sp["path"], sp["path"][1:]):
+                routed += route(a_, b_)[1:]
+            if not sp.get("loop") and plen(routed) > 320:     # keep the last 320 m before the goal
+                keep, acc = [routed[-1]], 0.0
+                for a_, b_ in zip(routed[::-1], routed[-2::-1]):
+                    seg_ = (Vector(a_) - Vector(b_)).length
+                    if acc + seg_ >= 320:
+                        f_ = (320 - acc) / seg_
+                        keep.append(tuple(Vector(a_) + (Vector(b_) - Vector(a_)) * f_))
+                        break
+                    keep.append(b_)
+                    acc += seg_
+                routed = keep[::-1]
+            if sp.get("formation") == "block":            # a column as wide as the street it marches along
+                sp["width"] = min(sp.get("width", 8), 7.2)
+                L_ = plen(routed)
+                sp["speed"] = round(L_ / max(1.0, (sp["to"] - sp["from"]) * 0.9), 2)
+            elif not sp.get("loop"):
+                sp["speed"] = round(plen(routed) / max(1.0, (sp["to"] - sp["from"]) * 0.95), 2)
+            sp["path"] = routed
+        yr_ = H.year_at(brief, (sp["from"] + sp["to"]) / 2)
+        groups.append(P.make_group(sp, z, painted, col, brief["seed"] + 100 + k,
+                                   free=lambda x_, y_, yr_=yr_: free_ground(x_, y_, yr_)))
 
     # fires / smoke / dust reuse the New York effects
     fx = []
@@ -809,31 +1105,48 @@ def build(brief, plan_unused=None):
         c = P2(e["ll"])
         z0 = z(c.x, c.y)
         blobs = H.Parts()
-        smoke_col = (0.24, 0.22, 0.20) if e["kind"] == "fire" else (0.50, 0.47, 0.43)
-        for _ in range(e.get("blobs", 45)):
-            r = frng.uniform(0.15, 1.0) * e["radius"]
+        sz = e.get("size", 0.75)
+        wind = Vector((0.55, 0.25))
+        for _ in range(max(4, e.get("blobs", 45) // 4)):          # thin plumes rising and leaning downwind
+            r = frng.uniform(0.1, 0.9) * e["radius"]
             a = frng.uniform(0, 2 * math.pi)
             q = Vector((math.cos(a), math.sin(a))) * r
-            rr = frng.uniform(14, 40) * e.get("size", 0.75)
-            zz = z0 + frng.uniform(0, 1.0) ** 2 * 70 * e.get("size", 0.75)
-            blobs.add([(q.x + vx * rr, q.y + vy * rr, zz + vz * rr * 0.55) for vx, vy, vz in fx_v], fx_f,
-                      [smoke_col] * len(fx_f))
+            hgt = frng.uniform(60, 140) * sz
+            for k in range(10):
+                f_ = k / 9.0
+                rr = (2.5 + 9.0 * f_) * sz * frng.uniform(0.8, 1.2)
+                zz = z0 + 6 + hgt * f_
+                d_ = q + wind * hgt * f_ * f_ * 0.8
+                if e["kind"] == "fire":
+                    sc = (0.05 + 0.12 * f_, 0.045 + 0.115 * f_, 0.04 + 0.11 * f_)
+                else:
+                    sc = (0.34 + 0.12 * f_, 0.32 + 0.12 * f_, 0.30 + 0.11 * f_)
+                blobs.add([(d_.x + vx * rr, d_.y + vy * rr, zz + vz * rr * 0.8) for vx, vy, vz in fx_v], fx_f,
+                          [sc] * len(fx_f))
         smoke = blobs.to_object("smoke", painted, col)
         smoke.location = (c.x, c.y, 0)
         smoke.data.polygons.foreach_set("use_smooth", [True] * len(smoke.data.polygons))
         flames = None
         if e["kind"] == "fire":
             fl = H.Parts()
-            for _ in range(e.get("flames", 320)):
+            hits = next((bn.get("hits", []) for bn in burns if bn["e"] is e), [])
+            frng.shuffle(hits)
+            spots = [Vector(h_) for h_ in hits[:e.get("flames", 320)]]
+            while len(spots) < min(60, e.get("flames", 320)):
                 r = frng.uniform(0, 1.0) ** 0.7 * e["radius"]
                 a = frng.uniform(0, 2 * math.pi)
-                q = c + Vector((math.cos(a), math.sin(a))) * r
-                rr = frng.uniform(2.0, 5.0)
-                zz = z0 + frng.uniform(4, 12)
-                fl.add([(q.x + vx * rr, q.y + vy * rr, zz + vz * rr * 2.2) for vx, vy, vz in fx_v], fx_f,
-                       [(1, 0.5, 0.1)] * len(fx_f))
+                spots.append(c + Vector((math.cos(a), math.sin(a))) * r)
+            for q in spots:                       # tongues of flame rising from each burning building
+                for _ in range(3):
+                    ox, oy = frng.uniform(-4, 4), frng.uniform(-4, 4)
+                    rr = frng.uniform(1.2, 2.6)
+                    hh = frng.uniform(5, 13)
+                    zz = z(q.x + ox, q.y + oy) + frng.uniform(2, 7)
+                    ang0 = frng.uniform(0, 6.28)
+                    v = [(q.x + ox + math.cos(ang0 + k * 1.2566) * rr, q.y + oy + math.sin(ang0 + k * 1.2566) * rr, zz)
+                         for k in range(5)] + [(q.x + ox + frng.uniform(-1, 1), q.y + oy + frng.uniform(-1, 1), zz + hh)]
+                    fl.add(v, [(k, (k + 1) % 5, 5) for k in range(5)], [(1, 0.5, 0.1)] * 5)
             flames = fl.to_object("flames", emit, col)
-            flames.data.polygons.foreach_set("use_smooth", [True] * len(flames.data.polygons))
         fx.append({"e": e, "smoke": smoke, "flames": flames})
 
     # sun, sky, camera

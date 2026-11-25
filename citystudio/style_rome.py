@@ -471,7 +471,7 @@ def build(brief, plan_unused=None):
         if not city.is_land(x, y):
             return False
         c_ = (int(x // FC), int(y // FC))
-        return not any(a_ <= year < b_ for a_, b_ in BOCC.get(c_, ()) + FOOT.get(c_, []))
+        return not any(a_ <= year < b_ for a_, b_ in BOCC.get(c_, []) + FOOT.get(c_, []))
 
     # --- fire and bomb damage: buildings standing in a burnt or bombed area are
     # blackened and reduced to ruins, then (for some events) rebuilt later

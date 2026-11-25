@@ -311,13 +311,14 @@ def build(brief, plan_unused=None):
     H.HAZE_AMOUNT = brief.get("haze_amount", 0.18)
     if brief.get("haze_color"):
         H.HAZE = tuple(brief["haze_color"])
+    H.HOUSE_DETAIL = True                       # windows, doors and overhanging tiled roofs
     painted = N.painted_nyc("PaintedTokyo")
     tree_mat = N.painted_nyc("TreesTokyo", trees=True)
     facade, night = N.facade_material()
     tmat, now = terrain_material()
     arch_mat = arcade_material()
     N.WATER_MAT.clear()
-    N.WATER_MAT.append(N.shore_water_material())
+    N.WATER_MAT.append(N.shore_water_material(((0.10, 0.24, 0.24), (0.03, 0.09, 0.11), (0.012, 0.035, 0.05)), realistic=True))
     animated = []
     z = city.z
 
@@ -416,6 +417,67 @@ def build(brief, plan_unused=None):
                 if year < occupied.get(k, 1e9):
                     occupied[k] = year
 
+    # --- footprints: nothing else may stand inside a monument, a bridge approach
+    # or another building while it exists, and no tree grows inside them
+    FC = 5.0
+    FOOT = {}                      # 5 m cell -> [(from, to)] of monuments and approach roads
+    BOCC = {}                      # 5 m cell -> [(from, to)] of buildings (people keep out of them)
+
+    def hull(pts):
+        pts = sorted(set((round(x_, 0), round(y_, 0)) for x_, y_ in pts))
+        if len(pts) < 3:
+            return pts
+
+        def cross(o, a, b):
+            return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+        lo, hi = [], []
+        for q in pts:
+            while len(lo) >= 2 and cross(lo[-2], lo[-1], q) <= 0:
+                lo.pop()
+            lo.append(q)
+        for q in reversed(pts):
+            while len(hi) >= 2 and cross(hi[-2], hi[-1], q) <= 0:
+                hi.pop()
+            hi.append(q)
+        return lo[:-1] + hi[:-1]
+
+    def register(xy, t0, t1, pad=3.0, clear_trees=True):
+        hp = hull(xy)
+        if len(hp) < 3:
+            return
+        xs_, ys_ = [q[0] for q in hp], [q[1] for q in hp]
+        for i in range(int((min(xs_) - pad) // FC), int((max(xs_) + pad) // FC) + 1):
+            for j in range(int((min(ys_) - pad) // FC), int((max(ys_) + pad) // FC) + 1):
+                cx_, cy_ = (i + 0.5) * FC, (j + 0.5) * FC
+                if inside((cx_, cy_), hp) or any(math.hypot(cx_ - q[0], cy_ - q[1]) < pad for q in hp):
+                    FOOT.setdefault((i, j), []).append((t0, t1))
+                    if clear_trees:
+                        occupy(cx_, cy_, t0, 1.0, house=False)
+
+    def blocked(x, y, start, end, half):
+        k = int(half // FC)
+        ci, cj = int(x // FC), int(y // FC)
+        for di in range(-k, k + 1):
+            for dj in range(-k, k + 1):
+                for a_, b_ in FOOT.get((ci + di, cj + dj), ()):
+                    if a_ < end and b_ > start:
+                        return True
+        return False
+
+    def mark_building(x, y, half, start, end):
+        k = int(half // FC)
+        ci, cj = int(x // FC), int(y // FC)
+        for di in range(-k, k + 1):
+            for dj in range(-k, k + 1):
+                BOCC.setdefault((ci + di, cj + dj), []).append((start, end))
+
+    def free_ground(x, y, year):
+        """True where a person may stand: on land, not inside a building or monument."""
+        if not city.is_land(x, y):
+            return False
+        c_ = (int(x // FC), int(y // FC))
+        return not any(a_ <= year < b_ for a_, b_ in BOCC.get(c_, []) + FOOT.get(c_, []))
+
     # --- fire and bomb damage: buildings standing in a burnt or bombed area are
     # blackened and reduced to ruins, then (for some events) rebuilt later
     CHAR = (0.07, 0.06, 0.05, 0.0)
@@ -423,7 +485,7 @@ def build(brief, plan_unused=None):
     for e in brief.get("fx", []):
         if e.get("destroy", 0) <= 0:
             continue
-        burns.append({"c": P2(e["ll"]), "r": e["radius"], "t": e["from"] + min(0.6 * (e["to"] - e["from"]), 0.06),
+        burns.append({"e": e, "c": P2(e["ll"]), "r": e["radius"], "t": e["from"] + min(0.6 * (e["to"] - e["from"]), 0.06),
                       "p": e["destroy"], "ruin": e.get("ruin", 0.3), "rebuild": e.get("rebuild", 10.0),
                       "zone": e.get("zone")})
     dr = random.Random(brief["seed"] + 51)
@@ -436,14 +498,20 @@ def build(brief, plan_unused=None):
             if not hit and bn["zone"] == "fire":
                 hit = city.in_fire(x, y)
             if hit and dr.random() < bn["p"]:
+                bn.setdefault("hits", []).append((x, y))
                 return bn
         return None
 
-    def place(kind, start, end, x, y, zz, ux, uy, d, w, h, wall, roof, shape="house", bucket=25):
+    def place(kind, start, end, x, y, zz, ux, uy, d, w, h, wall, roof, shape="house", bucket=25, extra=None):
         """A generated building that may burn or be bombed during its life."""
+        if blocked(x, y, start, end, max(d, w) / 2):
+            return                                     # never inside a monument or across a bridge approach
+        mark_building(x, y, max(d, w) / 2, start, end)
+
         def draw(part, hh, col_, rf, sh):
             if sh == "house":
-                part.house({"x": x, "y": y, "ux": ux, "uy": uy, "d": d, "w": w, "h": hh, "wall": col_, "roof": rf}, zz)
+                part.house(dict({"x": x, "y": y, "ux": ux, "uy": uy, "d": d, "w": w, "h": hh, "wall": col_, "roof": rf},
+                                **(extra or {})), zz)
             else:
                 part.box(x, y, zz, ux, uy, d / 2, w / 2, hh, (*col_, 0.6), top=(*rf, 0.0))
         bn = damage(x, y, start, end)
@@ -454,133 +522,13 @@ def build(brief, plan_unused=None):
         put(("shell", round(bn["t"], 3), int(bn["t"] + bn["rebuild"])),
             lambda part: part.box(x, y, zz, ux, uy, d / 2, w / 2, h * bn["ruin"] * dr.uniform(0.6, 1.4), CHAR))
 
-    # --- today's buildings (estimated dates) and their predecessors --------
-    for b in city.data["buildings"]:
-        cx, cy, year, est, h, flat, name = b
-        pts = [(flat[i], flat[i + 1]) for i in range(0, len(flat), 2)]
-        if not city.is_land(cx, cy):
-            continue
-        zz = z(cx, cy) - 0.5
-        grow = 3.0
-        start = year
-        low = name.lower()
-        if any((Vector((cx, cy)) - P2((lo, la))).length < r_ * 0.8 for lo, la, r_ in CLEAR):
-            continue                                    # the castle, temples and towers are modelled separately
-        if h > 60:
-            wall = rng.choice(GLASS + CONCRETE[:2])
-        elif year < 1945:
-            wall = rng.choice(BRICKS[:2] + CONCRETE)
-        else:
-            wall = rng.choice(CONCRETE + PLASTER + GLASS[:1])
-        win = 0.6
-        xs_, ys_ = [q[0] for q in pts], [q[1] for q in pts]
-        occupy(cx, cy, start, max(6.0, 0.5 * max(max(xs_) - min(xs_), max(ys_) - min(ys_))))
-        bn = damage(cx, cy, start, 99999)
-        if bn is None:
-            put(("bld", int(start // 2) * 2, int(grow), 99999),
-                lambda part, pts=pts, zz=zz, h=h, wall=wall, win=win: N.extrude(part, pts, zz, h, wall, win, (0.40, 0.42, 0.44)))
-        else:
-            t_, back = bn["t"], int(bn["t"] + bn["rebuild"] * dr.uniform(0.8, 1.6))
-            put(("bld", int(start // 2) * 2, int(grow), round(t_, 3)),
-                lambda part, pts=pts, zz=zz, h=h, wall=wall, win=win: N.extrude(part, pts, zz, h, wall, win, (0.40, 0.42, 0.44)))
-            put(("shell", round(t_, 3), back),
-                lambda part, pts=pts, zz=zz, h=h: N.extrude(part, pts, zz, max(3.0, h * bn["ruin"] * dr.uniform(0.5, 1.3)),
-                                                            CHAR[:3], 0.0, roof=CHAR[:3]))
-            put(("bld", back, 3, 99999),
-                lambda part, pts=pts, zz=zz, h=h, wall=wall, win=win: N.extrude(part, pts, zz, h, wall, win, (0.40, 0.42, 0.44)))
-        zn = city.zone(cx, cy)
-        if False:
-            m0 = 0
-            put(("med", int(m0 // 25) * 25, int(year // 25) * 25),
-                lambda part, cx=cx, cy=cy, zz=zz: part.house({"x": cx, "y": cy, "ux": (1, 0), "uy": (0, 1),
-                                                               "d": rng.uniform(8, 12), "w": rng.uniform(6, 9),
-                                                               "h": rng.uniform(9, 13), "wall": rng.choice(H.WALLS),
-                                                               "roof": TILE}, zz))
-
-    # road mask: generated houses are never put on a street or walkway
-    RC = 5.0
-    roadcells = set()
-    for _n, w_, flat_ in city.data.get("roads", []):
-        rp = [(flat_[i], flat_[i + 1]) for i in range(0, len(flat_), 2)]
-        rr_ = int((w_ / 2 + 1.5) // RC) + 1
-        for (ax, ay), (bx, by) in zip(rp, rp[1:]):
-            n_ = max(1, int(math.hypot(bx - ax, by - ay) / 2.5))
-            for k in range(n_ + 1):
-                qx, qy = ax + (bx - ax) * k / n_, ay + (by - ay) * k / n_
-                ci, cj = int(qx // RC), int(qy // RC)
-                for di in range(-rr_ + 1, rr_):
-                    for dj in range(-rr_ + 1, rr_):
-                        roadcells.add((ci + di, cj + dj))
-
-    def off_road(x, y, half):
-        k = int(half // RC) + 1
-        ci, cj = int(x // RC), int(y // RC)
-        return not any((ci + di, cj + dj) in roadcells for di in range(-k, k + 1) for dj in range(-k, k + 1))
-
-    def free_spot(x, y, half):
-        for ox, oy in ((0, 0), (7, 0), (-7, 0), (0, 7), (0, -7), (7, 7), (-7, -7), (7, -7), (-7, 7)):
-            if off_road(x + ox, y + oy, half):
-                return x + ox, y + oy
-        return None
-
-    # --- historic fabric: farm villages, Edo townhouses and samurai estates, Meiji and Showa houses ----
-    step_ = 28.0
-    fr = random.Random(brief["seed"] + 3)
-    VILLAGES = [P2(v) for v in brief.get("village_sites", [])]
-    yy = city.y0
-    while yy < city.y0 + ny * res:
-        xx = city.x0
-        while xx < city.x0 + nx * res:
-            px_, py_ = xx + fr.uniform(-7, 7), yy + fr.uniform(-7, 7)
-            xx += step_
-            if not all(city.is_land(px_ + ox, py_ + oy) for ox, oy in ((0, 0), (10, 0), (-10, 0), (0, 10), (0, -10))):
-                continue
-            if any((Vector((px_, py_)) - P2((lo, la))).length < r_ for lo, la, r_ in CLEAR):
-                continue
-            spot = free_spot(px_, py_, 6.0)
-            if spot is None:
-                continue
-            px_, py_ = spot
-            zn = city.zone(px_, py_)
-            beyond = not (DATA_X[0] < px_ < DATA_X[1] and DATA_Y[0] < py_ < DATA_Y[1])
-            fy = city.fill(px_, py_)
-            u, ab, re_, _f = city.eras(px_, py_)
-            zz = z(px_, py_)
-            yaw = fr.uniform(-0.35, 0.35)
-            ux, uy = (math.cos(yaw), math.sin(yaw)), (-math.sin(yaw), math.cos(yaw))
-            near_v = min([(Vector((px_, py_)) - v).length for v in VILLAGES] + [1e9])
-            if near_v < 420 and fy == 0 and fr.random() < 0.45:        # thatched farm villages (minka)
-                v0 = fr.uniform(600, 1100) if near_v < 250 else fr.uniform(1100, 1500)
-                v1 = max(u + fr.uniform(0, 40), v0 + 60)
-                occupy(px_, py_, v0, 7.0)
-                place("vil", v0, v1, px_, py_, zz, ux, uy, fr.uniform(9, 13), fr.uniform(6, 9), fr.uniform(5, 7),
-                      fr.choice(WOOD), THATCH)
-            if (zn in ("shitamachi", "asakusa", "castle") or (u < 1860 and zn != "yamanote")) and u < 1900:   # Edo townhouses
-                m0 = max(u, fy + 3) + fr.uniform(0, 60)
-                m1 = fr.uniform(1880, 1923.7) if fr.random() < 0.6 else fr.uniform(1923.7, 1945.3)
-                if m1 > m0 + 5:
-                    occupy(px_, py_, m0, 7.0)
-                    place("edo", m0, m1, px_, py_, zz, ux, uy, fr.uniform(9, 13), fr.uniform(5, 7), fr.uniform(6.5, 9),
-                          fr.choice(WOOD + PLASTER[:1]), KAWARA)
-            if (zn == "yamanote" or (u < 1860 and fr.random() < 0.3)) and u < 1870 and fr.random() < 0.55 \
-                    and off_road(px_, py_, 9.0):   # samurai estates
-                m0 = u + fr.uniform(0, 80)
-                m1 = fr.uniform(1870, 1920)
-                occupy(px_, py_, m0, 9.0)
-                place("sam", m0, m1, px_, py_, zz, ux, uy, fr.uniform(14, 20), fr.uniform(10, 14), fr.uniform(6, 8),
-                      fr.choice(PLASTER), KAWARA)
-            g0 = max(u, 1870, fy + 3) + fr.uniform(0, 50)
-            if g0 < 1960 and (fr.random() < (0.5 if beyond else 0.7)):    # Meiji, Taisho and Showa houses
-                g1 = 99999 if beyond else fr.uniform(max(g0 + 20, 1950), 2015)
-                occupy(px_, py_, g0, 8.0)
-                place("mei", g0, g1, px_, py_, zz, ux, uy, fr.uniform(10, 14), fr.uniform(7, 10), fr.uniform(6.5, 9.5),
-                      fr.choice(WOOD + PLASTER), fr.choice([KAWARA, (0.32, 0.30, 0.30), (0.45, 0.20, 0.15)]))
-        yy += step_
-
     # --- monuments ------------------------------------------------------------
-    def mon(name, t0, t1, fn, grow=4.0, label=None, ruin=None, mat=None):
+    def mon(name, t0, t1, fn, grow=4.0, label=None, ruin=None, mat=None, foot=True):
         part = N.Partsc()
         fn(part)
+        if foot:
+            end_ = ruin.get("to", 99999) if ruin else t1
+            register([(v[0], v[1]) for v in part.verts], t0 - grow, end_)
         ob = part.to_object(name, mat or painted, col)
         animated.append({"ob": ob, "year": t0, "grow": grow, "gone": t1, "fade": 3.0})
         if ruin:
@@ -652,6 +600,30 @@ def build(brief, plan_unused=None):
             for f in (0.08, 0.86):                          # gatehouses at both ends
                 q = a + u * (d.length * f)
                 p.box(q.x, q.y, z_deck + 2.5, tuple(u), tuple(v), 5, w / 2 + 1, 16, (*STONE, 0.0), top=((0.30, 0.30, 0.33, 0.0)))
+
+    # every bridge end continues straight into the city as a road; nothing is built across it
+    APPROACH = []                                       # (start, end, width, from, to)
+    approach_parts = {}
+
+    def approach(a_ll, b_ll, wd, b0_, b1_):
+        e0, e1 = fit_span(P2(a_ll), P2(b_ll))
+        u_ = (e1 - e0).normalized()
+        for s0, s1 in ((e0 - u_ * 150, e0 + u_ * 6), (e1 - u_ * 6, e1 + u_ * 150)):
+            seg = []
+            for k in range(31):
+                q = s0 + (s1 - s0) * (k / 30)
+                if city.is_land(q.x, q.y) or (q - e0).length < 8 or (q - e1).length < 8:
+                    seg.append(q)
+            if len(seg) < 2:
+                continue
+            APPROACH.append((seg[0], seg[-1], wd, b0_, b1_))
+            nrm = Vector((-u_.y, u_.x)) * (wd / 2 + 1.0)
+            part = approach_parts.setdefault((b0_, b1_), N.Partsc())
+            for qa, qb in zip(seg, seg[1:]):
+                part.add([(*(qa - nrm), z(qa.x, qa.y) + 0.45), (*(qb - nrm), z(qb.x, qb.y) + 0.45),
+                          (*(qb + nrm), z(qb.x, qb.y) + 0.45), (*(qa + nrm), z(qa.x, qa.y) + 0.45)], [(0, 1, 2, 3)],
+                         [(0.56, 0.52, 0.46, 0.0) if b0_ < 1850 else (0.40, 0.40, 0.42, 0.0)])
+            register([tuple(seg[0] - nrm), tuple(seg[0] + nrm), tuple(seg[-1] - nrm), tuple(seg[-1] + nrm)], b0_ - 1, b1_)
 
     def tiered(p, cx, cy, cz, w0, d0, tiers, tier_h, wall, roof, shrink=0.78, yaw=0.0, base=0.0):
         """Japanese tiered building (castle keep, pagoda): stacked storeys with flared roofs."""
@@ -760,14 +732,19 @@ def build(brief, plan_unused=None):
 
     # Bridges: Nihonbashi (1603), Ryogoku (1659), Kachidoki (1940), Rainbow Bridge (1993)
     mon("Nihonbashi", 1603, 1911, lambda p: bridge(p, (139.7745, 35.6845), (139.7745, 35.6830), 4, 8,
-                                                    (*WOOD[0], 0.0), arches=False), 2)
+                                                    (*WOOD[0], 0.0), arches=False), 2, foot=False)
     mon("NihonbashiStone", 1911, 99999, lambda p: bridge(p, (139.7745, 35.6845), (139.7745, 35.6830), 4, 27,
-                                                          (*STONE, 0.0)), 2)
+                                                          (*STONE, 0.0)), 2, foot=False)
     marks["nihonbashi"] = (*tuple(P2((139.7745, 35.6838))), 10)
+    approach((139.7745, 35.6845), (139.7745, 35.6830), 8, 1603, 99999)
+    approach((139.7860, 35.6935), (139.7960, 35.6942), 10, 1659, 99999)
+    for (b0_, b1_), part in approach_parts.items():
+        animated.append({"ob": part.to_object("bridge_roads_%d" % b0_, painted, col), "year": b0_, "grow": 0.0,
+                         "gone": None if b1_ >= 99999 else b1_, "fade": 3.0})
     mon("Ryogoku", 1659, 1932, lambda p: bridge(p, (139.7860, 35.6935), (139.7960, 35.6942), 5, 8,
-                                                 (*WOOD[1], 0.0), arches=False), 2)
+                                                 (*WOOD[1], 0.0), arches=False), 2, foot=False)
     mon("RyogokuSteel", 1932, 99999, lambda p: bridge(p, (139.7860, 35.6935), (139.7960, 35.6942), 7, 24,
-                                                       (0.35, 0.55, 0.45, 0.0)), 2)
+                                                       (0.35, 0.55, 0.45, 0.0)), 2, foot=False)
     marks["ryogoku"] = (*tuple(P2((139.7910, 35.6938))), 12)
     def rainbow(p):
         a, b = fit_span(P2((139.7600, 35.6430)), P2((139.7690, 35.6340)))
@@ -780,7 +757,7 @@ def build(brief, plan_unused=None):
             for sd in (-1, 1):
                 qq = q + v * sd * 12
                 p.box(qq.x, qq.y, -3, tuple(u), tuple(v), 3, 3, 126, (0.94, 0.94, 0.92, 0.0))
-    mon("RainbowBridge", 1993, 99999, rainbow, 3)
+    mon("RainbowBridge", 1993, 99999, rainbow, 3, foot=False)
     marks["rainbow"] = (*tuple(P2((139.7645, 35.6385))), 130)
 
     # Tokyo Station (1914), the National Diet (1936), Tokyo Tower (1958), Tokyo Skytree (2012)
@@ -822,6 +799,144 @@ def build(brief, plan_unused=None):
                                                            roof=(0.30, 0.42, 0.36)),
                                                gate(p, mx_, my_ - 200, z(mx_, my_ - 200), 18, 12, col_=(0.50, 0.40, 0.30))), 4)
     marks["meiji"] = (mx_, my_, mz_ + 26)
+
+    # road mask: generated houses are never put on a street or walkway
+    RC = 5.0
+    roadcells = set()
+    for _n, w_, flat_ in city.data.get("roads", []):
+        rp = [(flat_[i], flat_[i + 1]) for i in range(0, len(flat_), 2)]
+        rr_ = int((w_ / 2 + 1.5) // RC) + 1
+        for (ax, ay), (bx, by) in zip(rp, rp[1:]):
+            n_ = max(1, int(math.hypot(bx - ax, by - ay) / 2.5))
+            for k in range(n_ + 1):
+                qx, qy = ax + (bx - ax) * k / n_, ay + (by - ay) * k / n_
+                ci, cj = int(qx // RC), int(qy // RC)
+                for di in range(-rr_ + 1, rr_):
+                    for dj in range(-rr_ + 1, rr_):
+                        roadcells.add((ci + di, cj + dj))
+
+    for s0, s1, wd_, _a, _b in APPROACH:
+        n_ = max(1, int((s1 - s0).length / 2.5))
+        for k in range(n_ + 1):
+            q = s0 + (s1 - s0) * (k / n_)
+            rr_ = int((wd_ / 2) // RC) + 1
+            for di in range(-rr_ + 1, rr_):
+                for dj in range(-rr_ + 1, rr_):
+                    roadcells.add((int(q.x // RC) + di, int(q.y // RC) + dj))
+
+    def off_road(x, y, half):
+        k = int(half // RC) + 1
+        ci, cj = int(x // RC), int(y // RC)
+        return not any((ci + di, cj + dj) in roadcells for di in range(-k, k + 1) for dj in range(-k, k + 1))
+
+    def free_spot(x, y, half):
+        for ox, oy in ((0, 0), (7, 0), (-7, 0), (0, 7), (0, -7), (7, 7), (-7, -7), (7, -7), (-7, 7)):
+            if off_road(x + ox, y + oy, half):
+                return x + ox, y + oy
+        return None
+
+    # --- today's buildings (estimated dates) and their predecessors --------
+    for b in city.data["buildings"]:
+        cx, cy, year, est, h, flat, name = b
+        pts = [(flat[i], flat[i + 1]) for i in range(0, len(flat), 2)]
+        if not city.is_land(cx, cy):
+            continue
+        zz = z(cx, cy) - 0.5
+        grow = 3.0
+        start = year
+        low = name.lower()
+        if any((Vector((cx, cy)) - P2((lo, la))).length < r_ * 0.8 for lo, la, r_ in CLEAR):
+            continue                                    # the castle, temples and towers are modelled separately
+        if h > 60:
+            wall = rng.choice(GLASS + CONCRETE[:2])
+        elif year < 1945:
+            wall = rng.choice(BRICKS[:2] + CONCRETE)
+        else:
+            wall = rng.choice(CONCRETE + PLASTER + GLASS[:1])
+        win = 0.6
+        if sum(0 if city.is_land(px, py) else 1 for px, py in pts) > 0.3 * len(pts):
+            continue                                    # nothing stands in the river or the bay
+        if not name and blocked(cx, cy, year, 99999, 2.0):
+            continue                                    # nor inside a monument or across a bridge approach
+        xs_, ys_ = [q[0] for q in pts], [q[1] for q in pts]
+        half_ = max(6.0, 0.5 * max(max(xs_) - min(xs_), max(ys_) - min(ys_)))
+        occupy(cx, cy, start, half_)
+        mark_building(cx, cy, half_ * 0.8, start, 99999)
+        bn = damage(cx, cy, start, 99999)
+        if bn is None:
+            put(("bld", int(start // 2) * 2, int(grow), 99999),
+                lambda part, pts=pts, zz=zz, h=h, wall=wall, win=win: N.extrude(part, pts, zz, h, wall, win, (0.40, 0.42, 0.44)))
+        else:
+            t_, back = bn["t"], int(bn["t"] + bn["rebuild"] * dr.uniform(0.8, 1.6))
+            put(("bld", int(start // 2) * 2, int(grow), round(t_, 3)),
+                lambda part, pts=pts, zz=zz, h=h, wall=wall, win=win: N.extrude(part, pts, zz, h, wall, win, (0.40, 0.42, 0.44)))
+            put(("shell", round(t_, 3), back),
+                lambda part, pts=pts, zz=zz, h=h: N.extrude(part, pts, zz, max(3.0, h * bn["ruin"] * dr.uniform(0.5, 1.3)),
+                                                            CHAR[:3], 0.0, roof=CHAR[:3]))
+            put(("bld", back, 3, 99999),
+                lambda part, pts=pts, zz=zz, h=h, wall=wall, win=win: N.extrude(part, pts, zz, h, wall, win, (0.40, 0.42, 0.44)))
+        zn = city.zone(cx, cy)
+        if False:
+            m0 = 0
+            put(("med", int(m0 // 25) * 25, int(year // 25) * 25),
+                lambda part, cx=cx, cy=cy, zz=zz: part.house({"x": cx, "y": cy, "ux": (1, 0), "uy": (0, 1),
+                                                               "d": rng.uniform(8, 12), "w": rng.uniform(6, 9),
+                                                               "h": rng.uniform(9, 13), "wall": rng.choice(H.WALLS),
+                                                               "roof": TILE}, zz))
+
+    # --- historic fabric: farm villages, Edo townhouses and samurai estates, Meiji and Showa houses ----
+    step_ = 28.0
+    fr = random.Random(brief["seed"] + 3)
+    VILLAGES = [P2(v) for v in brief.get("village_sites", [])]
+    yy = city.y0
+    while yy < city.y0 + ny * res:
+        xx = city.x0
+        while xx < city.x0 + nx * res:
+            px_, py_ = xx + fr.uniform(-7, 7), yy + fr.uniform(-7, 7)
+            xx += step_
+            if not all(city.is_land(px_ + ox, py_ + oy) for ox, oy in ((0, 0), (10, 0), (-10, 0), (0, 10), (0, -10))):
+                continue
+            if any((Vector((px_, py_)) - P2((lo, la))).length < r_ for lo, la, r_ in CLEAR):
+                continue
+            spot = free_spot(px_, py_, 6.0)
+            if spot is None:
+                continue
+            px_, py_ = spot
+            zn = city.zone(px_, py_)
+            beyond = not (DATA_X[0] < px_ < DATA_X[1] and DATA_Y[0] < py_ < DATA_Y[1])
+            fy = city.fill(px_, py_)
+            u, ab, re_, _f = city.eras(px_, py_)
+            zz = z(px_, py_)
+            yaw = fr.uniform(-0.35, 0.35)
+            ux, uy = (math.cos(yaw), math.sin(yaw)), (-math.sin(yaw), math.cos(yaw))
+            near_v = min([(Vector((px_, py_)) - v).length for v in VILLAGES] + [1e9])
+            if near_v < 420 and fy == 0 and fr.random() < 0.45:        # thatched farm villages (minka)
+                v0 = fr.uniform(600, 1100) if near_v < 250 else fr.uniform(1100, 1500)
+                v1 = max(u + fr.uniform(0, 40), v0 + 60)
+                occupy(px_, py_, v0, 7.0)
+                place("vil", v0, v1, px_, py_, zz, ux, uy, fr.uniform(9, 13), fr.uniform(6, 9), fr.uniform(5, 7),
+                      fr.choice(WOOD), THATCH, extra={"detail": False})
+            if (zn in ("shitamachi", "asakusa", "castle") or (u < 1860 and zn != "yamanote")) and u < 1900:   # Edo townhouses
+                m0 = max(u, fy + 3) + fr.uniform(0, 60)
+                m1 = fr.uniform(1880, 1923.7) if fr.random() < 0.6 else fr.uniform(1923.7, 1945.3)
+                if m1 > m0 + 5:
+                    occupy(px_, py_, m0, 7.0)
+                    place("edo", m0, m1, px_, py_, zz, ux, uy, fr.uniform(9, 13), fr.uniform(5, 7), fr.uniform(6.5, 9),
+                          fr.choice(WOOD + PLASTER[:1]), KAWARA)
+            if (zn == "yamanote" or (u < 1860 and fr.random() < 0.3)) and u < 1870 and fr.random() < 0.55 \
+                    and off_road(px_, py_, 9.0):   # samurai estates
+                m0 = u + fr.uniform(0, 80)
+                m1 = fr.uniform(1870, 1920)
+                occupy(px_, py_, m0, 9.0)
+                place("sam", m0, m1, px_, py_, zz, ux, uy, fr.uniform(14, 20), fr.uniform(10, 14), fr.uniform(6, 8),
+                      fr.choice(PLASTER), KAWARA)
+            g0 = max(u, 1870, fy + 3) + fr.uniform(0, 50)
+            if g0 < 1960 and (fr.random() < (0.5 if beyond else 0.7)):    # Meiji, Taisho and Showa houses
+                g1 = 99999 if beyond else fr.uniform(max(g0 + 20, 1950), 2015)
+                occupy(px_, py_, g0, 8.0)
+                place("mei", g0, g1, px_, py_, zz, ux, uy, fr.uniform(10, 14), fr.uniform(7, 10), fr.uniform(6.5, 9.5),
+                      fr.choice(WOOD + PLASTER), fr.choice([KAWARA, (0.32, 0.30, 0.30), (0.45, 0.20, 0.15)]))
+        yy += step_
 
     # objects from bins
     for key, part in bins.items():
@@ -899,8 +1014,9 @@ def build(brief, plan_unused=None):
             town = u + 4 if (inner and u < 9000) else 99999         # the wild wood thins once a district is settled
             if town < gone and town > since:
                 tb.setdefault(("t", int(since // 10) * 10 if since else -3000, int(town // 10) * 10), []).append(pt)
-                small = (x_, y_, pt[2], r * tr.uniform(0.42, 0.55), pt[4], tr.choice((1, 2, 2, 3, 4)))
-                tb.setdefault(("t", int(town // 10) * 10, int(gone // 10) * 10), []).append(small)
+                if tr.random() < 0.45:
+                    small = (x_, y_, pt[2], r * tr.uniform(0.40, 0.52), pt[4], tr.choice((1, 2, 2, 3, 4)))
+                    tb.setdefault(("t", int(town // 10) * 10, int(gone // 10) * 10), []).append(small)
             else:
                 tb.setdefault(("t", int(since // 10) * 10 if since else -3000, int(gone // 10) * 10), []).append(pt)
             n_trees += 1
@@ -924,11 +1040,89 @@ def build(brief, plan_unused=None):
         animated.append({"ob": ob, "year": key[1], "grow": 0.0, "gone": key[2], "fade": 20.0})
 
     # people, armies and vehicles from the brief
+    # the street network from the map: marchers and traffic follow real streets
+    import heapq
+    nodes, adj = {}, {}
+
+    def nid(x_, y_):
+        key = (round(x_ * 0.5), round(y_ * 0.5))           # ends within 2 m are the same junction
+        if key not in nodes:
+            nodes[key] = (x_, y_)
+        return key
+    for _n, w_, flat_ in city.data.get("roads", []) + [("", a_[2], [a_[0].x, a_[0].y, a_[1].x, a_[1].y]) for a_ in APPROACH]:
+        rp = [(flat_[i], flat_[i + 1]) for i in range(0, len(flat_), 2)]
+        for (ax, ay), (bx, by) in zip(rp, rp[1:]):
+            ka, kb = nid(ax, ay), nid(bx, by)
+            d_ = math.hypot(bx - ax, by - ay)
+            adj.setdefault(ka, []).append((kb, d_))
+            adj.setdefault(kb, []).append((ka, d_))
+    keys_ = list(adj)
+    karr = np.array([nodes[k_] for k_ in keys_]) if keys_ else np.zeros((0, 2))
+
+    def nearest(q):
+        i_ = int(np.argmin(((karr - np.array(q)) ** 2).sum(1)))
+        return keys_[i_]
+
+    def route(a_, b_):
+        if not keys_:
+            return [a_, b_]
+        s0, s1 = nearest(a_), nearest(b_)
+        dist_, prev = {s0: 0.0}, {}
+        heap = [(0.0, s0)]
+        while heap:
+            d_, k_ = heapq.heappop(heap)
+            if k_ == s1:
+                break
+            if d_ > dist_.get(k_, 1e18) or d_ > 4000:
+                continue
+            for k2, w2 in adj.get(k_, ()):
+                nd = d_ + w2
+                if nd < dist_.get(k2, 1e18):
+                    dist_[k2], prev[k2] = nd, k_
+                    heapq.heappush(heap, (nd, k2))
+        if s1 not in dist_:
+            return [a_, b_]
+        out_, k_ = [], s1
+        while k_ != s0:
+            out_.append(nodes[k_])
+            k_ = prev[k_]
+        out_.append(nodes[s0])
+        out_.reverse()
+        return [a_] + out_ + [b_] if (Vector(a_) - Vector(out_[0])).length > 3 else out_ + [b_]
+
+    def plen(pp):
+        return sum((Vector(b_) - Vector(a_)).length for a_, b_ in zip(pp, pp[1:]))
+
+    WATERBORNE = ("boat", "barge", "longship", "riverboat", "blackship")
     groups = []
     for k, spec in enumerate(brief.get("groups", [])):
         sp = dict(spec)
         sp["path"] = [tuple(P2(p)) for p in spec["path"]]
-        groups.append(P.make_group(sp, z, painted, col, brief["seed"] + 100 + k))
+        if len(sp["path"]) >= 2 and sp.get("speed", 0) > 0 and sp["kind"] not in WATERBORNE:
+            routed = [sp["path"][0]]
+            for a_, b_ in zip(sp["path"], sp["path"][1:]):
+                routed += route(a_, b_)[1:]
+            if not sp.get("loop") and plen(routed) > 320:     # keep the last 320 m before the goal
+                keep, acc = [routed[-1]], 0.0
+                for a_, b_ in zip(routed[::-1], routed[-2::-1]):
+                    seg_ = (Vector(a_) - Vector(b_)).length
+                    if acc + seg_ >= 320:
+                        f_ = (320 - acc) / seg_
+                        keep.append(tuple(Vector(a_) + (Vector(b_) - Vector(a_)) * f_))
+                        break
+                    keep.append(b_)
+                    acc += seg_
+                routed = keep[::-1]
+            if sp.get("formation") == "block":            # a column as wide as the street it marches along
+                sp["width"] = min(sp.get("width", 8), 7.2)
+                L_ = plen(routed)
+                sp["speed"] = round(L_ / max(1.0, (sp["to"] - sp["from"]) * 0.9), 2)
+            elif not sp.get("loop"):
+                sp["speed"] = round(plen(routed) / max(1.0, (sp["to"] - sp["from"]) * 0.95), 2)
+            sp["path"] = routed
+        yr_ = H.year_at(brief, (sp["from"] + sp["to"]) / 2)
+        groups.append(P.make_group(sp, z, painted, col, brief["seed"] + 100 + k,
+                                   free=lambda x_, y_, yr_=yr_: free_ground(x_, y_, yr_)))
 
     # fires / smoke / dust reuse the New York effects
     fx = []
@@ -970,16 +1164,24 @@ def build(brief, plan_unused=None):
         flames = None
         if e["kind"] == "fire":
             fl = H.Parts()
-            for _ in range(e.get("flames", 320)):
+            hits = next((bn.get("hits", []) for bn in burns if bn["e"] is e), [])
+            frng.shuffle(hits)
+            spots = [Vector(h_) for h_ in hits[:e.get("flames", 320)]]
+            while len(spots) < min(60, e.get("flames", 320)):
                 r = frng.uniform(0, 1.0) ** 0.7 * e["radius"]
                 a = frng.uniform(0, 2 * math.pi)
-                q = c + Vector((math.cos(a), math.sin(a))) * r
-                rr = frng.uniform(2.0, 5.0)
-                zz = z0 + frng.uniform(4, 12)
-                fl.add([(q.x + vx * rr, q.y + vy * rr, zz + vz * rr * 2.2) for vx, vy, vz in fx_v], fx_f,
-                       [(1, 0.5, 0.1)] * len(fx_f))
+                spots.append(c + Vector((math.cos(a), math.sin(a))) * r)
+            for q in spots:                       # tongues of flame rising from each burning building
+                for _ in range(3):
+                    ox, oy = frng.uniform(-4, 4), frng.uniform(-4, 4)
+                    rr = frng.uniform(1.2, 2.6)
+                    hh = frng.uniform(5, 13)
+                    zz = z(q.x + ox, q.y + oy) + frng.uniform(2, 7)
+                    ang0 = frng.uniform(0, 6.28)
+                    v = [(q.x + ox + math.cos(ang0 + k * 1.2566) * rr, q.y + oy + math.sin(ang0 + k * 1.2566) * rr, zz)
+                         for k in range(5)] + [(q.x + ox + frng.uniform(-1, 1), q.y + oy + frng.uniform(-1, 1), zz + hh)]
+                    fl.add(v, [(k, (k + 1) % 5, 5) for k in range(5)], [(1, 0.5, 0.1)] * 5)
             flames = fl.to_object("flames", emit, col)
-            flames.data.polygons.foreach_set("use_smooth", [True] * len(flames.data.polygons))
         fx.append({"e": e, "smoke": smoke, "flames": flames})
 
     # sun, sky, camera
