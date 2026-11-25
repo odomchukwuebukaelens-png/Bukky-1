@@ -275,12 +275,12 @@ def shore_water_material(tint=None, realistic=False):
         lw = nt.nodes.new("ShaderNodeLayerWeight")                 # the sky mirrored at grazing angles
         lw.inputs["Blend"].default_value = 0.35
         nt.links.new(b2.outputs[0], lw.inputs["Normal"])
-        sky = H.mix_rgb(nt, lw.outputs["Fresnel"], (0, 0, 0), (0.62, 0.66, 0.68))
+        sky = H.mix_rgb(nt, lw.outputs["Fresnel"], (0, 0, 0), (0.42, 0.48, 0.52))
         for name in ("Emission Color", "Emission"):
             if name in bsdf.inputs:
                 nt.links.new(sky, bsdf.inputs[name])
                 break
-        bsdf.inputs["Emission Strength"].default_value = 0.55
+        bsdf.inputs["Emission Strength"].default_value = 0.22
     return H.add_haze(mat, amount=0.5)
 
 
