@@ -70,7 +70,7 @@ export const ShotScene: React.FC<{ sceneKey: string; dur: number; start: number;
           </Sequence>
         );
       })}
-      <Hud start={start} dur={dur} pulse={PULSE[sceneKey] ?? 96} depth={DEPTH[sceneKey] ?? 3} />
+      {/* Corner instruments removed at the owner's request (25 Nov 2026). */}
     </AbsoluteFill>
   );
 };
