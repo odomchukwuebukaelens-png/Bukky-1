@@ -8,7 +8,7 @@ import { MONO } from "../kit/hud";
 import { registerKind } from "../kit/edit-rules";
 import { GaugeShot, Kicker, ListShot, NumShot, StampShot, TitleShot } from "../kit/shots";
 import { C } from "../kit/theme";
-import { FX, Insert, Parallax } from "../kit/vfx";
+import { Callout, FX, Insert, Parallax } from "../kit/vfx";
 import { Census, DateCard, FinHoles, Headlines, Helm, IdCards, Rudder, SalmonHat, Sea, StraitMap, TopView, type Mover, type Pin } from "./draw";
 import CRED from "./credits.json";
 
@@ -29,8 +29,8 @@ registerKind("drawn", On);
 // A wide photo shown whole, framed.
 const Framed: React.FC<{ n: string; name: string }> = ({ n, name }) => (
   <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 50% 45%, #0f3a47 0%, #04161d 80%)" }}>
-    <div style={{ position: "absolute", left: 360, top: 90, width: 1200, textAlign: "center" }}>
-      <Img src={staticFile(`photos/orcas/${n}.jpg`)} style={{ width: 1200, maxHeight: 640, objectFit: "contain", borderRadius: 16, border: "7px solid #f4f8fa", boxShadow: "0 18px 50px rgba(0,0,0,0.65)" }} />
+    <div style={{ position: "absolute", left: 0, right: 0, top: 60, textAlign: "center" }}>
+      <Img src={staticFile(`photos/orcas/${n}.jpg`)} style={{ height: 640, width: "auto", maxWidth: 1400, borderRadius: 16, border: "7px solid #f4f8fa", boxShadow: "0 18px 50px rgba(0,0,0,0.65)" }} />
       <div style={{ marginTop: 10, fontFamily: FONT, fontWeight: 800, fontSize: 40, color: "#f4f8fa" }}>{name}</div>
       <div style={{ fontFamily: MONO, fontWeight: 700, fontSize: 16, letterSpacing: 2, color: "rgba(255,255,255,0.7)" }}>{CR[n]}</div>
     </div>
@@ -425,7 +425,7 @@ export const SHOTS: React.ReactNode[] = [
   /* 336 … */ <V id="1273" t={12} />,
   /* 337 In 1987, off */ <DateCard big="1987" sub="PUGET SOUND, WASHINGTON STATE" />,
   /* 338 the coast of Washington State, */ <P n="orca_fins" sx={50} sy={55} dir={-1} />,
-  /* 339 one orca started swimming around */ <SalmonHat />,
+  /* 339 one orca started swimming around */ <P n="salmonhat" sx={35} sy={40} />,
   /* 340 with a dead salmon balanced on its */ <SalmonHat />,
   /* 341 head. Within weeks, */ <P n="orca_spy" sx={60} sy={50} />,
   /* 342 others in her group were doing it too. */ <SalmonHat n={3} />,
@@ -492,15 +492,15 @@ export const SHOTS: React.ReactNode[] = [
   /* 399 … */ <V id="4477" t={4} />,
   /* 400 Then, in August */ <DateCard big="AUGUST 2026" dark />,
   /* 401 2026, people */ <P n="str_morocco" sx={50} sy={55} dir={-1} />,
-  /* 402 in the strait spotted Toñi. */ <><P n="str_blow" sx={50} sy={50} /><K text="TOÑI" color={C.accent} /></>,
+  /* 402 in the strait spotted Toñi. */ <Framed n="toni" name="TOÑI" />,
   /* 403 … */ <StraitMap cx={-5.6} cy={36} z0={4} z1={4.2} pins={[GIB]} labels={false} />,
   /* 404 She is the oldest orca in */ <Census hi={0} count={false} title="THE OLDEST ORCA IN THE STRAIT" />,
   /* 405 the Strait of Gibraltar. */ <P n="str_dorsal" sx={50} sy={50} />,
-  /* 406 On the left side of her dorsal */ <FinHoles />,
-  /* 407 fin, there were about ten */ <FinHoles holes={10} />,
+  /* 406 On the left side of her dorsal */ <P n="toni" sx={65} sy={45} dir={-1} />,
+  /* 407 fin, there were about ten */ <><P n="toni" sx={65} sy={40} /><Callout x={1300} y={340} r={170} text="≈ 10 HOLES" side={-1} /></>,
   /* 408 small holes. */ <FinHoles holes={10} ring text="≈ 10 HOLES" />,
   /* 409 Spain's environment ministry */ <DateCard top="SPAIN · MINISTRY FOR ECOLOGICAL TRANSITION" big="INVESTIGATION" />,
-  /* 410 said they were consistent with pellet */ <FinHoles holes={10} ring text="CONSISTENT WITH PELLET SHOTS" />,
+  /* 410 said they were consistent with pellet */ <P n="toni" sx={65} sy={40} dir={-1} />,
   /* 411 shots, and opened an */ <V id="7899" t={9} />,
   /* 412 investigation. */ <StampShot under="TOÑI · AUGUST 2026" stamp="INVESTIGATION" bg="deep" />,
   /* 413 Just weeks earlier, her */ <FinHoles text="WEEKS EARLIER" />,
@@ -513,7 +513,7 @@ export const SHOTS: React.ReactNode[] = [
   /* 418 1972, */ <Sea sky="day" boat={{ x0: 960, s: 0.75, kind: "schooner" }} />,
   /* 419 west of the Galapagos Islands, */ <MapPacific />,
   /* 420 … */ <V id="1273" t={26} />,
-  /* 421 a family called the Robertsons */ <Sea sky="day" boat={{ x0: 1100, x1: 1200, s: 0.75, kind: "schooner" }}><K text="THE ROBERTSON FAMILY" color={C.accent} size={70} /></Sea>,
+  /* 421 a family called the Robertsons */ <On n="robertson_raft" name="THE ROBERTSONS" x={1200}><Sea sky="day" boat={{ x0: 600, x1: 700, s: 0.75, kind: "schooner" }} /></On>,
   /* 422 was sailing around the world on */ <Sea sky="day" boat={{ x0: 800, x1: 1100, s: 0.6, kind: "schooner" }} />,
   /* 423 a wooden schooner called Lucette. */ <Sea sky="day" boat={{ x0: 960, s: 0.75, kind: "schooner" }}><K text="LUCETTE" color={C.accent} /></Sea>,
   /* 424 … */ <P n="orca_body" sx={50} sy={45} />,
@@ -521,7 +521,7 @@ export const SHOTS: React.ReactNode[] = [
   /* 426 the hull. Within a minute, */ <NumShot to={60} unit=" S" label="UNTIL LUCETTE WAS GONE" color={C.red} />,
   /* 427 the boat was gone. */ <Sea sky="day" boat={{ x0: 960, s: 0.75, kind: "schooner", y0: 450, y1: 900, rot: 8, rot1: 30 }} />,
   /* 428 The family survived thirty-eight */ <NumShot to={38} label="DAYS ADRIFT" color={C.accent} />,
-  /* 429 days adrift in a tiny dinghy, */ <Sea sky="day" dinghy={{ x: 960, people: 6 }} />,
+  /* 429 days adrift in a tiny dinghy, */ <Framed n="robertson" name="38 DAYS ADRIFT" />,
   /* 430 … */ <V id="7899" t={2} />,
   /* 431 before a Japanese fishing boat */ <Sea sky="day" line={{ x: 1300, y1: 600 }} dinghy={{ x: 800, people: 6 }} />,
   /* 432 found them. */ <DateCard big="23 JULY 1972" sub="RESCUED · ALL SIX ALIVE" />,
@@ -544,8 +544,8 @@ export const SHOTS: React.ReactNode[] = [
   /* 447 Iberian orcas. */ <P n="str_pair" sx={50} sy={50} dir={-1} />,
   /* 448 Every one of them has a name. */ <IdCards names={["GLADIS BLANCA", "GLADIS NEGRA", "GLADIS GRIS", "TOÑI"]} />,
   /* 449 And now one of the oldest has */ <P n="str_dorsal" sx={50} sy={50} />,
-  /* 450 holes in her fin. */ <FinHoles holes={10} ring />,
-  /* 451 Fads end. */ <SalmonHat />,
+  /* 450 holes in her fin. */ <><P n="toni" sx={65} sy={40} /><Callout x={1300} y={340} r={170} text="TOÑI" side={-1} /></>,
+  /* 451 Fads end. */ <P n="salmonhat" sx={35} sy={40} dir={-1} />,
   /* 452 Young orcas grow up. */ <P n="pt_calf" sx={50} sy={55} />,
   /* 453 One day, the Gladises may */ <P n="str_two" sx={50} sy={45} dir={-1} />,
   /* 454 simply stop, the way the */ <Sea sky="dusk" boat={{ x0: 1200, x1: 1500, s: 0.6 }} orcas={[o(300, 760, { x1: 100, flip: true, s: 0.35 })]} />,
