@@ -109,6 +109,7 @@ No free-licence photo of Kirsty Brown or Gareth Wood exists; their scenes show r
 ## Mariana descent video (public/footage/mariana, public/photos/mariana)
 
 Footage: Mixkit clips (free licence) 1273, 178, 18002, 2058, 21935, 4092, 47710, 35659, 4291, 44976, 48089, 48090, 7899, 7905, 6873, 48824, 34891, 11058, 12392, 22048, 45404, 25354, 25356, 15169, 29397. Divers and ships standing in for real people are labelled "ILLUSTRATIVE FOOTAGE"; aquarium sharks and jellyfish are labelled.
+Owner-supplied images (sent 26 Nov 2026, source and licence not stated; labelled on screen, no photographer credit): cookieill.jpg (cookiecutter shark scientific illustration, shots 148 and 183), dragonred.jpg (dragonfish with red light, shots 295 and 304), marianasnail.jpg (Mariana snailfish specimen, shots 383, 389 and 520).
 Photos (found through Openverse, credited on screen):
 - `indy.jpg`, `indy2.jpg`, `indy3.jpg`: USS Indianapolis (CA-35), US Navy, public domain (Flickr, aeroman3, Public Domain Mark)
 - `tinian.jpg`: "Overlooking Tinian, 1944", Archives Branch, USMC History Division, Flickr, CC BY 2.0
