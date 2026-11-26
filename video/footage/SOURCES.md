@@ -123,3 +123,60 @@ Photos (found through Openverse, credited on screen):
 Animals with no free photo found (oceanic whitetip, swordfish, cookiecutter shark, anglerfish, viperfish, loosejaw, Mariana snailfish) are our own drawings.
 Music: crocodile tracks (owner, 26 Nov 2026: videos 1 and 2 reuse existing music).
 Real-photo update (owner, 26 Nov 2026), all from iNaturalist: `whitetip.jpg` Daniel Benák (CC BY), `whitetip2.jpg` Selim Türeli (CC BY), `swordfish.jpg` Sylvain Eichhorn (CC BY), `angler.jpg` Diceratias pileatus (CC0), `angler2.jpg` Ceratias holbolli, Julien Savoie (CC BY), `viper.jpg` Chauliodus sloani, Julien Savoie (CC BY), `dragon.jpg` Stomias boa, A H (CC BY, related species of the loosejaw, labelled), `snailfish.jpg` Careproctus reinhardti, Leïla Brunner (CC BY, related species, labelled), `hagfish.jpg` Daniel Levitis (CC BY), `scar2.jpg` cookiecutter bites, Cricket Raspet (CC BY). The cookiecutter shark, loosejaw and Mariana snailfish themselves have no free photo and stay drawn.
+
+## Orcas sinking boats video (public/footage/orcas, public/photos/orcas)
+
+Footage: Mixkit clips (free licence) 27539, 4680, 51478, 50175, 50176, 34290, 35347, 11938, 4378, 4491, 4317, 4477, 45259, 47706, 47193, plus 48089, 48090, 7899, 1273 from the Mariana set. Yachts are labelled "ILLUSTRATIVE FOOTAGE"; no real footage of the sinkings is used. No free orca video was found (Mixkit has none; Pexels, Pixabay and Commons are blocked from the container), so the orcas are real photos and our animation.
+Photos, credited on screen (iNaturalist observations and Flickr via Openverse):
+- `str_close.jpg`: STRAIT OF GIBRALTAR · LEO CANTIRAN · INATURALIST · CC BY
+- `str_one.jpg`: STRAIT OF GIBRALTAR · BITSANDBUGS · INATURALIST · CC0
+- `str_fin.jpg`: STRAIT OF GIBRALTAR · BITSANDBUGS · INATURALIST · CC0
+- `str_fisher.jpg`: STRAIT OF GIBRALTAR · DIEGO RUBOLINI · INATURALIST · CC BY
+- `str_boat1.jpg`: STRAIT OF GIBRALTAR · BITSANDBUGS · INATURALIST · CC0
+- `str_boat2.jpg`: STRAIT OF GIBRALTAR · BITSANDBUGS · INATURALIST · CC0
+- `str_morocco.jpg`: STRAIT OF GIBRALTAR · DIEGO RUBOLINI · INATURALIST · CC BY
+- `str_pair.jpg`: STRAIT OF GIBRALTAR · BITSANDBUGS · INATURALIST · CC0
+- `str_pair2.jpg`: STRAIT OF GIBRALTAR · BITSANDBUGS · INATURALIST · CC0
+- `str_group.jpg`: STRAIT OF GIBRALTAR · BITSANDBUGS · INATURALIST · CC0
+- `str_blow.jpg`: STRAIT OF GIBRALTAR · DIEGO RUBOLINI · INATURALIST · CC BY
+- `str_dorsal.jpg`: STRAIT OF GIBRALTAR · SANDRA STEWART · INATURALIST · CC BY
+- `str_two.jpg`: STRAIT OF GIBRALTAR · BITSANDBUGS · INATURALIST · CC0
+- `pt_side.jpg`: PORTUGAL, SEP 2025 · SIDONIO PAES · INATURALIST · CC BY
+- `pt_calf.jpg`: PORTUGAL, SEP 2025 · SIDONIO PAES · INATURALIST · CC BY
+- `pt_cliff.jpg`: PORTUGAL, SEP 2025 · SIDONIO PAES · INATURALIST · CC BY
+- `tuna_jump.jpg`: THOMAS STJERNEGAARD JEPPESEN · INATURALIST · CC BY
+- `tuna_jump2.jpg`: SHANE AUSTIN · INATURALIST · CC BY
+- `tuna_surf.jpg`: JULIEN RENOULT · INATURALIST · CC BY
+- `tuna_fly.jpg`: LEONARD WÄGELE · INATURALIST · CC0
+- `tuna_under.jpg`: JULIEN RENOULT · INATURALIST · CC BY
+- `tuna_jump3.jpg`: ADRIEN & LISE · INATURALIST · CC BY
+- `tuna_splash.jpg`: ADRIEN & LISE · INATURALIST · CC BY
+- `tuna_close.jpg`: MICHAL HONSKUS · INATURALIST · CC BY
+- `orca_leap.jpg`: ALASKA · STEVE B · INATURALIST · CC0
+- `orca_under.jpg`: ANTARCTICA · CHARLOTTE KIRCHNER · INATURALIST · CC BY
+- `orca_head.jpg`: ANTARCTICA · CHARLOTTE KIRCHNER · INATURALIST · CC BY
+- `orca_spy.jpg`: NORWAY · VSEVOLOD RUDYI · INATURALIST · CC BY
+- `orca_calf.jpg`: ALASKA · STEVE B · INATURALIST · CC0
+- `orca_side.jpg`: SHETLAND · KERRI-LEE HARRIS · INATURALIST · CC BY
+- `orca_breach.jpg`: ALASKA · STEVE B · INATURALIST · CC0
+- `orca_headdark.jpg`: ANTARCTICA · STEVE B · INATURALIST · CC0
+- `orca_body.jpg`: ANTARCTICA · STEVE B · INATURALIST · CC0
+- `orca_fins.jpg`: WASHINGTON STATE · HENRIQUE PACHECO · INATURALIST · CC BY
+- `orca_bigfin.jpg`: RUSSIA · ВАЛЕРИЯ КОВАЛЕВА · INATURALIST · CC BY
+- `rock.jpg`: THE ROCK OF GIBRALTAR · M MCBEY · FLICKR · CC BY 2.0
+- `rock2.jpg`: GIBRALTAR · ADTEASDALE · FLICKR · CC BY 2.0
+- `rock3.jpg`: GIBRALTAR · BY-YOUR-⌘ · FLICKR · CC BY 2.0
+- `strait.jpg`: THE STRAIT FROM TARIFA · JOSÉ RAMBAUD · FLICKR · CC BY 2.0
+- `ships.jpg`: SHIPS IN THE STRAIT · MUSTANG JOE · FLICKR · CC0
+- `barbate.jpg`: BARBATE · POR LOS CAMINOS DE MÁLAGA · FLICKR · CC BY 2.0
+- `tanger.jpg`: TANGER MED PORT · YASSINE ABBADI · FLICKR · CC BY 2.0
+- `peniche.jpg`: PENICHE, PORTUGAL · KEVIN.GALE · FLICKR · CC BY 2.0
+- `peniche2.jpg`: PENICHE · AMAIANOS · FLICKR · CC BY 2.0
+- `cascais.jpg`: CASCAIS BAY · PEDRIK · FLICKR · CC BY 2.0
+- `hull.jpg`: A SAILBOAT OUT OF THE WATER · RUSSTEACHES · FLICKR · CC BY 2.0
+- `rudderold.jpg`: RUDDER · ULMERIGEL · FLICKR · PUBLIC DOMAIN
+- `heli.jpg`: SALVAMENTO MARÍTIMO · JL.CERNADAS · FLICKR · CC BY 2.0
+- `raft.jpg`: LIFE RAFT · ILLUSTRATIVE · NORFOLKDISTRICT · FLICKR · CC BY 2.0
+- `raft2.jpg`: LIFE RAFT · ILLUSTRATIVE · NORFOLKDISTRICT · FLICKR · CC BY 2.0
+Non-Iberian orca photos (Alaska, Antarctica, Norway, Shetland, Washington State, Russia) carry their place in the on-screen credit and are used only for general orca moments.
+Drawn, no free photo found: Toñi's fin with the pellet marks (press photos by WeWhale are not free-licence), the Lucette and the Robertson family (1972), the 1987 salmon-hat orca.

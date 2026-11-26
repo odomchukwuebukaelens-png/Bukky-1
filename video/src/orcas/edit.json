@@ -1,0 +1,14 @@
+{
+  "lead": 0.27,
+  "tail": 0.4,
+  "timing": "timing-fast.json",
+  "voiceDir": "audio/orcas-fast",
+  "tempo": 1.1,
+  "voice": "clone_2719063 (Deep sea), speed 0.95, then x1.1",
+  "teasers": {
+    "03": "COMING UP · THE DAY IT STARTED",
+    "06": "COMING UP · WHO STARTED IT",
+    "11": "COMING UP · WHY ONLY THE RUDDER",
+    "14": "COMING UP · WHEN PEOPLE FIGHT BACK"
+  }
+}

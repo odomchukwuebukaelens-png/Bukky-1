@@ -167,32 +167,24 @@ export const FX: React.FC<{
   );
 };
 
-// 2.5D photo: the background drifts one way, the subject (an elliptical cut-out) the other, with snow between.
+// A real photo shown whole and undistorted (owner, 26 Nov 2026: no split-layer parallax, it smeared the animals).
+// The only movement is a slow, even push-in of the entire picture, drifting a little toward the subject.
 export const Parallax: React.FC<{ src: string; credit: string; sx?: number; sy?: number; sr?: number; dir?: number; under?: boolean; snow?: boolean }> = ({
   src,
   credit,
   sx = 50,
   sy = 55,
-  sr = 30,
   dir = 1,
   under = false,
-  snow = true,
 }) => {
   const { k } = useShot();
   const e = ease(k);
-  const mask = `radial-gradient(ellipse ${sr}% ${sr * 1.25}% at ${sx}% ${sy}%, #000 62%, transparent 100%)`;
   return (
     <AbsoluteFill style={{ background: "#000", overflow: "hidden" }}>
-      <Polar>
-        <AbsoluteFill style={{ transform: `scale(${1.14 + 0.02 * e}) translateX(${-dir * 26 * e}px)`, filter: "blur(2.5px) brightness(0.88)" }}>
-          <Img src={staticFile(src)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-        </AbsoluteFill>
-        {snow ? <Snow n={45} opacity={0.7} seed="ps" /> : null}
-        <AbsoluteFill style={{ transform: `scale(${1.12 + 0.07 * e}) translateX(${dir * 24 * e}px)`, transformOrigin: `${sx}% ${sy}%`, WebkitMaskImage: mask, maskImage: mask }}>
-          <Img src={staticFile(src)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-        </AbsoluteFill>
-      </Polar>
-      {under ? <Haze depth={0.25} /> : <AbsoluteFill style={{ background: "radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.45) 100%)" }} />}
+      <AbsoluteFill style={{ transform: `scale(${1.03 + 0.06 * e}) translateX(${dir * 10 * e}px)`, transformOrigin: `${sx}% ${sy}%` }}>
+        <Img src={staticFile(src)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+      </AbsoluteFill>
+      {under ? <Haze depth={0.2} /> : <AbsoluteFill style={{ background: "radial-gradient(ellipse at center, transparent 65%, rgba(0,0,0,0.35) 100%)" }} />}
       <Tag text={`PHOTO · ${credit}`} />
     </AbsoluteFill>
   );
@@ -200,7 +192,7 @@ export const Parallax: React.FC<{ src: string; credit: string; sx?: number; sy?:
 
 // Small source or species note, bottom-centre above the captions (never in a corner).
 export const Tag: React.FC<{ text: string }> = ({ text }) => (
-  <div style={{ position: "absolute", left: 0, right: 0, top: 812, textAlign: "center", fontFamily: MONO, fontWeight: 700, fontSize: 17, letterSpacing: 2, color: "rgba(255,255,255,0.7)", textShadow: SHADOW }}>{text}</div>
+  <div style={{ position: "absolute", left: 0, right: 0, top: 34, textAlign: "center", fontFamily: MONO, fontWeight: 700, fontSize: 17, letterSpacing: 2, color: "rgba(255,255,255,0.7)", textShadow: SHADOW }}>{text}</div>
 );
 
 // ---------- Inserts of real people and places ----------
