@@ -1,0 +1,14 @@
+{
+  "lead": 0.27,
+  "tail": 0.4,
+  "timing": "timing-fast.json",
+  "voiceDir": "audio/mariana-fast",
+  "tempo": 1.1,
+  "voice": "clone_2719063 (Deep sea), speed 0.95, then x1.1",
+  "teasers": {
+    "03": "COMING UP \u00b7 THE SHARK THAT BIT SUBMARINES",
+    "07": "COMING UP \u00b7 WHERE THE SUNLIGHT ENDS",
+    "12": "COMING UP \u00b7 THE LAST FISH",
+    "15": "COMING UP \u00b7 WHAT WAS WAITING AT THE BOTTOM"
+  }
+}

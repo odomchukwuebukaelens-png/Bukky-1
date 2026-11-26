@@ -9,6 +9,7 @@ import { HumpbackThumbnailB } from "./humpback/ThumbnailB";
 import { HUMPBACK_EN_FRAMES, HumpbackEnVideo } from "./humpback-en/Video";
 import { LEOPARD_FRAMES, LEOPARD_TEST_FRAMES, LeopardVideo } from "./leopard/Video";
 import { LeopardThumbnail } from "./leopard/Thumbnail";
+import { MARIANA_FRAMES, MARIANA_TEST_FRAMES, MarianaVideo } from "./mariana/Video";
 import { OCTOPUS_FRAMES, OctopusVideo } from "./octopus/Video";
 import { FPS, H, W } from "./kit/theme";
 
@@ -24,6 +25,8 @@ export const Root = () => (
     <Still id="HumpbackThumbnail" component={HumpbackThumbnail} width={W} height={H} />
     <Still id="HumpbackThumbnailB" component={HumpbackThumbnailB} width={W} height={H} />
     <Still id="HumpbackThumbnailEn" component={HumpbackThumbnailB} width={W} height={H} defaultProps={{ lead: "YOU'RE IN ITS ", accent: "MOUTH..", size: 128 }} />
+    <Composition id="Mariana" component={MarianaVideo} durationInFrames={MARIANA_FRAMES} fps={FPS} width={W} height={H} />
+    <Composition id="MarianaTest" component={MarianaVideo} durationInFrames={MARIANA_TEST_FRAMES} fps={FPS} width={W} height={H} defaultProps={{ only: ["01"] }} />
     <Still id="LeopardThumbnail" component={LeopardThumbnail} width={W} height={H} />
     <Still id="CrocThumbnail" component={CrocThumbnail} width={W} height={H} />
     <Still id="Thumbnail" component={Thumbnail} width={W} height={H} />
