@@ -2,6 +2,9 @@
 // The descent is one continuous ocean (Water) whose light, life and depth counter follow the narration;
 // it rotates with real footage, real photos (NOAA, US Navy, Commons) and diagrams.
 import React from "react";
+import { Img, staticFile } from "remotion";
+import { FONT } from "../kit/ui";
+import { MONO } from "../kit/hud";
 import { registerKind } from "../kit/edit-rules";
 import { BarsShot, ListShot, MapShot, NumShot, StampShot, TitleShot } from "../kit/shots";
 import { C } from "../kit/theme";
@@ -26,6 +29,17 @@ const Over: React.FC<{ photo: string; name: string; credit: string; d?: number; 
   </Water>
 );
 registerKind("drawn", Over);
+// A wide specimen photo shown whole, framed, on the water at a depth.
+const Wide: React.FC<{ photo: string; name: string; credit: string; d?: number }> = ({ photo, name, credit, d = 8000 }) => (
+  <Water d0={d}>
+    <div style={{ position: "absolute", left: 310, top: 110, width: 1300, textAlign: "center" }}>
+      <Img src={staticFile(`photos/mariana/${photo}.jpg`)} style={{ width: 1300, borderRadius: 18, border: "7px solid #f4f8fa", boxShadow: "0 18px 50px rgba(0,0,0,0.65)" }} />
+      <div style={{ marginTop: 14, fontFamily: FONT, fontWeight: 800, fontSize: 40, color: "#f4f8fa", textShadow: "0 6px 24px rgba(0,0,0,0.9)" }}>{name}</div>
+      <div style={{ fontFamily: MONO, fontWeight: 700, fontSize: 16, letterSpacing: 2, color: "rgba(255,255,255,0.7)" }}>{credit}</div>
+    </div>
+  </Water>
+);
+registerKind("photo", Wide);
 
 const A = (c: Actor["c"], x0: number, y0: number, o: Partial<Actor> = {}): Actor => ({ c, x0, y0, ...o });
 const ILL = "ILLUSTRATIVE FOOTAGE";
@@ -192,7 +206,7 @@ export const SHOTS: React.ReactNode[] = [
   /* 145 Some of those migrating hunters */ <Water d0={500} migrate cast={[A("cookie", 960, 540, { s0: 1.2 })]} />,
   /* 146 are very small, and */ <SizeCompare a={<g transform="scale(0.8)"><Diver x={0} y={0} s={1} /></g>} b={<g transform="scale(0.3)"><g transform="scale(1)"><path d="M 150 0 C 140 -28 60 -36 -20 -32 C -100 -28 -150 -14 -170 0 C -150 14 -100 28 -20 32 C 60 34 140 28 150 0 Z" fill="#6b5442" /></g></g>} la="YOU" lb="≈ 50 CM" title="A VERY SMALL SHARK" />,
   /* 147 very strange. */ <Diagram c="cookie" s={2.6} glow={0} />,
-  /* 148 This is the cookiecutter shark. */ <><Diagram c="cookie" s={3} glow={0} /><K text="COOKIECUTTER SHARK" size={72} /></>,
+  /* 148 This is the cookiecutter shark. */ <Water d0={500}><Insert photo="photos/mariana/cookieill.jpg" name="COOKIECUTTER SHARK" credit="SCIENTIFIC ILLUSTRATION" shape="rect" x={960 - 560 * 0.675} y={120} size={560} /></Water>,
   /* 149 It is about the length of your forearm. */ <Diagram c="cookie" s={2.2} glow={0} title="≈ 40–50 CM LONG" />,
   /* 150 … */ <Water d0={900} cast={[A("cookie", 1200, 560, { x1: 900, s0: 1.3, flip: true })]} />,
   /* 151 It spends its days deep down, */ <Column d0={1000} hi="MIDNIGHT" />,
@@ -227,7 +241,7 @@ export const SHOTS: React.ReactNode[] = [
   /* 180 … */ <V id="7905" t={4} />,
   /* 181 For a while, nobody could explain */ <Card big="?" sub="SOVIET WEAPON? SOMETHING ELSE?" />,
   /* 182 it. The answer was */ <Water d0={400} cast={[A("cookie", 960, 540, { s0: 0.3, s1: 1.8, glow: 1 })]} />,
-  /* 183 this little shark. */ <Diagram c="cookie" s={3.2} glow={1} bg="#021a24" />,
+  /* 183 this little shark. */ <Water d0={400}><Insert photo="photos/mariana/cookieill.jpg" name="THE COOKIECUTTER" credit="SCIENTIFIC ILLUSTRATION" shape="rect" x={960 - 560 * 0.675} y={120} size={560} /></Water>,
   /* 184 The Navy had to fit tougher */ <Diagram c="sub" s={1.6} x={560} title="TOUGHER COVERS" />,
   /* 185 covers. The shark that */ <Water d0={300} cast={[A("sub", 1600, 520, { x1: 2400, s0: 1 }), A("cookie", 700, 600, { x1: 900, s0: 0.8, glow: 1 })]} />,
   /* 186 bit nuclear submarines was */ <SizeCompare a={<g transform="scale(0.45)"><path d="M 420 0 C 420 -60 330 -70 -300 -60 C -380 -56 -420 -30 -420 0 C -420 30 -380 56 -300 60 C 330 70 420 60 420 0 Z" fill="#9aa5ad" /></g>} b={<g transform="scale(0.12)"><path d="M 150 0 C 140 -28 60 -36 -20 -32 C -100 -28 -150 -14 -170 0 C -150 14 -100 28 -20 32 C 60 34 140 28 150 0 Z" fill="#c89a72" /></g>} la="NUCLEAR SUBMARINE" lb="THE ATTACKER" />,
@@ -347,7 +361,7 @@ export const SHOTS: React.ReactNode[] = [
   /* 292 a kind of dragonfish, breaks */ <P n="dragon" credit="A DRAGONFISH, RELATED SPECIES · A H · INATURALIST · CC BY" sx={50} sy={45} sr={32} />,
   /* 293 that rule. */ <Water d0={1800} cast={[A("loosejaw", 960, 540, { s0: 1.6 })]} />,
   /* 294 Under its eye it has a second light, */ <Diagram c="loosejaw" s={3.4} x={700} notes={[{ x: 1053, y: 474, tx: 1300, ty: 260, text: "BLUE LIGHT" }]} />,
-  /* 295 and that one is red. */ <Diagram c="loosejaw" s={3.4} x={700} notes={[{ x: 1053, y: 554, tx: 1300, ty: 760, text: "RED LIGHT" }]} />,
+  /* 295 and that one is red. */ <><P n="dragonred" credit="A DRAGONFISH WITH A RED LIGHT" sx={30} sy={40} sr={30} /><Callout x={400} y={330} r={60} text="RED LIGHT" /></>,
   /* 296 Almost nothing in the deep can see */ <Card big="RED" sub="INVISIBLE TO ALMOST EVERYTHING DOWN HERE" color={C.red} />,
   /* 297 red. To the shrimp and */ <Water d0={1800} beam={{ x: 900, y: 540, len: 900 }} cast={[A("loosejaw", 800, 540, { s0: 1.2 }), A("amphipod", 1500, 520, { s0: 1.4 })]} />,
   /* 298 fish around it, that beam */ <Water d0={1800} beam={{ x: 900, y: 540, len: 900 }} cast={[A("loosejaw", 800, 540, { s0: 1.2 }), A("lantern", 1500, 520, { s0: 1.5, flip: true })]} />,
@@ -356,7 +370,7 @@ export const SHOTS: React.ReactNode[] = [
   /* 301 Its eyes use a pigment made */ <Diagram c="loosejaw" s={4} x={600} notes={[{ x: 1000, y: 452, tx: 1300, ty: 260, text: "RED-SEEING PIGMENT" }]} />,
   /* 302 from chlorophyll, likely */ <Card big="CHLOROPHYLL" sub="THE GREEN PIGMENT OF PLANTS" color="#7be37b" />,
   /* 303 taken from the tiny animals it */ <Water d0={1700} cast={[A("loosejaw", 700, 540, { x1: 900, s0: 1.2 }), A("amphipod", 1300, 520, { x1: 1150, s0: 0.8 })]} />,
-  /* 304 eats. So it swims */ <Water d0={1800} beam={{ x: 700, y: 540, len: 1100 }} cast={[A("loosejaw", 600, 540, { x1: 900, s0: 1.2 })]} />,
+  /* 304 eats. So it swims */ <P n="dragonred" credit="A DRAGONFISH WITH A RED LIGHT" sx={30} sy={40} sr={30} dir={-1} />,
   /* 305 through the dark with its own secret */ <V id="178" t={11} snow />,
   /* 306 searchlight, seeing its */ <Water d0={1900} beam={{ x: 900, y: 540, len: 1000 }} cast={[A("loosejaw", 800, 540, { s0: 1.3 }), A("amphipod", 1600, 500, { s0: 1.2 })]} />,
   /* 307 prey while its prey sees */ <Water d0={1900} beam={{ x: 900, y: 540, len: 1000 }} shake cast={[A("loosejaw", 800, 540, { x1: 1400, s0: 1.3 }), A("amphipod", 1600, 500, { s0: 1.2 })]} />,
@@ -443,13 +457,13 @@ export const SHOTS: React.ReactNode[] = [
   /* 380 At around eight thousand */ <Water d0={7800} d1={8000} count walls />,
   /* 381 metres, you meet the last */ <Column d0={8000} hi="HADAL" marks={[{ d: 8000, text: "≈ 8,000 M" }]} />,
   /* 382 fish. It is not a */ <Water d0={8000} walls cast={[A("snailfish", 960, 520, { s0: 0.4, s1: 1.1, o0: 0, o1: 1 })]} />,
-  /* 383 monster. It is the Mariana */ <P n="snailfish" credit="A SNAILFISH, RELATED SPECIES · LEÏLA BRUNNER · INATURALIST · CC BY" sx={50} sy={38} sr={30} />,
+  /* 383 monster. It is the Mariana */ <Wide photo="marianasnail" name="MARIANA SNAILFISH" credit="SPECIMEN FROM THE TRENCH" />,
   /* 384 snailfish. */ <><Water d0={8000} cast={[A("snailfish", 960, 520, { s0: 1.4 })]} /><K text="MARIANA SNAILFISH" /></>,
   /* 385 Small, pink, */ <Diagram c="snailfish" s={2} bg="#1a0a10" title="≈ 25 CM" />,
   /* 386 soft, and almost see-through. */ <Diagram c="snailfish" s={2.6} bg="#1a0a10" notes={[{ x: 760, y: 500, tx: 600, ty: 260, text: "NO SCALES" }, { x: 1000, y: 520, tx: 1300, ty: 760, text: "SEE-THROUGH" }]} />,
   /* 387 … */ <Water d0={8000} cast={[A("snailfish", 1300, 540, { x1: 900, s0: 1, flip: true })]} />,
   /* 388 It looks like a tadpole that has been */ <Diagram c="snailfish" s={3} x={1100} bg="#1a0a10" />,
-  /* 389 left in water too long. */ <Water d0={8000} cast={[A("snailfish", 960, 540, { s0: 2.2, s1: 2.4 })]} />,
+  /* 389 left in water too long. */ <Wide photo="marianasnail" name="SMALL, PINK, ALMOST SEE-THROUGH" credit="MARIANA SNAILFISH · SPECIMEN" d={8100} />,
   /* 390 … */ <V id="178" t={17} snow />,
   /* 391 But down here, it is the */ <Water d0={8100} floor={900} cast={[A("snailfish", 960, 500, { s0: 1.8 })]} />,
   /* 392 top predator. */ <Card big="TOP PREDATOR" sub="OF THE HADAL ZONE" color={C.accent} />,
@@ -588,7 +602,7 @@ export const SHOTS: React.ReactNode[] = [
   /* 517 And at the bottom of the hunting world, */ <Column d0={8000} hi="HADAL" />,
   /* 518 … */ <Water d0={8100} count walls />,
   /* 519 eight kilometres down, */ <Water d0={8100} cast={[A("snailfish", 960, 520, { s0: 0.6, s1: 1 })]} />,
-  /* 520 a small pink fish that rules */ <P n="snailfish" credit="A SNAILFISH, RELATED SPECIES · LEÏLA BRUNNER · INATURALIST · CC BY" sx={50} sy={38} sr={30} dir={-1} />,
+  /* 520 a small pink fish that rules */ <Wide photo="marianasnail" name="MARIANA SNAILFISH" credit="SPECIMEN FROM THE TRENCH" />,
   /* 521 a kingdom of shrimp. */ <Water d0={8100} floor={900} cast={[A("snailfish", 960, 600, { s0: 1.4 }), ...Array.from({ length: 12 }, (_, i) => A("amphipod", 500 + (i * 83) % 900, 840 + (i * 23) % 50, { s0: 0.45 }))]} />,
   /* 522 Below it, no more fish. */ <Column d0={8500} d1={10898} />,
   /* 523 … */ <Water d0={10000} count />,
