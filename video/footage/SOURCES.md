@@ -180,3 +180,8 @@ Photos, credited on screen (iNaturalist observations and Flickr via Openverse):
 - `raft2.jpg`: LIFE RAFT · ILLUSTRATIVE · NORFOLKDISTRICT · FLICKR · CC BY 2.0
 Non-Iberian orca photos (Alaska, Antarctica, Norway, Shetland, Washington State, Russia) carry their place in the on-screen credit and are used only for general orca moments.
 Drawn, no free photo found: Toñi's fin with the pellet marks (press photos by WeWhale are not free-licence), the Lucette and the Robertson family (1972), the 1987 salmon-hat orca.
+
+## Music rotation from video 3 (public/audio/music/mk-*.mp3)
+
+Downloaded 26 Nov 2026 from Mixkit (Mixkit Stock Music Free License, mixkit.co/license/#musicFree), at the owner's request:
+Silent Descent (Eugenio Mininni, #614), Vastness (Andrew Ev, #184), Echoes (Andrew Ev, #188), Xanthos (Eugenio Mininni, #633), Delirium (Eugenio Mininni, #605), Fallen (Asper) (Eugenio Mininni, #565), Opalescent (Eugenio Mininni, #593), Red Lights Adhafera (Eugenio Mininni, #563), Unforgiven (Michael Ramir C., #890), Fright Night (Michael Ramir C., #871).
