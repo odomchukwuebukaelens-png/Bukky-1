@@ -217,8 +217,10 @@ const Trieste: React.FC<CP> = () => (
 );
 const Bag: React.FC<CP> = ({ f = 0 }) => (
   <g transform={`rotate(${Math.sin(f * 0.05) * 3})`}>
-    <path d="M -120 40 C -140 -20 -100 -70 -40 -60 L -30 -110 L -10 -60 C 20 -70 30 -60 50 -62 L 70 -112 L 80 -56 C 140 -50 150 10 120 50 C 60 80 -60 80 -120 40 Z" fill="#e8ecee" opacity={0.85} />
-    <path d="M -80 0 C -40 -20 20 20 80 -10 M -60 30 C -10 20 40 40 100 20" stroke="#b9c2c6" strokeWidth={4} fill="none" />
+    <path d="M -50 -60 C -70 -120 -20 -130 -10 -64 M 30 -62 C 40 -126 90 -116 70 -58" stroke="#f4f7f8" strokeWidth={10} fill="none" opacity={0.8} />
+    <path d="M -130 50 C -150 0 -110 -70 -60 -64 L 90 -60 C 150 -50 160 10 130 52 C 80 74 -70 80 -130 50 Z" fill="#f4f7f8" opacity={0.55} />
+    <path d="M -100 -10 C -50 -30 30 10 110 -20 M -110 30 C -40 10 40 40 120 18 M -40 -50 C -20 0 -30 40 -50 70 M 50 -50 C 60 0 40 30 60 70" stroke="#ffffff" strokeWidth={3} fill="none" opacity={0.7} />
+    <path d="M -60 -64 L 90 -60" stroke="#ffffff" strokeWidth={4} opacity={0.8} />
   </g>
 );
 const Sub: React.FC<CP> = () => (
@@ -468,14 +470,14 @@ export const FromBelow: React.FC = () => {
 registerKind("graphic", FromBelow);
 
 // Size compare: two things side by side with labels.
-export const SizeCompare: React.FC<{ a: React.ReactNode; b: React.ReactNode; la: string; lb: string; title?: string }> = ({ a, b, la, lb, title }) => {
+export const SizeCompare: React.FC<{ a: React.ReactNode; b: React.ReactNode; la: string; lb: string; title?: string; z?: number }> = ({ a, b, la, lb, title, z = 1.8 }) => {
   const { f } = useShot();
   return (
     <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 50%, #0a2430 0%, #000 100%)" }}>
       <Svg>
         <Defs />
-        <g opacity={pop(f, 0, 8)} transform="translate(620 470)">{a}</g>
-        <g opacity={pop(f, 6, 8)} transform="translate(1300 470)">{b}</g>
+        <g opacity={pop(f, 0, 8)} transform={`translate(620 470) scale(${z})`}>{a}</g>
+        <g opacity={pop(f, 6, 8)} transform={`translate(1300 470) scale(${z})`}>{b}</g>
         <text x={620} y={760} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={40} fill={C.accent} opacity={pop(f, 3, 8)}>{la}</text>
         <text x={1300} y={760} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={40} fill={C.white} opacity={pop(f, 9, 8)}>{lb}</text>
       </Svg>

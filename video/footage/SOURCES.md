@@ -105,3 +105,19 @@ Real-photo inserts (owner, 25 Nov 2026: inserts must be real photos):
 - `rothera.jpg`: Rothera Research Station, Wikimedia Commons "Rothera_Research_Station1.jpg", CC BY-SA 3.0
 - `capeevans.jpg`: Memorial Cross at Cape Evans, Alan Light, Wikimedia Commons, CC BY
 No free-licence photo of Kirsty Brown or Gareth Wood exists; their scenes show real photos of the places (Rothera station, Cape Evans) instead of portraits.
+
+## Mariana descent video (public/footage/mariana, public/photos/mariana)
+
+Footage: Mixkit clips (free licence) 1273, 178, 18002, 2058, 21935, 4092, 47710, 35659, 4291, 44976, 48089, 48090, 7899, 7905, 6873, 48824, 34891, 11058, 12392, 22048, 45404, 25354, 25356, 15169, 29397. Divers and ships standing in for real people are labelled "ILLUSTRATIVE FOOTAGE"; aquarium sharks and jellyfish are labelled.
+Photos (found through Openverse, credited on screen):
+- `indy.jpg`, `indy2.jpg`, `indy3.jpg`: USS Indianapolis (CA-35), US Navy, public domain (Flickr, aeroman3, Public Domain Mark)
+- `tinian.jpg`: "Overlooking Tinian, 1944", Archives Branch, USMC History Division, Flickr, CC BY 2.0
+- `trieste.jpg` (NMUSN-4639), `pw.jpg` (NMUSN-4764), `trieste2.jpg` (NMUSN-4962), `piccard.jpg` (NMUSN-4960): National Museum of the U.S. Navy, public domain
+- `squidold.jpg`: giant squid specimen, NTNU Vitenskapsmuseet, Flickr, CC BY 2.0
+- `sperm2.jpg`: sperm whale jaw, James St. John, Flickr, CC BY 2.0
+- `beaked.jpg`: Cuvier's beaked whale, Bay of Biscay, Rab, Flickr, CC BY 2.0
+- `scar.jpg`: cookiecutter shark bite scars, Cricket Raspet, iNaturalist, CC BY 4.0
+- `fangtooth.jpg`: Claf, Flickr, CC BY 2.0
+- `rattail.jpg`, `amphipod.jpg`: NOAA Photo Library, Flickr, CC BY 2.0
+Animals with no free photo found (oceanic whitetip, swordfish, cookiecutter shark, anglerfish, viperfish, loosejaw, Mariana snailfish) are our own drawings.
+Music: crocodile tracks (owner, 26 Nov 2026: videos 1 and 2 reuse existing music).
