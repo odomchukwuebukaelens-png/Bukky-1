@@ -43,7 +43,7 @@ const B = { x0: 960, s: 0.75 };
 const o = (x0: number, y0: number, m: Partial<Mover> = {}): Mover => ({ x0, y0, s: 0.42, ...m });
 const BIG = (m: Partial<Mover> = {}) => o(380, 640, { x1: 600, y1: 600, s: 0.55, rot: -8, ...m });
 const SMALL = (m: Partial<Mover> = {}) => o(420, 590, { x1: 640, s: 0.32, rot: -12, ...m });
-const PROMISES = ["WHO STARTED IT", "WHY ONLY THE RUDDER", "WHAT HAPPENS WHEN PEOPLE FIGHT BACK"];
+const PROMISES = ["WHO STARTED IT", "WHY ONLY THE RUDDER", "WHEN PEOPLE FIGHT BACK"];
 const GIB: Pin = { lon: -5.6, lat: 35.97, label: "STRAIT OF GIBRALTAR", color: C.accent };
 const BARBATE: Pin = { lon: -5.92, lat: 36.19, label: "BARBATE", side: -1 };
 const TANGER: Pin = { lon: -5.5, lat: 35.89, label: "TANGER MED", color: C.red };

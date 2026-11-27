@@ -1,0 +1,14 @@
+{
+  "lead": 0.27,
+  "tail": 0.4,
+  "timing": "timing-fast.json",
+  "voiceDir": "audio/megalodon-fast",
+  "tempo": 1.1,
+  "voice": "clone_2719063 (Deep sea), speed 0.95, then x1.1",
+  "teasers": {
+    "04": "COMING UP · THE JAW THAT WAS TOO BIG",
+    "06": "COMING UP · THE SPINE IN BRUSSELS",
+    "09": "COMING UP · THE REAL SHAPE",
+    "12": "COMING UP · WHY IT DISAPPEARED"
+  }
+}
