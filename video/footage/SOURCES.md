@@ -207,3 +207,10 @@ Footage: Mixkit clips (free licence) 49334, 43605, 43609, 43607, 1218, 9956, 783
 Photos credited on screen (credits in `src/bullshark/credits.json`): bull sharks from iNaturalist (CC BY / CC0), including the St Lucia estuary (South Africa), Costa Rica and Florida; photos signed "© Jay Brasher" were left out. Tiger sharks (iNaturalist). Places from Flickr via Openverse (CC BY 2.0 / public domain): the Amazon and Iquitos (markg6, tacowitte, AmazonCARES), Lake Nicaragua (Adam Jones), Río San Juan (chiaramar), Brisbane River (Queensland State Archives), a flooded street (US Army Africa), the Zambezi (Meraj Chhaya); NASA Goddard images of a river sediment plume and the Mississippi in flood.
 Not found free: a photo of Paul de Gelder or of the Carbrook golf course sharks (text cards and animation used).
 Music: mk-delirium, mk-unforgiven, mk-xanthos, mk-fright-night.
+
+## Colossal squid video (public/footage/colossal, public/photos/colossal)
+
+Footage: Mixkit clips (free licence) reused from earlier sets: 48089, 48090, 178, 7899, 35659, 1273, 15169, 29397, 25354, 25356, 45404 (aquarium jellyfish, labelled), 25244, 8112, 48402, 8128 (Antarctic ice).
+Photos credited on screen (credits in `src/colossal/credits.json`): sperm whales (Daniel Benák and others, iNaturalist CC BY); glass squids of related species, labelled (Alberto Alcalá, jas07, iNaturalist CC BY); giant squid specimens (Auckland War Memorial Museum, Bruce Slater, iNaturalist CC BY); a squid beak (TheBusyBrain, Flickr CC BY 2.0); South Sandwich Islands (anttilipponen), Te Papa (Andrew Turner), the Ross Sea (NASA Goddard, NSF/pingnews public domain).
+Not found free (drawn instead; owner asked to supply): a still from the 2025 Schmidt Ocean Institute footage of the young colossal squid, and a photo of the 2007 colossal squid at Te Papa.
+Music: mk-vastness, mk-silent-descent, mk-opalescent, mk-echoes.

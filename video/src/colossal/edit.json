@@ -1,0 +1,14 @@
+{
+  "lead": 0.27,
+  "tail": 0.4,
+  "timing": "timing-fast.json",
+  "voiceDir": "audio/colossal-fast",
+  "tempo": 1.1,
+  "voice": "clone_2719063 (Deep sea), speed 0.95, then x1.1",
+  "teasers": {
+    "03": "COMING UP · THE BIGGEST EYE IN THE WORLD",
+    "06": "COMING UP · HOOKS THAT SWIVEL",
+    "08": "COMING UP · A BRAIN WITH A HOLE IN IT",
+    "12": "COMING UP · ITS ONLY REAL ENEMY"
+  }
+}
