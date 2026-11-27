@@ -22,7 +22,7 @@ const lerp = (a: number, b: number | undefined, k: number) => (b === undefined ?
 
 // ---------- The shark ----------
 
-export type Build = { len: number; girth: number; tail: number; color: string; belly: string };
+export type Build = { len: number; girth: number; tail: number; color: string; belly: string; blunt?: boolean };
 export const BUILDS: Record<string, Build> = {
   gw: { len: 1, girth: 1.28, tail: 1, color: "#6f7d87", belly: "#e9edef" },
   megOld: { len: 1, girth: 1.28, tail: 1, color: "#56636c", belly: "#d9dfe2" },
@@ -40,7 +40,9 @@ export const Shark: React.FC<{ x: number; y: number; s?: number; b?: Build | key
   const H = 70 * B.girth;
   const T = -0.8 * L;
   const tl = B.tail;
-  const body = `M ${L} 0 C ${L * 0.85} ${-H * 0.75} ${L * 0.5} ${-H} ${L * 0.2} ${-H} C ${-L * 0.2} ${-H} ${-L * 0.6} ${-H * 0.45} ${T} ${-H * 0.18} L ${T} ${H * 0.18} C ${-L * 0.55} ${H * 0.5} ${-L * 0.1} ${H * 0.95} ${L * 0.25} ${H * 0.85} C ${L * 0.6} ${H * 0.75} ${L * 0.9} ${H * 0.4} ${L} 0 Z`;
+  const body = B.blunt
+    ? `M ${L} ${H * 0.1} C ${L * 1.01} ${-H * 0.55} ${L * 0.75} ${-H} ${L * 0.45} ${-H} C ${L * 0.3} ${-H} ${L * 0.25} ${-H} ${L * 0.2} ${-H} C ${-L * 0.2} ${-H} ${-L * 0.6} ${-H * 0.45} ${T} ${-H * 0.18} L ${T} ${H * 0.18} C ${-L * 0.55} ${H * 0.5} ${-L * 0.1} ${H * 0.95} ${L * 0.25} ${H * 0.85} C ${L * 0.65} ${H * 0.8} ${L * 0.98} ${H * 0.6} ${L} ${H * 0.1} Z`
+    : `M ${L} 0 C ${L * 0.85} ${-H * 0.75} ${L * 0.5} ${-H} ${L * 0.2} ${-H} C ${-L * 0.2} ${-H} ${-L * 0.6} ${-H * 0.45} ${T} ${-H * 0.18} L ${T} ${H * 0.18} C ${-L * 0.55} ${H * 0.5} ${-L * 0.1} ${H * 0.95} ${L * 0.25} ${H * 0.85} C ${L * 0.6} ${H * 0.75} ${L * 0.9} ${H * 0.4} ${L} 0 Z`;
   const belly = `M ${L * 0.98} ${H * 0.12} C ${L * 0.5} ${H * 0.32} ${-L * 0.3} ${H * 0.36} ${T} ${H * 0.15} L ${T} ${H * 0.18} C ${-L * 0.55} ${H * 0.5} ${-L * 0.1} ${H * 0.95} ${L * 0.25} ${H * 0.85} C ${L * 0.6} ${H * 0.75} ${L * 0.9} ${H * 0.4} ${L} 0 Z`;
   const tail = `M ${T + 6} ${-H * 0.2} L ${T - 75 * tl} ${-H * 1.75 - 40 * (tl - 1)} L ${T - 28} 0 L ${T - 62 * tl} ${H * 1.35} L ${T + 6} ${H * 0.2} Z`;
   const dorsal = `M ${L * 0.16} ${-H * 0.95} C ${L * 0.06} ${-H * 1.6} ${-L * 0.04} ${-H * 1.9} ${-L * 0.14} ${-H * 2.05} C ${-L * 0.1} ${-H * 1.5} ${-L * 0.08} ${-H * 1.2} ${-L * 0.12} ${-H * 0.85} Z`;

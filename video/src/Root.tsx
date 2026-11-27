@@ -11,6 +11,7 @@ import { LEOPARD_FRAMES, LEOPARD_TEST_FRAMES, LeopardVideo } from "./leopard/Vid
 import { LeopardThumbnail } from "./leopard/Thumbnail";
 import { MARIANA_FRAMES, MARIANA_TEST_FRAMES, MarianaVideo } from "./mariana/Video";
 import { ORCAS_FRAMES, ORCAS_TEST_FRAMES, OrcasVideo } from "./orcas/Video";
+import { BULLSHARK_FRAMES, BULLSHARK_TEST_FRAMES, BullsharkVideo } from "./bullshark/Video";
 import { GREENLAND_FRAMES, GREENLAND_TEST_FRAMES, GreenlandVideo } from "./greenland/Video";
 import { MEGALODON_FRAMES, MEGALODON_TEST_FRAMES, MegalodonVideo } from "./megalodon/Video";
 import { OCTOPUS_FRAMES, OctopusVideo } from "./octopus/Video";
@@ -36,6 +37,8 @@ export const Root = () => (
     <Composition id="MegalodonTest" component={MegalodonVideo} durationInFrames={MEGALODON_TEST_FRAMES} fps={FPS} width={W} height={H} defaultProps={{ only: ["01"] }} />
     <Composition id="Greenland" component={GreenlandVideo} durationInFrames={GREENLAND_FRAMES} fps={FPS} width={W} height={H} />
     <Composition id="GreenlandTest" component={GreenlandVideo} durationInFrames={GREENLAND_TEST_FRAMES} fps={FPS} width={W} height={H} defaultProps={{ only: ["01"] }} />
+    <Composition id="Bullshark" component={BullsharkVideo} durationInFrames={BULLSHARK_FRAMES} fps={FPS} width={W} height={H} />
+    <Composition id="BullsharkTest" component={BullsharkVideo} durationInFrames={BULLSHARK_TEST_FRAMES} fps={FPS} width={W} height={H} defaultProps={{ only: ["01"] }} />
     <Still id="LeopardThumbnail" component={LeopardThumbnail} width={W} height={H} />
     <Still id="CrocThumbnail" component={CrocThumbnail} width={W} height={H} />
     <Still id="Thumbnail" component={Thumbnail} width={W} height={H} />

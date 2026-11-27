@@ -199,3 +199,11 @@ Music: mk-silent-descent, mk-xanthos, mk-vastness, mk-delirium (Mixkit free lice
 Footage: Mixkit clips (free licence) 48402, 48403, 25245, 25244, 8112, 8128, 8148, 8061, 7800, 8063, 8110, 8035, 8082 (ice, icebergs, glaciers), plus 48089, 48090, 178, 7899.
 Photos credited on screen (credits in `src/greenland/credits.json`): live Greenland shark (NOAA Photo Library, Northeast U.S. Canyons Expedition, CC BY 2.0); Greenland sharks on deck, in nets and with the eye parasite (Julien Savoie, Alexandria Wenninger, iNaturalist, CC BY); ringed and harp seals (iNaturalist CC BY / CC0); hákarl and the Bjarnarhöfn drying house (Flickr, public domain / CC0); Mayflower II, Glover's Reef, icebergs, a 1950s nuclear test (Flickr CC BY 2.0, rawpixel CC0); Arctic sea ice (NASA Goddard, CC BY 2.0).
 Music: mk-echoes, mk-fallen-asper, mk-opalescent, mk-red-lights-adhafera.
+
+## Bull shark video (public/footage/bullshark, public/photos/bullshark)
+
+Replaces title 5 of the rotation ("What Happens When a Saltwater Crocodile Spots You From the Water"), which would repeat the channel's existing crocodile video.
+Footage: Mixkit clips (free licence) 49334, 43605, 43609, 43607, 1218, 9956, 7835, 9953, 6806, 47948, 9944 (rivers, floods, rain), plus 22044, 22046, 22047, 12391, 12392 (aquarium sharks, labelled), 4406 (nurse shark, labelled), 48089, 48090, 178, 7899.
+Photos credited on screen (credits in `src/bullshark/credits.json`): bull sharks from iNaturalist (CC BY / CC0), including the St Lucia estuary (South Africa), Costa Rica and Florida; photos signed "© Jay Brasher" were left out. Tiger sharks (iNaturalist). Places from Flickr via Openverse (CC BY 2.0 / public domain): the Amazon and Iquitos (markg6, tacowitte, AmazonCARES), Lake Nicaragua (Adam Jones), Río San Juan (chiaramar), Brisbane River (Queensland State Archives), a flooded street (US Army Africa), the Zambezi (Meraj Chhaya); NASA Goddard images of a river sediment plume and the Mississippi in flood.
+Not found free: a photo of Paul de Gelder or of the Carbrook golf course sharks (text cards and animation used).
+Music: mk-delirium, mk-unforgiven, mk-xanthos, mk-fright-night.
