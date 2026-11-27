@@ -193,3 +193,9 @@ Footage: Mixkit clips (free licence) 22044, 22046, 22047, 12391, 12392 (aquarium
 Photos credited on screen (credits in `src/megalodon/credits.json`): megalodon teeth, great white, shortfin mako, lemon and sandbar shark photos from iNaturalist (CC BY / CC0); megalodon jaw reconstructions, megalodon teeth and a Basilosaurus skull by James St. John, crudmucosa and Makuahine Pa'i Ki'i (Flickr, CC BY 2.0); fossil shark vertebrae from the Smithsonian NMNH (CC0); an old shark illustration from the Queensland State Archives (public domain).
 Not found free (text cards used instead, owner asked to supply): the 1909 AMNH jaw photo with people inside it, Nicolas Steno's portrait or his 1667 shark-head engraving, Louis Agassiz's portrait, Bashford Dean's portrait, the Brussels megalodon vertebrae (IRSNB).
 Music: mk-silent-descent, mk-xanthos, mk-vastness, mk-delirium (Mixkit free licence).
+
+## Greenland shark video (public/footage/greenland, public/photos/greenland)
+
+Footage: Mixkit clips (free licence) 48402, 48403, 25245, 25244, 8112, 8128, 8148, 8061, 7800, 8063, 8110, 8035, 8082 (ice, icebergs, glaciers), plus 48089, 48090, 178, 7899.
+Photos credited on screen (credits in `src/greenland/credits.json`): live Greenland shark (NOAA Photo Library, Northeast U.S. Canyons Expedition, CC BY 2.0); Greenland sharks on deck, in nets and with the eye parasite (Julien Savoie, Alexandria Wenninger, iNaturalist, CC BY); ringed and harp seals (iNaturalist CC BY / CC0); hákarl and the Bjarnarhöfn drying house (Flickr, public domain / CC0); Mayflower II, Glover's Reef, icebergs, a 1950s nuclear test (Flickr CC BY 2.0, rawpixel CC0); Arctic sea ice (NASA Goddard, CC BY 2.0).
+Music: mk-echoes, mk-fallen-asper, mk-opalescent, mk-red-lights-adhafera.

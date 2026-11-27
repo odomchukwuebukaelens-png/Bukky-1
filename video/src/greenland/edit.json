@@ -1,0 +1,14 @@
+{
+  "lead": 0.27,
+  "tail": 0.4,
+  "timing": "timing-fast.json",
+  "voiceDir": "audio/greenland-fast",
+  "tempo": 1.1,
+  "voice": "clone_2719063 (Deep sea), speed 0.95, then x1.1",
+  "teasers": {
+    "03": "COMING UP · THE CLOCK IN ITS EYE",
+    "06": "COMING UP · HOW DOES IT CATCH SEALS?",
+    "09": "COMING UP · ITS SECRET",
+    "11": "COMING UP · THOUSANDS OF KM FROM HOME"
+  }
+}
